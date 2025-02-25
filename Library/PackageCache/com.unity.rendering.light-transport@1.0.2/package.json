@@ -1,0 +1,17 @@
+{
+  "name": "com.unity.rendering.light-transport",
+  "description": "Unity Light Transport Library exposes reusable code for writing light transport algorithms such as raytracing or pathtracing",
+  "version": "1.0.2",
+  "displayName": "Unity Light Transport Library",
+  "dependencies": {
+    "com.unity.collections": "1.4.0",
+    "com.unity.mathematics": "1.2.4",
+    "com.unity.render-pipelines.core": "16.0.1"
+  },
+  "keywords": [
+    "raytracing",
+    "pathtracing",
+    "monte-carlo"
+  ],
+  "_fingerprint": "60a26e1fc4735b3c556a907b082cb2969c0a19f5"
+}
