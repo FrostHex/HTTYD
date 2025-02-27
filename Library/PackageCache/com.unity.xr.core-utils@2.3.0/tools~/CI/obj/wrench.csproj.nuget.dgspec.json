@@ -1,0 +1,92 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Projects\\HTTYD\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\wrench.csproj": {}
+  },
+  "projects": {
+    "E:\\Projects\\HTTYD\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\wrench.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Projects\\HTTYD\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\wrench.csproj",
+        "projectName": "wrench",
+        "projectPath": "E:\\Projects\\HTTYD\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\wrench.csproj",
+        "packagesPath": "C:\\Users\\Frost\\.nuget\\packages\\",
+        "outputPath": "E:\\Projects\\HTTYD\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "E:\\Projects\\HTTYD\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\NuGet.Config",
+          "C:\\Users\\Frost\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://artifactory.prd.it.unity3d.com/artifactory/api/nuget/v3/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "RecipeEngine.Modules.Wrench": {
+              "target": "Package",
+              "version": "[0.7.16, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

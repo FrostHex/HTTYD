@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "Rp+IBSZTDBvjCvY7/Jmcy/+jjRcKqoISds4pqyzDKeYmvWUblhNmtarHEimnQsV+GzoVxTOxTQ0GHc5XFEuLBg==",
+  "success": false,
+  "projectFilePath": "E:\\Projects\\HTTYD\\Library\\PackageCache\\com.unity.xr.core-utils@2.3.0\\tools~\\CI\\wrench.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'RecipeEngine.Modules.Wrench' from remote source 'https://artifactory.prd.it.unity3d.com/artifactory/api/nuget/v3/nuget/FindPackagesById()?id='RecipeEngine.Modules.Wrench'&semVerLevel=2.0.0'.",
+      "libraryId": "RecipeEngine.Modules.Wrench"
+    }
+  ]
+}
