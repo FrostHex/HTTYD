@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://drg1ol84t4ys1"]
+
+[ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Toothless.tscn" id="1_v5fnx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v5fnx"]
+radius = 0.1
+height = 13.102
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0snye"]
+radius = 0.6
+
+[node name="Dragon" type="CharacterBody3D"]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Toothless" parent="Pivot" instance=ExtResource("1_v5fnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3, -0.33)
+
+[node name="Collision_Shape_Wing" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.395, 0.536)
+shape = SubResource("CapsuleShape3D_v5fnx")
+
+[node name="Collision_Shape_Head" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, -0.037, 1.002)
+shape = SubResource("CapsuleShape3D_0snye")

@@ -1,3 +1,14 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1744625651
-icon.svg::CompressedTexture2D::2775674797009277872::1744625647::1744625652::1::::<><><>0<>0<>212a7a5696e3caadb8a147bb43701f55<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://::1745051912
+::res://Environment/::1745047300
+::res://Scenes/::1745051578
+Dragon.tscn::PackedScene::8366462932456392150::1745050573::0::1::::<><><>0<>0<><>::
+Main.tscn::PackedScene::2777476741469247715::1745051578::0::1::::<><><>0<>0<><>::
+Toothless.tscn::PackedScene::3264659439601052891::1745051267::0::1::::<><><>0<>0<><>::uid://dr7r6vpx46ko8::::res://Toothless/Toothless.glb
+::res://Scripts/::1745047354
+::res://Shaders/::1745047362
+::res://Tools/::1745047403
+::res://Toothless/::1745053080
+Toothless.glb::PackedScene::8419621156791266445::1745053744::1745053769::1::::<><><>0<>0<>4bffbf2c83695f2812100bbbf5446757<>res://.godot/imported/Toothless.glb-491680b8b4a45db4da8a0e56d6f02e9e.scn::uid://b4bpj7ov33t3::::res://Toothless/Toothless_CheatSheet.png<>uid://buuw5kdqka6c3::::res://Toothless/Toothless_eye.png
+Toothless_CheatSheet.png::CompressedTexture2D::130143825216290946::1745050442::1745053762::1::::<><><>0<>0<>6fd486f9c8ce37f94a3bcf2b8223c1f4<>res://.godot/imported/Toothless_CheatSheet.png-f2c3a1fd3f42385712e6578c35892bd8.s3tc.ctex::
+Toothless_eye.png::CompressedTexture2D::3832874989801234108::1745051914::1745053762::1::::<><><>0<>0<>c07eb6b61e2e612ee646fe85f68b00de<>res://.godot/imported/Toothless_eye.png-2dc6ef1d16b3146fd7d7608888273f9b.s3tc.ctex::

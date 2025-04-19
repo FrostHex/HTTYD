@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bftovvm0selct"]
+
+[ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="1_r150o"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Dragon" parent="." instance=ExtResource("1_r150o")]
