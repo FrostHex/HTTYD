@@ -11,12 +11,8 @@ config_version=5
 [application]
 
 config/name="HTTYD"
+run/main_scene="uid://bftovvm0selct"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
-
-[autoload]
-
-ImGuiRoot="*res://addons/imgui-godot/data/ImGuiRoot.tscn"
 
 [debug]
 
@@ -44,11 +40,6 @@ enabled=PackedStringArray()
 
 [input]
 
-toggle_imgui={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"command_or_control_autoremap":true,"alt_pressed":false,"shift_pressed":false,"pressed":false,"keycode":0,"physical_keycode":72,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
-}
 toggle_fullscreen={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"command_or_control_autoremap":true,"alt_pressed":false,"shift_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
@@ -63,11 +54,11 @@ anti_aliasing/quality/msaa_3d=1
 
 displacements={
 "type": "sampler2DArray",
-"value": "res://assets/water/texture_2d_array_rd_1.tres"
+"value": ""
 }
 normals={
 "type": "sampler2DArray",
-"value": "res://assets/water/texture_2d_array_rd_2.tres"
+"value": ""
 }
 water_color={
 "type": "color",

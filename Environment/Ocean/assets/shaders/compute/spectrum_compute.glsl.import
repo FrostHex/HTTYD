@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://b1e3mg2hmvddo"
+path="res://.godot/imported/spectrum_compute.glsl-969dafbe38e6e0c0d8bbd676a6a1ce63.res"
+
+[deps]
+
+source_file="res://Environment/Ocean/assets/shaders/compute/spectrum_compute.glsl"
+dest_files=["res://.godot/imported/spectrum_compute.glsl-969dafbe38e6e0c0d8bbd676a6a1ce63.res"]
+
+[params]
+

@@ -1,8 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://bftovvm0selct"]
+[gd_scene load_steps=7 format=3 uid="uid://bftovvm0selct"]
 
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="1_r150o"]
+[ext_resource type="PackedScene" uid="uid://dx4r13gqfh13" path="res://Scenes/Ocean.tscn" id="2_idj7w"]
+[ext_resource type="Texture2D" uid="uid://cnft723bala47" path="res://Environment/Ocean/assets/skybox.png" id="3_kln2b"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rgh2o"]
+panorama = ExtResource("3_kln2b")
+
+[sub_resource type="Sky" id="Sky_vroi3"]
+sky_material = SubResource("PanoramaSkyMaterial_rgh2o")
+
+[sub_resource type="Environment" id="Environment_pbw6q"]
+background_mode = 2
+sky = SubResource("Sky_vroi3")
+tonemap_mode = 2
+fog_mode = 1
+fog_light_color = Color(0.272954, 0.419272, 0.484632, 1)
+fog_sun_scatter = 0.05
+fog_density = 1.0
+fog_aerial_perspective = 0.626
+fog_sky_affect = 0.0
+fog_depth_curve = 0.25
+fog_depth_begin = 200.0
+fog_depth_end = 350.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 256.0
+adjustment_enabled = true
+adjustment_brightness = 0.85
+adjustment_contrast = 1.07
+adjustment_saturation = 1.5
 
 [node name="Main" type="Node3D"]
 
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pbw6q")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.945601, -0.0516921, 0.321197, -0.00840572, 0.983084, 0.18296, -0.325221, -0.175707, 0.929171, 0, 10, 0)
+shadow_bias = 0.0
+shadow_normal_bias = 6.464
+shadow_opacity = 0.8
+shadow_blur = 5.0
+
+[node name="Ocean" parent="." instance=ExtResource("2_idj7w")]
+
 [node name="Dragon" parent="." instance=ExtResource("1_r150o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 76.9493, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999838, 0.0134579, -0.0119434, 0.008159, 0.930701, 0.365689, 0.0160372, 0.365532, -0.93066, 0, 79.9842, -5.2493)
+current = true
