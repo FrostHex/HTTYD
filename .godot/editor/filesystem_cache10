@@ -1,5 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1745296800
+::res://::1745325768
+::res://Addons/::1745303265
 ::res://Environment/::1745288880
 ::res://Environment/Mountain/::1745290221
 Mountain.glb::PackedScene::4146625155674789431::1745290219::1745290221::1::::<><><>0<>0<>3dc236656e743489dc493b37c2bd3169<>res://.godot/imported/Mountain.glb-43fb688e49eb9f225db80b453bb2ea88.scn::
@@ -20,11 +21,11 @@ fft_unpack.glsl::RDShaderFile::9039939401027743343::1745225764::1745225764::1:::
 spectrum_compute.glsl::RDShaderFile::4221309991807234952::1745225764::1745225764::1::::<><><>0<>0<>4612006d178cc37c003bd37dbbcc24e9<>res://.godot/imported/spectrum_compute.glsl-969dafbe38e6e0c0d8bbd676a6a1ce63.res::
 spectrum_modulate.glsl::RDShaderFile::163875751006513398::1745225764::1745225764::1::::<><><>0<>0<>433543da6773e78936ae750102ebc169<>res://.godot/imported/spectrum_modulate.glsl-5f64d7660d2d67fa6773000382e8e762.res::
 transpose.glsl::RDShaderFile::5043393998576206174::1745225764::1745225764::1::::<><><>0<>0<>737b56320ed1ec9c5332e1cdee11f402<>res://.godot/imported/transpose.glsl-659c7085dee8f33d7156d1fb085f55f2.res::
-::res://Environment/Ocean/assets/shaders/spatial/::1745296791
-sea_spray.gdshader::Shader::479773624558824986::1745296791::0::1::::<><><>0<>0<><>::
-sea_spray_particle.gdshader::Shader::8091945174038160575::1745296791::0::1::::<><><>0<>0<><>::
-water.gdshader::Shader::5634468114417871087::1745296791::0::1::::<><><>0<>0<><>::
-water_background.gdshader::Shader::2792043404211048903::1745296791::0::1::::<><><>0<>0<><>::
+::res://Environment/Ocean/assets/shaders/spatial/::1745305871
+sea_spray.gdshader::Shader::479773624558824986::1745305871::0::1::::<><><>0<>0<><>::
+sea_spray_particle.gdshader::Shader::8091945174038160575::1745305871::0::1::::<><><>0<>0<><>::
+water.gdshader::Shader::5634468114417871087::1745305871::0::1::::<><><>0<>0<><>::
+water_background.gdshader::Shader::2792043404211048903::1745305871::0::1::::<><><>0<>0<><>::
 ::res://Environment/Ocean/assets/water/::1745294648
 clipmap_high.obj::Mesh::610790561050075546::1745225764::1745283347::1::::<><><>0<>0<>6f3f14bfd769f9ea2874ca20792d9cd6<>res://.godot/imported/clipmap_high.obj-90f3e7798b6a360bc21bd96a3ca25afb.mesh<*>res://.godot/imported/clipmap_high.obj-90f3e7798b6a360bc21bd96a3ca25afb.mesh::
 clipmap_low.obj::Mesh::863766567211041014::1745225764::1745225764::1::::<><><>0<>0<>1c639c5cb3b67ef3abe5f530ec75d0d4<>res://.godot/imported/clipmap_low.obj-9cc2f56686051dfb777a58b9ffd575f2.mesh<*>res://.godot/imported/clipmap_low.obj-9cc2f56686051dfb777a58b9ffd575f2.mesh::
@@ -36,9 +37,9 @@ water.gd::GDScript::48098180798405906::1745291362::0::1::::<>MeshInstance3D<><>0
 wave_cascade_parameters.gd::GDScript::2223661386325830560::1745225764::0::1::::WaveCascadeParameters<>Resource<><>0<>1<><>::
 wave_generator.gd::GDScript::4904768944184836146::1745225764::0::1::::WaveGenerator<>Node<><>0<>1<><>::
 ::res://Environment/Rocks/::1745288880
-::res://Scenes/::1745296791
+::res://Scenes/::1745299353
 Dragon.tscn::PackedScene::8366462932456392150::1745225764::0::1::::<><><>0<>0<><>::uid://bmrop1m7t4tst::::res://Scenes/Toothless.tscn
-Main.tscn::PackedScene::2777476741469247715::1745296791::0::1::::<><><>0<>0<><>::uid://drg1ol84t4ys1::::res://Scenes/Dragon.tscn<>uid://dx4r13gqfh13::::res://Scenes/Ocean.tscn<>uid://cnft723bala47::::res://Environment/Ocean/assets/skybox.png<>uid://8fvlc7181mcm::::res://Scenes/Mountain.tscn
+Main.tscn::PackedScene::2777476741469247715::1745299353::0::1::::<><><>0<>0<><>::uid://drg1ol84t4ys1::::res://Scenes/Dragon.tscn<>uid://dx4r13gqfh13::::res://Scenes/Ocean.tscn<>uid://cnft723bala47::::res://Environment/Ocean/assets/skybox.png<>uid://8fvlc7181mcm::::res://Scenes/Mountain.tscn
 Mountain.tscn::PackedScene::2327848585113314720::1745288129::0::1::::<><><>0<>0<><>::uid://b0cwks6jsqf6f::::res://Environment/Mountain/Mountain.glb
 Ocean.tscn::PackedScene::259839779699909524::1745295694::0::1::::<><><>0<>0<><>::uid://bap0ysmcgyau1::::res://Environment/Ocean/main.gd<>uid://6xfm4e44ag2c::::res://Environment/Ocean/assets/water/wave_cascade_parameters.gd<>uid://mkodygt504hm::::res://Environment/Ocean/assets/water/clipmap_low.obj<>uid://byumtcccq4ew3::::res://Environment/Ocean/assets/water/mat_water.tres<>uid://ix4vp1y05f1s::::res://Environment/Ocean/assets/water/clipmap_high.obj<>uid://cvvn0vke5comw::::res://Environment/Ocean/assets/ocean_loop.wav<>uid://xkf1sdf7lje::::res://Environment/Ocean/assets/water/water.gd<>uid://ck6vmandgjhy0::::res://Environment/Ocean/assets/wind_loop.wav<>uid://g3n2isghh76u::::res://Environment/Ocean/assets/shaders/spatial/sea_spray.gdshader<>uid://5xqyddws6rt5::::res://Environment/Ocean/assets/water/mat_spray.tres<>uid://dtm5tyuh2slqt::::res://Environment/Ocean/assets/water/sea_spray.png<>uid://dbxumu28oudq4::::res://Environment/Ocean/assets/water/mat_water_background.tres
 Toothless.tscn::PackedScene::3264659439601052891::1745225764::0::1::::<><><>0<>0<><>::uid://dr7r6vpx46ko8::::res://Toothless/Toothless.glb
