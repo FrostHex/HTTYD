@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx4r13gqfh13"]
+[gd_scene load_steps=20 format=3 uid="uid://dx4r13gqfh13"]
 
 [ext_resource type="Script" uid="uid://bap0ysmcgyau1" path="res://Environment/Ocean/main.gd" id="1_skarq"]
 [ext_resource type="Script" uid="uid://6xfm4e44ag2c" path="res://Environment/Ocean/assets/water/wave_cascade_parameters.gd" id="2_pw5n6"]
+[ext_resource type="ArrayMesh" uid="uid://mkodygt504hm" path="res://Environment/Ocean/assets/water/clipmap_low.obj" id="3_65bgh"]
 [ext_resource type="Material" uid="uid://byumtcccq4ew3" path="res://Environment/Ocean/assets/water/mat_water.tres" id="5_lt75t"]
 [ext_resource type="ArrayMesh" uid="uid://ix4vp1y05f1s" path="res://Environment/Ocean/assets/water/clipmap_high.obj" id="5_n61pp"]
 [ext_resource type="AudioStream" uid="uid://cvvn0vke5comw" path="res://Environment/Ocean/assets/ocean_loop.wav" id="6_jpklm"]
@@ -10,6 +11,7 @@
 [ext_resource type="Shader" uid="uid://g3n2isghh76u" path="res://Environment/Ocean/assets/shaders/spatial/sea_spray.gdshader" id="8_eu8jb"]
 [ext_resource type="Material" uid="uid://5xqyddws6rt5" path="res://Environment/Ocean/assets/water/mat_spray.tres" id="9_skbf4"]
 [ext_resource type="Texture2D" uid="uid://dtm5tyuh2slqt" path="res://Environment/Ocean/assets/water/sea_spray.png" id="10_spqpo"]
+[ext_resource type="Material" uid="uid://dbxumu28oudq4" path="res://Environment/Ocean/assets/water/mat_water_background.tres" id="11_8j5el"]
 
 [sub_resource type="Resource" id="Resource_adqv5"]
 script = ExtResource("2_pw5n6")
@@ -72,15 +74,18 @@ shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_tsx6q")
 script = ExtResource("1_skarq")
 
 [node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 sorting_offset = 999.0
 material_override = ExtResource("5_lt75t")
 cast_shadow = 0
 extra_cull_margin = 1000.0
-mesh = ExtResource("5_n61pp")
+mesh = ExtResource("3_65bgh")
 skeleton = NodePath("")
 script = ExtResource("7_s0x5e")
+water_color = Color(0.140394, 0.202932, 0.240471, 1)
 parameters = Array[ExtResource("2_pw5n6")]([SubResource("Resource_adqv5"), SubResource("Resource_luhq0"), SubResource("Resource_83u3u")])
+mesh_quality = 0
+updates_per_second = 30.0
 
 [node name="WaterSprayEmitter" type="GPUParticles3D" parent="Water"]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
@@ -100,3 +105,8 @@ autoplay = true
 stream = ExtResource("8_6r5si")
 volume_db = -30.0
 autoplay = true
+
+[node name="Water_Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, -8, 0)
+material_override = ExtResource("11_8j5el")
+mesh = ExtResource("5_n61pp")
