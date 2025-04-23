@@ -57,3 +57,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 0)
 transform = Transform3D(-0.999838, 0.0134579, -0.0119434, 0.008159, 0.930701, 0.365689, 0.0160372, 0.365532, -0.93066, 0, 100, -5.249)
 current = true
 far = 50000.0
+
+[node name="SimpleInput" type="SimpleInput" parent="."]

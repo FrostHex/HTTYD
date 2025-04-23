@@ -1,6 +1,7 @@
+SimpleInput
+Node3D
 MeshInstance3D
 Camera3D
 CollisionShape3D
 Node
-Node3D
 CharacterBody3D

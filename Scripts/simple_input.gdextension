@@ -1,0 +1,6 @@
+[configuration]
+entry_symbol = "gdextension_init"
+compatibility_minimum = 4.5
+
+[libraries]
+windows.debug.x86_64 = "res://Scripts/build/simple_input.dll"

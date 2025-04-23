@@ -1,6 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1745325768
-::res://Addons/::1745303265
+::res://::1745382254
+::res://Addons/::1745340747
 ::res://Environment/::1745288880
 ::res://Environment/Mountain/::1745290221
 Mountain.glb::PackedScene::4146625155674789431::1745290219::1745290221::1::::<><><>0<>0<>3dc236656e743489dc493b37c2bd3169<>res://.godot/imported/Mountain.glb-43fb688e49eb9f225db80b453bb2ea88.scn::
@@ -43,6 +43,10 @@ Main.tscn::PackedScene::2777476741469247715::1745299353::0::1::::<><><>0<>0<><>:
 Mountain.tscn::PackedScene::2327848585113314720::1745288129::0::1::::<><><>0<>0<><>::uid://b0cwks6jsqf6f::::res://Environment/Mountain/Mountain.glb
 Ocean.tscn::PackedScene::259839779699909524::1745295694::0::1::::<><><>0<>0<><>::uid://bap0ysmcgyau1::::res://Environment/Ocean/main.gd<>uid://6xfm4e44ag2c::::res://Environment/Ocean/assets/water/wave_cascade_parameters.gd<>uid://mkodygt504hm::::res://Environment/Ocean/assets/water/clipmap_low.obj<>uid://byumtcccq4ew3::::res://Environment/Ocean/assets/water/mat_water.tres<>uid://ix4vp1y05f1s::::res://Environment/Ocean/assets/water/clipmap_high.obj<>uid://cvvn0vke5comw::::res://Environment/Ocean/assets/ocean_loop.wav<>uid://xkf1sdf7lje::::res://Environment/Ocean/assets/water/water.gd<>uid://ck6vmandgjhy0::::res://Environment/Ocean/assets/wind_loop.wav<>uid://g3n2isghh76u::::res://Environment/Ocean/assets/shaders/spatial/sea_spray.gdshader<>uid://5xqyddws6rt5::::res://Environment/Ocean/assets/water/mat_spray.tres<>uid://dtm5tyuh2slqt::::res://Environment/Ocean/assets/water/sea_spray.png<>uid://dbxumu28oudq4::::res://Environment/Ocean/assets/water/mat_water_background.tres
 Toothless.tscn::PackedScene::3264659439601052891::1745225764::0::1::::<><><>0<>0<><>::uid://dr7r6vpx46ko8::::res://Toothless/Toothless.glb
+::res://Scripts/::1745382212
+simple_input.gdextension::GDExtension::6908728416166968963::1745380761::0::1::::<><><>0<>0<><>::
+::res://Scripts/build/::1745382251
+::res://Scripts/src/::1745382211
 ::res://Toothless/::1745225764
 Toothless.glb::PackedScene::8419621156791266445::1745225764::1745225764::1::::<><><>0<>0<>4bffbf2c83695f2812100bbbf5446757<>res://.godot/imported/Toothless.glb-491680b8b4a45db4da8a0e56d6f02e9e.scn::uid://b4bpj7ov33t3::::res://Toothless/Toothless_CheatSheet.png<>uid://buuw5kdqka6c3::::res://Toothless/Toothless_eye.png
 Toothless_CheatSheet.png::CompressedTexture2D::130143825216290946::1745225764::1745225764::1::::<><><>0<>0<>6fd486f9c8ce37f94a3bcf2b8223c1f4<>res://.godot/imported/Toothless_CheatSheet.png-f2c3a1fd3f42385712e6578c35892bd8.s3tc.ctex::
