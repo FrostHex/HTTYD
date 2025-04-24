@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "GuQRfB2GuoOL1VFx/wgohh8fcBVf7UgZBuEkgqVUEehblrc4i1A37Mt5GVzG95lmhVcz0LNCNHHFxZkoqWmIHA==",
+  "success": true,
+  "projectFilePath": "E:\\Projects\\HTTYD\\HTTYD.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Frost\\.nuget\\packages\\godot.sourcegenerators\\4.5.0-dev.2\\godot.sourcegenerators.4.5.0-dev.2.nupkg.sha512",
+    "C:\\Users\\Frost\\.nuget\\packages\\godotsharp\\4.5.0-dev.2\\godotsharp.4.5.0-dev.2.nupkg.sha512",
+    "C:\\Users\\Frost\\.nuget\\packages\\godotsharpeditor\\4.5.0-dev.2\\godotsharpeditor.4.5.0-dev.2.nupkg.sha512"
+  ],
+  "logs": []
+}

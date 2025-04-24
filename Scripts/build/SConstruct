@@ -1,0 +1,31 @@
+import os
+from SCons.Script import DefaultEnvironment, Glob
+
+env = DefaultEnvironment(
+    CPPPATH=[
+        "../../Addons/godot-cpp/include",
+        "../../Addons/godot-cpp/gen/include",
+        "../../Addons/godot-cpp/gdextension",
+    ],
+    LIBPATH=["../../Addons/godot-cpp/bin"],
+    LIBS=["godot-cpp.windows.template_debug.x86_64"],
+)
+
+# 编译选项
+env.Append(
+    CXXFLAGS=["-std=c++17", "-O3", "-march=native", "-flto", "-DNDEBUG"],
+    LINKFLAGS=["-flto"],
+)
+
+# 自动收集当前目录下所有文件夹内的 .cpp
+sources = []
+for root, dirs, files in os.walk(".."):
+    for f in files:
+        if f.endswith(".cpp"):
+            sources.append(env.File(os.path.join(root, f)))
+
+# 输出 target 名称
+target = "httyd_cpp"
+
+# 一键构建所有 cpp
+env.SharedLibrary(target=target, source=sources)

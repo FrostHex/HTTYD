@@ -1,27 +1,35 @@
-#include "simple_input.h"
+#include "DragonControlKeyboard.h"
+#include "../DragonControlTop/DragonControlTop.h"
 
 #include <godot_cpp/classes/input.hpp>  // 访问输入设备
+#include <godot_cpp/classes/input_event.hpp> // 输入事件
 #include <godot_cpp/core/class_db.hpp>  // 类注册
 #include <godot_cpp/variant/utility_functions.hpp> // 打印日志
 #include <godot_cpp/godot.hpp>
 
 using namespace godot;
 
-SimpleInput::SimpleInput() {
-    // 构造器，可以初始化内容
+DragonControlKeyboard::DragonControlKeyboard() {
+    input_singleton = Input::get_singleton();
+    set_process_input(true);
+    set_process(false);
 }
 
-SimpleInput::~SimpleInput() {
+DragonControlKeyboard::~DragonControlKeyboard() {
     // 析构器
 }
 
-void SimpleInput::_bind_methods() {
-    // 可以在这里绑定Godot暴露的函数，目前不需要
+void DragonControlKeyboard::_bind_methods() {
+    // No manual binding for _input
 }
 
-void SimpleInput::_process(double delta) {
-    if (Input::get_singleton()->is_action_just_pressed("ui_accept")) {
-        UtilityFunctions::print("Spacebar pressed!"); 
+void DragonControlKeyboard::_process(double delta) {
+    // 输入由 _input 处理, 此处保留空实现以减少开销
+}
+
+void DragonControlKeyboard::_input(const Ref<InputEvent> &event) {
+    if (event->is_action_pressed("ui_accept")) {
+        UtilityFunctions::print("Spacebar pressed!");
     }
 }
 
@@ -29,7 +37,8 @@ void initialize_simple_input(ModuleInitializationLevel p_level) {
     if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
         return;
     }
-    ClassDB::register_class<SimpleInput>();
+    ClassDB::register_class<DragonControlKeyboard>();
+    ClassDB::register_class<DragonControlTop>();
 }
 
 void uninitialize_simple_input(ModuleInitializationLevel p_level) {
