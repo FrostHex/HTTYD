@@ -99,7 +99,6 @@ draw_pass_1 = SubResource("QuadMesh_06d3e")
 [node name="OceanAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_jpklm")
 volume_db = 15.0
-autoplay = true
 
 [node name="WindAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_6r5si")

@@ -1,31 +1,39 @@
 import os
-from SCons.Script import DefaultEnvironment, Glob
+from SCons.Script import DefaultEnvironment, Glob  # type: ignore
 
+# dynamically include all subdirectories in the Scripts directory to CPPPATH
+subdirs = [
+    d for d in os.listdir("..")
+    if os.path.isdir(os.path.join("..", d)) and d != "build" # exclude the build directory
+]
+dynamic_includes = [f"#../{d}" for d in subdirs]  # "#../DragonControlKeyboard", "#../DragonControlTop", etc
+
+# set up the environment
 env = DefaultEnvironment(
     CPPPATH=[
         "../../Addons/godot-cpp/include",
         "../../Addons/godot-cpp/gen/include",
         "../../Addons/godot-cpp/gdextension",
-    ],
+    ] + dynamic_includes,
     LIBPATH=["../../Addons/godot-cpp/bin"],
     LIBS=["godot-cpp.windows.template_debug.x86_64"],
 )
 
-# 编译选项
+# compile options
 env.Append(
     CXXFLAGS=["-std=c++17", "-O3", "-march=native", "-flto", "-DNDEBUG"],
     LINKFLAGS=["-flto"],
 )
 
-# 自动收集当前目录下所有文件夹内的 .cpp
+# collect all .cpp files in Scripts directory and its subdirectories
 sources = []
 for root, dirs, files in os.walk(".."):
     for f in files:
         if f.endswith(".cpp"):
             sources.append(env.File(os.path.join(root, f)))
 
-# 输出 target 名称
+# the target name
 target = "httyd_cpp"
 
-# 一键构建所有 cpp
+# build the shared library
 env.SharedLibrary(target=target, source=sources)
