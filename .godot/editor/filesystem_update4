@@ -3,3 +3,4 @@ res://Environment/Ocean/assets/shaders/spatial/water.gdshader
 res://Environment/Ocean/assets/shaders/spatial/sea_spray_particle.gdshader
 res://Environment/Ocean/assets/shaders/spatial/sea_spray.gdshader
 res://Environment/Ocean/assets/shaders/spatial/water_background.gdshader
+res://Scenes/Main.tscn

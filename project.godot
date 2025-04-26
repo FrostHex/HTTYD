@@ -46,6 +46,10 @@ toggle_fullscreen={
 ]
 }
 
+[network]
+
+limits/debugger/max_chars_per_second=2147483647
+
 [rendering]
 
 anti_aliasing/quality/msaa_3d=1

@@ -9,14 +9,14 @@ height = 13.102
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0snye"]
 radius = 0.6
 
-[node name="Dragon" type="CharacterBody3D"]
+[node name="Dragon" type="RigidBody3D"]
 
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="Toothless" parent="Pivot" instance=ExtResource("1_v5fnx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3, -0.33)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.638714, 0.410735)
 current = true
 far = 50000.0

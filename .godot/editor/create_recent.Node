@@ -1,7 +1,8 @@
+Node3D
+RigidBody3D
 DragonControlKeyboard
 DragonControlTop
 Node
-Node3D
 MeshInstance3D
 Camera3D
 CollisionShape3D

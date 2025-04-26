@@ -2,9 +2,13 @@
 
 #include <godot_cpp/godot.hpp> // a wrapper for the Godot C++ API
 #include <godot_cpp/core/class_db.hpp>  // class registration
-#include <godot_cpp/classes/input.hpp>  // access input device
+#include <godot_cpp/classes/input.hpp>  // DRAGON_FACTOR_LINEARess input device
 #include <godot_cpp/classes/input_event.hpp> // input event
 #include <godot_cpp/variant/utility_functions.hpp> // used for printing info
+#include <godot_cpp/classes/rigid_body3d.hpp>  // RigidBody3D for physics control
+#include <godot_cpp/variant/vector3.hpp>      // Vector3 for velocity
+#include <godot_cpp/classes/character_body3d.hpp>  // CharacterBody3D for physics control
+#include <cmath>
 
 using namespace godot;
 
@@ -15,7 +19,7 @@ DragonControlKeyboard::DragonControlKeyboard()
 {
     input_singleton = Input::get_singleton();
     set_process_input(true);
-    set_process(false);
+    set_process(true);  // enable per-frame processing
 }
 
 /**
@@ -40,6 +44,65 @@ void DragonControlKeyboard::_bind_methods()
  */
 void DragonControlKeyboard::_process(double delta) 
 {
+    // get attached rigid body (parent node)
+    RigidBody3D *dragon_rb = Object::cast_to<RigidBody3D>(get_parent()->get_parent());
+    if (!dragon_rb) {
+        UtilityFunctions::printerr("DragonControlKeyboard: parent is not RigidBody3D");
+        return;
+    }
+    
+    // linear speed control: replace basic movement with DRAGON_FACTOR_LINEAReleration and gravity conversion
+    // initialize height reference
+    if (!height_initialized) 
+    {
+        height_init = dragon_rb->get_global_transform().origin.y;
+        height_initialized = true;
+    }
+    // DRAGON_FACTOR_LINEAReleration input
+
+    if (input_singleton->is_key_pressed(Key::KEY_W)) 
+    {
+        linear_velocity_input += DRAGON_FACTOR_LINEAR * delta;
+    } 
+    else if (input_singleton->is_key_pressed(Key::KEY_S)) 
+    {
+        linear_velocity_input -= DRAGON_FACTOR_LINEAR * delta;
+    }
+    // gravity potential to kinetic energy conversion
+    height_delta = height_init - dragon_rb->get_global_transform().origin.y;
+    linear_velocity = linear_velocity_input + std::copysign(1.0, height_delta) * std::sqrt(19.6 * std::abs(height_delta));
+    // minimum speed enforcement
+    if (linear_velocity < 3.0) 
+    {
+        linear_velocity_input += 3.0 - linear_velocity;
+        linear_velocity = 3.0;
+    }
+    // apply forward velocity
+    Vector3 fwd = dragon_rb->get_global_transform().basis.get_column(2);
+    dragon_rb->set_linear_velocity(fwd * real_t(linear_velocity));
+
+    // angular speed control: reset and DRAGON_FACTOR_LINEARumulate pitch and roll (local coords)
+    Basis basis = dragon_rb->get_global_transform().basis;
+    if (input_singleton->is_key_pressed(Key::KEY_UP)) 
+    {
+        angular_velocity += basis.get_column(0) * DRAGON_FACTOR_PITCH;
+    } 
+    else if (input_singleton->is_key_pressed(Key::KEY_DOWN))
+    {
+        angular_velocity -= basis.get_column(0) * DRAGON_FACTOR_PITCH;
+    }
+    if (input_singleton->is_key_pressed(Key::KEY_LEFT)) 
+    {
+        angular_velocity -= basis.get_column(2) * DRAGON_FACTOR_ROLL; // roll left
+    } 
+    else if (input_singleton->is_key_pressed(Key::KEY_RIGHT)) 
+    {
+        angular_velocity += basis.get_column(2) * DRAGON_FACTOR_ROLL; // roll right
+    }
+    angular_velocity = angular_velocity * 0.9984f; // damping
+    dragon_rb->set_angular_velocity(angular_velocity);
+    // UtilityFunctions::print(angular_velocity); // print the current angular velocity
+    // UtilityFunctions::print(linear_velocity); // print the current linear velocity
 }
 
 /**
