@@ -83,7 +83,7 @@ void fragment() {
 		gradient += mix(texture_bicubic(normals, coords), texture(normals, coords), min(1.0, ppm*0.1)).xyw * vec3(scales.ww, 1.0);
 	}
 
-	foam_factor = smoothstep(0.0, 1.0, gradient.z*0.75) * exp(-dist*0.0075);
+	foam_factor = smoothstep(0.0, 1.0, gradient.z*0.75) * exp(-dist*0.005); // TODO: adjust the parameter -dist*x; original: 0.0075
 	ALBEDO = mix(water_color.rgb, foam_color.rgb, foam_factor);
 
 	gradient *= mix(0.015, normal_strength, exp(-dist*0.0175)); // Blend normal with terrain normal as distance increases.

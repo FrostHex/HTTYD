@@ -45,7 +45,6 @@ shadow_opacity = 0.8
 shadow_blur = 5.0
 
 [node name="Ocean" parent="." instance=ExtResource("2_idj7w")]
-visible = false
 
 [node name="Mountain" parent="." instance=ExtResource("4_rgh2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, -50, -3000)

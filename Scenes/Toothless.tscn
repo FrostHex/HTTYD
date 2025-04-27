@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmrop1m7t4tst"]
+[gd_scene load_steps=3 format=3 uid="uid://bmrop1m7t4tst"]
 
 [ext_resource type="PackedScene" uid="uid://dr7r6vpx46ko8" path="res://Toothless/Toothless.glb" id="1_p38ud"]
+[ext_resource type="Material" uid="uid://lx0u41cbq3no" path="res://Environment/Metal/Metal.tres" id="2_ihx0x"]
 
 [node name="Toothless" instance=ExtResource("1_p38ud")]
 
@@ -639,3 +640,12 @@ bones/604/position = Vector3(0.0404459, -0.274158, 1.15398e-08)
 bones/604/rotation = Quaternion(-4.76837e-07, -1.25574e-14, 1, -2.99391e-21)
 bones/605/position = Vector3(0.258876, -1.64551, 1.07591)
 bones/606/position = Vector3(9.70138e-08, 0.564898, -0.198561)
+
+[node name="metal" parent="rig/Skeleton3D" index="9"]
+surface_material_override/0 = ExtResource("2_ihx0x")
+
+[node name="pedal" parent="rig/Skeleton3D" index="12"]
+surface_material_override/0 = ExtResource("2_ihx0x")
+
+[node name="tail_wing_stick" parent="rig/Skeleton3D" index="19"]
+surface_material_override/0 = ExtResource("2_ihx0x")
