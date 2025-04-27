@@ -7,13 +7,13 @@
 
 namespace godot 
 {
-    class DragonControlTop : public Node 
+    class MainControl : public Node 
     {
-        GDCLASS(DragonControlTop, Node);
+        GDCLASS(MainControl, Node);
 
         public:
-            DragonControlTop();
-            ~DragonControlTop();
+            MainControl();
+            ~MainControl();
             void _ready() override;
             void SetValJoystickInput(bool p_val);
             bool GetValJoystickInput() const;

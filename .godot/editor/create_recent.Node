@@ -1,7 +1,7 @@
+MainControl
 Node3D
 RigidBody3D
 DragonControlKeyboard
-DragonControlTop
 Node
 MeshInstance3D
 Camera3D

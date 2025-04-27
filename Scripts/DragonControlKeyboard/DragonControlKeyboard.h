@@ -17,22 +17,23 @@ namespace godot
         public:
             DragonControlKeyboard();  // constructor
             ~DragonControlKeyboard(); // destructor
-            void _process(double delta) override;
+            void _physics_process(double delta) override;
             void _input(const Ref<InputEvent> &event) override;
 
         protected:
             static void _bind_methods();
 
         private:
-            const real_t DRAGON_FACTOR_PITCH = 0.0012f;
-            const real_t DRAGON_FACTOR_ROLL = 0.0014f;
-            const real_t DRAGON_FACTOR_LINEAR = 1.0;
+            const float DRAGON_FACTOR_LINEAR = 1.0f;
+            const float DRAGON_FACTOR_PITCH = 0.015f;
+            const float DRAGON_FACTOR_ROLL = 0.018f;
+            const float DRAGON_FACTOR_DAMPING = 0.965f;
             Input *input_singleton;
             bool height_initialized = false;
-            double height_init = 0.0;
-            double height_delta = 0.0;
-            double linear_velocity_input = 100;
-            double linear_velocity = 0;
+            float height_init = 0.0f;
+            float height_delta = 0.0f;
+            float linear_velocity_input = 100.0f;
+            float linear_velocity = 0.0f;
             Vector3 angular_velocity = Vector3(0, 0, 0);
     };
 }
