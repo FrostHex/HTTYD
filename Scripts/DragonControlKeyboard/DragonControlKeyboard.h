@@ -27,6 +27,7 @@ namespace godot
             const float DRAGON_FACTOR_LINEAR = 1.0f;
             const float DRAGON_FACTOR_PITCH = 0.015f;
             const float DRAGON_FACTOR_ROLL = 0.018f;
+            const float DRAGON_FACTOR_YAW = 0.3f;
             const float DRAGON_FACTOR_DAMPING = 0.965f;
             Input *input_singleton;
             bool height_initialized = false;
@@ -34,7 +35,7 @@ namespace godot
             float height_delta = 0.0f;
             float linear_velocity_input = 100.0f;
             float linear_velocity = 0.0f;
-            Vector3 angular_velocity = Vector3(0, 0, 0);
+            Vector3 angular_velocity_buildup = Vector3(0, 0, 0);
     };
 }
 

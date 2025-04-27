@@ -71,7 +71,7 @@ void DragonControlKeyboard::_physics_process(double delta)
 
     // gravity potential energy to kinetic energy conversion
     height_delta = height_init - dragon_rb->get_global_transform().origin.y;
-    linear_velocity = linear_velocity_input + std::copysign(1.0, height_delta) * std::sqrt(19.6 * std::abs(height_delta));
+    linear_velocity = linear_velocity_input + std::copysign(1.0f, height_delta) * std::sqrt(19.6 * std::abs(height_delta));
     // minimum speed enforcement
     if (linear_velocity < 3.0) 
     {
@@ -83,29 +83,47 @@ void DragonControlKeyboard::_physics_process(double delta)
     dragon_rb->set_linear_velocity(fwd * float(linear_velocity));
     // angular speed control: reset and DRAGON_FACTOR_LINEARumulate pitch and roll (local coords)
     Basis basis = dragon_rb->get_global_transform().basis;
+    Vector3 angular_velocity = Vector3(0, 0, 0);
     if (input_singleton->is_key_pressed(Key::KEY_UP)) 
     {
-        angular_velocity += basis.get_column(0) * DRAGON_FACTOR_PITCH;
+        angular_velocity_buildup += basis.get_column(0) * DRAGON_FACTOR_PITCH;
     } 
     else if (input_singleton->is_key_pressed(Key::KEY_DOWN))
     {
-        angular_velocity -= basis.get_column(0) * DRAGON_FACTOR_PITCH;
+        angular_velocity_buildup -= basis.get_column(0) * DRAGON_FACTOR_PITCH;
     }
     if (input_singleton->is_key_pressed(Key::KEY_LEFT)) 
     {
-        angular_velocity -= basis.get_column(2) * DRAGON_FACTOR_ROLL; // roll left
+        angular_velocity_buildup -= basis.get_column(2) * DRAGON_FACTOR_ROLL; // roll left
     } 
     else if (input_singleton->is_key_pressed(Key::KEY_RIGHT)) 
     {
-        angular_velocity += basis.get_column(2) * DRAGON_FACTOR_ROLL; // roll right
+        angular_velocity_buildup += basis.get_column(2) * DRAGON_FACTOR_ROLL; // roll right
     }
-    angular_velocity = angular_velocity * DRAGON_FACTOR_DAMPING; // damping
+    angular_velocity_buildup = angular_velocity_buildup * DRAGON_FACTOR_DAMPING; // damping
+
+    // 2. 用右向量判断“倾斜角” (roll_angle)，范围 [-π/2, π/2]
+    Vector3 right = basis.get_column(0);            // 机体局部 X 轴
+    float tilt  = right.dot(Vector3(0,1,0));        // 右向量与世界上向的点积
+    // clamp 到 [-1,1]
+    tilt = tilt < -1.0f ? -1.0f : (tilt > 1.0f ? 1.0f : tilt);
+    // 得到滚转角度（弧度）
+    float roll_angle = std::asin(tilt);
+
+    // 3. yaw 增量耦合
+    Vector3 yaw_vel = Vector3(0, -1, 0) * roll_angle * DRAGON_FACTOR_YAW;
+
+    // 4. 最终角速度
+    angular_velocity = angular_velocity_buildup + yaw_vel;
+
     dragon_rb->set_angular_velocity(angular_velocity);
 
     // UtilityFunctions::print(1/delta); // print the frame rate
     // UtilityFunctions::print(typeid(DRAGON_FACTOR_PITCH).name());
-    // UtilityFunctions::print(angular_velocity); // print the current angular velocity
-    UtilityFunctions::print(linear_velocity); // print the current linear velocity
+    // UtilityFunctions::print(angular_velocity_buildup); // print the current angular velocity
+    // UtilityFunctions::print(linear_velocity); // print the current linear velocity
+
+    UtilityFunctions::print(String("Roll: ") + String::num(roll_angle * 180.0 / Math_PI));
 }
 
 /**

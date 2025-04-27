@@ -1,9 +1,0 @@
-MainControl
-Node3D
-RigidBody3D
-DragonControlKeyboard
-Node
-MeshInstance3D
-Camera3D
-CollisionShape3D
-CharacterBody3D
