@@ -1,5 +1,7 @@
 #include "MainControl.h"
 #include "DragonControlKeyboard.h"
+#include "DragonAnimator.h"
+#include "CameraControl.h"
 
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -31,6 +33,9 @@ void MainControl::_bind_methods()
     ClassDB::bind_method(D_METHOD("joystick_input_setter", "value"), &MainControl::SetValJoystickInput);
     ClassDB::bind_method(D_METHOD("joystick_input_getter"), &MainControl::GetValJoystickInput);
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Joystick Input"), "joystick_input_setter", "joystick_input_getter");
+    ClassDB::bind_method(D_METHOD("sub_view_setter", "value"), &MainControl::SetValSubView);
+    ClassDB::bind_method(D_METHOD("sub_view_getter"), &MainControl::GetValSubView);
+    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Sub View"), "sub_view_setter", "sub_view_getter");
 }
 
 /**
@@ -52,26 +57,27 @@ MainControl::~MainControl()
  */
 void MainControl::_ready() 
 {
-    if (Engine::get_singleton()->is_editor_hint()) // 仅在游戏运行时执行 
+    if (Engine::get_singleton()->is_editor_hint()) // only run when the game is running
     {
         return;
     }
+
+    Node *dragon_node = get_parent()->get_node<Node>("Dragon");
+    if (!dragon_node) 
+    {
+        UtilityFunctions::printerr("Could not find Dragon node");
+    }
+
     if (!joystick_input) 
     {
         // memnew is "new" in Godot C++, which dynamically allocates memory for the object
         // memnew() creates an instance of DragonControlKeyboard and returns a pointer to it
         DragonControlKeyboard *keyboard = memnew(DragonControlKeyboard);
-
-        Node *dragon_node = get_parent()->get_node<Node>("Dragon"); // 在父节点中查找与自己同级的 Dragon 节点
-        if (dragon_node) 
-        {
-            dragon_node->add_child(keyboard);
-        } 
-        else 
-        {
-            UtilityFunctions::printerr("Could not find Dragon node");
-        }
+        dragon_node->add_child(keyboard);
     }
+
+    CameraControl *camera_ctrl = memnew(CameraControl(sub_view));
+    dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
 }
 
 /**
@@ -94,6 +100,25 @@ bool MainControl::GetValJoystickInput() const
 }
 
 /**
+ * @brief the setter for sub_view
+ * @param val the value to set
+ */
+void MainControl::SetValSubView(bool val)
+{
+    sub_view = val;
+}
+
+/**
+ * @brief the getter for sub_view
+ * @note the const keyword indicates that this function does not modify the instance variables
+ * @return the value of sub_view
+ */
+bool MainControl::GetValSubView() const
+{
+    return sub_view;
+}
+
+/**
  * @brief the entry point of the module
  * @param get_proc_addr function pointer to get the address of a function in the Godot engine
  * @param lib pointer to the library
@@ -113,6 +138,8 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
         {
             godot::ClassDB::register_class<MainControl>();
             godot::ClassDB::register_class<DragonControlKeyboard>();
+            godot::ClassDB::register_class<DragonAnimator>();
+            godot::ClassDB::register_class<CameraControl>();
         }
     });
     obj.set_minimum_library_initialization_level(godot::MODULE_INITIALIZATION_LEVEL_SCENE);

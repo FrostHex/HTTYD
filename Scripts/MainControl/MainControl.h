@@ -17,12 +17,15 @@ namespace godot
             void _ready() override;
             void SetValJoystickInput(bool p_val);
             bool GetValJoystickInput() const;
+            void SetValSubView(bool p_val);
+            bool GetValSubView() const;
 
         protected:
             static void _bind_methods();
 
         private:
             bool joystick_input = false;
+            bool sub_view = true;
     };
 }
 

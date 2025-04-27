@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://drg1ol84t4ys1"]
+[gd_scene load_steps=6 format=3 uid="uid://drg1ol84t4ys1"]
 
 [ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Toothless.tscn" id="1_v5fnx"]
 
@@ -9,6 +9,13 @@ height = 13.102
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0snye"]
 radius = 0.6
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v5fnx"]
+animation = &"lo_up"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v5fnx"]
+states/lo_up/node = SubResource("AnimationNodeAnimation_v5fnx")
+states/lo_up/position = Vector2(505.333, 87.3333)
+
 [node name="Dragon" type="RigidBody3D"]
 linear_velocity = Vector3(0, 0, 100)
 
@@ -17,7 +24,7 @@ linear_velocity = Vector3(0, 0, 100)
 [node name="Toothless" parent="Pivot" instance=ExtResource("1_v5fnx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.33, -1.3, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Pivot"]
+[node name="CameraMain" type="Camera3D" parent="Pivot"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.411, 0.639, 0)
 current = true
 far = 50000.0
@@ -29,3 +36,26 @@ shape = SubResource("CapsuleShape3D_v5fnx")
 [node name="Collision_Shape_Head" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 1.002, -0.037, 0)
 shape = SubResource("CapsuleShape3D_0snye")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 879.0
+offset_top = -72.0
+offset_right = 1151.0
+offset_bottom = 190.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(272, 262)
+render_target_update_mode = 4
+
+[node name="CameraSub" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-4.2892e-08, 0.0672661, -0.997735, 2.756e-09, 0.997735, 0.0672661, 1, 1.35418e-10, -4.29803e-08, -8.72889, 1.79735, 0)
+current = true
+far = 50000.0
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Pivot/Toothless")
+tree_root = SubResource("AnimationNodeStateMachine_v5fnx")
+anim_player = NodePath("/root/@EditorNode@21304/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11477/@VSplitContainer@11129/@HSplitContainer@11131/@HSplitContainer@11133/@Control@11134/@SubViewportContainer@11135/@SubViewport@11136/Dragon/Pivot/Toothless/AnimationPlayer")
+
+[node name="DragonAnimator" type="DragonAnimator" parent="."]
