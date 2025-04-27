@@ -51,6 +51,6 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, -50, -3000)
 
 [node name="Dragon" parent="." instance=ExtResource("1_r150o")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1000, -1591.86)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, -1591.86)
 
 [node name="MainControl" type="MainControl" parent="."]

@@ -29,6 +29,7 @@ namespace godot
             const float DRAGON_FACTOR_ROLL = 0.018f;
             const float DRAGON_FACTOR_YAW = 0.3f;
             const float DRAGON_FACTOR_DAMPING = 0.965f;
+            const float DRAGON_FACTOR_UPSIDE_DOWN = 1.5f;
             Input *input_singleton;
             bool height_initialized = false;
             float height_init = 0.0f;
