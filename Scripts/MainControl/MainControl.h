@@ -1,5 +1,5 @@
-#ifndef DRAGON_CONTROL_TOP_H
-#define DRAGON_CONTROL_TOP_H
+#ifndef MAIN_CONTROL_H
+#define MAIN_CONTROL_H
 
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -29,4 +29,4 @@ namespace godot
     };
 }
 
-#endif // DRAGON_CONTROL_TOP_H
+#endif // MAIN_CONTROL_H

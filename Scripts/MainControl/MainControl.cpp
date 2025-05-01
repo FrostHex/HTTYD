@@ -54,6 +54,8 @@ MainControl::~MainControl()
 
 /**
  * @brief called when the node and its children are initialized
+ * @note 1. when open a scene containing this node in Godot Engine (editor mode, not running)
+ * @note 2. when the game starts running and the this node is contained
  */
 void MainControl::_ready() 
 {
@@ -73,7 +75,7 @@ void MainControl::_ready()
         // memnew is "new" in Godot C++, which dynamically allocates memory for the object
         // memnew() creates an instance of DragonControlKeyboard and returns a pointer to it
         DragonControlKeyboard *keyboard = memnew(DragonControlKeyboard);
-        dragon_node->add_child(keyboard);
+        dragon_node->add_child(dynamic_cast<Node*>(keyboard));
     }
 
     CameraControl *camera_ctrl = memnew(CameraControl(sub_view));
@@ -137,6 +139,7 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
         if (lvl == godot::MODULE_INITIALIZATION_LEVEL_SCENE) 
         {
             godot::ClassDB::register_class<MainControl>();
+            godot::ClassDB::register_abstract_class<DragonControlTop>();
             godot::ClassDB::register_class<DragonControlKeyboard>();
             godot::ClassDB::register_class<DragonAnimator>();
             godot::ClassDB::register_class<CameraControl>();
