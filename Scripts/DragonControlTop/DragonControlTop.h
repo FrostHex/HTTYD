@@ -1,55 +1,51 @@
 #ifndef DRAGON_CONTROL_TOP_H
 #define DRAGON_CONTROL_TOP_H
 
+#define DRAGON_FACTOR_LINEAR 3
+#define DRAGON_FACTOR_YAW 18
+#define DRAGON_FACTOR_PITCH 0.9f
+#define DRAGON_FACTOR_ROLL 1.08f
+#define DRAGON_FACTOR_DAMPING 0.965f
+#define DRAGON_FACTOR_UPSIDE_DOWN 1.5f
+
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/binder_common.hpp>
 #include <godot_cpp/classes/rigid_body3d.hpp>
-#include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/variant/vector3.hpp>
-#include <cmath>
+#include <godot_cpp/classes/input.hpp>
 
-namespace godot {
+namespace godot 
+{
+    class DragonControlTop : public Node 
+    {
+        GDCLASS(DragonControlTop, Node);
 
-// 通用物理处理逻辑模板，调用 getLinearInput() 和 handleAngular()
-template<typename Derived>
-class DragonControlLogic {
-    bool height_initialized = false;
-    float height_init = 0.0f;
-    float height_delta = 0.0f;
-    float linear_velocity_input = 100.0f;
-    float linear_velocity = 0.0f;
-    Vector3 angular_velocity_buildup = Vector3(0,0,0);
-public:
-    void process(Derived* self, double delta) {
-        RigidBody3D *dragon_rb = Object::cast_to<RigidBody3D>(self->get_parent());
-        if (!dragon_rb) { UtilityFunctions::printerr("DragonControlLogic: parent not RigidBody3D"); return; }
-        if (!height_initialized) { height_init = dragon_rb->get_global_transform().origin.y; height_initialized = true; }
-        float input_val = self->getLinearInput();
-        linear_velocity_input += input_val * delta;
-        height_delta = height_init - dragon_rb->get_global_transform().origin.y;
-        linear_velocity = linear_velocity_input + std::copysign(1.0f, height_delta) * std::sqrt(19.6f * std::abs(height_delta));
-        if (linear_velocity < 3.0f) { linear_velocity_input += 3.0f - linear_velocity; linear_velocity = 3.0f; }
-        Vector3 fwd = dragon_rb->get_global_transform().basis.get_column(0);
-        dragon_rb->set_linear_velocity(fwd * linear_velocity);
-        self->handleAngular(dragon_rb);
-    }
-};
+        public:
+            DragonControlTop();
+            ~DragonControlTop();
+            void _ready();
+            void _physics_process(double delta) override; // override the _physics_process function from Node class
 
-class DragonControlTop : public Node {
-    GDCLASS(DragonControlTop, Node);
-public:
-    // 子类须实现：提供线性速度输入与角度处理
-    virtual float getLinearInput() = 0;
-    virtual void handleAngular(RigidBody3D *rb) = 0;
-    DragonControlTop();
-    ~DragonControlTop();
-    void _physics_process(double delta) override;
-protected:
-    static void _bind_methods();
-private:
-    DragonControlLogic<DragonControlTop> logic;
-};
+        protected:
+            static void _bind_methods();
+            // virtual: this function can be overridden in derived classes
+            // =0: pure virtual function, which must be implemented in derived classes
+            // the class containing pure virtual functions is an abstract class
+            virtual void GetInput(float* input_keys) = 0;
+            Input *input_singleton;
 
+        private:
+            RigidBody3D *dragon_rb;
+            float input_keys[3] = {0.0f, 0.0f, 0.0f};
+            float height_init = 0.0f;
+            float height_delta = 0.0f;
+            float linear_velocity_input = 100.0f;
+            float linear_velocity = 0.0f;
+            Vector3 angular_velocity_buildup = Vector3(0, 0, 0);
+            void SetMotionLinear(double delta);
+            void SetMotionAngular(double delta);
+    };
 }
+
 #endif // DRAGON_CONTROL_TOP_H

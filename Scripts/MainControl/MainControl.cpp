@@ -6,12 +6,14 @@
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/memory.hpp> // memnew
+#include <godot_cpp/classes/input_event.hpp> 
 #include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/variant/variant.hpp>
 #include <godot_cpp/variant/node_path.hpp>
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/classes/rigid_body3d.hpp>
+#include <godot_cpp/classes/scene_tree.hpp> // for get_tree()
 
 
 using namespace godot;
@@ -80,6 +82,18 @@ void MainControl::_ready()
 
     CameraControl *camera_ctrl = memnew(CameraControl(sub_view));
     dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
+}
+
+/**
+ * @brief called when an input event occurs
+ * @param event the input event
+ */
+void MainControl::_input(const Ref<InputEvent> &event) 
+{
+    if (event->is_action_pressed("ui_cancel")) // can be customized in Project Settings -> Input Map
+    {
+        get_tree()->quit(); // Exit the game when Escape key is pressed
+    }
 }
 
 /**

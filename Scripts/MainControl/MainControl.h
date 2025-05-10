@@ -15,6 +15,7 @@ namespace godot
             MainControl();
             ~MainControl();
             void _ready() override;
+            void _input(const Ref<InputEvent> &event) override;
             void SetValJoystickInput(bool p_val);
             bool GetValJoystickInput() const;
             void SetValSubView(bool p_val);
