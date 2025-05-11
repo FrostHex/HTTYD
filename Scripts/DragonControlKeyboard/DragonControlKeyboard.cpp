@@ -9,7 +9,6 @@ DragonControlKeyboard::DragonControlKeyboard()
 {
     input_singleton = Input::get_singleton();
     set_process_input(true);
-    set_physics_process(true);
 }
 
 /**

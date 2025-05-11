@@ -42,6 +42,14 @@ void DragonControlTop::_ready()
         UtilityFunctions::printerr("DragonControlTop: parent not RigidBody3D");
         return;
     }
+
+    dragon_animator = get_parent()->get_node<DragonAnimator>("DragonAnimator");
+    if (!dragon_animator)
+    {
+        UtilityFunctions::printerr("DragonControlTop: DragonAnimator not found");
+        return;
+    }
+
     dragon_rb->set_gravity_scale(0); // disable gravity
     height_init = dragon_rb->get_global_transform().origin.y;
 }
@@ -87,4 +95,14 @@ void DragonControlTop::SetMotionAngular(double delta)
         angular_velocity_posture -= basis.get_column(2) * tilt * DRAGON_FACTOR_UPSIDE_DOWN;
     }
     dragon_rb->set_angular_velocity(angular_velocity_buildup + angular_velocity_posture);
+
+    if (input_keys[1] > 0.0f)
+    {
+        dragon_animator->SetAnimation("base", "lo_up");
+    }
+    else if (input_keys[1] < 0.0f)
+    {
+        dragon_animator->SetAnimation("base", "po_dive");
+    }
+    
 }

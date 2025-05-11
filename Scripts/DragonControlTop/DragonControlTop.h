@@ -8,6 +8,8 @@
 #define DRAGON_FACTOR_DAMPING 0.965f
 #define DRAGON_FACTOR_UPSIDE_DOWN 1.5f
 
+#include "DragonAnimator.h"
+
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/binder_common.hpp>
@@ -37,6 +39,7 @@ namespace godot
 
         private:
             RigidBody3D *dragon_rb;
+            DragonAnimator* dragon_animator;
             float input_keys[3] = {0.0f, 0.0f, 0.0f};
             float height_init = 0.0f;
             float height_delta = 0.0f;

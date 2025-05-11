@@ -3,9 +3,11 @@
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/classes/node.hpp>
+#include <godot_cpp/classes/scene_tree.hpp>
 #include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/classes/camera3d.hpp>
 #include <godot_cpp/classes/rigid_body3d.hpp>
+#include <godot_cpp/classes/window.hpp>
 
 using namespace godot;
 
@@ -22,6 +24,9 @@ void CameraControl::_bind_methods()
 {
 }
 
+/**
+ * @brief initialize the sub camera if the "Sub View" property is enabled
+ */
 void CameraControl::_ready()
 {
     if (Engine::get_singleton()->is_editor_hint()) // only run when the game is running
@@ -38,6 +43,7 @@ void CameraControl::_ready()
             UtilityFunctions::printerr("CameraControl: Sub Camera3D not found");
             return;
         }
+        camera_sub->set_rotation(Vector3(0, - Math_PI / 2, 0)); // set camera rotation
     } 
     else 
     {
@@ -57,6 +63,9 @@ void CameraControl::_ready()
     }
 }
 
+/**
+ * @brief let the sub camera follow the dragon
+ */
 void CameraControl::_physics_process(double delta) 
 {
     // get attached rigid body (parent node)
@@ -67,11 +76,5 @@ void CameraControl::_physics_process(double delta)
         return;
     }
     
-    // get camera transform
-    Transform3D camera_transform = camera_sub->get_global_transform();
-    
-    // set camera position and rotation based on dragon's position and rotation
-    Vector3 dragon_position = dragon_rb->get_global_transform().origin;
-    camera_transform.origin = dragon_position + Vector3(-8.729f, 1.797f, 0); // offset from dragon's position
-    camera_sub->set_global_transform(camera_transform);
+    camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
 }

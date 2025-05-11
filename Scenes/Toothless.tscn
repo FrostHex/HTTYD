@@ -641,6 +641,12 @@ bones/604/rotation = Quaternion(-4.76837e-07, -1.25574e-14, 1, -2.99391e-21)
 bones/605/position = Vector3(0.258876, -1.64551, 1.07591)
 bones/606/position = Vector3(9.70138e-08, 0.564898, -0.198561)
 
+[node name="eye_L" parent="rig/Skeleton3D" index="3"]
+lod_bias = 100.0
+
+[node name="eye_R" parent="rig/Skeleton3D" index="4"]
+lod_bias = 100.0
+
 [node name="metal" parent="rig/Skeleton3D" index="9"]
 surface_material_override/0 = ExtResource("2_ihx0x")
 

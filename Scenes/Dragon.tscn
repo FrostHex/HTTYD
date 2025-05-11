@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://drg1ol84t4ys1"]
+[gd_scene load_steps=25 format=3 uid="uid://drg1ol84t4ys1"]
 
 [ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Toothless.tscn" id="1_v5fnx"]
 
@@ -9,12 +9,129 @@ height = 13.102
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0snye"]
 radius = 0.6
 
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_v5fnx"]
+input_0/name = "state_0"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "state_1"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "state_2"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+input_3/name = "state_3"
+input_3/auto_advance = false
+input_3/break_loop_at_end = false
+input_3/reset = true
+input_4/name = "state_4"
+input_4/auto_advance = false
+input_4/break_loop_at_end = false
+input_4/reset = true
+input_5/name = "state_5"
+input_5/auto_advance = false
+input_5/break_loop_at_end = false
+input_5/reset = true
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_v5fnx"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_0snye"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_m2uv8"]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v5fnx"]
+animation = &"lo_flap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0snye"]
 animation = &"lo_up"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_guncu"]
+animation = &"po_dive"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x0p8c"]
+animation = &"po_glide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3m5lo"]
+animation = &"po_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l7xes"]
+animation = &"po_right"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v5fnx"]
-states/lo_up/node = SubResource("AnimationNodeAnimation_v5fnx")
-states/lo_up/position = Vector2(505.333, 87.3333)
+states/lo_flap/node = SubResource("AnimationNodeAnimation_v5fnx")
+states/lo_flap/position = Vector2(326.889, 73.6667)
+states/lo_up/node = SubResource("AnimationNodeAnimation_0snye")
+states/lo_up/position = Vector2(326.889, 127.667)
+states/po_dive/node = SubResource("AnimationNodeAnimation_guncu")
+states/po_dive/position = Vector2(326.444, 179.667)
+states/po_glide/node = SubResource("AnimationNodeAnimation_x0p8c")
+states/po_glide/position = Vector2(327.556, 16.3333)
+states/po_left/node = SubResource("AnimationNodeAnimation_3m5lo")
+states/po_left/position = Vector2(460.333, 58.6667)
+states/po_right/node = SubResource("AnimationNodeAnimation_l7xes")
+states/po_right/position = Vector2(460.556, 114)
+graph_offset = Vector2(-27, -80)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sfgdl"]
+animation = &"po_ear_back"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gvrqa"]
+animation = &"po_eye_big"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hqwia"]
+animation = &"po_eye_medium"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_npd0o"]
+animation = &"po_eye_narrow"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2mv4b"]
+animation = &"po_eye_small"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v5fnx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0snye"]
+states/Start/position = Vector2(176, 126.667)
+states/po_eye_big/node = SubResource("AnimationNodeAnimation_gvrqa")
+states/po_eye_big/position = Vector2(348.494, 222.667)
+states/po_eye_medium/node = SubResource("AnimationNodeAnimation_hqwia")
+states/po_eye_medium/position = Vector2(348.084, 155.185)
+states/po_eye_narrow/node = SubResource("AnimationNodeAnimation_npd0o")
+states/po_eye_narrow/position = Vector2(349.2, 29.3337)
+states/po_eye_small/node = SubResource("AnimationNodeAnimation_2mv4b")
+states/po_eye_small/position = Vector2(348.594, 92)
+transitions = ["Start", "po_eye_medium", SubResource("AnimationNodeStateMachineTransition_v5fnx")]
+graph_offset = Vector2(-29, -15)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m2uv8"]
+animation = &"lo_shake"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_guncu"]
+states/lo_shake/node = SubResource("AnimationNodeAnimation_m2uv8")
+states/lo_shake/position = Vector2(366, 100.667)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m2uv8"]
+graph_offset = Vector2(-288.14, -25.6898)
+nodes/Transition/node = SubResource("AnimationNodeTransition_v5fnx")
+nodes/Transition/position = Vector2(573.333, 66.6667)
+nodes/add_1/node = SubResource("AnimationNodeAdd2_v5fnx")
+nodes/add_1/position = Vector2(133.333, 160)
+nodes/add_2/node = SubResource("AnimationNodeAdd2_0snye")
+nodes/add_2/position = Vector2(280, 266.667)
+nodes/add_3/node = SubResource("AnimationNodeAdd2_m2uv8")
+nodes/add_3/position = Vector2(453.333, 413.333)
+nodes/layer_base/node = SubResource("AnimationNodeStateMachine_v5fnx")
+nodes/layer_base/position = Vector2(-133.333, 40)
+nodes/layer_ear/node = SubResource("AnimationNodeAnimation_sfgdl")
+nodes/layer_ear/position = Vector2(-93.3333, 640)
+nodes/layer_eye/node = SubResource("AnimationNodeStateMachine_0snye")
+nodes/layer_eye/position = Vector2(-133.333, 253.333)
+nodes/layer_shake/node = SubResource("AnimationNodeStateMachine_guncu")
+nodes/layer_shake/position = Vector2(-133.333, 440)
+nodes/output/position = Vector2(626.667, 440)
+node_connections = [&"add_1", 0, &"layer_base", &"add_1", 1, &"layer_eye", &"add_2", 0, &"add_1", &"add_2", 1, &"layer_shake", &"add_3", 0, &"add_2", &"add_3", 1, &"layer_ear", &"output", 0, &"add_3"]
 
 [node name="Dragon" type="RigidBody3D"]
 linear_velocity = Vector3(0, 0, 100)
@@ -38,24 +155,30 @@ transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -
 shape = SubResource("CapsuleShape3D_0snye")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_left = 879.0
-offset_top = -72.0
-offset_right = 1151.0
-offset_bottom = 190.0
+offset_left = 784.0
+offset_top = -118.0
+offset_right = 1296.0
+offset_bottom = 394.0
+scale = Vector2(0.725, 0.725)
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(272, 262)
 render_target_update_mode = 4
 
 [node name="CameraSub" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-4.2892e-08, 0.0672661, -0.997735, 2.756e-09, 0.997735, 0.0672661, 1, 1.35418e-10, -4.29803e-08, -8.72889, 1.79735, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.72889, 1.79735, 0)
 current = true
 far = 50000.0
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../Pivot/Toothless")
-tree_root = SubResource("AnimationNodeStateMachine_v5fnx")
-anim_player = NodePath("/root/@EditorNode@21304/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11477/@VSplitContainer@11129/@HSplitContainer@11131/@HSplitContainer@11133/@Control@11134/@SubViewportContainer@11135/@SubViewport@11136/Dragon/Pivot/Toothless/AnimationPlayer")
-
 [node name="DragonAnimator" type="DragonAnimator" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="DragonAnimator"]
+root_node = NodePath("../../Pivot/Toothless")
+tree_root = SubResource("AnimationNodeBlendTree_m2uv8")
+anim_player = NodePath("/root/@EditorNode@21304/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11477/@VSplitContainer@11129/@HSplitContainer@11131/@HSplitContainer@11133/@Control@11134/@SubViewportContainer@11135/@SubViewport@11136/Dragon/Pivot/Toothless/AnimationPlayer")
+parameters/Transition/current_state = ""
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = -1
+parameters/add_1/add_amount = 1.0
+parameters/add_2/add_amount = 1.0
+parameters/add_3/add_amount = 0.8
