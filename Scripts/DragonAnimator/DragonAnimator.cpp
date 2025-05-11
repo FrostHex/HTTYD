@@ -62,35 +62,6 @@ void DragonAnimator::_ready()
  * @param layer the name of the layer
  * @param animation the name of the animation
  */
-void DragonAnimator::SetAnimation(const String &layer, const String &animation, float transition_time) 
-{
-    // auto it = layer_map.find(layer);
-    // if (it != layer_map.end() && it->second) 
-    // {   
-    //     // 获取 AnimationTree
-    //     AnimationTree *anim_tree = get_node<AnimationTree>("AnimationTree");
-    //     if (!anim_tree) {
-    //         UtilityFunctions::printerr("DragonAnimator: AnimationTree not found");
-    //         return;
-    //     }
-    //     // 获取 AnimationNodeStateMachine
-    //     Variant sm_var = anim_tree->get("parameters/" + layer + "/node");
-    //     Ref<AnimationNodeStateMachine> sm = sm_var;
-    //     if (sm.is_valid()) {
-    //         String from_state = it->second->get_current_node();
-    //         String to_state = animation;
-    //         sm->set_transition_duration(from_state, to_state, transition_time);
-    //     } else {
-    //         UtilityFunctions::printerr("DragonAnimator: AnimationNodeStateMachine not found for layer: " + layer);
-    //     }
-    //     it->second->travel(animation);
-    // } 
-    // else 
-    // {
-    //     UtilityFunctions::printerr(String("DragonAnimator: Invalid layer name: ") + layer);
-    // }
-}
-
 void DragonAnimator::SetAnimation(const String &layer, const String &animation) 
 {
     auto it = layer_map.find(layer);
@@ -100,6 +71,6 @@ void DragonAnimator::SetAnimation(const String &layer, const String &animation)
     } 
     else 
     {
-        UtilityFunctions::printerr(String("DragonAnimator: Invalid layer name: ") + layer);
+        UtilityFunctions::printerr(String("DragonAnimator: Invalid layer name: ") + layer); 
     }
 }

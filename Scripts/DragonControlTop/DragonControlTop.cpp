@@ -59,6 +59,7 @@ void DragonControlTop::_physics_process(double delta)
     GetInput(this->input_keys);
     SetMotionLinear(delta);
     SetMotionAngular(delta);
+    SetAnimation();
     // UtilityFunctions::print(delta);
     // UtilityFunctions::print("input_keys: ", input_keys[0], ", ", input_keys[1], ", ", input_keys[2]);
     // UtilityFunctions::print(dragon_rb->get_global_transform().origin.y);
@@ -91,18 +92,39 @@ void DragonControlTop::SetMotionAngular(double delta)
     tilt = basis.get_column(1).dot(Vector3(0,1,0)); // local up vector dot global up vector
     if (tilt < 0.0f) 
     {
-        tilt = tilt < -1.0f ? -1.0f : (tilt > 1.0f ? 1.0f : tilt);
         angular_velocity_posture -= basis.get_column(2) * tilt * DRAGON_FACTOR_UPSIDE_DOWN;
     }
     dragon_rb->set_angular_velocity(angular_velocity_buildup + angular_velocity_posture);
+}
 
-    if (input_keys[1] > 0.0f)
+void DragonControlTop::SetAnimation() 
+{
+    Basis basis = dragon_rb->get_global_transform().basis;
+    float tilt = basis.get_column(0).dot(Vector3(0,1,0)); // local forward vector dot global up vector
+    
+    if (tilt > DRAGON_FACTOR_GLIDE)    
     {
         dragon_animator->SetAnimation("base", "lo_up");
     }
-    else if (input_keys[1] < 0.0f)
+    else if (tilt < -2 * DRAGON_FACTOR_GLIDE)
     {
         dragon_animator->SetAnimation("base", "po_dive");
     }
-    
+    else
+    {
+        if (input_keys[2] > 0.0f)
+        {
+            dragon_animator->SetAnimation("base", "po_right");
+        }
+        else if (input_keys[2] < 0.0f)
+        {
+            dragon_animator->SetAnimation("base", "po_left");
+        }
+        else
+        {
+            dragon_animator->SetAnimation("base", "po_glide");
+        }
+    }
 }
+    
+

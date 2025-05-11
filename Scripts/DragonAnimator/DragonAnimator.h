@@ -18,7 +18,6 @@ namespace godot
             ~DragonAnimator(); // destructor
             void _ready() override;
             void SetAnimation(const String &layer, const String &animation);
-            void SetAnimation(const String &layer, const String &animation, float transition_time);
         
         protected:
             static void _bind_methods();

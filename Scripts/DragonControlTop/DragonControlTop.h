@@ -7,6 +7,7 @@
 #define DRAGON_FACTOR_ROLL 1.08f
 #define DRAGON_FACTOR_DAMPING 0.965f
 #define DRAGON_FACTOR_UPSIDE_DOWN 1.5f
+#define DRAGON_FACTOR_GLIDE 0.3f
 
 #include "DragonAnimator.h"
 
@@ -48,6 +49,7 @@ namespace godot
             Vector3 angular_velocity_buildup = Vector3(0, 0, 0);
             void SetMotionLinear(double delta);
             void SetMotionAngular(double delta);
+            void SetAnimation();
     };
 }
 
