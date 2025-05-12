@@ -104,35 +104,39 @@ void DragonControlTop::SetAnimation()
     
     if (tilt > DRAGON_FACTOR_GLIDE)    
     {
-        dragon_animator->SetAnimation("wing", "lo_up");
-        dragon_animator->SetAnimation("tail", "lo_up");
+        dragon_animator->SetAnimation("wing_main", "lo_up");
     }
     else if (tilt < -2 * DRAGON_FACTOR_GLIDE)
     {
-        dragon_animator->SetAnimation("wing", "po_dive");
+        dragon_animator->SetAnimation("wing_main", "po_dive");
     }
     else
     {
         if (input_keys[2] > 0.0f)
         {
-            dragon_animator->SetAnimation("wing", "po_right");
+            dragon_animator->SetAnimation("wing_main", "po_right");
         }
         else if (input_keys[2] < 0.0f)
         {
-            dragon_animator->SetAnimation("wing", "po_left");
+            dragon_animator->SetAnimation("wing_main", "po_left");
         }
         else
         {
-            dragon_animator->SetAnimation("wing", "po_glide");
+            dragon_animator->SetAnimation("wing_main", "po_glide");
         }
     }
+
     if (input_keys[2] > 0.0f)
     {
-        dragon_animator->SetAnimation("tail", "po_right");
+        dragon_animator->SetAnimation("wing_tail", "po_right");
     }
     else if (input_keys[2] < 0.0f)
     {
-        dragon_animator->SetAnimation("tail", "po_left");
+        dragon_animator->SetAnimation("wing_tail", "po_left");
+    }
+    else
+    {
+        dragon_animator->SetAnimation("wing_tail", "po_glide");
     }
 }
     
