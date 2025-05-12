@@ -45,14 +45,14 @@ void DragonAnimator::_ready()
     anim_tree->set_animation_player(anim_player->get_path()); // Assign the animation player to our AnimationTree member via its NodePath
 
     // get the AnimationNodeStateMachinePlayback nodes from the AnimationTree
-    layer_map["base"]  = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_base/playback"));
-    layer_map["eye"]   = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_eye/playback"));
+    layer_map["wing_main"]  = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_wing_main/playback"));
+    layer_map["tail"]  = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_tail/playback"));
+    layer_map["eye_shape"]   = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_eye_shape/playback"));
     layer_map["shake"] = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_shake/playback"));
 
     if (!Engine::get_singleton()->is_editor_hint()) // when the game is running
     {
-        SetAnimation("base", "po_glide");
-        SetAnimation("eye", "po_eye_medium");
+        SetAnimation("eye_shape", "po_eye_medium");
         SetAnimation("shake", "lo_shake");
     }
 }
