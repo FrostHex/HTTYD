@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bkpvcqlc8hgvs"]
+
+[ext_resource type="Texture2D" uid="uid://cgtwwwjstkkj5" path="res://Environment/Rocks/Rock_1_Albedo.png" id="1_00efc"]
+[ext_resource type="Texture2D" uid="uid://d1o72wsriwefg" path="res://Environment/Rocks/Rock_1_Normal.png" id="2_0ujvs"]
+[ext_resource type="Texture2D" uid="uid://ch64o3pvbuus6" path="res://Environment/Rocks/Rock_1_Mask.tga" id="2_rl2x6"]
+
+[resource]
+albedo_texture = ExtResource("1_00efc")
+roughness = 0.75
+normal_enabled = true
+normal_texture = ExtResource("2_0ujvs")
+ao_enabled = true
+ao_light_affect = 0.5
+ao_texture = ExtResource("2_rl2x6")
+ao_texture_channel = 1

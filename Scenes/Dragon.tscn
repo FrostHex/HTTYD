@@ -207,7 +207,7 @@ animation = &"po_eyelid_close_down"
 animation = &"po_eyelid_close_up"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m2uv8"]
-graph_offset = Vector2(-836.188, -264.117)
+graph_offset = Vector2(-199.076, 45.0562)
 nodes/add_ear/node = SubResource("AnimationNodeAdd2_m2uv8")
 nodes/add_ear/position = Vector2(133.333, 226.667)
 nodes/add_eyelid/node = SubResource("AnimationNodeAdd2_v5fnx")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlolbj7a40xmc"]
+
+[ext_resource type="PackedScene" uid="uid://drjpiebf70myg" path="res://Environment/Rocks/Rock_C.fbx" id="1_8bxsm"]
+[ext_resource type="Material" uid="uid://bocwqtb3gi8dn" path="res://Environment/Rocks/Rock_0.tres" id="2_nwg7q"]
+
+[node name="Rock_C" instance=ExtResource("1_8bxsm")]
+
+[node name="Rock_C" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+material_override = ExtResource("2_nwg7q")
