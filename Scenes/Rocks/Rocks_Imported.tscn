@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvjigyxbtcxbu"]
+
+[ext_resource type="PackedScene" uid="uid://p87m3rkkryn1" path="res://Environment/Rocks/Imported/Rocks.glb" id="1_ypbna"]
+
+[node name="Rocks2" instance=ExtResource("1_ypbna")]

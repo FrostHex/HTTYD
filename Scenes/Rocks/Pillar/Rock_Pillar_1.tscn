@@ -6,22 +6,24 @@
 [node name="Rock_Pillar_1" type="Node3D"]
 
 [node name="Rock_C" parent="." instance=ExtResource("1_gk6pu")]
-transform = Transform3D(8.91172e-07, -3.38624e-07, -7, -10.4681, 0.367476, -6.11959e-07, 0.548611, 7.01185, -3.0598e-07, 1.092, 1.124, -0.042)
+transform = Transform3D(0, 0, 7, -10.476, -0.549027, 0, 0.366855, -6.99998, 0, 1.092, 1.1235, -0.0419999)
 
 [node name="Rock_C2" parent="." instance=ExtResource("1_gk6pu")]
-transform = Transform3D(2.39978e-08, 3.05997e-07, -7, -10.4756, 0.366875, 0, -0.549004, -7.00039, -3.0598e-07, 1.204, 1.124, 0.742)
+transform = Transform3D(0, 0, 7, -10.476, -0.549027, 0, -0.366855, 6.99998, 0, 1.204, 1.1235, 0.742)
 
 [node name="Rock_C3" parent="." instance=ExtResource("1_gk6pu")]
-transform = Transform3D(-3.67176e-07, -5.6, 0, 8.4, -2.44784e-07, 0, 0, 0, 5.6, 3.059, -0.388, 0.35)
+transform = Transform3D(0, -5.6, 0, 8.4, 0, 0, 0, 0, 5.6, 3.059, -0.3885, 0.35)
 
 [node name="Rock_C4" parent="." instance=ExtResource("1_gk6pu")]
-transform = Transform3D(0.579035, 7.38333, -2.18692, 11.5232, -0.403562, -1.91186e-07, -0.171518, -2.18704, -7.38291, 1.24345, 8.386, -0.19384)
+transform = Transform3D(-0.386415, 7.37328, 2.18528, 11.5236, 0.603925, 0, -0.114525, 2.18527, -7.39351, 1.379, 8.386, -0.021)
 
 [node name="Rock_C5" parent="." instance=ExtResource("1_gk6pu")]
-transform = Transform3D(-0.665195, -8.31682, -1.22824, 12.5824, -0.440608, -0.0586983, 0.00943164, 1.23123, -8.3176, 2.101, 8.318, -0.482)
+transform = Transform3D(-0.421941, 8.30707, 1.22774, 12.5827, 0.652849, -0.0929315, 0.125046, -1.22455, 8.32849, 2.10103, 8.3181, -0.4825)
 
 [node name="Rock_A" parent="." instance=ExtResource("3_o8lbx")]
-transform = Transform3D(0.0959706, -3.49404, 2.37101, -5.33944, 0.595828, 0.987677, -1.5185, -2.31591, -3.32307, 2.79071, 10.5563, -0.331762)
+transform = Transform3D(0.0347646, -3.64366, -2.08866, -5.34781, 0.70313, -1.31562, 1.13698, 2.0363, -3.53339, 2.891, 10.5, -0.231)
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="TransformApplier" type="TransformApplier" parent="."]
