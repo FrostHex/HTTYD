@@ -1,5 +1,6 @@
 #include "MainControl.h"
 #include "DragonControlKeyboard.h"
+#include "DragonControlJoystick.h"
 #include "DragonAnimator.h"
 #include "CameraControl.h"
 
@@ -72,17 +73,22 @@ void MainControl::_ready()
         UtilityFunctions::printerr("Could not find Dragon node");
     }
 
-    DragonControlKeyboard *keyboard = nullptr;
+    DragonControlTop *dragon_control = nullptr;
 
-    if (!joystick_input) 
+    if (joystick_input) 
     {
         // memnew is "new" in Godot C++, which dynamically allocates memory for the object
         // memnew() creates an instance of DragonControlKeyboard and returns a pointer to it
-        keyboard = memnew(DragonControlKeyboard);
-        dragon_node->add_child(dynamic_cast<Node*>(keyboard));
+        dragon_control = memnew(DragonControlJoystick);
+        dragon_node->add_child(dynamic_cast<Node*>(dragon_control)); // add the dragon control to the dragon node
+    }
+    else
+    {
+        dragon_control = memnew(DragonControlKeyboard);
+        dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
     }
 
-    CameraControl *camera_ctrl = memnew(CameraControl(sub_view, keyboard));
+    CameraControl *camera_ctrl = memnew(CameraControl(sub_view, dragon_control));
     dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
 }
 
@@ -157,6 +163,7 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
             godot::ClassDB::register_class<MainControl>();
             godot::ClassDB::register_abstract_class<DragonControlTop>();
             godot::ClassDB::register_class<DragonControlKeyboard>();
+            godot::ClassDB::register_class<DragonControlJoystick>();
             godot::ClassDB::register_class<DragonAnimator>();
             godot::ClassDB::register_class<CameraControl>();
         }

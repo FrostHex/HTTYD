@@ -5,22 +5,22 @@ using namespace godot;
 /**
  * @brief constructor
  */
-DragonJoystick::DragonJoystick() 
+DragonControlJoystick::DragonControlJoystick() 
 {
 }
 
 /**
  * @brief destructor
  */
-DragonJoystick::~DragonJoystick() 
+DragonControlJoystick::~DragonControlJoystick() 
 {
 }
 
-void DragonJoystick::GetInput(float* input_keys) 
+void DragonControlJoystick::GetInput(float* input_keys) 
 {
     // TODO
 }
 
-void DragonJoystick::_bind_methods() 
+void DragonControlJoystick::_bind_methods() 
 {
 }

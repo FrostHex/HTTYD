@@ -11,7 +11,7 @@
 
 using namespace godot;
 
-CameraControl::CameraControl(bool sub_view, DragonControlKeyboard* dragon_control) 
+CameraControl::CameraControl(bool sub_view, DragonControlTop* dragon_control) 
 {
     this->sub_view = sub_view;
     this->dragon_control = dragon_control;

@@ -63,3 +63,4 @@ material = ExtResource("5_v1gob")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.864, 1000, -2784.87)
 
 [node name="MainControl" type="MainControl" parent="."]
+"Joystick Input" = true

@@ -15,7 +15,7 @@ namespace godot
         GDCLASS(CameraControl, Node);
 
         public:
-            CameraControl(bool sub_view = true, DragonControlKeyboard* dragon_control = nullptr);  // constructor，支持无参调用
+            CameraControl(bool sub_view = true, DragonControlTop* dragon_control = nullptr);  // constructor，支持无参调用
             ~CameraControl(); // destructor
             void _ready();
             void _physics_process(double delta) override;
@@ -27,7 +27,7 @@ namespace godot
             bool sub_view = true; // 是否使用子视图
             Camera3D *camera_sub = nullptr;
             Label* label_info = nullptr;
-            DragonControlKeyboard* dragon_control = nullptr;
+            DragonControlTop* dragon_control = nullptr;
     };
 }
 

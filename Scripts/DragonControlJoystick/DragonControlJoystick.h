@@ -5,13 +5,13 @@
 
 namespace godot 
 {
-    class DragonJoystick : public DragonControlTop // extends the Node class
+    class DragonControlJoystick : public DragonControlTop // extends the Node class
     {
-        GDCLASS(DragonJoystick, DragonControlTop);
+        GDCLASS(DragonControlJoystick, DragonControlTop);
 
         public:            
-            DragonJoystick();  // constructor
-            ~DragonJoystick(); // destructor
+            DragonControlJoystick();  // constructor
+            ~DragonControlJoystick(); // destructor
             void GetInput(float* input_keys) override;
 
         protected:
