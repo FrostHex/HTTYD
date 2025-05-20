@@ -38,6 +38,10 @@ project/assembly_name="HTTYD"
 
 enabled=PackedStringArray()
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 toggle_fullscreen={
@@ -82,3 +86,8 @@ num_cascades={
 "type": "uint",
 "value": 3
 }
+
+[xr]
+
+openxr/enabled=true
+shaders/enabled=true
