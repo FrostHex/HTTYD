@@ -11,9 +11,10 @@
 
 using namespace godot;
 
-CameraControl::CameraControl(bool sub_view)
+CameraControl::CameraControl(bool sub_view, DragonControlKeyboard* dragon_control) 
 {
     this->sub_view = sub_view;
+    this->dragon_control = dragon_control;
 }
 
 CameraControl::~CameraControl() 
@@ -36,7 +37,6 @@ void CameraControl::_ready()
 
     if (this->sub_view) 
     {
-        set_physics_process(true);
         camera_sub = get_parent()->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<Camera3D>("CameraSub");
         if (!camera_sub) 
         {
@@ -44,6 +44,20 @@ void CameraControl::_ready()
             return;
         }
         camera_sub->set_rotation(Vector3(0, - Math_PI / 2, 0)); // set camera rotation
+    
+        label_info = get_parent()->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<Label>("Info");
+        if (!label_info) 
+        {
+            UtilityFunctions::printerr("CameraControl: Label not found");
+            return;
+        }
+
+        if (!dragon_control) 
+        {
+            UtilityFunctions::printerr("CameraControl: DragonControlKeyboard not found");
+            return;
+        }
+        set_physics_process(true);
     } 
     else 
     {
@@ -77,4 +91,8 @@ void CameraControl::_physics_process(double delta)
     }
     
     camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
+
+
+    String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1);
+    label_info->set_text(velocity_text);
 }

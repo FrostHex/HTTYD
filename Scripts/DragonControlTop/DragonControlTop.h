@@ -29,9 +29,11 @@ namespace godot
             ~DragonControlTop();
             void _ready();
             void _physics_process(double delta) override; // override the _physics_process function from Node class
+            float GetLinearVelocity();  
 
         protected:
             static void _bind_methods();
+            void _on_body_entered(Node* body);
             // virtual: this function can be overridden in derived classes
             // =0: pure virtual function, which must be implemented in derived classes
             // the class containing pure virtual functions is an abstract class

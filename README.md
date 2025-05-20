@@ -15,8 +15,14 @@ git clone -b godot-cpp-compiled --depth 1  https://github.com/FrostHex/HTTYD tem
 
 ## Build New Code
 ```bash
-cd Scripts
-scons platform=windows use_mingw=yes bits=64
+cd Scripts/build
+scons platform=windows use_mingw=yes bits=64 target=release -j4
+```
+
+## Clean Old Code
+```bash
+cd Scripts/build
+scons -c platform=windows use_mingw=yes bits=64 target=release
 ```
 
 ## Build New Godot-cpp

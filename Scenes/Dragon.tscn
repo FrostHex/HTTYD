@@ -7,7 +7,7 @@ radius = 0.1
 height = 13.102
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0snye"]
-radius = 0.6
+radius = 0.58
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_m2uv8"]
 
@@ -242,6 +242,8 @@ nodes/po_eyelid_close_up/position = Vector2(-893.333, 306.667)
 node_connections = [&"add_ear", 0, &"add_shake", &"add_ear", 1, &"po_ear_back", &"add_eyelid", 0, &"add_wing_tail", &"add_eyelid", 1, &"add_eyelid_down", &"add_eyelid_down", 0, &"add_eyelid_up", &"add_eyelid_down", 1, &"po_eyelid_close_down", &"add_eyelid_up", 0, &"po_default", &"add_eyelid_up", 1, &"po_eyelid_close_up", &"add_shake", 0, &"add_eyelid", &"add_shake", 1, &"layer_shake", &"add_wing_main", 0, &"layer_eye_shape", &"add_wing_main", 1, &"layer_wing_main", &"add_wing_tail", 0, &"add_wing_main", &"add_wing_tail", 1, &"layer_wing_tail", &"output", 0, &"add_ear"]
 
 [node name="Dragon" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 4
 linear_velocity = Vector3(0, 0, 100)
 
 [node name="Pivot" type="Node3D" parent="."]
@@ -259,7 +261,7 @@ transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114
 shape = SubResource("CapsuleShape3D_v5fnx")
 
 [node name="Collision_Shape_Head" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 1.002, -0.037, 0)
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0.985505, -0.037, 0)
 shape = SubResource("CapsuleShape3D_0snye")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -277,6 +279,14 @@ render_target_update_mode = 4
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.72889, 1.79735, 0)
 current = true
 far = 50000.0
+
+[node name="Info" type="Label" parent="SubViewportContainer/SubViewport"]
+offset_left = 6.89655
+offset_top = 166.897
+offset_right = 46.8965
+offset_bottom = 189.897
+scale = Vector2(1.43606, 1.43606)
+text = "Info"
 
 [node name="DragonAnimator" type="DragonAnimator" parent="."]
 

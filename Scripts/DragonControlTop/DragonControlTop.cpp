@@ -27,6 +27,7 @@ DragonControlTop::~DragonControlTop()
  */
 void DragonControlTop::_bind_methods()
 {
+    ClassDB::bind_method(D_METHOD("_on_body_entered", "body"), &DragonControlTop::_on_body_entered);
 }
 
 void DragonControlTop::_ready() 
@@ -52,6 +53,10 @@ void DragonControlTop::_ready()
 
     dragon_rb->set_gravity_scale(0); // disable gravity
     height_init = dragon_rb->get_global_transform().origin.y;
+
+    dragon_rb->set_contact_monitor(true); // enable contact monitoring and reporting
+    dragon_rb->set_max_contacts_reported(1); // set the maximum number of contacts reported to 1
+    dragon_rb->connect("body_entered", Callable(this, "_on_body_entered")); // connect the signal to the function
 }
 
 void DragonControlTop::_physics_process(double delta) 
@@ -140,4 +145,12 @@ void DragonControlTop::SetAnimation()
     }
 }
     
+float DragonControlTop::GetLinearVelocity()
+{
+    return linear_velocity;
+}
 
+void DragonControlTop::_on_body_entered(Node* body)
+{
+    UtilityFunctions::print("COLLISION DETECTED with: ", body->get_name(), " at velocity: ", linear_velocity);
+}

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bcw5plagb6daq"]
+
+[ext_resource type="Shader" uid="uid://bav6nl08a3may" path="res://Environment/Fog/volumetric_fog.gdshader" id="1_2rwxh"]
+
+[resource]
+shader = ExtResource("1_2rwxh")
+shader_parameter/base_density = 0.004
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/fade_out_height = 1000.0
+shader_parameter/fade_out_distance = 1.5

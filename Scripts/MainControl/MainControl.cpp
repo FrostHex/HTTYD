@@ -72,15 +72,17 @@ void MainControl::_ready()
         UtilityFunctions::printerr("Could not find Dragon node");
     }
 
+    DragonControlKeyboard *keyboard = nullptr;
+
     if (!joystick_input) 
     {
         // memnew is "new" in Godot C++, which dynamically allocates memory for the object
         // memnew() creates an instance of DragonControlKeyboard and returns a pointer to it
-        DragonControlKeyboard *keyboard = memnew(DragonControlKeyboard);
+        keyboard = memnew(DragonControlKeyboard);
         dragon_node->add_child(dynamic_cast<Node*>(keyboard));
     }
 
-    CameraControl *camera_ctrl = memnew(CameraControl(sub_view));
+    CameraControl *camera_ctrl = memnew(CameraControl(sub_view, keyboard));
     dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
 }
 
