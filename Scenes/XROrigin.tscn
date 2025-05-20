@@ -3,6 +3,7 @@
 [node name="XROrigin3D" type="XROrigin3D"]
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
+far = 10000.0
 
 [node name="LeftHand" type="XRController3D" parent="."]
 tracker = &"left_hand"

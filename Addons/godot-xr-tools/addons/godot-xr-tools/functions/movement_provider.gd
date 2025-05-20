@@ -1,5 +1,5 @@
 @tool
-@icon("res://addons/godot-xr-tools/editor/icons/movement_provider.svg")
+@icon("res://Addons/godot-xr-tools/addons/godot-xr-tools/editor/icons/movement_provider.svg")
 class_name XRToolsMovementProvider
 extends Node
 
@@ -16,7 +16,7 @@ extends Node
 
 
 ## Player body scene
-const PLAYER_BODY := preload("res://addons/godot-xr-tools/player/player_body.tscn")
+const PLAYER_BODY := preload("res://Addons/godot-xr-tools/addons/godot-xr-tools/player/player_body.tscn")
 
 
 ## Enable movement provider

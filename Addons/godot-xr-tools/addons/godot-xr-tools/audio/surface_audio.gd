@@ -1,5 +1,5 @@
 @tool
-@icon("res://addons/godot-xr-tools/editor/icons/foot.svg")
+@icon("res://Addons/godot-xr-tools/addons/godot-xr-tools/editor/icons/foot.svg")
 class_name XRToolsSurfaceAudio
 extends Node
 

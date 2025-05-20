@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bk72wfw25ff0v"]
 
-[ext_resource type="Shader" path="res://addons/godot-xr-tools/materials/teleport.gdshader" id="1"]
-[ext_resource type="Texture2D" uid="uid://ddoj6c345cb0c" path="res://addons/godot-xr-tools/images/teleport_arrow.png" id="2"]
+[ext_resource type="Shader" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/materials/teleport.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://ddoj6c345cb0c" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/images/teleport_arrow.png" id="2"]
 
 [resource]
 render_priority = 0

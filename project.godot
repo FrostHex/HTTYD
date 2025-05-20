@@ -14,6 +14,11 @@ config/name="HTTYD"
 run/main_scene="uid://bftovvm0selct"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
+[autoload]
+
+XRToolsUserSettings="*res://Addons/godot-xr-tools/addons/godot-xr-tools/user_settings/user_settings.gd"
+XRToolsRumbleManager="*res://Addons/godot-xr-tools/addons/godot-xr-tools/rumble/rumble_manager.gd"
+
 [debug]
 
 gdscript/warnings/unused_parameter=0
@@ -36,7 +41,7 @@ project/assembly_name="HTTYD"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/godot-xr-tools/addons/godot-xr-tools/plugin.cfg")
 
 [filesystem]
 

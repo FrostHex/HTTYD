@@ -147,7 +147,7 @@ func _ready():
 		_palm_collision_shape = CollisionShape3D.new()
 		_palm_collision_shape.name = "Palm"
 		_palm_collision_shape.shape = \
-			preload("res://addons/godot-xr-tools/hands/scenes/collision/hand_palm.shape")
+			preload("res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/collision/hand_palm.shape")
 		_palm_collision_shape.transform.origin = Vector3(0.0, -0.05, 0.11)
 		add_child(_palm_collision_shape, false, Node.INTERNAL_MODE_BACK)
 	elif not Engine.is_editor_hint():
@@ -436,7 +436,7 @@ func _on_skeleton_updated():
 				collision_node = CollisionShape3D.new()
 				collision_node.name = bone_name
 				collision_node.shape = \
-					preload("res://addons/godot-xr-tools/hands/scenes/collision/hand_digit.shape")
+					preload("res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/collision/hand_digit.shape")
 				add_child(collision_node, false, Node.INTERNAL_MODE_BACK)
 				_digit_collision_shapes[bone_name] = collision_node
 

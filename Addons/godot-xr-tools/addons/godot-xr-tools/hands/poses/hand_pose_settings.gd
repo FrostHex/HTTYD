@@ -1,5 +1,5 @@
 @tool
-@icon("res://addons/godot-xr-tools/editor/icons/hand.svg")
+@icon("res://Addons/godot-xr-tools/addons/godot-xr-tools/editor/icons/hand.svg")
 class_name XRToolsHandPoseSettings
 extends Resource
 

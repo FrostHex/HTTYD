@@ -1,6 +1,7 @@
-[gd_scene load_steps=61 format=3 uid="uid://drg1ol84t4ys1"]
+[gd_scene load_steps=62 format=3 uid="uid://drg1ol84t4ys1"]
 
 [ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Toothless.tscn" id="1_v5fnx"]
+[ext_resource type="PackedScene" uid="uid://cf0b61k2ffhex" path="res://Scenes/XROrigin.tscn" id="2_0snye"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v5fnx"]
 radius = 0.1
@@ -256,6 +257,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.411,
 current = true
 far = 50000.0
 
+[node name="XROrigin3D" parent="Pivot" instance=ExtResource("2_0snye")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.411, 0, 0)
+
 [node name="Collision_Shape_Wing" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.536, 0.395, 0)
 shape = SubResource("CapsuleShape3D_v5fnx")
@@ -293,7 +297,7 @@ text = "Info"
 [node name="AnimationTree" type="AnimationTree" parent="DragonAnimator"]
 root_node = NodePath("../../Pivot/Toothless")
 tree_root = SubResource("AnimationNodeBlendTree_m2uv8")
-anim_player = NodePath("/root/@EditorNode@21304/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11477/@VSplitContainer@11129/@HSplitContainer@11131/@HSplitContainer@11133/@Control@11134/@SubViewportContainer@11135/@SubViewport@11136/Dragon/Pivot/Toothless/AnimationPlayer")
+anim_player = NodePath("/root/@EditorNode@21337/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11477/@VSplitContainer@11129/@HSplitContainer@11131/@HSplitContainer@11133/@Control@11134/@SubViewportContainer@11135/@SubViewport@11136/Dragon/Pivot/Toothless/AnimationPlayer")
 parameters/add_ear/add_amount = 0.8
 parameters/add_eyelid/add_amount = 1.0
 parameters/add_eyelid_down/add_amount = 0.3

@@ -1,5 +1,5 @@
 @tool
-@icon("res://addons/godot-xr-tools/editor/icons/function.svg")
+@icon("res://Addons/godot-xr-tools/addons/godot-xr-tools/editor/icons/function.svg")
 class_name XRToolsFunctionTeleport
 extends Node3D
 
@@ -17,7 +17,7 @@ const DEFAULT_MASK := 0b1111_1111_1111_1111_1111_1111_1111_1111
 
 # Default material
 # gdlint:ignore = load-constant-name
-const _DefaultMaterial := preload("res://addons/godot-xr-tools/materials/capsule.tres")
+const _DefaultMaterial := preload("res://Addons/godot-xr-tools/addons/godot-xr-tools/materials/capsule.tres")
 
 
 ## If true, teleporting is enabled
@@ -46,12 +46,12 @@ const _DefaultMaterial := preload("res://addons/godot-xr-tools/materials/capsule
 
 ## Teleport texture
 @export var arc_texture : Texture2D \
-	= preload("res://addons/godot-xr-tools/images/teleport_arrow.png") \
+	= preload("res://Addons/godot-xr-tools/addons/godot-xr-tools/images/teleport_arrow.png") \
 	: set = set_arc_texture
 
 ## Target texture
 @export var target_texture : Texture2D \
-	= preload("res://addons/godot-xr-tools/images/teleport_target.png") \
+	= preload("res://Addons/godot-xr-tools/addons/godot-xr-tools/images/teleport_target.png") \
 	: set = set_target_texture
 
 # Player Group

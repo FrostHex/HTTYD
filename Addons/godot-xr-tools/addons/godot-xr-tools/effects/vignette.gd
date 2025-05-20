@@ -13,7 +13,7 @@ extends Node3D
 @export var auto_rotation_limit : float = 20.0: set = set_auto_rotation_limit
 @export var auto_velocity_limit : float = 10.0
 
-var material : ShaderMaterial = preload("res://addons/godot-xr-tools/effects/vignette.tres")
+var material : ShaderMaterial = preload("res://Addons/godot-xr-tools/addons/godot-xr-tools/effects/vignette.tres")
 
 var auto_first = true
 var fade_delay = 0.0

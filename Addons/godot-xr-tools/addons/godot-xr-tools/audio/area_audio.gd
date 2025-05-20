@@ -1,5 +1,5 @@
 @tool
-@icon("res://addons/godot-xr-tools/editor/icons/audio.svg")
+@icon("res://Addons/godot-xr-tools/addons/godot-xr-tools/editor/icons/audio.svg")
 class_name XRToolsAreaAudio
 extends AudioStreamPlayer3D
 

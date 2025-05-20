@@ -1,5 +1,5 @@
 @tool
-@icon("res://addons/godot-xr-tools/editor/icons/function.svg")
+@icon("res://Addons/godot-xr-tools/addons/godot-xr-tools/editor/icons/function.svg")
 class_name XRToolsDesktopControlerHider
 extends Node
 

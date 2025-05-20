@@ -31,10 +31,10 @@ enum PreviewMode {
 
 
 ## Left hand scene path (for editor preview)
-const LEFT_HAND_PATH := "res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn"
+const LEFT_HAND_PATH := "res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn"
 
 ## Right hand scene path (for editor preview)
-const RIGHT_HAND_PATH := "res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn"
+const RIGHT_HAND_PATH := "res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn"
 
 
 ## Grab-point handle

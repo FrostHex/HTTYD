@@ -1,5 +1,5 @@
 @tool
-@icon("res://addons/godot-xr-tools/editor/icons/body.svg")
+@icon("res://Addons/godot-xr-tools/addons/godot-xr-tools/editor/icons/body.svg")
 class_name XRToolsPlayerBody
 extends CharacterBody3D
 
