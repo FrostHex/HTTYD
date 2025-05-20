@@ -97,7 +97,13 @@ void DragonControlTop::SetMotionAngular(double delta)
     tilt = basis.get_column(1).dot(Vector3(0,1,0)); // local up vector dot global up vector
     if (tilt < 0.0f) 
     {
-        angular_velocity_posture -= basis.get_column(2) * tilt * DRAGON_FACTOR_UPSIDE_DOWN;
+        Vector3 axis = basis.get_column(2); // local right vector
+        axis.y = 0.0f; // project to xz plane
+        if (axis.length() > 0.0f) 
+        {
+            axis = axis.normalized();
+        }
+        angular_velocity_posture -= axis * std::asin(tilt) * DRAGON_FACTOR_UPSIDE_DOWN;
     }
     dragon_rb->set_angular_velocity(angular_velocity_buildup + angular_velocity_posture);
 }
