@@ -12,6 +12,7 @@ namespace godot
         public:            
             DragonControlJoystick();  // constructor
             ~DragonControlJoystick(); // destructor
+            void _ready() override;
             void GetInput(float* input_keys) override;
 
         protected:

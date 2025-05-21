@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://bftovvm0selct"]
+[gd_scene load_steps=10 format=3 uid="uid://bftovvm0selct"]
 
-[ext_resource type="Script" uid="uid://xu4cqovsskip" path="res://Environment/XR/main.gd" id="1_50glp"]
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://dx4r13gqfh13" path="res://Scenes/Ocean.tscn" id="2_idj7w"]
 [ext_resource type="Texture2D" uid="uid://cnft723bala47" path="res://Environment/Ocean/assets/skybox.png" id="3_kln2b"]
@@ -36,7 +35,6 @@ adjustment_contrast = 1.07
 adjustment_saturation = 1.5
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_50glp")
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pbw6q")
@@ -65,3 +63,4 @@ material = ExtResource("5_v1gob")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.864, 1000, -2784.87)
 
 [node name="MainControl" type="MainControl" parent="."]
+"Joystick Input" = true

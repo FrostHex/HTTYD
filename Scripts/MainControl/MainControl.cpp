@@ -15,6 +15,7 @@
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/classes/rigid_body3d.hpp>
 #include <godot_cpp/classes/scene_tree.hpp> // for get_tree()
+#include <godot_cpp/classes/project_settings.hpp>
 
 
 using namespace godot;
@@ -64,6 +65,7 @@ void MainControl::_ready()
 {
     if (Engine::get_singleton()->is_editor_hint()) // only run when the game is running
     {
+        SetValJoystickInput(GetValJoystickInput());
         return;
     }
 
@@ -111,6 +113,17 @@ void MainControl::_input(const Ref<InputEvent> &event)
 void MainControl::SetValJoystickInput(bool val)
 {
     joystick_input = val;
+
+    bool current_xr_enabled = ProjectSettings::get_singleton()->get_setting("xr/openxr/enabled");
+    if (current_xr_enabled != val) 
+    {
+        ProjectSettings::get_singleton()->set_setting("xr/openxr/enabled", val);
+        Error err = ProjectSettings::get_singleton()->save(); // save the settings to project.godot file
+        if (err != OK) 
+        {
+            UtilityFunctions::printerr("Failed to save project settings: ", err);
+        }
+    }
 }
 
 /**
