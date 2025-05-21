@@ -10,18 +10,27 @@
 
 using namespace godot;
 
-// Implement constructor and destructor
+
+/**
+ * @brief constructor
+ */
 DragonAnimator::DragonAnimator() 
 {
 }
 
+
+/**
+ * @brief destructor
+ */
 DragonAnimator::~DragonAnimator()
 {
 }
 
+
 void DragonAnimator::_bind_methods() 
 {
 }
+
 
 /**
  * @brief get animation references, define the layer map, and set the default animation
@@ -55,6 +64,7 @@ void DragonAnimator::_ready()
         SetAnimation("shake", "lo_shake");
     }
 }
+
 
 /**
  * @brief set the animation for the specified layer

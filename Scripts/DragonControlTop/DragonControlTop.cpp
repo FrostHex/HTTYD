@@ -11,14 +11,23 @@
 
 using namespace godot;
 
+
+/**
+ * @brief constructor
+ */
 DragonControlTop::DragonControlTop() 
 {
     set_physics_process(true);
 }
 
+
+/**
+ * @brief destructor
+ */
 DragonControlTop::~DragonControlTop() 
 {
 }
+
 
 /**
  * @brief bind methods and properties to the Godot engine
@@ -30,6 +39,11 @@ void DragonControlTop::_bind_methods()
     ClassDB::bind_method(D_METHOD("_on_body_entered", "body"), &DragonControlTop::_on_body_entered);
 }
 
+
+/**
+ * @brief get rigid body and animator node, set up initial properties, and enable contact monitoring
+ * @note called when the node and its children are initialized
+ */
 void DragonControlTop::_ready() 
 {
     if (Engine::get_singleton()->is_editor_hint()) // only run when the game is running
@@ -59,6 +73,11 @@ void DragonControlTop::_ready()
     dragon_rb->connect("body_entered", Callable(this, "_on_body_entered")); // connect the signal to the function
 }
 
+
+/**
+ * @brief called every physics frame
+ * @param delta time since last frame
+ */
 void DragonControlTop::_physics_process(double delta) 
 {
     GetInput(this->input_keys);
@@ -71,6 +90,12 @@ void DragonControlTop::_physics_process(double delta)
     // UtilityFunctions::print("linear_velocity: ", linear_velocity);
 }
 
+
+/**
+ * @brief set linear velocity based on input keys and height difference
+ * @param delta time since last frame
+ * @note the minimum linear velocity is 3.0f
+ */
 void DragonControlTop::SetMotionLinear(double delta) 
 {
     linear_velocity_input += this->input_keys[0] * DRAGON_FACTOR_LINEAR * delta;
@@ -85,6 +110,13 @@ void DragonControlTop::SetMotionLinear(double delta)
     dragon_rb->set_linear_velocity(fwd * linear_velocity);
 }
 
+
+/**
+ * @brief set angular velocity based on input keys and dragon posture
+ * @param delta time since last frame
+ * @note roll and yaw are coupled
+ * @note when flying upside down, the dragon will tend to point its head towards the ground
+ */
 void DragonControlTop::SetMotionAngular(double delta) 
 {
     Basis basis = dragon_rb->get_global_transform().basis;
@@ -108,6 +140,10 @@ void DragonControlTop::SetMotionAngular(double delta)
     dragon_rb->set_angular_velocity(angular_velocity_buildup + angular_velocity_posture);
 }
 
+
+/**
+ * @brief set animation based on dragon posture and input keys
+ */
 void DragonControlTop::SetAnimation() 
 {
     Basis basis = dragon_rb->get_global_transform().basis;
@@ -150,12 +186,23 @@ void DragonControlTop::SetAnimation()
         dragon_animator->SetAnimation("wing_tail", "po_glide");
     }
 }
-    
+
+
+/**
+ * @brief the getter for linear velocity
+ * @return the linear velocity of the dragon
+ */
 float DragonControlTop::GetLinearVelocity()
 {
     return linear_velocity;
 }
 
+
+/**
+ * @brief the function to be called when a body enters the dragon's collision shape
+ * @param body the body that entered the collision shape
+ * @note this function is connected to the signal "body_entered" of the RigidBody3D node
+ */
 void DragonControlTop::_on_body_entered(Node* body)
 {
     UtilityFunctions::print("COLLISION DETECTED with: ", body->get_name(), " at velocity: ", linear_velocity);

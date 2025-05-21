@@ -15,12 +15,14 @@
 
 using namespace godot;
 
+
 /**
  * @brief constructor
  */
 DragonControlJoystick::DragonControlJoystick() 
 {
 }
+
 
 /**
  * @brief destructor
@@ -29,8 +31,10 @@ DragonControlJoystick::~DragonControlJoystick()
 {
 }
 
+
 /**
- * @brief called when the node and its children are initialized
+ * @brief initialize OpenXR interface and get the XR controllers
+ * @note called when the node and its children are initialized
  */
 void DragonControlJoystick::_ready()
 {
@@ -49,14 +53,28 @@ void DragonControlJoystick::_ready()
         UtilityFunctions::print("OpenXR not initialized, please check if your headset is connected");
     }
 
-    // 获取XR Origin下的控制器节点
-    left_hand = get_parent()->get_node<Node>("Pivot")->get_node<Node>("XROrigin3D")->get_node<XRController3D>("LeftHand");
-    right_hand = get_parent()->get_node<Node>("Pivot")->get_node<Node>("XROrigin3D")->get_node<XRController3D>("RightHand");
+    // get the XR controllers
+    hand_left = get_parent()->get_node<Node>("Pivot")->get_node<Node>("XROrigin3D")->get_node<XRController3D>("LeftHand");
+    hand_right = get_parent()->get_node<Node>("Pivot")->get_node<Node>("XROrigin3D")->get_node<XRController3D>("RightHand");
+    if (!hand_left || !hand_right) 
+    {
+        UtilityFunctions::printerr("Failed to find XR controllers");
+    }
 }
 
+
+/**
+ * @brief get input from the joystick
+ * @param input_keys array to store the input values, 0 for linear movement, 1 for pitch, 2 for yaw
+ * @note the type of the value in the array is float, with the range of -1 to 1
+ */
 void DragonControlJoystick::GetInput(float* input_keys) 
 {
-    // 读取并打印左右 XR 控制器的摇杆实时数值
+        input_keys[0] = hand_left->get_float("trigger") - hand_right->get_float("trigger");
+        input_keys[1] = - hand_left->get_vector2("primary").y; // hand_left->get_vector2("primary") is Vector2. ~.y is float
+        input_keys[2] = hand_right->get_vector2("primary").x;
+        // float left_grip = hand_left->get_float("grip"); // 0 to 1
+        // float right_grip = hand_right->get_float("grip");
 }
 
 void DragonControlJoystick::_bind_methods() 

@@ -11,19 +11,31 @@
 
 using namespace godot;
 
+
+/**
+ * @brief constructor
+ * @param sub_view whether to use the sub camera
+ * @param dragon_control the DragonControlKeyboard instance
+ */
 CameraControl::CameraControl(bool sub_view, DragonControlTop* dragon_control) 
 {
     this->sub_view = sub_view;
     this->dragon_control = dragon_control;
 }
 
+
+/**
+ * @brief destructor
+ */
 CameraControl::~CameraControl() 
 {
 }
 
+
 void CameraControl::_bind_methods() 
 {
 }
+
 
 /**
  * @brief initialize the sub camera if the "Sub View" property is enabled
@@ -77,6 +89,7 @@ void CameraControl::_ready()
     }
 }
 
+
 /**
  * @brief let the sub camera follow the dragon
  */
@@ -89,10 +102,7 @@ void CameraControl::_physics_process(double delta)
         UtilityFunctions::printerr("CameraControl: parent is not RigidBody3D");
         return;
     }
-    
     camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
-
-
-    String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1);
+    String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1); // keep 1 decimal place
     label_info->set_text(velocity_text);
 }

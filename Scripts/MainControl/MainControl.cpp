@@ -17,8 +17,8 @@
 #include <godot_cpp/classes/scene_tree.hpp> // for get_tree()
 #include <godot_cpp/classes/project_settings.hpp>
 
-
 using namespace godot;
+
 
 /**
  * @brief bind methods and properties to the Godot engine
@@ -42,6 +42,7 @@ void MainControl::_bind_methods()
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Sub View"), "sub_view_setter", "sub_view_getter");
 }
 
+
 /**
  * @brief constructor
  */
@@ -49,12 +50,14 @@ MainControl::MainControl()
 {
 }
 
+
 /**
  * @brief destructor
  */
 MainControl::~MainControl()
 {
 }
+
 
 /**
  * @brief called when the node and its children are initialized
@@ -94,6 +97,7 @@ void MainControl::_ready()
     dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
 }
 
+
 /**
  * @brief called when an input event occurs
  * @param event the input event
@@ -105,6 +109,7 @@ void MainControl::_input(const Ref<InputEvent> &event)
         get_tree()->quit(); // Exit the game when Escape key is pressed
     }
 }
+
 
 /**
  * @brief the setter for joystick_input
@@ -126,6 +131,7 @@ void MainControl::SetValJoystickInput(bool val)
     }
 }
 
+
 /**
  * @brief the getter for joystick_input
  * @note the const keyword indicates that this function does not modify the instance variables
@@ -136,6 +142,7 @@ bool MainControl::GetValJoystickInput() const
     return joystick_input;
 }
 
+
 /**
  * @brief the setter for sub_view
  * @param val the value to set
@@ -144,6 +151,7 @@ void MainControl::SetValSubView(bool val)
 {
     sub_view = val;
 }
+
 
 /**
  * @brief the getter for sub_view
@@ -154,6 +162,7 @@ bool MainControl::GetValSubView() const
 {
     return sub_view;
 }
+
 
 /**
  * @brief the entry point of the module

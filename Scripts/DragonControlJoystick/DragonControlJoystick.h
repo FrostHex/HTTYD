@@ -3,6 +3,7 @@
 
 #include "DragonControlTop.h"
 #include <godot_cpp/classes/node3d.hpp>
+#include <godot_cpp/classes/xr_controller3d.hpp>
 
 namespace godot 
 {
@@ -20,8 +21,8 @@ namespace godot
             static void _bind_methods();
 
         private:
-            Node3D *left_hand = nullptr;
-            Node3D *right_hand = nullptr;
+            XRController3D *hand_left = nullptr;
+            XRController3D *hand_right = nullptr;
     };
 }
 
