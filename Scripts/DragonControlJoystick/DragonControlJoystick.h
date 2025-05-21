@@ -2,6 +2,7 @@
 #define DRAGON_CONTROL_JOYSTICK_H
 
 #include "DragonControlTop.h"
+#include <godot_cpp/classes/node3d.hpp>
 
 namespace godot 
 {
@@ -19,6 +20,8 @@ namespace godot
             static void _bind_methods();
 
         private:
+            Node3D *left_hand = nullptr;
+            Node3D *right_hand = nullptr;
     };
 }
 

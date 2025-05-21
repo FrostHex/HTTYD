@@ -16,7 +16,21 @@ sky_material = SubResource("PanoramaSkyMaterial_rgh2o")
 [sub_resource type="Environment" id="Environment_pbw6q"]
 background_mode = 2
 sky = SubResource("Sky_vroi3")
-tonemap_mode = 2
+tonemap_mode = 3
+tonemap_exposure = 0.8
+tonemap_white = 6.0
+ssao_enabled = true
+ssao_power = 3.0
+ssao_sharpness = 1.0
+ssao_light_affect = 1.0
+ssao_ao_channel_affect = 1.0
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.0
+sdfgi_cascades = 5
+glow_enabled = true
+glow_intensity = 0.1
+glow_blend_mode = 1
+glow_hdr_threshold = 2.0
 fog_mode = 1
 fog_light_color = Color(0.272954, 0.419272, 0.484632, 1)
 fog_sun_scatter = 0.05
@@ -40,11 +54,18 @@ adjustment_saturation = 1.5
 environment = SubResource("Environment_pbw6q")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0796741, 0.986058, -0.14609, 0.528901, 0.082408, 0.844673, 0.844935, -0.144566, -0.514961, 0, 2941.43, -2984.95)
-shadow_bias = 0.0
-shadow_normal_bias = 6.464
-shadow_opacity = 0.8
-shadow_blur = 5.0
+transform = Transform3D(-0.610288, 0.728554, 0.311059, 0.528901, 0.0824079, 0.844673, 0.589756, 0.680013, -0.435626, 250, 1003.33, -2800)
+light_energy = 3.0
+light_indirect_energy = 3.0
+shadow_enabled = true
+shadow_bias = 0.05
+shadow_blur = 0.5
+directional_shadow_split_1 = 0.02
+directional_shadow_split_2 = 0.06
+directional_shadow_split_3 = 0.25
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.9
+directional_shadow_max_distance = 400.0
 
 [node name="Ocean" parent="." instance=ExtResource("2_idj7w")]
 
@@ -60,7 +81,7 @@ size = Vector3(3229.85, 862.143, 7310.02)
 material = ExtResource("5_v1gob")
 
 [node name="Dragon" parent="." instance=ExtResource("1_r150o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.864, 1000, -2784.87)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 1000, -2800)
 
 [node name="MainControl" type="MainControl" parent="."]
 "Joystick Input" = true
