@@ -42,11 +42,17 @@ void CameraControl::_bind_methods()
  */
 void CameraControl::_ready()
 {
+    // remote_transform = get_parent()->get_node<Node>("Pivot")->get_node<RemoteTransform3D>("RemoteTransform3D");
+    // xr_origin = get_parent()->get_parent()->get_node<Node3D>("XROrigin");
+    // remote_transform->set_remote_node(remote_transform->get_path_to(xr_origin));
+
     if (Engine::get_singleton()->is_editor_hint()) // only run when the game is running
     {
         return;
     }
 
+
+    
     if (this->sub_view) 
     {
         camera_sub = get_parent()->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<Camera3D>("CameraSub");

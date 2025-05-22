@@ -4,7 +4,8 @@
 #include <godot_cpp/classes/node.hpp>       // base class Node
 #include <godot_cpp/core/class_db.hpp>      // used for class registration
 #include <godot_cpp/core/binder_common.hpp> // used for binding methods and properties
-#include <godot_cpp/classes/camera3d.hpp>   // 引入 Camera3D 类型
+#include <godot_cpp/classes/camera3d.hpp>
+#include <godot_cpp/classes/remote_transform3d.hpp>
 #include <godot_cpp/classes/label.hpp>
 #include "DragonControlKeyboard.h"
 
@@ -26,6 +27,8 @@ namespace godot
         private:
             bool sub_view = true; // 是否使用子视图
             Camera3D *camera_sub = nullptr;
+            // Node3D *xr_origin = nullptr;
+            // RemoteTransform3D *remote_transform = nullptr;
             Label* label_info = nullptr;
             DragonControlTop* dragon_control = nullptr;
     };
