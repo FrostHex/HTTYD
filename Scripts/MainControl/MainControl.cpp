@@ -30,13 +30,13 @@ using namespace godot;
  * @note call ADD_PROPERTY() to register properties to Godot
  * @note the second and third parameters are names of the binded getters and setters
  * @note after adding the property, it can be accessed in the Inspector of Godot Engine
- * @note the displayed name in the Inspector is "Joystick Input" and the type is boolean
+ * @note the displayed name in the Inspector is "Enable Headset" and the type is boolean
  */
 void MainControl::_bind_methods()
 {
-    ClassDB::bind_method(D_METHOD("joystick_input_setter", "value"), &MainControl::SetValJoystickInput);
-    ClassDB::bind_method(D_METHOD("joystick_input_getter"), &MainControl::GetValJoystickInput);
-    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Joystick Input"), "joystick_input_setter", "joystick_input_getter");
+    ClassDB::bind_method(D_METHOD("enable_headset_setter", "value"), &MainControl::SetValJoystickInput);
+    ClassDB::bind_method(D_METHOD("enable_headset_getter"), &MainControl::GetValJoystickInput);
+    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Enable Headset"), "enable_headset_setter", "enable_headset_getter");
     ClassDB::bind_method(D_METHOD("sub_view_setter", "value"), &MainControl::SetValSubView);
     ClassDB::bind_method(D_METHOD("sub_view_getter"), &MainControl::GetValSubView);
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Sub View"), "sub_view_setter", "sub_view_getter");
@@ -80,7 +80,7 @@ void MainControl::_ready()
 
     DragonControlTop *dragon_control = nullptr;
 
-    if (joystick_input) 
+    if (enable_headset) 
     {
         // memnew is "new" in Godot C++, which dynamically allocates memory for the object
         // memnew() creates an instance of DragonControlKeyboard and returns a pointer to it
@@ -93,7 +93,7 @@ void MainControl::_ready()
         dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
     }
 
-    CameraControl *camera_ctrl = memnew(CameraControl(sub_view, dragon_control));
+    CameraControl *camera_ctrl = memnew(CameraControl(sub_view, enable_headset, dragon_control));
     dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
 }
 
@@ -112,12 +112,12 @@ void MainControl::_input(const Ref<InputEvent> &event)
 
 
 /**
- * @brief the setter for joystick_input
+ * @brief the setter for enable_headset
  * @param val the value to set
  */
 void MainControl::SetValJoystickInput(bool val)
 {
-    joystick_input = val;
+    enable_headset = val;
 
     bool current_xr_enabled = ProjectSettings::get_singleton()->get_setting("xr/openxr/enabled");
     if (current_xr_enabled != val) 
@@ -133,13 +133,13 @@ void MainControl::SetValJoystickInput(bool val)
 
 
 /**
- * @brief the getter for joystick_input
+ * @brief the getter for enable_headset
  * @note the const keyword indicates that this function does not modify the instance variables
- * @return the value of joystick_input
+ * @return the value of enable_headset
  */
 bool MainControl::GetValJoystickInput() const
 {
-    return joystick_input;
+    return enable_headset;
 }
 
 

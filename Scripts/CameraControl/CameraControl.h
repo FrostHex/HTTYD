@@ -16,7 +16,7 @@ namespace godot
         GDCLASS(CameraControl, Node);
 
         public:
-            CameraControl(bool sub_view = true, DragonControlTop* dragon_control = nullptr);  // constructor，支持无参调用
+            CameraControl(bool sub_view = true, bool enable_headset = false, DragonControlTop* dragon_control = nullptr);  // constructor，支持无参调用
             ~CameraControl(); // destructor
             void _ready();
             void _physics_process(double delta) override;
@@ -25,12 +25,13 @@ namespace godot
             static void _bind_methods();
         
         private:
-            bool sub_view = true; // 是否使用子视图
+            bool sub_view = true; // whether to use the sub camera
+            bool enable_headset = false; // whether to use the headset
             Camera3D *camera_sub = nullptr;
-            // Node3D *xr_origin = nullptr;
-            // RemoteTransform3D *remote_transform = nullptr;
             Label* label_info = nullptr;
             DragonControlTop* dragon_control = nullptr;
+            RigidBody3D *dragon_rb = nullptr;
+            Node3D *xr_origin = nullptr;
     };
 }
 

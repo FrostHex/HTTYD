@@ -25,7 +25,7 @@ namespace godot
             static void _bind_methods();
 
         private:
-            bool joystick_input = false;
+            bool enable_headset = false;
             bool sub_view = true;
     };
 }

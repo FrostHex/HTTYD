@@ -81,7 +81,7 @@ void DragonControlTop::_ready()
 void DragonControlTop::_physics_process(double delta) 
 {
     GetInput(this->input_keys);
-    // SetMotionLinear(delta);
+    SetMotionLinear(delta);
     SetMotionAngular(delta);
     SetAnimation();
     // UtilityFunctions::print(delta);
