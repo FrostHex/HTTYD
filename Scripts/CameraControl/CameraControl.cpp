@@ -45,7 +45,7 @@ void CameraControl::_ready()
 {
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
     xr_node = get_parent()->get_node<Node>("Pivot")->get_node<Node3D>("XR");
-    xr_origin = get_parent()->get_node<Node>("Pivot")->get_node<Node>("XR")->get_node<Node3D>("XROrigin");
+    xr_origin = xr_node->get_node<Node3D>("XROrigin");
     xr_camera = xr_origin->get_node<Node3D>("XRCamera");
 
     if (!Engine::get_singleton()->is_editor_hint()) // only run when the game is running
@@ -63,6 +63,10 @@ void CameraControl::_ready()
             
             set_physics_process(true);
         }
+        else
+        {
+            xr_node->queue_free(); // remove the XR node if not using headset
+        }
 
         if (this->sub_view) 
         {
@@ -77,10 +81,6 @@ void CameraControl::_ready()
             if (Node *container = get_parent()->get_node<Node>("SubViewportContainer")) 
             {
                 container->queue_free();
-            } 
-            else 
-            {
-                UtilityFunctions::printerr("CameraControl: SubViewportContainer not found");
             }
             return;
         }

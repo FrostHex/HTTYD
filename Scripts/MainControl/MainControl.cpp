@@ -3,6 +3,8 @@
 #include "DragonControlJoystick.h"
 #include "DragonAnimator.h"
 #include "CameraControl.h"
+#include "GameTimer.h"
+#include "TimerManager.h"
 
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -183,6 +185,8 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
             godot::ClassDB::register_class<DragonControlJoystick>();
             godot::ClassDB::register_class<DragonAnimator>();
             godot::ClassDB::register_class<CameraControl>();
+            godot::ClassDB::register_class<GameTimer>();
+            godot::ClassDB::register_class<TimerManager>();
         }
     });
     obj.set_minimum_library_initialization_level(godot::MODULE_INITIALIZATION_LEVEL_SCENE);
