@@ -52,22 +52,9 @@ void DragonControlTop::_ready()
     }
 
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
-    if (!dragon_rb) 
-    {
-        UtilityFunctions::printerr("DragonControlTop: parent not RigidBody3D");
-        return;
-    }
-
     dragon_animator = get_parent()->get_node<DragonAnimator>("DragonAnimator");
-    if (!dragon_animator)
-    {
-        UtilityFunctions::printerr("DragonControlTop: DragonAnimator not found");
-        return;
-    }
-
     dragon_rb->set_gravity_scale(0); // disable gravity
     height_init = dragon_rb->get_global_transform().origin.y;
-
     dragon_rb->set_contact_monitor(true); // enable contact monitoring and reporting
     dragon_rb->set_max_contacts_reported(1); // set the maximum number of contacts reported to 1
     dragon_rb->connect("body_entered", Callable(this, "_on_body_entered")); // connect the signal to the function

@@ -73,11 +73,6 @@ void MainControl::_ready()
     }
 
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
-    if (!dragon_node) 
-    {
-        UtilityFunctions::printerr("Could not find Dragon node");
-    }
-
     DragonControlTop *dragon_control = nullptr;
 
     if (enable_headset) 

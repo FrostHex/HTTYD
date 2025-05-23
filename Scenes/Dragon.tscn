@@ -1,7 +1,7 @@
 [gd_scene load_steps=62 format=3 uid="uid://drg1ol84t4ys1"]
 
 [ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Toothless.tscn" id="1_v5fnx"]
-[ext_resource type="PackedScene" uid="uid://cf0b61k2ffhex" path="res://Scenes/XROrigin.tscn" id="2_0snye"]
+[ext_resource type="PackedScene" uid="uid://d1pgf1tf0t857" path="res://Scenes/XR.tscn" id="2_0snye"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v5fnx"]
 radius = 0.1
@@ -257,7 +257,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.411,
 current = true
 far = 50000.0
 
-[node name="XROrigin" parent="Pivot" instance=ExtResource("2_0snye")]
+[node name="XR" parent="Pivot" instance=ExtResource("2_0snye")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.411, 0.639, 0)
 
 [node name="Collision_Shape_Wing" type="CollisionShape3D" parent="."]

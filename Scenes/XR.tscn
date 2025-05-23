@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1pgf1tf0t857"]
+
+[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_fea57"]
+[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_erwv8"]
+
+[node name="XR" type="Node3D"]
+
+[node name="XROrigin" type="XROrigin3D" parent="."]
+
+[node name="XRCamera" type="XRCamera3D" parent="XROrigin"]
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin"]
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="XROrigin/LeftHand" instance=ExtResource("1_fea57")]
+
+[node name="RightHand" type="XRController3D" parent="XROrigin"]
+tracker = &"right_hand"
+
+[node name="RightHand" parent="XROrigin/RightHand" instance=ExtResource("2_erwv8")]

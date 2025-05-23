@@ -44,44 +44,31 @@ void CameraControl::_bind_methods()
 void CameraControl::_ready()
 {
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
-    if (!dragon_rb) 
-    {
-        UtilityFunctions::printerr("CameraControl: parent is not RigidBody3D");
-        return;
-    }
-    xr_origin = get_parent()->get_node<Node>("Pivot")->get_node<Node3D>("XROrigin");
-    if (!xr_origin) 
-    {
-        UtilityFunctions::printerr("CameraControl: XROrigin not found");
-        return;
-    }
+    xr_node = get_parent()->get_node<Node>("Pivot")->get_node<Node3D>("XR");
+    xr_origin = get_parent()->get_node<Node>("Pivot")->get_node<Node>("XR")->get_node<Node3D>("XROrigin");
+    xr_camera = xr_origin->get_node<Node3D>("XRCamera");
 
     if (!Engine::get_singleton()->is_editor_hint()) // only run when the game is running
     {
         set_physics_process(false);
 
+        if (this->enable_headset)
+        {
+            // Store the initial transforms to use later
+            initial_origin_position = xr_origin->get_position();
+            // initial_origin_rotation = xr_node->get_quaternion();
+            
+            // We need to wait for valid XR camera values
+            xr_position_initialized = false;
+            
+            set_physics_process(true);
+        }
+
         if (this->sub_view) 
         {
             camera_sub = get_parent()->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<Camera3D>("CameraSub");
-            if (!camera_sub) 
-            {
-                UtilityFunctions::printerr("CameraControl: Sub Camera3D not found");
-                return;
-            }
             camera_sub->set_rotation(Vector3(0, - Math_PI / 2, 0)); // set camera rotation
-        
             label_info = get_parent()->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<Label>("Info");
-            if (!label_info) 
-            {
-                UtilityFunctions::printerr("CameraControl: Label not found");
-                return;
-            }
-
-            if (!dragon_control) 
-            {
-                UtilityFunctions::printerr("CameraControl: DragonControlKeyboard not found");
-                return;
-            }
             set_physics_process(true);
         } 
         else 
@@ -97,11 +84,6 @@ void CameraControl::_ready()
             }
             return;
         }
-
-        if (enable_headset) 
-        {
-            set_physics_process(true);
-        }
     }
 }
 
@@ -113,7 +95,33 @@ void CameraControl::_physics_process(double delta)
 {
     if (this->enable_headset) 
     {
-        xr_origin->set_global_rotation(Vector3(0, - Math_PI / 2, 0)); // set camera rotation
+        // Wait until we get a valid camera position (not 0,0,0)
+        if (!xr_position_initialized)
+        {            
+            Vector3 camera_position = xr_camera->get_position();
+            
+            // Check if camera position is not zero vector
+            if (camera_position.length_squared() > 0.001f) // Use a small epsilon for floating-point comparison
+            {
+                Quaternion camera_rotation = xr_camera->get_quaternion();
+                
+                UtilityFunctions::print("Camera position: ", camera_position);
+                UtilityFunctions::print("Camera rotation: ", camera_rotation);
+
+                initial_camera_rotation = camera_rotation;
+                
+                // Apply adjustment based on camera position/rotation to the initial origin transform
+                xr_origin->set_position(initial_origin_position - camera_position);
+                
+                // Mark as initialized so we don't apply this correction again
+                xr_position_initialized = true;
+                
+                UtilityFunctions::print("XR position initialized successfully");
+            }        
+        }
+        
+        xr_node->set_global_rotation(Vector3(0, -Math_PI / 2, 0)); // set the rotation of the XR origin to match the camera
+
     }
     if (this->sub_view)
     {

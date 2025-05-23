@@ -54,12 +54,8 @@ void DragonControlJoystick::_ready()
     }
 
     // get the XR controllers
-    hand_left = get_parent()->get_node<Node>("Pivot")->get_node<Node>("XROrigin")->get_node<XRController3D>("LeftHand");
-    hand_right = get_parent()->get_node<Node>("Pivot")->get_node<Node>("XROrigin")->get_node<XRController3D>("RightHand");
-    if (!hand_left || !hand_right) 
-    {
-        UtilityFunctions::printerr("Failed to find XR controllers");
-    }
+    hand_left = get_parent()->get_node<Node>("Pivot")->get_node<Node>("XR")->get_node<Node>("XROrigin")->get_node<XRController3D>("LeftHand");
+    hand_right = get_parent()->get_node<Node>("Pivot")->get_node<Node>("XR")->get_node<Node>("XROrigin")->get_node<XRController3D>("RightHand");
 }
 
 
