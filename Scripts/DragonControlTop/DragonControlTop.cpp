@@ -14,10 +14,18 @@ using namespace godot;
 
 /**
  * @brief constructor
+ * @note use initialization list to initialize member variable state_current to STATE_DEFAULT
  */
-DragonControlTop::DragonControlTop() 
+DragonControlTop::DragonControlTop() : state_current(STATE_DEFAULT)
 {
     set_physics_process(true);
+    
+    // initialize the state process function pointers in the array
+    state_process_funcs[STATE_DEFAULT] = &DragonControlTop::ProcessDefault;
+    state_process_funcs[STATE_HIT_CLIFF] = &DragonControlTop::ProcessHitCliff;
+    state_process_funcs[STATE_FALLING] = &DragonControlTop::ProcessFalling;
+    state_process_funcs[STATE_CRISIS] = &DragonControlTop::ProcessCrisis;
+    state_process_funcs[STATE_DISABLED] = &DragonControlTop::ProcessDisabled;
 }
 
 
@@ -37,6 +45,14 @@ DragonControlTop::~DragonControlTop()
 void DragonControlTop::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("_on_body_entered", "body"), &DragonControlTop::_on_body_entered);
+    ClassDB::bind_method(D_METHOD("set_state", "state_new"), &DragonControlTop::SetState);
+    ClassDB::bind_method(D_METHOD("get_state"), &DragonControlTop::GetState);
+    // use godot macro (BIND_ENUM_CONSTANT) to bind enum values to the engine
+    BIND_ENUM_CONSTANT(STATE_DEFAULT);
+    BIND_ENUM_CONSTANT(STATE_HIT_CLIFF);
+    BIND_ENUM_CONSTANT(STATE_FALLING);
+    BIND_ENUM_CONSTANT(STATE_CRISIS);
+    BIND_ENUM_CONSTANT(STATE_DISABLED);
 }
 
 
@@ -64,8 +80,19 @@ void DragonControlTop::_ready()
 /**
  * @brief called every physics frame
  * @param delta time since last frame
+ * @note call the state processing function from the pointer array (state_process_funcs)
  */
 void DragonControlTop::_physics_process(double delta) 
+{
+    (this->*state_process_funcs[state_current])(delta);
+}
+
+
+/**
+ * @brief the default state processing function
+ * @param delta time since last frame
+ */
+void DragonControlTop::ProcessDefault(double delta)
 {
     GetInput(this->input_keys);
     SetMotionLinear(delta);
@@ -75,6 +102,66 @@ void DragonControlTop::_physics_process(double delta)
     // UtilityFunctions::print("input_keys: ", input_keys[0], ", ", input_keys[1], ", ", input_keys[2]);
     // UtilityFunctions::print(dragon_rb->get_global_transform().origin.y);
     // UtilityFunctions::print("linear_velocity: ", linear_velocity);
+}
+
+
+/**
+ * @brief the cliff hit state processing function
+ * @param delta time since last frame
+ */
+void DragonControlTop::ProcessHitCliff(double delta)
+{
+    // TODO
+}
+
+
+/**
+ * @brief the falling state processing function
+ * @param delta time since last frame
+ */
+void DragonControlTop::ProcessFalling(double delta)
+{
+    // TODO
+}
+
+
+/**
+ * @brief the crisis state processing function
+ * @param delta time since last frame
+ */
+void DragonControlTop::ProcessCrisis(double delta)
+{
+    // TODO
+}
+
+
+/**
+ * @brief the disabled state processing function
+ * @param delta time since last frame
+ */
+void DragonControlTop::ProcessDisabled(double delta)
+{
+}
+
+
+/**
+ * @brief setter for the dragon state
+ * @param state_new 
+ */
+void DragonControlTop::SetState(DragonState state_new)
+{
+    state_current = state_new;
+    UtilityFunctions::print("Dragon state changed to: ", state_current);
+}
+
+
+/**
+ * @brief getter for the dragon state
+ * @return current state of the dragon
+ */
+DragonState DragonControlTop::GetState() const
+{
+    return state_current;
 }
 
 

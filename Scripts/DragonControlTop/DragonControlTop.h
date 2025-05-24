@@ -14,12 +14,24 @@
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/binder_common.hpp>
+#include <godot_cpp/core/property_info.hpp>
 #include <godot_cpp/classes/rigid_body3d.hpp>
 #include <godot_cpp/variant/vector3.hpp>
 #include <godot_cpp/classes/input.hpp>
+#include <functional>
 
 namespace godot 
 {
+    enum DragonState 
+    {
+        STATE_DEFAULT,
+        STATE_HIT_CLIFF,
+        STATE_FALLING,
+        STATE_CRISIS,
+        STATE_DISABLED,
+        STATE_COUNT // enum index start from 0, so the value of STATE_COUNT is the number of states above
+    };
+
     class DragonControlTop : public Node 
     {
         GDCLASS(DragonControlTop, Node);
@@ -29,7 +41,9 @@ namespace godot
             ~DragonControlTop();
             void _ready();
             void _physics_process(double delta) override; // override the _physics_process function from Node class
-            float GetLinearVelocity();  
+            float GetLinearVelocity();
+            void SetState(DragonState new_state);
+            DragonState GetState() const; // const: this function does not modify the object
 
         protected:
             static void _bind_methods();
@@ -52,7 +66,19 @@ namespace godot
             void SetMotionLinear(double delta);
             void SetMotionAngular(double delta);
             void SetAnimation();
+            // define a new type name (StateProcessFunc) for the function pointers
+            // it represents a pointer to a member function of DragonControlTop class that takes a double argument and returns void
+            using StateProcessFunc = void (DragonControlTop::*)(double);
+            StateProcessFunc state_process_funcs[STATE_COUNT]; // an array of function pointers with size of STATE_COUNT
+            DragonState state_current;
+            void ProcessDefault(double delta);
+            void ProcessHitCliff(double delta);
+            void ProcessFalling(double delta);
+            void ProcessCrisis(double delta);
+            void ProcessDisabled(double delta);
     };
 }
+
+VARIANT_ENUM_CAST(godot::DragonState); // use godot macro (VARIANT_ENUM_CAST) to register the enum values in the engine
 
 #endif // DRAGON_CONTROL_TOP_H
