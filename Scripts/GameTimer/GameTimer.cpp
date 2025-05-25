@@ -42,7 +42,7 @@ void GameTimer::_bind_methods()
 void GameTimer::_ready() 
 {
     Timer_Reset();
-    set_physics_process(true); // 初始化时启用物理处理
+    set_physics_process(true);
 }
 
 

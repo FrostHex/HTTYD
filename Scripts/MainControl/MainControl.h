@@ -4,6 +4,7 @@
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/binder_common.hpp>
+#include "GameTimer.h"
 
 namespace godot 
 {
@@ -27,6 +28,7 @@ namespace godot
         private:
             bool enable_headset = false;
             bool sub_view = true;
+            GameTimer* timer;
     };
 }
 

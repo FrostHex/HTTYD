@@ -41,7 +41,7 @@ namespace godot
             ~DragonControlTop();
             void _ready();
             void _physics_process(double delta) override; // override the _physics_process function from Node class
-            float GetLinearVelocity();
+            float GetLinearVelocity();            
             void SetState(DragonState new_state);
             DragonState GetState() const; // const: this function does not modify the object
 

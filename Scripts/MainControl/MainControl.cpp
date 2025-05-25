@@ -3,8 +3,6 @@
 #include "DragonControlJoystick.h"
 #include "DragonAnimator.h"
 #include "CameraControl.h"
-#include "GameTimer.h"
-#include "TimerManager.h"
 
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -18,31 +16,9 @@
 #include <godot_cpp/classes/rigid_body3d.hpp>
 #include <godot_cpp/classes/scene_tree.hpp> // for get_tree()
 #include <godot_cpp/classes/project_settings.hpp>
+#include <godot_cpp/variant/callable.hpp>
 
 using namespace godot;
-
-
-/**
- * @brief bind methods and properties to the Godot engine
- * @note if _bind_methods() is empty, it can still work, but the methods cannot be called in GDScript or C# or the Inspector
- * @note call ClassDB::bind_method() to expose methods to Godot in order to be used in GDScript or C#
- * @note the first line is the setter method, the second line is the getter method
- * @note &MainControl::SetValJoystickInput is the method pointer, which points to the actual method
- * @note this enables the method to be called like "obj.SetValJoystickInput(true)" in GDScript or C#
- * @note call ADD_PROPERTY() to register properties to Godot
- * @note the second and third parameters are names of the binded getters and setters
- * @note after adding the property, it can be accessed in the Inspector of Godot Engine
- * @note the displayed name in the Inspector is "Enable Headset" and the type is boolean
- */
-void MainControl::_bind_methods()
-{
-    ClassDB::bind_method(D_METHOD("enable_headset_setter", "value"), &MainControl::SetValJoystickInput);
-    ClassDB::bind_method(D_METHOD("enable_headset_getter"), &MainControl::GetValJoystickInput);
-    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Enable Headset"), "enable_headset_setter", "enable_headset_getter");
-    ClassDB::bind_method(D_METHOD("sub_view_setter", "value"), &MainControl::SetValSubView);
-    ClassDB::bind_method(D_METHOD("sub_view_getter"), &MainControl::GetValSubView);
-    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Sub View"), "sub_view_setter", "sub_view_getter");
-}
 
 
 /**
@@ -74,6 +50,9 @@ void MainControl::_ready()
         return;
     }
 
+    timer = memnew(GameTimer);
+    add_child(timer);
+
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
     DragonControlTop *dragon_control = nullptr;
 
@@ -92,6 +71,9 @@ void MainControl::_ready()
 
     CameraControl *camera_ctrl = memnew(CameraControl(sub_view, enable_headset, dragon_control));
     dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
+
+    // timer list
+    timer->Timer_AddEvent(3.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_DISABLED));
 }
 
 
@@ -162,6 +144,29 @@ bool MainControl::GetValSubView() const
 
 
 /**
+ * @brief bind methods and properties to the Godot engine
+ * @note if _bind_methods() is empty, it can still work, but the methods cannot be called in GDScript or C# or the Inspector
+ * @note call ClassDB::bind_method() to expose methods to Godot in order to be used in GDScript or C#
+ * @note the first line is the setter method, the second line is the getter method
+ * @note &MainControl::SetValJoystickInput is the method pointer, which points to the actual method
+ * @note this enables the method to be called like "obj.SetValJoystickInput(true)" in GDScript or C#
+ * @note call ADD_PROPERTY() to register properties to Godot
+ * @note the second and third parameters are names of the binded getters and setters
+ * @note after adding the property, it can be accessed in the Inspector of Godot Engine
+ * @note the displayed name in the Inspector is "Enable Headset" and the type is boolean
+ */
+void MainControl::_bind_methods()
+{
+    ClassDB::bind_method(D_METHOD("enable_headset_setter", "value"), &MainControl::SetValJoystickInput);
+    ClassDB::bind_method(D_METHOD("enable_headset_getter"), &MainControl::GetValJoystickInput);
+    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Enable Headset"), "enable_headset_setter", "enable_headset_getter");
+    ClassDB::bind_method(D_METHOD("sub_view_setter", "value"), &MainControl::SetValSubView);
+    ClassDB::bind_method(D_METHOD("sub_view_getter"), &MainControl::GetValSubView);
+    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Sub View"), "sub_view_setter", "sub_view_getter");
+}
+
+
+/**
  * @brief the entry point of the module
  * @param get_proc_addr function pointer to get the address of a function in the Godot engine
  * @param lib pointer to the library
@@ -186,7 +191,6 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
             godot::ClassDB::register_class<DragonAnimator>();
             godot::ClassDB::register_class<CameraControl>();
             godot::ClassDB::register_class<GameTimer>();
-            godot::ClassDB::register_class<TimerManager>();
         }
     });
     obj.set_minimum_library_initialization_level(godot::MODULE_INITIALIZATION_LEVEL_SCENE);

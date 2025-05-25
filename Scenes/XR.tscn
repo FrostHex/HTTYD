@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1pgf1tf0t857"]
+[gd_scene load_steps=6 format=3 uid="uid://d1pgf1tf0t857"]
 
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_fea57"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_erwv8"]
+[ext_resource type="PackedScene" uid="uid://q1l3fknstir2" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/model/Hand_Nails_L.gltf" id="3_epyno"]
+[ext_resource type="Material" uid="uid://dy6nhifvvmm73" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/materials/caucasian_hand.tres" id="4_tn2gp"]
+[ext_resource type="PackedScene" uid="uid://c6s5nvekg0isa" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/model/Hand_Nails_R.gltf" id="5_mchfj"]
 
 [node name="XR" type="Node3D"]
 
@@ -18,3 +21,71 @@ tracker = &"left_hand"
 tracker = &"right_hand"
 
 [node name="RightHand" parent="XROrigin/RightHand" instance=ExtResource("2_erwv8")]
+
+[node name="OpenXRHandLeft" type="OpenXRHand" parent="XROrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.687643)
+visible = false
+hand_skeleton = NodePath("Hand_Nails_L/Armature/Skeleton3D")
+
+[node name="Hand_Nails_L" parent="XROrigin/OpenXRHandLeft" instance=ExtResource("3_epyno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, -0.05, 0.15)
+
+[node name="Skeleton3D" parent="XROrigin/OpenXRHandLeft/Hand_Nails_L/Armature" index="0"]
+bones/1/rotation = Quaternion(0.192491, 0.247746, -0.357457, 0.879656)
+bones/2/rotation = Quaternion(-0.100284, 0.102142, -0.176452, 0.973845)
+bones/3/rotation = Quaternion(-0.137954, 0.0303333, 0.00695325, 0.98995)
+bones/5/rotation = Quaternion(-0.00128455, -0.0116081, -0.0168259, 0.99979)
+bones/6/rotation = Quaternion(0.00711634, -0.0337917, -0.165007, 0.985688)
+bones/7/rotation = Quaternion(-0.0120368, -0.0225057, -0.399234, 0.916494)
+bones/8/rotation = Quaternion(0.00994455, -0.00672798, -0.347432, 0.937629)
+bones/10/rotation = Quaternion(-0.0357539, -0.000400032, 0.00636764, 0.99934)
+bones/11/rotation = Quaternion(0.0481069, 0.00727641, -0.271832, 0.961114)
+bones/12/rotation = Quaternion(0.0397854, -0.00340259, -0.347683, 0.936762)
+bones/13/rotation = Quaternion(-0.0107468, -0.016607, -0.379468, 0.924993)
+bones/15/rotation = Quaternion(-0.0702656, 0.0101908, -0.0243307, 0.99718)
+bones/16/rotation = Quaternion(0.0701766, 0.0202722, -0.209426, 0.975092)
+bones/17/rotation = Quaternion(0.0316914, 0.00188087, -0.284036, 0.958288)
+bones/18/rotation = Quaternion(0.0151092, 0.00348102, -0.341583, 0.939724)
+bones/20/rotation = Quaternion(-0.0917369, 0.0203027, -0.010183, 0.995524)
+bones/21/rotation = Quaternion(0.0540152, -0.0194287, -0.042997, 0.997425)
+bones/22/rotation = Quaternion(0.0702765, 0.0116272, -0.343224, 0.936549)
+bones/23/rotation = Quaternion(0.0293516, -0.0171316, -0.304623, 0.951866)
+
+[node name="mesh_Hand_Nails_L" parent="XROrigin/OpenXRHandLeft/Hand_Nails_L/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("4_tn2gp")
+
+[node name="OpenXRHandRight" type="OpenXRHand" parent="XROrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.687643)
+visible = false
+hand = 1
+hand_skeleton = NodePath("Hand_Nails_R/Armature/Skeleton3D")
+
+[node name="Hand_Nails_R" parent="XROrigin/OpenXRHandRight" instance=ExtResource("5_mchfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, -0.05, 0.15)
+
+[node name="Skeleton3D" parent="XROrigin/OpenXRHandRight/Hand_Nails_R/Armature" index="0"]
+bones/1/rotation = Quaternion(0.192491, -0.247746, 0.357457, 0.879656)
+bones/2/rotation = Quaternion(-0.100284, -0.102142, 0.176452, 0.973845)
+bones/3/rotation = Quaternion(-0.137954, -0.0303333, -0.00695327, 0.98995)
+bones/5/rotation = Quaternion(-0.00128455, 0.0116081, 0.0168259, 0.99979)
+bones/6/rotation = Quaternion(0.00711632, 0.0337917, 0.165007, 0.985688)
+bones/7/rotation = Quaternion(-0.0120368, 0.0225057, 0.399234, 0.916494)
+bones/8/rotation = Quaternion(0.00994455, 0.00672798, 0.347432, 0.937629)
+bones/10/rotation = Quaternion(-0.0357539, 0.000400032, -0.00636763, 0.99934)
+bones/11/rotation = Quaternion(0.0481069, -0.00727641, 0.271832, 0.961114)
+bones/12/rotation = Quaternion(0.0397854, 0.00340259, 0.347683, 0.936762)
+bones/13/rotation = Quaternion(-0.0107468, 0.016607, 0.379468, 0.924993)
+bones/15/rotation = Quaternion(-0.0702656, -0.0101908, 0.0243307, 0.99718)
+bones/16/rotation = Quaternion(0.0701766, -0.0202722, 0.209426, 0.975092)
+bones/17/rotation = Quaternion(0.0316914, -0.00188088, 0.284036, 0.958288)
+bones/18/rotation = Quaternion(0.0151092, -0.00348102, 0.341583, 0.939724)
+bones/20/rotation = Quaternion(-0.0917369, -0.0203027, 0.010183, 0.995524)
+bones/21/rotation = Quaternion(0.0540152, 0.0194287, 0.042997, 0.997425)
+bones/22/rotation = Quaternion(0.0702765, -0.0116272, 0.343224, 0.936549)
+bones/23/rotation = Quaternion(0.0293516, 0.0171316, 0.304623, 0.951866)
+
+[node name="mesh_Hand_Nails_R" parent="XROrigin/OpenXRHandRight/Hand_Nails_R/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("4_tn2gp")
+
+[editable path="XROrigin/OpenXRHandLeft/Hand_Nails_L"]
+[editable path="XROrigin/OpenXRHandRight/Hand_Nails_R"]

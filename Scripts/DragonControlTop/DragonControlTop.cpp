@@ -45,8 +45,9 @@ DragonControlTop::~DragonControlTop()
 void DragonControlTop::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("_on_body_entered", "body"), &DragonControlTop::_on_body_entered);
-    ClassDB::bind_method(D_METHOD("set_state", "state_new"), &DragonControlTop::SetState);
     ClassDB::bind_method(D_METHOD("get_state"), &DragonControlTop::GetState);
+    ClassDB::bind_method(D_METHOD("set_state", "state_new"), &DragonControlTop::SetState);
+    
     // use godot macro (BIND_ENUM_CONSTANT) to bind enum values to the engine
     BIND_ENUM_CONSTANT(STATE_DEFAULT);
     BIND_ENUM_CONSTANT(STATE_HIT_CLIFF);
@@ -153,7 +154,6 @@ void DragonControlTop::SetState(DragonState state_new)
     state_current = state_new;
     UtilityFunctions::print("Dragon state changed to: ", state_current);
 }
-
 
 /**
  * @brief getter for the dragon state
