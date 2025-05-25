@@ -1,4 +1,5 @@
 #include "DragonControlTop.h"
+#include "CameraControl.h"
 
 #include <godot_cpp/godot.hpp> // a wrapper for the Godot C++ API
 #include <godot_cpp/core/class_db.hpp> // class registration
@@ -75,6 +76,7 @@ void DragonControlTop::_ready()
     dragon_rb->set_contact_monitor(true); // enable contact monitoring and reporting
     dragon_rb->set_max_contacts_reported(1); // set the maximum number of contacts reported to 1
     dragon_rb->connect("body_entered", Callable(this, "_on_body_entered")); // connect the signal to the function
+    camera_ctrl = get_parent()->get_node<CameraControl>("CameraControl");
 }
 
 
@@ -127,12 +129,14 @@ void DragonControlTop::ProcessFalling(double delta)
 
 
 /**
- * @brief the crisis state processing function
+ * @brief the crisis state processing function using PID control (proportional term only)
  * @param delta time since last frame
  */
 void DragonControlTop::ProcessCrisis(double delta)
-{
-    // TODO
+{   
+    SetMotionLinear(delta);
+    SetMotionAngularCrisis(delta);
+    SetAnimation();
 }
 
 
@@ -153,6 +157,11 @@ void DragonControlTop::SetState(DragonState state_new)
 {
     state_current = state_new;
     UtilityFunctions::print("Dragon state changed to: ", state_current);
+    switch (state_current) 
+    {
+        case STATE_CRISIS:
+            break;
+    }
 }
 
 /**
@@ -212,6 +221,45 @@ void DragonControlTop::SetMotionAngular(double delta)
         angular_velocity_posture -= axis * std::asin(tilt) * DRAGON_FACTOR_UPSIDE_DOWN;
     }
     dragon_rb->set_angular_velocity(angular_velocity_buildup + angular_velocity_posture);
+}
+
+
+
+/**
+ * @brief set angular velocity using headset orientation in crisis state
+ * @param delta time since last frame
+ */
+void DragonControlTop::SetMotionAngularCrisis(double delta) 
+{
+    Basis headset_basis = Basis::from_euler(camera_ctrl->GetPostureHeadset());
+    Basis dragon_basis = dragon_rb->get_global_transform().basis;
+    Vector3 headset_forward = -headset_basis.get_column(2);
+    Vector3 headset_up = headset_basis.get_column(1);
+    Vector3 dragon_forward = dragon_basis.get_column(0);
+    Vector3 dragon_up = dragon_basis.get_column(1);
+    Vector3 dragon_right = dragon_basis.get_column(2);
+    Vector3 angular_velocity = Vector3();
+    // process pitch by comparing the y component of the forward vectors
+    float pitch_diff = dragon_forward.y - headset_forward.y;
+    angular_velocity -= dragon_right * (pitch_diff * DRAGON_CRISIS_P_GAIN);
+    // process roll by comparing the up vectors and projecting the headset up vector onto the dragon's forward plane
+    float forward_dot = headset_up.dot(dragon_forward);
+    Vector3 projected_up = headset_up - dragon_forward * forward_dot;
+    // calculate the roll by comparing the projected up vector with the dragon's up vector
+    if (projected_up.length_squared() > 0.001f) 
+    {
+        projected_up.normalize();
+        float roll_dot = dragon_up.dot(projected_up);
+        float roll_dir = dragon_up.cross(projected_up).dot(dragon_forward) > 0.0f ? 1.0f : -1.0f; // determine roll direction based on the cross product
+        float roll_angle = Math::acos(Math::clamp(roll_dot, -1.0f, 1.0f));
+        angular_velocity += dragon_forward * (roll_dir * roll_angle * DRAGON_CRISIS_P_GAIN * 0.8f);
+    }
+    // couple yaw and roll
+    float tilt = dragon_right.dot(Vector3(0, 1, 0));
+    tilt = Math::clamp(tilt, -1.0f, 1.0f);
+    angular_velocity += Vector3(0, 1, 0) * (Math::asin(tilt) * DRAGON_FACTOR_YAW * 3 * delta);
+
+    dragon_rb->set_angular_velocity(angular_velocity);
 }
 
 

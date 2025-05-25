@@ -15,13 +15,12 @@ using namespace godot;
 /**
  * @brief constructor
  * @param sub_view whether to use the sub camera
- * @param dragon_control the DragonControlKeyboard instance
+ * @param enable_headset whether to enable the XR headset
  */
-CameraControl::CameraControl(bool sub_view, bool enable_headset, DragonControlTop* dragon_control) 
+CameraControl::CameraControl(bool sub_view, bool enable_headset) 
 {
     this->sub_view = sub_view;
     this->enable_headset = enable_headset;
-    this->dragon_control = dragon_control;
 }
 
 
@@ -35,6 +34,12 @@ CameraControl::~CameraControl()
 
 void CameraControl::_bind_methods() 
 {
+}
+
+
+void CameraControl::SetDragonControl(DragonControlTop* dragon_control) 
+{
+    this->dragon_control = dragon_control;
 }
 
 
@@ -129,4 +134,9 @@ void CameraControl::_physics_process(double delta)
         String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1); // keep 1 decimal place
         label_info->set_text(velocity_text);
     }
+}
+
+Vector3 CameraControl::GetPostureHeadset()
+{
+    return xr_camera->get_global_rotation();
 }

@@ -8,6 +8,7 @@
 #define DRAGON_FACTOR_DAMPING 0.965f
 #define DRAGON_FACTOR_UPSIDE_DOWN 1.5f
 #define DRAGON_FACTOR_GLIDE 0.3f
+#define DRAGON_CRISIS_P_GAIN 4         // PID比例项系数
 
 #include "DragonAnimator.h"
 
@@ -32,6 +33,8 @@ namespace godot
         STATE_COUNT // enum index start from 0, so the value of STATE_COUNT is the number of states above
     };
 
+    class CameraControl;
+
     class DragonControlTop : public Node 
     {
         GDCLASS(DragonControlTop, Node);
@@ -52,9 +55,7 @@ namespace godot
             // =0: pure virtual function, which must be implemented in derived classes
             // the class containing pure virtual functions is an abstract class
             virtual void GetInput(float* input_keys) = 0;
-            Input *input_singleton;
-
-        private:
+            Input *input_singleton;    private:
             RigidBody3D *dragon_rb;
             DragonAnimator* dragon_animator;
             float input_keys[3] = {0.0f, 0.0f, 0.0f};
@@ -65,6 +66,7 @@ namespace godot
             Vector3 angular_velocity_buildup = Vector3(0, 0, 0);
             void SetMotionLinear(double delta);
             void SetMotionAngular(double delta);
+            void SetMotionAngularCrisis(double delta);
             void SetAnimation();
             // define a new type name (StateProcessFunc) for the function pointers
             // it represents a pointer to a member function of DragonControlTop class that takes a double argument and returns void
@@ -76,6 +78,8 @@ namespace godot
             void ProcessFalling(double delta);
             void ProcessCrisis(double delta);
             void ProcessDisabled(double delta);
+            // Vector3 headset_vector_up;
+            CameraControl* camera_ctrl; // pointer to the CameraControl class instance
     };
 }
 

@@ -55,6 +55,9 @@ void MainControl::_ready()
 
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
     DragonControlTop *dragon_control = nullptr;
+    CameraControl *camera_ctrl = memnew(CameraControl(sub_view, enable_headset));
+    camera_ctrl->set_name("CameraControl"); // set the name of the camera control node
+    dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
 
     if (enable_headset) 
     {
@@ -69,11 +72,13 @@ void MainControl::_ready()
         dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
     }
 
-    CameraControl *camera_ctrl = memnew(CameraControl(sub_view, enable_headset, dragon_control));
-    dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
+    camera_ctrl->SetDragonControl(dragon_control); // set the dragon control to the camera control
 
     // timer list
-    timer->Timer_AddEvent(3.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_DISABLED));
+    if (enable_headset) 
+    {
+        timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_CRISIS));
+    }
 }
 
 
