@@ -136,7 +136,7 @@ void DragonControlTop::ProcessCrisis(double delta)
 {   
     SetMotionLinear(delta);
     SetMotionAngularCrisis(delta);
-    SetAnimation();
+    SetAnimationCrisis();
 }
 
 
@@ -207,7 +207,7 @@ void DragonControlTop::SetMotionAngular(double delta)
                               + basis.get_column(0) * this->input_keys[2] * DRAGON_FACTOR_ROLL * delta;
     angular_velocity_buildup *= DRAGON_FACTOR_DAMPING;
     float tilt = basis.get_column(2).dot(Vector3(0,1,0)); // local right vector dot global up vector
-    tilt = tilt < -1.0f ? -1.0f : (tilt > 1.0f ? 1.0f : tilt);
+    tilt = Math::clamp(tilt, -1.0f, 1.0f); // clamp tilt to [-1, 1]
     Vector3 angular_velocity_posture = Vector3(0,1,0) * std::asin(tilt) * DRAGON_FACTOR_YAW * delta; // std::asin(tilt) is roll angle
     tilt = basis.get_column(1).dot(Vector3(0,1,0)); // local up vector dot global up vector
     if (tilt < 0.0f) 
@@ -233,25 +233,25 @@ void DragonControlTop::SetMotionAngularCrisis(double delta)
 {
     Basis headset_basis = Basis::from_euler(camera_ctrl->GetPostureHeadset());
     Basis dragon_basis = dragon_rb->get_global_transform().basis;
-    Vector3 headset_forward = -headset_basis.get_column(2);
-    Vector3 headset_up = headset_basis.get_column(1);
-    Vector3 dragon_forward = dragon_basis.get_column(0);
-    Vector3 dragon_up = dragon_basis.get_column(1);
-    Vector3 dragon_right = dragon_basis.get_column(2);
+    Vector3 headset_forward = -headset_basis.get_column(2); // +z
+    Vector3 headset_up = headset_basis.get_column(1); // +y
+    Vector3 dragon_forward = dragon_basis.get_column(0); // +x
+    Vector3 dragon_up = dragon_basis.get_column(1); // +y
+    Vector3 dragon_right = dragon_basis.get_column(2); // +z
     Vector3 angular_velocity = Vector3();
-    // process pitch by comparing the y component of the forward vectors
-    float pitch_diff = dragon_forward.y - headset_forward.y;
+    // process pitch
+    float pitch_diff = dragon_forward.y - headset_forward.y; // comparing the y component of the forward vectors
     angular_velocity -= dragon_right * (pitch_diff * DRAGON_CRISIS_P_GAIN);
-    // process roll by comparing the up vectors and projecting the headset up vector onto the dragon's forward plane
-    float forward_dot = headset_up.dot(dragon_forward);
-    Vector3 projected_up = headset_up - dragon_forward * forward_dot;
+    // process roll 
+    // project the headset up vector onto the dragon's YOZ plane (perpendicular to the dragon's forward vector)
+    Vector3 projected_up = headset_up - dragon_forward * headset_up.dot(dragon_forward);
     // calculate the roll by comparing the projected up vector with the dragon's up vector
     if (projected_up.length_squared() > 0.001f) 
     {
         projected_up.normalize();
         float roll_dot = dragon_up.dot(projected_up);
-        float roll_dir = dragon_up.cross(projected_up).dot(dragon_forward) > 0.0f ? 1.0f : -1.0f; // determine roll direction based on the cross product
         float roll_angle = Math::acos(Math::clamp(roll_dot, -1.0f, 1.0f));
+        float roll_dir = projected_up.dot(dragon_right) > 0.0f ? 1.0f : -1.0f;
         angular_velocity += dragon_forward * (roll_dir * roll_angle * DRAGON_CRISIS_P_GAIN * 0.8f);
     }
     // couple yaw and roll
@@ -300,6 +300,50 @@ void DragonControlTop::SetAnimation()
         dragon_animator->SetAnimation("wing_tail", "po_right");
     }
     else if (input_keys[2] < 0.0f)
+    {
+        dragon_animator->SetAnimation("wing_tail", "po_left");
+    }
+    else
+    {
+        dragon_animator->SetAnimation("wing_tail", "po_glide");
+    }
+}
+
+
+void DragonControlTop::SetAnimationCrisis()
+{
+    Basis basis = dragon_rb->get_global_transform().basis;
+    float tilt_pitch = basis.get_column(0).dot(Vector3(0,1,0)); // local forward vector dot global up vector
+    float tilt_roll = basis.get_column(2).dot(Vector3(0,1,0)); // local right vector dot global up vector
+    if (tilt_pitch > DRAGON_FACTOR_GLIDE)    
+    {
+        dragon_animator->SetAnimation("wing_main", "lo_up");
+    }
+    else if (tilt_pitch < - DRAGON_FACTOR_GLIDE)
+    {
+        dragon_animator->SetAnimation("wing_main", "po_dive");
+    }
+    else
+    {
+        if (tilt_roll < - DRAGON_FACTOR_GLIDE / 3)
+        {
+            dragon_animator->SetAnimation("wing_main", "po_right");
+        }
+        else if (tilt_roll > DRAGON_FACTOR_GLIDE / 3)
+        {
+            dragon_animator->SetAnimation("wing_main", "po_left");
+        }
+        else
+        {
+            dragon_animator->SetAnimation("wing_main", "po_glide");
+        }
+    }
+
+    if (tilt_roll < - DRAGON_FACTOR_GLIDE / 3)
+    {
+        dragon_animator->SetAnimation("wing_tail", "po_right");
+    }
+    else if (tilt_roll > DRAGON_FACTOR_GLIDE / 3)
     {
         dragon_animator->SetAnimation("wing_tail", "po_left");
     }

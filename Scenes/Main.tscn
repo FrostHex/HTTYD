@@ -85,4 +85,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 1000, -2800)
 
 [node name="MainControl" type="MainControl" parent="."]
 "Enable Headset" = true
-"Sub View" = false

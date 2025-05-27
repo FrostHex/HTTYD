@@ -8,7 +8,7 @@
 #define DRAGON_FACTOR_DAMPING 0.965f
 #define DRAGON_FACTOR_UPSIDE_DOWN 1.5f
 #define DRAGON_FACTOR_GLIDE 0.3f
-#define DRAGON_CRISIS_P_GAIN 4         // PID比例项系数
+#define DRAGON_CRISIS_P_GAIN 5         // PID比例项系数
 
 #include "DragonAnimator.h"
 
@@ -68,6 +68,7 @@ namespace godot
             void SetMotionAngular(double delta);
             void SetMotionAngularCrisis(double delta);
             void SetAnimation();
+            void SetAnimationCrisis();
             // define a new type name (StateProcessFunc) for the function pointers
             // it represents a pointer to a member function of DragonControlTop class that takes a double argument and returns void
             using StateProcessFunc = void (DragonControlTop::*)(double);
