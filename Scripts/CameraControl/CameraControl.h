@@ -18,7 +18,7 @@ namespace godot
         GDCLASS(CameraControl, Node);
 
         public:
-            CameraControl(bool sub_view = true, bool enable_headset = false);  // constructor，支持无参调用
+            CameraControl(bool sub_view = true, bool enable_headset = false);
             ~CameraControl(); // destructor
             void _ready();
             void _physics_process(double delta) override;

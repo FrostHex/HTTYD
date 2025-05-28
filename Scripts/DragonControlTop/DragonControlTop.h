@@ -8,7 +8,7 @@
 #define DRAGON_FACTOR_DAMPING 0.965f
 #define DRAGON_FACTOR_UPSIDE_DOWN 1.5f
 #define DRAGON_FACTOR_GLIDE 0.3f
-#define DRAGON_CRISIS_P_GAIN 5         // PID比例项系数
+#define DRAGON_CRISIS_P_GAIN 5
 
 #include "DragonAnimator.h"
 

@@ -90,7 +90,6 @@ num_cascades={
 
 [xr]
 
-openxr/enabled=true
 openxr/default_action_map="res://Addons/godot-xr-tools/addons/godot-xr-tools/openxr_action_map.tres"
 openxr/extensions/hand_tracking=true
 shaders/enabled=true
