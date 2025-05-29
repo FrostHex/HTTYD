@@ -77,6 +77,7 @@ void DragonControlTop::_ready()
     dragon_rb->set_max_contacts_reported(1); // set the maximum number of contacts reported to 1
     dragon_rb->connect("body_entered", Callable(this, "_on_body_entered")); // connect the signal to the function
     camera_ctrl = get_parent()->get_node<CameraControl>("CameraControl");
+    dragon_rb->set_linear_velocity(Vector3(0, 0, 0)); // set initial linear velocity to zero
 }
 
 
@@ -146,6 +147,9 @@ void DragonControlTop::ProcessCrisis(double delta)
  */
 void DragonControlTop::ProcessDisabled(double delta)
 {
+    GetInput(this->input_keys);
+    SetMotionAngular(delta);
+    SetAnimation();
 }
 
 
@@ -159,7 +163,8 @@ void DragonControlTop::SetState(DragonState state_new)
     UtilityFunctions::print("Dragon state changed to: ", state_current);
     switch (state_current) 
     {
-        case STATE_CRISIS:
+        case STATE_DISABLED:
+            dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
             break;
     }
 }

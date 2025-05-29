@@ -55,6 +55,7 @@ void MainControl::_ready()
     add_child(timer);
 
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
+    CheatSheet *cheat_sheet = dragon_node->get_node<CheatSheet>("CheatSheet");
     DragonControlTop *dragon_control = nullptr;
     CameraControl *camera_ctrl = memnew(CameraControl(sub_view, enable_headset));
     camera_ctrl->set_name("CameraControl"); // set the name of the camera control node
@@ -76,6 +77,8 @@ void MainControl::_ready()
     camera_ctrl->SetDragonControl(dragon_control); // set the dragon control to the camera control
 
     // timer list
+    timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_DISABLED));
+    timer->Timer_AddEvent(5.0f, Callable(cheat_sheet, "Detatch")); 
     if (enable_headset) 
     {
         timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_CRISIS));
