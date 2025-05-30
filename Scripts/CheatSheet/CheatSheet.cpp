@@ -22,6 +22,7 @@ CheatSheet::CheatSheet() : state_current(STATE_ATTACHED)
     state_process_funcs[STATE_HELD] = &CheatSheet::ProcessHeld;
     state_process_funcs[STATE_MOUTHED] = &CheatSheet::ProcessMouthed;
     state_process_funcs[STATE_HELD_CRISIS] = &CheatSheet::ProcessHeldCrisis;
+    state_process_funcs[STATE_DISCARDED] = &CheatSheet::ProcessDiscarded;
 }
 
 
@@ -38,7 +39,7 @@ void CheatSheet::_ready()
     }
 
     mesh = get_parent()->get_node<Node>("Pivot")->get_node<Node>("Toothless")->get_node<Node>("rig")
-                         ->get_node<Node>("Skeleton3D")->get_node<MeshInstance3D>("cheat_sheet");
+                       ->get_node<Node>("Skeleton3D")->get_node<MeshInstance3D>("cheat_sheet");
     dragon = get_parent()->get_parent()->get_node<RigidBody3D>("Dragon");
     pickable = get_parent()->get_node<Node>("Pivot")->get_node<RigidBody3D>("XRToolsPickable");
     pickable->connect("picked_up", Callable(this, "_on_pickable_picked_up"));
@@ -135,7 +136,6 @@ void CheatSheet::_physics_process(double delta)
         double time_sec = Time::get_singleton()->get_ticks_msec() / 1000.0;
         material->set_shader_parameter("time", time_sec);
     }
-
     (this->*state_process_funcs[state_current])(delta);
 }
 
@@ -175,6 +175,7 @@ void CheatSheet::ProcessHeld(double delta)
 void CheatSheet::ProcessMouthed(double delta)
 {
     pickable->set_position(detatch_position);
+    pickable->set_rotation(detatch_rotation);
 }
 
 
@@ -183,17 +184,43 @@ void CheatSheet::ProcessHeldCrisis(double delta)
 }
 
 
+void CheatSheet::ProcessDiscarded(double delta)
+{
+    // rotate the cheat sheet randomly
+    Transform3D transform = pickable->get_transform();
+    float random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    transform.basis = transform.basis.rotated(transform.basis.get_column(0), random_angle); // rotate around x-axis
+    random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    transform.basis = transform.basis.rotated(transform.basis.get_column(1), random_angle); // rotate around y-axis
+    random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    transform.basis = transform.basis.rotated(transform.basis.get_column(2), random_angle); // rotate around z-axis
+    pickable->set_transform(transform);
+    // move the cheat sheet
+    pickable->set_position(detatch_position + dragon->get_position());
+    detatch_position += Vector3(0.0f, 0.005f, 0.0f) - dragon->get_linear_velocity() * 0.001f;
+    delete_count++;
+    if (delete_count > 300) // 5 seconds in 60 FPS
+    {
+        // UtilityFunctions::print("Cheat Sheet is deleted.");
+        pickable->get_parent()->remove_child(pickable);
+        pickable->queue_free();
+        delete_count = 0;
+        set_physics_process(false);
+    }
+}
+
+
 void CheatSheet::_on_pickable_picked_up(Node* pickable)
 {
     if (state_current == STATE_DETATCHED) 
     {
         state_current = STATE_HELD;
-        UtilityFunctions::print("Cheat Sheet is now held.");
+        // UtilityFunctions::print("Cheat Sheet is now held.");
     }
     else if (state_current == STATE_MOUTHED) 
     {
         state_current = STATE_HELD_CRISIS;
-        UtilityFunctions::print("Cheat Sheet is now held in crisis.");
+        // UtilityFunctions::print("Cheat Sheet is now held in crisis.");
     }
 }
 
@@ -202,18 +229,29 @@ void CheatSheet::_on_pickable_dropped(Node* pickable)
 {
     if (state_current == STATE_HELD) 
     {
-        detatch_position = this->pickable->get_position();
         state_current = STATE_MOUTHED;
-        UtilityFunctions::print("Cheat Sheet is now mouthed.");
+        if (get_parent()->get_node<Node>("Pivot")->has_node("XR")) // change the parent to XR camera if it exists
+        {
+            Transform3D global_pos = this->pickable->get_global_transform();
+            this->pickable->get_parent()->remove_child(this->pickable);
+            get_parent()->get_node<Node>("Pivot")->get_node<Node>("XR")->get_node<Node>("XROrigin")
+                        ->get_node<Node>("XRCamera")->add_child(this->pickable);
+            this->pickable->set_global_transform(global_pos);
+        }
+        detatch_position = this->pickable->get_position();
+        detatch_rotation = this->pickable->get_rotation();
+        // UtilityFunctions::print("Cheat Sheet is now mouthed.");
     }
     else if (state_current == STATE_HELD_CRISIS) 
     {
-        detatch_position = this->pickable->get_position();
-        flutter_speed = 0.1f;
-        // set the detatch direction diagonally upward and backward from the dragon
-        detatch_direction = dragon->get_global_transform().basis.get_column(1) - dragon->get_global_transform().basis.get_column(0);
-        state_current = STATE_DETATCHED;
-        UtilityFunctions::print("Cheat Sheet is now detached.");
+        state_current = STATE_DISCARDED;
+        // change the parent to the main node
+        Transform3D global_pos = this->pickable->get_global_transform();
+        this->pickable->get_parent()->remove_child(this->pickable);
+        get_parent()->get_parent()->add_child(this->pickable);
+        this->pickable->set_global_transform(global_pos);
+        detatch_position = this->pickable->get_position() - dragon->get_position();
+        // UtilityFunctions::print("Cheat Sheet is now detached.");
     }
 }
 
@@ -229,4 +267,5 @@ void CheatSheet::_bind_methods()
     BIND_ENUM_CONSTANT(STATE_HELD);
     BIND_ENUM_CONSTANT(STATE_MOUTHED);
     BIND_ENUM_CONSTANT(STATE_HELD_CRISIS);
+    BIND_ENUM_CONSTANT(STATE_DISCARDED);
 }

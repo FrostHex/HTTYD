@@ -16,6 +16,7 @@ namespace godot
         STATE_HELD,
         STATE_MOUTHED,
         STATE_HELD_CRISIS,
+        STATE_DISCARDED,
         STATE_COUNT1
     };
 
@@ -40,19 +41,22 @@ namespace godot
             MeshInstance3D* mesh = nullptr;
             RigidBody3D* pickable = nullptr;
             RigidBody3D* dragon = nullptr;
-            Vector3 detatch_direction = Vector3(0, 0, 0);
             float flutter_speed = 0.03f;
             // XRToolsPickable to set its local position every frame to keep it at the same global position
             // the setting of detatch_position is used to counteract this behavior
             Vector3 detatch_position = Vector3(0.934f, 0.315f, 0);
+            Vector3 detatch_rotation = Vector3(0, 0, 0);
+            Vector3 detatch_direction = Vector3(0, 0, 0);
             using StateProcessFunc = void (CheatSheet::*)(double);
             StateProcessFunc state_process_funcs[(int)CheatSheetState::STATE_COUNT1];
             CheatSheetState state_current;
+            int delete_count = 0;
             void ProcessAttached(double delta);
             void ProcessDetatched(double delta);
             void ProcessHeld(double delta);
             void ProcessMouthed(double delta);
             void ProcessHeldCrisis(double delta);
+            void ProcessDiscarded(double delta);
     };
 }
 

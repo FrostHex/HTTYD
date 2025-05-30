@@ -104,7 +104,7 @@ void CameraControl::_ready()
         } 
         else 
         {
-            // Destroy the SubViewportContainer and all its children
+            // destroy the SubViewportContainer and all its children
             if (Node *container = get_parent()->get_node<Node>("SubViewportContainer")) 
             {
                 container->queue_free();
@@ -122,28 +122,19 @@ void CameraControl::_physics_process(double delta)
 {
     if (this->enable_headset) 
     {
-        // Wait until we get a valid camera position (not 0,0,0)
+        // wait until we get a valid camera position (not 0,0,0)
         if (!xr_position_initialized)
         {            
             Vector3 camera_position = xr_camera->get_position();
             
-            // Check if camera position is not zero vector
+            // check if camera position is not zero vector
             if (camera_position.length_squared() > 0.001f) // Use a small epsilon for floating-point comparison
             {
                 Quaternion camera_rotation = xr_camera->get_quaternion();
-                
-                UtilityFunctions::print("Camera position: ", camera_position);
-                UtilityFunctions::print("Camera rotation: ", camera_rotation);
-
                 initial_camera_rotation = camera_rotation;
-                
-                // Apply adjustment based on camera position/rotation to the initial origin transform
+                // apply adjustment based on camera position/rotation to the initial origin transform
                 xr_origin->set_position(initial_origin_position - camera_position);
-                
-                // Mark as initialized so we don't apply this correction again
                 xr_position_initialized = true;
-                
-                UtilityFunctions::print("XR position initialized successfully");
             }        
         }
         
