@@ -9,12 +9,19 @@
 #include <godot_cpp/classes/texture2d.hpp>
 #include <godot_cpp/classes/standard_material3d.hpp>
 #include <godot_cpp/classes/engine.hpp>
+#include <godot_cpp/core/class_db.hpp>
+#include <godot_cpp/variant/utility_functions.hpp>
 
 using namespace godot;
 
 
-CheatSheet::CheatSheet()
+CheatSheet::CheatSheet() : state_current(STATE_ATTACHED)
 {
+    state_process_funcs[STATE_ATTACHED] = &CheatSheet::ProcessAttached;
+    state_process_funcs[STATE_DETATCHED] = &CheatSheet::ProcessDetatched;
+    state_process_funcs[STATE_HELD] = &CheatSheet::ProcessHeld;
+    state_process_funcs[STATE_MOUTHED] = &CheatSheet::ProcessMouthed;
+    state_process_funcs[STATE_HELD_CRISIS] = &CheatSheet::ProcessHeldCrisis;
 }
 
 
@@ -32,7 +39,10 @@ void CheatSheet::_ready()
 
     mesh = get_parent()->get_node<Node>("Pivot")->get_node<Node>("Toothless")->get_node<Node>("rig")
                          ->get_node<Node>("Skeleton3D")->get_node<MeshInstance3D>("cheat_sheet");
+    dragon = get_parent()->get_parent()->get_node<RigidBody3D>("Dragon");
     pickable = get_parent()->get_node<Node>("Pivot")->get_node<RigidBody3D>("XRToolsPickable");
+    pickable->connect("picked_up", Callable(this, "_on_pickable_picked_up"));
+    pickable->connect("dropped", Callable(this, "_on_pickable_dropped"));
 
     // get the override material first, otherwise get the surface material
     Ref<Material> base_material = mesh->get_surface_override_material(0);
@@ -111,10 +121,10 @@ void CheatSheet::Detatch()
     detatch_direction = mesh->get_global_transform().basis.get_column(1);
     mesh->get_parent()->remove_child(mesh);
     pickable->call_deferred("add_child", mesh);
-    pickable->set_position(Vector3(0.934f, 0.315f, 0));
+    pickable->set_position(detatch_position);
     pickable->set_rotation(Vector3(0, 0, 0));
     mesh->set_position(Vector3(-0.33f, -1.3f, 0.0f) - pickable->get_position());
-    detatched = true;
+    state_current = STATE_DETATCHED;
 }
 
 
@@ -125,22 +135,85 @@ void CheatSheet::_physics_process(double delta)
         double time_sec = Time::get_singleton()->get_ticks_msec() / 1000.0;
         material->set_shader_parameter("time", time_sec);
     }
-    if (detatched) 
+
+    (this->*state_process_funcs[state_current])(delta);
+}
+
+
+void CheatSheet::ProcessAttached(double delta)
+{
+}
+
+
+void CheatSheet::ProcessDetatched(double delta)
+{
+    pickable->set_position(detatch_position);
+
+    // rotate the cheat sheet randomly
+    Transform3D transform = pickable->get_transform();
+    float random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    transform.basis = transform.basis.rotated(transform.basis.get_column(0), random_angle); // rotate around x-axis
+    random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    transform.basis = transform.basis.rotated(transform.basis.get_column(1), random_angle); // rotate around y-axis
+    random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    transform.basis = transform.basis.rotated(transform.basis.get_column(2), random_angle); // rotate around z-axis
+    pickable->set_transform(transform);
+    // move the cheat sheet towards the ground
+    Vector3 global_pos = pickable->get_global_position();
+    global_pos += detatch_direction * flutter_speed;
+    global_pos.y -= 0.01f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * flutter_speed;
+    pickable->set_global_position(global_pos);
+
+    detatch_position = pickable->get_position();
+}
+
+
+void CheatSheet::ProcessHeld(double delta)
+{
+}
+
+void CheatSheet::ProcessMouthed(double delta)
+{
+    pickable->set_position(detatch_position);
+}
+
+
+void CheatSheet::ProcessHeldCrisis(double delta)
+{
+}
+
+
+void CheatSheet::_on_pickable_picked_up(Node* pickable)
+{
+    if (state_current == STATE_DETATCHED) 
     {
-        Transform3D transform = pickable->get_transform();
-        // rotate the cheat sheet randomly
-        float random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
-        transform.basis = transform.basis.rotated(transform.basis.get_column(0), random_angle); // rotate around x-axis
-        random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
-        transform.basis = transform.basis.rotated(transform.basis.get_column(1), random_angle); // rotate around y-axis
-        random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
-        transform.basis = transform.basis.rotated(transform.basis.get_column(2), random_angle); // rotate around z-axis
-        pickable->set_transform(transform);
-        // move the cheat sheet towards the ground
-        Vector3 global_pos = pickable->get_global_position();
-        global_pos += detatch_direction * 0.03f;
-        global_pos.y -= 0.01f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.03f;
-        pickable->set_global_position(global_pos);
+        state_current = STATE_HELD;
+        UtilityFunctions::print("Cheat Sheet is now held.");
+    }
+    else if (state_current == STATE_MOUTHED) 
+    {
+        state_current = STATE_HELD_CRISIS;
+        UtilityFunctions::print("Cheat Sheet is now held in crisis.");
+    }
+}
+
+
+void CheatSheet::_on_pickable_dropped(Node* pickable)
+{
+    if (state_current == STATE_HELD) 
+    {
+        detatch_position = this->pickable->get_position();
+        state_current = STATE_MOUTHED;
+        UtilityFunctions::print("Cheat Sheet is now mouthed.");
+    }
+    else if (state_current == STATE_HELD_CRISIS) 
+    {
+        detatch_position = this->pickable->get_position();
+        flutter_speed = 0.1f;
+        // set the detatch direction diagonally upward and backward from the dragon
+        detatch_direction = dragon->get_global_transform().basis.get_column(1) - dragon->get_global_transform().basis.get_column(0);
+        state_current = STATE_DETATCHED;
+        UtilityFunctions::print("Cheat Sheet is now detached.");
     }
 }
 
@@ -148,4 +221,12 @@ void CheatSheet::_physics_process(double delta)
 void CheatSheet::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("Detatch"), &CheatSheet::Detatch);
+    ClassDB::bind_method(D_METHOD("_on_pickable_picked_up", "pickable"), &CheatSheet::_on_pickable_picked_up);
+    ClassDB::bind_method(D_METHOD("_on_pickable_dropped", "pickable"), &CheatSheet::_on_pickable_dropped);
+
+    BIND_ENUM_CONSTANT(STATE_ATTACHED);
+    BIND_ENUM_CONSTANT(STATE_DETATCHED);
+    BIND_ENUM_CONSTANT(STATE_HELD);
+    BIND_ENUM_CONSTANT(STATE_MOUTHED);
+    BIND_ENUM_CONSTANT(STATE_HELD_CRISIS);
 }

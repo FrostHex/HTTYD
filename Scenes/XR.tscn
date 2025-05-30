@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1pgf1tf0t857"]
+[gd_scene load_steps=7 format=3 uid="uid://d1pgf1tf0t857"]
 
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_fea57"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_erwv8"]
+[ext_resource type="Script" uid="uid://c8yelv878vxsd" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/functions/function_pickup.gd" id="2_tn2gp"]
 [ext_resource type="PackedScene" uid="uid://q1l3fknstir2" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/model/Hand_Nails_L.gltf" id="3_epyno"]
 [ext_resource type="Material" uid="uid://dy6nhifvvmm73" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/materials/caucasian_hand.tres" id="4_tn2gp"]
 [ext_resource type="PackedScene" uid="uid://c6s5nvekg0isa" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/model/Hand_Nails_R.gltf" id="5_mchfj"]
@@ -16,6 +17,13 @@
 tracker = &"left_hand"
 
 [node name="LeftHand" parent="XROrigin/LeftHand" instance=ExtResource("1_fea57")]
+
+[node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin/LeftHand"]
+script = ExtResource("2_tn2gp")
+grab_distance = 0.1
+grab_collision_mask = 8
+ranged_collision_mask = 8
+metadata/_custom_type_script = "uid://c8yelv878vxsd"
 
 [node name="RightHand" type="XRController3D" parent="XROrigin"]
 tracker = &"right_hand"

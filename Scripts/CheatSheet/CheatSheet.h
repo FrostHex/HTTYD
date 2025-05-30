@@ -7,27 +7,55 @@
 #include <godot_cpp/classes/shader_material.hpp>
 #include <godot_cpp/classes/rigid_body3d.hpp>
 
-using namespace godot;
-
-class CheatSheet : public Node3D 
+namespace godot
 {
-    GDCLASS(CheatSheet, Node3D);
+    enum CheatSheetState 
+    {
+        STATE_ATTACHED, 
+        STATE_DETATCHED,
+        STATE_HELD,
+        STATE_MOUTHED,
+        STATE_HELD_CRISIS,
+        STATE_COUNT1
+    };
 
-    private:
-        Ref<ShaderMaterial> material;
-        MeshInstance3D* mesh = nullptr;
-        RigidBody3D* pickable = nullptr;
-        bool detatched = false;
-        Vector3 detatch_direction = Vector3(0, 0, 0);
+    class CheatSheet : public Node3D 
+    {
+        GDCLASS(CheatSheet, Node3D);
 
-    protected:
-        static void _bind_methods();
+        public:
+            CheatSheet();
+            ~CheatSheet();
+            void _ready() override;
+            void _physics_process(double delta) override;
+            void Detatch();
+            void _on_pickable_picked_up(Node* pickable);
+            void _on_pickable_dropped(Node* pickable);
 
-    public:
-        CheatSheet();
-        ~CheatSheet();
-        void _ready() override;
-        void _physics_process(double delta) override;
-        void Detatch();
-};
+        protected:
+            static void _bind_methods();
+
+        private:
+            Ref<ShaderMaterial> material;
+            MeshInstance3D* mesh = nullptr;
+            RigidBody3D* pickable = nullptr;
+            RigidBody3D* dragon = nullptr;
+            Vector3 detatch_direction = Vector3(0, 0, 0);
+            float flutter_speed = 0.03f;
+            // XRToolsPickable to set its local position every frame to keep it at the same global position
+            // the setting of detatch_position is used to counteract this behavior
+            Vector3 detatch_position = Vector3(0.934f, 0.315f, 0);
+            using StateProcessFunc = void (CheatSheet::*)(double);
+            StateProcessFunc state_process_funcs[(int)CheatSheetState::STATE_COUNT1];
+            CheatSheetState state_current;
+            void ProcessAttached(double delta);
+            void ProcessDetatched(double delta);
+            void ProcessHeld(double delta);
+            void ProcessMouthed(double delta);
+            void ProcessHeldCrisis(double delta);
+    };
+}
+
+VARIANT_ENUM_CAST(godot::CheatSheetState);
+
 #endif // CHEAT_SHEET_H

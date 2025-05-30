@@ -77,11 +77,11 @@ void MainControl::_ready()
     camera_ctrl->SetDragonControl(dragon_control); // set the dragon control to the camera control
 
     // timer list
-    timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_DISABLED));
+    // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_DISABLED));
     timer->Timer_AddEvent(5.0f, Callable(cheat_sheet, "Detatch")); 
     if (enable_headset) 
     {
-        timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_CRISIS));
+        // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_CRISIS));
     }
 }
 

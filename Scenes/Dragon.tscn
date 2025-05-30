@@ -1,8 +1,9 @@
-[gd_scene load_steps=64 format=3 uid="uid://drg1ol84t4ys1"]
+[gd_scene load_steps=65 format=3 uid="uid://drg1ol84t4ys1"]
 
 [ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Toothless.tscn" id="1_v5fnx"]
 [ext_resource type="PackedScene" uid="uid://d1pgf1tf0t857" path="res://Scenes/XR.tscn" id="2_0snye"]
 [ext_resource type="Script" uid="uid://mq1p8jxyitgi" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/pickable.gd" id="3_m2uv8"]
+[ext_resource type="Script" uid="uid://p3wg21v7iut2" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="4_guncu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_guncu"]
 size = Vector3(0.168, 0.0608516, 0.202)
@@ -266,13 +267,21 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 0
 
 [node name="XRToolsPickable" type="RigidBody3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934, 0.315, 0)
+collision_layer = 8
+collision_mask = 0
 mass = 0.001
 gravity_scale = 0.0
 script = ExtResource("3_m2uv8")
+picked_up_layer = 8
 metadata/_custom_type_script = "uid://mq1p8jxyitgi"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/XRToolsPickable"]
 shape = SubResource("BoxShape3D_guncu")
+
+[node name="XRToolsGrabPointHand" type="Marker3D" parent="Pivot/XRToolsPickable"]
+transform = Transform3D(-0.276865, 0.431805, -0.858423, 0.951042, 0.250828, -0.180566, 0.137348, -0.866389, -0.480111, 0.132192, -0.00658917, -0.0628843)
+script = ExtResource("4_guncu")
+metadata/_custom_type_script = "uid://p3wg21v7iut2"
 
 [node name="Collision_Shape_Wing" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.536, 0.395, 0)
@@ -311,7 +320,7 @@ text = "Info"
 [node name="AnimationTree" type="AnimationTree" parent="DragonAnimator"]
 root_node = NodePath("../../Pivot/Toothless")
 tree_root = SubResource("AnimationNodeBlendTree_m2uv8")
-anim_player = NodePath("/root/@EditorNode@21304/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11477/@VSplitContainer@11129/@HSplitContainer@11131/@HSplitContainer@11133/@Control@11134/@SubViewportContainer@11135/@SubViewport@11136/Dragon/Pivot/Toothless/AnimationPlayer")
+anim_player = NodePath("/root/@EditorNode@21337/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11477/@VSplitContainer@11129/@HSplitContainer@11131/@HSplitContainer@11133/@Control@11134/@SubViewportContainer@11135/@SubViewport@11136/Dragon/Pivot/Toothless/AnimationPlayer")
 parameters/add_ear/add_amount = 0.8
 parameters/add_eyelid/add_amount = 1.0
 parameters/add_eyelid_down/add_amount = 0.3

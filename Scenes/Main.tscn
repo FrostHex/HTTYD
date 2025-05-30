@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bftovvm0selct"]
+[gd_scene load_steps=10 format=3 uid="uid://bftovvm0selct"]
 
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://dx4r13gqfh13" path="res://Scenes/Ocean.tscn" id="2_idj7w"]
@@ -48,8 +48,6 @@ adjustment_brightness = 0.85
 adjustment_contrast = 1.07
 adjustment_saturation = 1.5
 
-[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_v1gob"]
-
 [node name="Main" type="Node3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
@@ -86,6 +84,4 @@ material = ExtResource("5_v1gob")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 1000, -2800)
 
 [node name="MainControl" type="MainControl" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaceholderMesh_v1gob")
+"Enable Headset" = true

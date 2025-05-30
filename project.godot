@@ -60,6 +60,7 @@ toggle_fullscreen={
 3d_physics/layer_1="player"
 3d_physics/layer_2="dragon"
 3d_physics/layer_3="rocks"
+3d_physics/layer_4="cheat_sheet"
 
 [network]
 
@@ -90,6 +91,7 @@ num_cascades={
 
 [xr]
 
+openxr/enabled=true
 openxr/default_action_map="res://Addons/godot-xr-tools/addons/godot-xr-tools/openxr_action_map.tres"
 openxr/extensions/hand_tracking=true
 shaders/enabled=true
