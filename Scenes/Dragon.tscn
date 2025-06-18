@@ -1,9 +1,10 @@
-[gd_scene load_steps=65 format=3 uid="uid://drg1ol84t4ys1"]
+[gd_scene load_steps=66 format=3 uid="uid://drg1ol84t4ys1"]
 
 [ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Toothless.tscn" id="1_v5fnx"]
 [ext_resource type="PackedScene" uid="uid://d1pgf1tf0t857" path="res://Scenes/XR.tscn" id="2_0snye"]
 [ext_resource type="Script" uid="uid://mq1p8jxyitgi" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/pickable.gd" id="3_m2uv8"]
 [ext_resource type="Script" uid="uid://p3wg21v7iut2" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="4_guncu"]
+[ext_resource type="VideoStream" uid="uid://buidgmw8u3jfg" path="res://Environment/Media/Test Drive.ogv" id="5_x0p8c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_guncu"]
 size = Vector3(0.168, 0.0608516, 0.202)
@@ -315,12 +316,19 @@ offset_bottom = 189.897
 scale = Vector2(1.43606, 1.43606)
 text = "Info"
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewportContainer/SubViewport"]
+offset_top = 359.0
+offset_right = 480.0
+offset_bottom = 587.0
+scale = Vector2(0.75, 0.75)
+stream = ExtResource("5_x0p8c")
+
 [node name="DragonAnimator" type="DragonAnimator" parent="."]
 
 [node name="AnimationTree" type="AnimationTree" parent="DragonAnimator"]
 root_node = NodePath("../../Pivot/Toothless")
 tree_root = SubResource("AnimationNodeBlendTree_m2uv8")
-anim_player = NodePath("/root/@EditorNode@21337/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11477/@VSplitContainer@11129/@HSplitContainer@11131/@HSplitContainer@11133/@Control@11134/@SubViewportContainer@11135/@SubViewport@11136/Dragon/Pivot/Toothless/AnimationPlayer")
+anim_player = NodePath("/root/@EditorNode@21304/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11477/@VSplitContainer@11129/@HSplitContainer@11131/@HSplitContainer@11133/@Control@11134/@SubViewportContainer@11135/@SubViewport@11136/Dragon/Pivot/Toothless/AnimationPlayer")
 parameters/add_ear/add_amount = 0.8
 parameters/add_eyelid/add_amount = 1.0
 parameters/add_eyelid_down/add_amount = 0.3

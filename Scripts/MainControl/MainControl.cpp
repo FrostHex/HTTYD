@@ -18,6 +18,8 @@
 #include <godot_cpp/classes/scene_tree.hpp> // for get_tree()
 #include <godot_cpp/classes/project_settings.hpp>
 #include <godot_cpp/variant/callable.hpp>
+#include <godot_cpp/classes/audio_stream_player.hpp>
+#include <godot_cpp/classes/video_stream_player.hpp>
 
 using namespace godot;
 
@@ -74,10 +76,14 @@ void MainControl::_ready()
     camera_ctrl->SetDragonControl(dragon_control); // set the dragon control to the camera control
     timer = memnew(GameTimer(camera_ctrl));
     add_child(timer);
+    AudioStreamPlayer* audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
+    VideoStreamPlayer* video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
 
     // timer list
     // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_DISABLED));
-    timer->Timer_AddEvent(3.0f, Callable(cheat_sheet, "Detatch")); 
+    timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
+    timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
+    timer->Timer_AddEvent(5.0f, Callable(cheat_sheet, "Detatch")); 
     if (enable_headset) 
     {
         // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_CRISIS));

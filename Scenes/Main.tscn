@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bftovvm0selct"]
+[gd_scene load_steps=11 format=3 uid="uid://bftovvm0selct"]
 
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://dx4r13gqfh13" path="res://Scenes/Ocean.tscn" id="2_idj7w"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cvjigyxbtcxbu" path="res://Scenes/Rocks/Rocks_Imported.tscn" id="4_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://8fvlc7181mcm" path="res://Scenes/Mountain.tscn" id="4_rgh2o"]
 [ext_resource type="Material" uid="uid://bcw5plagb6daq" path="res://Environment/Fog/volumetric_fog.tres" id="5_v1gob"]
+[ext_resource type="AudioStream" uid="uid://dom55m45v4wcr" path="res://Environment/Media/Test Drive.wav" id="7_jw32o"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rgh2o"]
 panorama = ExtResource("3_kln2b")
@@ -82,5 +83,8 @@ material = ExtResource("5_v1gob")
 
 [node name="Dragon" parent="." instance=ExtResource("1_r150o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 1000, -2800)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jw32o")
 
 [node name="MainControl" type="MainControl" parent="."]

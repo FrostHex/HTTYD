@@ -74,7 +74,7 @@ shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_tsx6q")
 script = ExtResource("1_skarq")
 
 [node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 37, 0, 29)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 381, 0, 448)
 sorting_offset = 999.0
 material_override = ExtResource("5_lt75t")
 cast_shadow = 0
@@ -103,7 +103,6 @@ volume_db = 15.0
 [node name="WindAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_6r5si")
 volume_db = -30.0
-autoplay = true
 
 [node name="Water_Background" type="MeshInstance3D" parent="."]
 transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, -8, 0)
