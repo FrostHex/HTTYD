@@ -1,6 +1,8 @@
 #ifndef CUSTOM_TIMER_H
 #define CUSTOM_TIMER_H
 
+#include "CameraControl.h"
+
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/variant/callable.hpp>
@@ -43,6 +45,7 @@ namespace godot
 
         public:
             GameTimer();
+            GameTimer(CameraControl* camera_control);
             ~GameTimer();            
             void _ready() override;
             void _physics_process(double delta) override;
@@ -66,6 +69,7 @@ namespace godot
              */
             std::priority_queue<TimerEvent, std::vector<TimerEvent>, std::greater<TimerEvent>> event_queue;
             
+            CameraControl* camera_control; // pointer to the camera control, can be used to access camera properties
             float time_elapsed; // Elapsed time (seconds)
             bool timer_paused; // Whether paused
             int id_event_next; // ID for the next event

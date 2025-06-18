@@ -24,6 +24,7 @@ namespace godot
             void _physics_process(double delta) override;
             Vector3 GetPostureHeadset();
             void SetDragonControl(DragonControlTop* dragon_control);
+            String info_debug;
         
         protected:
             static void _bind_methods();

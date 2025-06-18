@@ -145,7 +145,7 @@ void CameraControl::_physics_process(double delta)
     if (this->sub_view)
     {
         camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
-        String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1);
+        String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1) + "\n" + info_debug;
         label_info->set_text(velocity_text);
     }
 }

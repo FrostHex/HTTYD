@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmrop1m7t4tst"]
+[gd_scene load_steps=7 format=3 uid="uid://bmrop1m7t4tst"]
 
 [ext_resource type="PackedScene" uid="uid://dr7r6vpx46ko8" path="res://Toothless/Toothless.glb" id="1_p38ud"]
 [ext_resource type="Shader" uid="uid://cnb3gi2qejtln" path="res://Toothless/CheatSheet.gdshader" id="2_fl3na"]
 [ext_resource type="Material" uid="uid://lx0u41cbq3no" path="res://Environment/Metal/Metal.tres" id="2_ihx0x"]
 [ext_resource type="Texture2D" uid="uid://b4bpj7ov33t3" path="res://Toothless/Toothless_CheatSheet.png" id="3_om2xn"]
+[ext_resource type="Material" uid="uid://bxt30bq8t0i7p" path="res://Toothless/Toothless_Eye.tres" id="4_v1amr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_om2xn"]
 render_priority = 0
@@ -26,9 +27,11 @@ shader_parameter/saturation = 1.3
 material_override = SubResource("ShaderMaterial_om2xn")
 
 [node name="eye_L" parent="rig/Skeleton3D" index="3"]
+material_override = ExtResource("4_v1amr")
 lod_bias = 100.0
 
 [node name="eye_R" parent="rig/Skeleton3D" index="4"]
+material_override = ExtResource("4_v1amr")
 lod_bias = 100.0
 
 [node name="eyelid" parent="rig/Skeleton3D" index="5"]

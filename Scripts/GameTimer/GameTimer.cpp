@@ -6,9 +6,17 @@ using namespace godot;
 
 
 /**
+ * @brief default constructor (for Godot registration)
+ */
+GameTimer::GameTimer(): camera_control(nullptr), time_elapsed(0.0f), timer_paused(false), id_event_next(1)
+{
+}
+
+
+/**
  * @brief constructor
  */
-GameTimer::GameTimer() : time_elapsed(0.0f), timer_paused(false), id_event_next(1) 
+GameTimer::GameTimer(CameraControl* camera_control): camera_control(camera_control), time_elapsed(0.0f), timer_paused(false), id_event_next(1)
 {
 }
 
@@ -41,6 +49,10 @@ void GameTimer::_bind_methods()
  */
 void GameTimer::_ready() 
 {
+    if (Engine::get_singleton()->is_editor_hint()) // only run when the game is running
+    {
+        return;
+    }
     Timer_Reset();
     set_physics_process(true);
 }
@@ -100,7 +112,11 @@ void GameTimer::_physics_process(double delta)
             break; // exit the loop if the next event hasn't reached its trigger time
         }
         event_next.callback.call(); // trigger the event
-        UtilityFunctions::print("Timer event ID ", event_next.id, " triggered at ", time_elapsed, " seconds");
+        if (camera_control) 
+        {
+            camera_control->info_debug = "Event ID: " + String::num_int64(event_next.id) + " at " + String::num(time_elapsed);
+        }
+        UtilityFunctions::print("Event ID ", event_next.id, " triggered at ", time_elapsed, " seconds");
         event_queue.pop(); // remove the triggered event
     }
     if (event_queue.empty()) // disable physics processing if no events are left

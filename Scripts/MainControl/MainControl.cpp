@@ -51,9 +51,6 @@ void MainControl::_ready()
         return;
     }
 
-    timer = memnew(GameTimer);
-    add_child(timer);
-
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
     CheatSheet *cheat_sheet = dragon_node->get_node<CheatSheet>("CheatSheet");
     DragonControlTop *dragon_control = nullptr;
@@ -75,10 +72,12 @@ void MainControl::_ready()
     }
 
     camera_ctrl->SetDragonControl(dragon_control); // set the dragon control to the camera control
+    timer = memnew(GameTimer(camera_ctrl));
+    add_child(timer);
 
     // timer list
     // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_DISABLED));
-    timer->Timer_AddEvent(5.0f, Callable(cheat_sheet, "Detatch")); 
+    timer->Timer_AddEvent(3.0f, Callable(cheat_sheet, "Detatch")); 
     if (enable_headset) 
     {
         // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_CRISIS));
