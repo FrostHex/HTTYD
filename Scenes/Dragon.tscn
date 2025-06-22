@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://drg1ol84t4ys1"]
+[gd_scene load_steps=73 format=3 uid="uid://drg1ol84t4ys1"]
 
 [ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Toothless.tscn" id="1_v5fnx"]
 [ext_resource type="PackedScene" uid="uid://d1pgf1tf0t857" path="res://Scenes/XR.tscn" id="2_0snye"]
@@ -170,6 +170,9 @@ animation = &"po_left"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ub7h"]
 animation = &"po_right"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d3pal"]
+animation = &"po_tail_wing_close"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kx0q8"]
 xfade_time = 0.3
 
@@ -191,15 +194,36 @@ xfade_time = 0.3
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cs1p4"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lho5m"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cs5re"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aags6"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_irg8a"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y3r4j"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q4jew"]
+xfade_time = 0.3
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_m2uv8"]
+states/Start/position = Vector2(199.333, 88.7654)
 states/po_glide/node = SubResource("AnimationNodeAnimation_242pc")
-states/po_glide/position = Vector2(334, 87.8889)
+states/po_glide/position = Vector2(334, 88.0535)
 states/po_left/node = SubResource("AnimationNodeAnimation_hxth6")
-states/po_left/position = Vector2(496.667, 87)
+states/po_left/position = Vector2(570.667, 86.9259)
 states/po_right/node = SubResource("AnimationNodeAnimation_1ub7h")
-states/po_right/position = Vector2(496.469, 186.555)
-transitions = ["po_glide", "po_left", SubResource("AnimationNodeStateMachineTransition_kx0q8"), "po_left", "po_glide", SubResource("AnimationNodeStateMachineTransition_32v1l"), "po_left", "po_right", SubResource("AnimationNodeStateMachineTransition_6ggcd"), "po_right", "po_left", SubResource("AnimationNodeStateMachineTransition_rk8ap"), "po_glide", "po_right", SubResource("AnimationNodeStateMachineTransition_osibn"), "po_right", "po_glide", SubResource("AnimationNodeStateMachineTransition_0dq0a"), "Start", "po_glide", SubResource("AnimationNodeStateMachineTransition_cs1p4")]
-graph_offset = Vector2(111, -39)
+states/po_right/position = Vector2(569.136, 240.481)
+states/po_tail_wing_close/node = SubResource("AnimationNodeAnimation_d3pal")
+states/po_tail_wing_close/position = Vector2(334.556, 239.555)
+transitions = ["po_glide", "po_left", SubResource("AnimationNodeStateMachineTransition_kx0q8"), "po_left", "po_glide", SubResource("AnimationNodeStateMachineTransition_32v1l"), "po_left", "po_right", SubResource("AnimationNodeStateMachineTransition_6ggcd"), "po_right", "po_left", SubResource("AnimationNodeStateMachineTransition_rk8ap"), "po_glide", "po_right", SubResource("AnimationNodeStateMachineTransition_osibn"), "po_right", "po_glide", SubResource("AnimationNodeStateMachineTransition_0dq0a"), "Start", "po_glide", SubResource("AnimationNodeStateMachineTransition_cs1p4"), "po_tail_wing_close", "po_glide", SubResource("AnimationNodeStateMachineTransition_lho5m"), "po_glide", "po_tail_wing_close", SubResource("AnimationNodeStateMachineTransition_cs5re"), "po_tail_wing_close", "po_right", SubResource("AnimationNodeStateMachineTransition_aags6"), "po_right", "po_tail_wing_close", SubResource("AnimationNodeStateMachineTransition_irg8a"), "po_tail_wing_close", "po_left", SubResource("AnimationNodeStateMachineTransition_y3r4j"), "po_left", "po_tail_wing_close", SubResource("AnimationNodeStateMachineTransition_q4jew")]
+graph_offset = Vector2(39, 47)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kfyjk"]
 animation = &"po_default"
@@ -214,7 +238,7 @@ animation = &"po_eyelid_close_down"
 animation = &"po_eyelid_close_up"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m2uv8"]
-graph_offset = Vector2(-504.29, 108.908)
+graph_offset = Vector2(-807.138, -91.6764)
 nodes/add_ear/node = SubResource("AnimationNodeAdd2_m2uv8")
 nodes/add_ear/position = Vector2(133.333, 226.667)
 nodes/add_eyelid/node = SubResource("AnimationNodeAdd2_v5fnx")

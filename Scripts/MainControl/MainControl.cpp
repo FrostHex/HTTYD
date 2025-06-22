@@ -80,14 +80,43 @@ void MainControl::_ready()
     VideoStreamPlayer* video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
 
     // timer list
-    // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_DISABLED));
     timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
     timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
-    timer->Timer_AddEvent(5.0f, Callable(cheat_sheet, "Detatch")); 
-    if (enable_headset) 
-    {
-        // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_CRISIS));
-    }
+    // 16.5 the tail wing folds
+    // 17.0 the tail wing is now fully extended
+    // 18.0 change the animation to tr_check_tail_glide
+    // 58.0 the code takes control, unavoidable to fly towards the pillar
+    // 58.7 hit the pillar, setting the animation to hit_cliff
+    // 1'02.0 unavoidable to fly towards the pillar
+    // 1'02.7 hit the pillar, setting the animation to hit_cliff
+    // 1'05.3 Toothless flap my face with his ear
+    timer->Timer_AddEvent(80.0f, Callable(cheat_sheet, "Detatch")); 
+    // 1'22.5 start to decelerate due to the stall
+    // 1'25.0 the camera is now facing downwards
+    // 1'25.5 change the animation to tr_glide_fall
+    // 1'25.8 speed is now reduced to 0, and start falling
+    // 1'27.0 start to change the camera to upwards within 1 second
+    // 1'28.0 Toothless opens his mouth to roar
+    // 1'29.0 Toothless opens his mouth to roar
+    // 1'30.5 Toothless opens his mouth to roar
+    // 1'30.8 change the camera to downwards within 0.4 seconds
+    // 1'32.0 hit Toothless's wing, and then start to rotate the camera for two rounds
+    // 1'33.2 Toothless opens his mouth to roar
+    // 1'35.0 Toothless starts to rotate unwillingly
+    // 1'39.5 Toothless hit me with his tail and the camera is spinning for one round
+    // 1'41.0 the camera is now facing downwards and approaching to Toothless, and Toothless's spinning is alleviated
+    // 1'44.3 grab the saddle
+    // 1'46.5 sit back on the saddle
+    // 1'50.0 straightly dive downwards
+    // 1'53.5 glide diagonal downwards
+    // 2'01.7 the tail wing is now fully extended
+    // 2'02.0 fully retrieve the control
+    // 2'08.7 start getting to the position of upside down
+    // 2'09.7 finish the spinning
+    // 2'10.5 retrieve the control
+    // 2'14.8 successfully traversed the crisis
+    // 2'22.5 change the animation to celebrate
+    timer->Timer_AddEvent(143.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_DISABLED)); // 2'23.0 disable the control
 }
 
 
