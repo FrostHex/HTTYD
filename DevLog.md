@@ -1,5 +1,7 @@
 # TODO
-- 实现事件列表 (4/37)
+
+![实现事件列表](https://quickchart.io/chart?c={type:'pie',data:{labels:['已完成','未完成'],datasets:[{data:[4,37-4],backgroundColor:['%2362db5e','%232fb7ed']}]},options:{legend:{labels:{fontColor:'white'}},plugins:{datalabels:{color:'white'}}}})
+- 实现事件列表
 - 博克岛
 - 体积云
 - 夕阳海滩场景
