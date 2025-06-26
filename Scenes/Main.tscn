@@ -86,5 +86,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 1000, -2800)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_jw32o")
+volume_db = -80.0
 
 [node name="MainControl" type="MainControl" parent="."]

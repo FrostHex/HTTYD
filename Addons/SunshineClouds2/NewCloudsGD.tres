@@ -1,0 +1,81 @@
+[gd_resource type="CompositorEffect" script_class="SunshineCloudsGD" load_steps=12 format=3 uid="uid://v0kty216hlxo"]
+
+[ext_resource type="RDShaderFile" uid="uid://dx1y5cye1m1hu" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/SunshineCloudsCompute.glsl" id="1_lebqt"]
+[ext_resource type="CompressedTexture3D" uid="uid://dei12lsgrjpyu" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/NoiseTextures/curl_noise_varied.tga" id="2_2lmvw"]
+[ext_resource type="CompressedTexture3D" uid="uid://b3uyfsp4in821" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/NoiseTextures/bluenoise_Dither.png" id="3_q8cym"]
+[ext_resource type="Texture2D" uid="uid://qq1xetqsweof" path="res://Addons/SunshineClouds2/CloudsMask.exr" id="4_lebqt"]
+[ext_resource type="Texture2D" uid="uid://g02m2ewpwusq" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/NoiseTextures/HeightGradient.tres" id="5_mrg3l"]
+[ext_resource type="NoiseTexture3D" uid="uid://6ed3lvlpbqmg" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/NoiseTextures/LargeScaleNoise.tres" id="6_iyxim"]
+[ext_resource type="NoiseTexture3D" uid="uid://dxyewgt7o40m0" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/NoiseTextures/MediumScaleNoise.tres" id="7_opodv"]
+[ext_resource type="RDShaderFile" uid="uid://chxheyp4eohbc" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/SunshineCloudsPostCompute.glsl" id="8_f8qfs"]
+[ext_resource type="RDShaderFile" uid="uid://crfpk8ta4qxsk" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/SunshineCloudsPreCompute.glsl" id="9_bt1pb"]
+[ext_resource type="Script" uid="uid://dnblgqynq1t7l" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/SunshineClouds.gd" id="10_jugbg"]
+[ext_resource type="NoiseTexture3D" uid="uid://bnck2kxeg5bkg" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/NoiseTextures/SmallScaleNoise.tres" id="11_jgply"]
+
+[resource]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 3
+access_resolved_color = true
+access_resolved_depth = true
+needs_motion_vectors = true
+needs_normal_roughness = false
+script = ExtResource("10_jugbg")
+clouds_coverage = 0.823
+clouds_density = 1.0
+atmospheric_density = 0.319
+lighting_density = 0.254
+fog_effect_ground = 1.0
+clouds_anisotropy = 0.127
+clouds_powder = 0.663
+cloud_ambient_color = Color(0.518, 0.553, 0.608, 1)
+cloud_ambient_tint = Color(0.131626, 0.201524, 0.241773, 1)
+atmosphere_color = Color(0.5376, 0.600747, 0.64, 1)
+ambient_occlusion_color = Color(0.99, 0.231, 0, 0.701961)
+accumulation_decay = 0.8
+extra_large_noise_scale = 320000.0
+large_noise_scale = 118514.0
+medium_noise_scale = 20199.0
+small_noise_scale = 7826.9
+clouds_sharpness = 0.842
+clouds_detail_power = 1.075
+curl_noise_strength = 8553.34
+lighting_sharpness = 0.385
+wind_swept_range = 0.381
+wind_swept_strength = 4021.74
+cloud_floor = 1500.0
+cloud_ceiling = 25000.0
+max_step_count = 200.0
+max_lighting_steps = 32.0
+resolution_scale = 1
+lod_bias = 1.0
+dither_noise = ExtResource("3_q8cym")
+height_gradient = ExtResource("5_mrg3l")
+extra_large_noise_patterns = ExtResource("4_lebqt")
+large_scale_noise = ExtResource("6_iyxim")
+medium_scale_noise = ExtResource("7_opodv")
+small_scale_noise = ExtResource("11_jgply")
+curl_noise = ExtResource("2_2lmvw")
+dither_speed = 100.825
+blur_power = 2.0
+blur_quality = 1.0
+reflections_globalshaderparam = ""
+min_step_distance = 100.0
+max_step_distance = 600.0
+lighting_travel_distance = 7000.0
+extra_large_used_as_mask = true
+mask_width_km = 512.0
+pre_pass_compute_shader = ExtResource("9_bt1pb")
+compute_shader = ExtResource("1_lebqt")
+post_pass_compute_shader = ExtResource("8_f8qfs")
+origin_offset = Vector3(1000, 0, 0)
+wind_direction = Vector3(1, 0, 1)
+extra_large_scale_clouds_position = Vector3(158278, 0, -107374)
+large_scale_clouds_position = Vector3(46459.5, 0, 42751.5)
+medium_scale_clouds_position = Vector3(-6667.43, 0, 716.774)
+detail_clouds_position = Vector3(3694.39, -2897.36, 3698.32)
+current_time = 5025.95
+directional_lights_data = Array[Vector4]([Vector4(0.412799, 0.564261, -0.714988, 32), Vector4(1, 1, 1, 1)])
+point_lights_data = Array[Vector4]([Vector4(10478.3, 4477.77, -39700.5, 20000), Vector4(0.847843, 0.416966, 0.199327, 11.7)])
+point_effector_data = Array[Vector4]([Vector4(-7951.21, -2907.13, -14550.1, 16788.2), Vector4(1.18, 0, 0, 0)])
