@@ -26,6 +26,7 @@ namespace godot
     enum DragonState 
     {
         STATE_DEFAULT,
+        STATE_NOT_ANIMATED,
         STATE_HIT_CLIFF,
         STATE_FALLING,
         STATE_CRISIS,
@@ -75,6 +76,7 @@ namespace godot
             StateProcessFunc state_process_funcs[STATE_COUNT]; // an array of function pointers with size of STATE_COUNT
             DragonState state_current;
             void ProcessDefault(double delta);
+            void ProcessNotAnimated(double delta);
             void ProcessHitCliff(double delta);
             void ProcessFalling(double delta);
             void ProcessCrisis(double delta);

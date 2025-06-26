@@ -55,6 +55,7 @@ void MainControl::_ready()
 
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
     CheatSheet *cheat_sheet = dragon_node->get_node<CheatSheet>("CheatSheet");
+    DragonAnimator *dragon_animator = get_parent()->get_node<Node>("Dragon")->get_node<DragonAnimator>("DragonAnimator");
     DragonControlTop *dragon_control = nullptr;
     CameraControl *camera_ctrl = memnew(CameraControl(sub_view, enable_headset));
     camera_ctrl->set_name("CameraControl"); // set the name of the camera control node
@@ -79,12 +80,20 @@ void MainControl::_ready()
     AudioStreamPlayer* audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
     VideoStreamPlayer* video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
 
+    // test timer list
+    // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // 14.8 disable the default animations
+    // timer->Timer_AddEvent(1.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_check_tail_glide", true)); // 18.0 change the animation to tr_check_tail_glide
+    // timer->Timer_AddEvent(3.0f, Callable(dragon_animator, "Unfreeze"));
+
     // timer list
     timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
     timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
-    // 16.5 the tail wing folds
-    // 17.0 the tail wing is now fully extended
-    // 18.0 change the animation to tr_check_tail_glide
+    timer->Timer_AddEvent(14.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // 14.8 disable the default animations
+    timer->Timer_AddEvent(15.8f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close")); // 15.8 the tail wing folds
+    timer->Timer_AddEvent(17.3f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide")); // 17.3 the tail wing is now fully extended
+    timer->Timer_AddEvent(18.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_check_tail_glide", true)); // 18.0 the starting position of tr_check_tail_glide
+    timer->Timer_AddEvent(19.0f, Callable(dragon_animator, "Unfreeze")); // 19.0 change the animation to tr_check_tail_glide
+    timer->Timer_AddEvent(20.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DEFAULT)); // 20.8 enable the default animations
     // 58.0 the code takes control, unavoidable to fly towards the pillar
     // 58.7 hit the pillar, setting the animation to hit_cliff
     // 1'02.0 unavoidable to fly towards the pillar
@@ -116,7 +125,9 @@ void MainControl::_ready()
     // 2'10.5 retrieve the control
     // 2'14.8 successfully traversed the crisis
     // 2'22.5 change the animation to celebrate
-    timer->Timer_AddEvent(143.0f, Callable(dragon_control, "set_state").bind(DragonState::STATE_DISABLED)); // 2'23.0 disable the control
+    timer->Timer_AddEvent(143.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // 2'23.0 disable the control
+    
+    timer->Timer_Resume();
 }
 
 

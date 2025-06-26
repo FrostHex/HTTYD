@@ -36,8 +36,8 @@ I used mingw64 to build Godot Cpp, my build steps are as follows:
     pacman -S mingw-w64-x86_64-toolchain
     scons -v # to check if scons is installed
     cd /e/Projects/HTTYD/Addons/godot-cpp
-    "D:\Godot\Godot_v4.5-beta1_mono_win64.exe" --dump-extension-api # modify the path of godot.exe in the command
-    scons platform=windows use_mingw=yes bits=64 custom_api_file="extension_api.json"
+    "D:\Godot_History\Godot_v4.5-dev2\Godot_v4.5-dev2_mono_win64.exe" --dump-extension-api # modify the path of godot.exe in the command
+    scons platform=windows use_mingw=yes custom_api_file="extension_api.json"
     ```
 
 ## Build New Code
@@ -57,5 +57,5 @@ scons -c platform=windows use_mingw=yes bits=64 target=release
 git submodule foreach git pull origin master
 cd Addons/godot-cpp
 "D:\Godot\Godot_v4.5-beta1_mono_win64.exe" --dump-extension-api # modify the path of godot.exe in the command
-scons platform=windows use_mingw=yes bits=64 custom_api_file="extension_api.json"
+scons platform=windows use_mingw=yes custom_api_file="extension_api.json"
 ```

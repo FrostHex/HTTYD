@@ -85,7 +85,7 @@ wind_direction = Vector3(0, 0, 0)
 extra_large_clouds_pos = Vector3(30000, 0, 1000)
 large_clouds_pos = Vector3(30000, 0, -11000)
 medium_clouds_pos = Vector3(-10000, 0, -1000)
-small_clouds_pos = Vector3(0, 1078.93, 0)
+small_clouds_pos = Vector3(0, -863.557, 0)
 metadata/_custom_type_script = "uid://djusduuxf0voj"
 
 [node name="Ocean" parent="." instance=ExtResource("2_idj7w")]

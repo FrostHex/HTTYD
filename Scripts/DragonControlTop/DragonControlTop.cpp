@@ -23,6 +23,7 @@ DragonControlTop::DragonControlTop() : state_current(STATE_DEFAULT)
     
     // initialize the state process function pointers in the array
     state_process_funcs[STATE_DEFAULT] = &DragonControlTop::ProcessDefault;
+    state_process_funcs[STATE_NOT_ANIMATED] = &DragonControlTop::ProcessNotAnimated;
     state_process_funcs[STATE_HIT_CLIFF] = &DragonControlTop::ProcessHitCliff;
     state_process_funcs[STATE_FALLING] = &DragonControlTop::ProcessFalling;
     state_process_funcs[STATE_CRISIS] = &DragonControlTop::ProcessCrisis;
@@ -46,8 +47,8 @@ DragonControlTop::~DragonControlTop()
 void DragonControlTop::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("_on_body_entered", "body"), &DragonControlTop::_on_body_entered);
-    ClassDB::bind_method(D_METHOD("get_state"), &DragonControlTop::GetState);
-    ClassDB::bind_method(D_METHOD("set_state", "state_new"), &DragonControlTop::SetState);
+    ClassDB::bind_method(D_METHOD("GetState"), &DragonControlTop::GetState);
+    ClassDB::bind_method(D_METHOD("SetState", "state_new"), &DragonControlTop::SetState);
     
     // use godot macro (BIND_ENUM_CONSTANT) to bind enum values to the engine
     BIND_ENUM_CONSTANT(STATE_DEFAULT);
@@ -106,6 +107,14 @@ void DragonControlTop::ProcessDefault(double delta)
     // UtilityFunctions::print("input_keys: ", input_keys[0], ", ", input_keys[1], ", ", input_keys[2]);
     // UtilityFunctions::print(dragon_rb->get_global_transform().origin.y);
     // UtilityFunctions::print("linear_velocity: ", linear_velocity);
+}
+
+
+void DragonControlTop::ProcessNotAnimated(double delta)
+{
+    GetInput(this->input_keys);
+    SetMotionLinear(delta);
+    SetMotionAngular(delta);
 }
 
 
@@ -278,39 +287,39 @@ void DragonControlTop::SetAnimation()
     
     if (tilt > DRAGON_FACTOR_GLIDE)    
     {
-        dragon_animator->SetAnimation("wing_main", "lo_up");
+        dragon_animator->SetAnimation("layer_wing_main", "lo_up");
     }
     else if (tilt < -2 * DRAGON_FACTOR_GLIDE)
     {
-        dragon_animator->SetAnimation("wing_main", "po_dive");
+        dragon_animator->SetAnimation("layer_wing_main", "po_dive");
     }
     else
     {
         if (input_keys[2] > 0.0f)
         {
-            dragon_animator->SetAnimation("wing_main", "po_right");
+            dragon_animator->SetAnimation("layer_wing_main", "po_right");
         }
         else if (input_keys[2] < 0.0f)
         {
-            dragon_animator->SetAnimation("wing_main", "po_left");
+            dragon_animator->SetAnimation("layer_wing_main", "po_left");
         }
         else
         {
-            dragon_animator->SetAnimation("wing_main", "po_glide");
+            dragon_animator->SetAnimation("layer_wing_main", "po_glide");
         }
     }
 
     if (input_keys[2] > 0.0f)
     {
-        dragon_animator->SetAnimation("wing_tail", "po_right");
+        dragon_animator->SetAnimation("layer_wing_tail", "po_right");
     }
     else if (input_keys[2] < 0.0f)
     {
-        dragon_animator->SetAnimation("wing_tail", "po_left");
+        dragon_animator->SetAnimation("layer_wing_tail", "po_left");
     }
     else
     {
-        dragon_animator->SetAnimation("wing_tail", "po_glide");
+        dragon_animator->SetAnimation("layer_wing_tail", "po_glide");
     }
 }
 

@@ -54,7 +54,6 @@ void GameTimer::_ready()
         return;
     }
     Timer_Reset();
-    set_physics_process(true);
 }
 
 
@@ -127,10 +126,11 @@ void GameTimer::_physics_process(double delta)
 
 
 /**
- * @brief Reset the timer and all events
+ * @brief Reset the timer and all events and pause it
  */
 void GameTimer::Timer_Reset() 
 {
+    this->Timer_Pause();
     time_elapsed = 0.0f;
     while (!event_queue.empty()) // clear event queue
     {
