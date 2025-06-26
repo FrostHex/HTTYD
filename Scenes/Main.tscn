@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bftovvm0selct"]
+[gd_scene load_steps=14 format=3 uid="uid://bftovvm0selct"]
 
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://dx4r13gqfh13" path="res://Scenes/Ocean.tscn" id="2_idj7w"]
+[ext_resource type="CompositorEffect" uid="uid://dhl44j31e7a3v" path="res://Environment/Cloud/CloudSettings.tres" id="2_vy5pj"]
+[ext_resource type="Script" uid="uid://djusduuxf0voj" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/SunshineCloudsDriver.gd" id="3_bmxlf"]
 [ext_resource type="Texture2D" uid="uid://cnft723bala47" path="res://Environment/Ocean/assets/skybox.png" id="3_kln2b"]
 [ext_resource type="PackedScene" uid="uid://cvjigyxbtcxbu" path="res://Scenes/Rocks/Rocks_Imported.tscn" id="4_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://8fvlc7181mcm" path="res://Scenes/Mountain.tscn" id="4_rgh2o"]
@@ -49,10 +51,14 @@ adjustment_brightness = 0.85
 adjustment_contrast = 1.07
 adjustment_saturation = 1.5
 
+[sub_resource type="Compositor" id="Compositor_4kpch"]
+compositor_effects = Array[CompositorEffect]([ExtResource("2_vy5pj")])
+
 [node name="Main" type="Node3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pbw6q")
+compositor = SubResource("Compositor_4kpch")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.610288, 0.728554, 0.311059, 0.528901, 0.0824081, 0.844673, 0.589756, 0.680013, -0.435626, 250, 1003.33, -2800)
@@ -67,6 +73,20 @@ directional_shadow_split_3 = 0.25
 directional_shadow_blend_splits = true
 directional_shadow_fade_start = 0.9
 directional_shadow_max_distance = 400.0
+
+[node name="SunshineCloudsDriverGD" type="Node" parent="." node_paths=PackedStringArray("tracked_directional_lights")]
+script = ExtResource("3_bmxlf")
+update_continuously = true
+clouds_resource = ExtResource("2_vy5pj")
+ambience_sample_environment = SubResource("Environment_pbw6q")
+tracked_directional_lights = [NodePath("../Sun")]
+tracked_directional_light_shadow_steps = Array[int]([32])
+wind_direction = Vector3(0, 0, 0)
+extra_large_clouds_pos = Vector3(30000, 0, 1000)
+large_clouds_pos = Vector3(30000, 0, -11000)
+medium_clouds_pos = Vector3(-10000, 0, -1000)
+small_clouds_pos = Vector3(0, 1078.93, 0)
+metadata/_custom_type_script = "uid://djusduuxf0voj"
 
 [node name="Ocean" parent="." instance=ExtResource("2_idj7w")]
 
