@@ -108,7 +108,7 @@ public:
 	NodePath get_visibility_parent() const;
 	void update_gizmos();
 	void add_gizmo(const Ref<Node3DGizmo> &p_gizmo);
-	TypedArray<Node3DGizmo> get_gizmos() const;
+	TypedArray<Ref<Node3DGizmo>> get_gizmos() const;
 	void clear_gizmos();
 	void set_subgizmo_selection(const Ref<Node3DGizmo> &p_gizmo, int32_t p_id, const Transform3D &p_transform);
 	void clear_subgizmo_selection();

@@ -177,10 +177,10 @@ Ref<Tween> SceneTree::create_tween() {
 	return Ref<Tween>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Tween>(_gde_method_bind, _owner));
 }
 
-TypedArray<Tween> SceneTree::get_processed_tweens() {
+TypedArray<Ref<Tween>> SceneTree::get_processed_tweens() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneTree::get_class_static()._native_ptr(), StringName("get_processed_tweens")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Tween>()));
-	return internal::_call_native_mb_ret<TypedArray<Tween>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Tween>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<Tween>>>(_gde_method_bind, _owner);
 }
 
 int32_t SceneTree::get_node_count() const {

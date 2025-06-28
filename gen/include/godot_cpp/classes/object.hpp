@@ -155,6 +155,8 @@ protected:
 	static void register_virtuals() {
 	}
 
+	String _to_string() const { return "<" + get_class() + "#" + itos(get_instance_id()) + ">"; }
+
 public:
 	template <typename T>
 	static T *cast_to(Object *p_object);

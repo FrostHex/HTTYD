@@ -57,8 +57,8 @@ public:
 	float get_noise_3dv(const Vector3 &p_v) const;
 	Ref<Image> get_image(int32_t p_width, int32_t p_height, bool p_invert = false, bool p_in_3d_space = false, bool p_normalize = true) const;
 	Ref<Image> get_seamless_image(int32_t p_width, int32_t p_height, bool p_invert = false, bool p_in_3d_space = false, float p_skirt = 0.1, bool p_normalize = true) const;
-	TypedArray<Image> get_image_3d(int32_t p_width, int32_t p_height, int32_t p_depth, bool p_invert = false, bool p_normalize = true) const;
-	TypedArray<Image> get_seamless_image_3d(int32_t p_width, int32_t p_height, int32_t p_depth, bool p_invert = false, float p_skirt = 0.1, bool p_normalize = true) const;
+	TypedArray<Ref<Image>> get_image_3d(int32_t p_width, int32_t p_height, int32_t p_depth, bool p_invert = false, bool p_normalize = true) const;
+	TypedArray<Ref<Image>> get_seamless_image_3d(int32_t p_width, int32_t p_height, int32_t p_depth, bool p_invert = false, float p_skirt = 0.1, bool p_normalize = true) const;
 
 protected:
 	template <typename T, typename B>

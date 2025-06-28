@@ -92,7 +92,7 @@ public:
 	double pop_statistic(ENetConnection::HostStatistic p_statistic);
 	int32_t get_max_channels() const;
 	int32_t get_local_port() const;
-	TypedArray<ENetPacketPeer> get_peers();
+	TypedArray<Ref<ENetPacketPeer>> get_peers();
 	void socket_send(const String &p_destination_address, int32_t p_destination_port, const PackedByteArray &p_packet);
 
 protected:

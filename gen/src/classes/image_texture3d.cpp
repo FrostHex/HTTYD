@@ -38,7 +38,7 @@
 
 namespace godot {
 
-Error ImageTexture3D::create(Image::Format p_format, int32_t p_width, int32_t p_height, int32_t p_depth, bool p_use_mipmaps, const TypedArray<Image> &p_data) {
+Error ImageTexture3D::create(Image::Format p_format, int32_t p_width, int32_t p_height, int32_t p_depth, bool p_use_mipmaps, const TypedArray<Ref<Image>> &p_data) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImageTexture3D::get_class_static()._native_ptr(), StringName("create")._native_ptr(), 1130379827);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int64_t p_format_encoded;
@@ -54,7 +54,7 @@ Error ImageTexture3D::create(Image::Format p_format, int32_t p_width, int32_t p_
 	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_format_encoded, &p_width_encoded, &p_height_encoded, &p_depth_encoded, &p_use_mipmaps_encoded, &p_data);
 }
 
-void ImageTexture3D::update(const TypedArray<Image> &p_data) {
+void ImageTexture3D::update(const TypedArray<Ref<Image>> &p_data) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImageTexture3D::get_class_static()._native_ptr(), StringName("update")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_data);

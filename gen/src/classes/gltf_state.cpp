@@ -157,13 +157,13 @@ void GLTFState::set_use_named_skin_binds(bool p_use_named_skin_binds) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_use_named_skin_binds_encoded);
 }
 
-TypedArray<GLTFNode> GLTFState::get_nodes() {
+TypedArray<Ref<GLTFNode>> GLTFState::get_nodes() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_nodes")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<GLTFNode>()));
-	return internal::_call_native_mb_ret<TypedArray<GLTFNode>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<GLTFNode>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<GLTFNode>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_nodes(const TypedArray<GLTFNode> &p_nodes) {
+void GLTFState::set_nodes(const TypedArray<Ref<GLTFNode>> &p_nodes) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_nodes")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_nodes);
@@ -181,37 +181,37 @@ void GLTFState::set_buffers(const TypedArray<PackedByteArray> &p_buffers) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_buffers);
 }
 
-TypedArray<GLTFBufferView> GLTFState::get_buffer_views() {
+TypedArray<Ref<GLTFBufferView>> GLTFState::get_buffer_views() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_buffer_views")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<GLTFBufferView>()));
-	return internal::_call_native_mb_ret<TypedArray<GLTFBufferView>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<GLTFBufferView>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<GLTFBufferView>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_buffer_views(const TypedArray<GLTFBufferView> &p_buffer_views) {
+void GLTFState::set_buffer_views(const TypedArray<Ref<GLTFBufferView>> &p_buffer_views) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_buffer_views")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_buffer_views);
 }
 
-TypedArray<GLTFAccessor> GLTFState::get_accessors() {
+TypedArray<Ref<GLTFAccessor>> GLTFState::get_accessors() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_accessors")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<GLTFAccessor>()));
-	return internal::_call_native_mb_ret<TypedArray<GLTFAccessor>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<GLTFAccessor>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<GLTFAccessor>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_accessors(const TypedArray<GLTFAccessor> &p_accessors) {
+void GLTFState::set_accessors(const TypedArray<Ref<GLTFAccessor>> &p_accessors) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_accessors")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_accessors);
 }
 
-TypedArray<GLTFMesh> GLTFState::get_meshes() {
+TypedArray<Ref<GLTFMesh>> GLTFState::get_meshes() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_meshes")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<GLTFMesh>()));
-	return internal::_call_native_mb_ret<TypedArray<GLTFMesh>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<GLTFMesh>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<GLTFMesh>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_meshes(const TypedArray<GLTFMesh> &p_meshes) {
+void GLTFState::set_meshes(const TypedArray<Ref<GLTFMesh>> &p_meshes) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_meshes")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_meshes);
@@ -233,13 +233,13 @@ AnimationPlayer *GLTFState::get_animation_player(int32_t p_idx) {
 	return internal::_call_native_mb_ret_obj<AnimationPlayer>(_gde_method_bind, _owner, &p_idx_encoded);
 }
 
-TypedArray<Material> GLTFState::get_materials() {
+TypedArray<Ref<Material>> GLTFState::get_materials() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_materials")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Material>()));
-	return internal::_call_native_mb_ret<TypedArray<Material>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Material>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<Material>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_materials(const TypedArray<Material> &p_materials) {
+void GLTFState::set_materials(const TypedArray<Ref<Material>> &p_materials) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_materials")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_materials);
@@ -293,73 +293,73 @@ void GLTFState::set_root_nodes(const PackedInt32Array &p_root_nodes) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_root_nodes);
 }
 
-TypedArray<GLTFTexture> GLTFState::get_textures() {
+TypedArray<Ref<GLTFTexture>> GLTFState::get_textures() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_textures")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<GLTFTexture>()));
-	return internal::_call_native_mb_ret<TypedArray<GLTFTexture>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<GLTFTexture>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<GLTFTexture>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_textures(const TypedArray<GLTFTexture> &p_textures) {
+void GLTFState::set_textures(const TypedArray<Ref<GLTFTexture>> &p_textures) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_textures")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_textures);
 }
 
-TypedArray<GLTFTextureSampler> GLTFState::get_texture_samplers() {
+TypedArray<Ref<GLTFTextureSampler>> GLTFState::get_texture_samplers() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_texture_samplers")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<GLTFTextureSampler>()));
-	return internal::_call_native_mb_ret<TypedArray<GLTFTextureSampler>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<GLTFTextureSampler>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<GLTFTextureSampler>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_texture_samplers(const TypedArray<GLTFTextureSampler> &p_texture_samplers) {
+void GLTFState::set_texture_samplers(const TypedArray<Ref<GLTFTextureSampler>> &p_texture_samplers) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_texture_samplers")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_texture_samplers);
 }
 
-TypedArray<Texture2D> GLTFState::get_images() {
+TypedArray<Ref<Texture2D>> GLTFState::get_images() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_images")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Texture2D>()));
-	return internal::_call_native_mb_ret<TypedArray<Texture2D>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Texture2D>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<Texture2D>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_images(const TypedArray<Texture2D> &p_images) {
+void GLTFState::set_images(const TypedArray<Ref<Texture2D>> &p_images) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_images")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_images);
 }
 
-TypedArray<GLTFSkin> GLTFState::get_skins() {
+TypedArray<Ref<GLTFSkin>> GLTFState::get_skins() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_skins")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<GLTFSkin>()));
-	return internal::_call_native_mb_ret<TypedArray<GLTFSkin>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<GLTFSkin>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<GLTFSkin>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_skins(const TypedArray<GLTFSkin> &p_skins) {
+void GLTFState::set_skins(const TypedArray<Ref<GLTFSkin>> &p_skins) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_skins")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_skins);
 }
 
-TypedArray<GLTFCamera> GLTFState::get_cameras() {
+TypedArray<Ref<GLTFCamera>> GLTFState::get_cameras() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_cameras")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<GLTFCamera>()));
-	return internal::_call_native_mb_ret<TypedArray<GLTFCamera>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<GLTFCamera>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<GLTFCamera>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_cameras(const TypedArray<GLTFCamera> &p_cameras) {
+void GLTFState::set_cameras(const TypedArray<Ref<GLTFCamera>> &p_cameras) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_cameras")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_cameras);
 }
 
-TypedArray<GLTFLight> GLTFState::get_lights() {
+TypedArray<Ref<GLTFLight>> GLTFState::get_lights() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_lights")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<GLTFLight>()));
-	return internal::_call_native_mb_ret<TypedArray<GLTFLight>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<GLTFLight>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<GLTFLight>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_lights(const TypedArray<GLTFLight> &p_lights) {
+void GLTFState::set_lights(const TypedArray<Ref<GLTFLight>> &p_lights) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_lights")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_lights);
@@ -389,13 +389,13 @@ void GLTFState::set_unique_animation_names(const TypedArray<String> &p_unique_an
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_unique_animation_names);
 }
 
-TypedArray<GLTFSkeleton> GLTFState::get_skeletons() {
+TypedArray<Ref<GLTFSkeleton>> GLTFState::get_skeletons() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_skeletons")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<GLTFSkeleton>()));
-	return internal::_call_native_mb_ret<TypedArray<GLTFSkeleton>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<GLTFSkeleton>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<GLTFSkeleton>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_skeletons(const TypedArray<GLTFSkeleton> &p_skeletons) {
+void GLTFState::set_skeletons(const TypedArray<Ref<GLTFSkeleton>> &p_skeletons) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_skeletons")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_skeletons);
@@ -429,13 +429,13 @@ void GLTFState::set_import_as_skeleton_bones(bool p_import_as_skeleton_bones) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_import_as_skeleton_bones_encoded);
 }
 
-TypedArray<GLTFAnimation> GLTFState::get_animations() {
+TypedArray<Ref<GLTFAnimation>> GLTFState::get_animations() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("get_animations")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<GLTFAnimation>()));
-	return internal::_call_native_mb_ret<TypedArray<GLTFAnimation>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<GLTFAnimation>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<GLTFAnimation>>>(_gde_method_bind, _owner);
 }
 
-void GLTFState::set_animations(const TypedArray<GLTFAnimation> &p_animations) {
+void GLTFState::set_animations(const TypedArray<Ref<GLTFAnimation>> &p_animations) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFState::get_class_static()._native_ptr(), StringName("set_animations")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_animations);

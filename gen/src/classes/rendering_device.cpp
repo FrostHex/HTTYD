@@ -207,7 +207,7 @@ uint64_t RenderingDevice::texture_get_native_handle(const RID &p_texture) {
 	return internal::_call_native_mb_ret<uint64_t>(_gde_method_bind, _owner, &p_texture);
 }
 
-int64_t RenderingDevice::framebuffer_format_create(const TypedArray<RDAttachmentFormat> &p_attachments, uint32_t p_view_count) {
+int64_t RenderingDevice::framebuffer_format_create(const TypedArray<Ref<RDAttachmentFormat>> &p_attachments, uint32_t p_view_count) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("framebuffer_format_create")._native_ptr(), 697032759);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	int64_t p_view_count_encoded;
@@ -215,7 +215,7 @@ int64_t RenderingDevice::framebuffer_format_create(const TypedArray<RDAttachment
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_attachments, &p_view_count_encoded);
 }
 
-int64_t RenderingDevice::framebuffer_format_create_multipass(const TypedArray<RDAttachmentFormat> &p_attachments, const TypedArray<RDFramebufferPass> &p_passes, uint32_t p_view_count) {
+int64_t RenderingDevice::framebuffer_format_create_multipass(const TypedArray<Ref<RDAttachmentFormat>> &p_attachments, const TypedArray<Ref<RDFramebufferPass>> &p_passes, uint32_t p_view_count) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("framebuffer_format_create_multipass")._native_ptr(), 2647479094);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	int64_t p_view_count_encoded;
@@ -251,7 +251,7 @@ RID RenderingDevice::framebuffer_create(const TypedArray<RID> &p_textures, int64
 	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_textures, &p_validate_with_format_encoded, &p_view_count_encoded);
 }
 
-RID RenderingDevice::framebuffer_create_multipass(const TypedArray<RID> &p_textures, const TypedArray<RDFramebufferPass> &p_passes, int64_t p_validate_with_format, uint32_t p_view_count) {
+RID RenderingDevice::framebuffer_create_multipass(const TypedArray<RID> &p_textures, const TypedArray<Ref<RDFramebufferPass>> &p_passes, int64_t p_validate_with_format, uint32_t p_view_count) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("framebuffer_create_multipass")._native_ptr(), 1750306695);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
 	int64_t p_validate_with_format_encoded;
@@ -307,7 +307,7 @@ RID RenderingDevice::vertex_buffer_create(uint32_t p_size_bytes, const PackedByt
 	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_size_bytes_encoded, &p_data, &p_creation_bits);
 }
 
-int64_t RenderingDevice::vertex_format_create(const TypedArray<RDVertexAttribute> &p_vertex_descriptions) {
+int64_t RenderingDevice::vertex_format_create(const TypedArray<Ref<RDVertexAttribute>> &p_vertex_descriptions) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("vertex_format_create")._native_ptr(), 1242678479);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_vertex_descriptions);
@@ -409,7 +409,7 @@ RID RenderingDevice::texture_buffer_create(uint32_t p_size_bytes, RenderingDevic
 	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_size_bytes_encoded, &p_format_encoded, &p_data);
 }
 
-RID RenderingDevice::uniform_set_create(const TypedArray<RDUniform> &p_uniforms, const RID &p_shader, uint32_t p_shader_set) {
+RID RenderingDevice::uniform_set_create(const TypedArray<Ref<RDUniform>> &p_uniforms, const RID &p_shader, uint32_t p_shader_set) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("uniform_set_create")._native_ptr(), 2280795797);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
 	int64_t p_shader_set_encoded;
@@ -481,7 +481,7 @@ uint64_t RenderingDevice::buffer_get_device_address(const RID &p_buffer) {
 	return internal::_call_native_mb_ret<uint64_t>(_gde_method_bind, _owner, &p_buffer);
 }
 
-RID RenderingDevice::render_pipeline_create(const RID &p_shader, int64_t p_framebuffer_format, int64_t p_vertex_format, RenderingDevice::RenderPrimitive p_primitive, const Ref<RDPipelineRasterizationState> &p_rasterization_state, const Ref<RDPipelineMultisampleState> &p_multisample_state, const Ref<RDPipelineDepthStencilState> &p_stencil_state, const Ref<RDPipelineColorBlendState> &p_color_blend_state, BitField<RenderingDevice::PipelineDynamicStateFlags> p_dynamic_state_flags, uint32_t p_for_render_pass, const TypedArray<RDPipelineSpecializationConstant> &p_specialization_constants) {
+RID RenderingDevice::render_pipeline_create(const RID &p_shader, int64_t p_framebuffer_format, int64_t p_vertex_format, RenderingDevice::RenderPrimitive p_primitive, const Ref<RDPipelineRasterizationState> &p_rasterization_state, const Ref<RDPipelineMultisampleState> &p_multisample_state, const Ref<RDPipelineDepthStencilState> &p_stencil_state, const Ref<RDPipelineColorBlendState> &p_color_blend_state, BitField<RenderingDevice::PipelineDynamicStateFlags> p_dynamic_state_flags, uint32_t p_for_render_pass, const TypedArray<Ref<RDPipelineSpecializationConstant>> &p_specialization_constants) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("render_pipeline_create")._native_ptr(), 2385451958);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
 	int64_t p_framebuffer_format_encoded;
@@ -501,7 +501,7 @@ bool RenderingDevice::render_pipeline_is_valid(const RID &p_render_pipeline) {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_render_pipeline);
 }
 
-RID RenderingDevice::compute_pipeline_create(const RID &p_shader, const TypedArray<RDPipelineSpecializationConstant> &p_specialization_constants) {
+RID RenderingDevice::compute_pipeline_create(const RID &p_shader, const TypedArray<Ref<RDPipelineSpecializationConstant>> &p_specialization_constants) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("compute_pipeline_create")._native_ptr(), 1448838280);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
 	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_shader, &p_specialization_constants);

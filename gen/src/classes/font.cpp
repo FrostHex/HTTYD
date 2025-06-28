@@ -38,16 +38,16 @@
 
 namespace godot {
 
-void Font::set_fallbacks(const TypedArray<Font> &p_fallbacks) {
+void Font::set_fallbacks(const TypedArray<Ref<Font>> &p_fallbacks) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("set_fallbacks")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_fallbacks);
 }
 
-TypedArray<Font> Font::get_fallbacks() const {
+TypedArray<Ref<Font>> Font::get_fallbacks() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("get_fallbacks")._native_ptr(), 3995934104);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Font>()));
-	return internal::_call_native_mb_ret<TypedArray<Font>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Font>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<Font>>>(_gde_method_bind, _owner);
 }
 
 RID Font::find_variation(const Dictionary &p_variation_coordinates, int32_t p_face_index, float p_strength, const Transform2D &p_transform, int32_t p_spacing_top, int32_t p_spacing_bottom, int32_t p_spacing_space, int32_t p_spacing_glyph, float p_baseline_offset) const {

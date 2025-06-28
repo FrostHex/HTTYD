@@ -87,10 +87,10 @@ Ref<Script> ScriptEditor::get_current_script() {
 	return Ref<Script>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Script>(_gde_method_bind, _owner));
 }
 
-TypedArray<Script> ScriptEditor::get_open_scripts() const {
+TypedArray<Ref<Script>> ScriptEditor::get_open_scripts() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ScriptEditor::get_class_static()._native_ptr(), StringName("get_open_scripts")._native_ptr(), 3995934104);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Script>()));
-	return internal::_call_native_mb_ret<TypedArray<Script>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Script>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<Script>>>(_gde_method_bind, _owner);
 }
 
 void ScriptEditor::open_script_create_dialog(const String &p_base_name, const String &p_base_path) {

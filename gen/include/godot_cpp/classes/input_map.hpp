@@ -63,7 +63,7 @@ public:
 	bool action_has_event(const StringName &p_action, const Ref<InputEvent> &p_event);
 	void action_erase_event(const StringName &p_action, const Ref<InputEvent> &p_event);
 	void action_erase_events(const StringName &p_action);
-	TypedArray<InputEvent> action_get_events(const StringName &p_action);
+	TypedArray<Ref<InputEvent>> action_get_events(const StringName &p_action);
 	bool event_is_action(const Ref<InputEvent> &p_event, const StringName &p_action, bool p_exact_match = false) const;
 	void load_from_project_settings();
 

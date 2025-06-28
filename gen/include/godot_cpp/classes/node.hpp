@@ -366,6 +366,8 @@ protected:
 		}
 	}
 
+	String _to_string() const { return (!get_name().is_empty() ? String(get_name()) + ":" : "") + Object::_to_string(); }
+
 public:
 	template <typename T>
 	T *get_node(const NodePath &p_path) const { return Object::cast_to<T>(get_node_internal(p_path)); }

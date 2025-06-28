@@ -180,10 +180,10 @@ int32_t ENetConnection::get_local_port() const {
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-TypedArray<ENetPacketPeer> ENetConnection::get_peers() {
+TypedArray<Ref<ENetPacketPeer>> ENetConnection::get_peers() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ENetConnection::get_class_static()._native_ptr(), StringName("get_peers")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<ENetPacketPeer>()));
-	return internal::_call_native_mb_ret<TypedArray<ENetPacketPeer>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<ENetPacketPeer>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<ENetPacketPeer>>>(_gde_method_bind, _owner);
 }
 
 void ENetConnection::socket_send(const String &p_destination_address, int32_t p_destination_port, const PackedByteArray &p_packet) {

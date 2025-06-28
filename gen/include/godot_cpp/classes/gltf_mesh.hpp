@@ -59,8 +59,8 @@ public:
 	void set_mesh(const Ref<ImporterMesh> &p_mesh);
 	PackedFloat32Array get_blend_weights();
 	void set_blend_weights(const PackedFloat32Array &p_blend_weights);
-	TypedArray<Material> get_instance_materials();
-	void set_instance_materials(const TypedArray<Material> &p_instance_materials);
+	TypedArray<Ref<Material>> get_instance_materials();
+	void set_instance_materials(const TypedArray<Ref<Material>> &p_instance_materials);
 	Variant get_additional_data(const StringName &p_extension_name);
 	void set_additional_data(const StringName &p_extension_name, const Variant &p_additional_data);
 

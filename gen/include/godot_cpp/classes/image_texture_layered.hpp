@@ -49,7 +49,7 @@ class ImageTextureLayered : public TextureLayered {
 	GDEXTENSION_CLASS(ImageTextureLayered, TextureLayered)
 
 public:
-	Error create_from_images(const TypedArray<Image> &p_images);
+	Error create_from_images(const TypedArray<Ref<Image>> &p_images);
 	void update_layer(const Ref<Image> &p_image, int32_t p_layer);
 
 protected:

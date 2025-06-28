@@ -48,7 +48,7 @@ class FramebufferCacheRD : public Object {
 	GDEXTENSION_CLASS(FramebufferCacheRD, Object)
 
 public:
-	static RID get_cache_multipass(const TypedArray<RID> &p_textures, const TypedArray<RDFramebufferPass> &p_passes, uint32_t p_views);
+	static RID get_cache_multipass(const TypedArray<RID> &p_textures, const TypedArray<Ref<RDFramebufferPass>> &p_passes, uint32_t p_views);
 
 protected:
 	template <typename T, typename B>

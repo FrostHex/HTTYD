@@ -94,10 +94,10 @@ int32_t CameraServer::get_feed_count() {
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-TypedArray<CameraFeed> CameraServer::feeds() {
+TypedArray<Ref<CameraFeed>> CameraServer::feeds() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraServer::get_class_static()._native_ptr(), StringName("feeds")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<CameraFeed>()));
-	return internal::_call_native_mb_ret<TypedArray<CameraFeed>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<CameraFeed>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<CameraFeed>>>(_gde_method_bind, _owner);
 }
 
 void CameraServer::add_feed(const Ref<CameraFeed> &p_feed) {

@@ -297,10 +297,10 @@ void Node3D::add_gizmo(const Ref<Node3DGizmo> &p_gizmo) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_gizmo != nullptr ? &p_gizmo->_owner : nullptr));
 }
 
-TypedArray<Node3DGizmo> Node3D::get_gizmos() const {
+TypedArray<Ref<Node3DGizmo>> Node3D::get_gizmos() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node3D::get_class_static()._native_ptr(), StringName("get_gizmos")._native_ptr(), 3995934104);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Node3DGizmo>()));
-	return internal::_call_native_mb_ret<TypedArray<Node3DGizmo>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Node3DGizmo>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<Node3DGizmo>>>(_gde_method_bind, _owner);
 }
 
 void Node3D::clear_gizmos() {

@@ -78,13 +78,13 @@ void GLTFMesh::set_blend_weights(const PackedFloat32Array &p_blend_weights) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_blend_weights);
 }
 
-TypedArray<Material> GLTFMesh::get_instance_materials() {
+TypedArray<Ref<Material>> GLTFMesh::get_instance_materials() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("get_instance_materials")._native_ptr(), 2915620761);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Material>()));
-	return internal::_call_native_mb_ret<TypedArray<Material>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Material>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<Material>>>(_gde_method_bind, _owner);
 }
 
-void GLTFMesh::set_instance_materials(const TypedArray<Material> &p_instance_materials) {
+void GLTFMesh::set_instance_materials(const TypedArray<Ref<Material>> &p_instance_materials) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("set_instance_materials")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_instance_materials);

@@ -72,14 +72,14 @@ Ref<RegExMatch> RegEx::search(const String &p_subject, int32_t p_offset, int32_t
 	return Ref<RegExMatch>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<RegExMatch>(_gde_method_bind, _owner, &p_subject, &p_offset_encoded, &p_end_encoded));
 }
 
-TypedArray<RegExMatch> RegEx::search_all(const String &p_subject, int32_t p_offset, int32_t p_end) const {
+TypedArray<Ref<RegExMatch>> RegEx::search_all(const String &p_subject, int32_t p_offset, int32_t p_end) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RegEx::get_class_static()._native_ptr(), StringName("search_all")._native_ptr(), 849021363);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<RegExMatch>()));
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<RegExMatch>>()));
 	int64_t p_offset_encoded;
 	PtrToArg<int64_t>::encode(p_offset, &p_offset_encoded);
 	int64_t p_end_encoded;
 	PtrToArg<int64_t>::encode(p_end, &p_end_encoded);
-	return internal::_call_native_mb_ret<TypedArray<RegExMatch>>(_gde_method_bind, _owner, &p_subject, &p_offset_encoded, &p_end_encoded);
+	return internal::_call_native_mb_ret<TypedArray<Ref<RegExMatch>>>(_gde_method_bind, _owner, &p_subject, &p_offset_encoded, &p_end_encoded);
 }
 
 String RegEx::sub(const String &p_subject, const String &p_replacement, bool p_all, int32_t p_offset, int32_t p_end) const {

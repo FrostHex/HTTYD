@@ -77,7 +77,7 @@ RID RenderingServer::texture_2d_create(const Ref<Image> &p_image) {
 	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, (p_image != nullptr ? &p_image->_owner : nullptr));
 }
 
-RID RenderingServer::texture_2d_layered_create(const TypedArray<Image> &p_layers, RenderingServer::TextureLayeredType p_layered_type) {
+RID RenderingServer::texture_2d_layered_create(const TypedArray<Ref<Image>> &p_layers, RenderingServer::TextureLayeredType p_layered_type) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("texture_2d_layered_create")._native_ptr(), 913689023);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
 	int64_t p_layered_type_encoded;
@@ -85,7 +85,7 @@ RID RenderingServer::texture_2d_layered_create(const TypedArray<Image> &p_layers
 	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_layers, &p_layered_type_encoded);
 }
 
-RID RenderingServer::texture_3d_create(Image::Format p_format, int32_t p_width, int32_t p_height, int32_t p_depth, bool p_mipmaps, const TypedArray<Image> &p_data) {
+RID RenderingServer::texture_3d_create(Image::Format p_format, int32_t p_width, int32_t p_height, int32_t p_depth, bool p_mipmaps, const TypedArray<Ref<Image>> &p_data) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("texture_3d_create")._native_ptr(), 4036838706);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
 	int64_t p_format_encoded;
@@ -137,7 +137,7 @@ void RenderingServer::texture_2d_update(const RID &p_texture, const Ref<Image> &
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_texture, (p_image != nullptr ? &p_image->_owner : nullptr), &p_layer_encoded);
 }
 
-void RenderingServer::texture_3d_update(const RID &p_texture, const TypedArray<Image> &p_data) {
+void RenderingServer::texture_3d_update(const RID &p_texture, const TypedArray<Ref<Image>> &p_data) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("texture_3d_update")._native_ptr(), 684822712);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_texture, &p_data);
@@ -183,10 +183,10 @@ Ref<Image> RenderingServer::texture_2d_layer_get(const RID &p_texture, int32_t p
 	return Ref<Image>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Image>(_gde_method_bind, _owner, &p_texture, &p_layer_encoded));
 }
 
-TypedArray<Image> RenderingServer::texture_3d_get(const RID &p_texture) const {
+TypedArray<Ref<Image>> RenderingServer::texture_3d_get(const RID &p_texture) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("texture_3d_get")._native_ptr(), 2684255073);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Image>()));
-	return internal::_call_native_mb_ret<TypedArray<Image>>(_gde_method_bind, _owner, &p_texture);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Image>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<Image>>>(_gde_method_bind, _owner, &p_texture);
 }
 
 void RenderingServer::texture_replace(const RID &p_texture, const RID &p_by_texture) {
@@ -3107,10 +3107,10 @@ PackedInt64Array RenderingServer::instances_cull_convex(const TypedArray<Plane> 
 	return internal::_call_native_mb_ret<PackedInt64Array>(_gde_method_bind, _owner, &p_convex, &p_scenario);
 }
 
-TypedArray<Image> RenderingServer::bake_render_uv2(const RID &p_base, const TypedArray<RID> &p_material_overrides, const Vector2i &p_image_size) {
+TypedArray<Ref<Image>> RenderingServer::bake_render_uv2(const RID &p_base, const TypedArray<RID> &p_material_overrides, const Vector2i &p_image_size) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("bake_render_uv2")._native_ptr(), 1904608558);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Image>()));
-	return internal::_call_native_mb_ret<TypedArray<Image>>(_gde_method_bind, _owner, &p_base, &p_material_overrides, &p_image_size);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Image>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<Image>>>(_gde_method_bind, _owner, &p_base, &p_material_overrides, &p_image_size);
 }
 
 RID RenderingServer::canvas_create() {

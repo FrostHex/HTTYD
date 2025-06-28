@@ -56,8 +56,8 @@ public:
 	RenderingDevice::LogicOperation get_logic_op() const;
 	void set_blend_constant(const Color &p_member);
 	Color get_blend_constant() const;
-	void set_attachments(const TypedArray<RDPipelineColorBlendStateAttachment> &p_attachments);
-	TypedArray<RDPipelineColorBlendStateAttachment> get_attachments() const;
+	void set_attachments(const TypedArray<Ref<RDPipelineColorBlendStateAttachment>> &p_attachments);
+	TypedArray<Ref<RDPipelineColorBlendStateAttachment>> get_attachments() const;
 
 protected:
 	template <typename T, typename B>

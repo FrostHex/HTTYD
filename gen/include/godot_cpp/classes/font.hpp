@@ -54,8 +54,8 @@ class Font : public Resource {
 	GDEXTENSION_CLASS(Font, Resource)
 
 public:
-	void set_fallbacks(const TypedArray<Font> &p_fallbacks);
-	TypedArray<Font> get_fallbacks() const;
+	void set_fallbacks(const TypedArray<Ref<Font>> &p_fallbacks);
+	TypedArray<Ref<Font>> get_fallbacks() const;
 	RID find_variation(const Dictionary &p_variation_coordinates, int32_t p_face_index = 0, float p_strength = 0.0, const Transform2D &p_transform = Transform2D(), int32_t p_spacing_top = 0, int32_t p_spacing_bottom = 0, int32_t p_spacing_space = 0, int32_t p_spacing_glyph = 0, float p_baseline_offset = 0.0) const;
 	TypedArray<RID> get_rids() const;
 	float get_height(int32_t p_font_size = 16) const;

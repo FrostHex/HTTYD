@@ -48,7 +48,7 @@ class UniformSetCacheRD : public Object {
 	GDEXTENSION_CLASS(UniformSetCacheRD, Object)
 
 public:
-	static RID get_cache(const RID &p_shader, uint32_t p_set, const TypedArray<RDUniform> &p_uniforms);
+	static RID get_cache(const RID &p_shader, uint32_t p_set, const TypedArray<Ref<RDUniform>> &p_uniforms);
 
 protected:
 	template <typename T, typename B>

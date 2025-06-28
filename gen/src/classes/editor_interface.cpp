@@ -142,12 +142,12 @@ EditorUndoRedoManager *EditorInterface::get_editor_undo_redo() const {
 	return internal::_call_native_mb_ret_obj<EditorUndoRedoManager>(_gde_method_bind, _owner);
 }
 
-TypedArray<Texture2D> EditorInterface::make_mesh_previews(const TypedArray<Mesh> &p_meshes, int32_t p_preview_size) {
+TypedArray<Ref<Texture2D>> EditorInterface::make_mesh_previews(const TypedArray<Ref<Mesh>> &p_meshes, int32_t p_preview_size) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorInterface::get_class_static()._native_ptr(), StringName("make_mesh_previews")._native_ptr(), 878078554);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Texture2D>()));
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Texture2D>>()));
 	int64_t p_preview_size_encoded;
 	PtrToArg<int64_t>::encode(p_preview_size, &p_preview_size_encoded);
-	return internal::_call_native_mb_ret<TypedArray<Texture2D>>(_gde_method_bind, _owner, &p_meshes, &p_preview_size_encoded);
+	return internal::_call_native_mb_ret<TypedArray<Ref<Texture2D>>>(_gde_method_bind, _owner, &p_meshes, &p_preview_size_encoded);
 }
 
 void EditorInterface::set_plugin_enabled(const String &p_plugin, bool p_enabled) {

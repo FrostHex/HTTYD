@@ -89,7 +89,7 @@ public:
 	Ref<EditorSettings> get_editor_settings() const;
 	EditorToaster *get_editor_toaster() const;
 	EditorUndoRedoManager *get_editor_undo_redo() const;
-	TypedArray<Texture2D> make_mesh_previews(const TypedArray<Mesh> &p_meshes, int32_t p_preview_size);
+	TypedArray<Ref<Texture2D>> make_mesh_previews(const TypedArray<Ref<Mesh>> &p_meshes, int32_t p_preview_size);
 	void set_plugin_enabled(const String &p_plugin, bool p_enabled);
 	bool is_plugin_enabled(const String &p_plugin) const;
 	Ref<Theme> get_editor_theme() const;

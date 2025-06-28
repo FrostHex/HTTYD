@@ -117,7 +117,7 @@ PackedStringArray EditorSettings::get_recent_dirs() const {
 	return internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner);
 }
 
-void EditorSettings::set_builtin_action_override(const String &p_name, const TypedArray<InputEvent> &p_actions_list) {
+void EditorSettings::set_builtin_action_override(const String &p_name, const TypedArray<Ref<InputEvent>> &p_actions_list) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorSettings::get_class_static()._native_ptr(), StringName("set_builtin_action_override")._native_ptr(), 1209351045);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_actions_list);

@@ -84,7 +84,7 @@ public:
 	bool is_paused() const;
 	Ref<SceneTreeTimer> create_timer(double p_time_sec, bool p_process_always = true, bool p_process_in_physics = false, bool p_ignore_time_scale = false);
 	Ref<Tween> create_tween();
-	TypedArray<Tween> get_processed_tweens();
+	TypedArray<Ref<Tween>> get_processed_tweens();
 	int32_t get_node_count() const;
 	int64_t get_frame() const;
 	void quit(int32_t p_exit_code = 0);

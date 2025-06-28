@@ -118,9 +118,9 @@ Ref<Image> Noise::get_seamless_image(int32_t p_width, int32_t p_height, bool p_i
 	return Ref<Image>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Image>(_gde_method_bind, _owner, &p_width_encoded, &p_height_encoded, &p_invert_encoded, &p_in_3d_space_encoded, &p_skirt_encoded, &p_normalize_encoded));
 }
 
-TypedArray<Image> Noise::get_image_3d(int32_t p_width, int32_t p_height, int32_t p_depth, bool p_invert, bool p_normalize) const {
+TypedArray<Ref<Image>> Noise::get_image_3d(int32_t p_width, int32_t p_height, int32_t p_depth, bool p_invert, bool p_normalize) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Noise::get_class_static()._native_ptr(), StringName("get_image_3d")._native_ptr(), 3977814329);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Image>()));
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Image>>()));
 	int64_t p_width_encoded;
 	PtrToArg<int64_t>::encode(p_width, &p_width_encoded);
 	int64_t p_height_encoded;
@@ -131,12 +131,12 @@ TypedArray<Image> Noise::get_image_3d(int32_t p_width, int32_t p_height, int32_t
 	PtrToArg<bool>::encode(p_invert, &p_invert_encoded);
 	int8_t p_normalize_encoded;
 	PtrToArg<bool>::encode(p_normalize, &p_normalize_encoded);
-	return internal::_call_native_mb_ret<TypedArray<Image>>(_gde_method_bind, _owner, &p_width_encoded, &p_height_encoded, &p_depth_encoded, &p_invert_encoded, &p_normalize_encoded);
+	return internal::_call_native_mb_ret<TypedArray<Ref<Image>>>(_gde_method_bind, _owner, &p_width_encoded, &p_height_encoded, &p_depth_encoded, &p_invert_encoded, &p_normalize_encoded);
 }
 
-TypedArray<Image> Noise::get_seamless_image_3d(int32_t p_width, int32_t p_height, int32_t p_depth, bool p_invert, float p_skirt, bool p_normalize) const {
+TypedArray<Ref<Image>> Noise::get_seamless_image_3d(int32_t p_width, int32_t p_height, int32_t p_depth, bool p_invert, float p_skirt, bool p_normalize) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Noise::get_class_static()._native_ptr(), StringName("get_seamless_image_3d")._native_ptr(), 451006340);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Image>()));
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Image>>()));
 	int64_t p_width_encoded;
 	PtrToArg<int64_t>::encode(p_width, &p_width_encoded);
 	int64_t p_height_encoded;
@@ -149,7 +149,7 @@ TypedArray<Image> Noise::get_seamless_image_3d(int32_t p_width, int32_t p_height
 	PtrToArg<double>::encode(p_skirt, &p_skirt_encoded);
 	int8_t p_normalize_encoded;
 	PtrToArg<bool>::encode(p_normalize, &p_normalize_encoded);
-	return internal::_call_native_mb_ret<TypedArray<Image>>(_gde_method_bind, _owner, &p_width_encoded, &p_height_encoded, &p_depth_encoded, &p_invert_encoded, &p_skirt_encoded, &p_normalize_encoded);
+	return internal::_call_native_mb_ret<TypedArray<Ref<Image>>>(_gde_method_bind, _owner, &p_width_encoded, &p_height_encoded, &p_depth_encoded, &p_invert_encoded, &p_skirt_encoded, &p_normalize_encoded);
 }
 
 } // namespace godot

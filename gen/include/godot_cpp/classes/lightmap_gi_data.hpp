@@ -56,10 +56,10 @@ public:
 		SHADOWMASK_MODE_OVERLAY = 2,
 	};
 
-	void set_lightmap_textures(const TypedArray<TextureLayered> &p_light_textures);
-	TypedArray<TextureLayered> get_lightmap_textures() const;
-	void set_shadowmask_textures(const TypedArray<TextureLayered> &p_shadowmask_textures);
-	TypedArray<TextureLayered> get_shadowmask_textures() const;
+	void set_lightmap_textures(const TypedArray<Ref<TextureLayered>> &p_light_textures);
+	TypedArray<Ref<TextureLayered>> get_lightmap_textures() const;
+	void set_shadowmask_textures(const TypedArray<Ref<TextureLayered>> &p_shadowmask_textures);
+	TypedArray<Ref<TextureLayered>> get_shadowmask_textures() const;
 	void set_uses_spherical_harmonics(bool p_uses_spherical_harmonics);
 	bool is_using_spherical_harmonics() const;
 	void add_user(const NodePath &p_path, const Rect2 &p_uv_scale, int32_t p_slice_index, int32_t p_sub_instance);

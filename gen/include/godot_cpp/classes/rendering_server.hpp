@@ -817,19 +817,19 @@ public:
 	static RenderingServer *get_singleton();
 
 	RID texture_2d_create(const Ref<Image> &p_image);
-	RID texture_2d_layered_create(const TypedArray<Image> &p_layers, RenderingServer::TextureLayeredType p_layered_type);
-	RID texture_3d_create(Image::Format p_format, int32_t p_width, int32_t p_height, int32_t p_depth, bool p_mipmaps, const TypedArray<Image> &p_data);
+	RID texture_2d_layered_create(const TypedArray<Ref<Image>> &p_layers, RenderingServer::TextureLayeredType p_layered_type);
+	RID texture_3d_create(Image::Format p_format, int32_t p_width, int32_t p_height, int32_t p_depth, bool p_mipmaps, const TypedArray<Ref<Image>> &p_data);
 	RID texture_proxy_create(const RID &p_base);
 	RID texture_create_from_native_handle(RenderingServer::TextureType p_type, Image::Format p_format, uint64_t p_native_handle, int32_t p_width, int32_t p_height, int32_t p_depth, int32_t p_layers = 1, RenderingServer::TextureLayeredType p_layered_type = (RenderingServer::TextureLayeredType)0);
 	void texture_2d_update(const RID &p_texture, const Ref<Image> &p_image, int32_t p_layer);
-	void texture_3d_update(const RID &p_texture, const TypedArray<Image> &p_data);
+	void texture_3d_update(const RID &p_texture, const TypedArray<Ref<Image>> &p_data);
 	void texture_proxy_update(const RID &p_texture, const RID &p_proxy_to);
 	RID texture_2d_placeholder_create();
 	RID texture_2d_layered_placeholder_create(RenderingServer::TextureLayeredType p_layered_type);
 	RID texture_3d_placeholder_create();
 	Ref<Image> texture_2d_get(const RID &p_texture) const;
 	Ref<Image> texture_2d_layer_get(const RID &p_texture, int32_t p_layer) const;
-	TypedArray<Image> texture_3d_get(const RID &p_texture) const;
+	TypedArray<Ref<Image>> texture_3d_get(const RID &p_texture) const;
 	void texture_replace(const RID &p_texture, const RID &p_by_texture);
 	void texture_set_size_override(const RID &p_texture, int32_t p_width, int32_t p_height);
 	void texture_set_path(const RID &p_texture, const String &p_path);
@@ -1199,7 +1199,7 @@ public:
 	PackedInt64Array instances_cull_aabb(const AABB &p_aabb, const RID &p_scenario = RID()) const;
 	PackedInt64Array instances_cull_ray(const Vector3 &p_from, const Vector3 &p_to, const RID &p_scenario = RID()) const;
 	PackedInt64Array instances_cull_convex(const TypedArray<Plane> &p_convex, const RID &p_scenario = RID()) const;
-	TypedArray<Image> bake_render_uv2(const RID &p_base, const TypedArray<RID> &p_material_overrides, const Vector2i &p_image_size);
+	TypedArray<Ref<Image>> bake_render_uv2(const RID &p_base, const TypedArray<RID> &p_material_overrides, const Vector2i &p_image_size);
 	RID canvas_create();
 	void canvas_set_item_mirroring(const RID &p_canvas, const RID &p_item, const Vector2 &p_mirroring);
 	void canvas_set_item_repeat(const RID &p_item, const Vector2 &p_repeat_size, int32_t p_repeat_times);

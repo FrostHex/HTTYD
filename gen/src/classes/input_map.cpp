@@ -130,10 +130,10 @@ void InputMap::action_erase_events(const StringName &p_action) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_action);
 }
 
-TypedArray<InputEvent> InputMap::action_get_events(const StringName &p_action) {
+TypedArray<Ref<InputEvent>> InputMap::action_get_events(const StringName &p_action) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputMap::get_class_static()._native_ptr(), StringName("action_get_events")._native_ptr(), 689397652);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<InputEvent>()));
-	return internal::_call_native_mb_ret<TypedArray<InputEvent>>(_gde_method_bind, _owner, &p_action);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<InputEvent>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<InputEvent>>>(_gde_method_bind, _owner, &p_action);
 }
 
 bool InputMap::event_is_action(const Ref<InputEvent> &p_event, const StringName &p_action, bool p_exact_match) const {

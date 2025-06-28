@@ -40,16 +40,16 @@
 
 namespace godot {
 
-void Compositor::set_compositor_effects(const TypedArray<CompositorEffect> &p_compositor_effects) {
+void Compositor::set_compositor_effects(const TypedArray<Ref<CompositorEffect>> &p_compositor_effects) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Compositor::get_class_static()._native_ptr(), StringName("set_compositor_effects")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_compositor_effects);
 }
 
-TypedArray<CompositorEffect> Compositor::get_compositor_effects() const {
+TypedArray<Ref<CompositorEffect>> Compositor::get_compositor_effects() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Compositor::get_class_static()._native_ptr(), StringName("get_compositor_effects")._native_ptr(), 3995934104);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<CompositorEffect>()));
-	return internal::_call_native_mb_ret<TypedArray<CompositorEffect>>(_gde_method_bind, _owner);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<CompositorEffect>>()));
+	return internal::_call_native_mb_ret<TypedArray<Ref<CompositorEffect>>>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

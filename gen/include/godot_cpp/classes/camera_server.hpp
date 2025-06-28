@@ -63,7 +63,7 @@ public:
 	bool is_monitoring_feeds() const;
 	Ref<CameraFeed> get_feed(int32_t p_index);
 	int32_t get_feed_count();
-	TypedArray<CameraFeed> feeds();
+	TypedArray<Ref<CameraFeed>> feeds();
 	void add_feed(const Ref<CameraFeed> &p_feed);
 	void remove_feed(const Ref<CameraFeed> &p_feed);
 
