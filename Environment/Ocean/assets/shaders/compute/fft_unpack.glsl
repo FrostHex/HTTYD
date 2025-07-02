@@ -1,5 +1,5 @@
 #[compute]
-#version 460
+#version 450
 /** 
  * Unpacks the IFFT outputs from the modulation stage and creates
  * the output displacement and normal maps.
@@ -10,10 +10,10 @@
 
 layout(local_size_x = TILE_SIZE, local_size_y = TILE_SIZE, local_size_z = 2) in;
 
-layout(rgba16f, set = 0, binding = 0) restrict writeonly uniform image2DArray displacement_map;
-layout(rgba16f, set = 0, binding = 1) restrict uniform image2DArray normal_map;
+layout(set = 0, binding = 0, rgba16f) restrict writeonly uniform image2DArray displacement_map;
+layout(set = 0, binding = 1, rgba16f) restrict uniform image2DArray normal_map;
 
-layout(std430, set = 1, binding = 0) restrict buffer FFTBuffer {
+layout(set = 1, binding = 0, std430) restrict buffer FFTBuffer {
 	vec2 data[]; // map_size x map_size x num_spectra x 2 * num_cascades
 };
 

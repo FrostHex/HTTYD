@@ -56,6 +56,6 @@ scons -c platform=windows use_mingw=yes bits=64 target=release
 ```bash
 git submodule foreach git pull origin master
 cd Addons/godot-cpp
-"D:\Godot\Godot_v4.5-beta1_mono_win64.exe" --dump-extension-api # modify the path of godot.exe in the command
+"D:\Godot\Godot_v4.5-beta2_win64.exe" --dump-extension-api # modify the path of godot.exe in the command
 scons platform=windows use_mingw=yes custom_api_file="extension_api.json"
 ```

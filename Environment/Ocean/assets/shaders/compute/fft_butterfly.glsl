@@ -1,12 +1,12 @@
 #[compute]
-#version 460
+#version 450
 /** Precomputes the butterfly factors for a Stockham FFT kernel */
 
 #define PI (3.141592653589793)
 
 layout(local_size_x = 64, local_size_y = 1, local_size_z = 1) in;
 
-layout(std430, set = 0, binding = 0) restrict writeonly buffer FFTBuffer {
+layout(set = 0, binding = 0, std430) restrict writeonly buffer FFTBuffer {
 	vec4 butterfly[]; // log2(map_size) x map_size
 };
 

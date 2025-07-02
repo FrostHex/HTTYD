@@ -1,5 +1,5 @@
 #[compute]
-#version 460
+#version 450
 /**
  * Generates a 2D texture representing the JONSWAP wave spectra
  * w/ Hasselmann directional spreading.
@@ -13,7 +13,7 @@
 
 layout(local_size_x = 16, local_size_y = 16, local_size_z = 1) in;
 
-layout(rgba16f, set = 0, binding = 0) restrict writeonly uniform image2DArray spectrum;
+layout(set = 0, binding = 0, rgba16f) restrict writeonly uniform image2DArray spectrum;
 
 layout(push_constant) restrict readonly uniform PushConstants {
 	ivec2 seed;

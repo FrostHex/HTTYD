@@ -1,5 +1,5 @@
 @tool
-@icon("res://Addons/SunshineClouds2/addons/SunshineClouds2/CloudsDriverIcon.svg")
+@icon("res://Addons/SunshineClouds2/addons/SunshineClouds2/Dock/Icons/cloud-solid.svg")
 extends Node
 class_name SunshineCloudsDriverGD
 

@@ -1,44 +1,33 @@
-[gd_scene load_steps=20 format=3 uid="uid://dx4r13gqfh13"]
+[gd_scene load_steps=19 format=3 uid="uid://dx4r13gqfh13"]
 
 [ext_resource type="Script" uid="uid://bap0ysmcgyau1" path="res://Environment/Ocean/main.gd" id="1_skarq"]
 [ext_resource type="Script" uid="uid://6xfm4e44ag2c" path="res://Environment/Ocean/assets/water/wave_cascade_parameters.gd" id="2_pw5n6"]
-[ext_resource type="ArrayMesh" uid="uid://mkodygt504hm" path="res://Environment/Ocean/assets/water/clipmap_low.obj" id="3_65bgh"]
 [ext_resource type="Material" uid="uid://byumtcccq4ew3" path="res://Environment/Ocean/assets/water/mat_water.tres" id="5_lt75t"]
-[ext_resource type="ArrayMesh" uid="uid://ix4vp1y05f1s" path="res://Environment/Ocean/assets/water/clipmap_high.obj" id="5_n61pp"]
-[ext_resource type="AudioStream" uid="uid://cvvn0vke5comw" path="res://Environment/Ocean/assets/ocean_loop.wav" id="6_jpklm"]
+[ext_resource type="ArrayMesh" uid="uid://dshichwv2886o" path="res://Environment/Ocean/assets/water/clipmap_high.obj" id="5_n61pp"]
+[ext_resource type="AudioStream" uid="uid://do01we8fj5vj7" path="res://Environment/Ocean/assets/ocean_loop.wav" id="6_jpklm"]
 [ext_resource type="Script" uid="uid://xkf1sdf7lje" path="res://Environment/Ocean/assets/water/water.gd" id="7_s0x5e"]
-[ext_resource type="AudioStream" uid="uid://ck6vmandgjhy0" path="res://Environment/Ocean/assets/wind_loop.wav" id="8_6r5si"]
+[ext_resource type="AudioStream" uid="uid://c8vy6p6hk6iif" path="res://Environment/Ocean/assets/wind_loop.wav" id="8_6r5si"]
 [ext_resource type="Shader" uid="uid://g3n2isghh76u" path="res://Environment/Ocean/assets/shaders/spatial/sea_spray.gdshader" id="8_eu8jb"]
 [ext_resource type="Material" uid="uid://5xqyddws6rt5" path="res://Environment/Ocean/assets/water/mat_spray.tres" id="9_skbf4"]
-[ext_resource type="Texture2D" uid="uid://dtm5tyuh2slqt" path="res://Environment/Ocean/assets/water/sea_spray.png" id="10_spqpo"]
+[ext_resource type="Texture2D" uid="uid://c66lycelh11h7" path="res://Environment/Ocean/assets/water/sea_spray.png" id="10_spqpo"]
 [ext_resource type="Material" uid="uid://dbxumu28oudq4" path="res://Environment/Ocean/assets/water/mat_water_background.tres" id="11_8j5el"]
 
 [sub_resource type="Resource" id="Resource_adqv5"]
 script = ExtResource("2_pw5n6")
 tile_length = Vector2(88, 88)
-displacement_scale = 1.0
-normal_scale = 1.0
 wind_speed = 10.0
 wind_direction = 20.0
 fetch_length = 150.0
-swell = 0.8
-spread = 0.2
-detail = 1.0
-whitecap = 0.5
 foam_amount = 8.0
 
 [sub_resource type="Resource" id="Resource_luhq0"]
 script = ExtResource("2_pw5n6")
 tile_length = Vector2(57, 57)
 displacement_scale = 0.75
-normal_scale = 1.0
 wind_speed = 5.0
 wind_direction = 15.0
 fetch_length = 150.0
-swell = 0.8
 spread = 0.4
-detail = 1.0
-whitecap = 0.5
 foam_amount = 0.0
 
 [sub_resource type="Resource" id="Resource_83u3u"]
@@ -46,20 +35,16 @@ script = ExtResource("2_pw5n6")
 tile_length = Vector2(16, 16)
 displacement_scale = 0.0
 normal_scale = 0.25
-wind_speed = 20.0
 wind_direction = 20.0
-fetch_length = 550.0
-swell = 0.8
 spread = 0.4
-detail = 1.0
 whitecap = 0.25
 foam_amount = 3.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_k6xhe"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tsx6q"]
-seamless = true
 noise = SubResource("FastNoiseLite_k6xhe")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ds3o1"]
 render_priority = 0
@@ -74,17 +59,16 @@ shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_tsx6q")
 script = ExtResource("1_skarq")
 
 [node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 381, 0, 448)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 11, 0, 5)
 sorting_offset = 999.0
 material_override = ExtResource("5_lt75t")
 cast_shadow = 0
 extra_cull_margin = 1000.0
-mesh = ExtResource("3_65bgh")
+mesh = ExtResource("5_n61pp")
 skeleton = NodePath("")
 script = ExtResource("7_s0x5e")
 water_color = Color(0.140394, 0.202932, 0.240471, 1)
 parameters = Array[ExtResource("2_pw5n6")]([SubResource("Resource_adqv5"), SubResource("Resource_luhq0"), SubResource("Resource_83u3u")])
-mesh_quality = 0
 updates_per_second = 30.0
 
 [node name="WaterSprayEmitter" type="GPUParticles3D" parent="Water"]

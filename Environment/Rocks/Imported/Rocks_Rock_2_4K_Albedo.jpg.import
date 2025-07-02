@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bme8fb628ehbt"
+uid="uid://o5iqcrh8hoiv"
 path.s3tc="res://.godot/imported/Rocks_Rock_2_4K_Albedo.jpg-1f379ec1cd4acaa849ccef20a0f10e4f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "3b89d48882183a635e5691d8e09fd963"
 }
 
 [deps]
@@ -22,6 +19,8 @@ dest_files=["res://.godot/imported/Rocks_Rock_2_4K_Albedo.jpg-1f379ec1cd4acaa849
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -29,6 +28,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

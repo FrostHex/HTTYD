@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dxx1hc32g8u3x" path="res://Environment/Rocks/Rock_A.fbx" id="1_krd6r"]
 [ext_resource type="Material" uid="uid://bocwqtb3gi8dn" path="res://Environment/Rocks/Rock_0.tres" id="2_fv2ts"]
 
-[node name="Rock_A" instance=ExtResource("1_krd6r")]
+[node name="Rock_AA" instance=ExtResource("1_krd6r")]
 
 [node name="Rock_A" parent="." index="0"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, -2.13163e-14, 0, 1, 0, 0, 0)
 material_override = ExtResource("2_fv2ts")
