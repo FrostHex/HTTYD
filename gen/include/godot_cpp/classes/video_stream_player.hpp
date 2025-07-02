@@ -63,6 +63,8 @@ public:
 	float get_volume() const;
 	void set_volume_db(float p_db);
 	float get_volume_db() const;
+	void set_speed_scale(float p_speed_scale);
+	float get_speed_scale() const;
 	void set_audio_track(int32_t p_track);
 	int32_t get_audio_track() const;
 	String get_stream_name() const;

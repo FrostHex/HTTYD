@@ -38,8 +38,8 @@
 
 namespace godot {
 
-int32_t GLTFAccessor::get_buffer_view() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_buffer_view")._native_ptr(), 2455072627);
+int32_t GLTFAccessor::get_buffer_view() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_buffer_view")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
@@ -52,13 +52,13 @@ void GLTFAccessor::set_buffer_view(int32_t p_buffer_view) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_buffer_view_encoded);
 }
 
-int32_t GLTFAccessor::get_byte_offset() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_byte_offset")._native_ptr(), 2455072627);
+int64_t GLTFAccessor::get_byte_offset() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_byte_offset")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-void GLTFAccessor::set_byte_offset(int32_t p_byte_offset) {
+void GLTFAccessor::set_byte_offset(int64_t p_byte_offset) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_byte_offset")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_byte_offset_encoded;
@@ -66,22 +66,22 @@ void GLTFAccessor::set_byte_offset(int32_t p_byte_offset) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_byte_offset_encoded);
 }
 
-int32_t GLTFAccessor::get_component_type() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_component_type")._native_ptr(), 2455072627);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+GLTFAccessor::GLTFComponentType GLTFAccessor::get_component_type() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_component_type")._native_ptr(), 852227802);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (GLTFAccessor::GLTFComponentType(0)));
+	return (GLTFAccessor::GLTFComponentType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-void GLTFAccessor::set_component_type(int32_t p_component_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_component_type")._native_ptr(), 1286410249);
+void GLTFAccessor::set_component_type(GLTFAccessor::GLTFComponentType p_component_type) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_component_type")._native_ptr(), 1780020221);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_component_type_encoded;
 	PtrToArg<int64_t>::encode(p_component_type, &p_component_type_encoded);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_component_type_encoded);
 }
 
-bool GLTFAccessor::get_normalized() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_normalized")._native_ptr(), 2240911060);
+bool GLTFAccessor::get_normalized() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_normalized")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
@@ -94,13 +94,13 @@ void GLTFAccessor::set_normalized(bool p_normalized) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_normalized_encoded);
 }
 
-int32_t GLTFAccessor::get_count() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_count")._native_ptr(), 2455072627);
+int64_t GLTFAccessor::get_count() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-void GLTFAccessor::set_count(int32_t p_count) {
+void GLTFAccessor::set_count(int64_t p_count) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_count")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_count_encoded;
@@ -108,8 +108,8 @@ void GLTFAccessor::set_count(int32_t p_count) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_count_encoded);
 }
 
-GLTFAccessor::GLTFAccessorType GLTFAccessor::get_accessor_type() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_accessor_type")._native_ptr(), 679305214);
+GLTFAccessor::GLTFAccessorType GLTFAccessor::get_accessor_type() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_accessor_type")._native_ptr(), 1998183368);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (GLTFAccessor::GLTFAccessorType(0)));
 	return (GLTFAccessor::GLTFAccessorType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
@@ -122,8 +122,8 @@ void GLTFAccessor::set_accessor_type(GLTFAccessor::GLTFAccessorType p_accessor_t
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_accessor_type_encoded);
 }
 
-int32_t GLTFAccessor::get_type() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_type")._native_ptr(), 2455072627);
+int32_t GLTFAccessor::get_type() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_type")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
@@ -136,8 +136,8 @@ void GLTFAccessor::set_type(int32_t p_type) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded);
 }
 
-PackedFloat64Array GLTFAccessor::get_min() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_min")._native_ptr(), 148677866);
+PackedFloat64Array GLTFAccessor::get_min() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_min")._native_ptr(), 547233126);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedFloat64Array()));
 	return internal::_call_native_mb_ret<PackedFloat64Array>(_gde_method_bind, _owner);
 }
@@ -148,8 +148,8 @@ void GLTFAccessor::set_min(const PackedFloat64Array &p_min) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_min);
 }
 
-PackedFloat64Array GLTFAccessor::get_max() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_max")._native_ptr(), 148677866);
+PackedFloat64Array GLTFAccessor::get_max() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_max")._native_ptr(), 547233126);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedFloat64Array()));
 	return internal::_call_native_mb_ret<PackedFloat64Array>(_gde_method_bind, _owner);
 }
@@ -160,13 +160,13 @@ void GLTFAccessor::set_max(const PackedFloat64Array &p_max) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_max);
 }
 
-int32_t GLTFAccessor::get_sparse_count() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_count")._native_ptr(), 2455072627);
+int64_t GLTFAccessor::get_sparse_count() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-void GLTFAccessor::set_sparse_count(int32_t p_sparse_count) {
+void GLTFAccessor::set_sparse_count(int64_t p_sparse_count) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_count")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sparse_count_encoded;
@@ -174,8 +174,8 @@ void GLTFAccessor::set_sparse_count(int32_t p_sparse_count) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_count_encoded);
 }
 
-int32_t GLTFAccessor::get_sparse_indices_buffer_view() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_buffer_view")._native_ptr(), 2455072627);
+int32_t GLTFAccessor::get_sparse_indices_buffer_view() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_buffer_view")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
@@ -188,13 +188,13 @@ void GLTFAccessor::set_sparse_indices_buffer_view(int32_t p_sparse_indices_buffe
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_indices_buffer_view_encoded);
 }
 
-int32_t GLTFAccessor::get_sparse_indices_byte_offset() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_byte_offset")._native_ptr(), 2455072627);
+int64_t GLTFAccessor::get_sparse_indices_byte_offset() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_byte_offset")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-void GLTFAccessor::set_sparse_indices_byte_offset(int32_t p_sparse_indices_byte_offset) {
+void GLTFAccessor::set_sparse_indices_byte_offset(int64_t p_sparse_indices_byte_offset) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_indices_byte_offset")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sparse_indices_byte_offset_encoded;
@@ -202,22 +202,22 @@ void GLTFAccessor::set_sparse_indices_byte_offset(int32_t p_sparse_indices_byte_
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_indices_byte_offset_encoded);
 }
 
-int32_t GLTFAccessor::get_sparse_indices_component_type() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_component_type")._native_ptr(), 2455072627);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+GLTFAccessor::GLTFComponentType GLTFAccessor::get_sparse_indices_component_type() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_component_type")._native_ptr(), 852227802);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (GLTFAccessor::GLTFComponentType(0)));
+	return (GLTFAccessor::GLTFComponentType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-void GLTFAccessor::set_sparse_indices_component_type(int32_t p_sparse_indices_component_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_indices_component_type")._native_ptr(), 1286410249);
+void GLTFAccessor::set_sparse_indices_component_type(GLTFAccessor::GLTFComponentType p_sparse_indices_component_type) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_indices_component_type")._native_ptr(), 1780020221);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sparse_indices_component_type_encoded;
 	PtrToArg<int64_t>::encode(p_sparse_indices_component_type, &p_sparse_indices_component_type_encoded);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_indices_component_type_encoded);
 }
 
-int32_t GLTFAccessor::get_sparse_values_buffer_view() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_values_buffer_view")._native_ptr(), 2455072627);
+int32_t GLTFAccessor::get_sparse_values_buffer_view() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_values_buffer_view")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
@@ -230,13 +230,13 @@ void GLTFAccessor::set_sparse_values_buffer_view(int32_t p_sparse_values_buffer_
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_values_buffer_view_encoded);
 }
 
-int32_t GLTFAccessor::get_sparse_values_byte_offset() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_values_byte_offset")._native_ptr(), 2455072627);
+int64_t GLTFAccessor::get_sparse_values_byte_offset() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_values_byte_offset")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-void GLTFAccessor::set_sparse_values_byte_offset(int32_t p_sparse_values_byte_offset) {
+void GLTFAccessor::set_sparse_values_byte_offset(int64_t p_sparse_values_byte_offset) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_values_byte_offset")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sparse_values_byte_offset_encoded;

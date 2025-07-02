@@ -424,6 +424,20 @@ BaseMaterial3D::DepthDrawMode BaseMaterial3D::get_depth_draw_mode() const {
 	return (BaseMaterial3D::DepthDrawMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+void BaseMaterial3D::set_depth_test(BaseMaterial3D::DepthTest p_depth_test) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("set_depth_test")._native_ptr(), 3918692338);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_depth_test_encoded;
+	PtrToArg<int64_t>::encode(p_depth_test, &p_depth_test_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_depth_test_encoded);
+}
+
+BaseMaterial3D::DepthTest BaseMaterial3D::get_depth_test() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("get_depth_test")._native_ptr(), 3434785811);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (BaseMaterial3D::DepthTest(0)));
+	return (BaseMaterial3D::DepthTest)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 void BaseMaterial3D::set_cull_mode(BaseMaterial3D::CullMode p_cull_mode) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("set_cull_mode")._native_ptr(), 2338909218);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -982,6 +996,116 @@ void BaseMaterial3D::set_distance_fade_min_distance(float p_distance) {
 
 float BaseMaterial3D::get_distance_fade_min_distance() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("get_distance_fade_min_distance")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+void BaseMaterial3D::set_z_clip_scale(float p_scale) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("set_z_clip_scale")._native_ptr(), 373806689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_scale_encoded;
+	PtrToArg<double>::encode(p_scale, &p_scale_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_scale_encoded);
+}
+
+float BaseMaterial3D::get_z_clip_scale() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("get_z_clip_scale")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+void BaseMaterial3D::set_fov_override(float p_scale) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("set_fov_override")._native_ptr(), 373806689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_scale_encoded;
+	PtrToArg<double>::encode(p_scale, &p_scale_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_scale_encoded);
+}
+
+float BaseMaterial3D::get_fov_override() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("get_fov_override")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+void BaseMaterial3D::set_stencil_mode(BaseMaterial3D::StencilMode p_stencil_mode) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("set_stencil_mode")._native_ptr(), 2272367200);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_stencil_mode_encoded;
+	PtrToArg<int64_t>::encode(p_stencil_mode, &p_stencil_mode_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stencil_mode_encoded);
+}
+
+BaseMaterial3D::StencilMode BaseMaterial3D::get_stencil_mode() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("get_stencil_mode")._native_ptr(), 2908443456);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (BaseMaterial3D::StencilMode(0)));
+	return (BaseMaterial3D::StencilMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void BaseMaterial3D::set_stencil_flags(int32_t p_stencil_flags) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("set_stencil_flags")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_stencil_flags_encoded;
+	PtrToArg<int64_t>::encode(p_stencil_flags, &p_stencil_flags_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stencil_flags_encoded);
+}
+
+int32_t BaseMaterial3D::get_stencil_flags() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("get_stencil_flags")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void BaseMaterial3D::set_stencil_compare(BaseMaterial3D::StencilCompare p_stencil_compare) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("set_stencil_compare")._native_ptr(), 3741726481);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_stencil_compare_encoded;
+	PtrToArg<int64_t>::encode(p_stencil_compare, &p_stencil_compare_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stencil_compare_encoded);
+}
+
+BaseMaterial3D::StencilCompare BaseMaterial3D::get_stencil_compare() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("get_stencil_compare")._native_ptr(), 2824600492);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (BaseMaterial3D::StencilCompare(0)));
+	return (BaseMaterial3D::StencilCompare)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void BaseMaterial3D::set_stencil_reference(int32_t p_stencil_reference) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("set_stencil_reference")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_stencil_reference_encoded;
+	PtrToArg<int64_t>::encode(p_stencil_reference, &p_stencil_reference_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stencil_reference_encoded);
+}
+
+int32_t BaseMaterial3D::get_stencil_reference() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("get_stencil_reference")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void BaseMaterial3D::set_stencil_effect_color(const Color &p_stencil_color) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("set_stencil_effect_color")._native_ptr(), 2920490490);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stencil_color);
+}
+
+Color BaseMaterial3D::get_stencil_effect_color() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("get_stencil_effect_color")._native_ptr(), 3444240500);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
+	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
+}
+
+void BaseMaterial3D::set_stencil_effect_outline_thickness(float p_stencil_outline_thickness) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("set_stencil_effect_outline_thickness")._native_ptr(), 373806689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_stencil_outline_thickness_encoded;
+	PtrToArg<double>::encode(p_stencil_outline_thickness, &p_stencil_outline_thickness_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stencil_outline_thickness_encoded);
+}
+
+float BaseMaterial3D::get_stencil_effect_outline_thickness() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BaseMaterial3D::get_class_static()._native_ptr(), StringName("get_stencil_effect_outline_thickness")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }

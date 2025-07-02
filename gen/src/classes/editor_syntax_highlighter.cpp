@@ -46,4 +46,8 @@ PackedStringArray EditorSyntaxHighlighter::_get_supported_languages() const {
 	return PackedStringArray();
 }
 
+Ref<EditorSyntaxHighlighter> EditorSyntaxHighlighter::_create() const {
+	return Ref<EditorSyntaxHighlighter>();
+}
+
 } // namespace godot

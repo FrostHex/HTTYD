@@ -54,6 +54,8 @@ public:
 	PopupPanel *get_popup();
 	void set_edit_alpha(bool p_show);
 	bool is_editing_alpha() const;
+	void set_edit_intensity(bool p_show);
+	bool is_editing_intensity() const;
 
 protected:
 	template <typename T, typename B>

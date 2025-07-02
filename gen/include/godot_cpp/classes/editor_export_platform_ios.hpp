@@ -32,7 +32,7 @@
 
 #pragma once
 
-#include <godot_cpp/classes/editor_export_platform.hpp>
+#include <godot_cpp/classes/editor_export_platform_apple_embedded.hpp>
 #include <godot_cpp/classes/ref.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
@@ -41,14 +41,14 @@
 
 namespace godot {
 
-class EditorExportPlatformIOS : public EditorExportPlatform {
-	GDEXTENSION_CLASS(EditorExportPlatformIOS, EditorExportPlatform)
+class EditorExportPlatformIOS : public EditorExportPlatformAppleEmbedded {
+	GDEXTENSION_CLASS(EditorExportPlatformIOS, EditorExportPlatformAppleEmbedded)
 
 public:
 protected:
 	template <typename T, typename B>
 	static void register_virtuals() {
-		EditorExportPlatform::register_virtuals<T, B>();
+		EditorExportPlatformAppleEmbedded::register_virtuals<T, B>();
 	}
 
 public:

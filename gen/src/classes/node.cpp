@@ -51,6 +51,12 @@ void Node::print_orphan_nodes() {
 	internal::_call_native_mb_no_ret(_gde_method_bind, nullptr);
 }
 
+TypedArray<int> Node::get_orphan_node_ids() {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node::get_class_static()._native_ptr(), StringName("get_orphan_node_ids")._native_ptr(), 2915620761);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<int>()));
+	return internal::_call_native_mb_ret<TypedArray<int>>(_gde_method_bind, nullptr);
+}
+
 void Node::add_sibling(Node *p_sibling, bool p_force_readable_name) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node::get_class_static()._native_ptr(), StringName("add_sibling")._native_ptr(), 2570952461);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -59,8 +65,8 @@ void Node::add_sibling(Node *p_sibling, bool p_force_readable_name) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_sibling != nullptr ? &p_sibling->_owner : nullptr), &p_force_readable_name_encoded);
 }
 
-void Node::set_name(const String &p_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node::get_class_static()._native_ptr(), StringName("set_name")._native_ptr(), 83702148);
+void Node::set_name(const StringName &p_name) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node::get_class_static()._native_ptr(), StringName("set_name")._native_ptr(), 3304788590);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
 }
@@ -511,6 +517,18 @@ int32_t Node::get_process_thread_group_order() const {
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+void Node::queue_accessibility_update() {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node::get_class_static()._native_ptr(), StringName("queue_accessibility_update")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
+RID Node::get_accessibility_element() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node::get_class_static()._native_ptr(), StringName("get_accessibility_element")._native_ptr(), 2944877500);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
+	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+}
+
 void Node::set_display_folded(bool p_fold) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node::get_class_static()._native_ptr(), StringName("set_display_folded")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -597,6 +615,12 @@ Node::AutoTranslateMode Node::get_auto_translate_mode() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node::get_class_static()._native_ptr(), StringName("get_auto_translate_mode")._native_ptr(), 2498906432);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Node::AutoTranslateMode(0)));
 	return (Node::AutoTranslateMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+bool Node::can_auto_translate() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node::get_class_static()._native_ptr(), StringName("can_auto_translate")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void Node::set_translation_domain_inherited() {
@@ -731,8 +755,8 @@ void Node::rpc_config(const StringName &p_method, const Variant &p_config) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_method, &p_config);
 }
 
-Variant Node::get_rpc_config() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node::get_class_static()._native_ptr(), StringName("get_rpc_config")._native_ptr(), 1214101251);
+Variant Node::get_node_rpc_config() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Node::get_class_static()._native_ptr(), StringName("get_node_rpc_config")._native_ptr(), 1214101251);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
 	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner);
 }
@@ -861,6 +885,10 @@ PackedStringArray Node::_get_configuration_warnings() const {
 	return PackedStringArray();
 }
 
+PackedStringArray Node::_get_accessibility_configuration_warnings() const {
+	return PackedStringArray();
+}
+
 void Node::_input(const Ref<InputEvent> &p_event) {}
 
 void Node::_shortcut_input(const Ref<InputEvent> &p_event) {}
@@ -868,5 +896,9 @@ void Node::_shortcut_input(const Ref<InputEvent> &p_event) {}
 void Node::_unhandled_input(const Ref<InputEvent> &p_event) {}
 
 void Node::_unhandled_key_input(const Ref<InputEvent> &p_event) {}
+
+RID Node::_get_focused_accessibility_element() const {
+	return RID();
+}
 
 } // namespace godot

@@ -924,6 +924,20 @@ float PhysicsServer3D::soft_body_get_linear_stiffness(const RID &p_body) const {
 	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_body);
 }
 
+void PhysicsServer3D::soft_body_set_shrinking_factor(const RID &p_body, float p_shrinking_factor) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer3D::get_class_static()._native_ptr(), StringName("soft_body_set_shrinking_factor")._native_ptr(), 1794382983);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_shrinking_factor_encoded;
+	PtrToArg<double>::encode(p_shrinking_factor, &p_shrinking_factor_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_body, &p_shrinking_factor_encoded);
+}
+
+float PhysicsServer3D::soft_body_get_shrinking_factor(const RID &p_body) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer3D::get_class_static()._native_ptr(), StringName("soft_body_get_shrinking_factor")._native_ptr(), 866169185);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_body);
+}
+
 void PhysicsServer3D::soft_body_set_pressure_coefficient(const RID &p_body, float p_pressure_coefficient) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer3D::get_class_static()._native_ptr(), StringName("soft_body_set_pressure_coefficient")._native_ptr(), 1794382983);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -1004,6 +1018,34 @@ bool PhysicsServer3D::soft_body_is_point_pinned(const RID &p_body, int32_t p_poi
 	int64_t p_point_index_encoded;
 	PtrToArg<int64_t>::encode(p_point_index, &p_point_index_encoded);
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_body, &p_point_index_encoded);
+}
+
+void PhysicsServer3D::soft_body_apply_point_impulse(const RID &p_body, int32_t p_point_index, const Vector3 &p_impulse) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer3D::get_class_static()._native_ptr(), StringName("soft_body_apply_point_impulse")._native_ptr(), 831953689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_point_index_encoded;
+	PtrToArg<int64_t>::encode(p_point_index, &p_point_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_body, &p_point_index_encoded, &p_impulse);
+}
+
+void PhysicsServer3D::soft_body_apply_point_force(const RID &p_body, int32_t p_point_index, const Vector3 &p_force) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer3D::get_class_static()._native_ptr(), StringName("soft_body_apply_point_force")._native_ptr(), 831953689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_point_index_encoded;
+	PtrToArg<int64_t>::encode(p_point_index, &p_point_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_body, &p_point_index_encoded, &p_force);
+}
+
+void PhysicsServer3D::soft_body_apply_central_impulse(const RID &p_body, const Vector3 &p_impulse) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer3D::get_class_static()._native_ptr(), StringName("soft_body_apply_central_impulse")._native_ptr(), 3227306858);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_body, &p_impulse);
+}
+
+void PhysicsServer3D::soft_body_apply_central_force(const RID &p_body, const Vector3 &p_force) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer3D::get_class_static()._native_ptr(), StringName("soft_body_apply_central_force")._native_ptr(), 3227306858);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_body, &p_force);
 }
 
 RID PhysicsServer3D::joint_create() {

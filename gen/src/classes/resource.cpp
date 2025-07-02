@@ -156,12 +156,20 @@ void Resource::emit_changed() {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
-Ref<Resource> Resource::duplicate(bool p_subresources) const {
+Ref<Resource> Resource::duplicate(bool p_deep) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Resource::get_class_static()._native_ptr(), StringName("duplicate")._native_ptr(), 482882304);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Resource>()));
-	int8_t p_subresources_encoded;
-	PtrToArg<bool>::encode(p_subresources, &p_subresources_encoded);
-	return Ref<Resource>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner, &p_subresources_encoded));
+	int8_t p_deep_encoded;
+	PtrToArg<bool>::encode(p_deep, &p_deep_encoded);
+	return Ref<Resource>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner, &p_deep_encoded));
+}
+
+Ref<Resource> Resource::duplicate_deep(Resource::DeepDuplicateMode p_deep_subresources_mode) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Resource::get_class_static()._native_ptr(), StringName("duplicate_deep")._native_ptr(), 905779109);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Resource>()));
+	int64_t p_deep_subresources_mode_encoded;
+	PtrToArg<int64_t>::encode(p_deep_subresources_mode, &p_deep_subresources_mode_encoded);
+	return Ref<Resource>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner, &p_deep_subresources_mode_encoded));
 }
 
 void Resource::_setup_local_to_scene() {}

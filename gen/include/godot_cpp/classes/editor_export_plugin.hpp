@@ -58,8 +58,15 @@ class EditorExportPlugin : public RefCounted {
 
 public:
 	void add_shared_object(const String &p_path, const PackedStringArray &p_tags, const String &p_target);
-	void add_ios_project_static_lib(const String &p_path);
 	void add_file(const String &p_path, const PackedByteArray &p_file, bool p_remap);
+	void add_apple_embedded_platform_project_static_lib(const String &p_path);
+	void add_apple_embedded_platform_framework(const String &p_path);
+	void add_apple_embedded_platform_embedded_framework(const String &p_path);
+	void add_apple_embedded_platform_plist_content(const String &p_plist_content);
+	void add_apple_embedded_platform_linker_flags(const String &p_flags);
+	void add_apple_embedded_platform_bundle_file(const String &p_path);
+	void add_apple_embedded_platform_cpp_code(const String &p_code);
+	void add_ios_project_static_lib(const String &p_path);
 	void add_ios_framework(const String &p_path);
 	void add_ios_embedded_framework(const String &p_path);
 	void add_ios_plist_content(const String &p_plist_content);

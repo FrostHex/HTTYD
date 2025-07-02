@@ -73,6 +73,14 @@ Error ResourceSaver::save(const Ref<Resource> &p_resource, const String &p_path,
 	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_resource != nullptr ? &p_resource->_owner : nullptr), &p_path, &p_flags);
 }
 
+Error ResourceSaver::set_uid(const String &p_resource, int64_t p_uid) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceSaver::get_class_static()._native_ptr(), StringName("set_uid")._native_ptr(), 993915709);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	int64_t p_uid_encoded;
+	PtrToArg<int64_t>::encode(p_uid, &p_uid_encoded);
+	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_resource, &p_uid_encoded);
+}
+
 PackedStringArray ResourceSaver::get_recognized_extensions(const Ref<Resource> &p_type) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceSaver::get_class_static()._native_ptr(), StringName("get_recognized_extensions")._native_ptr(), 4223597960);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));

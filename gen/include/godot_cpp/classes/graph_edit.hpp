@@ -136,6 +136,8 @@ public:
 	bool is_showing_arrange_button() const;
 	void set_right_disconnects(bool p_enable);
 	bool is_right_disconnects_enabled() const;
+	void set_type_names(const Dictionary &p_type_names);
+	Dictionary get_type_names() const;
 	HBoxContainer *get_menu_hbox();
 	void arrange_nodes();
 	void set_selected(Node *p_node);

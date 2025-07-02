@@ -280,6 +280,12 @@ bool DirAccess::get_include_hidden() const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+String DirAccess::get_filesystem_type() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DirAccess::get_class_static()._native_ptr(), StringName("get_filesystem_type")._native_ptr(), 201670096);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+}
+
 bool DirAccess::is_case_sensitive(const String &p_path) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DirAccess::get_class_static()._native_ptr(), StringName("is_case_sensitive")._native_ptr(), 3927539163);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));

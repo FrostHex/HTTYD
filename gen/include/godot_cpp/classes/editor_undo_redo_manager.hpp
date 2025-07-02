@@ -55,7 +55,7 @@ public:
 		INVALID_HISTORY = -99,
 	};
 
-	void create_action(const String &p_name, UndoRedo::MergeMode p_merge_mode = (UndoRedo::MergeMode)0, Object *p_custom_context = nullptr, bool p_backward_undo_ops = false);
+	void create_action(const String &p_name, UndoRedo::MergeMode p_merge_mode = (UndoRedo::MergeMode)0, Object *p_custom_context = nullptr, bool p_backward_undo_ops = false, bool p_mark_unsaved = true);
 	void commit_action(bool p_execute = true);
 	bool is_committing_action() const;
 	void force_fixed_history();

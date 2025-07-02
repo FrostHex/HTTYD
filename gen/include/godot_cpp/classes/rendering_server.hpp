@@ -414,7 +414,8 @@ public:
 	enum ViewportScreenSpaceAA {
 		VIEWPORT_SCREEN_SPACE_AA_DISABLED = 0,
 		VIEWPORT_SCREEN_SPACE_AA_FXAA = 1,
-		VIEWPORT_SCREEN_SPACE_AA_MAX = 2,
+		VIEWPORT_SCREEN_SPACE_AA_SMAA = 2,
+		VIEWPORT_SCREEN_SPACE_AA_MAX = 3,
 	};
 
 	enum ViewportOcclusionCullingBuildQuality {
@@ -801,6 +802,8 @@ public:
 	static const int ARRAY_WEIGHTS_SIZE = 4;
 	static const int CANVAS_ITEM_Z_MIN = -4096;
 	static const int CANVAS_ITEM_Z_MAX = 4096;
+	static const int CANVAS_LAYER_MIN = -2147483648;
+	static const int CANVAS_LAYER_MAX = 2147483647;
 	static const int MAX_GLOW_LEVELS = 7;
 	static const int MAX_CURSORS = 8;
 	static const int MAX_2D_DIRECTIONAL_LIGHTS = 8;
@@ -860,6 +863,7 @@ public:
 	uint32_t mesh_surface_get_format_normal_tangent_stride(BitField<RenderingServer::ArrayFormat> p_format, int32_t p_vertex_count) const;
 	uint32_t mesh_surface_get_format_attribute_stride(BitField<RenderingServer::ArrayFormat> p_format, int32_t p_vertex_count) const;
 	uint32_t mesh_surface_get_format_skin_stride(BitField<RenderingServer::ArrayFormat> p_format, int32_t p_vertex_count) const;
+	uint32_t mesh_surface_get_format_index_stride(BitField<RenderingServer::ArrayFormat> p_format, int32_t p_vertex_count) const;
 	void mesh_add_surface(const RID &p_mesh, const Dictionary &p_surface);
 	void mesh_add_surface_from_arrays(const RID &p_mesh, RenderingServer::PrimitiveType p_primitive, const Array &p_arrays, const Array &p_blend_shapes = Array(), const Dictionary &p_lods = Dictionary(), BitField<RenderingServer::ArrayFormat> p_compress_format = (BitField<RenderingServer::ArrayFormat>)0);
 	int32_t mesh_get_blend_shape_count(const RID &p_mesh) const;
@@ -878,6 +882,7 @@ public:
 	void mesh_surface_update_vertex_region(const RID &p_mesh, int32_t p_surface, int32_t p_offset, const PackedByteArray &p_data);
 	void mesh_surface_update_attribute_region(const RID &p_mesh, int32_t p_surface, int32_t p_offset, const PackedByteArray &p_data);
 	void mesh_surface_update_skin_region(const RID &p_mesh, int32_t p_surface, int32_t p_offset, const PackedByteArray &p_data);
+	void mesh_surface_update_index_region(const RID &p_mesh, int32_t p_surface, int32_t p_offset, const PackedByteArray &p_data);
 	void mesh_set_shadow_mesh(const RID &p_mesh, const RID &p_shadow_mesh);
 	RID multimesh_create();
 	void multimesh_allocate_data(const RID &p_multimesh, int32_t p_instances, RenderingServer::MultimeshTransformFormat p_transform_format, bool p_color_format = false, bool p_custom_data_format = false, bool p_use_indirect = false);
@@ -1173,13 +1178,12 @@ public:
 	void instance_set_layer_mask(const RID &p_instance, uint32_t p_mask);
 	void instance_set_pivot_data(const RID &p_instance, float p_sorting_offset, bool p_use_aabb_center);
 	void instance_set_transform(const RID &p_instance, const Transform3D &p_transform);
-	void instance_set_interpolated(const RID &p_instance, bool p_interpolated);
-	void instance_reset_physics_interpolation(const RID &p_instance);
 	void instance_attach_object_instance_id(const RID &p_instance, uint64_t p_id);
 	void instance_set_blend_shape_weight(const RID &p_instance, int32_t p_shape, float p_weight);
 	void instance_set_surface_override_material(const RID &p_instance, int32_t p_surface, const RID &p_material);
 	void instance_set_visible(const RID &p_instance, bool p_visible);
 	void instance_geometry_set_transparency(const RID &p_instance, float p_transparency);
+	void instance_teleport(const RID &p_instance);
 	void instance_set_custom_aabb(const RID &p_instance, const AABB &p_aabb);
 	void instance_attach_skeleton(const RID &p_instance, const RID &p_skeleton);
 	void instance_set_extra_visibility_margin(const RID &p_instance, float p_margin);

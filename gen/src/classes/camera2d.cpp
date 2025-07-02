@@ -252,6 +252,12 @@ Vector2 Camera2D::get_screen_center_position() const {
 	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
+float Camera2D::get_screen_rotation() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Camera2D::get_class_static()._native_ptr(), StringName("get_screen_rotation")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
 void Camera2D::set_zoom(const Vector2 &p_zoom) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Camera2D::get_class_static()._native_ptr(), StringName("set_zoom")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);

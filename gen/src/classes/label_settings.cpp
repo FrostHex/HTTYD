@@ -170,4 +170,168 @@ Vector2 LabelSettings::get_shadow_offset() const {
 	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
+int32_t LabelSettings::get_stacked_outline_count() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("get_stacked_outline_count")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void LabelSettings::set_stacked_outline_count(int32_t p_count) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("set_stacked_outline_count")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_count_encoded;
+	PtrToArg<int64_t>::encode(p_count, &p_count_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_count_encoded);
+}
+
+void LabelSettings::add_stacked_outline(int32_t p_index) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("add_stacked_outline")._native_ptr(), 1025054187);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded);
+}
+
+void LabelSettings::move_stacked_outline(int32_t p_from_index, int32_t p_to_position) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("move_stacked_outline")._native_ptr(), 3937882851);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_from_index_encoded;
+	PtrToArg<int64_t>::encode(p_from_index, &p_from_index_encoded);
+	int64_t p_to_position_encoded;
+	PtrToArg<int64_t>::encode(p_to_position, &p_to_position_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_from_index_encoded, &p_to_position_encoded);
+}
+
+void LabelSettings::remove_stacked_outline(int32_t p_index) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("remove_stacked_outline")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded);
+}
+
+void LabelSettings::set_stacked_outline_size(int32_t p_index, int32_t p_size) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("set_stacked_outline_size")._native_ptr(), 3937882851);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	int64_t p_size_encoded;
+	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_size_encoded);
+}
+
+int32_t LabelSettings::get_stacked_outline_size(int32_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("get_stacked_outline_size")._native_ptr(), 923996154);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_index_encoded);
+}
+
+void LabelSettings::set_stacked_outline_color(int32_t p_index, const Color &p_color) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("set_stacked_outline_color")._native_ptr(), 2878471219);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_color);
+}
+
+Color LabelSettings::get_stacked_outline_color(int32_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("get_stacked_outline_color")._native_ptr(), 3457211756);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner, &p_index_encoded);
+}
+
+int32_t LabelSettings::get_stacked_shadow_count() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("get_stacked_shadow_count")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void LabelSettings::set_stacked_shadow_count(int32_t p_count) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("set_stacked_shadow_count")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_count_encoded;
+	PtrToArg<int64_t>::encode(p_count, &p_count_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_count_encoded);
+}
+
+void LabelSettings::add_stacked_shadow(int32_t p_index) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("add_stacked_shadow")._native_ptr(), 1025054187);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded);
+}
+
+void LabelSettings::move_stacked_shadow(int32_t p_from_index, int32_t p_to_position) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("move_stacked_shadow")._native_ptr(), 3937882851);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_from_index_encoded;
+	PtrToArg<int64_t>::encode(p_from_index, &p_from_index_encoded);
+	int64_t p_to_position_encoded;
+	PtrToArg<int64_t>::encode(p_to_position, &p_to_position_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_from_index_encoded, &p_to_position_encoded);
+}
+
+void LabelSettings::remove_stacked_shadow(int32_t p_index) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("remove_stacked_shadow")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded);
+}
+
+void LabelSettings::set_stacked_shadow_offset(int32_t p_index, const Vector2 &p_offset) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("set_stacked_shadow_offset")._native_ptr(), 163021252);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_offset);
+}
+
+Vector2 LabelSettings::get_stacked_shadow_offset(int32_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("get_stacked_shadow_offset")._native_ptr(), 2299179447);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner, &p_index_encoded);
+}
+
+void LabelSettings::set_stacked_shadow_color(int32_t p_index, const Color &p_color) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("set_stacked_shadow_color")._native_ptr(), 2878471219);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_color);
+}
+
+Color LabelSettings::get_stacked_shadow_color(int32_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("get_stacked_shadow_color")._native_ptr(), 3457211756);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner, &p_index_encoded);
+}
+
+void LabelSettings::set_stacked_shadow_outline_size(int32_t p_index, int32_t p_size) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("set_stacked_shadow_outline_size")._native_ptr(), 3937882851);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	int64_t p_size_encoded;
+	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_size_encoded);
+}
+
+int32_t LabelSettings::get_stacked_shadow_outline_size(int32_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LabelSettings::get_class_static()._native_ptr(), StringName("get_stacked_shadow_outline_size")._native_ptr(), 923996154);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_index_encoded);
+}
+
 } // namespace godot

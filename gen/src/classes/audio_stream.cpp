@@ -101,6 +101,10 @@ int32_t AudioStream::_get_beat_count() const {
 	return 0;
 }
 
+Dictionary AudioStream::_get_tags() const {
+	return Dictionary();
+}
+
 TypedArray<Dictionary> AudioStream::_get_parameter_list() const {
 	return TypedArray<Dictionary>();
 }

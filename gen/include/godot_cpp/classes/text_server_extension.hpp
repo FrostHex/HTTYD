@@ -116,6 +116,7 @@ public:
 	virtual TextServer::FixedSizeScaleMode _font_get_fixed_size_scale_mode(const RID &p_font_rid) const;
 	virtual void _font_set_allow_system_fallback(const RID &p_font_rid, bool p_allow_system_fallback);
 	virtual bool _font_is_allow_system_fallback(const RID &p_font_rid) const;
+	virtual void _font_clear_system_fallback_cache();
 	virtual void _font_set_force_autohinter(const RID &p_font_rid, bool p_force_autohinter);
 	virtual bool _font_is_force_autohinter(const RID &p_font_rid) const;
 	virtual void _font_set_modulate_color_glyphs(const RID &p_font_rid, bool p_modulate);
@@ -141,6 +142,7 @@ public:
 	virtual TypedArray<Vector2i> _font_get_size_cache_list(const RID &p_font_rid) const;
 	virtual void _font_clear_size_cache(const RID &p_font_rid);
 	virtual void _font_remove_size_cache(const RID &p_font_rid, const Vector2i &p_size);
+	virtual TypedArray<Dictionary> _font_get_size_cache_info(const RID &p_font_rid) const;
 	virtual void _font_set_ascent(const RID &p_font_rid, int64_t p_size, double p_ascent);
 	virtual double _font_get_ascent(const RID &p_font_rid, int64_t p_size) const;
 	virtual void _font_set_descent(const RID &p_font_rid, int64_t p_size, double p_descent);
@@ -186,8 +188,8 @@ public:
 	virtual PackedInt32Array _font_get_supported_glyphs(const RID &p_font_rid) const;
 	virtual void _font_render_range(const RID &p_font_rid, const Vector2i &p_size, int64_t p_start, int64_t p_end);
 	virtual void _font_render_glyph(const RID &p_font_rid, const Vector2i &p_size, int64_t p_index);
-	virtual void _font_draw_glyph(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color) const;
-	virtual void _font_draw_glyph_outline(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, int64_t p_outline_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color) const;
+	virtual void _font_draw_glyph(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color, float p_oversampling) const;
+	virtual void _font_draw_glyph_outline(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, int64_t p_outline_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color, float p_oversampling) const;
 	virtual bool _font_is_language_supported(const RID &p_font_rid, const String &p_language) const;
 	virtual void _font_set_language_support_override(const RID &p_font_rid, const String &p_language, bool p_supported);
 	virtual bool _font_get_language_support_override(const RID &p_font_rid, const String &p_language);
@@ -204,6 +206,8 @@ public:
 	virtual Dictionary _font_supported_variation_list(const RID &p_font_rid) const;
 	virtual double _font_get_global_oversampling() const;
 	virtual void _font_set_global_oversampling(double p_oversampling);
+	virtual void _reference_oversampling_level(double p_oversampling);
+	virtual void _unreference_oversampling_level(double p_oversampling);
 	virtual Vector2 _get_hex_code_box_size(int64_t p_size, int64_t p_index) const;
 	virtual void _draw_hex_code_box(const RID &p_canvas, int64_t p_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color) const;
 	virtual RID _create_shaped_text(TextServer::Direction p_direction, TextServer::Orientation p_orientation);
@@ -227,10 +231,21 @@ public:
 	virtual bool _shaped_text_add_string(const RID &p_shaped, const String &p_text, const TypedArray<RID> &p_fonts, int64_t p_size, const Dictionary &p_opentype_features, const String &p_language, const Variant &p_meta);
 	virtual bool _shaped_text_add_object(const RID &p_shaped, const Variant &p_key, const Vector2 &p_size, InlineAlignment p_inline_align, int64_t p_length, double p_baseline);
 	virtual bool _shaped_text_resize_object(const RID &p_shaped, const Variant &p_key, const Vector2 &p_size, InlineAlignment p_inline_align, double p_baseline);
+	virtual String _shaped_get_text(const RID &p_shaped) const;
 	virtual int64_t _shaped_get_span_count(const RID &p_shaped) const;
 	virtual Variant _shaped_get_span_meta(const RID &p_shaped, int64_t p_index) const;
 	virtual Variant _shaped_get_span_embedded_object(const RID &p_shaped, int64_t p_index) const;
+	virtual String _shaped_get_span_text(const RID &p_shaped, int64_t p_index) const;
+	virtual Variant _shaped_get_span_object(const RID &p_shaped, int64_t p_index) const;
 	virtual void _shaped_set_span_update_font(const RID &p_shaped, int64_t p_index, const TypedArray<RID> &p_fonts, int64_t p_size, const Dictionary &p_opentype_features);
+	virtual int64_t _shaped_get_run_count(const RID &p_shaped) const;
+	virtual String _shaped_get_run_text(const RID &p_shaped, int64_t p_index) const;
+	virtual Vector2i _shaped_get_run_range(const RID &p_shaped, int64_t p_index) const;
+	virtual RID _shaped_get_run_font_rid(const RID &p_shaped, int64_t p_index) const;
+	virtual int32_t _shaped_get_run_font_size(const RID &p_shaped, int64_t p_index) const;
+	virtual String _shaped_get_run_language(const RID &p_shaped, int64_t p_index) const;
+	virtual TextServer::Direction _shaped_get_run_direction(const RID &p_shaped, int64_t p_index) const;
+	virtual Variant _shaped_get_run_object(const RID &p_shaped, int64_t p_index) const;
 	virtual RID _shaped_text_substr(const RID &p_shaped, int64_t p_start, int64_t p_length) const;
 	virtual RID _shaped_text_get_parent(const RID &p_shaped) const;
 	virtual double _shaped_text_fit_to_width(const RID &p_shaped, double p_width, BitField<TextServer::JustificationFlag> p_justification_flags);
@@ -266,8 +281,8 @@ public:
 	virtual PackedVector2Array _shaped_text_get_selection(const RID &p_shaped, int64_t p_start, int64_t p_end) const;
 	virtual int64_t _shaped_text_hit_test_grapheme(const RID &p_shaped, double p_coord) const;
 	virtual int64_t _shaped_text_hit_test_position(const RID &p_shaped, double p_coord) const;
-	virtual void _shaped_text_draw(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, const Color &p_color) const;
-	virtual void _shaped_text_draw_outline(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, int64_t p_outline_size, const Color &p_color) const;
+	virtual void _shaped_text_draw(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, const Color &p_color, float p_oversampling) const;
+	virtual void _shaped_text_draw_outline(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, int64_t p_outline_size, const Color &p_color, float p_oversampling) const;
 	virtual Vector2 _shaped_text_get_grapheme_bounds(const RID &p_shaped, int64_t p_pos) const;
 	virtual int64_t _shaped_text_next_grapheme_pos(const RID &p_shaped, int64_t p_pos) const;
 	virtual int64_t _shaped_text_prev_grapheme_pos(const RID &p_shaped, int64_t p_pos) const;
@@ -442,6 +457,9 @@ protected:
 		if constexpr (!std::is_same_v<decltype(&B::_font_is_allow_system_fallback), decltype(&T::_font_is_allow_system_fallback)>) {
 			BIND_VIRTUAL_METHOD(T, _font_is_allow_system_fallback, 4155700596);
 		}
+		if constexpr (!std::is_same_v<decltype(&B::_font_clear_system_fallback_cache), decltype(&T::_font_clear_system_fallback_cache)>) {
+			BIND_VIRTUAL_METHOD(T, _font_clear_system_fallback_cache, 3218959716);
+		}
 		if constexpr (!std::is_same_v<decltype(&B::_font_set_force_autohinter), decltype(&T::_font_set_force_autohinter)>) {
 			BIND_VIRTUAL_METHOD(T, _font_set_force_autohinter, 1265174801);
 		}
@@ -516,6 +534,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_font_remove_size_cache), decltype(&T::_font_remove_size_cache)>) {
 			BIND_VIRTUAL_METHOD(T, _font_remove_size_cache, 2450610377);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_font_get_size_cache_info), decltype(&T::_font_get_size_cache_info)>) {
+			BIND_VIRTUAL_METHOD(T, _font_get_size_cache_info, 2684255073);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_font_set_ascent), decltype(&T::_font_set_ascent)>) {
 			BIND_VIRTUAL_METHOD(T, _font_set_ascent, 1892459533);
@@ -653,10 +674,10 @@ protected:
 			BIND_VIRTUAL_METHOD(T, _font_render_glyph, 3810512262);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_font_draw_glyph), decltype(&T::_font_draw_glyph)>) {
-			BIND_VIRTUAL_METHOD(T, _font_draw_glyph, 309868464);
+			BIND_VIRTUAL_METHOD(T, _font_draw_glyph, 404525066);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_font_draw_glyph_outline), decltype(&T::_font_draw_glyph_outline)>) {
-			BIND_VIRTUAL_METHOD(T, _font_draw_glyph_outline, 3090733778);
+			BIND_VIRTUAL_METHOD(T, _font_draw_glyph_outline, 940535541);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_font_is_language_supported), decltype(&T::_font_is_language_supported)>) {
 			BIND_VIRTUAL_METHOD(T, _font_is_language_supported, 3199320846);
@@ -705,6 +726,12 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_font_set_global_oversampling), decltype(&T::_font_set_global_oversampling)>) {
 			BIND_VIRTUAL_METHOD(T, _font_set_global_oversampling, 373806689);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_reference_oversampling_level), decltype(&T::_reference_oversampling_level)>) {
+			BIND_VIRTUAL_METHOD(T, _reference_oversampling_level, 373806689);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_unreference_oversampling_level), decltype(&T::_unreference_oversampling_level)>) {
+			BIND_VIRTUAL_METHOD(T, _unreference_oversampling_level, 373806689);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_hex_code_box_size), decltype(&T::_get_hex_code_box_size)>) {
 			BIND_VIRTUAL_METHOD(T, _get_hex_code_box_size, 3016396712);
@@ -775,6 +802,9 @@ protected:
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_text_resize_object), decltype(&T::_shaped_text_resize_object)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_text_resize_object, 2747466775);
 		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_text), decltype(&T::_shaped_get_text)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_text, 642473191);
+		}
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_span_count), decltype(&T::_shaped_get_span_count)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_get_span_count, 2198884583);
 		}
@@ -784,8 +814,38 @@ protected:
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_span_embedded_object), decltype(&T::_shaped_get_span_embedded_object)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_get_span_embedded_object, 4069510997);
 		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_span_text), decltype(&T::_shaped_get_span_text)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_span_text, 1464764419);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_span_object), decltype(&T::_shaped_get_span_object)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_span_object, 4069510997);
+		}
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_set_span_update_font), decltype(&T::_shaped_set_span_update_font)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_set_span_update_font, 2569459151);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_run_count), decltype(&T::_shaped_get_run_count)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_run_count, 2198884583);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_run_text), decltype(&T::_shaped_get_run_text)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_run_text, 1464764419);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_run_range), decltype(&T::_shaped_get_run_range)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_run_range, 4069534484);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_run_font_rid), decltype(&T::_shaped_get_run_font_rid)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_run_font_rid, 1066463050);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_run_font_size), decltype(&T::_shaped_get_run_font_size)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_run_font_size, 1120910005);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_run_language), decltype(&T::_shaped_get_run_language)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_run_language, 1464764419);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_run_direction), decltype(&T::_shaped_get_run_direction)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_run_direction, 2413896864);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_run_object), decltype(&T::_shaped_get_run_object)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_run_object, 4069510997);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_text_substr), decltype(&T::_shaped_text_substr)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_text_substr, 1937682086);
@@ -893,10 +953,10 @@ protected:
 			BIND_VIRTUAL_METHOD(T, _shaped_text_hit_test_position, 3149310417);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_text_draw), decltype(&T::_shaped_text_draw)>) {
-			BIND_VIRTUAL_METHOD(T, _shaped_text_draw, 2453262187);
+			BIND_VIRTUAL_METHOD(T, _shaped_text_draw, 2079930245);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_text_draw_outline), decltype(&T::_shaped_text_draw_outline)>) {
-			BIND_VIRTUAL_METHOD(T, _shaped_text_draw_outline, 1686767567);
+			BIND_VIRTUAL_METHOD(T, _shaped_text_draw_outline, 601976754);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_text_get_grapheme_bounds), decltype(&T::_shaped_text_get_grapheme_bounds)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_text_get_grapheme_bounds, 2546185844);

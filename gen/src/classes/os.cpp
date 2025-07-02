@@ -36,6 +36,8 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/classes/logger.hpp>
+
 namespace godot {
 
 OS *OS::singleton = nullptr;
@@ -262,6 +264,12 @@ int32_t OS::create_instance(const PackedStringArray &p_arguments) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OS::get_class_static()._native_ptr(), StringName("create_instance")._native_ptr(), 1080601263);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_arguments);
+}
+
+Error OS::open_with_program(const String &p_program_path, const PackedStringArray &p_paths) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OS::get_class_static()._native_ptr(), StringName("open_with_program")._native_ptr(), 2848259907);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_program_path, &p_paths);
 }
 
 Error OS::kill(int32_t p_pid) {
@@ -598,6 +606,18 @@ void OS::revoke_granted_permissions() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OS::get_class_static()._native_ptr(), StringName("revoke_granted_permissions")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
+void OS::add_logger(const Ref<Logger> &p_logger) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OS::get_class_static()._native_ptr(), StringName("add_logger")._native_ptr(), 4261188958);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_logger != nullptr ? &p_logger->_owner : nullptr));
+}
+
+void OS::remove_logger(const Ref<Logger> &p_logger) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OS::get_class_static()._native_ptr(), StringName("remove_logger")._native_ptr(), 4261188958);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_logger != nullptr ? &p_logger->_owner : nullptr));
 }
 
 } // namespace godot

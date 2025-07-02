@@ -33,6 +33,7 @@
 #pragma once
 
 #include <godot_cpp/classes/canvas_item.hpp>
+#include <godot_cpp/classes/display_server.hpp>
 #include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/classes/ref.hpp>
@@ -69,12 +70,19 @@ public:
 		FOCUS_NONE = 0,
 		FOCUS_CLICK = 1,
 		FOCUS_ALL = 2,
+		FOCUS_ACCESSIBILITY = 3,
 	};
 
-	enum RecursiveBehavior {
-		RECURSIVE_BEHAVIOR_INHERITED = 0,
-		RECURSIVE_BEHAVIOR_DISABLED = 1,
-		RECURSIVE_BEHAVIOR_ENABLED = 2,
+	enum FocusBehaviorRecursive {
+		FOCUS_BEHAVIOR_INHERITED = 0,
+		FOCUS_BEHAVIOR_DISABLED = 1,
+		FOCUS_BEHAVIOR_ENABLED = 2,
+	};
+
+	enum MouseBehaviorRecursive {
+		MOUSE_BEHAVIOR_INHERITED = 0,
+		MOUSE_BEHAVIOR_DISABLED = 1,
+		MOUSE_BEHAVIOR_ENABLED = 2,
 	};
 
 	enum CursorShape {
@@ -216,9 +224,9 @@ public:
 	Rect2 get_global_rect() const;
 	void set_focus_mode(Control::FocusMode p_mode);
 	Control::FocusMode get_focus_mode() const;
-	Control::FocusMode get_focus_mode_with_recursive() const;
-	void set_focus_recursive_behavior(Control::RecursiveBehavior p_focus_recursive_behavior);
-	Control::RecursiveBehavior get_focus_recursive_behavior() const;
+	Control::FocusMode get_focus_mode_with_override() const;
+	void set_focus_behavior_recursive(Control::FocusBehaviorRecursive p_focus_behavior_recursive);
+	Control::FocusBehaviorRecursive get_focus_behavior_recursive() const;
 	bool has_focus() const;
 	void grab_focus();
 	void release_focus();
@@ -290,11 +298,27 @@ public:
 	void set_focus_previous(const NodePath &p_previous);
 	NodePath get_focus_previous() const;
 	void force_drag(const Variant &p_data, Control *p_preview);
+	void accessibility_drag();
+	void accessibility_drop();
+	void set_accessibility_name(const String &p_name);
+	String get_accessibility_name() const;
+	void set_accessibility_description(const String &p_description);
+	String get_accessibility_description() const;
+	void set_accessibility_live(DisplayServer::AccessibilityLiveMode p_mode);
+	DisplayServer::AccessibilityLiveMode get_accessibility_live() const;
+	void set_accessibility_controls_nodes(const TypedArray<NodePath> &p_node_path);
+	TypedArray<NodePath> get_accessibility_controls_nodes() const;
+	void set_accessibility_described_by_nodes(const TypedArray<NodePath> &p_node_path);
+	TypedArray<NodePath> get_accessibility_described_by_nodes() const;
+	void set_accessibility_labeled_by_nodes(const TypedArray<NodePath> &p_node_path);
+	TypedArray<NodePath> get_accessibility_labeled_by_nodes() const;
+	void set_accessibility_flow_to_nodes(const TypedArray<NodePath> &p_node_path);
+	TypedArray<NodePath> get_accessibility_flow_to_nodes() const;
 	void set_mouse_filter(Control::MouseFilter p_filter);
 	Control::MouseFilter get_mouse_filter() const;
-	Control::MouseFilter get_mouse_filter_with_recursive() const;
-	void set_mouse_recursive_behavior(Control::RecursiveBehavior p_mouse_recursive_behavior);
-	Control::RecursiveBehavior get_mouse_recursive_behavior() const;
+	Control::MouseFilter get_mouse_filter_with_override() const;
+	void set_mouse_behavior_recursive(Control::MouseBehaviorRecursive p_mouse_behavior_recursive);
+	Control::MouseBehaviorRecursive get_mouse_behavior_recursive() const;
 	void set_force_pass_scroll_events(bool p_force_pass_scroll_events);
 	bool is_force_pass_scroll_events() const;
 	void set_clip_contents(bool p_enable);
@@ -322,6 +346,8 @@ public:
 	virtual bool _can_drop_data(const Vector2 &p_at_position, const Variant &p_data) const;
 	virtual void _drop_data(const Vector2 &p_at_position, const Variant &p_data);
 	virtual Object *_make_custom_tooltip(const String &p_for_text) const;
+	virtual String _accessibility_get_contextual_info() const;
+	virtual String _get_accessibility_container_name(Node *p_node) const;
 	virtual void _gui_input(const Ref<InputEvent> &p_event);
 
 protected:
@@ -352,6 +378,12 @@ protected:
 		if constexpr (!std::is_same_v<decltype(&B::_make_custom_tooltip), decltype(&T::_make_custom_tooltip)>) {
 			BIND_VIRTUAL_METHOD(T, _make_custom_tooltip, 1976279298);
 		}
+		if constexpr (!std::is_same_v<decltype(&B::_accessibility_get_contextual_info), decltype(&T::_accessibility_get_contextual_info)>) {
+			BIND_VIRTUAL_METHOD(T, _accessibility_get_contextual_info, 201670096);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_get_accessibility_container_name), decltype(&T::_get_accessibility_container_name)>) {
+			BIND_VIRTUAL_METHOD(T, _get_accessibility_container_name, 2174079723);
+		}
 		if constexpr (!std::is_same_v<decltype(&B::_gui_input), decltype(&T::_gui_input)>) {
 			BIND_VIRTUAL_METHOD(T, _gui_input, 3754044979);
 		}
@@ -363,7 +395,8 @@ public:
 } // namespace godot
 
 VARIANT_ENUM_CAST(Control::FocusMode);
-VARIANT_ENUM_CAST(Control::RecursiveBehavior);
+VARIANT_ENUM_CAST(Control::FocusBehaviorRecursive);
+VARIANT_ENUM_CAST(Control::MouseBehaviorRecursive);
 VARIANT_ENUM_CAST(Control::CursorShape);
 VARIANT_ENUM_CAST(Control::LayoutPreset);
 VARIANT_ENUM_CAST(Control::LayoutPresetMode);

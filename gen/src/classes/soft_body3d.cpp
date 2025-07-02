@@ -197,6 +197,20 @@ float SoftBody3D::get_linear_stiffness() {
 	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
+void SoftBody3D::set_shrinking_factor(float p_shrinking_factor) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SoftBody3D::get_class_static()._native_ptr(), StringName("set_shrinking_factor")._native_ptr(), 373806689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_shrinking_factor_encoded;
+	PtrToArg<double>::encode(p_shrinking_factor, &p_shrinking_factor_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_shrinking_factor_encoded);
+}
+
+float SoftBody3D::get_shrinking_factor() {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SoftBody3D::get_class_static()._native_ptr(), StringName("get_shrinking_factor")._native_ptr(), 191475506);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
 void SoftBody3D::set_pressure_coefficient(float p_pressure_coefficient) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SoftBody3D::get_class_static()._native_ptr(), StringName("set_pressure_coefficient")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -245,6 +259,34 @@ Vector3 SoftBody3D::get_point_transform(int32_t p_point_index) {
 	int64_t p_point_index_encoded;
 	PtrToArg<int64_t>::encode(p_point_index, &p_point_index_encoded);
 	return internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner, &p_point_index_encoded);
+}
+
+void SoftBody3D::apply_impulse(int32_t p_point_index, const Vector3 &p_impulse) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SoftBody3D::get_class_static()._native_ptr(), StringName("apply_impulse")._native_ptr(), 1530502735);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_point_index_encoded;
+	PtrToArg<int64_t>::encode(p_point_index, &p_point_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_point_index_encoded, &p_impulse);
+}
+
+void SoftBody3D::apply_force(int32_t p_point_index, const Vector3 &p_force) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SoftBody3D::get_class_static()._native_ptr(), StringName("apply_force")._native_ptr(), 1530502735);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_point_index_encoded;
+	PtrToArg<int64_t>::encode(p_point_index, &p_point_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_point_index_encoded, &p_force);
+}
+
+void SoftBody3D::apply_central_impulse(const Vector3 &p_impulse) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SoftBody3D::get_class_static()._native_ptr(), StringName("apply_central_impulse")._native_ptr(), 3460891852);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_impulse);
+}
+
+void SoftBody3D::apply_central_force(const Vector3 &p_force) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SoftBody3D::get_class_static()._native_ptr(), StringName("apply_central_force")._native_ptr(), 3460891852);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_force);
 }
 
 void SoftBody3D::set_point_pinned(int32_t p_point_index, bool p_pinned, const NodePath &p_attachment_path, int32_t p_insert_at) {

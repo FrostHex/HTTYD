@@ -49,6 +49,12 @@ class Resource : public RefCounted {
 	GDEXTENSION_CLASS(Resource, RefCounted)
 
 public:
+	enum DeepDuplicateMode {
+		DEEP_DUPLICATE_NONE = 0,
+		DEEP_DUPLICATE_INTERNAL = 1,
+		DEEP_DUPLICATE_ALL = 2,
+	};
+
 	void set_path(const String &p_path);
 	void take_over_path(const String &p_path);
 	String get_path() const;
@@ -68,7 +74,8 @@ public:
 	void set_scene_unique_id(const String &p_id);
 	String get_scene_unique_id() const;
 	void emit_changed();
-	Ref<Resource> duplicate(bool p_subresources = false) const;
+	Ref<Resource> duplicate(bool p_deep = false) const;
+	Ref<Resource> duplicate_deep(Resource::DeepDuplicateMode p_deep_subresources_mode = (Resource::DeepDuplicateMode)1) const;
 	virtual void _setup_local_to_scene();
 	virtual RID _get_rid() const;
 	virtual void _reset_state();
@@ -96,4 +103,6 @@ public:
 };
 
 } // namespace godot
+
+VARIANT_ENUM_CAST(Resource::DeepDuplicateMode);
 

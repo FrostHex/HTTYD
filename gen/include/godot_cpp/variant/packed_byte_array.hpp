@@ -45,10 +45,14 @@ namespace godot {
 
 class Array;
 class Dictionary;
+class PackedColorArray;
 class PackedFloat32Array;
 class PackedFloat64Array;
 class PackedInt32Array;
 class PackedInt64Array;
+class PackedVector2Array;
+class PackedVector3Array;
+class PackedVector4Array;
 class Variant;
 
 class PackedByteArray {
@@ -113,6 +117,13 @@ class PackedByteArray {
 		GDExtensionPtrBuiltInMethod method_to_int64_array;
 		GDExtensionPtrBuiltInMethod method_to_float32_array;
 		GDExtensionPtrBuiltInMethod method_to_float64_array;
+		GDExtensionPtrBuiltInMethod method_to_vector2_array;
+		GDExtensionPtrBuiltInMethod method_to_vector3_array;
+		GDExtensionPtrBuiltInMethod method_to_vector4_array;
+		GDExtensionPtrBuiltInMethod method_to_color_array;
+		GDExtensionPtrBuiltInMethod method_bswap16;
+		GDExtensionPtrBuiltInMethod method_bswap32;
+		GDExtensionPtrBuiltInMethod method_bswap64;
 		GDExtensionPtrBuiltInMethod method_encode_u8;
 		GDExtensionPtrBuiltInMethod method_encode_s8;
 		GDExtensionPtrBuiltInMethod method_encode_u16;
@@ -199,6 +210,13 @@ public:
 	PackedInt64Array to_int64_array() const;
 	PackedFloat32Array to_float32_array() const;
 	PackedFloat64Array to_float64_array() const;
+	PackedVector2Array to_vector2_array() const;
+	PackedVector3Array to_vector3_array() const;
+	PackedVector4Array to_vector4_array() const;
+	PackedColorArray to_color_array() const;
+	void bswap16(int64_t p_offset = 0, int64_t p_count = -1);
+	void bswap32(int64_t p_offset = 0, int64_t p_count = -1);
+	void bswap64(int64_t p_offset = 0, int64_t p_count = -1);
 	void encode_u8(int64_t p_byte_offset, int64_t p_value);
 	void encode_s8(int64_t p_byte_offset, int64_t p_value);
 	void encode_u16(int64_t p_byte_offset, int64_t p_value);

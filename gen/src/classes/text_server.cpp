@@ -357,6 +357,12 @@ bool TextServer::font_is_allow_system_fallback(const RID &p_font_rid) const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_font_rid);
 }
 
+void TextServer::font_clear_system_fallback_cache() {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_clear_system_fallback_cache")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
 void TextServer::font_set_force_autohinter(const RID &p_font_rid, bool p_force_autohinter) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_set_force_autohinter")._native_ptr(), 1265174801);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -527,6 +533,12 @@ void TextServer::font_remove_size_cache(const RID &p_font_rid, const Vector2i &p
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_remove_size_cache")._native_ptr(), 2450610377);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_font_rid, &p_size);
+}
+
+TypedArray<Dictionary> TextServer::font_get_size_cache_info(const RID &p_font_rid) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_get_size_cache_info")._native_ptr(), 2684255073);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Dictionary>()));
+	return internal::_call_native_mb_ret<TypedArray<Dictionary>>(_gde_method_bind, _owner, &p_font_rid);
 }
 
 void TextServer::font_set_ascent(const RID &p_font_rid, int64_t p_size, double p_ascent) {
@@ -903,18 +915,20 @@ void TextServer::font_render_glyph(const RID &p_font_rid, const Vector2i &p_size
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_font_rid, &p_size, &p_index_encoded);
 }
 
-void TextServer::font_draw_glyph(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_draw_glyph")._native_ptr(), 1339057948);
+void TextServer::font_draw_glyph(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_draw_glyph")._native_ptr(), 3103234926);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_size_encoded;
 	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_font_rid, &p_canvas, &p_size_encoded, &p_pos, &p_index_encoded, &p_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_font_rid, &p_canvas, &p_size_encoded, &p_pos, &p_index_encoded, &p_color, &p_oversampling_encoded);
 }
 
-void TextServer::font_draw_glyph_outline(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, int64_t p_outline_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_draw_glyph_outline")._native_ptr(), 2626165733);
+void TextServer::font_draw_glyph_outline(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, int64_t p_outline_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_draw_glyph_outline")._native_ptr(), 1976041553);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_size_encoded;
 	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
@@ -922,7 +936,9 @@ void TextServer::font_draw_glyph_outline(const RID &p_font_rid, const RID &p_can
 	PtrToArg<int64_t>::encode(p_outline_size, &p_outline_size_encoded);
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_font_rid, &p_canvas, &p_size_encoded, &p_outline_size_encoded, &p_pos, &p_index_encoded, &p_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_font_rid, &p_canvas, &p_size_encoded, &p_outline_size_encoded, &p_pos, &p_index_encoded, &p_color, &p_oversampling_encoded);
 }
 
 bool TextServer::font_is_language_supported(const RID &p_font_rid, const String &p_language) const {
@@ -1205,6 +1221,12 @@ bool TextServer::shaped_text_resize_object(const RID &p_shaped, const Variant &p
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_shaped, &p_key, &p_size, &p_inline_align_encoded, &p_baseline_encoded);
 }
 
+String TextServer::shaped_get_text(const RID &p_shaped) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_text")._native_ptr(), 642473191);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_shaped);
+}
+
 int64_t TextServer::shaped_get_span_count(const RID &p_shaped) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_span_count")._native_ptr(), 2198884583);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
@@ -1227,6 +1249,22 @@ Variant TextServer::shaped_get_span_embedded_object(const RID &p_shaped, int64_t
 	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_shaped, &p_index_encoded);
 }
 
+String TextServer::shaped_get_span_text(const RID &p_shaped, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_span_text")._native_ptr(), 1464764419);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_shaped, &p_index_encoded);
+}
+
+Variant TextServer::shaped_get_span_object(const RID &p_shaped, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_span_object")._native_ptr(), 4069510997);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_shaped, &p_index_encoded);
+}
+
 void TextServer::shaped_set_span_update_font(const RID &p_shaped, int64_t p_index, const TypedArray<RID> &p_fonts, int64_t p_size, const Dictionary &p_opentype_features) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_set_span_update_font")._native_ptr(), 2022725822);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -1235,6 +1273,68 @@ void TextServer::shaped_set_span_update_font(const RID &p_shaped, int64_t p_inde
 	int64_t p_size_encoded;
 	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_shaped, &p_index_encoded, &p_fonts, &p_size_encoded, &p_opentype_features);
+}
+
+int64_t TextServer::shaped_get_run_count(const RID &p_shaped) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_run_count")._native_ptr(), 2198884583);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_shaped);
+}
+
+String TextServer::shaped_get_run_text(const RID &p_shaped, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_run_text")._native_ptr(), 1464764419);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_shaped, &p_index_encoded);
+}
+
+Vector2i TextServer::shaped_get_run_range(const RID &p_shaped, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_run_range")._native_ptr(), 4069534484);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2i()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<Vector2i>(_gde_method_bind, _owner, &p_shaped, &p_index_encoded);
+}
+
+RID TextServer::shaped_get_run_font_rid(const RID &p_shaped, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_run_font_rid")._native_ptr(), 1066463050);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_shaped, &p_index_encoded);
+}
+
+int32_t TextServer::shaped_get_run_font_size(const RID &p_shaped, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_run_font_size")._native_ptr(), 1120910005);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_shaped, &p_index_encoded);
+}
+
+String TextServer::shaped_get_run_language(const RID &p_shaped, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_run_language")._native_ptr(), 1464764419);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_shaped, &p_index_encoded);
+}
+
+TextServer::Direction TextServer::shaped_get_run_direction(const RID &p_shaped, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_run_direction")._native_ptr(), 2413896864);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TextServer::Direction(0)));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return (TextServer::Direction)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_shaped, &p_index_encoded);
+}
+
+Variant TextServer::shaped_get_run_object(const RID &p_shaped, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_run_object")._native_ptr(), 4069510997);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_shaped, &p_index_encoded);
 }
 
 RID TextServer::shaped_text_substr(const RID &p_shaped, int64_t p_start, int64_t p_length) const {
@@ -1515,18 +1615,20 @@ int64_t TextServer::shaped_text_closest_character_pos(const RID &p_shaped, int64
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_shaped, &p_pos_encoded);
 }
 
-void TextServer::shaped_text_draw(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, const Color &p_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_text_draw")._native_ptr(), 880389142);
+void TextServer::shaped_text_draw(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, const Color &p_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_text_draw")._native_ptr(), 1647687596);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_clip_l_encoded;
 	PtrToArg<double>::encode(p_clip_l, &p_clip_l_encoded);
 	double p_clip_r_encoded;
 	PtrToArg<double>::encode(p_clip_r, &p_clip_r_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_shaped, &p_canvas, &p_pos, &p_clip_l_encoded, &p_clip_r_encoded, &p_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_shaped, &p_canvas, &p_pos, &p_clip_l_encoded, &p_clip_r_encoded, &p_color, &p_oversampling_encoded);
 }
 
-void TextServer::shaped_text_draw_outline(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, int64_t p_outline_size, const Color &p_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_text_draw_outline")._native_ptr(), 2559184194);
+void TextServer::shaped_text_draw_outline(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, int64_t p_outline_size, const Color &p_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_text_draw_outline")._native_ptr(), 1217146601);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_clip_l_encoded;
 	PtrToArg<double>::encode(p_clip_l, &p_clip_l_encoded);
@@ -1534,7 +1636,9 @@ void TextServer::shaped_text_draw_outline(const RID &p_shaped, const RID &p_canv
 	PtrToArg<double>::encode(p_clip_r, &p_clip_r_encoded);
 	int64_t p_outline_size_encoded;
 	PtrToArg<int64_t>::encode(p_outline_size, &p_outline_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_shaped, &p_canvas, &p_pos, &p_clip_l_encoded, &p_clip_r_encoded, &p_outline_size_encoded, &p_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_shaped, &p_canvas, &p_pos, &p_clip_l_encoded, &p_clip_r_encoded, &p_outline_size_encoded, &p_color, &p_oversampling_encoded);
 }
 
 TextServer::Direction TextServer::shaped_text_get_dominant_direction_in_range(const RID &p_shaped, int64_t p_start, int64_t p_end) const {

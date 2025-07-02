@@ -36,6 +36,12 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/variant/string.hpp>
+
 namespace godot {
+
+PackedStringArray ResourceImporter::_get_build_dependencies(const String &p_path) const {
+	return PackedStringArray();
+}
 
 } // namespace godot

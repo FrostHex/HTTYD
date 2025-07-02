@@ -61,6 +61,18 @@ bool SceneTree::has_group(const StringName &p_name) const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_name);
 }
 
+bool SceneTree::is_accessibility_enabled() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneTree::get_class_static()._native_ptr(), StringName("is_accessibility_enabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+bool SceneTree::is_accessibility_supported() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneTree::get_class_static()._native_ptr(), StringName("is_accessibility_supported")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 bool SceneTree::is_auto_accept_quit() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneTree::get_class_static()._native_ptr(), StringName("is_auto_accept_quit")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));

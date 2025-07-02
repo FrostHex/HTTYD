@@ -259,6 +259,20 @@ bool GraphNode::is_ignoring_valid_connection_type() const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+void GraphNode::set_slots_focus_mode(Control::FocusMode p_focus_mode) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphNode::get_class_static()._native_ptr(), StringName("set_slots_focus_mode")._native_ptr(), 3232914922);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_focus_mode_encoded;
+	PtrToArg<int64_t>::encode(p_focus_mode, &p_focus_mode_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_focus_mode_encoded);
+}
+
+Control::FocusMode GraphNode::get_slots_focus_mode() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphNode::get_class_static()._native_ptr(), StringName("get_slots_focus_mode")._native_ptr(), 2132829277);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Control::FocusMode(0)));
+	return (Control::FocusMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 int32_t GraphNode::get_input_port_count() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphNode::get_class_static()._native_ptr(), StringName("get_input_port_count")._native_ptr(), 2455072627);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));

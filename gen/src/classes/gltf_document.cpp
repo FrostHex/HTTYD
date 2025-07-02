@@ -70,6 +70,32 @@ float GLTFDocument::get_lossy_quality() const {
 	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
+void GLTFDocument::set_fallback_image_format(const String &p_fallback_image_format) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFDocument::get_class_static()._native_ptr(), StringName("set_fallback_image_format")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_fallback_image_format);
+}
+
+String GLTFDocument::get_fallback_image_format() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFDocument::get_class_static()._native_ptr(), StringName("get_fallback_image_format")._native_ptr(), 201670096);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+}
+
+void GLTFDocument::set_fallback_image_quality(float p_fallback_image_quality) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFDocument::get_class_static()._native_ptr(), StringName("set_fallback_image_quality")._native_ptr(), 373806689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_fallback_image_quality_encoded;
+	PtrToArg<double>::encode(p_fallback_image_quality, &p_fallback_image_quality_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_fallback_image_quality_encoded);
+}
+
+float GLTFDocument::get_fallback_image_quality() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFDocument::get_class_static()._native_ptr(), StringName("get_fallback_image_quality")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
 void GLTFDocument::set_root_node_mode(GLTFDocument::RootNodeMode p_root_node_mode) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFDocument::get_class_static()._native_ptr(), StringName("set_root_node_mode")._native_ptr(), 463633402);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -82,6 +108,20 @@ GLTFDocument::RootNodeMode GLTFDocument::get_root_node_mode() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFDocument::get_class_static()._native_ptr(), StringName("get_root_node_mode")._native_ptr(), 948057992);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (GLTFDocument::RootNodeMode(0)));
 	return (GLTFDocument::RootNodeMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void GLTFDocument::set_visibility_mode(GLTFDocument::VisibilityMode p_visibility_mode) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFDocument::get_class_static()._native_ptr(), StringName("set_visibility_mode")._native_ptr(), 2803579218);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_visibility_mode_encoded;
+	PtrToArg<int64_t>::encode(p_visibility_mode, &p_visibility_mode_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_visibility_mode_encoded);
+}
+
+GLTFDocument::VisibilityMode GLTFDocument::get_visibility_mode() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFDocument::get_class_static()._native_ptr(), StringName("get_visibility_mode")._native_ptr(), 3885445962);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (GLTFDocument::VisibilityMode(0)));
+	return (GLTFDocument::VisibilityMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Error GLTFDocument::append_from_file(const String &p_path, const Ref<GLTFState> &p_state, uint32_t p_flags, const String &p_base_path) {

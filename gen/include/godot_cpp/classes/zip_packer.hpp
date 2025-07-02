@@ -55,7 +55,16 @@ public:
 		APPEND_ADDINZIP = 2,
 	};
 
+	enum CompressionLevel {
+		COMPRESSION_DEFAULT = -1,
+		COMPRESSION_NONE = 0,
+		COMPRESSION_FAST = 1,
+		COMPRESSION_BEST = 9,
+	};
+
 	Error open(const String &p_path, ZIPPacker::ZipAppend p_append = (ZIPPacker::ZipAppend)0);
+	void set_compression_level(int32_t p_compression_level);
+	int32_t get_compression_level() const;
 	Error start_file(const String &p_path);
 	Error write_file(const PackedByteArray &p_data);
 	Error close_file();
@@ -73,4 +82,5 @@ public:
 } // namespace godot
 
 VARIANT_ENUM_CAST(ZIPPacker::ZipAppend);
+VARIANT_ENUM_CAST(ZIPPacker::CompressionLevel);
 

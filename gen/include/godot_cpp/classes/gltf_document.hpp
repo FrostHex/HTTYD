@@ -61,12 +61,24 @@ public:
 		ROOT_NODE_MODE_MULTI_ROOT = 2,
 	};
 
+	enum VisibilityMode {
+		VISIBILITY_MODE_INCLUDE_REQUIRED = 0,
+		VISIBILITY_MODE_INCLUDE_OPTIONAL = 1,
+		VISIBILITY_MODE_EXCLUDE = 2,
+	};
+
 	void set_image_format(const String &p_image_format);
 	String get_image_format() const;
 	void set_lossy_quality(float p_lossy_quality);
 	float get_lossy_quality() const;
+	void set_fallback_image_format(const String &p_fallback_image_format);
+	String get_fallback_image_format() const;
+	void set_fallback_image_quality(float p_fallback_image_quality);
+	float get_fallback_image_quality() const;
 	void set_root_node_mode(GLTFDocument::RootNodeMode p_root_node_mode);
 	GLTFDocument::RootNodeMode get_root_node_mode() const;
+	void set_visibility_mode(GLTFDocument::VisibilityMode p_visibility_mode);
+	GLTFDocument::VisibilityMode get_visibility_mode() const;
 	Error append_from_file(const String &p_path, const Ref<GLTFState> &p_state, uint32_t p_flags = 0, const String &p_base_path = String());
 	Error append_from_buffer(const PackedByteArray &p_bytes, const String &p_base_path, const Ref<GLTFState> &p_state, uint32_t p_flags = 0);
 	Error append_from_scene(Node *p_node, const Ref<GLTFState> &p_state, uint32_t p_flags = 0);
@@ -91,4 +103,5 @@ public:
 } // namespace godot
 
 VARIANT_ENUM_CAST(GLTFDocument::RootNodeMode);
+VARIANT_ENUM_CAST(GLTFDocument::VisibilityMode);
 

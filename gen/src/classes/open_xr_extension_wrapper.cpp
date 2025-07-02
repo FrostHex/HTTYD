@@ -125,6 +125,8 @@ void OpenXRExtensionWrapper::_on_session_created(uint64_t p_session) {}
 
 void OpenXRExtensionWrapper::_on_process() {}
 
+void OpenXRExtensionWrapper::_on_sync_actions() {}
+
 void OpenXRExtensionWrapper::_on_pre_render() {}
 
 void OpenXRExtensionWrapper::_on_main_swapchains_created() {}

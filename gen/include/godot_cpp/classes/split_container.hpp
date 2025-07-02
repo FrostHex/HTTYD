@@ -72,6 +72,8 @@ public:
 	void set_drag_area_highlight_in_editor(bool p_drag_area_highlight_in_editor);
 	bool is_drag_area_highlight_in_editor_enabled() const;
 	Control *get_drag_area_control();
+	void set_touch_dragger_enabled(bool p_enabled);
+	bool is_touch_dragger_enabled() const;
 
 protected:
 	template <typename T, typename B>

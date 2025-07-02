@@ -728,7 +728,7 @@ public:
 	RID texture_create(const Ref<RDTextureFormat> &p_format, const Ref<RDTextureView> &p_view, const TypedArray<PackedByteArray> &p_data = Array());
 	RID texture_create_shared(const Ref<RDTextureView> &p_view, const RID &p_with_texture);
 	RID texture_create_shared_from_slice(const Ref<RDTextureView> &p_view, const RID &p_with_texture, uint32_t p_layer, uint32_t p_mipmap, uint32_t p_mipmaps = 1, RenderingDevice::TextureSliceType p_slice_type = (RenderingDevice::TextureSliceType)0);
-	RID texture_create_from_extension(RenderingDevice::TextureType p_type, RenderingDevice::DataFormat p_format, RenderingDevice::TextureSamples p_samples, BitField<RenderingDevice::TextureUsageBits> p_usage_flags, uint64_t p_image, uint64_t p_width, uint64_t p_height, uint64_t p_depth, uint64_t p_layers);
+	RID texture_create_from_extension(RenderingDevice::TextureType p_type, RenderingDevice::DataFormat p_format, RenderingDevice::TextureSamples p_samples, BitField<RenderingDevice::TextureUsageBits> p_usage_flags, uint64_t p_image, uint64_t p_width, uint64_t p_height, uint64_t p_depth, uint64_t p_layers, uint64_t p_mipmaps = 1);
 	Error texture_update(const RID &p_texture, uint32_t p_layer, const PackedByteArray &p_data);
 	PackedByteArray texture_get_data(const RID &p_texture, uint32_t p_layer);
 	Error texture_get_data_async(const RID &p_texture, uint32_t p_layer, const Callable &p_callback);

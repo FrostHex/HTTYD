@@ -61,6 +61,7 @@ public:
 	void clear();
 	void set_direction(TextServer::Direction p_direction);
 	TextServer::Direction get_direction() const;
+	TextServer::Direction get_inferred_direction() const;
 	void set_custom_punctuation(const String &p_custom_punctuation);
 	String get_custom_punctuation() const;
 	void set_orientation(TextServer::Orientation p_orientation);
@@ -93,6 +94,7 @@ public:
 	RID get_rid() const;
 	RID get_line_rid(int32_t p_line) const;
 	RID get_dropcap_rid() const;
+	Vector2i get_range() const;
 	int32_t get_line_count() const;
 	void set_max_lines_visible(int32_t p_max_lines_visible);
 	int32_t get_max_lines_visible() const;
@@ -109,12 +111,12 @@ public:
 	float get_line_underline_thickness(int32_t p_line) const;
 	Vector2 get_dropcap_size() const;
 	int32_t get_dropcap_lines() const;
-	void draw(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color = Color(1, 1, 1, 1), const Color &p_dc_color = Color(1, 1, 1, 1)) const;
-	void draw_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size = 1, const Color &p_color = Color(1, 1, 1, 1), const Color &p_dc_color = Color(1, 1, 1, 1)) const;
-	void draw_line(const RID &p_canvas, const Vector2 &p_pos, int32_t p_line, const Color &p_color = Color(1, 1, 1, 1)) const;
-	void draw_line_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_line, int32_t p_outline_size = 1, const Color &p_color = Color(1, 1, 1, 1)) const;
-	void draw_dropcap(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color = Color(1, 1, 1, 1)) const;
-	void draw_dropcap_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size = 1, const Color &p_color = Color(1, 1, 1, 1)) const;
+	void draw(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color = Color(1, 1, 1, 1), const Color &p_dc_color = Color(1, 1, 1, 1), float p_oversampling = 0.0) const;
+	void draw_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size = 1, const Color &p_color = Color(1, 1, 1, 1), const Color &p_dc_color = Color(1, 1, 1, 1), float p_oversampling = 0.0) const;
+	void draw_line(const RID &p_canvas, const Vector2 &p_pos, int32_t p_line, const Color &p_color = Color(1, 1, 1, 1), float p_oversampling = 0.0) const;
+	void draw_line_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_line, int32_t p_outline_size = 1, const Color &p_color = Color(1, 1, 1, 1), float p_oversampling = 0.0) const;
+	void draw_dropcap(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color = Color(1, 1, 1, 1), float p_oversampling = 0.0) const;
+	void draw_dropcap_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size = 1, const Color &p_color = Color(1, 1, 1, 1), float p_oversampling = 0.0) const;
 	int32_t hit_test(const Vector2 &p_coords) const;
 
 protected:

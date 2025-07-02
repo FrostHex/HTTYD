@@ -34,12 +34,15 @@
 
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/ref_counted.hpp>
+#include <godot_cpp/variant/packed_string_array.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
 #include <type_traits>
 
 namespace godot {
+
+class String;
 
 class ResourceImporter : public RefCounted {
 	GDEXTENSION_CLASS(ResourceImporter, RefCounted)
@@ -50,10 +53,15 @@ public:
 		IMPORT_ORDER_SCENE = 100,
 	};
 
+	virtual PackedStringArray _get_build_dependencies(const String &p_path) const;
+
 protected:
 	template <typename T, typename B>
 	static void register_virtuals() {
 		RefCounted::register_virtuals<T, B>();
+		if constexpr (!std::is_same_v<decltype(&B::_get_build_dependencies), decltype(&T::_get_build_dependencies)>) {
+			BIND_VIRTUAL_METHOD(T, _get_build_dependencies, 4291131558);
+		}
 	}
 
 public:

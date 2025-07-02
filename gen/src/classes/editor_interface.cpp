@@ -424,6 +424,12 @@ void EditorInterface::save_all_scenes() {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
+Error EditorInterface::close_scene() {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorInterface::get_class_static()._native_ptr(), StringName("close_scene")._native_ptr(), 166280745);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 void EditorInterface::mark_scene_as_unsaved() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorInterface::get_class_static()._native_ptr(), StringName("mark_scene_as_unsaved")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);

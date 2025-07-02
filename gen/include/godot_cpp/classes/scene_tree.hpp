@@ -68,6 +68,8 @@ public:
 
 	Window *get_root() const;
 	bool has_group(const StringName &p_name) const;
+	bool is_accessibility_enabled() const;
+	bool is_accessibility_supported() const;
 	bool is_auto_accept_quit() const;
 	void set_auto_accept_quit(bool p_enabled);
 	bool is_quit_on_go_back() const;

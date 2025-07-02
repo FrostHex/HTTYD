@@ -88,6 +88,14 @@ public:
 	TypedArray<RID> get_included_regions() const;
 	void set_excluded_regions(const TypedArray<RID> &p_regions);
 	TypedArray<RID> get_excluded_regions() const;
+	void set_path_return_max_length(float p_length);
+	float get_path_return_max_length() const;
+	void set_path_return_max_radius(float p_radius);
+	float get_path_return_max_radius() const;
+	void set_path_search_max_polygons(int32_t p_max_polygons);
+	int32_t get_path_search_max_polygons() const;
+	void set_path_search_max_distance(float p_distance);
+	float get_path_search_max_distance() const;
 
 protected:
 	template <typename T, typename B>

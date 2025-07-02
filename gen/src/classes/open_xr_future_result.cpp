@@ -56,4 +56,16 @@ void OpenXRFutureResult::cancel_future() {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
+void OpenXRFutureResult::set_result_value(const Variant &p_result_value) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("set_result_value")._native_ptr(), 1114965689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_result_value);
+}
+
+Variant OpenXRFutureResult::get_result_value() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("get_result_value")._native_ptr(), 1214101251);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
+	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner);
+}
+
 } // namespace godot

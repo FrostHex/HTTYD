@@ -159,6 +159,22 @@ String TreeItem::get_text(int32_t p_column) const {
 	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_column_encoded);
 }
 
+void TreeItem::set_description(int32_t p_column, const String &p_description) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("set_description")._native_ptr(), 501894301);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_column_encoded;
+	PtrToArg<int64_t>::encode(p_column, &p_column_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_column_encoded, &p_description);
+}
+
+String TreeItem::get_description(int32_t p_column) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("get_description")._native_ptr(), 844755477);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	int64_t p_column_encoded;
+	PtrToArg<int64_t>::encode(p_column, &p_column_encoded);
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_column_encoded);
+}
+
 void TreeItem::set_text_direction(int32_t p_column, Control::TextDirection p_direction) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("set_text_direction")._native_ptr(), 1707680378);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -681,8 +697,8 @@ void TreeItem::clear_buttons() {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
-void TreeItem::add_button(int32_t p_column, const Ref<Texture2D> &p_button, int32_t p_id, bool p_disabled, const String &p_tooltip_text) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("add_button")._native_ptr(), 1688223362);
+void TreeItem::add_button(int32_t p_column, const Ref<Texture2D> &p_button, int32_t p_id, bool p_disabled, const String &p_tooltip_text, const String &p_description) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("add_button")._native_ptr(), 973481897);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_column_encoded;
 	PtrToArg<int64_t>::encode(p_column, &p_column_encoded);
@@ -690,7 +706,7 @@ void TreeItem::add_button(int32_t p_column, const Ref<Texture2D> &p_button, int3
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
 	int8_t p_disabled_encoded;
 	PtrToArg<bool>::encode(p_disabled, &p_disabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_column_encoded, (p_button != nullptr ? &p_button->_owner : nullptr), &p_id_encoded, &p_disabled_encoded, &p_tooltip_text);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_column_encoded, (p_button != nullptr ? &p_button->_owner : nullptr), &p_id_encoded, &p_disabled_encoded, &p_tooltip_text, &p_description);
 }
 
 int32_t TreeItem::get_button_count(int32_t p_column) const {
@@ -779,6 +795,16 @@ void TreeItem::erase_button(int32_t p_column, int32_t p_button_index) {
 	int64_t p_button_index_encoded;
 	PtrToArg<int64_t>::encode(p_button_index, &p_button_index_encoded);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_column_encoded, &p_button_index_encoded);
+}
+
+void TreeItem::set_button_description(int32_t p_column, int32_t p_button_index, const String &p_description) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("set_button_description")._native_ptr(), 2285447957);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_column_encoded;
+	PtrToArg<int64_t>::encode(p_column, &p_column_encoded);
+	int64_t p_button_index_encoded;
+	PtrToArg<int64_t>::encode(p_button_index, &p_button_index_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_column_encoded, &p_button_index_encoded, &p_description);
 }
 
 void TreeItem::set_button_disabled(int32_t p_column, int32_t p_button_index, bool p_disabled) {

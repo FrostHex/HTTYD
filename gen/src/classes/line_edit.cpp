@@ -273,6 +273,22 @@ int32_t LineEdit::get_caret_column() const {
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+int32_t LineEdit::get_next_composite_character_column(int32_t p_column) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LineEdit::get_class_static()._native_ptr(), StringName("get_next_composite_character_column")._native_ptr(), 923996154);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_column_encoded;
+	PtrToArg<int64_t>::encode(p_column, &p_column_encoded);
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_column_encoded);
+}
+
+int32_t LineEdit::get_previous_composite_character_column(int32_t p_column) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LineEdit::get_class_static()._native_ptr(), StringName("get_previous_composite_character_column")._native_ptr(), 923996154);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_column_encoded;
+	PtrToArg<int64_t>::encode(p_column, &p_column_encoded);
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_column_encoded);
+}
+
 float LineEdit::get_scroll_offset() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LineEdit::get_class_static()._native_ptr(), StringName("get_scroll_offset")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
@@ -473,6 +489,20 @@ bool LineEdit::is_emoji_menu_enabled() const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+void LineEdit::set_backspace_deletes_composite_character_enabled(bool p_enable) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LineEdit::get_class_static()._native_ptr(), StringName("set_backspace_deletes_composite_character_enabled")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enable_encoded;
+	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+}
+
+bool LineEdit::is_backspace_deletes_composite_character_enabled() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LineEdit::get_class_static()._native_ptr(), StringName("is_backspace_deletes_composite_character_enabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 void LineEdit::set_virtual_keyboard_enabled(bool p_enable) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LineEdit::get_class_static()._native_ptr(), StringName("set_virtual_keyboard_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -483,6 +513,20 @@ void LineEdit::set_virtual_keyboard_enabled(bool p_enable) {
 
 bool LineEdit::is_virtual_keyboard_enabled() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LineEdit::get_class_static()._native_ptr(), StringName("is_virtual_keyboard_enabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void LineEdit::set_virtual_keyboard_show_on_focus(bool p_show_on_focus) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LineEdit::get_class_static()._native_ptr(), StringName("set_virtual_keyboard_show_on_focus")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_show_on_focus_encoded;
+	PtrToArg<bool>::encode(p_show_on_focus, &p_show_on_focus_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_show_on_focus_encoded);
+}
+
+bool LineEdit::get_virtual_keyboard_show_on_focus() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LineEdit::get_class_static()._native_ptr(), StringName("get_virtual_keyboard_show_on_focus")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }

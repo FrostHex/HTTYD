@@ -34,6 +34,7 @@
 
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/core/object.hpp>
+#include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/string_name.hpp>
 #include <godot_cpp/variant/typed_array.hpp>
 
@@ -57,6 +58,7 @@ public:
 	TypedArray<StringName> get_actions();
 	void add_action(const StringName &p_action, float p_deadzone = 0.2);
 	void erase_action(const StringName &p_action);
+	String get_action_description(const StringName &p_action) const;
 	void action_set_deadzone(const StringName &p_action, float p_deadzone);
 	float action_get_deadzone(const StringName &p_action);
 	void action_add_event(const StringName &p_action, const Ref<InputEvent> &p_event);

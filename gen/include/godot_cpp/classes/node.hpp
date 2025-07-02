@@ -38,6 +38,7 @@
 #include <godot_cpp/variant/array.hpp>
 #include <godot_cpp/variant/node_path.hpp>
 #include <godot_cpp/variant/packed_string_array.hpp>
+#include <godot_cpp/variant/rid.hpp>
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/string_name.hpp>
 #include <godot_cpp/variant/typed_array.hpp>
@@ -149,10 +150,13 @@ public:
 	static const int NOTIFICATION_APPLICATION_FOCUS_IN = 2016;
 	static const int NOTIFICATION_APPLICATION_FOCUS_OUT = 2017;
 	static const int NOTIFICATION_TEXT_SERVER_CHANGED = 2018;
+	static const int NOTIFICATION_ACCESSIBILITY_UPDATE = 3000;
+	static const int NOTIFICATION_ACCESSIBILITY_INVALIDATE = 3001;
 
 	static void print_orphan_nodes();
+	static TypedArray<int> get_orphan_node_ids();
 	void add_sibling(Node *p_sibling, bool p_force_readable_name = false);
-	void set_name(const String &p_name);
+	void set_name(const StringName &p_name);
 	StringName get_name() const;
 	void add_child(Node *p_node, bool p_force_readable_name = false, Node::InternalMode p_internal = (Node::InternalMode)0);
 	void remove_child(Node *p_node);
@@ -218,6 +222,8 @@ public:
 	BitField<Node::ProcessThreadMessages> get_process_thread_messages() const;
 	void set_process_thread_group_order(int32_t p_order);
 	int32_t get_process_thread_group_order() const;
+	void queue_accessibility_update();
+	RID get_accessibility_element() const;
 	void set_display_folded(bool p_fold);
 	bool is_displayed_folded() const;
 	void set_process_internal(bool p_enable);
@@ -231,6 +237,7 @@ public:
 	void reset_physics_interpolation();
 	void set_auto_translate_mode(Node::AutoTranslateMode p_mode);
 	Node::AutoTranslateMode get_auto_translate_mode() const;
+	bool can_auto_translate() const;
 	void set_translation_domain_inherited();
 	Window *get_window() const;
 	Window *get_last_exclusive_window() const;
@@ -251,7 +258,7 @@ public:
 	bool is_multiplayer_authority() const;
 	Ref<MultiplayerAPI> get_multiplayer() const;
 	void rpc_config(const StringName &p_method, const Variant &p_config);
-	Variant get_rpc_config() const;
+	Variant get_node_rpc_config() const;
 	void set_editor_description(const String &p_editor_description);
 	String get_editor_description() const;
 	void set_unique_name_in_owner(bool p_enable);
@@ -325,10 +332,12 @@ public:
 	virtual void _exit_tree();
 	virtual void _ready();
 	virtual PackedStringArray _get_configuration_warnings() const;
+	virtual PackedStringArray _get_accessibility_configuration_warnings() const;
 	virtual void _input(const Ref<InputEvent> &p_event);
 	virtual void _shortcut_input(const Ref<InputEvent> &p_event);
 	virtual void _unhandled_input(const Ref<InputEvent> &p_event);
 	virtual void _unhandled_key_input(const Ref<InputEvent> &p_event);
+	virtual RID _get_focused_accessibility_element() const;
 
 protected:
 	template <typename T, typename B>
@@ -352,6 +361,9 @@ protected:
 		if constexpr (!std::is_same_v<decltype(&B::_get_configuration_warnings), decltype(&T::_get_configuration_warnings)>) {
 			BIND_VIRTUAL_METHOD(T, _get_configuration_warnings, 1139954409);
 		}
+		if constexpr (!std::is_same_v<decltype(&B::_get_accessibility_configuration_warnings), decltype(&T::_get_accessibility_configuration_warnings)>) {
+			BIND_VIRTUAL_METHOD(T, _get_accessibility_configuration_warnings, 1139954409);
+		}
 		if constexpr (!std::is_same_v<decltype(&B::_input), decltype(&T::_input)>) {
 			BIND_VIRTUAL_METHOD(T, _input, 3754044979);
 		}
@@ -363,6 +375,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_unhandled_key_input), decltype(&T::_unhandled_key_input)>) {
 			BIND_VIRTUAL_METHOD(T, _unhandled_key_input, 3754044979);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_get_focused_accessibility_element), decltype(&T::_get_focused_accessibility_element)>) {
+			BIND_VIRTUAL_METHOD(T, _get_focused_accessibility_element, 2944877500);
 		}
 	}
 

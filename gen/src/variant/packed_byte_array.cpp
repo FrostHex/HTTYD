@@ -38,10 +38,14 @@
 
 #include <godot_cpp/variant/array.hpp>
 #include <godot_cpp/variant/dictionary.hpp>
+#include <godot_cpp/variant/packed_color_array.hpp>
 #include <godot_cpp/variant/packed_float32_array.hpp>
 #include <godot_cpp/variant/packed_float64_array.hpp>
 #include <godot_cpp/variant/packed_int32_array.hpp>
 #include <godot_cpp/variant/packed_int64_array.hpp>
+#include <godot_cpp/variant/packed_vector2_array.hpp>
+#include <godot_cpp/variant/packed_vector3_array.hpp>
+#include <godot_cpp/variant/packed_vector4_array.hpp>
 #include <godot_cpp/variant/variant.hpp>
 
 #include <godot_cpp/core/builtin_ptrcall.hpp>
@@ -162,6 +166,20 @@ void PackedByteArray::init_bindings() {
 	_method_bindings.method_to_float32_array = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_PACKED_BYTE_ARRAY, _gde_name._native_ptr(), 3575107827);
 	_gde_name = StringName("to_float64_array");
 	_method_bindings.method_to_float64_array = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_PACKED_BYTE_ARRAY, _gde_name._native_ptr(), 1627308337);
+	_gde_name = StringName("to_vector2_array");
+	_method_bindings.method_to_vector2_array = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_PACKED_BYTE_ARRAY, _gde_name._native_ptr(), 1660374357);
+	_gde_name = StringName("to_vector3_array");
+	_method_bindings.method_to_vector3_array = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_PACKED_BYTE_ARRAY, _gde_name._native_ptr(), 4171207452);
+	_gde_name = StringName("to_vector4_array");
+	_method_bindings.method_to_vector4_array = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_PACKED_BYTE_ARRAY, _gde_name._native_ptr(), 146203628);
+	_gde_name = StringName("to_color_array");
+	_method_bindings.method_to_color_array = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_PACKED_BYTE_ARRAY, _gde_name._native_ptr(), 3072026941);
+	_gde_name = StringName("bswap16");
+	_method_bindings.method_bswap16 = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_PACKED_BYTE_ARRAY, _gde_name._native_ptr(), 3638975848);
+	_gde_name = StringName("bswap32");
+	_method_bindings.method_bswap32 = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_PACKED_BYTE_ARRAY, _gde_name._native_ptr(), 3638975848);
+	_gde_name = StringName("bswap64");
+	_method_bindings.method_bswap64 = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_PACKED_BYTE_ARRAY, _gde_name._native_ptr(), 3638975848);
 	_gde_name = StringName("encode_u8");
 	_method_bindings.method_encode_u8 = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_PACKED_BYTE_ARRAY, _gde_name._native_ptr(), 3638975848);
 	_gde_name = StringName("encode_s8");
@@ -506,6 +524,46 @@ PackedFloat32Array PackedByteArray::to_float32_array() const {
 
 PackedFloat64Array PackedByteArray::to_float64_array() const {
 	return internal::_call_builtin_method_ptr_ret<PackedFloat64Array>(_method_bindings.method_to_float64_array, (GDExtensionTypePtr)&opaque);
+}
+
+PackedVector2Array PackedByteArray::to_vector2_array() const {
+	return internal::_call_builtin_method_ptr_ret<PackedVector2Array>(_method_bindings.method_to_vector2_array, (GDExtensionTypePtr)&opaque);
+}
+
+PackedVector3Array PackedByteArray::to_vector3_array() const {
+	return internal::_call_builtin_method_ptr_ret<PackedVector3Array>(_method_bindings.method_to_vector3_array, (GDExtensionTypePtr)&opaque);
+}
+
+PackedVector4Array PackedByteArray::to_vector4_array() const {
+	return internal::_call_builtin_method_ptr_ret<PackedVector4Array>(_method_bindings.method_to_vector4_array, (GDExtensionTypePtr)&opaque);
+}
+
+PackedColorArray PackedByteArray::to_color_array() const {
+	return internal::_call_builtin_method_ptr_ret<PackedColorArray>(_method_bindings.method_to_color_array, (GDExtensionTypePtr)&opaque);
+}
+
+void PackedByteArray::bswap16(int64_t p_offset, int64_t p_count) {
+	int64_t p_offset_encoded;
+	PtrToArg<int64_t>::encode(p_offset, &p_offset_encoded);
+	int64_t p_count_encoded;
+	PtrToArg<int64_t>::encode(p_count, &p_count_encoded);
+	internal::_call_builtin_method_ptr_no_ret(_method_bindings.method_bswap16, (GDExtensionTypePtr)&opaque, &p_offset_encoded, &p_count_encoded);
+}
+
+void PackedByteArray::bswap32(int64_t p_offset, int64_t p_count) {
+	int64_t p_offset_encoded;
+	PtrToArg<int64_t>::encode(p_offset, &p_offset_encoded);
+	int64_t p_count_encoded;
+	PtrToArg<int64_t>::encode(p_count, &p_count_encoded);
+	internal::_call_builtin_method_ptr_no_ret(_method_bindings.method_bswap32, (GDExtensionTypePtr)&opaque, &p_offset_encoded, &p_count_encoded);
+}
+
+void PackedByteArray::bswap64(int64_t p_offset, int64_t p_count) {
+	int64_t p_offset_encoded;
+	PtrToArg<int64_t>::encode(p_offset, &p_offset_encoded);
+	int64_t p_count_encoded;
+	PtrToArg<int64_t>::encode(p_count, &p_count_encoded);
+	internal::_call_builtin_method_ptr_no_ret(_method_bindings.method_bswap64, (GDExtensionTypePtr)&opaque, &p_offset_encoded, &p_count_encoded);
 }
 
 void PackedByteArray::encode_u8(int64_t p_byte_offset, int64_t p_value) {

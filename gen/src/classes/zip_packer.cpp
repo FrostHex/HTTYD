@@ -49,6 +49,20 @@ Error ZIPPacker::open(const String &p_path, ZIPPacker::ZipAppend p_append) {
 	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_append_encoded);
 }
 
+void ZIPPacker::set_compression_level(int32_t p_compression_level) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("set_compression_level")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_compression_level_encoded;
+	PtrToArg<int64_t>::encode(p_compression_level, &p_compression_level_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_compression_level_encoded);
+}
+
+int32_t ZIPPacker::get_compression_level() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("get_compression_level")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 Error ZIPPacker::start_file(const String &p_path) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("start_file")._native_ptr(), 166001499);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));

@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  c_sharp_script.cpp                                                    */
+/*  editor_export_platform_vision_os.hpp                                  */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
@@ -30,21 +30,29 @@
 
 // THIS FILE IS GENERATED. EDITS WILL BE LOST.
 
-#include <godot_cpp/classes/c_sharp_script.hpp>
+#pragma once
+
+#include <godot_cpp/classes/editor_export_platform_apple_embedded.hpp>
+#include <godot_cpp/classes/ref.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
-#include <godot_cpp/core/engine_ptrcall.hpp>
-#include <godot_cpp/core/error_macros.hpp>
+
+#include <type_traits>
 
 namespace godot {
 
-Variant CSharpScript::new__internal(const Variant **p_args, GDExtensionInt p_arg_count) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSharpScript::get_class_static()._native_ptr(), StringName("new")._native_ptr(), 1545262638);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
-	GDExtensionCallError error;
-	Variant ret;
-	internal::gdextension_interface_object_method_bind_call(_gde_method_bind, _owner, reinterpret_cast<GDExtensionConstVariantPtr *>(p_args), p_arg_count, &ret, &error);
-	return ret;
-}
+class EditorExportPlatformVisionOS : public EditorExportPlatformAppleEmbedded {
+	GDEXTENSION_CLASS(EditorExportPlatformVisionOS, EditorExportPlatformAppleEmbedded)
+
+public:
+protected:
+	template <typename T, typename B>
+	static void register_virtuals() {
+		EditorExportPlatformAppleEmbedded::register_virtuals<T, B>();
+	}
+
+public:
+};
 
 } // namespace godot
+

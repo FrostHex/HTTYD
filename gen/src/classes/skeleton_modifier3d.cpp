@@ -78,4 +78,8 @@ void SkeletonModifier3D::_process_modification_with_delta(double p_delta) {}
 
 void SkeletonModifier3D::_process_modification() {}
 
+void SkeletonModifier3D::_skeleton_changed(Skeleton3D *p_old_skeleton, Skeleton3D *p_new_skeleton) {}
+
+void SkeletonModifier3D::_validate_bone_names() {}
+
 } // namespace godot

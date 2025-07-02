@@ -56,12 +56,6 @@ String Window::get_title() const {
 	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
-int32_t Window::get_window_id() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("get_window_id")._native_ptr(), 3905245786);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
-}
-
 void Window::set_initial_position(Window::WindowInitialPosition p_initial_position) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("set_initial_position")._native_ptr(), 4084468099);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -442,20 +436,6 @@ float Window::get_content_scale_factor() const {
 	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
-void Window::set_use_font_oversampling(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("set_use_font_oversampling")._native_ptr(), 2586408642);
-	CHECK_METHOD_BIND(_gde_method_bind);
-	int8_t p_enable_encoded;
-	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
-}
-
-bool Window::is_using_font_oversampling() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("is_using_font_oversampling")._native_ptr(), 36873697);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
-}
-
 void Window::set_mouse_passthrough_polygon(const PackedVector2Array &p_polygon) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("set_mouse_passthrough_polygon")._native_ptr(), 1509147220);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -726,6 +706,42 @@ int32_t Window::get_theme_default_font_size() const {
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+int32_t Window::get_window_id() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("get_window_id")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void Window::set_accessibility_name(const String &p_name) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("set_accessibility_name")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
+}
+
+String Window::get_accessibility_name() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("get_accessibility_name")._native_ptr(), 201670096);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+}
+
+void Window::set_accessibility_description(const String &p_description) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("set_accessibility_description")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_description);
+}
+
+String Window::get_accessibility_description() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("get_accessibility_description")._native_ptr(), 201670096);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+}
+
+Window *Window::get_focused_window() {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("get_focused_window")._native_ptr(), 1835468782);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
+	return internal::_call_native_mb_ret_obj<Window>(_gde_method_bind, nullptr);
+}
+
 void Window::set_layout_direction(Window::LayoutDirection p_direction) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("set_layout_direction")._native_ptr(), 3094704184);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -756,6 +772,20 @@ void Window::set_auto_translate(bool p_enable) {
 
 bool Window::is_auto_translating() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("is_auto_translating")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void Window::set_use_font_oversampling(bool p_enable) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("set_use_font_oversampling")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enable_encoded;
+	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+}
+
+bool Window::is_using_font_oversampling() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("is_using_font_oversampling")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }

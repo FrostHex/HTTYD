@@ -61,6 +61,12 @@ TextServer::Direction TextLine::get_direction() const {
 	return (TextServer::Direction)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+TextServer::Direction TextLine::get_inferred_direction() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextLine::get_class_static()._native_ptr(), StringName("get_inferred_direction")._native_ptr(), 2516697328);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TextServer::Direction(0)));
+	return (TextServer::Direction)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 void TextLine::set_orientation(TextServer::Orientation p_orientation) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextLine::get_class_static()._native_ptr(), StringName("set_orientation")._native_ptr(), 42823726);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -265,18 +271,22 @@ float TextLine::get_line_underline_thickness() const {
 	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
-void TextLine::draw(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextLine::get_class_static()._native_ptr(), StringName("draw")._native_ptr(), 856975658);
+void TextLine::draw(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextLine::get_class_static()._native_ptr(), StringName("draw")._native_ptr(), 3625105422);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_color, &p_oversampling_encoded);
 }
 
-void TextLine::draw_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size, const Color &p_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextLine::get_class_static()._native_ptr(), StringName("draw_outline")._native_ptr(), 1343401456);
+void TextLine::draw_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size, const Color &p_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextLine::get_class_static()._native_ptr(), StringName("draw_outline")._native_ptr(), 2592177763);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_outline_size_encoded;
 	PtrToArg<int64_t>::encode(p_outline_size, &p_outline_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_outline_size_encoded, &p_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_outline_size_encoded, &p_color, &p_oversampling_encoded);
 }
 
 int32_t TextLine::hit_test(float p_coords) const {

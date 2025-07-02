@@ -83,6 +83,12 @@ StringName AnimationNodeStateMachine::get_node_name(const Ref<AnimationNode> &p_
 	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner, (p_node != nullptr ? &p_node->_owner : nullptr));
 }
 
+TypedArray<StringName> AnimationNodeStateMachine::get_node_list() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachine::get_class_static()._native_ptr(), StringName("get_node_list")._native_ptr(), 3995934104);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<StringName>()));
+	return internal::_call_native_mb_ret<TypedArray<StringName>>(_gde_method_bind, _owner);
+}
+
 void AnimationNodeStateMachine::set_node_position(const StringName &p_name, const Vector2 &p_position) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachine::get_class_static()._native_ptr(), StringName("set_node_position")._native_ptr(), 1999414630);
 	CHECK_METHOD_BIND(_gde_method_bind);

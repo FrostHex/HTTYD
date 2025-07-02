@@ -300,6 +300,26 @@ RID NavigationServer3D::region_create() {
 	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
+uint32_t NavigationServer3D::region_get_iteration_id(const RID &p_region) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NavigationServer3D::get_class_static()._native_ptr(), StringName("region_get_iteration_id")._native_ptr(), 2198884583);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_region);
+}
+
+void NavigationServer3D::region_set_use_async_iterations(const RID &p_region, bool p_enabled) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NavigationServer3D::get_class_static()._native_ptr(), StringName("region_set_use_async_iterations")._native_ptr(), 1265174801);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_region, &p_enabled_encoded);
+}
+
+bool NavigationServer3D::region_get_use_async_iterations(const RID &p_region) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NavigationServer3D::get_class_static()._native_ptr(), StringName("region_get_use_async_iterations")._native_ptr(), 4155700596);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_region);
+}
+
 void NavigationServer3D::region_set_enabled(const RID &p_region, bool p_enabled) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NavigationServer3D::get_class_static()._native_ptr(), StringName("region_set_enabled")._native_ptr(), 1265174801);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -488,6 +508,12 @@ RID NavigationServer3D::link_create() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NavigationServer3D::get_class_static()._native_ptr(), StringName("link_create")._native_ptr(), 529393457);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
 	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+}
+
+uint32_t NavigationServer3D::link_get_iteration_id(const RID &p_link) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NavigationServer3D::get_class_static()._native_ptr(), StringName("link_get_iteration_id")._native_ptr(), 2198884583);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_link);
 }
 
 void NavigationServer3D::link_set_map(const RID &p_link, const RID &p_map) {

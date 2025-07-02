@@ -46,6 +46,7 @@
 namespace godot {
 
 class MainLoop;
+class ScriptBacktrace;
 class ScriptLanguage;
 class StringName;
 
@@ -90,6 +91,7 @@ public:
 	Error unregister_script_language(ScriptLanguage *p_language);
 	int32_t get_script_language_count();
 	ScriptLanguage *get_script_language(int32_t p_index) const;
+	TypedArray<Ref<ScriptBacktrace>> capture_script_backtraces(bool p_include_variables = false) const;
 	bool is_editor_hint() const;
 	bool is_embedded_in_editor() const;
 	String get_write_movie_path() const;

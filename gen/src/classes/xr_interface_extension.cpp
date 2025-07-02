@@ -148,6 +148,10 @@ RID XRInterfaceExtension::_get_vrs_texture() {
 	return RID();
 }
 
+XRInterface::VRSTextureFormat XRInterfaceExtension::_get_vrs_texture_format() {
+	return XRInterface::VRSTextureFormat(0);
+}
+
 void XRInterfaceExtension::_process() {}
 
 void XRInterfaceExtension::_pre_render() {}

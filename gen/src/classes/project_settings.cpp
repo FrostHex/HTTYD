@@ -36,6 +36,7 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/variant/packed_string_array.hpp>
 #include <godot_cpp/variant/string_name.hpp>
 
 namespace godot {
@@ -94,6 +95,12 @@ TypedArray<Dictionary> ProjectSettings::get_global_class_list() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ProjectSettings::get_class_static()._native_ptr(), StringName("get_global_class_list")._native_ptr(), 2915620761);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Dictionary>()));
 	return internal::_call_native_mb_ret<TypedArray<Dictionary>>(_gde_method_bind, _owner);
+}
+
+Variant ProjectSettings::get_setting_with_override_and_custom_features(const StringName &p_name, const PackedStringArray &p_features) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ProjectSettings::get_class_static()._native_ptr(), StringName("get_setting_with_override_and_custom_features")._native_ptr(), 2434817427);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
+	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_name, &p_features);
 }
 
 void ProjectSettings::set_order(const String &p_name, int32_t p_position) {

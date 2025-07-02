@@ -74,6 +74,7 @@ public:
 	virtual void _on_instance_destroyed();
 	virtual void _on_session_created(uint64_t p_session);
 	virtual void _on_process();
+	virtual void _on_sync_actions();
 	virtual void _on_pre_render();
 	virtual void _on_main_swapchains_created();
 	virtual void _on_pre_draw_viewport(const RID &p_viewport);
@@ -160,6 +161,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_on_process), decltype(&T::_on_process)>) {
 			BIND_VIRTUAL_METHOD(T, _on_process, 3218959716);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_on_sync_actions), decltype(&T::_on_sync_actions)>) {
+			BIND_VIRTUAL_METHOD(T, _on_sync_actions, 3218959716);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_on_pre_render), decltype(&T::_on_pre_render)>) {
 			BIND_VIRTUAL_METHOD(T, _on_pre_render, 3218959716);

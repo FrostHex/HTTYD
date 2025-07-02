@@ -78,6 +78,12 @@ EditorExportPreset::FileExportMode EditorExportPreset::get_file_export_mode(cons
 	return (EditorExportPreset::FileExportMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_default_encoded);
 }
 
+Variant EditorExportPreset::get_project_setting(const StringName &p_name) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPreset::get_class_static()._native_ptr(), StringName("get_project_setting")._native_ptr(), 2138907829);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
+	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_name);
+}
+
 String EditorExportPreset::get_preset_name() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPreset::get_class_static()._native_ptr(), StringName("get_preset_name")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));

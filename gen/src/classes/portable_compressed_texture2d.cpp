@@ -88,6 +88,16 @@ bool PortableCompressedTexture2D::is_keeping_compressed_buffer() const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+void PortableCompressedTexture2D::set_basisu_compressor_params(int32_t p_uastc_level, float p_rdo_quality_loss) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PortableCompressedTexture2D::get_class_static()._native_ptr(), StringName("set_basisu_compressor_params")._native_ptr(), 1602489585);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_uastc_level_encoded;
+	PtrToArg<int64_t>::encode(p_uastc_level, &p_uastc_level_encoded);
+	double p_rdo_quality_loss_encoded;
+	PtrToArg<double>::encode(p_rdo_quality_loss, &p_rdo_quality_loss_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_uastc_level_encoded, &p_rdo_quality_loss_encoded);
+}
+
 void PortableCompressedTexture2D::set_keep_all_compressed_buffers(bool p_keep) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PortableCompressedTexture2D::get_class_static()._native_ptr(), StringName("set_keep_all_compressed_buffers")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);

@@ -61,6 +61,12 @@ TextServer::Direction TextParagraph::get_direction() const {
 	return (TextServer::Direction)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+TextServer::Direction TextParagraph::get_inferred_direction() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("get_inferred_direction")._native_ptr(), 2516697328);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TextServer::Direction(0)));
+	return (TextServer::Direction)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 void TextParagraph::set_custom_punctuation(const String &p_custom_punctuation) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("set_custom_punctuation")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -281,6 +287,12 @@ RID TextParagraph::get_dropcap_rid() const {
 	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
+Vector2i TextParagraph::get_range() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("get_range")._native_ptr(), 3690982128);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2i()));
+	return internal::_call_native_mb_ret<Vector2i>(_gde_method_bind, _owner);
+}
+
 int32_t TextParagraph::get_line_count() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("get_line_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
@@ -399,50 +411,62 @@ int32_t TextParagraph::get_dropcap_lines() const {
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-void TextParagraph::draw(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color, const Color &p_dc_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw")._native_ptr(), 1567802413);
+void TextParagraph::draw(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color, const Color &p_dc_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw")._native_ptr(), 1492808103);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_color, &p_dc_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_color, &p_dc_color, &p_oversampling_encoded);
 }
 
-void TextParagraph::draw_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size, const Color &p_color, const Color &p_dc_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw_outline")._native_ptr(), 1893131224);
+void TextParagraph::draw_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size, const Color &p_color, const Color &p_dc_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw_outline")._native_ptr(), 3820500590);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_outline_size_encoded;
 	PtrToArg<int64_t>::encode(p_outline_size, &p_outline_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_outline_size_encoded, &p_color, &p_dc_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_outline_size_encoded, &p_color, &p_dc_color, &p_oversampling_encoded);
 }
 
-void TextParagraph::draw_line(const RID &p_canvas, const Vector2 &p_pos, int32_t p_line, const Color &p_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw_line")._native_ptr(), 1242169894);
+void TextParagraph::draw_line(const RID &p_canvas, const Vector2 &p_pos, int32_t p_line, const Color &p_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw_line")._native_ptr(), 828033758);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_line_encoded;
 	PtrToArg<int64_t>::encode(p_line, &p_line_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_line_encoded, &p_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_line_encoded, &p_color, &p_oversampling_encoded);
 }
 
-void TextParagraph::draw_line_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_line, int32_t p_outline_size, const Color &p_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw_line_outline")._native_ptr(), 2664926980);
+void TextParagraph::draw_line_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_line, int32_t p_outline_size, const Color &p_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw_line_outline")._native_ptr(), 2822696703);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_line_encoded;
 	PtrToArg<int64_t>::encode(p_line, &p_line_encoded);
 	int64_t p_outline_size_encoded;
 	PtrToArg<int64_t>::encode(p_outline_size, &p_outline_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_line_encoded, &p_outline_size_encoded, &p_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_line_encoded, &p_outline_size_encoded, &p_color, &p_oversampling_encoded);
 }
 
-void TextParagraph::draw_dropcap(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw_dropcap")._native_ptr(), 856975658);
+void TextParagraph::draw_dropcap(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw_dropcap")._native_ptr(), 3625105422);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_color, &p_oversampling_encoded);
 }
 
-void TextParagraph::draw_dropcap_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size, const Color &p_color) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw_dropcap_outline")._native_ptr(), 1343401456);
+void TextParagraph::draw_dropcap_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size, const Color &p_color, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextParagraph::get_class_static()._native_ptr(), StringName("draw_dropcap_outline")._native_ptr(), 2592177763);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_outline_size_encoded;
 	PtrToArg<int64_t>::encode(p_outline_size, &p_outline_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_outline_size_encoded, &p_color);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas, &p_pos, &p_outline_size_encoded, &p_color, &p_oversampling_encoded);
 }
 
 int32_t TextParagraph::hit_test(const Vector2 &p_coords) const {

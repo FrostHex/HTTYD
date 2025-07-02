@@ -81,8 +81,8 @@ RID RenderingDevice::texture_create_shared_from_slice(const Ref<RDTextureView> &
 	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, (p_view != nullptr ? &p_view->_owner : nullptr), &p_with_texture, &p_layer_encoded, &p_mipmap_encoded, &p_mipmaps_encoded, &p_slice_type_encoded);
 }
 
-RID RenderingDevice::texture_create_from_extension(RenderingDevice::TextureType p_type, RenderingDevice::DataFormat p_format, RenderingDevice::TextureSamples p_samples, BitField<RenderingDevice::TextureUsageBits> p_usage_flags, uint64_t p_image, uint64_t p_width, uint64_t p_height, uint64_t p_depth, uint64_t p_layers) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("texture_create_from_extension")._native_ptr(), 1397171480);
+RID RenderingDevice::texture_create_from_extension(RenderingDevice::TextureType p_type, RenderingDevice::DataFormat p_format, RenderingDevice::TextureSamples p_samples, BitField<RenderingDevice::TextureUsageBits> p_usage_flags, uint64_t p_image, uint64_t p_width, uint64_t p_height, uint64_t p_depth, uint64_t p_layers, uint64_t p_mipmaps) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("texture_create_from_extension")._native_ptr(), 3732868568);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
 	int64_t p_type_encoded;
 	PtrToArg<int64_t>::encode(p_type, &p_type_encoded);
@@ -100,7 +100,9 @@ RID RenderingDevice::texture_create_from_extension(RenderingDevice::TextureType 
 	PtrToArg<int64_t>::encode(p_depth, &p_depth_encoded);
 	int64_t p_layers_encoded;
 	PtrToArg<int64_t>::encode(p_layers, &p_layers_encoded);
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_type_encoded, &p_format_encoded, &p_samples_encoded, &p_usage_flags, &p_image_encoded, &p_width_encoded, &p_height_encoded, &p_depth_encoded, &p_layers_encoded);
+	int64_t p_mipmaps_encoded;
+	PtrToArg<int64_t>::encode(p_mipmaps, &p_mipmaps_encoded);
+	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_type_encoded, &p_format_encoded, &p_samples_encoded, &p_usage_flags, &p_image_encoded, &p_width_encoded, &p_height_encoded, &p_depth_encoded, &p_layers_encoded, &p_mipmaps_encoded);
 }
 
 Error RenderingDevice::texture_update(const RID &p_texture, uint32_t p_layer, const PackedByteArray &p_data) {

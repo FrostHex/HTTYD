@@ -78,6 +78,7 @@ public:
 	virtual Transform3D _get_transform_for_view(uint32_t p_view, const Transform3D &p_cam_transform);
 	virtual PackedFloat64Array _get_projection_for_view(uint32_t p_view, double p_aspect, double p_z_near, double p_z_far);
 	virtual RID _get_vrs_texture();
+	virtual XRInterface::VRSTextureFormat _get_vrs_texture_format();
 	virtual void _process();
 	virtual void _pre_render();
 	virtual bool _pre_draw_viewport(const RID &p_render_target);
@@ -145,6 +146,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_vrs_texture), decltype(&T::_get_vrs_texture)>) {
 			BIND_VIRTUAL_METHOD(T, _get_vrs_texture, 529393457);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_get_vrs_texture_format), decltype(&T::_get_vrs_texture_format)>) {
+			BIND_VIRTUAL_METHOD(T, _get_vrs_texture_format, 1500923256);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_process), decltype(&T::_process)>) {
 			BIND_VIRTUAL_METHOD(T, _process, 3218959716);

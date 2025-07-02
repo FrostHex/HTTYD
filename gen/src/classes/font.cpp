@@ -210,8 +210,8 @@ Vector2 Font::get_multiline_string_size(const String &p_text, HorizontalAlignmen
 	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner, &p_text, &p_alignment_encoded, &p_width_encoded, &p_font_size_encoded, &p_max_lines_encoded, &p_brk_flags, &p_justification_flags, &p_direction_encoded, &p_orientation_encoded);
 }
 
-void Font::draw_string(const RID &p_canvas_item, const Vector2 &p_pos, const String &p_text, HorizontalAlignment p_alignment, float p_width, int32_t p_font_size, const Color &p_modulate, BitField<TextServer::JustificationFlag> p_justification_flags, TextServer::Direction p_direction, TextServer::Orientation p_orientation) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_string")._native_ptr(), 1983721962);
+void Font::draw_string(const RID &p_canvas_item, const Vector2 &p_pos, const String &p_text, HorizontalAlignment p_alignment, float p_width, int32_t p_font_size, const Color &p_modulate, BitField<TextServer::JustificationFlag> p_justification_flags, TextServer::Direction p_direction, TextServer::Orientation p_orientation, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_string")._native_ptr(), 1976686372);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_alignment_encoded;
 	PtrToArg<int64_t>::encode(p_alignment, &p_alignment_encoded);
@@ -223,11 +223,13 @@ void Font::draw_string(const RID &p_canvas_item, const Vector2 &p_pos, const Str
 	PtrToArg<int64_t>::encode(p_direction, &p_direction_encoded);
 	int64_t p_orientation_encoded;
 	PtrToArg<int64_t>::encode(p_orientation, &p_orientation_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_text, &p_alignment_encoded, &p_width_encoded, &p_font_size_encoded, &p_modulate, &p_justification_flags, &p_direction_encoded, &p_orientation_encoded);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_text, &p_alignment_encoded, &p_width_encoded, &p_font_size_encoded, &p_modulate, &p_justification_flags, &p_direction_encoded, &p_orientation_encoded, &p_oversampling_encoded);
 }
 
-void Font::draw_multiline_string(const RID &p_canvas_item, const Vector2 &p_pos, const String &p_text, HorizontalAlignment p_alignment, float p_width, int32_t p_font_size, int32_t p_max_lines, const Color &p_modulate, BitField<TextServer::LineBreakFlag> p_brk_flags, BitField<TextServer::JustificationFlag> p_justification_flags, TextServer::Direction p_direction, TextServer::Orientation p_orientation) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_multiline_string")._native_ptr(), 1171506176);
+void Font::draw_multiline_string(const RID &p_canvas_item, const Vector2 &p_pos, const String &p_text, HorizontalAlignment p_alignment, float p_width, int32_t p_font_size, int32_t p_max_lines, const Color &p_modulate, BitField<TextServer::LineBreakFlag> p_brk_flags, BitField<TextServer::JustificationFlag> p_justification_flags, TextServer::Direction p_direction, TextServer::Orientation p_orientation, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_multiline_string")._native_ptr(), 2686601589);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_alignment_encoded;
 	PtrToArg<int64_t>::encode(p_alignment, &p_alignment_encoded);
@@ -241,11 +243,13 @@ void Font::draw_multiline_string(const RID &p_canvas_item, const Vector2 &p_pos,
 	PtrToArg<int64_t>::encode(p_direction, &p_direction_encoded);
 	int64_t p_orientation_encoded;
 	PtrToArg<int64_t>::encode(p_orientation, &p_orientation_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_text, &p_alignment_encoded, &p_width_encoded, &p_font_size_encoded, &p_max_lines_encoded, &p_modulate, &p_brk_flags, &p_justification_flags, &p_direction_encoded, &p_orientation_encoded);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_text, &p_alignment_encoded, &p_width_encoded, &p_font_size_encoded, &p_max_lines_encoded, &p_modulate, &p_brk_flags, &p_justification_flags, &p_direction_encoded, &p_orientation_encoded, &p_oversampling_encoded);
 }
 
-void Font::draw_string_outline(const RID &p_canvas_item, const Vector2 &p_pos, const String &p_text, HorizontalAlignment p_alignment, float p_width, int32_t p_font_size, int32_t p_size, const Color &p_modulate, BitField<TextServer::JustificationFlag> p_justification_flags, TextServer::Direction p_direction, TextServer::Orientation p_orientation) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_string_outline")._native_ptr(), 623754045);
+void Font::draw_string_outline(const RID &p_canvas_item, const Vector2 &p_pos, const String &p_text, HorizontalAlignment p_alignment, float p_width, int32_t p_font_size, int32_t p_size, const Color &p_modulate, BitField<TextServer::JustificationFlag> p_justification_flags, TextServer::Direction p_direction, TextServer::Orientation p_orientation, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_string_outline")._native_ptr(), 701417663);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_alignment_encoded;
 	PtrToArg<int64_t>::encode(p_alignment, &p_alignment_encoded);
@@ -259,11 +263,13 @@ void Font::draw_string_outline(const RID &p_canvas_item, const Vector2 &p_pos, c
 	PtrToArg<int64_t>::encode(p_direction, &p_direction_encoded);
 	int64_t p_orientation_encoded;
 	PtrToArg<int64_t>::encode(p_orientation, &p_orientation_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_text, &p_alignment_encoded, &p_width_encoded, &p_font_size_encoded, &p_size_encoded, &p_modulate, &p_justification_flags, &p_direction_encoded, &p_orientation_encoded);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_text, &p_alignment_encoded, &p_width_encoded, &p_font_size_encoded, &p_size_encoded, &p_modulate, &p_justification_flags, &p_direction_encoded, &p_orientation_encoded, &p_oversampling_encoded);
 }
 
-void Font::draw_multiline_string_outline(const RID &p_canvas_item, const Vector2 &p_pos, const String &p_text, HorizontalAlignment p_alignment, float p_width, int32_t p_font_size, int32_t p_max_lines, int32_t p_size, const Color &p_modulate, BitField<TextServer::LineBreakFlag> p_brk_flags, BitField<TextServer::JustificationFlag> p_justification_flags, TextServer::Direction p_direction, TextServer::Orientation p_orientation) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_multiline_string_outline")._native_ptr(), 3206388178);
+void Font::draw_multiline_string_outline(const RID &p_canvas_item, const Vector2 &p_pos, const String &p_text, HorizontalAlignment p_alignment, float p_width, int32_t p_font_size, int32_t p_max_lines, int32_t p_size, const Color &p_modulate, BitField<TextServer::LineBreakFlag> p_brk_flags, BitField<TextServer::JustificationFlag> p_justification_flags, TextServer::Direction p_direction, TextServer::Orientation p_orientation, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_multiline_string_outline")._native_ptr(), 4147839237);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_alignment_encoded;
 	PtrToArg<int64_t>::encode(p_alignment, &p_alignment_encoded);
@@ -279,7 +285,9 @@ void Font::draw_multiline_string_outline(const RID &p_canvas_item, const Vector2
 	PtrToArg<int64_t>::encode(p_direction, &p_direction_encoded);
 	int64_t p_orientation_encoded;
 	PtrToArg<int64_t>::encode(p_orientation, &p_orientation_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_text, &p_alignment_encoded, &p_width_encoded, &p_font_size_encoded, &p_max_lines_encoded, &p_size_encoded, &p_modulate, &p_brk_flags, &p_justification_flags, &p_direction_encoded, &p_orientation_encoded);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_text, &p_alignment_encoded, &p_width_encoded, &p_font_size_encoded, &p_max_lines_encoded, &p_size_encoded, &p_modulate, &p_brk_flags, &p_justification_flags, &p_direction_encoded, &p_orientation_encoded, &p_oversampling_encoded);
 }
 
 Vector2 Font::get_char_size(char32_t p_char, int32_t p_font_size) const {
@@ -292,18 +300,20 @@ Vector2 Font::get_char_size(char32_t p_char, int32_t p_font_size) const {
 	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner, &p_char_encoded, &p_font_size_encoded);
 }
 
-float Font::draw_char(const RID &p_canvas_item, const Vector2 &p_pos, char32_t p_char, int32_t p_font_size, const Color &p_modulate) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_char")._native_ptr(), 3815617597);
+float Font::draw_char(const RID &p_canvas_item, const Vector2 &p_pos, char32_t p_char, int32_t p_font_size, const Color &p_modulate, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_char")._native_ptr(), 3500170256);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	int64_t p_char_encoded;
 	PtrToArg<int64_t>::encode(p_char, &p_char_encoded);
 	int64_t p_font_size_encoded;
 	PtrToArg<int64_t>::encode(p_font_size, &p_font_size_encoded);
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_char_encoded, &p_font_size_encoded, &p_modulate);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_char_encoded, &p_font_size_encoded, &p_modulate, &p_oversampling_encoded);
 }
 
-float Font::draw_char_outline(const RID &p_canvas_item, const Vector2 &p_pos, char32_t p_char, int32_t p_font_size, int32_t p_size, const Color &p_modulate) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_char_outline")._native_ptr(), 209525354);
+float Font::draw_char_outline(const RID &p_canvas_item, const Vector2 &p_pos, char32_t p_char, int32_t p_font_size, int32_t p_size, const Color &p_modulate, float p_oversampling) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("draw_char_outline")._native_ptr(), 1684114874);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	int64_t p_char_encoded;
 	PtrToArg<int64_t>::encode(p_char, &p_char_encoded);
@@ -311,7 +321,9 @@ float Font::draw_char_outline(const RID &p_canvas_item, const Vector2 &p_pos, ch
 	PtrToArg<int64_t>::encode(p_font_size, &p_font_size_encoded);
 	int64_t p_size_encoded;
 	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_char_encoded, &p_font_size_encoded, &p_size_encoded, &p_modulate);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_canvas_item, &p_pos, &p_char_encoded, &p_font_size_encoded, &p_size_encoded, &p_modulate, &p_oversampling_encoded);
 }
 
 bool Font::has_char(char32_t p_char) const {

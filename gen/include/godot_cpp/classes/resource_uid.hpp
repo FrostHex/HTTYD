@@ -54,11 +54,15 @@ public:
 	String id_to_text(int64_t p_id) const;
 	int64_t text_to_id(const String &p_text_id) const;
 	int64_t create_id();
+	int64_t create_id_for_path(const String &p_path);
 	bool has_id(int64_t p_id) const;
 	void add_id(int64_t p_id, const String &p_path);
 	void set_id(int64_t p_id, const String &p_path);
 	String get_id_path(int64_t p_id) const;
 	void remove_id(int64_t p_id);
+	static String uid_to_path(const String &p_uid);
+	static String path_to_uid(const String &p_path);
+	static String ensure_path(const String &p_path_or_uid);
 
 protected:
 	template <typename T, typename B>

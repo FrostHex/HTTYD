@@ -134,6 +134,8 @@ public:
 	String get_placeholder() const;
 	void set_caret_column(int32_t p_position);
 	int32_t get_caret_column() const;
+	int32_t get_next_composite_character_column(int32_t p_column) const;
+	int32_t get_previous_composite_character_column(int32_t p_column) const;
 	float get_scroll_offset() const;
 	void set_expand_to_text_length_enabled(bool p_enabled);
 	bool is_expand_to_text_length_enabled() const;
@@ -163,8 +165,12 @@ public:
 	bool is_context_menu_enabled();
 	void set_emoji_menu_enabled(bool p_enable);
 	bool is_emoji_menu_enabled() const;
+	void set_backspace_deletes_composite_character_enabled(bool p_enable);
+	bool is_backspace_deletes_composite_character_enabled() const;
 	void set_virtual_keyboard_enabled(bool p_enable);
 	bool is_virtual_keyboard_enabled() const;
+	void set_virtual_keyboard_show_on_focus(bool p_show_on_focus);
+	bool get_virtual_keyboard_show_on_focus() const;
 	void set_virtual_keyboard_type(LineEdit::VirtualKeyboardType p_type);
 	LineEdit::VirtualKeyboardType get_virtual_keyboard_type() const;
 	void set_clear_button_enabled(bool p_enable);

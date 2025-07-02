@@ -69,6 +69,26 @@ public:
 	Color get_shadow_color() const;
 	void set_shadow_offset(const Vector2 &p_offset);
 	Vector2 get_shadow_offset() const;
+	int32_t get_stacked_outline_count() const;
+	void set_stacked_outline_count(int32_t p_count);
+	void add_stacked_outline(int32_t p_index = -1);
+	void move_stacked_outline(int32_t p_from_index, int32_t p_to_position);
+	void remove_stacked_outline(int32_t p_index);
+	void set_stacked_outline_size(int32_t p_index, int32_t p_size);
+	int32_t get_stacked_outline_size(int32_t p_index) const;
+	void set_stacked_outline_color(int32_t p_index, const Color &p_color);
+	Color get_stacked_outline_color(int32_t p_index) const;
+	int32_t get_stacked_shadow_count() const;
+	void set_stacked_shadow_count(int32_t p_count);
+	void add_stacked_shadow(int32_t p_index = -1);
+	void move_stacked_shadow(int32_t p_from_index, int32_t p_to_position);
+	void remove_stacked_shadow(int32_t p_index);
+	void set_stacked_shadow_offset(int32_t p_index, const Vector2 &p_offset);
+	Vector2 get_stacked_shadow_offset(int32_t p_index) const;
+	void set_stacked_shadow_color(int32_t p_index, const Color &p_color);
+	Color get_stacked_shadow_color(int32_t p_index) const;
+	void set_stacked_shadow_outline_size(int32_t p_index, int32_t p_size);
+	int32_t get_stacked_shadow_outline_size(int32_t p_index) const;
 
 protected:
 	template <typename T, typename B>

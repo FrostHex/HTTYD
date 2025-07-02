@@ -65,18 +65,28 @@ void NoiseTexture3D::set_depth(int32_t p_depth) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_depth_encoded);
 }
 
-void NoiseTexture3D::set_invert(bool p_invert) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("set_invert")._native_ptr(), 2586408642);
+void NoiseTexture3D::set_noise(const Ref<Noise> &p_noise) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("set_noise")._native_ptr(), 4135492439);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	int8_t p_invert_encoded;
-	PtrToArg<bool>::encode(p_invert, &p_invert_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_invert_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_noise != nullptr ? &p_noise->_owner : nullptr));
 }
 
-bool NoiseTexture3D::get_invert() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("get_invert")._native_ptr(), 36873697);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+Ref<Noise> NoiseTexture3D::get_noise() {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("get_noise")._native_ptr(), 185851837);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Noise>()));
+	return Ref<Noise>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Noise>(_gde_method_bind, _owner));
+}
+
+void NoiseTexture3D::set_color_ramp(const Ref<Gradient> &p_gradient) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("set_color_ramp")._native_ptr(), 2756054477);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_gradient != nullptr ? &p_gradient->_owner : nullptr));
+}
+
+Ref<Gradient> NoiseTexture3D::get_color_ramp() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("get_color_ramp")._native_ptr(), 132272999);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Gradient>()));
+	return Ref<Gradient>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Gradient>(_gde_method_bind, _owner));
 }
 
 void NoiseTexture3D::set_seamless(bool p_seamless) {
@@ -93,18 +103,18 @@ bool NoiseTexture3D::get_seamless() {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
-void NoiseTexture3D::set_seamless_blend_skirt(float p_seamless_blend_skirt) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("set_seamless_blend_skirt")._native_ptr(), 373806689);
+void NoiseTexture3D::set_invert(bool p_invert) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("set_invert")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	double p_seamless_blend_skirt_encoded;
-	PtrToArg<double>::encode(p_seamless_blend_skirt, &p_seamless_blend_skirt_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_seamless_blend_skirt_encoded);
+	int8_t p_invert_encoded;
+	PtrToArg<bool>::encode(p_invert, &p_invert_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_invert_encoded);
 }
 
-float NoiseTexture3D::get_seamless_blend_skirt() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("get_seamless_blend_skirt")._native_ptr(), 191475506);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+bool NoiseTexture3D::get_invert() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("get_invert")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void NoiseTexture3D::set_normalize(bool p_normalize) {
@@ -121,28 +131,18 @@ bool NoiseTexture3D::is_normalized() const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
-void NoiseTexture3D::set_color_ramp(const Ref<Gradient> &p_gradient) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("set_color_ramp")._native_ptr(), 2756054477);
+void NoiseTexture3D::set_seamless_blend_skirt(float p_seamless_blend_skirt) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("set_seamless_blend_skirt")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_gradient != nullptr ? &p_gradient->_owner : nullptr));
+	double p_seamless_blend_skirt_encoded;
+	PtrToArg<double>::encode(p_seamless_blend_skirt, &p_seamless_blend_skirt_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_seamless_blend_skirt_encoded);
 }
 
-Ref<Gradient> NoiseTexture3D::get_color_ramp() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("get_color_ramp")._native_ptr(), 132272999);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Gradient>()));
-	return Ref<Gradient>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Gradient>(_gde_method_bind, _owner));
-}
-
-void NoiseTexture3D::set_noise(const Ref<Noise> &p_noise) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("set_noise")._native_ptr(), 4135492439);
-	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_noise != nullptr ? &p_noise->_owner : nullptr));
-}
-
-Ref<Noise> NoiseTexture3D::get_noise() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("get_noise")._native_ptr(), 185851837);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Noise>()));
-	return Ref<Noise>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Noise>(_gde_method_bind, _owner));
+float NoiseTexture3D::get_seamless_blend_skirt() {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NoiseTexture3D::get_class_static()._native_ptr(), StringName("get_seamless_blend_skirt")._native_ptr(), 191475506);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -193,6 +193,8 @@ public:
 	virtual float _soft_body_get_total_mass(const RID &p_body) const;
 	virtual void _soft_body_set_linear_stiffness(const RID &p_body, float p_linear_stiffness);
 	virtual float _soft_body_get_linear_stiffness(const RID &p_body) const;
+	virtual void _soft_body_set_shrinking_factor(const RID &p_body, float p_shrinking_factor);
+	virtual float _soft_body_get_shrinking_factor(const RID &p_body) const;
 	virtual void _soft_body_set_pressure_coefficient(const RID &p_body, float p_pressure_coefficient);
 	virtual float _soft_body_get_pressure_coefficient(const RID &p_body) const;
 	virtual void _soft_body_set_damping_coefficient(const RID &p_body, float p_damping_coefficient);
@@ -206,6 +208,10 @@ public:
 	virtual void _soft_body_remove_all_pinned_points(const RID &p_body);
 	virtual void _soft_body_pin_point(const RID &p_body, int32_t p_point_index, bool p_pin);
 	virtual bool _soft_body_is_point_pinned(const RID &p_body, int32_t p_point_index) const;
+	virtual void _soft_body_apply_point_impulse(const RID &p_body, int32_t p_point_index, const Vector3 &p_impulse);
+	virtual void _soft_body_apply_point_force(const RID &p_body, int32_t p_point_index, const Vector3 &p_force);
+	virtual void _soft_body_apply_central_impulse(const RID &p_body, const Vector3 &p_impulse);
+	virtual void _soft_body_apply_central_force(const RID &p_body, const Vector3 &p_force);
 	virtual RID _joint_create();
 	virtual void _joint_clear(const RID &p_joint);
 	virtual void _joint_make_pin(const RID &p_joint, const RID &p_body_A, const Vector3 &p_local_A, const RID &p_body_B, const Vector3 &p_local_B);
@@ -654,6 +660,12 @@ protected:
 		if constexpr (!std::is_same_v<decltype(&B::_soft_body_get_linear_stiffness), decltype(&T::_soft_body_get_linear_stiffness)>) {
 			BIND_VIRTUAL_METHOD(T, _soft_body_get_linear_stiffness, 866169185);
 		}
+		if constexpr (!std::is_same_v<decltype(&B::_soft_body_set_shrinking_factor), decltype(&T::_soft_body_set_shrinking_factor)>) {
+			BIND_VIRTUAL_METHOD(T, _soft_body_set_shrinking_factor, 1794382983);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_soft_body_get_shrinking_factor), decltype(&T::_soft_body_get_shrinking_factor)>) {
+			BIND_VIRTUAL_METHOD(T, _soft_body_get_shrinking_factor, 866169185);
+		}
 		if constexpr (!std::is_same_v<decltype(&B::_soft_body_set_pressure_coefficient), decltype(&T::_soft_body_set_pressure_coefficient)>) {
 			BIND_VIRTUAL_METHOD(T, _soft_body_set_pressure_coefficient, 1794382983);
 		}
@@ -692,6 +704,18 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_soft_body_is_point_pinned), decltype(&T::_soft_body_is_point_pinned)>) {
 			BIND_VIRTUAL_METHOD(T, _soft_body_is_point_pinned, 3120086654);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_soft_body_apply_point_impulse), decltype(&T::_soft_body_apply_point_impulse)>) {
+			BIND_VIRTUAL_METHOD(T, _soft_body_apply_point_impulse, 831953689);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_soft_body_apply_point_force), decltype(&T::_soft_body_apply_point_force)>) {
+			BIND_VIRTUAL_METHOD(T, _soft_body_apply_point_force, 831953689);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_soft_body_apply_central_impulse), decltype(&T::_soft_body_apply_central_impulse)>) {
+			BIND_VIRTUAL_METHOD(T, _soft_body_apply_central_impulse, 3227306858);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_soft_body_apply_central_force), decltype(&T::_soft_body_apply_central_force)>) {
+			BIND_VIRTUAL_METHOD(T, _soft_body_apply_central_force, 3227306858);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_joint_create), decltype(&T::_joint_create)>) {
 			BIND_VIRTUAL_METHOD(T, _joint_create, 529393457);

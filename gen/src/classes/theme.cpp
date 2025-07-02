@@ -455,6 +455,12 @@ void Theme::remove_type(const StringName &p_theme_type) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_theme_type);
 }
 
+void Theme::rename_type(const StringName &p_old_theme_type, const StringName &p_theme_type) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Theme::get_class_static()._native_ptr(), StringName("rename_type")._native_ptr(), 3740211285);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_old_theme_type, &p_theme_type);
+}
+
 PackedStringArray Theme::get_type_list() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Theme::get_class_static()._native_ptr(), StringName("get_type_list")._native_ptr(), 1139954409);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));

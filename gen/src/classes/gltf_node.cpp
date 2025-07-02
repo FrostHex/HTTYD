@@ -219,6 +219,20 @@ void GLTFNode::set_light(int32_t p_light) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_light_encoded);
 }
 
+bool GLTFNode::get_visible() {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFNode::get_class_static()._native_ptr(), StringName("get_visible")._native_ptr(), 2240911060);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void GLTFNode::set_visible(bool p_visible) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFNode::get_class_static()._native_ptr(), StringName("set_visible")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_visible_encoded;
+	PtrToArg<bool>::encode(p_visible, &p_visible_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_visible_encoded);
+}
+
 Variant GLTFNode::get_additional_data(const StringName &p_extension_name) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFNode::get_class_static()._native_ptr(), StringName("get_additional_data")._native_ptr(), 2138907829);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));

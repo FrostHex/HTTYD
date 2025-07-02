@@ -157,6 +157,20 @@ bool TextEdit::is_indent_wrapped_lines() const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+void TextEdit::set_tab_input_mode(bool p_enabled) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("set_tab_input_mode")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+}
+
+bool TextEdit::get_tab_input_mode() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("get_tab_input_mode")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 void TextEdit::set_overtype_mode_enabled(bool p_enabled) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("set_overtype_mode_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -199,6 +213,20 @@ bool TextEdit::is_emoji_menu_enabled() const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+void TextEdit::set_backspace_deletes_composite_character_enabled(bool p_enable) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("set_backspace_deletes_composite_character_enabled")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enable_encoded;
+	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+}
+
+bool TextEdit::is_backspace_deletes_composite_character_enabled() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("is_backspace_deletes_composite_character_enabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 void TextEdit::set_shortcut_keys_enabled(bool p_enabled) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("set_shortcut_keys_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -223,6 +251,20 @@ void TextEdit::set_virtual_keyboard_enabled(bool p_enabled) {
 
 bool TextEdit::is_virtual_keyboard_enabled() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("is_virtual_keyboard_enabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void TextEdit::set_virtual_keyboard_show_on_focus(bool p_show_on_focus) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("set_virtual_keyboard_show_on_focus")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_show_on_focus_encoded;
+	PtrToArg<bool>::encode(p_show_on_focus, &p_show_on_focus_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_show_on_focus_encoded);
+}
+
+bool TextEdit::get_virtual_keyboard_show_on_focus() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("get_virtual_keyboard_show_on_focus")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
@@ -899,6 +941,26 @@ int32_t TextEdit::get_caret_column(int32_t p_caret_index) const {
 	int64_t p_caret_index_encoded;
 	PtrToArg<int64_t>::encode(p_caret_index, &p_caret_index_encoded);
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_caret_index_encoded);
+}
+
+int32_t TextEdit::get_next_composite_character_column(int32_t p_line, int32_t p_column) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("get_next_composite_character_column")._native_ptr(), 3175239445);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_line_encoded;
+	PtrToArg<int64_t>::encode(p_line, &p_line_encoded);
+	int64_t p_column_encoded;
+	PtrToArg<int64_t>::encode(p_column, &p_column_encoded);
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_line_encoded, &p_column_encoded);
+}
+
+int32_t TextEdit::get_previous_composite_character_column(int32_t p_line, int32_t p_column) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("get_previous_composite_character_column")._native_ptr(), 3175239445);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_line_encoded;
+	PtrToArg<int64_t>::encode(p_line, &p_line_encoded);
+	int64_t p_column_encoded;
+	PtrToArg<int64_t>::encode(p_column, &p_column_encoded);
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_line_encoded, &p_column_encoded);
 }
 
 int32_t TextEdit::get_caret_wrap_index(int32_t p_caret_index) const {

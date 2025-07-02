@@ -87,6 +87,12 @@ public:
 		XR_ENV_BLEND_MODE_ALPHA_BLEND = 2,
 	};
 
+	enum VRSTextureFormat {
+		XR_VRS_TEXTURE_FORMAT_UNIFIED = 0,
+		XR_VRS_TEXTURE_FORMAT_FRAGMENT_SHADING_RATE = 1,
+		XR_VRS_TEXTURE_FORMAT_FRAGMENT_DENSITY_MAP = 2,
+	};
+
 	StringName get_name() const;
 	uint32_t get_capabilities() const;
 	bool is_primary();
@@ -131,4 +137,5 @@ VARIANT_ENUM_CAST(XRInterface::Capabilities);
 VARIANT_ENUM_CAST(XRInterface::TrackingStatus);
 VARIANT_ENUM_CAST(XRInterface::PlayAreaMode);
 VARIANT_ENUM_CAST(XRInterface::EnvironmentBlendMode);
+VARIANT_ENUM_CAST(XRInterface::VRSTextureFormat);
 

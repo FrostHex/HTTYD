@@ -47,7 +47,6 @@
 #include <godot_cpp/classes/window.hpp>
 #include <godot_cpp/classes/world2d.hpp>
 #include <godot_cpp/classes/world3d.hpp>
-#include <godot_cpp/variant/string.hpp>
 
 namespace godot {
 
@@ -243,6 +242,40 @@ Viewport::DebugDraw Viewport::get_debug_draw() const {
 	return (Viewport::DebugDraw)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+void Viewport::set_use_oversampling(bool p_enable) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Viewport::get_class_static()._native_ptr(), StringName("set_use_oversampling")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enable_encoded;
+	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+}
+
+bool Viewport::is_using_oversampling() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Viewport::get_class_static()._native_ptr(), StringName("is_using_oversampling")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void Viewport::set_oversampling_override(float p_oversampling) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Viewport::get_class_static()._native_ptr(), StringName("set_oversampling_override")._native_ptr(), 373806689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_oversampling_encoded;
+	PtrToArg<double>::encode(p_oversampling, &p_oversampling_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_oversampling_encoded);
+}
+
+float Viewport::get_oversampling_override() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Viewport::get_class_static()._native_ptr(), StringName("get_oversampling_override")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+float Viewport::get_oversampling() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Viewport::get_class_static()._native_ptr(), StringName("get_oversampling")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
 int32_t Viewport::get_render_info(Viewport::RenderInfoType p_type, Viewport::RenderInfo p_info) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Viewport::get_class_static()._native_ptr(), StringName("get_render_info")._native_ptr(), 481977019);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
@@ -369,6 +402,18 @@ Variant Viewport::gui_get_drag_data() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Viewport::get_class_static()._native_ptr(), StringName("gui_get_drag_data")._native_ptr(), 1214101251);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
 	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner);
+}
+
+String Viewport::gui_get_drag_description() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Viewport::get_class_static()._native_ptr(), StringName("gui_get_drag_description")._native_ptr(), 201670096);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+}
+
+void Viewport::gui_set_drag_description(const String &p_description) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Viewport::get_class_static()._native_ptr(), StringName("gui_set_drag_description")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_description);
 }
 
 bool Viewport::gui_is_dragging() const {

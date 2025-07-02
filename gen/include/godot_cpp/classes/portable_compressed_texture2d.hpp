@@ -64,6 +64,7 @@ public:
 	Vector2 get_size_override() const;
 	void set_keep_compressed_buffer(bool p_keep);
 	bool is_keeping_compressed_buffer() const;
+	void set_basisu_compressor_params(int32_t p_uastc_level, float p_rdo_quality_loss);
 	static void set_keep_all_compressed_buffers(bool p_keep);
 	static bool is_keeping_all_compressed_buffers();
 

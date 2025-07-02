@@ -78,6 +78,8 @@ public:
 	float get_total_mass();
 	void set_linear_stiffness(float p_linear_stiffness);
 	float get_linear_stiffness();
+	void set_shrinking_factor(float p_shrinking_factor);
+	float get_shrinking_factor();
 	void set_pressure_coefficient(float p_pressure_coefficient);
 	float get_pressure_coefficient();
 	void set_damping_coefficient(float p_damping_coefficient);
@@ -85,6 +87,10 @@ public:
 	void set_drag_coefficient(float p_drag_coefficient);
 	float get_drag_coefficient();
 	Vector3 get_point_transform(int32_t p_point_index);
+	void apply_impulse(int32_t p_point_index, const Vector3 &p_impulse);
+	void apply_force(int32_t p_point_index, const Vector3 &p_force);
+	void apply_central_impulse(const Vector3 &p_impulse);
+	void apply_central_force(const Vector3 &p_force);
 	void set_point_pinned(int32_t p_point_index, bool p_pinned, const NodePath &p_attachment_path = NodePath(""), int32_t p_insert_at = -1);
 	bool is_point_pinned(int32_t p_point_index) const;
 	void set_ray_pickable(bool p_ray_pickable);

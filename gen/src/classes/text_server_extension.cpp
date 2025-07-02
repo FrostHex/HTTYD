@@ -202,6 +202,8 @@ bool TextServerExtension::_font_is_allow_system_fallback(const RID &p_font_rid) 
 	return false;
 }
 
+void TextServerExtension::_font_clear_system_fallback_cache() {}
+
 void TextServerExtension::_font_set_force_autohinter(const RID &p_font_rid, bool p_force_autohinter) {}
 
 bool TextServerExtension::_font_is_force_autohinter(const RID &p_font_rid) const {
@@ -275,6 +277,10 @@ TypedArray<Vector2i> TextServerExtension::_font_get_size_cache_list(const RID &p
 void TextServerExtension::_font_clear_size_cache(const RID &p_font_rid) {}
 
 void TextServerExtension::_font_remove_size_cache(const RID &p_font_rid, const Vector2i &p_size) {}
+
+TypedArray<Dictionary> TextServerExtension::_font_get_size_cache_info(const RID &p_font_rid) const {
+	return TypedArray<Dictionary>();
+}
 
 void TextServerExtension::_font_set_ascent(const RID &p_font_rid, int64_t p_size, double p_ascent) {}
 
@@ -414,9 +420,9 @@ void TextServerExtension::_font_render_range(const RID &p_font_rid, const Vector
 
 void TextServerExtension::_font_render_glyph(const RID &p_font_rid, const Vector2i &p_size, int64_t p_index) {}
 
-void TextServerExtension::_font_draw_glyph(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color) const {}
+void TextServerExtension::_font_draw_glyph(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color, float p_oversampling) const {}
 
-void TextServerExtension::_font_draw_glyph_outline(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, int64_t p_outline_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color) const {}
+void TextServerExtension::_font_draw_glyph_outline(const RID &p_font_rid, const RID &p_canvas, int64_t p_size, int64_t p_outline_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color, float p_oversampling) const {}
 
 bool TextServerExtension::_font_is_language_supported(const RID &p_font_rid, const String &p_language) const {
 	return false;
@@ -469,6 +475,10 @@ double TextServerExtension::_font_get_global_oversampling() const {
 }
 
 void TextServerExtension::_font_set_global_oversampling(double p_oversampling) {}
+
+void TextServerExtension::_reference_oversampling_level(double p_oversampling) {}
+
+void TextServerExtension::_unreference_oversampling_level(double p_oversampling) {}
 
 Vector2 TextServerExtension::_get_hex_code_box_size(int64_t p_size, int64_t p_index) const {
 	return Vector2();
@@ -542,6 +552,10 @@ bool TextServerExtension::_shaped_text_resize_object(const RID &p_shaped, const 
 	return false;
 }
 
+String TextServerExtension::_shaped_get_text(const RID &p_shaped) const {
+	return String();
+}
+
 int64_t TextServerExtension::_shaped_get_span_count(const RID &p_shaped) const {
 	return 0;
 }
@@ -554,7 +568,47 @@ Variant TextServerExtension::_shaped_get_span_embedded_object(const RID &p_shape
 	return Variant();
 }
 
+String TextServerExtension::_shaped_get_span_text(const RID &p_shaped, int64_t p_index) const {
+	return String();
+}
+
+Variant TextServerExtension::_shaped_get_span_object(const RID &p_shaped, int64_t p_index) const {
+	return Variant();
+}
+
 void TextServerExtension::_shaped_set_span_update_font(const RID &p_shaped, int64_t p_index, const TypedArray<RID> &p_fonts, int64_t p_size, const Dictionary &p_opentype_features) {}
+
+int64_t TextServerExtension::_shaped_get_run_count(const RID &p_shaped) const {
+	return 0;
+}
+
+String TextServerExtension::_shaped_get_run_text(const RID &p_shaped, int64_t p_index) const {
+	return String();
+}
+
+Vector2i TextServerExtension::_shaped_get_run_range(const RID &p_shaped, int64_t p_index) const {
+	return Vector2i();
+}
+
+RID TextServerExtension::_shaped_get_run_font_rid(const RID &p_shaped, int64_t p_index) const {
+	return RID();
+}
+
+int32_t TextServerExtension::_shaped_get_run_font_size(const RID &p_shaped, int64_t p_index) const {
+	return 0;
+}
+
+String TextServerExtension::_shaped_get_run_language(const RID &p_shaped, int64_t p_index) const {
+	return String();
+}
+
+TextServer::Direction TextServerExtension::_shaped_get_run_direction(const RID &p_shaped, int64_t p_index) const {
+	return TextServer::Direction(0);
+}
+
+Variant TextServerExtension::_shaped_get_run_object(const RID &p_shaped, int64_t p_index) const {
+	return Variant();
+}
 
 RID TextServerExtension::_shaped_text_substr(const RID &p_shaped, int64_t p_start, int64_t p_length) const {
 	return RID();
@@ -692,9 +746,9 @@ int64_t TextServerExtension::_shaped_text_hit_test_position(const RID &p_shaped,
 	return 0;
 }
 
-void TextServerExtension::_shaped_text_draw(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, const Color &p_color) const {}
+void TextServerExtension::_shaped_text_draw(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, const Color &p_color, float p_oversampling) const {}
 
-void TextServerExtension::_shaped_text_draw_outline(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, int64_t p_outline_size, const Color &p_color) const {}
+void TextServerExtension::_shaped_text_draw_outline(const RID &p_shaped, const RID &p_canvas, const Vector2 &p_pos, double p_clip_l, double p_clip_r, int64_t p_outline_size, const Color &p_color, float p_oversampling) const {}
 
 Vector2 TextServerExtension::_shaped_text_get_grapheme_bounds(const RID &p_shaped, int64_t p_pos) const {
 	return Vector2();

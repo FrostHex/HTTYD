@@ -37,7 +37,6 @@
 #include <godot_cpp/core/error_macros.hpp>
 
 #include <godot_cpp/classes/animation_node.hpp>
-#include <godot_cpp/variant/string_name.hpp>
 
 namespace godot {
 
@@ -85,6 +84,12 @@ void AnimationNodeBlendTree::disconnect_node(const StringName &p_input_node, int
 	int64_t p_input_index_encoded;
 	PtrToArg<int64_t>::encode(p_input_index, &p_input_index_encoded);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_input_node, &p_input_index_encoded);
+}
+
+TypedArray<StringName> AnimationNodeBlendTree::get_node_list() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeBlendTree::get_class_static()._native_ptr(), StringName("get_node_list")._native_ptr(), 3995934104);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<StringName>()));
+	return internal::_call_native_mb_ret<TypedArray<StringName>>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeBlendTree::set_node_position(const StringName &p_name, const Vector2 &p_position) {

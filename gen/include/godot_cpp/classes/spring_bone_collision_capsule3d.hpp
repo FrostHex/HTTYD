@@ -48,6 +48,8 @@ public:
 	float get_radius() const;
 	void set_height(float p_height);
 	float get_height() const;
+	void set_mid_height(float p_mid_height);
+	float get_mid_height() const;
 	void set_inside(bool p_enabled);
 	bool is_inside() const;
 

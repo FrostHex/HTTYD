@@ -55,6 +55,7 @@ public:
 		TEXTURE_ROUGHNESS = 2,
 		TEXTURE_EMISSION = 3,
 		TEXTURE_NORMAL = 4,
+		TEXTURE_BENT_NORMAL = 18,
 		TEXTURE_RIM = 5,
 		TEXTURE_CLEARCOAT = 6,
 		TEXTURE_FLOWMAP = 7,
@@ -68,7 +69,7 @@ public:
 		TEXTURE_DETAIL_ALBEDO = 15,
 		TEXTURE_DETAIL_NORMAL = 16,
 		TEXTURE_ORM = 17,
-		TEXTURE_MAX = 18,
+		TEXTURE_MAX = 19,
 	};
 
 	enum TextureFilter {
@@ -115,7 +116,8 @@ public:
 		FEATURE_BACKLIGHT = 9,
 		FEATURE_REFRACTION = 10,
 		FEATURE_DETAIL = 11,
-		FEATURE_MAX = 12,
+		FEATURE_BENT_NORMAL_MAPPING = 12,
+		FEATURE_MAX = 13,
 	};
 
 	enum BlendMode {
@@ -136,6 +138,11 @@ public:
 		DEPTH_DRAW_OPAQUE_ONLY = 0,
 		DEPTH_DRAW_ALWAYS = 1,
 		DEPTH_DRAW_DISABLED = 2,
+	};
+
+	enum DepthTest {
+		DEPTH_TEST_DEFAULT = 0,
+		DEPTH_TEST_INVERTED = 1,
 	};
 
 	enum CullMode {
@@ -167,7 +174,10 @@ public:
 		FLAG_PARTICLE_TRAILS_MODE = 19,
 		FLAG_ALBEDO_TEXTURE_MSDF = 20,
 		FLAG_DISABLE_FOG = 21,
-		FLAG_MAX = 22,
+		FLAG_DISABLE_SPECULAR_OCCLUSION = 22,
+		FLAG_USE_Z_CLIP_SCALE = 23,
+		FLAG_USE_FOV_OVERRIDE = 24,
+		FLAG_MAX = 25,
 	};
 
 	enum DiffuseMode {
@@ -208,6 +218,29 @@ public:
 		DISTANCE_FADE_PIXEL_ALPHA = 1,
 		DISTANCE_FADE_PIXEL_DITHER = 2,
 		DISTANCE_FADE_OBJECT_DITHER = 3,
+	};
+
+	enum StencilMode {
+		STENCIL_MODE_DISABLED = 0,
+		STENCIL_MODE_OUTLINE = 1,
+		STENCIL_MODE_XRAY = 2,
+		STENCIL_MODE_CUSTOM = 3,
+	};
+
+	enum StencilFlags {
+		STENCIL_FLAG_READ = 1,
+		STENCIL_FLAG_WRITE = 2,
+		STENCIL_FLAG_WRITE_DEPTH_FAIL = 4,
+	};
+
+	enum StencilCompare {
+		STENCIL_COMPARE_ALWAYS = 0,
+		STENCIL_COMPARE_LESS = 1,
+		STENCIL_COMPARE_EQUAL = 2,
+		STENCIL_COMPARE_LESS_OR_EQUAL = 3,
+		STENCIL_COMPARE_GREATER = 4,
+		STENCIL_COMPARE_NOT_EQUAL = 5,
+		STENCIL_COMPARE_GREATER_OR_EQUAL = 6,
 	};
 
 	void set_albedo(const Color &p_albedo);
@@ -266,6 +299,8 @@ public:
 	BaseMaterial3D::BlendMode get_blend_mode() const;
 	void set_depth_draw_mode(BaseMaterial3D::DepthDrawMode p_depth_draw_mode);
 	BaseMaterial3D::DepthDrawMode get_depth_draw_mode() const;
+	void set_depth_test(BaseMaterial3D::DepthTest p_depth_test);
+	BaseMaterial3D::DepthTest get_depth_test() const;
 	void set_cull_mode(BaseMaterial3D::CullMode p_cull_mode);
 	BaseMaterial3D::CullMode get_cull_mode() const;
 	void set_diffuse_mode(BaseMaterial3D::DiffuseMode p_diffuse_mode);
@@ -346,6 +381,22 @@ public:
 	float get_distance_fade_max_distance() const;
 	void set_distance_fade_min_distance(float p_distance);
 	float get_distance_fade_min_distance() const;
+	void set_z_clip_scale(float p_scale);
+	float get_z_clip_scale() const;
+	void set_fov_override(float p_scale);
+	float get_fov_override() const;
+	void set_stencil_mode(BaseMaterial3D::StencilMode p_stencil_mode);
+	BaseMaterial3D::StencilMode get_stencil_mode() const;
+	void set_stencil_flags(int32_t p_stencil_flags);
+	int32_t get_stencil_flags() const;
+	void set_stencil_compare(BaseMaterial3D::StencilCompare p_stencil_compare);
+	BaseMaterial3D::StencilCompare get_stencil_compare() const;
+	void set_stencil_reference(int32_t p_stencil_reference);
+	int32_t get_stencil_reference() const;
+	void set_stencil_effect_color(const Color &p_stencil_color);
+	Color get_stencil_effect_color() const;
+	void set_stencil_effect_outline_thickness(float p_stencil_outline_thickness);
+	float get_stencil_effect_outline_thickness() const;
 
 protected:
 	template <typename T, typename B>
@@ -367,6 +418,7 @@ VARIANT_ENUM_CAST(BaseMaterial3D::Feature);
 VARIANT_ENUM_CAST(BaseMaterial3D::BlendMode);
 VARIANT_ENUM_CAST(BaseMaterial3D::AlphaAntiAliasing);
 VARIANT_ENUM_CAST(BaseMaterial3D::DepthDrawMode);
+VARIANT_ENUM_CAST(BaseMaterial3D::DepthTest);
 VARIANT_ENUM_CAST(BaseMaterial3D::CullMode);
 VARIANT_ENUM_CAST(BaseMaterial3D::Flags);
 VARIANT_ENUM_CAST(BaseMaterial3D::DiffuseMode);
@@ -375,4 +427,7 @@ VARIANT_ENUM_CAST(BaseMaterial3D::BillboardMode);
 VARIANT_ENUM_CAST(BaseMaterial3D::TextureChannel);
 VARIANT_ENUM_CAST(BaseMaterial3D::EmissionOperator);
 VARIANT_ENUM_CAST(BaseMaterial3D::DistanceFadeMode);
+VARIANT_ENUM_CAST(BaseMaterial3D::StencilMode);
+VARIANT_ENUM_CAST(BaseMaterial3D::StencilFlags);
+VARIANT_ENUM_CAST(BaseMaterial3D::StencilCompare);
 

@@ -84,6 +84,12 @@ int64_t ResourceUID::create_id() {
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+int64_t ResourceUID::create_id_for_path(const String &p_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceUID::get_class_static()._native_ptr(), StringName("create_id_for_path")._native_ptr(), 1597066294);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path);
+}
+
 bool ResourceUID::has_id(int64_t p_id) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceUID::get_class_static()._native_ptr(), StringName("has_id")._native_ptr(), 1116898809);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
@@ -122,6 +128,24 @@ void ResourceUID::remove_id(int64_t p_id) {
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_id_encoded);
+}
+
+String ResourceUID::uid_to_path(const String &p_uid) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceUID::get_class_static()._native_ptr(), StringName("uid_to_path")._native_ptr(), 1703090593);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, nullptr, &p_uid);
+}
+
+String ResourceUID::path_to_uid(const String &p_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceUID::get_class_static()._native_ptr(), StringName("path_to_uid")._native_ptr(), 1703090593);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, nullptr, &p_path);
+}
+
+String ResourceUID::ensure_path(const String &p_path_or_uid) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceUID::get_class_static()._native_ptr(), StringName("ensure_path")._native_ptr(), 1703090593);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, nullptr, &p_path_or_uid);
 }
 
 } // namespace godot

@@ -55,6 +55,7 @@ public:
 	PackedStringArray get_files();
 	PackedByteArray read_file(const String &p_path, bool p_case_sensitive = true);
 	bool file_exists(const String &p_path, bool p_case_sensitive = true);
+	int32_t get_compression_level(const String &p_path, bool p_case_sensitive = true);
 
 protected:
 	template <typename T, typename B>

@@ -66,6 +66,20 @@ void Slider::set_ticks_on_borders(bool p_ticks_on_border) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_ticks_on_border_encoded);
 }
 
+Slider::TickPosition Slider::get_ticks_position() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Slider::get_class_static()._native_ptr(), StringName("get_ticks_position")._native_ptr(), 3567635531);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Slider::TickPosition(0)));
+	return (Slider::TickPosition)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void Slider::set_ticks_position(Slider::TickPosition p_ticks_on_border) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Slider::get_class_static()._native_ptr(), StringName("set_ticks_position")._native_ptr(), 2952822224);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_ticks_on_border_encoded;
+	PtrToArg<int64_t>::encode(p_ticks_on_border, &p_ticks_on_border_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_ticks_on_border_encoded);
+}
+
 void Slider::set_editable(bool p_editable) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Slider::get_class_static()._native_ptr(), StringName("set_editable")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);

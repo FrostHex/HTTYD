@@ -63,6 +63,7 @@ public:
 	virtual bool _is_monophonic() const;
 	virtual double _get_bpm() const;
 	virtual int32_t _get_beat_count() const;
+	virtual Dictionary _get_tags() const;
 	virtual TypedArray<Dictionary> _get_parameter_list() const;
 	virtual bool _has_loop() const;
 	virtual int32_t _get_bar_beats() const;
@@ -88,6 +89,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_beat_count), decltype(&T::_get_beat_count)>) {
 			BIND_VIRTUAL_METHOD(T, _get_beat_count, 3905245786);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_get_tags), decltype(&T::_get_tags)>) {
+			BIND_VIRTUAL_METHOD(T, _get_tags, 3102165223);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_parameter_list), decltype(&T::_get_parameter_list)>) {
 			BIND_VIRTUAL_METHOD(T, _get_parameter_list, 3995934104);

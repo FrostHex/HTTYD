@@ -62,6 +62,8 @@ public:
 	float get_influence() const;
 	virtual void _process_modification_with_delta(double p_delta);
 	virtual void _process_modification();
+	virtual void _skeleton_changed(Skeleton3D *p_old_skeleton, Skeleton3D *p_new_skeleton);
+	virtual void _validate_bone_names();
 
 protected:
 	template <typename T, typename B>
@@ -72,6 +74,12 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_process_modification), decltype(&T::_process_modification)>) {
 			BIND_VIRTUAL_METHOD(T, _process_modification, 3218959716);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_skeleton_changed), decltype(&T::_skeleton_changed)>) {
+			BIND_VIRTUAL_METHOD(T, _skeleton_changed, 2926744397);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_validate_bone_names), decltype(&T::_validate_bone_names)>) {
+			BIND_VIRTUAL_METHOD(T, _validate_bone_names, 3218959716);
 		}
 	}
 

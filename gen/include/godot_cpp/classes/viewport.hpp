@@ -36,6 +36,7 @@
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/variant/rect2.hpp>
 #include <godot_cpp/variant/rid.hpp>
+#include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/transform2d.hpp>
 #include <godot_cpp/variant/typed_array.hpp>
 #include <godot_cpp/variant/variant.hpp>
@@ -53,7 +54,6 @@ class Camera2D;
 class Camera3D;
 class Control;
 class InputEvent;
-class String;
 class Texture2D;
 class ViewportTexture;
 class Window;
@@ -104,7 +104,8 @@ public:
 	enum ScreenSpaceAA {
 		SCREEN_SPACE_AA_DISABLED = 0,
 		SCREEN_SPACE_AA_FXAA = 1,
-		SCREEN_SPACE_AA_MAX = 2,
+		SCREEN_SPACE_AA_SMAA = 2,
+		SCREEN_SPACE_AA_MAX = 3,
 	};
 
 	enum RenderInfo {
@@ -224,6 +225,11 @@ public:
 	bool is_using_occlusion_culling() const;
 	void set_debug_draw(Viewport::DebugDraw p_debug_draw);
 	Viewport::DebugDraw get_debug_draw() const;
+	void set_use_oversampling(bool p_enable);
+	bool is_using_oversampling() const;
+	void set_oversampling_override(float p_oversampling);
+	float get_oversampling_override() const;
+	float get_oversampling() const;
 	int32_t get_render_info(Viewport::RenderInfoType p_type, Viewport::RenderInfo p_info);
 	Ref<ViewportTexture> get_texture() const;
 	void set_physics_object_picking(bool p_enable);
@@ -243,6 +249,8 @@ public:
 	void update_mouse_cursor_state();
 	void gui_cancel_drag();
 	Variant gui_get_drag_data() const;
+	String gui_get_drag_description() const;
+	void gui_set_drag_description(const String &p_description);
 	bool gui_is_dragging() const;
 	bool gui_is_drag_successful() const;
 	void gui_release_focus();

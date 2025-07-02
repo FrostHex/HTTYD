@@ -104,6 +104,8 @@ public:
 	void ensure_tab_visible(int32_t p_idx);
 	Rect2 get_tab_rect(int32_t p_tab_idx) const;
 	void move_tab(int32_t p_from, int32_t p_to);
+	void set_close_with_middle_mouse(bool p_enabled);
+	bool get_close_with_middle_mouse() const;
 	void set_tab_close_display_policy(TabBar::CloseButtonDisplayPolicy p_policy);
 	TabBar::CloseButtonDisplayPolicy get_tab_close_display_policy() const;
 	void set_max_tab_width(int32_t p_width);

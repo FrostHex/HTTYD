@@ -90,6 +90,12 @@ Error WorkerThreadPool::wait_for_task_completion(int64_t p_task_id) {
 	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_task_id_encoded);
 }
 
+int64_t WorkerThreadPool::get_caller_task_id() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorkerThreadPool::get_class_static()._native_ptr(), StringName("get_caller_task_id")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 int64_t WorkerThreadPool::add_group_task(const Callable &p_action, int32_t p_elements, int32_t p_tasks_needed, bool p_high_priority, const String &p_description) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorkerThreadPool::get_class_static()._native_ptr(), StringName("add_group_task")._native_ptr(), 1801953219);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
@@ -124,6 +130,12 @@ void WorkerThreadPool::wait_for_group_task_completion(int64_t p_group_id) {
 	int64_t p_group_id_encoded;
 	PtrToArg<int64_t>::encode(p_group_id, &p_group_id_encoded);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_group_id_encoded);
+}
+
+int64_t WorkerThreadPool::get_caller_group_id() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorkerThreadPool::get_class_static()._native_ptr(), StringName("get_caller_group_id")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

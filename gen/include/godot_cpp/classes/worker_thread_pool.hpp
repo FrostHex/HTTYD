@@ -55,10 +55,12 @@ public:
 	int64_t add_task(const Callable &p_action, bool p_high_priority = false, const String &p_description = String());
 	bool is_task_completed(int64_t p_task_id) const;
 	Error wait_for_task_completion(int64_t p_task_id);
+	int64_t get_caller_task_id() const;
 	int64_t add_group_task(const Callable &p_action, int32_t p_elements, int32_t p_tasks_needed = -1, bool p_high_priority = false, const String &p_description = String());
 	bool is_group_task_completed(int64_t p_group_id) const;
 	uint32_t get_group_processed_element_count(int64_t p_group_id) const;
 	void wait_for_group_task_completion(int64_t p_group_id);
+	int64_t get_caller_group_id() const;
 
 protected:
 	template <typename T, typename B>

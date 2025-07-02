@@ -64,6 +64,21 @@ public:
 		ACCESS_FILESYSTEM = 2,
 	};
 
+	enum DisplayMode {
+		DISPLAY_THUMBNAILS = 0,
+		DISPLAY_LIST = 1,
+	};
+
+	enum Customization {
+		CUSTOMIZATION_HIDDEN_FILES = 0,
+		CUSTOMIZATION_CREATE_FOLDER = 1,
+		CUSTOMIZATION_FILE_FILTER = 2,
+		CUSTOMIZATION_FILE_SORT = 3,
+		CUSTOMIZATION_FAVORITES = 4,
+		CUSTOMIZATION_RECENT = 5,
+		CUSTOMIZATION_LAYOUT = 6,
+	};
+
 	void clear_filters();
 	void add_filter(const String &p_filter, const String &p_description = String());
 	void set_filters(const PackedStringArray &p_filters);
@@ -91,6 +106,8 @@ public:
 	bool is_mode_overriding_title() const;
 	void set_file_mode(FileDialog::FileMode p_mode);
 	FileDialog::FileMode get_file_mode() const;
+	void set_display_mode(FileDialog::DisplayMode p_mode);
+	FileDialog::DisplayMode get_display_mode() const;
 	VBoxContainer *get_vbox();
 	LineEdit *get_line_edit();
 	void set_access(FileDialog::Access p_access);
@@ -101,6 +118,8 @@ public:
 	bool is_showing_hidden_files() const;
 	void set_use_native_dialog(bool p_native);
 	bool get_use_native_dialog() const;
+	void set_customization_flag_enabled(FileDialog::Customization p_flag, bool p_enabled);
+	bool is_customization_flag_enabled(FileDialog::Customization p_flag) const;
 	void deselect_all();
 	void invalidate();
 
@@ -117,4 +136,6 @@ public:
 
 VARIANT_ENUM_CAST(FileDialog::FileMode);
 VARIANT_ENUM_CAST(FileDialog::Access);
+VARIANT_ENUM_CAST(FileDialog::DisplayMode);
+VARIANT_ENUM_CAST(FileDialog::Customization);
 

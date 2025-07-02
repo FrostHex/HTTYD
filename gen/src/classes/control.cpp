@@ -327,24 +327,24 @@ Control::FocusMode Control::get_focus_mode() const {
 	return (Control::FocusMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-Control::FocusMode Control::get_focus_mode_with_recursive() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_focus_mode_with_recursive")._native_ptr(), 2132829277);
+Control::FocusMode Control::get_focus_mode_with_override() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_focus_mode_with_override")._native_ptr(), 2132829277);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Control::FocusMode(0)));
 	return (Control::FocusMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-void Control::set_focus_recursive_behavior(Control::RecursiveBehavior p_focus_recursive_behavior) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_focus_recursive_behavior")._native_ptr(), 1478462572);
+void Control::set_focus_behavior_recursive(Control::FocusBehaviorRecursive p_focus_behavior_recursive) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_focus_behavior_recursive")._native_ptr(), 4256832521);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	int64_t p_focus_recursive_behavior_encoded;
-	PtrToArg<int64_t>::encode(p_focus_recursive_behavior, &p_focus_recursive_behavior_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_focus_recursive_behavior_encoded);
+	int64_t p_focus_behavior_recursive_encoded;
+	PtrToArg<int64_t>::encode(p_focus_behavior_recursive, &p_focus_behavior_recursive_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_focus_behavior_recursive_encoded);
 }
 
-Control::RecursiveBehavior Control::get_focus_recursive_behavior() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_focus_recursive_behavior")._native_ptr(), 2347495201);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (Control::RecursiveBehavior(0)));
-	return (Control::RecursiveBehavior)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+Control::FocusBehaviorRecursive Control::get_focus_behavior_recursive() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_focus_behavior_recursive")._native_ptr(), 2435707181);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Control::FocusBehaviorRecursive(0)));
+	return (Control::FocusBehaviorRecursive)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 bool Control::has_focus() const {
@@ -793,6 +793,104 @@ void Control::force_drag(const Variant &p_data, Control *p_preview) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_data, (p_preview != nullptr ? &p_preview->_owner : nullptr));
 }
 
+void Control::accessibility_drag() {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("accessibility_drag")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
+void Control::accessibility_drop() {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("accessibility_drop")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
+void Control::set_accessibility_name(const String &p_name) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_accessibility_name")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
+}
+
+String Control::get_accessibility_name() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_accessibility_name")._native_ptr(), 201670096);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+}
+
+void Control::set_accessibility_description(const String &p_description) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_accessibility_description")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_description);
+}
+
+String Control::get_accessibility_description() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_accessibility_description")._native_ptr(), 201670096);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+}
+
+void Control::set_accessibility_live(DisplayServer::AccessibilityLiveMode p_mode) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_accessibility_live")._native_ptr(), 1720261470);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_mode_encoded;
+	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+}
+
+DisplayServer::AccessibilityLiveMode Control::get_accessibility_live() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_accessibility_live")._native_ptr(), 3311037003);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (DisplayServer::AccessibilityLiveMode(0)));
+	return (DisplayServer::AccessibilityLiveMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void Control::set_accessibility_controls_nodes(const TypedArray<NodePath> &p_node_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_accessibility_controls_nodes")._native_ptr(), 381264803);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_node_path);
+}
+
+TypedArray<NodePath> Control::get_accessibility_controls_nodes() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_accessibility_controls_nodes")._native_ptr(), 3995934104);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<NodePath>()));
+	return internal::_call_native_mb_ret<TypedArray<NodePath>>(_gde_method_bind, _owner);
+}
+
+void Control::set_accessibility_described_by_nodes(const TypedArray<NodePath> &p_node_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_accessibility_described_by_nodes")._native_ptr(), 381264803);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_node_path);
+}
+
+TypedArray<NodePath> Control::get_accessibility_described_by_nodes() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_accessibility_described_by_nodes")._native_ptr(), 3995934104);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<NodePath>()));
+	return internal::_call_native_mb_ret<TypedArray<NodePath>>(_gde_method_bind, _owner);
+}
+
+void Control::set_accessibility_labeled_by_nodes(const TypedArray<NodePath> &p_node_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_accessibility_labeled_by_nodes")._native_ptr(), 381264803);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_node_path);
+}
+
+TypedArray<NodePath> Control::get_accessibility_labeled_by_nodes() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_accessibility_labeled_by_nodes")._native_ptr(), 3995934104);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<NodePath>()));
+	return internal::_call_native_mb_ret<TypedArray<NodePath>>(_gde_method_bind, _owner);
+}
+
+void Control::set_accessibility_flow_to_nodes(const TypedArray<NodePath> &p_node_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_accessibility_flow_to_nodes")._native_ptr(), 381264803);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_node_path);
+}
+
+TypedArray<NodePath> Control::get_accessibility_flow_to_nodes() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_accessibility_flow_to_nodes")._native_ptr(), 3995934104);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<NodePath>()));
+	return internal::_call_native_mb_ret<TypedArray<NodePath>>(_gde_method_bind, _owner);
+}
+
 void Control::set_mouse_filter(Control::MouseFilter p_filter) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_mouse_filter")._native_ptr(), 3891156122);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -807,24 +905,24 @@ Control::MouseFilter Control::get_mouse_filter() const {
 	return (Control::MouseFilter)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-Control::MouseFilter Control::get_mouse_filter_with_recursive() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_mouse_filter_with_recursive")._native_ptr(), 1572545674);
+Control::MouseFilter Control::get_mouse_filter_with_override() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_mouse_filter_with_override")._native_ptr(), 1572545674);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Control::MouseFilter(0)));
 	return (Control::MouseFilter)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-void Control::set_mouse_recursive_behavior(Control::RecursiveBehavior p_mouse_recursive_behavior) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_mouse_recursive_behavior")._native_ptr(), 1478462572);
+void Control::set_mouse_behavior_recursive(Control::MouseBehaviorRecursive p_mouse_behavior_recursive) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_mouse_behavior_recursive")._native_ptr(), 849284636);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	int64_t p_mouse_recursive_behavior_encoded;
-	PtrToArg<int64_t>::encode(p_mouse_recursive_behavior, &p_mouse_recursive_behavior_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mouse_recursive_behavior_encoded);
+	int64_t p_mouse_behavior_recursive_encoded;
+	PtrToArg<int64_t>::encode(p_mouse_behavior_recursive, &p_mouse_behavior_recursive_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mouse_behavior_recursive_encoded);
 }
 
-Control::RecursiveBehavior Control::get_mouse_recursive_behavior() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_mouse_recursive_behavior")._native_ptr(), 2347495201);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (Control::RecursiveBehavior(0)));
-	return (Control::RecursiveBehavior)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+Control::MouseBehaviorRecursive Control::get_mouse_behavior_recursive() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_mouse_behavior_recursive")._native_ptr(), 3779367402);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Control::MouseBehaviorRecursive(0)));
+	return (Control::MouseBehaviorRecursive)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void Control::set_force_pass_scroll_events(bool p_force_pass_scroll_events) {
@@ -979,6 +1077,14 @@ void Control::_drop_data(const Vector2 &p_at_position, const Variant &p_data) {}
 
 Object *Control::_make_custom_tooltip(const String &p_for_text) const {
 	return nullptr;
+}
+
+String Control::_accessibility_get_contextual_info() const {
+	return String();
+}
+
+String Control::_get_accessibility_container_name(Node *p_node) const {
+	return String();
 }
 
 void Control::_gui_input(const Ref<InputEvent> &p_event) {}

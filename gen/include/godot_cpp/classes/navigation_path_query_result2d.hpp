@@ -63,6 +63,8 @@ public:
 	TypedArray<RID> get_path_rids() const;
 	void set_path_owner_ids(const PackedInt64Array &p_path_owner_ids);
 	PackedInt64Array get_path_owner_ids() const;
+	void set_path_length(float p_length);
+	float get_path_length() const;
 	void reset();
 
 protected:

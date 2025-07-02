@@ -32,6 +32,7 @@
 
 #pragma once
 
+#include <godot_cpp/classes/control.hpp>
 #include <godot_cpp/classes/graph_element.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/texture2d.hpp>
@@ -78,6 +79,8 @@ public:
 	void set_slot_draw_stylebox(int32_t p_slot_index, bool p_enable);
 	void set_ignore_invalid_connection_type(bool p_ignore);
 	bool is_ignoring_valid_connection_type() const;
+	void set_slots_focus_mode(Control::FocusMode p_focus_mode);
+	Control::FocusMode get_slots_focus_mode() const;
 	int32_t get_input_port_count();
 	Vector2 get_input_port_position(int32_t p_port_idx);
 	int32_t get_input_port_type(int32_t p_port_idx);

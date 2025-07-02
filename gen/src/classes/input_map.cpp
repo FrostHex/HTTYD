@@ -92,6 +92,12 @@ void InputMap::erase_action(const StringName &p_action) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_action);
 }
 
+String InputMap::get_action_description(const StringName &p_action) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputMap::get_class_static()._native_ptr(), StringName("get_action_description")._native_ptr(), 957595536);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_action);
+}
+
 void InputMap::action_set_deadzone(const StringName &p_action, float p_deadzone) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputMap::get_class_static()._native_ptr(), StringName("action_set_deadzone")._native_ptr(), 4135858297);
 	CHECK_METHOD_BIND(_gde_method_bind);

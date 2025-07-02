@@ -78,6 +78,32 @@ StringName TranslationDomain::translate_plural(const StringName &p_message, cons
 	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner, &p_message, &p_message_plural, &p_n_encoded, &p_context);
 }
 
+String TranslationDomain::get_locale_override() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TranslationDomain::get_class_static()._native_ptr(), StringName("get_locale_override")._native_ptr(), 201670096);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+}
+
+void TranslationDomain::set_locale_override(const String &p_locale) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TranslationDomain::get_class_static()._native_ptr(), StringName("set_locale_override")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_locale);
+}
+
+bool TranslationDomain::is_enabled() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TranslationDomain::get_class_static()._native_ptr(), StringName("is_enabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void TranslationDomain::set_enabled(bool p_enabled) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TranslationDomain::get_class_static()._native_ptr(), StringName("set_enabled")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+}
+
 bool TranslationDomain::is_pseudolocalization_enabled() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TranslationDomain::get_class_static()._native_ptr(), StringName("is_pseudolocalization_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));

@@ -127,6 +127,20 @@ float VideoStreamPlayer::get_volume_db() const {
 	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
+void VideoStreamPlayer::set_speed_scale(float p_speed_scale) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VideoStreamPlayer::get_class_static()._native_ptr(), StringName("set_speed_scale")._native_ptr(), 373806689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_speed_scale_encoded;
+	PtrToArg<double>::encode(p_speed_scale, &p_speed_scale_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_speed_scale_encoded);
+}
+
+float VideoStreamPlayer::get_speed_scale() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VideoStreamPlayer::get_class_static()._native_ptr(), StringName("get_speed_scale")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
 void VideoStreamPlayer::set_audio_track(int32_t p_track) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VideoStreamPlayer::get_class_static()._native_ptr(), StringName("set_audio_track")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);

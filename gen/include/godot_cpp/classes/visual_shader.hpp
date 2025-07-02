@@ -104,13 +104,13 @@ public:
 	void disconnect_nodes(VisualShader::Type p_type, int32_t p_from_node, int32_t p_from_port, int32_t p_to_node, int32_t p_to_port);
 	void connect_nodes_forced(VisualShader::Type p_type, int32_t p_from_node, int32_t p_from_port, int32_t p_to_node, int32_t p_to_port);
 	TypedArray<Dictionary> get_node_connections(VisualShader::Type p_type) const;
-	void set_graph_offset(const Vector2 &p_offset);
-	Vector2 get_graph_offset() const;
 	void attach_node_to_frame(VisualShader::Type p_type, int32_t p_id, int32_t p_frame);
 	void detach_node_from_frame(VisualShader::Type p_type, int32_t p_id);
 	void add_varying(const String &p_name, VisualShader::VaryingMode p_mode, VisualShader::VaryingType p_type);
 	void remove_varying(const String &p_name);
 	bool has_varying(const String &p_name) const;
+	void set_graph_offset(const Vector2 &p_offset);
+	Vector2 get_graph_offset() const;
 
 protected:
 	template <typename T, typename B>

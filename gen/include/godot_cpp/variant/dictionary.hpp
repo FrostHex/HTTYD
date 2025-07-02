@@ -69,6 +69,7 @@ class Dictionary {
 		GDExtensionPtrBuiltInMethod method_keys;
 		GDExtensionPtrBuiltInMethod method_values;
 		GDExtensionPtrBuiltInMethod method_duplicate;
+		GDExtensionPtrBuiltInMethod method_duplicate_deep;
 		GDExtensionPtrBuiltInMethod method_get;
 		GDExtensionPtrBuiltInMethod method_get_or_add;
 		GDExtensionPtrBuiltInMethod method_set;
@@ -128,6 +129,7 @@ public:
 	Array keys() const;
 	Array values() const;
 	Dictionary duplicate(bool p_deep = false) const;
+	Dictionary duplicate_deep(int64_t p_deep_subresources_mode = 1) const;
 	Variant get(const Variant &p_key, const Variant &p_default) const;
 	Variant get_or_add(const Variant &p_key, const Variant &p_default);
 	bool set(const Variant &p_key, const Variant &p_value);

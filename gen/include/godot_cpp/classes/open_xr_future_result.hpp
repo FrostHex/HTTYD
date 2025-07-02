@@ -34,6 +34,7 @@
 
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/ref_counted.hpp>
+#include <godot_cpp/variant/variant.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -54,6 +55,8 @@ public:
 	OpenXRFutureResult::ResultStatus get_status() const;
 	uint64_t get_future() const;
 	void cancel_future();
+	void set_result_value(const Variant &p_result_value);
+	Variant get_result_value() const;
 
 protected:
 	template <typename T, typename B>

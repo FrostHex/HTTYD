@@ -33,6 +33,7 @@
 #pragma once
 
 #include <godot_cpp/classes/global_constants.hpp>
+#include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/core/object.hpp>
 #include <godot_cpp/variant/array.hpp>
 #include <godot_cpp/variant/dictionary.hpp>
@@ -45,6 +46,8 @@
 #include <type_traits>
 
 namespace godot {
+
+class Logger;
 
 class OS : public Object {
 	GDEXTENSION_CLASS(OS, Object)
@@ -108,6 +111,7 @@ public:
 	Dictionary execute_with_pipe(const String &p_path, const PackedStringArray &p_arguments, bool p_blocking = true);
 	int32_t create_process(const String &p_path, const PackedStringArray &p_arguments, bool p_open_console = false);
 	int32_t create_instance(const PackedStringArray &p_arguments);
+	Error open_with_program(const String &p_program_path, const PackedStringArray &p_paths);
 	Error kill(int32_t p_pid);
 	Error shell_open(const String &p_uri);
 	Error shell_show_in_file_manager(const String &p_file_or_dir_path, bool p_open_folder = true);
@@ -160,6 +164,8 @@ public:
 	bool request_permissions();
 	PackedStringArray get_granted_permissions() const;
 	void revoke_granted_permissions();
+	void add_logger(const Ref<Logger> &p_logger);
+	void remove_logger(const Ref<Logger> &p_logger);
 
 protected:
 	template <typename T, typename B>

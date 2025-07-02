@@ -71,36 +71,36 @@ public:
 		COMPONENT_TYPE_UNSIGNED_LONG = 5135,
 	};
 
-	int32_t get_buffer_view();
+	int32_t get_buffer_view() const;
 	void set_buffer_view(int32_t p_buffer_view);
-	int32_t get_byte_offset();
-	void set_byte_offset(int32_t p_byte_offset);
-	int32_t get_component_type();
-	void set_component_type(int32_t p_component_type);
-	bool get_normalized();
+	int64_t get_byte_offset() const;
+	void set_byte_offset(int64_t p_byte_offset);
+	GLTFAccessor::GLTFComponentType get_component_type() const;
+	void set_component_type(GLTFAccessor::GLTFComponentType p_component_type);
+	bool get_normalized() const;
 	void set_normalized(bool p_normalized);
-	int32_t get_count();
-	void set_count(int32_t p_count);
-	GLTFAccessor::GLTFAccessorType get_accessor_type();
+	int64_t get_count() const;
+	void set_count(int64_t p_count);
+	GLTFAccessor::GLTFAccessorType get_accessor_type() const;
 	void set_accessor_type(GLTFAccessor::GLTFAccessorType p_accessor_type);
-	int32_t get_type();
+	int32_t get_type() const;
 	void set_type(int32_t p_type);
-	PackedFloat64Array get_min();
+	PackedFloat64Array get_min() const;
 	void set_min(const PackedFloat64Array &p_min);
-	PackedFloat64Array get_max();
+	PackedFloat64Array get_max() const;
 	void set_max(const PackedFloat64Array &p_max);
-	int32_t get_sparse_count();
-	void set_sparse_count(int32_t p_sparse_count);
-	int32_t get_sparse_indices_buffer_view();
+	int64_t get_sparse_count() const;
+	void set_sparse_count(int64_t p_sparse_count);
+	int32_t get_sparse_indices_buffer_view() const;
 	void set_sparse_indices_buffer_view(int32_t p_sparse_indices_buffer_view);
-	int32_t get_sparse_indices_byte_offset();
-	void set_sparse_indices_byte_offset(int32_t p_sparse_indices_byte_offset);
-	int32_t get_sparse_indices_component_type();
-	void set_sparse_indices_component_type(int32_t p_sparse_indices_component_type);
-	int32_t get_sparse_values_buffer_view();
+	int64_t get_sparse_indices_byte_offset() const;
+	void set_sparse_indices_byte_offset(int64_t p_sparse_indices_byte_offset);
+	GLTFAccessor::GLTFComponentType get_sparse_indices_component_type() const;
+	void set_sparse_indices_component_type(GLTFAccessor::GLTFComponentType p_sparse_indices_component_type);
+	int32_t get_sparse_values_buffer_view() const;
 	void set_sparse_values_buffer_view(int32_t p_sparse_values_buffer_view);
-	int32_t get_sparse_values_byte_offset();
-	void set_sparse_values_byte_offset(int32_t p_sparse_values_byte_offset);
+	int64_t get_sparse_values_byte_offset() const;
+	void set_sparse_values_byte_offset(int64_t p_sparse_values_byte_offset);
 
 protected:
 	template <typename T, typename B>

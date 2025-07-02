@@ -51,18 +51,18 @@ public:
 	void set_width(int32_t p_width);
 	void set_height(int32_t p_height);
 	void set_depth(int32_t p_depth);
-	void set_invert(bool p_invert);
-	bool get_invert() const;
-	void set_seamless(bool p_seamless);
-	bool get_seamless();
-	void set_seamless_blend_skirt(float p_seamless_blend_skirt);
-	float get_seamless_blend_skirt();
-	void set_normalize(bool p_normalize);
-	bool is_normalized() const;
-	void set_color_ramp(const Ref<Gradient> &p_gradient);
-	Ref<Gradient> get_color_ramp() const;
 	void set_noise(const Ref<Noise> &p_noise);
 	Ref<Noise> get_noise();
+	void set_color_ramp(const Ref<Gradient> &p_gradient);
+	Ref<Gradient> get_color_ramp() const;
+	void set_seamless(bool p_seamless);
+	bool get_seamless();
+	void set_invert(bool p_invert);
+	bool get_invert() const;
+	void set_normalize(bool p_normalize);
+	bool is_normalized() const;
+	void set_seamless_blend_skirt(float p_seamless_blend_skirt);
+	float get_seamless_blend_skirt();
 
 protected:
 	template <typename T, typename B>

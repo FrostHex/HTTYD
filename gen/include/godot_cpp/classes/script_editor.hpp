@@ -63,6 +63,7 @@ public:
 	void open_script_create_dialog(const String &p_base_name, const String &p_base_path);
 	void goto_help(const String &p_topic);
 	void update_docs_from_script(const Ref<Script> &p_script);
+	void clear_docs_from_script(const Ref<Script> &p_script);
 
 protected:
 	template <typename T, typename B>

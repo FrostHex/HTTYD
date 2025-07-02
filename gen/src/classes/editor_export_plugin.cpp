@@ -50,18 +50,60 @@ void EditorExportPlugin::add_shared_object(const String &p_path, const PackedStr
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path, &p_tags, &p_target);
 }
 
-void EditorExportPlugin::add_ios_project_static_lib(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlugin::get_class_static()._native_ptr(), StringName("add_ios_project_static_lib")._native_ptr(), 83702148);
-	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
-}
-
 void EditorExportPlugin::add_file(const String &p_path, const PackedByteArray &p_file, bool p_remap) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlugin::get_class_static()._native_ptr(), StringName("add_file")._native_ptr(), 527928637);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_remap_encoded;
 	PtrToArg<bool>::encode(p_remap, &p_remap_encoded);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path, &p_file, &p_remap_encoded);
+}
+
+void EditorExportPlugin::add_apple_embedded_platform_project_static_lib(const String &p_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlugin::get_class_static()._native_ptr(), StringName("add_apple_embedded_platform_project_static_lib")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+}
+
+void EditorExportPlugin::add_apple_embedded_platform_framework(const String &p_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlugin::get_class_static()._native_ptr(), StringName("add_apple_embedded_platform_framework")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+}
+
+void EditorExportPlugin::add_apple_embedded_platform_embedded_framework(const String &p_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlugin::get_class_static()._native_ptr(), StringName("add_apple_embedded_platform_embedded_framework")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+}
+
+void EditorExportPlugin::add_apple_embedded_platform_plist_content(const String &p_plist_content) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlugin::get_class_static()._native_ptr(), StringName("add_apple_embedded_platform_plist_content")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_plist_content);
+}
+
+void EditorExportPlugin::add_apple_embedded_platform_linker_flags(const String &p_flags) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlugin::get_class_static()._native_ptr(), StringName("add_apple_embedded_platform_linker_flags")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flags);
+}
+
+void EditorExportPlugin::add_apple_embedded_platform_bundle_file(const String &p_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlugin::get_class_static()._native_ptr(), StringName("add_apple_embedded_platform_bundle_file")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+}
+
+void EditorExportPlugin::add_apple_embedded_platform_cpp_code(const String &p_code) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlugin::get_class_static()._native_ptr(), StringName("add_apple_embedded_platform_cpp_code")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_code);
+}
+
+void EditorExportPlugin::add_ios_project_static_lib(const String &p_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlugin::get_class_static()._native_ptr(), StringName("add_ios_project_static_lib")._native_ptr(), 83702148);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
 }
 
 void EditorExportPlugin::add_ios_framework(const String &p_path) {

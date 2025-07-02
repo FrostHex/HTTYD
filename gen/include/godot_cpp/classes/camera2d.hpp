@@ -88,6 +88,7 @@ public:
 	float get_drag_margin(Side p_margin) const;
 	Vector2 get_target_position() const;
 	Vector2 get_screen_center_position() const;
+	float get_screen_rotation() const;
 	void set_zoom(const Vector2 &p_zoom);
 	Vector2 get_zoom() const;
 	void set_custom_viewport(Node *p_viewport);

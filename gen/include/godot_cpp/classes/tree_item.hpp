@@ -83,6 +83,8 @@ public:
 	void propagate_check(int32_t p_column, bool p_emit_signal = true);
 	void set_text(int32_t p_column, const String &p_text);
 	String get_text(int32_t p_column) const;
+	void set_description(int32_t p_column, const String &p_description);
+	String get_description(int32_t p_column) const;
 	void set_text_direction(int32_t p_column, Control::TextDirection p_direction);
 	Control::TextDirection get_text_direction(int32_t p_column) const;
 	void set_autowrap_mode(int32_t p_column, TextServer::AutowrapMode p_autowrap_mode);
@@ -146,7 +148,7 @@ public:
 	void set_custom_as_button(int32_t p_column, bool p_enable);
 	bool is_custom_set_as_button(int32_t p_column) const;
 	void clear_buttons();
-	void add_button(int32_t p_column, const Ref<Texture2D> &p_button, int32_t p_id = -1, bool p_disabled = false, const String &p_tooltip_text = String());
+	void add_button(int32_t p_column, const Ref<Texture2D> &p_button, int32_t p_id = -1, bool p_disabled = false, const String &p_tooltip_text = String(), const String &p_description = String());
 	int32_t get_button_count(int32_t p_column) const;
 	String get_button_tooltip_text(int32_t p_column, int32_t p_button_index) const;
 	int32_t get_button_id(int32_t p_column, int32_t p_button_index) const;
@@ -156,6 +158,7 @@ public:
 	void set_button_tooltip_text(int32_t p_column, int32_t p_button_index, const String &p_tooltip);
 	void set_button(int32_t p_column, int32_t p_button_index, const Ref<Texture2D> &p_button);
 	void erase_button(int32_t p_column, int32_t p_button_index);
+	void set_button_description(int32_t p_column, int32_t p_button_index, const String &p_description);
 	void set_button_disabled(int32_t p_column, int32_t p_button_index, bool p_disabled);
 	void set_button_color(int32_t p_column, int32_t p_button_index, const Color &p_color);
 	bool is_button_disabled(int32_t p_column, int32_t p_button_index) const;

@@ -149,6 +149,8 @@ void Array::init_bindings() {
 	_method_bindings.method_reverse = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_ARRAY, _gde_name._native_ptr(), 3218959716);
 	_gde_name = StringName("duplicate");
 	_method_bindings.method_duplicate = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_ARRAY, _gde_name._native_ptr(), 636440122);
+	_gde_name = StringName("duplicate_deep");
+	_method_bindings.method_duplicate_deep = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_ARRAY, _gde_name._native_ptr(), 1949240801);
 	_gde_name = StringName("slice");
 	_method_bindings.method_slice = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_ARRAY, _gde_name._native_ptr(), 1393718243);
 	_gde_name = StringName("filter");
@@ -425,6 +427,12 @@ Array Array::duplicate(bool p_deep) const {
 	int8_t p_deep_encoded;
 	PtrToArg<bool>::encode(p_deep, &p_deep_encoded);
 	return internal::_call_builtin_method_ptr_ret<Array>(_method_bindings.method_duplicate, (GDExtensionTypePtr)&opaque, &p_deep_encoded);
+}
+
+Array Array::duplicate_deep(int64_t p_deep_subresources_mode) const {
+	int64_t p_deep_subresources_mode_encoded;
+	PtrToArg<int64_t>::encode(p_deep_subresources_mode, &p_deep_subresources_mode_encoded);
+	return internal::_call_builtin_method_ptr_ret<Array>(_method_bindings.method_duplicate_deep, (GDExtensionTypePtr)&opaque, &p_deep_subresources_mode_encoded);
 }
 
 Array Array::slice(int64_t p_begin, int64_t p_end, int64_t p_step, bool p_deep) const {

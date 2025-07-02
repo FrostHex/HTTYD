@@ -60,6 +60,7 @@ public:
 	void clear();
 	void set_direction(TextServer::Direction p_direction);
 	TextServer::Direction get_direction() const;
+	TextServer::Direction get_inferred_direction() const;
 	void set_orientation(TextServer::Orientation p_orientation);
 	TextServer::Orientation get_orientation() const;
 	void set_preserve_invalid(bool p_enabled);
@@ -90,8 +91,8 @@ public:
 	float get_line_width() const;
 	float get_line_underline_position() const;
 	float get_line_underline_thickness() const;
-	void draw(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color = Color(1, 1, 1, 1)) const;
-	void draw_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size = 1, const Color &p_color = Color(1, 1, 1, 1)) const;
+	void draw(const RID &p_canvas, const Vector2 &p_pos, const Color &p_color = Color(1, 1, 1, 1), float p_oversampling = 0.0) const;
+	void draw_outline(const RID &p_canvas, const Vector2 &p_pos, int32_t p_outline_size = 1, const Color &p_color = Color(1, 1, 1, 1), float p_oversampling = 0.0) const;
 	int32_t hit_test(float p_coords) const;
 
 protected:

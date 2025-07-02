@@ -214,18 +214,6 @@ TypedArray<Dictionary> VisualShader::get_node_connections(VisualShader::Type p_t
 	return internal::_call_native_mb_ret<TypedArray<Dictionary>>(_gde_method_bind, _owner, &p_type_encoded);
 }
 
-void VisualShader::set_graph_offset(const Vector2 &p_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShader::get_class_static()._native_ptr(), StringName("set_graph_offset")._native_ptr(), 743155724);
-	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
-}
-
-Vector2 VisualShader::get_graph_offset() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShader::get_class_static()._native_ptr(), StringName("get_graph_offset")._native_ptr(), 3341600327);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
-}
-
 void VisualShader::attach_node_to_frame(VisualShader::Type p_type, int32_t p_id, int32_t p_frame) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShader::get_class_static()._native_ptr(), StringName("attach_node_to_frame")._native_ptr(), 2479945279);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -268,6 +256,18 @@ bool VisualShader::has_varying(const String &p_name) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShader::get_class_static()._native_ptr(), StringName("has_varying")._native_ptr(), 3927539163);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_name);
+}
+
+void VisualShader::set_graph_offset(const Vector2 &p_offset) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShader::get_class_static()._native_ptr(), StringName("set_graph_offset")._native_ptr(), 743155724);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
+}
+
+Vector2 VisualShader::get_graph_offset() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShader::get_class_static()._native_ptr(), StringName("get_graph_offset")._native_ptr(), 3341600327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

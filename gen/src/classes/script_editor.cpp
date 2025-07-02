@@ -111,4 +111,10 @@ void ScriptEditor::update_docs_from_script(const Ref<Script> &p_script) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_script != nullptr ? &p_script->_owner : nullptr));
 }
 
+void ScriptEditor::clear_docs_from_script(const Ref<Script> &p_script) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ScriptEditor::get_class_static()._native_ptr(), StringName("clear_docs_from_script")._native_ptr(), 3657522847);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_script != nullptr ? &p_script->_owner : nullptr));
+}
+
 } // namespace godot

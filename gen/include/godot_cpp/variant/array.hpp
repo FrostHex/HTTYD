@@ -115,6 +115,7 @@ class Array {
 		GDExtensionPtrBuiltInMethod method_bsearch_custom;
 		GDExtensionPtrBuiltInMethod method_reverse;
 		GDExtensionPtrBuiltInMethod method_duplicate;
+		GDExtensionPtrBuiltInMethod method_duplicate_deep;
 		GDExtensionPtrBuiltInMethod method_slice;
 		GDExtensionPtrBuiltInMethod method_filter;
 		GDExtensionPtrBuiltInMethod method_map;
@@ -206,6 +207,7 @@ public:
 	int64_t bsearch_custom(const Variant &p_value, const Callable &p_func, bool p_before = true) const;
 	void reverse();
 	Array duplicate(bool p_deep = false) const;
+	Array duplicate_deep(int64_t p_deep_subresources_mode = 1) const;
 	Array slice(int64_t p_begin, int64_t p_end = 2147483647, int64_t p_step = 1, bool p_deep = false) const;
 	Array filter(const Callable &p_method) const;
 	Array map(const Callable &p_method) const;
@@ -240,7 +242,6 @@ public:
 	const Variant &operator[](int64_t p_index) const;
 	Variant &operator[](int64_t p_index);
 	void set_typed(uint32_t p_type, const StringName &p_class_name, const Variant &p_script);
-	void _ref(const Array &p_from) const;
 
 	struct Iterator {
 		_FORCE_INLINE_ Variant &operator*() const;

@@ -401,6 +401,14 @@ uint32_t RenderingServer::mesh_surface_get_format_skin_stride(BitField<Rendering
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_format, &p_vertex_count_encoded);
 }
 
+uint32_t RenderingServer::mesh_surface_get_format_index_stride(BitField<RenderingServer::ArrayFormat> p_format, int32_t p_vertex_count) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("mesh_surface_get_format_index_stride")._native_ptr(), 3188363337);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_vertex_count_encoded;
+	PtrToArg<int64_t>::encode(p_vertex_count, &p_vertex_count_encoded);
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_format, &p_vertex_count_encoded);
+}
+
 void RenderingServer::mesh_add_surface(const RID &p_mesh, const Dictionary &p_surface) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("mesh_add_surface")._native_ptr(), 1217542888);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -529,6 +537,16 @@ void RenderingServer::mesh_surface_update_attribute_region(const RID &p_mesh, in
 
 void RenderingServer::mesh_surface_update_skin_region(const RID &p_mesh, int32_t p_surface, int32_t p_offset, const PackedByteArray &p_data) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("mesh_surface_update_skin_region")._native_ptr(), 2900195149);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_surface_encoded;
+	PtrToArg<int64_t>::encode(p_surface, &p_surface_encoded);
+	int64_t p_offset_encoded;
+	PtrToArg<int64_t>::encode(p_offset, &p_offset_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mesh, &p_surface_encoded, &p_offset_encoded, &p_data);
+}
+
+void RenderingServer::mesh_surface_update_index_region(const RID &p_mesh, int32_t p_surface, int32_t p_offset, const PackedByteArray &p_data) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("mesh_surface_update_index_region")._native_ptr(), 2900195149);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_surface_encoded;
 	PtrToArg<int64_t>::encode(p_surface, &p_surface_encoded);
@@ -2913,20 +2931,6 @@ void RenderingServer::instance_set_transform(const RID &p_instance, const Transf
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_instance, &p_transform);
 }
 
-void RenderingServer::instance_set_interpolated(const RID &p_instance, bool p_interpolated) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("instance_set_interpolated")._native_ptr(), 1265174801);
-	CHECK_METHOD_BIND(_gde_method_bind);
-	int8_t p_interpolated_encoded;
-	PtrToArg<bool>::encode(p_interpolated, &p_interpolated_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_instance, &p_interpolated_encoded);
-}
-
-void RenderingServer::instance_reset_physics_interpolation(const RID &p_instance) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("instance_reset_physics_interpolation")._native_ptr(), 2722037293);
-	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_instance);
-}
-
 void RenderingServer::instance_attach_object_instance_id(const RID &p_instance, uint64_t p_id) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("instance_attach_object_instance_id")._native_ptr(), 3411492887);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -2967,6 +2971,12 @@ void RenderingServer::instance_geometry_set_transparency(const RID &p_instance, 
 	double p_transparency_encoded;
 	PtrToArg<double>::encode(p_transparency, &p_transparency_encoded);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_instance, &p_transparency_encoded);
+}
+
+void RenderingServer::instance_teleport(const RID &p_instance) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("instance_teleport")._native_ptr(), 2722037293);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_instance);
 }
 
 void RenderingServer::instance_set_custom_aabb(const RID &p_instance, const AABB &p_aabb) {

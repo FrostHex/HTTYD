@@ -67,6 +67,7 @@ public:
 	static ResourceSaver *get_singleton();
 
 	Error save(const Ref<Resource> &p_resource, const String &p_path = String(), BitField<ResourceSaver::SaverFlags> p_flags = (BitField<ResourceSaver::SaverFlags>)0);
+	Error set_uid(const String &p_resource, int64_t p_uid);
 	PackedStringArray get_recognized_extensions(const Ref<Resource> &p_type);
 	void add_resource_format_saver(const Ref<ResourceFormatSaver> &p_format_saver, bool p_at_front = false);
 	void remove_resource_format_saver(const Ref<ResourceFormatSaver> &p_format_saver);

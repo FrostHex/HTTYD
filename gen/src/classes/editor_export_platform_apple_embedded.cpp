@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  c_sharp_script.hpp                                                    */
+/*  editor_export_platform_apple_embedded.cpp                             */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
@@ -30,45 +30,12 @@
 
 // THIS FILE IS GENERATED. EDITS WILL BE LOST.
 
-#pragma once
-
-#include <godot_cpp/classes/ref.hpp>
-#include <godot_cpp/classes/script.hpp>
-#include <godot_cpp/variant/variant.hpp>
+#include <godot_cpp/classes/editor_export_platform_apple_embedded.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
-
-#include <type_traits>
+#include <godot_cpp/core/engine_ptrcall.hpp>
+#include <godot_cpp/core/error_macros.hpp>
 
 namespace godot {
 
-class CSharpScript : public Script {
-	GDEXTENSION_CLASS(CSharpScript, Script)
-
-public:
-
-private:
-	Variant new__internal(const Variant **p_args, GDExtensionInt p_arg_count);
-
-public:
-	template <typename... Args>
-	Variant new_(const Args &...p_args) {
-		std::array<Variant, 0 + sizeof...(Args)> variant_args{{ Variant(p_args)... }};
-		std::array<const Variant *, 0 + sizeof...(Args)> call_args;
-		for (size_t i = 0; i < variant_args.size(); i++) {
-			call_args[i] = &variant_args[i];
-		}
-		return new__internal(call_args.data(), variant_args.size());
-	}
-
-protected:
-	template <typename T, typename B>
-	static void register_virtuals() {
-		Script::register_virtuals<T, B>();
-	}
-
-public:
-};
-
 } // namespace godot
-

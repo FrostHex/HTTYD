@@ -148,6 +148,18 @@ bool AudioStreamWAV::is_stereo() const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+void AudioStreamWAV::set_tags(const Dictionary &p_tags) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamWAV::get_class_static()._native_ptr(), StringName("set_tags")._native_ptr(), 4155329257);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_tags);
+}
+
+Dictionary AudioStreamWAV::get_tags() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamWAV::get_class_static()._native_ptr(), StringName("get_tags")._native_ptr(), 3102165223);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
+	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
+}
+
 Error AudioStreamWAV::save_to_wav(const String &p_path) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamWAV::get_class_static()._native_ptr(), StringName("save_to_wav")._native_ptr(), 166001499);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));

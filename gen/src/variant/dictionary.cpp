@@ -88,6 +88,8 @@ void Dictionary::init_bindings() {
 	_method_bindings.method_values = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_DICTIONARY, _gde_name._native_ptr(), 4144163970);
 	_gde_name = StringName("duplicate");
 	_method_bindings.method_duplicate = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_DICTIONARY, _gde_name._native_ptr(), 830099069);
+	_gde_name = StringName("duplicate_deep");
+	_method_bindings.method_duplicate_deep = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_DICTIONARY, _gde_name._native_ptr(), 2160600714);
 	_gde_name = StringName("get");
 	_method_bindings.method_get = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_DICTIONARY, _gde_name._native_ptr(), 2205440559);
 	_gde_name = StringName("get_or_add");
@@ -230,6 +232,12 @@ Dictionary Dictionary::duplicate(bool p_deep) const {
 	int8_t p_deep_encoded;
 	PtrToArg<bool>::encode(p_deep, &p_deep_encoded);
 	return internal::_call_builtin_method_ptr_ret<Dictionary>(_method_bindings.method_duplicate, (GDExtensionTypePtr)&opaque, &p_deep_encoded);
+}
+
+Dictionary Dictionary::duplicate_deep(int64_t p_deep_subresources_mode) const {
+	int64_t p_deep_subresources_mode_encoded;
+	PtrToArg<int64_t>::encode(p_deep_subresources_mode, &p_deep_subresources_mode_encoded);
+	return internal::_call_builtin_method_ptr_ret<Dictionary>(_method_bindings.method_duplicate_deep, (GDExtensionTypePtr)&opaque, &p_deep_subresources_mode_encoded);
 }
 
 Variant Dictionary::get(const Variant &p_key, const Variant &p_default) const {

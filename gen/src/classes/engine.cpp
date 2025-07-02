@@ -37,6 +37,7 @@
 #include <godot_cpp/core/error_macros.hpp>
 
 #include <godot_cpp/classes/main_loop.hpp>
+#include <godot_cpp/classes/script_backtrace.hpp>
 #include <godot_cpp/classes/script_language.hpp>
 #include <godot_cpp/variant/string_name.hpp>
 
@@ -276,6 +277,14 @@ ScriptLanguage *Engine::get_script_language(int32_t p_index) const {
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
 	return internal::_call_native_mb_ret_obj<ScriptLanguage>(_gde_method_bind, _owner, &p_index_encoded);
+}
+
+TypedArray<Ref<ScriptBacktrace>> Engine::capture_script_backtraces(bool p_include_variables) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Engine::get_class_static()._native_ptr(), StringName("capture_script_backtraces")._native_ptr(), 873284517);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<ScriptBacktrace>>()));
+	int8_t p_include_variables_encoded;
+	PtrToArg<bool>::encode(p_include_variables, &p_include_variables_encoded);
+	return internal::_call_native_mb_ret<TypedArray<Ref<ScriptBacktrace>>>(_gde_method_bind, _owner, &p_include_variables_encoded);
 }
 
 bool Engine::is_editor_hint() const {

@@ -449,6 +449,12 @@ float PhysicsServer3DExtension::_soft_body_get_linear_stiffness(const RID &p_bod
 	return 0.0;
 }
 
+void PhysicsServer3DExtension::_soft_body_set_shrinking_factor(const RID &p_body, float p_shrinking_factor) {}
+
+float PhysicsServer3DExtension::_soft_body_get_shrinking_factor(const RID &p_body) const {
+	return 0.0;
+}
+
 void PhysicsServer3DExtension::_soft_body_set_pressure_coefficient(const RID &p_body, float p_pressure_coefficient) {}
 
 float PhysicsServer3DExtension::_soft_body_get_pressure_coefficient(const RID &p_body) const {
@@ -486,6 +492,14 @@ void PhysicsServer3DExtension::_soft_body_pin_point(const RID &p_body, int32_t p
 bool PhysicsServer3DExtension::_soft_body_is_point_pinned(const RID &p_body, int32_t p_point_index) const {
 	return false;
 }
+
+void PhysicsServer3DExtension::_soft_body_apply_point_impulse(const RID &p_body, int32_t p_point_index, const Vector3 &p_impulse) {}
+
+void PhysicsServer3DExtension::_soft_body_apply_point_force(const RID &p_body, int32_t p_point_index, const Vector3 &p_force) {}
+
+void PhysicsServer3DExtension::_soft_body_apply_central_impulse(const RID &p_body, const Vector3 &p_impulse) {}
+
+void PhysicsServer3DExtension::_soft_body_apply_central_force(const RID &p_body, const Vector3 &p_force) {}
 
 RID PhysicsServer3DExtension::_joint_create() {
 	return RID();

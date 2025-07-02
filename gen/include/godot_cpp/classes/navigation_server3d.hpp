@@ -109,6 +109,9 @@ public:
 	Vector3 map_get_random_point(const RID &p_map, uint32_t p_navigation_layers, bool p_uniformly) const;
 	void query_path(const Ref<NavigationPathQueryParameters3D> &p_parameters, const Ref<NavigationPathQueryResult3D> &p_result, const Callable &p_callback = Callable());
 	RID region_create();
+	uint32_t region_get_iteration_id(const RID &p_region) const;
+	void region_set_use_async_iterations(const RID &p_region, bool p_enabled);
+	bool region_get_use_async_iterations(const RID &p_region) const;
 	void region_set_enabled(const RID &p_region, bool p_enabled);
 	bool region_get_enabled(const RID &p_region) const;
 	void region_set_use_edge_connections(const RID &p_region, bool p_enabled);
@@ -137,6 +140,7 @@ public:
 	Vector3 region_get_random_point(const RID &p_region, uint32_t p_navigation_layers, bool p_uniformly) const;
 	AABB region_get_bounds(const RID &p_region) const;
 	RID link_create();
+	uint32_t link_get_iteration_id(const RID &p_link) const;
 	void link_set_map(const RID &p_link, const RID &p_map);
 	RID link_get_map(const RID &p_link) const;
 	void link_set_enabled(const RID &p_link, bool p_enabled);

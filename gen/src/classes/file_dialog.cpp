@@ -225,6 +225,20 @@ FileDialog::FileMode FileDialog::get_file_mode() const {
 	return (FileDialog::FileMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+void FileDialog::set_display_mode(FileDialog::DisplayMode p_mode) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FileDialog::get_class_static()._native_ptr(), StringName("set_display_mode")._native_ptr(), 2692197101);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_mode_encoded;
+	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+}
+
+FileDialog::DisplayMode FileDialog::get_display_mode() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FileDialog::get_class_static()._native_ptr(), StringName("get_display_mode")._native_ptr(), 1092104624);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (FileDialog::DisplayMode(0)));
+	return (FileDialog::DisplayMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 VBoxContainer *FileDialog::get_vbox() {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FileDialog::get_class_static()._native_ptr(), StringName("get_vbox")._native_ptr(), 915758477);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
@@ -289,6 +303,24 @@ bool FileDialog::get_use_native_dialog() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FileDialog::get_class_static()._native_ptr(), StringName("get_use_native_dialog")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void FileDialog::set_customization_flag_enabled(FileDialog::Customization p_flag, bool p_enabled) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FileDialog::get_class_static()._native_ptr(), StringName("set_customization_flag_enabled")._native_ptr(), 3849177100);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_flag_encoded;
+	PtrToArg<int64_t>::encode(p_flag, &p_flag_encoded);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flag_encoded, &p_enabled_encoded);
+}
+
+bool FileDialog::is_customization_flag_enabled(FileDialog::Customization p_flag) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FileDialog::get_class_static()._native_ptr(), StringName("is_customization_flag_enabled")._native_ptr(), 3722277863);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_flag_encoded;
+	PtrToArg<int64_t>::encode(p_flag, &p_flag_encoded);
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_flag_encoded);
 }
 
 void FileDialog::deselect_all() {

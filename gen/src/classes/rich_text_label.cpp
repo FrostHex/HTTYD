@@ -64,24 +64,24 @@ void RichTextLabel::set_text(const String &p_text) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_text);
 }
 
-void RichTextLabel::add_image(const Ref<Texture2D> &p_image, int32_t p_width, int32_t p_height, const Color &p_color, InlineAlignment p_inline_align, const Rect2 &p_region, const Variant &p_key, bool p_pad, const String &p_tooltip, bool p_size_in_percent) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("add_image")._native_ptr(), 3017663154);
+void RichTextLabel::add_hr(int32_t p_width, int32_t p_height, const Color &p_color, HorizontalAlignment p_alignment, bool p_width_in_percent, bool p_height_in_percent) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("add_hr")._native_ptr(), 16816895);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_width_encoded;
 	PtrToArg<int64_t>::encode(p_width, &p_width_encoded);
 	int64_t p_height_encoded;
 	PtrToArg<int64_t>::encode(p_height, &p_height_encoded);
-	int64_t p_inline_align_encoded;
-	PtrToArg<int64_t>::encode(p_inline_align, &p_inline_align_encoded);
-	int8_t p_pad_encoded;
-	PtrToArg<bool>::encode(p_pad, &p_pad_encoded);
-	int8_t p_size_in_percent_encoded;
-	PtrToArg<bool>::encode(p_size_in_percent, &p_size_in_percent_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_image != nullptr ? &p_image->_owner : nullptr), &p_width_encoded, &p_height_encoded, &p_color, &p_inline_align_encoded, &p_region, &p_key, &p_pad_encoded, &p_tooltip, &p_size_in_percent_encoded);
+	int64_t p_alignment_encoded;
+	PtrToArg<int64_t>::encode(p_alignment, &p_alignment_encoded);
+	int8_t p_width_in_percent_encoded;
+	PtrToArg<bool>::encode(p_width_in_percent, &p_width_in_percent_encoded);
+	int8_t p_height_in_percent_encoded;
+	PtrToArg<bool>::encode(p_height_in_percent, &p_height_in_percent_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_width_encoded, &p_height_encoded, &p_color, &p_alignment_encoded, &p_width_in_percent_encoded, &p_height_in_percent_encoded);
 }
 
-void RichTextLabel::update_image(const Variant &p_key, BitField<RichTextLabel::ImageUpdateMask> p_mask, const Ref<Texture2D> &p_image, int32_t p_width, int32_t p_height, const Color &p_color, InlineAlignment p_inline_align, const Rect2 &p_region, bool p_pad, const String &p_tooltip, bool p_size_in_percent) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("update_image")._native_ptr(), 815048486);
+void RichTextLabel::add_image(const Ref<Texture2D> &p_image, int32_t p_width, int32_t p_height, const Color &p_color, InlineAlignment p_inline_align, const Rect2 &p_region, const Variant &p_key, bool p_pad, const String &p_tooltip, bool p_width_in_percent, bool p_height_in_percent, const String &p_alt_text) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("add_image")._native_ptr(), 1390915033);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_width_encoded;
 	PtrToArg<int64_t>::encode(p_width, &p_width_encoded);
@@ -91,9 +91,29 @@ void RichTextLabel::update_image(const Variant &p_key, BitField<RichTextLabel::I
 	PtrToArg<int64_t>::encode(p_inline_align, &p_inline_align_encoded);
 	int8_t p_pad_encoded;
 	PtrToArg<bool>::encode(p_pad, &p_pad_encoded);
-	int8_t p_size_in_percent_encoded;
-	PtrToArg<bool>::encode(p_size_in_percent, &p_size_in_percent_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_key, &p_mask, (p_image != nullptr ? &p_image->_owner : nullptr), &p_width_encoded, &p_height_encoded, &p_color, &p_inline_align_encoded, &p_region, &p_pad_encoded, &p_tooltip, &p_size_in_percent_encoded);
+	int8_t p_width_in_percent_encoded;
+	PtrToArg<bool>::encode(p_width_in_percent, &p_width_in_percent_encoded);
+	int8_t p_height_in_percent_encoded;
+	PtrToArg<bool>::encode(p_height_in_percent, &p_height_in_percent_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_image != nullptr ? &p_image->_owner : nullptr), &p_width_encoded, &p_height_encoded, &p_color, &p_inline_align_encoded, &p_region, &p_key, &p_pad_encoded, &p_tooltip, &p_width_in_percent_encoded, &p_height_in_percent_encoded, &p_alt_text);
+}
+
+void RichTextLabel::update_image(const Variant &p_key, BitField<RichTextLabel::ImageUpdateMask> p_mask, const Ref<Texture2D> &p_image, int32_t p_width, int32_t p_height, const Color &p_color, InlineAlignment p_inline_align, const Rect2 &p_region, bool p_pad, const String &p_tooltip, bool p_width_in_percent, bool p_height_in_percent) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("update_image")._native_ptr(), 6389170);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_width_encoded;
+	PtrToArg<int64_t>::encode(p_width, &p_width_encoded);
+	int64_t p_height_encoded;
+	PtrToArg<int64_t>::encode(p_height, &p_height_encoded);
+	int64_t p_inline_align_encoded;
+	PtrToArg<int64_t>::encode(p_inline_align, &p_inline_align_encoded);
+	int8_t p_pad_encoded;
+	PtrToArg<bool>::encode(p_pad, &p_pad_encoded);
+	int8_t p_width_in_percent_encoded;
+	PtrToArg<bool>::encode(p_width_in_percent, &p_width_in_percent_encoded);
+	int8_t p_height_in_percent_encoded;
+	PtrToArg<bool>::encode(p_height_in_percent, &p_height_in_percent_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_key, &p_mask, (p_image != nullptr ? &p_image->_owner : nullptr), &p_width_encoded, &p_height_encoded, &p_color, &p_inline_align_encoded, &p_region, &p_pad_encoded, &p_tooltip, &p_width_in_percent_encoded, &p_height_in_percent_encoded);
 }
 
 void RichTextLabel::newline() {
@@ -238,20 +258,20 @@ void RichTextLabel::push_language(const String &p_language) {
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_language);
 }
 
-void RichTextLabel::push_underline() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("push_underline")._native_ptr(), 3218959716);
+void RichTextLabel::push_underline(const Color &p_color) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("push_underline")._native_ptr(), 1458098034);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
 }
 
-void RichTextLabel::push_strikethrough() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("push_strikethrough")._native_ptr(), 3218959716);
+void RichTextLabel::push_strikethrough(const Color &p_color) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("push_strikethrough")._native_ptr(), 1458098034);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
 }
 
-void RichTextLabel::push_table(int32_t p_columns, InlineAlignment p_inline_align, int32_t p_align_to_row) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("push_table")._native_ptr(), 2623499273);
+void RichTextLabel::push_table(int32_t p_columns, InlineAlignment p_inline_align, int32_t p_align_to_row, const String &p_name) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("push_table")._native_ptr(), 3426862026);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_columns_encoded;
 	PtrToArg<int64_t>::encode(p_columns, &p_columns_encoded);
@@ -259,7 +279,7 @@ void RichTextLabel::push_table(int32_t p_columns, InlineAlignment p_inline_align
 	PtrToArg<int64_t>::encode(p_inline_align, &p_inline_align_encoded);
 	int64_t p_align_to_row_encoded;
 	PtrToArg<int64_t>::encode(p_align_to_row, &p_align_to_row_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_columns_encoded, &p_inline_align_encoded, &p_align_to_row_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_columns_encoded, &p_inline_align_encoded, &p_align_to_row_encoded, &p_name);
 }
 
 void RichTextLabel::push_dropcap(const String &p_string, const Ref<Font> &p_font, int32_t p_size, const Rect2 &p_dropcap_margins, const Color &p_color, int32_t p_outline_size, const Color &p_outline_color) {
@@ -284,6 +304,14 @@ void RichTextLabel::set_table_column_expand(int32_t p_column, bool p_expand, int
 	int8_t p_shrink_encoded;
 	PtrToArg<bool>::encode(p_shrink, &p_shrink_encoded);
 	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_column_encoded, &p_expand_encoded, &p_ratio_encoded, &p_shrink_encoded);
+}
+
+void RichTextLabel::set_table_column_name(int32_t p_column, const String &p_name) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("set_table_column_name")._native_ptr(), 501894301);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_column_encoded;
+	PtrToArg<int64_t>::encode(p_column, &p_column_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_column_encoded, &p_name);
 }
 
 void RichTextLabel::set_cell_row_background_color(const Color &p_odd_row_bg, const Color &p_even_row_bg) {
@@ -890,6 +918,22 @@ int32_t RichTextLabel::get_content_width() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("get_content_width")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+int32_t RichTextLabel::get_line_height(int32_t p_line) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("get_line_height")._native_ptr(), 923996154);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_line_encoded;
+	PtrToArg<int64_t>::encode(p_line, &p_line_encoded);
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_line_encoded);
+}
+
+int32_t RichTextLabel::get_line_width(int32_t p_line) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("get_line_width")._native_ptr(), 923996154);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_line_encoded;
+	PtrToArg<int64_t>::encode(p_line, &p_line_encoded);
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_line_encoded);
 }
 
 float RichTextLabel::get_line_offset(int32_t p_line) {
