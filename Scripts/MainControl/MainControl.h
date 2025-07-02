@@ -26,6 +26,7 @@ namespace godot
             static void _bind_methods();
 
         private:
+            void Start_Timer();
             bool enable_headset = false;
             bool sub_view = true;
             GameTimer* timer;

@@ -89,8 +89,8 @@ void MainControl::_ready()
     timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
     timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
     timer->Timer_AddEvent(14.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // 14.8 disable the default animations
-    timer->Timer_AddEvent(15.8f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close")); // 15.8 the tail wing folds
-    timer->Timer_AddEvent(17.3f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide")); // 17.3 the tail wing is now fully extended
+    timer->Timer_AddEvent(16.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close")); // 16.0 the tail wing folds
+    timer->Timer_AddEvent(17.4f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide")); // 17.4 the tail wing is now fully extended
     timer->Timer_AddEvent(18.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_check_tail_glide", true)); // 18.0 the starting position of tr_check_tail_glide
     timer->Timer_AddEvent(19.0f, Callable(dragon_animator, "Unfreeze")); // 19.0 change the animation to tr_check_tail_glide
     timer->Timer_AddEvent(20.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DEFAULT)); // 20.8 enable the default animations
@@ -127,7 +127,19 @@ void MainControl::_ready()
     // 2'22.5 change the animation to celebrate
     timer->Timer_AddEvent(143.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // 2'23.0 disable the control
     
-    timer->Timer_Resume();
+    call_deferred("Start_Timer"); // postpone for one frame to ensure the scene is fully initialized and rendered
+}
+
+
+/**
+ * @brief starts the timer
+ */
+void MainControl::Start_Timer()
+{
+    if (timer) 
+    {
+        timer->Timer_Resume();
+    }
 }
 
 
@@ -217,6 +229,7 @@ void MainControl::_bind_methods()
     ClassDB::bind_method(D_METHOD("sub_view_setter", "value"), &MainControl::SetValSubView);
     ClassDB::bind_method(D_METHOD("sub_view_getter"), &MainControl::GetValSubView);
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Sub View"), "sub_view_setter", "sub_view_getter");
+    ClassDB::bind_method(D_METHOD("Start_Timer"), &MainControl::Start_Timer);
 }
 
 
