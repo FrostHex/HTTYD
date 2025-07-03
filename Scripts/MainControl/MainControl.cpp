@@ -90,16 +90,16 @@ void MainControl::_ready()
     timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
     timer->Timer_AddEvent(14.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // 14.8 disable the default animations
     timer->Timer_AddEvent(16.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close")); // 16.0 the tail wing folds
-    timer->Timer_AddEvent(17.4f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide")); // 17.4 the tail wing is now fully extended
+    timer->Timer_AddEvent(17.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide")); // 17.5 the tail wing is now fully extended
     timer->Timer_AddEvent(18.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_check_tail_glide", true)); // 18.0 the starting position of tr_check_tail_glide
-    timer->Timer_AddEvent(19.0f, Callable(dragon_animator, "Unfreeze")); // 19.0 change the animation to tr_check_tail_glide
+    timer->Timer_AddEvent(19.1f, Callable(dragon_animator, "Unfreeze")); // 19.1 change the animation to tr_check_tail_glide
     timer->Timer_AddEvent(20.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DEFAULT)); // 20.8 enable the default animations
     // 58.0 the code takes control, unavoidable to fly towards the pillar
     // 58.7 hit the pillar, setting the animation to hit_cliff
     // 1'02.0 unavoidable to fly towards the pillar
     // 1'02.7 hit the pillar, setting the animation to hit_cliff
     // 1'05.3 Toothless flap my face with his ear
-    timer->Timer_AddEvent(80.0f, Callable(cheat_sheet, "Detatch")); 
+    timer->Timer_AddEvent(80.5f, Callable(cheat_sheet, "Detatch")); // 1'20.5 detatch the cheat sheet
     // 1'22.5 start to decelerate due to the stall
     // 1'25.0 the camera is now facing downwards
     // 1'25.5 change the animation to tr_glide_fall

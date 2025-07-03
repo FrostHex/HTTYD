@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckv4d73b0cava"
-path.s3tc="res://.godot/imported/Toothless_eye.png-2dc6ef1d16b3146fd7d7608888273f9b.s3tc.ctex"
+uid="uid://buuw5kdqka6c3"
+path="res://.godot/imported/Toothless_eye.png-2dc6ef1d16b3146fd7d7608888273f9b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Toothless/Toothless_eye.png"
-dest_files=["res://.godot/imported/Toothless_eye.png-2dc6ef1d16b3146fd7d7608888273f9b.s3tc.ctex"]
+dest_files=["res://.godot/imported/Toothless_eye.png-2dc6ef1d16b3146fd7d7608888273f9b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

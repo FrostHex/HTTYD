@@ -19,6 +19,7 @@ radius = 0.58
 [sub_resource type="Animation" id="Animation_6jlhu"]
 resource_name = "lo_flap"
 length = 1.25
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -4503,6 +4504,7 @@ tracks/639/keys = PackedFloat32Array(0, 1, 5.325727e-08, 0.56489766, -0.19856077
 [sub_resource type="Animation" id="Animation_5vkin"]
 resource_name = "lo_shake"
 length = 0.8333333
+loop_mode = 2
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -8987,6 +8989,7 @@ tracks/639/keys = PackedFloat32Array(0, 1, 9.2911456e-08, 0.56489766, -0.1985607
 [sub_resource type="Animation" id="Animation_pw3b8"]
 resource_name = "lo_tail_swing"
 length = 0.625
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -13471,6 +13474,7 @@ tracks/639/keys = PackedFloat32Array(0, 1, 9.2911456e-08, 0.56489766, -0.1985607
 [sub_resource type="Animation" id="Animation_b6g41"]
 resource_name = "lo_up"
 length = 0.625
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true

@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://b48qubstjctb5"]
 
-[ext_resource type="PackedScene" uid="uid://dabakc5fn53wv" path="res://Environment/Rocks/Rock_B.fbx" id="1_1gp34"]
+[ext_resource type="PackedScene" uid="uid://ctb6xsyk0c7gk" path="res://Environment/Rocks/Rock_B.fbx" id="1_1gp34"]
 [ext_resource type="Material" uid="uid://bocwqtb3gi8dn" path="res://Environment/Rocks/Rock_0.tres" id="2_beenw"]
 
 [node name="Rock_BA" instance=ExtResource("1_1gp34")]
 
 [node name="Rock_B" parent="." index="0"]
 material_override = ExtResource("2_beenw")
+lod_bias = 0.3

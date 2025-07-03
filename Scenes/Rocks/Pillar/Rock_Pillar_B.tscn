@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck7hx23paxyug"]
+
+[ext_resource type="PackedScene" uid="uid://dlolbj7a40xmc" path="res://Scenes/Rocks/Basic/Rock_CA.tscn" id="1_gk6pu"]
+[ext_resource type="PackedScene" uid="uid://cseup7aon1fy7" path="res://Scenes/Rocks/Basic/Rock_AB.tscn" id="2_o8lbx"]
+
+[node name="Rock_Pillar_B" type="Node3D"]
+
+[node name="Rock_CA_05" parent="." instance=ExtResource("1_gk6pu")]
+transform = Transform3D(2.3998696e-08, 3.0597886e-07, -7, 10.476, -0.366855, 0, -0.5490262, -6.9999804, -3.059797e-07, -1.092, 1.1235, 0.0419999)
+
+[node name="Rock_CA_06" parent="." instance=ExtResource("1_gk6pu")]
+transform = Transform3D(2.3998714e-08, 3.0597886e-07, -7, 10.476, -0.36685523, 0, 0.54902655, 6.9999804, 3.059797e-07, -1.204, 1.1235, -0.742)
+
+[node name="Rock_CA_07" parent="." instance=ExtResource("1_gk6pu")]
+transform = Transform3D(-3.6717566e-07, 5.6, 0, -8.4, -2.4478376e-07, 0, 0, 0, 5.6, -3.059, -0.3885, -0.35)
+
+[node name="Rock_CA_08" parent="." instance=ExtResource("1_gk6pu")]
+transform = Transform3D(-0.57909495, -7.3833795, -2.1852763, -11.5236, 0.403539, 4.0041436e-07, 0.17139497, 2.1852698, -7.383401, -1.379, 8.386, 0.021)
+
+[node name="Rock_CA_09" parent="." instance=ExtResource("1_gk6pu")]
+transform = Transform3D(0.6323184, 8.318, -1.2277359, -12.582701, 0.43621758, 0.062012456, -0.18714693, -1.2245498, -8.317551, -2.10103, 8.3181, 0.4825)
+
+[node name="Rock_AB_01" parent="." instance=ExtResource("2_o8lbx")]
+transform = Transform3D(0.045955926, 3.67288, 2.0886667, 5.34782, 0.53617597, -0.99525106, -1.4910198, 2.0362995, -3.5052762, -2.891, 10.5, 0.231)
