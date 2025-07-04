@@ -49,6 +49,7 @@ void DragonControlTop::_bind_methods()
     ClassDB::bind_method(D_METHOD("_on_body_entered", "body"), &DragonControlTop::_on_body_entered);
     ClassDB::bind_method(D_METHOD("GetState"), &DragonControlTop::GetState);
     ClassDB::bind_method(D_METHOD("SetState", "state_new"), &DragonControlTop::SetState);
+    ClassDB::bind_method(D_METHOD("_apply_loaded_transform", "dragon_transform"), &DragonControlTop::_apply_loaded_transform);
     
     // signal declaration
     ADD_SIGNAL(MethodInfo("dragon_collision", PropertyInfo(Variant::OBJECT, "body"), PropertyInfo(Variant::FLOAT, "velocity")));
@@ -378,6 +379,62 @@ void DragonControlTop::SetAnimationCrisis()
 float DragonControlTop::GetLinearVelocity()
 {
     return linear_velocity;
+}
+
+
+/**
+ * @brief get the information for save file
+ * @return a dictionary containing different properties of the dragon
+ */
+Dictionary DragonControlTop::GetStatus()
+{
+    Dictionary status_info;
+    status_info["dragon_state"] = state_current;
+    status_info["dragon_velocity_linear"] = linear_velocity;
+    
+    Transform3D transform = dragon_rb->get_global_transform();
+    Vector3 euler = transform.basis.get_euler();
+    Array dragon_transform;
+    dragon_transform.push_back(transform.origin.x);
+    dragon_transform.push_back(transform.origin.y);
+    dragon_transform.push_back(transform.origin.z);
+    dragon_transform.push_back(euler.x);
+    dragon_transform.push_back(euler.y);
+    dragon_transform.push_back(euler.z);
+    status_info["dragon_transform"] = dragon_transform;
+    
+    return status_info;
+}
+
+
+void DragonControlTop::SetStatus(const Dictionary& status)
+{
+    if (status.has("dragon_state")) 
+    {
+        SetState(static_cast<DragonState>(static_cast<int>(status["dragon_state"])));
+    }
+    if (status.has("dragon_velocity_linear")) 
+    {
+        linear_velocity_input = status["dragon_velocity_linear"];
+        height_init = dragon_rb->get_global_transform().origin.y;
+        SetMotionLinear(0.0);
+    }
+    if (status.has("dragon_transform")) 
+    {
+        call_deferred("_apply_loaded_transform", status["dragon_transform"]);
+    }
+}
+
+void DragonControlTop::_apply_loaded_transform(const Array& dragon_transform)
+{
+    Vector3 position = Vector3(static_cast<float>(dragon_transform[0]),static_cast<float>(dragon_transform[1]),static_cast<float>(dragon_transform[2]));
+    Vector3 rotation = Vector3(static_cast<float>(dragon_transform[3]),static_cast<float>(dragon_transform[4]),static_cast<float>(dragon_transform[5]));
+    dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+    dragon_rb->set_angular_velocity(Vector3(0, 0, 0));
+    Transform3D new_transform;
+    new_transform.basis = Basis::from_euler(rotation);
+    new_transform.origin = position;
+    dragon_rb->set_global_transform(new_transform);
 }
 
 

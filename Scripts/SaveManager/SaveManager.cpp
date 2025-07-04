@@ -29,12 +29,10 @@ SaveManager::~SaveManager()
  */
 void SaveManager::_ready() 
 {
-    if (Engine::get_singleton()->is_editor_hint()) 
-    {
-        return;
-    }
-    
-    // TODO: Initialize save manager
+    // if (Engine::get_singleton()->is_editor_hint()) 
+    // {
+    //     return;
+    // }
 }
 
 /**
@@ -144,9 +142,34 @@ void SaveManager::State_Save(const Dictionary& game_data)
 /**
  * @brief loads the saved game state
  */
-void SaveManager::State_Load()
+Dictionary SaveManager::State_Load()
 {
     UtilityFunctions::print("Loading game state...");
+    String save_file_path = "res://Saves/Save.json";
+    Ref<DirAccess> dir = DirAccess::open("res://Saves/");
+    if (!dir.is_valid() || !dir->file_exists("Save.json")) 
+    {
+        UtilityFunctions::printerr("Save file does not exist.");
+        return Dictionary();
+    }
+    Ref<FileAccess> file = FileAccess::open(save_file_path, FileAccess::READ);
+    if (!file.is_valid()) 
+    {
+        UtilityFunctions::printerr("Failed to open save file.");
+        return Dictionary();
+    }
+    String content = file->get_as_text();
+    file->close();
+    Ref<JSON> json = memnew(JSON);
+    Error parse_result = json->parse(content);
+    if (parse_result != OK) 
+    {
+        UtilityFunctions::printerr("Failed to parse save file JSON.");
+        return Dictionary();
+    }
+    Dictionary game_data = json->get_data();
+    UtilityFunctions::print("Game state loaded successfully.");
+    return game_data;
 }
 
 

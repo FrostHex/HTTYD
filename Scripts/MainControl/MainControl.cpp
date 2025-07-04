@@ -163,13 +163,21 @@ void MainControl::_input(const Ref<InputEvent> &event)
     }
     if (event->is_action_pressed("save_state")) 
     {
-        Dictionary game_data;
-        game_data["dragon_velocity_linear"] = dragon_control->GetLinearVelocity();
-        save_manager->State_Save(game_data);
+        Dictionary data_all;
+        Dictionary data_dragon = dragon_control->GetStatus();
+        Array keys = data_dragon.keys();
+        for (int i = 0; i < keys.size(); i++) 
+        {
+            Variant key = keys[i];
+            Variant value = data_dragon[key];
+            data_all[key] = value;
+        }
+        save_manager->State_Save(data_all);
     }
     if (event->is_action_pressed("load_state")) 
     {
-        save_manager->State_Load();
+        Dictionary data_all = save_manager->State_Load();
+        dragon_control->SetStatus(data_all); 
     }
 }
 

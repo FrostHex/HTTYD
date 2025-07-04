@@ -17,7 +17,7 @@ namespace godot
             void _ready() override;
             
             void State_Save(const Dictionary& game_data);
-            void State_Load();
+            Dictionary State_Load();
 
         protected:
             static void _bind_methods();

@@ -45,7 +45,9 @@ namespace godot
             ~DragonControlTop();
             void _ready();
             void _physics_process(double delta) override; // override the _physics_process function from Node class
-            float GetLinearVelocity();            
+            float GetLinearVelocity();
+            Dictionary GetStatus();// const: this function does not modify the object         
+            void SetStatus(const Dictionary& status);
             void SetState(DragonState new_state);
             DragonState GetState() const; // const: this function does not modify the object
 
@@ -83,6 +85,7 @@ namespace godot
             void ProcessDisabled(double delta);
             // Vector3 headset_vector_up;
             CameraControl* camera_ctrl; // pointer to the CameraControl class instance
+            void _apply_loaded_transform(const Array& dragon_transform);
     };
 }
 
