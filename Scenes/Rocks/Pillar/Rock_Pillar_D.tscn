@@ -1,9 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx3b3gf62gjx"]
+[gd_scene load_steps=6 format=3 uid="uid://dx3b3gf62gjx"]
 
 [ext_resource type="PackedScene" uid="uid://dlolbj7a40xmc" path="res://Scenes/Rocks/Basic/Rock_CA.tscn" id="1_ifje0"]
 [ext_resource type="PackedScene" uid="uid://cst5nnqpb6nnc" path="res://Scenes/Rocks/Basic/Rock_CB.tscn" id="2_ctcm2"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_e26pd"]
+size = Vector3(2.5243359, 4.824131, 2.1329298)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lstmm"]
+size = Vector3(3.6242359, 6.4728956, 2.7475586)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rm61w"]
+size = Vector3(1.7646484, 1.6651001, 1.3374023)
+
 [node name="Rock_Pillar_D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3770123, 1.1961517, 1.3266798)
+shape = SubResource("BoxShape3D_e26pd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7269028, 8.225592, 0.91779757)
+shape = SubResource("BoxShape3D_lstmm")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5734732, 4.3879595, 1.2439036)
+shape = SubResource("BoxShape3D_rm61w")
 
 [node name="Rock_CA_14" parent="." instance=ExtResource("1_ifje0")]
 transform = Transform3D(3.4051497, 0.92223024, -9.357051, -9.314359, 1.6894382, -3.2231061, 1.2835704, 9.813021, 1.4342774, -1.77262, 8.30217, -0.0969667)

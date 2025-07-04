@@ -9,7 +9,7 @@ data = PackedVector3Array(1.0473, 5.549, 1.7112, 0.9416, 5.5533, 1.7903, 0.9459,
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Mountain" index="0"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mountain/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_6kgnc")

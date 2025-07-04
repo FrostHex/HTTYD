@@ -35,15 +35,14 @@ CameraControl::~CameraControl()
 {
 }
 
-
-void CameraControl::_bind_methods() 
-{
-}
-
-
 void CameraControl::SetDragonControl(DragonControlTop* dragon_control) 
 {
-    this->dragon_control = dragon_control;
+    if (dragon_control)
+    {
+        this->dragon_control = dragon_control;
+        // connect the "dragon_collision" signal emitted by DragonControlTop
+        this->dragon_control->connect("dragon_collision", Callable(this, "Print_Collision"));
+    }
 }
 
 
@@ -153,4 +152,19 @@ void CameraControl::_physics_process(double delta)
 Vector3 CameraControl::GetPostureHeadset()
 {
     return xr_camera->get_global_rotation();
+}
+
+void CameraControl::Print_Collision(Node* body, float velocity)
+{
+    if (label_info)
+    {
+        String collision_info = "Collision with " + body->get_name() + " at velocity: " + String::num(velocity, 1);
+        info_debug = collision_info;
+        label_info->set_modulate(Color(1.0f, 0.0f, 0.0f, 1.0f)); // set label color to red
+    }
+}
+
+void CameraControl::_bind_methods() 
+{
+    ClassDB::bind_method(D_METHOD("Print_Collision", "body", "velocity"), &CameraControl::Print_Collision);
 }

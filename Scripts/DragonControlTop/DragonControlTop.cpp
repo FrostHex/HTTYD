@@ -50,6 +50,9 @@ void DragonControlTop::_bind_methods()
     ClassDB::bind_method(D_METHOD("GetState"), &DragonControlTop::GetState);
     ClassDB::bind_method(D_METHOD("SetState", "state_new"), &DragonControlTop::SetState);
     
+    // signal declaration
+    ADD_SIGNAL(MethodInfo("dragon_collision", PropertyInfo(Variant::OBJECT, "body"), PropertyInfo(Variant::FLOAT, "velocity")));
+    
     // use godot macro (BIND_ENUM_CONSTANT) to bind enum values to the engine
     BIND_ENUM_CONSTANT(STATE_DEFAULT);
     BIND_ENUM_CONSTANT(STATE_HIT_CLIFF);
@@ -386,4 +389,5 @@ float DragonControlTop::GetLinearVelocity()
 void DragonControlTop::_on_body_entered(Node* body)
 {
     UtilityFunctions::print("COLLISION DETECTED with: ", body->get_name(), " at velocity: ", linear_velocity);
+    emit_signal("dragon_collision", body, linear_velocity); // emit a signal to broadcast the collision event
 }

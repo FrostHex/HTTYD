@@ -30,6 +30,7 @@ namespace godot
             static void _bind_methods();
         
         private:
+            void Print_Collision(Node* body, float velocity);
             bool sub_view = true; // whether to use the sub camera
             bool enable_headset = false; // whether to use the headset
             bool xr_position_initialized = false; // whether XR position has been initialized

@@ -91,7 +91,7 @@ wind_direction = Vector3(0, 0, 0)
 extra_large_clouds_pos = Vector3(30000, 0, 1000)
 large_clouds_pos = Vector3(30000, 0, -11000)
 medium_clouds_pos = Vector3(-10000, 0, -1000)
-small_clouds_pos = Vector3(0, -2510.175, 0)
+small_clouds_pos = Vector3(0, -1288.1238, 0)
 metadata/_custom_type_script = "uid://djusduuxf0voj"
 
 [node name="Fog_Volume" type="FogVolume" parent="."]
@@ -111,7 +111,7 @@ transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -323
 transform = Transform3D(0.562226, 0, -1.91935, 0, 2, 0, 1.91935, 0, 0.562226, -2469, 0, 2794)
 
 [node name="Rock_Pillar_A_01" parent="Rocks/Area_Beginning" instance=ExtResource("6_erwvk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 467, 0, 0)
+transform = Transform3D(0.9999999, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999999, 497.99426, 0, -6.588623)
 
 [node name="Rock_Pillar_B_01" parent="Rocks/Area_Beginning" instance=ExtResource("7_2w5on")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 154, 0, 0)
@@ -126,7 +126,7 @@ transform = Transform3D(9.52514, 0, 4.4183297, 0, 13.65, 0, -4.4183297, 0, 9.525
 transform = Transform3D(5.92351, 1.114141, 0, -0.95497686, 6.91077, 0, 0, 0, 7, 194.8, 1.4, 0)
 
 [node name="Rock_Pillar_D_02" parent="Rocks/Area_Beginning" instance=ExtResource("9_0sclb")]
-transform = Transform3D(-11.626999, 1.849104, -0.2426734, 2.9591603, 7.268389, 3.0067844e-07, 0.23517942, -0.037401646, -11.997499, 394.1999, -74, -66.19995)
+transform = Transform3D(-11.626999, 1.8491038, -0.24267292, 2.9591603, 7.268389, 3.0067844e-07, 0.23517942, -0.037401646, -11.9974985, 413.89258, -74, -60.431458)
 
 [node name="Rock_Pillar_C_02" parent="Rocks/Area_Beginning" instance=ExtResource("8_346fj")]
 transform = Transform3D(-0.6487109, -3.2928197, -9.426828, -3.5762798e-07, 9.440629, -3.2976432, 11.982497, -0.17826706, -0.51035166, 0.99993896, -3, -216)
@@ -612,5 +612,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, -3500)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_jw32o")
+volume_db = -80.0
 
 [node name="MainControl" type="MainControl" parent="."]

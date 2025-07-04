@@ -1,9 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck7hx23paxyug"]
+[gd_scene load_steps=5 format=3 uid="uid://ck7hx23paxyug"]
 
 [ext_resource type="PackedScene" uid="uid://dlolbj7a40xmc" path="res://Scenes/Rocks/Basic/Rock_CA.tscn" id="1_gk6pu"]
 [ext_resource type="PackedScene" uid="uid://cseup7aon1fy7" path="res://Scenes/Rocks/Basic/Rock_AB.tscn" id="2_o8lbx"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_82g4n"]
+height = 6.6044984
+radius = 1.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rhgcn"]
+height = 6.682519
+radius = 1.7
+
 [node name="Rock_Pillar_B" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.608484, 1.996134, -0.24652481)
+shape = SubResource("CylinderShape3D_82g4n")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9961351, -0.087833814, 0, 0.087833814, 0.9961351, -1.4958377, 8.611019, 0.27241564)
+shape = SubResource("CylinderShape3D_rhgcn")
 
 [node name="Rock_CA_05" parent="." instance=ExtResource("1_gk6pu")]
 transform = Transform3D(2.3998696e-08, 3.0597886e-07, -7, 10.476, -0.366855, 0, -0.5490262, -6.9999804, -3.059797e-07, -1.092, 1.1235, 0.0419999)
