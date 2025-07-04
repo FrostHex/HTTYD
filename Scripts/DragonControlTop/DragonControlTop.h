@@ -58,6 +58,7 @@ namespace godot
             // =0: pure virtual function, which must be implemented in derived classes
             // the class containing pure virtual functions is an abstract class
             virtual void GetInput(float* input_keys) = 0;
+            void SetStatus_Deferred(const Array& dragon_transform, float linear_velocity_input);
             Input *input_singleton;    private:
             RigidBody3D *dragon_rb;
             DragonAnimator* dragon_animator;
@@ -85,7 +86,6 @@ namespace godot
             void ProcessDisabled(double delta);
             // Vector3 headset_vector_up;
             CameraControl* camera_ctrl; // pointer to the CameraControl class instance
-            void _apply_loaded_transform(const Array& dragon_transform);
     };
 }
 

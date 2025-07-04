@@ -1,9 +1,7 @@
 #include "MainControl.h"
 #include "DragonControlKeyboard.h"
 #include "DragonControlJoystick.h"
-#include "DragonAnimator.h"
 #include "CameraControl.h"
-#include "CheatSheet.h"
 
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -18,8 +16,6 @@
 #include <godot_cpp/classes/scene_tree.hpp> // for get_tree()
 #include <godot_cpp/classes/project_settings.hpp>
 #include <godot_cpp/variant/callable.hpp>
-#include <godot_cpp/classes/audio_stream_player.hpp>
-#include <godot_cpp/classes/video_stream_player.hpp>
 #include <godot_cpp/classes/timer.hpp>
 
 using namespace godot;
@@ -55,8 +51,8 @@ void MainControl::_ready()
     }
 
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
-    CheatSheet *cheat_sheet = dragon_node->get_node<CheatSheet>("CheatSheet");
-    DragonAnimator *dragon_animator = get_parent()->get_node<Node>("Dragon")->get_node<DragonAnimator>("DragonAnimator");
+    cheat_sheet = dragon_node->get_node<CheatSheet>("CheatSheet");
+    dragon_animator = get_parent()->get_node<Node>("Dragon")->get_node<DragonAnimator>("DragonAnimator");
     CameraControl *camera_ctrl = memnew(CameraControl(sub_view, enable_headset));
     camera_ctrl->set_name("CameraControl"); // set the name of the camera control node
     dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
@@ -79,15 +75,21 @@ void MainControl::_ready()
     add_child(timer);
     save_manager = memnew(SaveManager());
     add_child(save_manager);
-    AudioStreamPlayer* audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
-    VideoStreamPlayer* video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
+    audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
+    video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
 
+    Initialize_TimerList();
+    call_deferred("Start_Timer"); // postpone for one frame to ensure the scene is fully initialized and rendered
+}
+
+
+void MainControl::Initialize_TimerList() 
+{
     // test timer list
     // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // 14.8 disable the default animations
     // timer->Timer_AddEvent(1.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_check_tail_glide", true)); // 18.0 change the animation to tr_check_tail_glide
     // timer->Timer_AddEvent(3.0f, Callable(dragon_animator, "Unfreeze"));
-
-    // timer list
+    
     timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
     timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
     timer->Timer_AddEvent(16.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // disable the default animations
@@ -128,8 +130,6 @@ void MainControl::_ready()
     // 2'14.8 successfully traversed the crisis
     // 2'22.5 change the animation to celebrate
     timer->Timer_AddEvent(143.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // 2'23.0 disable the control
-    
-    call_deferred("Start_Timer"); // postpone for one frame to ensure the scene is fully initialized and rendered
 }
 
 
@@ -164,6 +164,7 @@ void MainControl::_input(const Ref<InputEvent> &event)
     if (event->is_action_pressed("save_state")) 
     {
         Dictionary data_all;
+        data_all["time"] = timer->Timer_GetTimeElapsed();
         Dictionary data_dragon = dragon_control->GetStatus();
         Array keys = data_dragon.keys();
         for (int i = 0; i < keys.size(); i++) 
@@ -177,6 +178,12 @@ void MainControl::_input(const Ref<InputEvent> &event)
     if (event->is_action_pressed("load_state")) 
     {
         Dictionary data_all = save_manager->State_Load();
+        float time_elapsed = data_all["time"];
+        audio_player->seek(time_elapsed);
+        timer->Timer_Reset();
+        Initialize_TimerList();
+        timer->Timer_Set(time_elapsed);
+        video_player->set_stream_position(time_elapsed);
         dragon_control->SetStatus(data_all); 
     }
 }

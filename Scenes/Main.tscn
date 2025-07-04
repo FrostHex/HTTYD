@@ -91,7 +91,7 @@ wind_direction = Vector3(0, 0, 0)
 extra_large_clouds_pos = Vector3(30000, 0, 1000)
 large_clouds_pos = Vector3(30000, 0, -11000)
 medium_clouds_pos = Vector3(-10000, 0, -1000)
-small_clouds_pos = Vector3(0, 19620.463, 0)
+small_clouds_pos = Vector3(0, 19715.752, 0)
 metadata/_custom_type_script = "uid://djusduuxf0voj"
 
 [node name="Fog_Volume" type="FogVolume" parent="."]
@@ -612,6 +612,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 1000, -3500)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_jw32o")
-volume_db = -80.0
 
 [node name="MainControl" type="MainControl" parent="."]

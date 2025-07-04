@@ -12,6 +12,7 @@
 #include <godot_cpp/classes/plane_mesh.hpp>
 #include <godot_cpp/classes/standard_material3d.hpp>
 #include <godot_cpp/classes/viewport_texture.hpp>
+#include <godot_cpp/classes/input_event.hpp>
 
 using namespace godot;
 
@@ -144,7 +145,7 @@ void CameraControl::_physics_process(double delta)
     if (this->sub_view)
     {
         camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
-        String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1) + "\n" + info_debug;
+        String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1) + "\n" + info_debug + "\n" + time_elapsed;
         label_info->set_text(velocity_text);
     }
 }
@@ -160,7 +161,26 @@ void CameraControl::Print_Collision(Node* body, float velocity)
     {
         String collision_info = "Collision with " + body->get_name() + " at velocity: " + String::num(velocity, 1);
         info_debug = collision_info;
-        label_info->set_modulate(Color(1.0f, 0.0f, 0.0f, 1.0f)); // set label color to red
+    }
+}
+
+/**
+ * @brief called when an input event occurs
+ * @param event the input event
+ */
+void CameraControl::_input(const Ref<InputEvent> &event) 
+{
+    if (event->is_action_pressed("save_state")) 
+    {
+        info_debug = "State Saved";
+    }
+    if (event->is_action_pressed("load_state")) 
+    {
+        info_debug = "State Loaded";
+        if (label_info)
+        {
+            label_info->set_modulate(Color(0.863f, 0.953f, 1.0f, 1.0f));
+        }
     }
 }
 

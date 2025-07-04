@@ -8,6 +8,7 @@
 #include <godot_cpp/variant/utility_functions.hpp> // used for printing info
 #include <godot_cpp/classes/rigid_body3d.hpp> // RigidBody3D for physics control
 #include <godot_cpp/variant/vector3.hpp> // Vector3 for velocity and position
+#include <godot_cpp/classes/input_event_action.hpp> // InputEventAction class
 #include <cmath> // std::copysign, std::sqrt
 
 using namespace godot;
@@ -49,7 +50,7 @@ void DragonControlTop::_bind_methods()
     ClassDB::bind_method(D_METHOD("_on_body_entered", "body"), &DragonControlTop::_on_body_entered);
     ClassDB::bind_method(D_METHOD("GetState"), &DragonControlTop::GetState);
     ClassDB::bind_method(D_METHOD("SetState", "state_new"), &DragonControlTop::SetState);
-    ClassDB::bind_method(D_METHOD("_apply_loaded_transform", "dragon_transform"), &DragonControlTop::_apply_loaded_transform);
+    ClassDB::bind_method(D_METHOD("SetStatus_Deferred", "dragon_transform", "linear_velocity_input"), &DragonControlTop::SetStatus_Deferred);
     
     // signal declaration
     ADD_SIGNAL(MethodInfo("dragon_collision", PropertyInfo(Variant::OBJECT, "body"), PropertyInfo(Variant::FLOAT, "velocity")));
@@ -413,19 +414,13 @@ void DragonControlTop::SetStatus(const Dictionary& status)
     {
         SetState(static_cast<DragonState>(static_cast<int>(status["dragon_state"])));
     }
-    if (status.has("dragon_velocity_linear")) 
+    if (status.has("dragon_transform") && status.has("dragon_velocity_linear"))
     {
-        linear_velocity_input = status["dragon_velocity_linear"];
-        height_init = dragon_rb->get_global_transform().origin.y;
-        SetMotionLinear(0.0);
-    }
-    if (status.has("dragon_transform")) 
-    {
-        call_deferred("_apply_loaded_transform", status["dragon_transform"]);
+        call_deferred("SetStatus_Deferred", status["dragon_transform"], status["dragon_velocity_linear"]);
     }
 }
 
-void DragonControlTop::_apply_loaded_transform(const Array& dragon_transform)
+void DragonControlTop::SetStatus_Deferred(const Array& dragon_transform, float linear_velocity_input)
 {
     Vector3 position = Vector3(static_cast<float>(dragon_transform[0]),static_cast<float>(dragon_transform[1]),static_cast<float>(dragon_transform[2]));
     Vector3 rotation = Vector3(static_cast<float>(dragon_transform[3]),static_cast<float>(dragon_transform[4]),static_cast<float>(dragon_transform[5]));
@@ -435,6 +430,11 @@ void DragonControlTop::_apply_loaded_transform(const Array& dragon_transform)
     new_transform.basis = Basis::from_euler(rotation);
     new_transform.origin = position;
     dragon_rb->set_global_transform(new_transform);
+
+    dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+    linear_velocity_input = linear_velocity_input;
+    height_init = dragon_rb->get_global_transform().origin.y;
+    SetMotionLinear(0.0);
 }
 
 
@@ -447,4 +447,9 @@ void DragonControlTop::_on_body_entered(Node* body)
 {
     UtilityFunctions::print("COLLISION DETECTED with: ", body->get_name(), " at velocity: ", linear_velocity);
     emit_signal("dragon_collision", body, linear_velocity); // emit a signal to broadcast the collision event
+    Ref<InputEventAction> event;
+    event.instantiate();
+    event->set_action("load_state");
+    event->set_pressed(true);
+    Input::get_singleton()->parse_input_event(event);
 }

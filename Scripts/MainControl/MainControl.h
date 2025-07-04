@@ -4,6 +4,10 @@
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/binder_common.hpp>
+#include <godot_cpp/classes/audio_stream_player.hpp>
+#include <godot_cpp/classes/video_stream_player.hpp>
+#include "DragonAnimator.h"
+#include "CheatSheet.h"
 #include "GameTimer.h"
 #include "SaveManager.h"
 
@@ -27,12 +31,17 @@ namespace godot
             static void _bind_methods();
 
         private:
+            void Initialize_TimerList();
             void Start_Timer();
             bool enable_headset = false;
             bool sub_view = true;
             DragonControlTop* dragon_control;
+            DragonAnimator *dragon_animator;
+            CheatSheet *cheat_sheet;
             GameTimer* timer;
             SaveManager* save_manager;
+            AudioStreamPlayer* audio_player;
+            VideoStreamPlayer* video_player;
     };
 }
 

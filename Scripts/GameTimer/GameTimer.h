@@ -53,6 +53,7 @@ namespace godot
             int Timer_AddEvent(float seconds, Callable callback);
             int Timer_AddEventSinceNow(float seconds, Callable callback);
             void Timer_Reset();
+            void Timer_Set(float time);
             void Timer_Pause();
             void Timer_Resume();
             float Timer_GetTimeElapsed() const;

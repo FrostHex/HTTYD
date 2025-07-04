@@ -2,7 +2,7 @@
 
 ## Develpment Environment
 - Windows 64-bit
-- Godot v4.5-dev2
+- Godot v4.5-beta2
 - Godot-cpp
 
 ## Quick Start

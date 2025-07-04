@@ -103,6 +103,7 @@ void GameTimer::_physics_process(double delta)
     // UtilityFunctions::print("Timer _physics_process at ", time_elapsed, " seconds");
 
     time_elapsed += delta; // update timer
+    camera_control->time_elapsed = String::num(time_elapsed, 1);
     while (!event_queue.empty()) // process all due events
     {
         const TimerEvent& event_next = event_queue.top(); // get the top event from queue (but don't pop it yet)
@@ -140,6 +141,21 @@ void GameTimer::Timer_Reset()
     set_physics_process(false);
 }
 
+
+void GameTimer::Timer_Set(float time)
+{
+    time_elapsed = time;
+    while (!event_queue.empty()) // remove all events with time < current time
+    {
+        const TimerEvent& event_next = event_queue.top();
+        if (event_next.time_trigger >= time_elapsed) 
+        {
+            break;
+        }
+        event_queue.pop();
+    }
+    Timer_Resume();
+}
 
 /**
  * @brief pause the timer
