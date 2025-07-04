@@ -91,7 +91,7 @@ wind_direction = Vector3(0, 0, 0)
 extra_large_clouds_pos = Vector3(30000, 0, 1000)
 large_clouds_pos = Vector3(30000, 0, -11000)
 medium_clouds_pos = Vector3(-10000, 0, -1000)
-small_clouds_pos = Vector3(0, -1288.1238, 0)
+small_clouds_pos = Vector3(0, 374.19083, 0)
 metadata/_custom_type_script = "uid://djusduuxf0voj"
 
 [node name="Fog_Volume" type="FogVolume" parent="."]
@@ -608,7 +608,7 @@ transform = Transform3D(0.21093865, 1.71488, 11.680199, 1.08885, 7.2683897, -2.7
 transform = Transform3D(-11.400499, -2.957565, 0.9972094, -3.67956, 9.440628, -1.2134116, -0.69906276, -1.4585704, -9.875889, 143.095, -3, -287.164)
 
 [node name="Dragon" parent="." instance=ExtResource("1_r150o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, -3500)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 1000, -3500)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_jw32o")

@@ -57,7 +57,6 @@ void MainControl::_ready()
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
     CheatSheet *cheat_sheet = dragon_node->get_node<CheatSheet>("CheatSheet");
     DragonAnimator *dragon_animator = get_parent()->get_node<Node>("Dragon")->get_node<DragonAnimator>("DragonAnimator");
-    DragonControlTop *dragon_control = nullptr;
     CameraControl *camera_ctrl = memnew(CameraControl(sub_view, enable_headset));
     camera_ctrl->set_name("CameraControl"); // set the name of the camera control node
     dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
@@ -78,6 +77,8 @@ void MainControl::_ready()
     camera_ctrl->SetDragonControl(dragon_control); // set the dragon control to the camera control
     timer = memnew(GameTimer(camera_ctrl));
     add_child(timer);
+    save_manager = memnew(SaveManager());
+    add_child(save_manager);
     AudioStreamPlayer* audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
     VideoStreamPlayer* video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
 
@@ -159,6 +160,16 @@ void MainControl::_input(const Ref<InputEvent> &event)
     if (event->is_action_pressed("ui_cancel")) // can be customized in Project Settings -> Input Map
     {
         get_tree()->quit(); // Exit the game when Escape key is pressed
+    }
+    if (event->is_action_pressed("save_state")) 
+    {
+        Dictionary game_data;
+        game_data["dragon_velocity_linear"] = dragon_control->GetLinearVelocity();
+        save_manager->State_Save(game_data);
+    }
+    if (event->is_action_pressed("load_state")) 
+    {
+        save_manager->State_Load();
     }
 }
 
@@ -266,6 +277,7 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
             godot::ClassDB::register_class<CameraControl>();
             godot::ClassDB::register_class<GameTimer>();
             godot::ClassDB::register_class<CheatSheet>();
+            godot::ClassDB::register_class<SaveManager>();
         }
     });
     obj.set_minimum_library_initialization_level(godot::MODULE_INITIALIZATION_LEVEL_SCENE);

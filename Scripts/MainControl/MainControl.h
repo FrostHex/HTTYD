@@ -5,6 +5,7 @@
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/binder_common.hpp>
 #include "GameTimer.h"
+#include "SaveManager.h"
 
 namespace godot 
 {
@@ -29,7 +30,9 @@ namespace godot
             void Start_Timer();
             bool enable_headset = false;
             bool sub_view = true;
+            DragonControlTop* dragon_control;
             GameTimer* timer;
+            SaveManager* save_manager;
     };
 }
 
