@@ -432,7 +432,7 @@ void DragonControlTop::SetStatus_Deferred(const Array& dragon_transform, float l
     dragon_rb->set_global_transform(new_transform);
 
     dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
-    linear_velocity_input = linear_velocity_input;
+    this->linear_velocity_input = linear_velocity_input;
     height_init = dragon_rb->get_global_transform().origin.y;
     SetMotionLinear(0.0);
 }
