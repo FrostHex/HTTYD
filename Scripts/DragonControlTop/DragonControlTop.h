@@ -9,6 +9,7 @@
 #define DRAGON_FACTOR_UPSIDE_DOWN 1.5f
 #define DRAGON_FACTOR_GLIDE 0.3f
 #define DRAGON_CRISIS_P_GAIN 5
+#define DRAGON_HIT_CLIFF_HEIGHT 150
 
 #include "DragonAnimator.h"
 
@@ -50,6 +51,7 @@ namespace godot
             void SetStatus(const Dictionary& status);
             void SetState(DragonState new_state);
             DragonState GetState() const; // const: this function does not modify the object
+            float time_to_target = 0.1f;
 
         protected:
             static void _bind_methods();
@@ -84,8 +86,13 @@ namespace godot
             void ProcessFalling(double delta);
             void ProcessCrisis(double delta);
             void ProcessDisabled(double delta);
-            // Vector3 headset_vector_up;
             CameraControl* camera_ctrl; // pointer to the CameraControl class instance
+            float p_gain = 0.0f; 
+            Node3D* dragon_pivot = nullptr;
+            Node3D* pillar_hit_1 = nullptr;
+            Node3D* pillar_hit_2 = nullptr;
+            Vector3 pillar_position = Vector3(0, 0, 0);
+            float cliff_distance_threshold;
     };
 }
 

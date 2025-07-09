@@ -7,6 +7,7 @@
 #include <godot_cpp/classes/engine.hpp> // Engine class for checking editor hint
 #include <godot_cpp/variant/utility_functions.hpp> // used for printing info
 #include <godot_cpp/classes/rigid_body3d.hpp> // RigidBody3D for physics control
+#include <godot_cpp/classes/static_body3d.hpp> // StaticBody3D for static collision bodies
 #include <godot_cpp/variant/vector3.hpp> // Vector3 for velocity and position
 #include <godot_cpp/classes/input_event_action.hpp> // InputEventAction class
 #include <cmath> // std::copysign, std::sqrt
@@ -60,7 +61,7 @@ void DragonControlTop::_bind_methods()
     BIND_ENUM_CONSTANT(STATE_HIT_CLIFF);
     BIND_ENUM_CONSTANT(STATE_FALLING);
     BIND_ENUM_CONSTANT(STATE_CRISIS);
-    BIND_ENUM_CONSTANT(STATE_DISABLED);
+    BIND_ENUM_CONSTANT(STATE_DISABLED); 
 }
 
 
@@ -76,6 +77,7 @@ void DragonControlTop::_ready()
     }
 
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
+    dragon_pivot = dragon_rb->get_node<Node3D>("Pivot");
     dragon_animator = get_parent()->get_node<DragonAnimator>("DragonAnimator");
     dragon_rb->set_gravity_scale(0); // disable gravity
     height_init = dragon_rb->get_global_transform().origin.y;
@@ -84,6 +86,17 @@ void DragonControlTop::_ready()
     dragon_rb->connect("body_entered", Callable(this, "_on_body_entered")); // connect the signal to the function
     camera_ctrl = get_parent()->get_node<CameraControl>("CameraControl");
     dragon_rb->set_linear_velocity(Vector3(0, 0, 0)); // set initial linear velocity to zero
+    pillar_hit_1 = get_parent()->get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_B_15");
+    pillar_hit_2 = get_parent()->get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_B_18");
+    if (pillar_hit_1 && pillar_hit_2) 
+    {
+        StaticBody3D* static_body_1 = pillar_hit_1->get_node<StaticBody3D>("StaticBody3D");
+        StaticBody3D* static_body_2 = pillar_hit_2->get_node<StaticBody3D>("StaticBody3D");
+        static_body_1->set_collision_layer(0);
+        static_body_2->set_collision_layer(0);
+        static_body_1->set_collision_mask(0);
+        static_body_2->set_collision_mask(0);
+    }
 }
 
 
@@ -108,13 +121,13 @@ void DragonControlTop::ProcessDefault(double delta)
     SetMotionLinear(delta);
     SetMotionAngular(delta);
     SetAnimation();
-    // UtilityFunctions::print(delta);
-    // UtilityFunctions::print("input_keys: ", input_keys[0], ", ", input_keys[1], ", ", input_keys[2]);
-    // UtilityFunctions::print(dragon_rb->get_global_transform().origin.y);
-    // UtilityFunctions::print("linear_velocity: ", linear_velocity);
 }
 
 
+/**
+ * @brief the process function with default animation disabled
+ * @param delta time since last frame
+ */
 void DragonControlTop::ProcessNotAnimated(double delta)
 {
     GetInput(this->input_keys);
@@ -129,7 +142,34 @@ void DragonControlTop::ProcessNotAnimated(double delta)
  */
 void DragonControlTop::ProcessHitCliff(double delta)
 {
-    // TODO
+    // Get the direction from dragon to pillar_hit_1
+    Vector3 dragon_position = dragon_rb->get_global_transform().origin;
+    Vector3 target_direction = (pillar_position - dragon_position).normalized();
+    Vector3 current_direction = dragon_rb->get_global_transform().basis.get_column(0);
+    Vector3 error = current_direction.cross(target_direction);
+    p_gain += delta * 2.0f;
+    Vector3 angular_velocity = error * p_gain;
+    dragon_rb->set_angular_velocity(angular_velocity);
+
+    // Calculate target distance and adjust dragon pivot rotation
+    float target_distance = (pillar_position - dragon_position).length() - 60;
+    if (target_distance <= cliff_distance_threshold)
+    {
+        float rotation_factor = (cliff_distance_threshold - target_distance) / cliff_distance_threshold;
+        Vector3 pivot_rotation = Vector3(0, 0, rotation_factor * Math_PI / 5.0f);
+        dragon_pivot->set_rotation(pivot_rotation);
+    }
+
+    float required_velocity = target_distance / time_to_target;
+    time_to_target -= delta; 
+    Vector3 velocity_direction = target_direction;
+    dragon_rb->set_linear_velocity(velocity_direction * required_velocity);
+
+    if (time_to_target <= 0.0f) 
+    {
+        dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+        cliff_distance_threshold = -1.0f;
+    }
 }
 
 
@@ -164,6 +204,10 @@ void DragonControlTop::ProcessDisabled(double delta)
     GetInput(this->input_keys);
     SetMotionAngular(delta);
     SetAnimation();
+    if (dragon_pivot->get_rotation()!= Vector3(0, 0, 0)) 
+    {
+        dragon_pivot->set_rotation(dragon_pivot->get_rotation() * 0.965f);
+    }
 }
 
 
@@ -177,6 +221,23 @@ void DragonControlTop::SetState(DragonState state_new)
     UtilityFunctions::print("Dragon state changed to: ", state_current);
     switch (state_current) 
     {
+        case STATE_HIT_CLIFF:
+            if (time_to_target > 0.0f)
+            {
+                dragon_pivot->set_rotation(Vector3(0, 0, 0));
+                pillar_position = pillar_hit_1->get_global_transform().origin + DRAGON_HIT_CLIFF_HEIGHT * Vector3(0, 1, 0);
+                p_gain = 0.0f; // Proportional gain, adjust as needed
+                time_to_target = 6.4f;
+                cliff_distance_threshold = 300.0f;
+            }
+            else
+            {
+                pillar_position = pillar_hit_2->get_global_transform().origin + DRAGON_HIT_CLIFF_HEIGHT * Vector3(0, 1, 0);
+                p_gain = 0.0f; 
+                time_to_target = 3.4f;
+                cliff_distance_threshold = -1.0f;
+            }
+
         case STATE_DISABLED:
             dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
             break;
@@ -392,7 +453,6 @@ Dictionary DragonControlTop::GetStatus()
     Dictionary status_info;
     status_info["dragon_state"] = state_current;
     status_info["dragon_velocity_linear"] = linear_velocity;
-    
     Transform3D transform = dragon_rb->get_global_transform();
     Vector3 euler = transform.basis.get_euler();
     Array dragon_transform;
@@ -403,7 +463,6 @@ Dictionary DragonControlTop::GetStatus()
     dragon_transform.push_back(euler.y);
     dragon_transform.push_back(euler.z);
     status_info["dragon_transform"] = dragon_transform;
-    
     return status_info;
 }
 

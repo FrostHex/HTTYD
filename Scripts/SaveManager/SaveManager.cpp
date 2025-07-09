@@ -124,11 +124,43 @@ void SaveManager::State_Save(const Dictionary& game_data)
         }
     }
 
-    String json_string = JSON::stringify(game_data);
+    String json_content = "{\n";
+    if (game_data.has("time")) 
+    {
+        json_content += "\t\"time\": " + String::num(static_cast<float>(game_data["time"])) + ",\n";
+    }
+    Array keys = game_data.keys();
+    for (int i = 0; i < keys.size(); i++) 
+    {
+        String key = keys[i];
+        if (key != "time")
+        {
+            Variant value = game_data[key];
+            json_content += "\t\"" + key + "\": ";
+            if (value.get_type() == Variant::STRING) 
+            {
+                json_content += "\"" + String(value) + "\"";
+            }
+            else if (value.get_type() == Variant::ARRAY) 
+            {
+                json_content += JSON::stringify(value);
+            }
+            else 
+            {
+                json_content += String(value);
+            }
+            if (i < keys.size() - 1) 
+            {
+                json_content += ",";
+            }
+            json_content += "\n";
+        }
+    }
+    json_content += "}";
     Ref<FileAccess> save_file = FileAccess::open(save_file_path, FileAccess::WRITE);
     if (save_file.is_valid()) 
     {
-        save_file->store_string(json_string);
+        save_file->store_string(json_content);
         save_file->close();
         UtilityFunctions::print("Game state saved successfully.");
     } 

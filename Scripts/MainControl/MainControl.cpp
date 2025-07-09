@@ -87,8 +87,6 @@ void MainControl::Initialize_TimerList()
 {
     // test timer list
     // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // 14.8 disable the default animations
-    // timer->Timer_AddEvent(1.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_check_tail_glide", true)); // 18.0 change the animation to tr_check_tail_glide
-    // timer->Timer_AddEvent(3.0f, Callable(dragon_animator, "Unfreeze"));
     
     timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
     timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
@@ -98,10 +96,16 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(18.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_check_tail_glide", true)); // the starting position of tr_check_tail_glide
     timer->Timer_AddEvent(19.1f, Callable(dragon_animator, "Unfreeze")); // change the animation to tr_check_tail_glide
     timer->Timer_AddEvent(20.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DEFAULT)); // enable the default animations
-    // 58.0 the code takes control, unavoidable to fly towards the pillar
-    // 58.7 hit the pillar, setting the animation to hit_cliff
-    // 1'02.0 unavoidable to fly towards the pillar
-    // 1'02.7 hit the pillar, setting the animation to hit_cliff
+    timer->Timer_AddEvent(53.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_HIT_CLIFF)); // the code takes control, unavoidable to fly towards the pillar
+    timer->Timer_AddEvent(53.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_glide")); 
+    timer->Timer_AddEvent(58.2f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_hit_glide", true)); // ready to hit the pillar, setting the animation to hit_cliff
+    timer->Timer_AddEvent(59.3f, Callable(dragon_animator, "Unfreeze")); // hit the pillar
+    timer->Timer_AddEvent(59.7f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED));
+    timer->Timer_AddEvent(59.9f, Callable(dragon_control, "SetState").bind(DragonState::STATE_HIT_CLIFF)); // unavoidable to fly towards the pillar
+    timer->Timer_AddEvent(59.9f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up")); 
+    timer->Timer_AddEvent(62.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_hit_glide", true));
+    timer->Timer_AddEvent(63.2f, Callable(dragon_animator, "Unfreeze")); // hit the pillar
+    // 1'04.0 Toothless turns around and keep flying
     // 1'05.3 Toothless flap my face with his ear
     timer->Timer_AddEvent(80.5f, Callable(cheat_sheet, "Detatch")); // detatch the cheat sheet
     // 1'22.5 start to decelerate due to the stall
@@ -185,6 +189,7 @@ void MainControl::_input(const Ref<InputEvent> &event)
         timer->Timer_Set(time_elapsed);
         video_player->set_stream_position(time_elapsed);
         dragon_control->SetStatus(data_all); 
+        dragon_control->time_to_target = 0.1f;
     }
 }
 
