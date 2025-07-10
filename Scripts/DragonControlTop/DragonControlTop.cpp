@@ -142,29 +142,15 @@ void DragonControlTop::ProcessNotAnimated(double delta)
  */
 void DragonControlTop::ProcessHitCliff(double delta)
 {
-    // Get the direction from dragon to pillar_hit_1
-    Vector3 dragon_position = dragon_rb->get_global_transform().origin;
-    Vector3 target_direction = (pillar_position - dragon_position).normalized();
-    Vector3 current_direction = dragon_rb->get_global_transform().basis.get_column(0);
-    Vector3 error = current_direction.cross(target_direction);
-    p_gain += delta * 2.0f;
-    Vector3 angular_velocity = error * p_gain;
-    dragon_rb->set_angular_velocity(angular_velocity);
-
-    // Calculate target distance and adjust dragon pivot rotation
-    float target_distance = (pillar_position - dragon_position).length() - 60;
+    // Handle pivot rotation based on distance
+    float target_distance = (pillar_position - dragon_rb->get_global_transform().origin).length() - 60;
     if (target_distance <= cliff_distance_threshold)
     {
         float rotation_factor = (cliff_distance_threshold - target_distance) / cliff_distance_threshold;
         Vector3 pivot_rotation = Vector3(0, 0, rotation_factor * Math_PI / 5.0f);
         dragon_pivot->set_rotation(pivot_rotation);
     }
-
-    float required_velocity = target_distance / time_to_target;
-    time_to_target -= delta; 
-    Vector3 velocity_direction = target_direction;
-    dragon_rb->set_linear_velocity(velocity_direction * required_velocity);
-
+    ApproachTarget(true, true, &time_to_target, delta, pillar_position, 60);
     if (time_to_target <= 0.0f) 
     {
         dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
@@ -207,6 +193,37 @@ void DragonControlTop::ProcessDisabled(double delta)
     if (dragon_pivot->get_rotation()!= Vector3(0, 0, 0)) 
     {
         dragon_pivot->set_rotation(dragon_pivot->get_rotation() * 0.965f);
+    }
+}
+
+
+/**
+ * @brief control the dragon to approach a target position in given time
+ * @param setting_angular whether to make it face the target direction gradually
+ * @param setting_linear whether to make it able to reach the target position in given time (needs mannual direction adjustment if setting_angular is false)
+ * @param time_to_target pointer to the time left to reach the target position
+ * @param time_delta time since last frame
+ * @param target_position the target position to approach
+ * @param distance_offset the offset distance to the target position (positive means not actually reaching the target position)
+ */
+void DragonControlTop::ApproachTarget(bool setting_angular, bool setting_linear, float* time_to_target, float time_delta, const Vector3& target_position, int distance_offset)
+{
+    Vector3 dragon_position = dragon_rb->get_global_transform().origin;
+    Vector3 target_direction = (target_position - dragon_position).normalized();
+    if (setting_angular) 
+    {
+        Vector3 current_direction = dragon_rb->get_global_transform().basis.get_column(0);
+        Vector3 error = current_direction.cross(target_direction);
+        p_gain += time_delta * (p_gain + 0.2f);
+        Vector3 angular_velocity = error * p_gain;
+        dragon_rb->set_angular_velocity(angular_velocity);
+    }
+    if (setting_linear) 
+    {
+        float target_distance = (target_position - dragon_position).length() - distance_offset;
+        float required_velocity = (target_distance / (*time_to_target));
+        dragon_rb->set_linear_velocity(target_direction * required_velocity);
+        *time_to_target -= time_delta;
     }
 }
 
