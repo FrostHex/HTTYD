@@ -26,6 +26,7 @@ DragonControlTop::DragonControlTop() : state_current(STATE_DEFAULT)
     // initialize the state process function pointers in the array
     state_process_funcs[STATE_DEFAULT] = &DragonControlTop::ProcessDefault;
     state_process_funcs[STATE_NOT_ANIMATED] = &DragonControlTop::ProcessNotAnimated;
+    state_process_funcs[STATE_APPROACHING] = &DragonControlTop::ProcessApproaching;
     state_process_funcs[STATE_HIT_CLIFF] = &DragonControlTop::ProcessHitCliff;
     state_process_funcs[STATE_FALLING] = &DragonControlTop::ProcessFalling;
     state_process_funcs[STATE_CRISIS] = &DragonControlTop::ProcessCrisis;
@@ -52,12 +53,15 @@ void DragonControlTop::_bind_methods()
     ClassDB::bind_method(D_METHOD("GetState"), &DragonControlTop::GetState);
     ClassDB::bind_method(D_METHOD("SetState", "state_new"), &DragonControlTop::SetState);
     ClassDB::bind_method(D_METHOD("SetStatus_Deferred", "dragon_transform", "linear_velocity_input"), &DragonControlTop::SetStatus_Deferred);
-    
+    ClassDB::bind_method(D_METHOD("TriggerApproaching", "target_position", "time_to_target"), &DragonControlTop::TriggerApproaching);
+
     // signal declaration
     ADD_SIGNAL(MethodInfo("dragon_collision", PropertyInfo(Variant::OBJECT, "body"), PropertyInfo(Variant::FLOAT, "velocity")));
     
     // use godot macro (BIND_ENUM_CONSTANT) to bind enum values to the engine
     BIND_ENUM_CONSTANT(STATE_DEFAULT);
+    BIND_ENUM_CONSTANT(STATE_NOT_ANIMATED);
+    BIND_ENUM_CONSTANT(STATE_APPROACHING);
     BIND_ENUM_CONSTANT(STATE_HIT_CLIFF);
     BIND_ENUM_CONSTANT(STATE_FALLING);
     BIND_ENUM_CONSTANT(STATE_CRISIS);
@@ -133,6 +137,22 @@ void DragonControlTop::ProcessNotAnimated(double delta)
     GetInput(this->input_keys);
     SetMotionLinear(delta);
     SetMotionAngular(delta);
+}
+
+
+void DragonControlTop::ProcessApproaching(double delta)
+{
+    ApproachTarget(false, true, &time_to_target, delta, target_position, 0);
+    GetInput(this->input_keys);
+    SetMotionAngular(delta);
+}
+
+
+void DragonControlTop::TriggerApproaching(const Vector3& target_position, float time_to_target)
+{
+    this->target_position = target_position;
+    this->time_to_target = time_to_target;
+    SetState(DragonState::STATE_APPROACHING);
 }
 
 
@@ -221,8 +241,11 @@ void DragonControlTop::ApproachTarget(bool setting_angular, bool setting_linear,
     if (setting_linear) 
     {
         float target_distance = (target_position - dragon_position).length() - distance_offset;
-        float required_velocity = (target_distance / (*time_to_target));
-        dragon_rb->set_linear_velocity(target_direction * required_velocity);
+        if (target_distance > 100.0f) 
+        {
+            float required_velocity = (target_distance / (*time_to_target));
+            dragon_rb->set_linear_velocity(target_direction * required_velocity);
+        }
         *time_to_target -= time_delta;
     }
 }
@@ -234,12 +257,10 @@ void DragonControlTop::ApproachTarget(bool setting_angular, bool setting_linear,
  */
 void DragonControlTop::SetState(DragonState state_new)
 {
-    state_current = state_new;
-    UtilityFunctions::print("Dragon state changed to: ", state_current);
-    switch (state_current) 
+    switch (state_new) 
     {
         case STATE_HIT_CLIFF:
-            if (time_to_target > 0.0f)
+            if (state_current == DragonState::STATE_APPROACHING) 
             {
                 dragon_pivot->set_rotation(Vector3(0, 0, 0));
                 pillar_position = pillar_hit_1->get_global_transform().origin + DRAGON_HIT_CLIFF_HEIGHT * Vector3(0, 1, 0);
@@ -254,11 +275,12 @@ void DragonControlTop::SetState(DragonState state_new)
                 time_to_target = 3.4f;
                 cliff_distance_threshold = -1.0f;
             }
-
         case STATE_DISABLED:
             dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
             break;
     }
+    state_current = state_new;
+    UtilityFunctions::print("Dragon state changed to: ", state_current);
 }
 
 /**

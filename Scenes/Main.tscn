@@ -91,7 +91,7 @@ wind_direction = Vector3(0, 0, 0)
 extra_large_clouds_pos = Vector3(30000, 0, 1000)
 large_clouds_pos = Vector3(30000, 0, -11000)
 medium_clouds_pos = Vector3(-10000, 0, -1000)
-small_clouds_pos = Vector3(0, 2508.3635, 0)
+small_clouds_pos = Vector3(0, 2891.487, 0)
 metadata/_custom_type_script = "uid://djusduuxf0voj"
 
 [node name="Fog_Volume" type="FogVolume" parent="."]
@@ -112,7 +112,7 @@ transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -323
 transform = Transform3D(0.562226, 0, -1.91935, 0, 2, 0, 1.91935, 0, 0.562226, -2469, 0, 2794)
 
 [node name="Rock_Pillar_A_01" parent="Rocks/Area_Beginning" instance=ExtResource("6_erwvk")]
-transform = Transform3D(0.9999999, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.9999999, 497.99426, 0, -6.588623)
+transform = Transform3D(0.99999964, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.99999964, 478.40833, 0, -4.5326233)
 
 [node name="Rock_Pillar_B_01" parent="Rocks/Area_Beginning" instance=ExtResource("7_2w5on")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 154, 0, 0)

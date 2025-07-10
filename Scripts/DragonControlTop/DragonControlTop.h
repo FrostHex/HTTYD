@@ -28,6 +28,7 @@ namespace godot
     {
         STATE_DEFAULT,
         STATE_NOT_ANIMATED,
+        STATE_APPROACHING,
         STATE_HIT_CLIFF,
         STATE_FALLING,
         STATE_CRISIS,
@@ -82,6 +83,7 @@ namespace godot
             DragonState state_current;
             void ProcessDefault(double delta);
             void ProcessNotAnimated(double delta);
+            void ProcessApproaching(double delta);
             void ProcessHitCliff(double delta);
             void ProcessFalling(double delta);
             void ProcessCrisis(double delta);
@@ -89,11 +91,13 @@ namespace godot
             CameraControl* camera_ctrl; // pointer to the CameraControl class instance
             float p_gain = 0.0f; 
             Node3D* dragon_pivot = nullptr;
+            Vector3 target_position = Vector3(0, 0, 0);
             Node3D* pillar_hit_1 = nullptr;
             Node3D* pillar_hit_2 = nullptr;
             Vector3 pillar_position = Vector3(0, 0, 0);
             float cliff_distance_threshold;
             void ApproachTarget(bool setting_angular, bool setting_linear, float* time_to_target, float time_delta, const Vector3& target_position, int distance_offset = 0);
+            void TriggerApproaching(const Vector3& target_position, float time_to_target);
     };
 }
 
