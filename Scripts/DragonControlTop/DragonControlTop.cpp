@@ -142,13 +142,17 @@ void DragonControlTop::ProcessNotAnimated(double delta)
 
 void DragonControlTop::ProcessApproaching(double delta)
 {
-    ApproachTarget(false, true, &time_to_target, delta, target_position, 0);
+    ApproachTarget(false, true, &time_to_target, delta, &target_position, 0);
+    if (time_to_target <= 0.0f)
+    {
+        target_position = Vector3();
+    }
     GetInput(this->input_keys);
     SetMotionAngular(delta);
 }
 
 
-void DragonControlTop::TriggerApproaching(const Vector3& target_position, float time_to_target)
+void DragonControlTop::TriggerApproaching(Vector3 target_position, float time_to_target)
 {
     this->target_position = target_position;
     this->time_to_target = time_to_target;
@@ -162,19 +166,23 @@ void DragonControlTop::TriggerApproaching(const Vector3& target_position, float 
  */
 void DragonControlTop::ProcessHitCliff(double delta)
 {
-    // Handle pivot rotation based on distance
-    float target_distance = (pillar_position - dragon_rb->get_global_transform().origin).length() - 60;
-    if (target_distance <= cliff_distance_threshold)
+    if (target_position != Vector3())
     {
-        float rotation_factor = (cliff_distance_threshold - target_distance) / cliff_distance_threshold;
-        Vector3 pivot_rotation = Vector3(0, 0, rotation_factor * Math_PI / 5.0f);
-        dragon_pivot->set_rotation(pivot_rotation);
-    }
-    ApproachTarget(true, true, &time_to_target, delta, pillar_position, 60);
-    if (time_to_target <= 0.0f) 
-    {
-        dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
-        cliff_distance_threshold = -1.0f;
+        // Handle pivot rotation based on distance
+        float target_distance = (target_position - dragon_rb->get_global_transform().origin).length() - 60;
+        if (target_distance <= cliff_distance_threshold)
+        {
+            float rotation_factor = (cliff_distance_threshold - target_distance) / cliff_distance_threshold;
+            Vector3 pivot_rotation = Vector3(0, 0, rotation_factor * Math_PI / 5.0f);
+            dragon_pivot->set_rotation(pivot_rotation);
+        }
+        ApproachTarget(true, true, &time_to_target, delta, &target_position, 60);
+        if (time_to_target <= 0.0f) 
+        {
+            dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+            target_position = Vector3();
+            cliff_distance_threshold = -1000.0f;
+        }
     }
 }
 
@@ -226,10 +234,14 @@ void DragonControlTop::ProcessDisabled(double delta)
  * @param target_position the target position to approach
  * @param distance_offset the offset distance to the target position (positive means not actually reaching the target position)
  */
-void DragonControlTop::ApproachTarget(bool setting_angular, bool setting_linear, float* time_to_target, float time_delta, const Vector3& target_position, int distance_offset)
+void DragonControlTop::ApproachTarget(bool setting_angular, bool setting_linear, float* time_to_target, float time_delta, Vector3* target_position, int distance_offset)
 {
+    if (*target_position == Vector3())
+    {
+        return; 
+    }
     Vector3 dragon_position = dragon_rb->get_global_transform().origin;
-    Vector3 target_direction = (target_position - dragon_position).normalized();
+    Vector3 target_direction = (*target_position - dragon_position).normalized();
     if (setting_angular) 
     {
         Vector3 current_direction = dragon_rb->get_global_transform().basis.get_column(0);
@@ -240,10 +252,14 @@ void DragonControlTop::ApproachTarget(bool setting_angular, bool setting_linear,
     }
     if (setting_linear) 
     {
-        float target_distance = (target_position - dragon_position).length() - distance_offset;
-        if (target_distance > 100.0f) 
+        if (!setting_angular) 
         {
-            float required_velocity = (target_distance / (*time_to_target));
+            target_direction = dragon_rb->get_global_transform().basis.get_column(0); 
+        }
+        float target_distance = (*target_position - dragon_position).length() - distance_offset;
+        if (target_distance > 10.0f) 
+        {
+            float required_velocity = Math::clamp(target_distance / (*time_to_target), -vertical_clamp, vertical_clamp);
             dragon_rb->set_linear_velocity(target_direction * required_velocity);
         }
         *time_to_target -= time_delta;
@@ -263,17 +279,16 @@ void DragonControlTop::SetState(DragonState state_new)
             if (state_current == DragonState::STATE_APPROACHING) 
             {
                 dragon_pivot->set_rotation(Vector3(0, 0, 0));
-                pillar_position = pillar_hit_1->get_global_transform().origin + DRAGON_HIT_CLIFF_HEIGHT * Vector3(0, 1, 0);
+                target_position = pillar_hit_1->get_global_transform().origin + DRAGON_HIT_CLIFF_HEIGHT * Vector3(0, 1, 0);
                 p_gain = 0.0f; // Proportional gain, adjust as needed
                 time_to_target = 6.4f;
                 cliff_distance_threshold = 300.0f;
             }
             else
             {
-                pillar_position = pillar_hit_2->get_global_transform().origin + DRAGON_HIT_CLIFF_HEIGHT * Vector3(0, 1, 0);
+                target_position = pillar_hit_2->get_global_transform().origin + DRAGON_HIT_CLIFF_HEIGHT * Vector3(0, 1, 0);
                 p_gain = 0.0f; 
                 time_to_target = 3.4f;
-                cliff_distance_threshold = -1.0f;
             }
         case STATE_DISABLED:
             dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
