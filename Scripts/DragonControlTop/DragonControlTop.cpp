@@ -53,7 +53,7 @@ void DragonControlTop::_bind_methods()
     ClassDB::bind_method(D_METHOD("GetState"), &DragonControlTop::GetState);
     ClassDB::bind_method(D_METHOD("SetState", "state_new"), &DragonControlTop::SetState);
     ClassDB::bind_method(D_METHOD("SetStatus_Deferred", "dragon_transform", "linear_velocity_input"), &DragonControlTop::SetStatus_Deferred);
-    ClassDB::bind_method(D_METHOD("TriggerApproaching", "target_position", "time_to_target"), &DragonControlTop::TriggerApproaching);
+    ClassDB::bind_method(D_METHOD("TriggerApproaching", "setting_angular", "target_position", "time_to_target"), &DragonControlTop::TriggerApproaching);
 
     // signal declaration
     ADD_SIGNAL(MethodInfo("dragon_collision", PropertyInfo(Variant::OBJECT, "body"), PropertyInfo(Variant::FLOAT, "velocity")));
@@ -142,21 +142,29 @@ void DragonControlTop::ProcessNotAnimated(double delta)
 
 void DragonControlTop::ProcessApproaching(double delta)
 {
-    ApproachTarget(false, true, &time_to_target, delta, &target_position, 0);
+    ApproachTarget(setting_angular, true, &time_to_target, delta, &target_position, 0);
     if (time_to_target <= 0.0f)
     {
         target_position = Vector3();
     }
-    GetInput(this->input_keys);
-    SetMotionAngular(delta);
+    if (!setting_angular)
+    {
+        GetInput(this->input_keys);
+        SetMotionAngular(delta);
+    }
 }
 
 
-void DragonControlTop::TriggerApproaching(Vector3 target_position, float time_to_target)
+void DragonControlTop::TriggerApproaching(bool setting_angular, Vector3 target_position, float time_to_target)
 {
+    this->setting_angular = setting_angular;
     this->target_position = target_position;
     this->time_to_target = time_to_target;
     SetState(DragonState::STATE_APPROACHING);
+    if (setting_angular) 
+    {
+        p_gain = 0.0f;    
+    }
 }
 
 
@@ -247,6 +255,7 @@ void DragonControlTop::ApproachTarget(bool setting_angular, bool setting_linear,
         Vector3 current_direction = dragon_rb->get_global_transform().basis.get_column(0);
         Vector3 error = current_direction.cross(target_direction);
         p_gain += time_delta * (p_gain + 0.2f);
+        p_gain = p_gain > 5.0f ? 5.0f : p_gain;
         Vector3 angular_velocity = error * p_gain;
         dragon_rb->set_angular_velocity(angular_velocity);
     }
@@ -275,12 +284,14 @@ void DragonControlTop::SetState(DragonState state_new)
 {
     switch (state_new) 
     {
+        // case STATE_APPROACHING:
+        //     p_gain = 0.0f;
         case STATE_HIT_CLIFF:
             if (state_current == DragonState::STATE_APPROACHING) 
             {
                 dragon_pivot->set_rotation(Vector3(0, 0, 0));
                 target_position = pillar_hit_1->get_global_transform().origin + DRAGON_HIT_CLIFF_HEIGHT * Vector3(0, 1, 0);
-                p_gain = 0.0f; // Proportional gain, adjust as needed
+                p_gain = 0.0f;
                 time_to_target = 6.4f;
                 cliff_distance_threshold = 300.0f;
             }

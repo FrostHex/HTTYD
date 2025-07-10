@@ -91,7 +91,7 @@ wind_direction = Vector3(0, 0, 0)
 extra_large_clouds_pos = Vector3(30000, 0, 1000)
 large_clouds_pos = Vector3(30000, 0, -11000)
 medium_clouds_pos = Vector3(-10000, 0, -1000)
-small_clouds_pos = Vector3(0, 3232.5813, 0)
+small_clouds_pos = Vector3(0, 11541.242, 0)
 metadata/_custom_type_script = "uid://djusduuxf0voj"
 
 [node name="Fog_Volume" type="FogVolume" parent="."]
@@ -175,7 +175,7 @@ transform = Transform3D(-12.721826, 0, 2.6748812, 0, 13, 0, -2.6748812, 0, -12.7
 transform = Transform3D(-11.848731, 0, -1.8993216, 0, 4.9999995, 0, 1.8993216, 0, -11.848731, 174.05469, 14.000061, -1031.4641)
 
 [node name="Rock_Pillar_C_10" parent="Rocks/Area_Beginning" instance=ExtResource("8_346fj")]
-transform = Transform3D(-6.0926657, 0, -5.1845307, 0, 6, 0, 5.1845307, 0, -6.0926657, 199.41467, 14.000061, -1367.9658)
+transform = Transform3D(-6.0926647, 0, -5.1845293, 0, 6, 0, 5.1845293, 0, -6.0926647, 1131.0089, 14.000122, -2303.351)
 
 [node name="Rock_Pillar_D_12" parent="Rocks/Area_Beginning" instance=ExtResource("9_0sclb")]
 transform = Transform3D(8.70252, -1.3840085, 7.9599943, 2.9591606, 7.2683897, 4.245412e-07, -7.7141776, 1.226827, 8.97983, 88.19116, -37.99994, -1339.0752)
@@ -262,16 +262,16 @@ transform = Transform3D(-8.632494, 1.372871, 8.0407715, 2.9591603, 7.2683887, 3.
 transform = Transform3D(0.55415666, 0, 7.980779, 0, 6, 0, -7.980779, 0, 0.55415666, 759.7042, 13.999939, -1556.4163)
 
 [node name="Rock_Pillar_D_15" parent="Rocks/Area_Beginning" instance=ExtResource("9_0sclb")]
-transform = Transform3D(-7.436958, 0, 10.662617, 0, 13, 0, -10.662617, 0, -7.436958, 1135.285, 6.9999995, -1297.4298)
+transform = Transform3D(-7.436957, 0, 10.662616, 0, 13, 0, -10.662616, 0, -7.436957, 1187.1779, 7.0000606, -1351.2498)
 
 [node name="Rock_Pillar_B_17" parent="Rocks/Area_Beginning" instance=ExtResource("7_2w5on")]
-transform = Transform3D(-9.933884, 0, 6.7318416, 0, 4.9999995, 0, -6.7318416, 0, -9.933884, 1023.7372, 14, -1219.628)
+transform = Transform3D(-9.933884, 0, 6.7318416, 0, 4.9999995, 0, -6.7318416, 0, -9.933884, 1023.737, 0, -1219.628)
 
 [node name="Rock_Pillar_C_14" parent="Rocks/Area_Beginning" instance=ExtResource("8_346fj")]
 transform = Transform3D(-4.576591, 0, 6.561611, 0, 6, 0, -6.561611, 0, -4.576591, 893.47327, 14, -1156.2894)
 
 [node name="Rock_Pillar_D_16" parent="Rocks/Area_Beginning" instance=ExtResource("9_0sclb")]
-transform = Transform3D(6.844397, -1.0885015, -9.70154, 2.9591606, 7.2683897, 4.2454124e-07, 9.401945, -1.4952419, 7.0625014, 875.3778, -38, -1269.7701)
+transform = Transform3D(6.844396, -1.0885015, -9.70154, 2.9591606, 7.2683897, 4.2454124e-07, 9.401945, -1.4952419, 7.0625014, 948.44934, -38.00006, -1403.2577)
 
 [node name="Rock_Pillar_C_15" parent="Rocks/Area_Beginning" instance=ExtResource("8_346fj")]
 transform = Transform3D(-11.0761175, 1.7375224, 3.4330823, 3.0640094, 9.440628, 2.0868344, -3.4541507, 2.8027537, -9.157443, 1723.849, -3, -1342.1761)
@@ -292,7 +292,7 @@ transform = Transform3D(1.0739942, 0, -11.951802, 0, 5.0000005, 0, 11.951802, 0,
 transform = Transform3D(-2.184426, 0, -7.695984, 0, 5.9999995, 0, 7.695984, 0, -2.184426, 816.5443, 14, -480.44836)
 
 [node name="Rock_Pillar_D_18" parent="Rocks/Area_Beginning" instance=ExtResource("9_0sclb")]
-transform = Transform3D(-0.76304007, 1.3728616, -11.772544, -1.8726296, 7.2683897, 2.2912486, 11.828397, 1.2392675, -0.39669728, 785.36975, -38.00006, -1510.7908)
+transform = Transform3D(-0.7630398, 1.3728614, -11.772544, -1.8726296, 7.2683897, 2.2912486, 11.828395, 1.2392673, -0.39669776, 657.8793, -38.000183, -1928.607)
 
 [node name="Rock_Pillar_D_22" parent="Rocks/Area_Beginning" instance=ExtResource("9_0sclb")]
 transform = Transform3D(-12.721826, 0, 2.6748812, 0, 13, 0, -2.6748812, 0, -12.721826, -177.02661, 7.000183, -1507.8488)

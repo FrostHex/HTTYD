@@ -96,8 +96,9 @@ namespace godot
             Node3D* pillar_hit_2 = nullptr;
             float cliff_distance_threshold;
             void ApproachTarget(bool setting_angular, bool setting_linear, float* time_to_target, float time_delta, Vector3* target_position, int distance_offset = 0);
-            void TriggerApproaching(Vector3 target_position, float time_to_target);
+            void TriggerApproaching(bool setting_angular, Vector3 target_position, float time_to_target);
             float vertical_clamp = 300.0f;
+            bool setting_angular = false;
     };
 }
 
