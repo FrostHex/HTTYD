@@ -54,6 +54,8 @@ void DragonAnimator::_ready()
     {
         SetAnimation("layer_shake", "lo_shake");
     }
+
+    // anim_tree->set("parameters/add_eyelid_up/add_amount", 0.9); // Set the blend weight for the add_eyelid_up add2 node
 }
 
 

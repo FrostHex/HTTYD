@@ -108,8 +108,9 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(63.2f, Callable(dragon_animator, "Unfreeze")); // hit the pillar for the second time
     timer->Timer_AddEvent(63.5f, Callable(dragon_control, "TriggerApproaching").bind(true, get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_C_10")->get_global_transform().origin + Vector3(0, 200, 0), 20.0f)); // Toothless turns around and keep flying
     timer->Timer_AddEvent(63.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up"));
+    timer->Timer_AddEvent(63.5f, Callable(dragon_control, "SetClearPivotRotation").bind(true)); // set clear_pivot_rotation to true
     timer->Timer_AddEvent(65.3f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_slap_glide")); // Toothless flap my face with his ear
-    // 1'11.0 fly up to the sky
+    timer->Timer_AddEvent(70.0f, Callable(dragon_control, "TriggerApproaching").bind(true, Vector3(-500, 5000, 500), 10.5f)); // 1'11.0 fly up to the sky
     timer->Timer_AddEvent(80.5f, Callable(cheat_sheet, "Detatch")); // detatch the cheat sheet
     // 1'22.5 start to decelerate due to the stall
     // 1'25.0 the camera is now facing downwards

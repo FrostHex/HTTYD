@@ -54,6 +54,7 @@ void DragonControlTop::_bind_methods()
     ClassDB::bind_method(D_METHOD("SetState", "state_new"), &DragonControlTop::SetState);
     ClassDB::bind_method(D_METHOD("SetStatus_Deferred", "dragon_transform", "linear_velocity_input"), &DragonControlTop::SetStatus_Deferred);
     ClassDB::bind_method(D_METHOD("TriggerApproaching", "setting_angular", "target_position", "time_to_target"), &DragonControlTop::TriggerApproaching);
+    ClassDB::bind_method(D_METHOD("SetClearPivotRotation", "value"), &DragonControlTop::SetClearPivotRotation);
 
     // signal declaration
     ADD_SIGNAL(MethodInfo("dragon_collision", PropertyInfo(Variant::OBJECT, "body"), PropertyInfo(Variant::FLOAT, "velocity")));
@@ -152,6 +153,19 @@ void DragonControlTop::ProcessApproaching(double delta)
         GetInput(this->input_keys);
         SetMotionAngular(delta);
     }
+    if (clear_pivot_rotation) 
+    {
+        Vector3 current_rotation = dragon_pivot->get_rotation();
+        if (current_rotation.x + current_rotation.y + current_rotation.z < 0.01f) 
+        {
+            dragon_pivot->set_rotation(Vector3(0, 0, 0));
+            clear_pivot_rotation = false;
+        }
+        else
+        {
+            dragon_pivot->set_rotation(current_rotation * 0.95f);
+        }
+    }
 }
 
 
@@ -164,6 +178,11 @@ void DragonControlTop::TriggerApproaching(bool setting_angular, Vector3 target_p
     if (setting_angular) 
     {
         p_gain = 0.0f;    
+    }
+    if (target_position.y > 1000.0f) 
+    {
+        velocity_clamp = 10000.0f;
+        p_gain = 0.3f;
     }
 }
 
@@ -268,7 +287,7 @@ void DragonControlTop::ApproachTarget(bool setting_angular, bool setting_linear,
         float target_distance = (*target_position - dragon_position).length() - distance_offset;
         if (target_distance > 10.0f) 
         {
-            float required_velocity = Math::clamp(target_distance / (*time_to_target), -vertical_clamp, vertical_clamp);
+            float required_velocity = Math::clamp(target_distance / (*time_to_target), -velocity_clamp, velocity_clamp);
             dragon_rb->set_linear_velocity(target_direction * required_velocity);
         }
         *time_to_target -= time_delta;
@@ -576,4 +595,10 @@ void DragonControlTop::_on_body_entered(Node* body)
     event->set_action("load_state");
     event->set_pressed(true);
     Input::get_singleton()->parse_input_event(event);
+}
+
+
+void DragonControlTop::SetClearPivotRotation(bool value)
+{
+    clear_pivot_rotation = value;
 }

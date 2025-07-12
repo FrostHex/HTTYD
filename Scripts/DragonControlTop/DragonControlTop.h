@@ -53,6 +53,7 @@ namespace godot
             void SetState(DragonState new_state);
             DragonState GetState() const; // const: this function does not modify the object
             float time_to_target = 0.1f;
+            void SetClearPivotRotation(bool value);
 
         protected:
             static void _bind_methods();
@@ -97,8 +98,9 @@ namespace godot
             float cliff_distance_threshold;
             void ApproachTarget(bool setting_angular, bool setting_linear, float* time_to_target, float time_delta, Vector3* target_position, int distance_offset = 0);
             void TriggerApproaching(bool setting_angular, Vector3 target_position, float time_to_target);
-            float vertical_clamp = 300.0f;
+            float velocity_clamp = 300.0f;
             bool setting_angular = false;
+            bool clear_pivot_rotation = false;
     };
 }
 
