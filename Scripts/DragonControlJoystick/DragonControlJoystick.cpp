@@ -1,4 +1,5 @@
 #include "DragonControlJoystick.h"
+#include "CameraControl.h"
 
 #include <godot_cpp/classes/xr_server.hpp>
 #include <godot_cpp/classes/xr_interface.hpp>
@@ -71,6 +72,44 @@ void DragonControlJoystick::GetInput(float* input_keys)
         input_keys[2] = hand_right->get_vector2("primary").x;
         // float left_grip = hand_left->get_float("grip"); // 0 to 1
         // float right_grip = hand_right->get_float("grip");
+}
+
+
+/**
+ * @brief set angular velocity using headset orientation in crisis state
+ * @param delta time since last frame
+ */
+void DragonControlJoystick::SetMotionAngularCrisis(double delta) 
+{
+    Basis headset_basis = Basis::from_euler(camera_ctrl->GetPostureHeadset());
+    Basis dragon_basis = dragon_rb->get_global_transform().basis;
+    Vector3 headset_forward = -headset_basis.get_column(2); // +z
+    Vector3 headset_up = headset_basis.get_column(1); // +y
+    Vector3 dragon_forward = dragon_basis.get_column(0); // +x
+    Vector3 dragon_up = dragon_basis.get_column(1); // +y
+    Vector3 dragon_right = dragon_basis.get_column(2); // +z
+    Vector3 angular_velocity = Vector3();
+    // process pitch
+    float pitch_diff = dragon_forward.y - headset_forward.y; // comparing the y component of the forward vectors
+    angular_velocity -= dragon_right * (pitch_diff * DRAGON_CRISIS_P_GAIN);
+    // process roll 
+    // project the headset up vector onto the dragon's YOZ plane (perpendicular to the dragon's forward vector)
+    Vector3 projected_up = headset_up - dragon_forward * headset_up.dot(dragon_forward);
+    // calculate the roll by comparing the projected up vector with the dragon's up vector
+    if (projected_up.length_squared() > 0.001f) 
+    {
+        projected_up.normalize();
+        float roll_dot = dragon_up.dot(projected_up);
+        float roll_angle = Math::acos(Math::clamp(roll_dot, -1.0f, 1.0f));
+        float roll_dir = projected_up.dot(dragon_right) > 0.0f ? 1.0f : -1.0f;
+        angular_velocity += dragon_forward * (roll_dir * roll_angle * DRAGON_CRISIS_P_GAIN * 0.8f);
+    }
+    // couple yaw and roll
+    float tilt = dragon_right.dot(Vector3(0, 1, 0));
+    tilt = Math::clamp(tilt, -1.0f, 1.0f);
+    angular_velocity += Vector3(0, 1, 0) * (Math::asin(tilt) * DRAGON_FACTOR_YAW * 3 * delta);
+
+    dragon_rb->set_angular_velocity(angular_velocity);
 }
 
 void DragonControlJoystick::_bind_methods() 

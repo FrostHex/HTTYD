@@ -19,6 +19,7 @@ namespace godot
 
         protected:
             static void _bind_methods();
+            void SetMotionAngularCrisis(double delta) override;
 
         private:
             XRController3D *hand_left = nullptr;

@@ -86,7 +86,7 @@ void MainControl::_ready()
 void MainControl::Initialize_TimerList() 
 {
     // test timer list
-    // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // 14.8 disable the default animations
+    // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS));
     
     timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
     timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
@@ -106,13 +106,14 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(59.9f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up")); // Toothless flap his wings
     timer->Timer_AddEvent(62.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_hit_glide", true));
     timer->Timer_AddEvent(63.2f, Callable(dragon_animator, "Unfreeze")); // hit the pillar for the second time
-    timer->Timer_AddEvent(63.5f, Callable(dragon_control, "TriggerApproaching").bind(true, get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_C_10")->get_global_transform().origin + Vector3(0, 200, 0), 20.0f)); // Toothless turns around and keep flying
+    timer->Timer_AddEvent(63.5f, Callable(dragon_control, "TriggerApproaching").bind(true, get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_C_10")->get_global_transform().origin + Vector3(0, 200, 0), 10.0f)); // Toothless turns around and keep flying
     timer->Timer_AddEvent(63.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up"));
     timer->Timer_AddEvent(63.5f, Callable(dragon_control, "SetClearPivotRotation").bind(true)); // set clear_pivot_rotation to true
     timer->Timer_AddEvent(65.3f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_slap_glide")); // Toothless flap my face with his ear
-    timer->Timer_AddEvent(70.0f, Callable(dragon_control, "TriggerApproaching").bind(true, Vector3(-500, 5000, 500), 10.5f)); // 1'11.0 fly up to the sky
+    timer->Timer_AddEvent(70.0f, Callable(dragon_control, "TriggerApproaching").bind(true, Vector3(-1400, 3100, -500), 10.5f)); // 1'11.0 fly up to the sky
     timer->Timer_AddEvent(80.5f, Callable(cheat_sheet, "Detatch")); // detatch the cheat sheet
-    // 1'22.5 start to decelerate due to the stall
+    timer->Timer_AddEvent(82.5f, Callable(dragon_control, "SetState").bind(DragonState::STATE_FALLING)); // 1'22.5 start to decelerate due to the stall
+    timer->Timer_AddEvent(86.0f, Callable(dragon_animator, "SetAnimation").bind("layer_eye_shape", "po_eye_small"));
     // 1'25.0 the camera is now facing downwards
     // 1'25.5 change the animation to tr_glide_fall
     // 1'25.8 speed is now reduced to 0, and start falling
@@ -128,16 +129,20 @@ void MainControl::Initialize_TimerList()
     // 1'41.0 the camera is now facing downwards and approaching to Toothless, and Toothless's spinning is alleviated
     // 1'44.3 grab the saddle
     // 1'46.5 sit back on the saddle
-    // 1'50.0 straightly dive downwards
-    // 1'53.5 glide diagonal downwards
-    // 2'01.7 the tail wing is now fully extended
-    // 2'02.0 fully retrieve the control
+    // 1'50.0 set the rotation to straightly dive downwards
+    /*TODO*/timer->Timer_AddEvent(113.8f, Callable(dragon_control, "TriggerApproaching").bind(true, get_parent()->get_node<Node3D>("Rocks/Area_Final/Rock_Pillar_E_01")->get_global_transform().origin + Vector3(0, 100, 0), 15.0f)); // glide diagonal downwards
+    // 1'53.8 set the rotation to glide diagonal downwards
+    timer->Timer_AddEvent(113.8f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_crisis"));
+    timer->Timer_AddEvent(120.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close"));
+    timer->Timer_AddEvent(121.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS)); // fully retrieve the control and the tail wing is fully extended
     // 2'08.7 start getting to the position of upside down
     // 2'09.7 finish the spinning
     // 2'10.5 retrieve the control
-    // 2'14.8 successfully traversed the crisis
-    // 2'22.5 change the animation to celebrate
-    timer->Timer_AddEvent(143.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // 2'23.0 disable the control
+    // 2'14.8 successfully traversed the crisis and set the velocity to horizontal
+    timer->Timer_AddEvent(142.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // disable the control
+    timer->Timer_AddEvent(142.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_celebrate")); // change the animation to celebrate
+    timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_eye_shape", "po_eye_big"));
+    timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_mouth", "tr_glide_celebrate"));
 }
 
 

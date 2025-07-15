@@ -63,20 +63,23 @@ namespace godot
             // the class containing pure virtual functions is an abstract class
             virtual void GetInput(float* input_keys) = 0;
             void SetStatus_Deferred(const Array& dragon_transform, float linear_velocity_input);
-            Input *input_singleton;    private:
+            Input *input_singleton;    
             RigidBody3D *dragon_rb;
-            DragonAnimator* dragon_animator;
+            CameraControl* camera_ctrl; // pointer to the CameraControl class instance
             float input_keys[3] = {0.0f, 0.0f, 0.0f};
+            Vector3 angular_velocity_buildup = Vector3(0, 0, 0);
+
+        private:
+            DragonAnimator* dragon_animator;
             float height_init = 0.0f;
             float height_delta = 0.0f;
             float linear_velocity_input = 100.0f;
             float linear_velocity = 0.0f;
-            Vector3 angular_velocity_buildup = Vector3(0, 0, 0);
             void SetMotionLinear(double delta);
             void SetMotionAngular(double delta);
-            void SetMotionAngularCrisis(double delta);
             void SetAnimation();
             void SetAnimationCrisis();
+            virtual void SetMotionAngularCrisis(double delta) = 0;
             // define a new type name (StateProcessFunc) for the function pointers
             // it represents a pointer to a member function of DragonControlTop class that takes a double argument and returns void
             using StateProcessFunc = void (DragonControlTop::*)(double);
@@ -89,7 +92,6 @@ namespace godot
             void ProcessFalling(double delta);
             void ProcessCrisis(double delta);
             void ProcessDisabled(double delta);
-            CameraControl* camera_ctrl; // pointer to the CameraControl class instance
             float p_gain = 0.0f; 
             Node3D* dragon_pivot = nullptr;
             Vector3 target_position = Vector3(0, 0, 0);
