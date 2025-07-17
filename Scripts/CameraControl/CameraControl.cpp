@@ -13,6 +13,9 @@
 #include <godot_cpp/classes/standard_material3d.hpp>
 #include <godot_cpp/classes/viewport_texture.hpp>
 #include <godot_cpp/classes/input_event.hpp>
+#include <godot_cpp/classes/display_server.hpp>
+#include <godot_cpp/classes/xr_server.hpp>
+#include <godot_cpp/classes/xr_interface.hpp>
 
 using namespace godot;
 
@@ -26,6 +29,29 @@ CameraControl::CameraControl(bool sub_view, bool enable_headset)
 {
     this->sub_view = sub_view;
     this->enable_headset = enable_headset;
+
+    if (enable_headset) 
+    {
+        DisplayServer::get_singleton()->window_set_vsync_mode(DisplayServer::VSYNC_DISABLED);
+        Ref<XRInterface> xr_interface = XRServer::get_singleton()->find_interface("OpenXR");
+        if (xr_interface.is_valid()) 
+        {
+            // if (xr_interface->has_method("set_render_target_size_multiplier")) 
+            // {
+            //     xr_interface->call("set_render_target_size_multiplier", 0.5f); // decrease resolution
+            // }
+            // if (xr_interface->has_method("set_display_refresh_rate")) 
+            // {
+            //     xr_interface->call("set_display_refresh_rate", 30.0f);
+            // }
+        }
+        Engine* engine = Engine::get_singleton();
+        if (engine) 
+        {
+            engine->set_physics_ticks_per_second(60);
+            // engine->set_max_fps(30);
+        }
+    }
 }
 
 
@@ -66,6 +92,7 @@ void CameraControl::_ready()
             initial_origin_position = xr_origin->get_position();
             xr_position_initialized = false;
             set_physics_process(true);
+            DisplayServer::get_singleton()->window_set_vsync_mode(DisplayServer::VSYNC_DISABLED);
         }
         else
         {
@@ -139,7 +166,6 @@ void CameraControl::_physics_process(double delta)
         }
         
         xr_node->set_global_rotation(Vector3(0, -Math_PI / 2, 0)); // set the rotation of the XR origin to match the camera
-
     }
 
     if (this->sub_view)

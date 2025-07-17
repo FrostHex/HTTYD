@@ -8,6 +8,7 @@
 #include <godot_cpp/variant/callable.hpp>
 #include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/classes/timer.hpp>
+#include <godot_cpp/classes/audio_stream_player.hpp>
 #include <vector>
 #include <queue>
 #include <algorithm>
@@ -57,6 +58,7 @@ namespace godot
             void Timer_Pause();
             void Timer_Resume();
             float Timer_GetTimeElapsed() const;
+            void Timer_ForceSetTime(float time);
 
         protected:
             static void _bind_methods();
@@ -71,6 +73,7 @@ namespace godot
             std::priority_queue<TimerEvent, std::vector<TimerEvent>, std::greater<TimerEvent>> event_queue;
             
             CameraControl* camera_control; // pointer to the camera control, can be used to access camera properties
+            AudioStreamPlayer* audio_player;
             float time_elapsed; // Elapsed time (seconds)
             bool timer_paused; // Whether paused
             int id_event_next; // ID for the next event

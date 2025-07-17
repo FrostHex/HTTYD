@@ -148932,7 +148932,6 @@ offset_right = 480.0
 offset_bottom = 587.0
 scale = Vector2(0.75, 0.75)
 stream = ExtResource("5_x0p8c")
-volume_db = -80.0
 
 [node name="DragonAnimator" type="DragonAnimator" parent="."]
 

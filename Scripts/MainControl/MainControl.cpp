@@ -69,6 +69,10 @@ void MainControl::_ready()
         dragon_control = memnew(DragonControlKeyboard);
         dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
     }
+    if (sub_view) 
+    {
+        video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
+    }
 
     camera_ctrl->SetDragonControl(dragon_control); // set the dragon control to the camera control
     timer = memnew(GameTimer(camera_ctrl));
@@ -76,20 +80,26 @@ void MainControl::_ready()
     save_manager = memnew(SaveManager());
     add_child(save_manager);
     audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
-    video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
 
     Initialize_TimerList();
     call_deferred("Start_Timer"); // postpone for one frame to ensure the scene is fully initialized and rendered
 }
 
 
+/**
+ * @brief add events to the timer list
+ */
 void MainControl::Initialize_TimerList() 
 {
     // test timer list
     // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS));
-    
+    // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED));
+
+    if (sub_view && video_player)
+    {
+        timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
+    }
     timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
-    timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
     timer->Timer_AddEvent(16.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // disable the default animations
     timer->Timer_AddEvent(16.8f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close")); // the tail wing folds
     timer->Timer_AddEvent(17.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide")); // the tail wing is now fully extended
@@ -134,7 +144,7 @@ void MainControl::Initialize_TimerList()
     // 1'53.8 set the rotation to glide diagonal downwards
     timer->Timer_AddEvent(113.8f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_crisis"));
     timer->Timer_AddEvent(120.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close"));
-    timer->Timer_AddEvent(121.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS)); // fully retrieve the control and the tail wing is fully extended
+    timer->Timer_AddEvent(121.7f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS)); // fully retrieve the control and the tail wing is fully extended
     // 2'08.7 start getting to the position of upside down
     // 2'09.7 finish the spinning
     // 2'10.5 retrieve the control
@@ -195,8 +205,11 @@ void MainControl::_input(const Ref<InputEvent> &event)
         audio_player->seek(time_elapsed);
         timer->Timer_Reset();
         Initialize_TimerList();
-        timer->Timer_Set(time_elapsed);
-        video_player->set_stream_position(time_elapsed);
+        timer->Timer_ForceSetTime(time_elapsed);
+        if (sub_view && video_player) // 添加sub_view检查
+        {
+            video_player->set_stream_position(time_elapsed);
+        }
         dragon_control->SetStatus(data_all); 
         dragon_control->time_to_target = 0.1f;
     }

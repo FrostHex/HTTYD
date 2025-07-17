@@ -9,6 +9,7 @@
 #include <godot_cpp/classes/camera3d.hpp>
 #include <godot_cpp/classes/remote_transform3d.hpp>
 #include <godot_cpp/classes/label.hpp>
+#include <godot_cpp/classes/video_stream_player.hpp>
 #include <godot_cpp/classes/input_event.hpp>
 #include "DragonControlKeyboard.h"
 #include "GameTimer.h"

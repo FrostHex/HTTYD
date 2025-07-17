@@ -54,6 +54,7 @@ void GameTimer::_ready()
         return;
     }
     Timer_Reset();
+    audio_player = get_parent()->get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
 }
 
 
@@ -100,26 +101,29 @@ void GameTimer::_physics_process(double delta)
         return;
     }
 
-    // UtilityFunctions::print("Timer _physics_process at ", time_elapsed, " seconds");
+    time_elapsed = audio_player->get_playback_position(); // use the audio timer for time tracking
 
-    time_elapsed += delta; // update timer
-    camera_control->time_elapsed = String::num(time_elapsed, 1);
+    if (camera_control)
+    {
+        camera_control->time_elapsed = String::num(time_elapsed, 1);
+    }
+
     while (!event_queue.empty()) // process all due events
     {
-        const TimerEvent& event_next = event_queue.top(); // get the top event from queue (but don't pop it yet)
+        const TimerEvent& event_next = event_queue.top();
         if (event_next.time_trigger > time_elapsed) 
         {
-            break; // exit the loop if the next event hasn't reached its trigger time
+            break;
         }
-        event_next.callback.call(); // trigger the event
+        event_next.callback.call();
         if (camera_control) 
         {
             camera_control->info_debug = "Event ID: " + String::num_int64(event_next.id) + " at " + String::num(time_elapsed);
         }
         UtilityFunctions::print("Event ID ", event_next.id, " triggered at ", time_elapsed, " seconds");
-        event_queue.pop(); // remove the triggered event
+        event_queue.pop();
     }
-    if (event_queue.empty()) // disable physics processing if no events are left
+    if (event_queue.empty())
     {
         set_physics_process(false);
     }
@@ -188,4 +192,20 @@ void GameTimer::Timer_Resume()
 float GameTimer::Timer_GetTimeElapsed() const 
 {
     return time_elapsed;
+}
+
+
+void GameTimer::Timer_ForceSetTime(float time)
+{
+    time_elapsed = time;
+    while (!event_queue.empty())
+    {
+        const TimerEvent& event_next = event_queue.top();
+        if (event_next.time_trigger >= time_elapsed)
+        {
+            break;
+        }
+        event_queue.pop();
+    }
+    Timer_Resume();
 }

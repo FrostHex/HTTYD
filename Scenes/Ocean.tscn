@@ -59,7 +59,7 @@ shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_tsx6q")
 script = ExtResource("1_skarq")
 
 [node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 32, 0, 17)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 15, 0, 3)
 sorting_offset = 999.0
 material_override = ExtResource("5_lt75t")
 cast_shadow = 0
