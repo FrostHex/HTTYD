@@ -4,7 +4,6 @@
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/classes/engine.hpp>
-#include <godot_cpp/classes/animation_tree.hpp>
 #include <godot_cpp/classes/animation_player.hpp>
 #include <godot_cpp/classes/animation_node_state_machine.hpp>
 
@@ -31,6 +30,7 @@ void DragonAnimator::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("SetAnimation", "layer", "animation", "freeze"), &DragonAnimator::SetAnimation, DEFVAL(false));
     ClassDB::bind_method(D_METHOD("Unfreeze"), &DragonAnimator::Unfreeze);
+    ClassDB::bind_method(D_METHOD("SetAnimation_Mouth", "step", "thresh"), &DragonAnimator::SetAnimation_Mouth);
 }
 
 
@@ -40,7 +40,7 @@ void DragonAnimator::_bind_methods()
 void DragonAnimator::_ready() 
 {
     // retrieve the AnimationTree node and the AnimationPlayer node from the scene tree
-    AnimationTree *anim_tree = get_node<AnimationTree>("AnimationTree");
+    anim_tree = get_node<AnimationTree>("AnimationTree");
     anim_player = get_parent()->get_node<Node>("Pivot")->get_node<Node>("Toothless")->get_node<AnimationPlayer>("AnimationPlayer");
     anim_tree->set_animation_player(anim_player->get_path()); // Assign the animation player to our AnimationTree member via its NodePath
 
@@ -54,9 +54,8 @@ void DragonAnimator::_ready()
     if (!Engine::get_singleton()->is_editor_hint()) // when the game is running
     {
         SetAnimation("layer_shake", "lo_shake");
+        set_physics_process(false);
     }
-
-    // anim_tree->set("parameters/add_eyelid_up/add_amount", 0.9); // Set the blend weight for the add_eyelid_up add2 node
 }
 
 
@@ -93,6 +92,7 @@ void DragonAnimator::SetAnimation(const String &layer, const String &animation, 
     }
 }
 
+
 void DragonAnimator::Unfreeze()
 {
     if (last_frozen_animation.is_empty() || last_frozen_layer.is_empty())
@@ -117,3 +117,39 @@ void DragonAnimator::Unfreeze()
     last_frozen_layer = "";
     last_frozen_animation = "";
 }
+
+
+/**
+ * @brief Set the animation mouth step
+ * @param step negative means open the mouth; higher the absolute value means faster
+ * @param thresh the threshold to stop the animation, [0.0, 1.0]
+ */
+void DragonAnimator::SetAnimation_Mouth(int step, float thresh)
+{
+    animation_mouth_step = step; 
+    animation_mouth_thresh = thresh;
+    set_physics_process(true);
+}
+
+
+void DragonAnimator::_physics_process(float delta)
+{
+    animation_mouth_weight += animation_mouth_step * delta;
+    if (animation_mouth_step < 0 && animation_mouth_weight < animation_mouth_thresh) 
+    {
+        animation_mouth_weight = animation_mouth_thresh; // ensure the weight does not go below the threshold
+        set_physics_process(false);
+    }
+    else if (animation_mouth_step > 0 && animation_mouth_weight > animation_mouth_thresh) 
+    {
+        animation_mouth_weight = animation_mouth_thresh; // ensure the weight does not go above the threshold
+        set_physics_process(false);
+    }
+    anim_tree->set("parameters/add_mouth/add_amount", animation_mouth_weight);
+}
+
+
+// void DragonAnimator::SetWeight(const String &layer, float weight)
+// {
+//     anim_tree->set("parameters/" + layer + "/blend_amount", weight); // Set the blend weight for the specified layer
+// }

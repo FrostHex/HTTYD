@@ -93,7 +93,7 @@ void MainControl::Initialize_TimerList()
 {
     // test timer list
     // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS));
-    // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED));
+    // timer->Timer_AddEvent(3.0f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-1.0f));
 
     if (sub_view && video_player)
     {
@@ -120,31 +120,42 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(63.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up"));
     timer->Timer_AddEvent(63.5f, Callable(dragon_control, "SetClearPivotRotation").bind(true)); // set clear_pivot_rotation to true
     timer->Timer_AddEvent(65.3f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_slap_glide")); // Toothless flap my face with his ear
-    timer->Timer_AddEvent(70.0f, Callable(dragon_control, "TriggerApproaching").bind(true, Vector3(-1400, 3100, -500), 10.5f)); // 1'11.0 fly up to the sky
+    timer->Timer_AddEvent(70.0f, Callable(dragon_control, "TriggerApproaching").bind(true, Vector3(-1400, 3100, -500), 10.5f)); // fly up to the sky
+    timer->Timer_AddEvent(70.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up"));
     timer->Timer_AddEvent(80.5f, Callable(cheat_sheet, "Detatch")); // detatch the cheat sheet
-    timer->Timer_AddEvent(82.5f, Callable(dragon_control, "SetState").bind(DragonState::STATE_FALLING)); // 1'22.5 start to decelerate due to the stall
+    timer->Timer_AddEvent(82.5f, Callable(dragon_control, "SetState").bind(DragonState::STATE_FALLING)); // start to decelerate due to the stall
+    timer->Timer_AddEvent(85.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_fall")); // change the animation to tr_glide_fall
     timer->Timer_AddEvent(86.0f, Callable(dragon_animator, "SetAnimation").bind("layer_eye_shape", "po_eye_small"));
     // 1'25.0 the camera is now facing downwards
-    // 1'25.5 change the animation to tr_glide_fall
-    // 1'25.8 speed is now reduced to 0, and start falling
     // 1'27.0 start to change the camera to upwards within 1 second
-    // 1'28.0 Toothless opens his mouth to roar
-    // 1'29.0 Toothless opens his mouth to roar
-    // 1'30.5 Toothless opens his mouth to roar
+    timer->Timer_AddEvent(88.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.0f)); // Toothless opens his mouth to roar
+    timer->Timer_AddEvent(88.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
+    timer->Timer_AddEvent(89.4f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.0f)); // Toothless opens his mouth to roar
+    timer->Timer_AddEvent(89.9f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
+    timer->Timer_AddEvent(91.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.0f)); // Toothless opens his mouth to roar
+    timer->Timer_AddEvent(91.7f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
     // 1'30.8 change the camera to downwards within 0.4 seconds
     // 1'32.0 hit Toothless's wing, and then start to rotate the camera for two rounds
-    // 1'33.2 Toothless opens his mouth to roar
+    timer->Timer_AddEvent(93.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.0f)); // Toothless opens his mouth to roar
     // 1'35.0 Toothless starts to rotate unwillingly
     // 1'39.5 Toothless hit me with his tail and the camera is spinning for one round
     // 1'41.0 the camera is now facing downwards and approaching to Toothless, and Toothless's spinning is alleviated
+    timer->Timer_AddEvent(101.0f, Callable(dragon_animator, "SetAnimation_Mouth").bind(2, 1.0f)); // Toothless closes his mouth
+    timer->Timer_AddEvent(101.5f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.0f)); // Toothless opens his mouth to roar
+    timer->Timer_AddEvent(102.0f, Callable(dragon_animator, "SetAnimation_Mouth").bind(2, 1.0f)); // Toothless closes his mouth
     // 1'44.3 grab the saddle
     // 1'46.5 sit back on the saddle
+    timer->Timer_AddEvent(106.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.5f)); // Toothless opens his mouth
+    timer->Timer_AddEvent(108.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_dive")); // change the animation to po_dive
     // 1'50.0 set the rotation to straightly dive downwards
     /*TODO*/timer->Timer_AddEvent(113.8f, Callable(dragon_control, "TriggerApproaching").bind(true, get_parent()->get_node<Node3D>("Rocks/Area_Final/Rock_Pillar_E_01")->get_global_transform().origin + Vector3(0, 100, 0), 15.0f)); // glide diagonal downwards
+    timer->Timer_AddEvent(113.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
     // 1'53.8 set the rotation to glide diagonal downwards
-    timer->Timer_AddEvent(113.8f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_crisis"));
+    timer->Timer_AddEvent(113.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_crisis"));
+    timer->Timer_AddEvent(116.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-1, 0.33f)); // Toothless opens his mouth
     timer->Timer_AddEvent(120.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close"));
     timer->Timer_AddEvent(121.7f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS)); // fully retrieve the control and the tail wing is fully extended
+    timer->Timer_AddEvent(121.7f, Callable(dragon_animator, "SetAnimation_Mouth").bind(4, 1.0f)); // Toothless closes his mouth
     // 2'08.7 start getting to the position of upside down
     // 2'09.7 finish the spinning
     // 2'10.5 retrieve the control

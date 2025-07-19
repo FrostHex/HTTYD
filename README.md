@@ -40,13 +40,13 @@ I used mingw64 to build Godot Cpp, my build steps are as follows:
     scons platform=windows use_mingw=yes custom_api_file="extension_api.json"
     ```
 
-## Build New Code
+## Build the New Code
 ```bash
 cd Scripts/build
 scons platform=windows use_mingw=yes bits=64 target=release
 ```
 
-## Clean Old Code
+## Clean the Old Code
 ```bash
 cd Scripts/build
 scons -c platform=windows use_mingw=yes bits=64 target=release

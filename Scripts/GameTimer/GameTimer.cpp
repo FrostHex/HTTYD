@@ -68,7 +68,7 @@ int GameTimer::Timer_AddEvent(float seconds, Callable callback)
 {
     int id_event = id_event_next++;
     event_queue.push(TimerEvent(seconds, callback, id_event));
-    UtilityFunctions::print("Added timer event ID ", id_event, " for ", seconds, " seconds (will trigger at ", seconds, ")");
+    // UtilityFunctions::print("Added timer event ID ", id_event, " for ", seconds, " seconds (will trigger at ", seconds, ")");
     set_physics_process(true);
     return id_event;
 }
@@ -84,7 +84,7 @@ int GameTimer::Timer_AddEventSinceNow(float seconds, Callable callback)
 {
     int id_event = id_event_next++;
     event_queue.push(TimerEvent(time_elapsed + seconds, callback, id_event));
-    UtilityFunctions::print("Added timer event ID ", id_event, " for ", seconds, " seconds (will trigger at ", time_elapsed + seconds, ")");
+    // UtilityFunctions::print("Added timer event ID ", id_event, " for ", seconds, " seconds (will trigger at ", time_elapsed + seconds, ")");
     set_physics_process(true);
     return id_event;
 }
@@ -120,7 +120,7 @@ void GameTimer::_physics_process(double delta)
         {
             camera_control->info_debug = "Event ID: " + String::num_int64(event_next.id) + " at " + String::num(time_elapsed);
         }
-        UtilityFunctions::print("Event ID ", event_next.id, " triggered at ", time_elapsed, " seconds");
+        // UtilityFunctions::print("Event ID ", event_next.id, " triggered at ", time_elapsed, " seconds");
         event_queue.pop();
     }
     if (event_queue.empty())
@@ -141,7 +141,7 @@ void GameTimer::Timer_Reset()
     {
         event_queue.pop();
     }
-    UtilityFunctions::print("Timer Timer_Reset");
+    // UtilityFunctions::print("Timer Timer_Reset");
     set_physics_process(false);
 }
 
@@ -167,7 +167,7 @@ void GameTimer::Timer_Set(float time)
 void GameTimer::Timer_Pause() 
 {
     timer_paused = true;
-    UtilityFunctions::print("Timer Timer_Paused at ", time_elapsed, " seconds");
+    // UtilityFunctions::print("Timer Timer_Paused at ", time_elapsed, " seconds");
 }
 
 
@@ -177,7 +177,7 @@ void GameTimer::Timer_Pause()
 void GameTimer::Timer_Resume() 
 {
     timer_paused = false;
-    UtilityFunctions::print("Timer Timer_Resumed at ", time_elapsed, " seconds");
+    // UtilityFunctions::print("Timer Timer_Resumed at ", time_elapsed, " seconds");
     if (!event_queue.empty())
     {
         set_physics_process(true);

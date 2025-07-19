@@ -1,6 +1,6 @@
 # TODO
 
-![实现事件列表](https://quickchart.io/chart?c={type:'pie',data:{labels:['已完成','未完成'],datasets:[{data:[33,55-33],backgroundColor:['%2362db5e','%232fb7ed']}]},options:{legend:{labels:{fontColor:'%23AAAAAA'}},plugins:{datalabels:{color:'white'}}}})
+![实现事件列表](https://quickchart.io/chart?c={type:'pie',data:{labels:['已完成','未完成'],datasets:[{data:[50,66-50],backgroundColor:['%2362db5e','%232fb7ed']}]},options:{legend:{labels:{fontColor:'%23AAAAAA'}},plugins:{datalabels:{color:'white'}}}})
 - 实现事件列表
 - 博克岛
 - 夕阳海滩场景
@@ -145,3 +145,8 @@
 - 存档系统会在按下 Ctrl+C 时将当前状态存入 Save.json 文件中，按下 Ctrl+V 时则会读取 Save.json 文件中的状态并相应地设置计时器、事件列表、视频音频播放进度以及龙龙的状态。新的存档不会完全覆盖旧存档，所有旧存档都会存在备份文件中例如 Save_Backup_01.json，其中的索引会根据当前目录下最大的索引自动增加，例如 03 -> 04
 - 如果本次运行中进行过回档操作，debug信息会变为浅蓝色; 而没有任何回档则是初始的白色，代表这次 Test Drive 完美无瑕。此外，如果撞到石柱则会自动回到最新的存档状态
 - 最后是为了避免死档（例如在死胡同存档或文件损坏），可以把存档备份文件复制到当前的 Save.json 中再 Ctrl+V 救回来
+
+### v0.24.0 - How to Bump Into Pillars - 2025-07-17
+- "Restoring the Light, Facing the Dark" 这个BGM是对近期心境的最好刻画
+- 扇耳光之前的部分都已经测完了，之后的部分架子也搭好了就差写具体控制了
+- 下一版就是 v1.0.0 了
