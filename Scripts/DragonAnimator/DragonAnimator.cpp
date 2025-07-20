@@ -41,7 +41,7 @@ void DragonAnimator::_ready()
 {
     // retrieve the AnimationTree node and the AnimationPlayer node from the scene tree
     anim_tree = get_node<AnimationTree>("AnimationTree");
-    anim_player = get_parent()->get_node<Node>("Pivot")->get_node<Node>("Toothless")->get_node<AnimationPlayer>("AnimationPlayer");
+    anim_player = get_parent()->get_node<Node>("Toothless")->get_node<AnimationPlayer>("AnimationPlayer");
     anim_tree->set_animation_player(anim_player->get_path()); // Assign the animation player to our AnimationTree member via its NodePath
 
     // get the AnimationNodeStateMachinePlayback nodes from the AnimationTree

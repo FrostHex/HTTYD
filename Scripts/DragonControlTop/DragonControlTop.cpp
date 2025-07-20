@@ -54,7 +54,7 @@ void DragonControlTop::_bind_methods()
     ClassDB::bind_method(D_METHOD("SetState", "state_new"), &DragonControlTop::SetState);
     ClassDB::bind_method(D_METHOD("SetStatus_Deferred", "dragon_transform", "linear_velocity_input"), &DragonControlTop::SetStatus_Deferred);
     ClassDB::bind_method(D_METHOD("TriggerApproaching", "setting_angular", "target_position", "time_to_target"), &DragonControlTop::TriggerApproaching);
-    ClassDB::bind_method(D_METHOD("SetClearPivotRotation", "value"), &DragonControlTop::SetClearPivotRotation);
+    ClassDB::bind_method(D_METHOD("SetClearToothlessRotation", "value"), &DragonControlTop::SetClearToothlessRotation);
 
     // signal declaration
     ADD_SIGNAL(MethodInfo("dragon_collision", PropertyInfo(Variant::OBJECT, "body"), PropertyInfo(Variant::FLOAT, "velocity")));
@@ -82,7 +82,8 @@ void DragonControlTop::_ready()
     }
 
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
-    dragon_pivot = dragon_rb->get_node<Node3D>("Pivot");
+    pivot_toothless = dragon_rb->get_node<Node3D>("Toothless");
+    pivot_camera = dragon_rb->get_node<Node3D>("Pivot");
     dragon_animator = get_parent()->get_node<DragonAnimator>("DragonAnimator");
     dragon_rb->set_gravity_scale(0); // disable gravity
     height_init = dragon_rb->get_global_transform().origin.y;
@@ -155,16 +156,25 @@ void DragonControlTop::ProcessApproaching(double delta)
     }
     if (clear_pivot_rotation) 
     {
-        Vector3 current_rotation = dragon_pivot->get_rotation();
+        Vector3 current_rotation = pivot_toothless->get_rotation();
         if (current_rotation.x + current_rotation.y + current_rotation.z < 0.01f) 
         {
-            dragon_pivot->set_rotation(Vector3(0, 0, 0));
-            clear_pivot_rotation = false;
+            pivot_toothless->set_rotation(Vector3(0, 0, 0));
         }
         else
         {
-            dragon_pivot->set_rotation(current_rotation * 0.95f);
+            pivot_toothless->set_rotation(current_rotation * 0.98f);
         }
+        if (pivot_camera->get_position().x < 0.01f && pivot_camera->get_position().y < 0.01f)
+        {
+            pivot_camera->set_position(Vector3(0, 0, 0));
+            clear_pivot_rotation = false;
+        }
+        else 
+        {
+            clear_pivot_rotation = true;
+        }
+        pivot_camera->set_position(Vector3(pivot_camera->get_position().x * 0.98f, pivot_camera->get_position().y * 0.98f, 0));
     }
 }
 
@@ -201,7 +211,8 @@ void DragonControlTop::ProcessHitCliff(double delta)
         {
             float rotation_factor = (cliff_distance_threshold - target_distance) / cliff_distance_threshold;
             Vector3 pivot_rotation = Vector3(0, 0, rotation_factor * Math_PI / 5.0f);
-            dragon_pivot->set_rotation(pivot_rotation);
+            pivot_toothless->set_rotation(pivot_rotation);
+            pivot_camera->set_position(Vector3(-rotation_factor, rotation_factor / 2, 0));
         }
         ApproachTarget(true, true, &time_to_target, delta, &target_position, 60);
         if (time_to_target <= 0.0f) 
@@ -259,9 +270,9 @@ void DragonControlTop::ProcessCrisis(double delta)
  */
 void DragonControlTop::ProcessDisabled(double delta)
 {
-    if (dragon_pivot->get_rotation()!= Vector3(0, 0, 0)) 
+    if (pivot_toothless->get_rotation()!= Vector3(0, 0, 0)) 
     {
-        dragon_pivot->set_rotation(dragon_pivot->get_rotation() * 0.965f);
+        pivot_toothless->set_rotation(pivot_toothless->get_rotation() * 0.965f);
     }
 }
 
@@ -322,11 +333,11 @@ void DragonControlTop::SetState(DragonState state_new)
         case STATE_HIT_CLIFF:
             if (state_current == DragonState::STATE_APPROACHING) 
             {
-                dragon_pivot->set_rotation(Vector3(0, 0, 0));
+                pivot_toothless->set_rotation(Vector3(0, 0, 0));
                 target_position = pillar_hit_1->get_global_transform().origin + DRAGON_HIT_CLIFF_HEIGHT * Vector3(0, 1, 0);
                 p_gain = 0.0f;
                 time_to_target = 6.4f;
-                cliff_distance_threshold = 300.0f;
+                cliff_distance_threshold = 400.0f;
             }
             else
             {
@@ -575,7 +586,7 @@ void DragonControlTop::_on_body_entered(Node* body)
 }
 
 
-void DragonControlTop::SetClearPivotRotation(bool value)
+void DragonControlTop::SetClearToothlessRotation(bool value)
 {
     clear_pivot_rotation = value;
 }

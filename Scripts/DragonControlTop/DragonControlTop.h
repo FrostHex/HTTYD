@@ -53,7 +53,7 @@ namespace godot
             void SetState(DragonState new_state);
             DragonState GetState() const; // const: this function does not modify the object
             float time_to_target = 0.1f;
-            void SetClearPivotRotation(bool value);
+            void SetClearToothlessRotation(bool value);
 
         protected:
             static void _bind_methods();
@@ -93,7 +93,8 @@ namespace godot
             void ProcessCrisis(double delta);
             void ProcessDisabled(double delta);
             float p_gain = 0.0f; 
-            Node3D* dragon_pivot = nullptr;
+            Node3D* pivot_toothless = nullptr;
+            Node3D* pivot_camera = nullptr;
             Vector3 target_position = Vector3(0, 0, 0);
             Node3D* pillar_hit_1 = nullptr;
             Node3D* pillar_hit_2 = nullptr;

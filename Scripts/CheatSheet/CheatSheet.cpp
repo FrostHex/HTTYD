@@ -38,7 +38,7 @@ void CheatSheet::_ready()
         return;
     }
 
-    mesh = get_parent()->get_node<Node>("Pivot")->get_node<Node>("Toothless")->get_node<Node>("rig")
+    mesh = get_parent()->get_node<Node>("Toothless")->get_node<Node>("rig")
                        ->get_node<Node>("Skeleton3D")->get_node<MeshInstance3D>("cheat_sheet");
     dragon = get_parent()->get_parent()->get_node<RigidBody3D>("Dragon");
     pickable = get_parent()->get_node<Node>("Pivot")->get_node<RigidBody3D>("XRToolsPickable");
