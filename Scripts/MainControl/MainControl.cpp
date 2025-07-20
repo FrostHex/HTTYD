@@ -53,9 +53,12 @@ void MainControl::_ready()
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
     cheat_sheet = dragon_node->get_node<CheatSheet>("CheatSheet");
     dragon_animator = get_parent()->get_node<Node>("Dragon")->get_node<DragonAnimator>("DragonAnimator");
-    CameraControl *camera_ctrl = memnew(CameraControl(sub_view, enable_headset));
+    camera_ctrl = memnew(CameraControl(sub_view, enable_headset));
     camera_ctrl->set_name("CameraControl"); // set the name of the camera control node
     dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
+    timer = memnew(GameTimer(camera_ctrl));
+    timer->set_name("GameTimer");
+    add_child(timer);
 
     if (enable_headset) 
     {
@@ -75,8 +78,6 @@ void MainControl::_ready()
     }
 
     camera_ctrl->SetDragonControl(dragon_control); // set the dragon control to the camera control
-    timer = memnew(GameTimer(camera_ctrl));
-    add_child(timer);
     save_manager = memnew(SaveManager());
     add_child(save_manager);
     audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
@@ -124,8 +125,10 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(70.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up"));
     timer->Timer_AddEvent(80.5f, Callable(cheat_sheet, "Detatch")); // detatch the cheat sheet
     timer->Timer_AddEvent(82.5f, Callable(dragon_control, "SetState").bind(DragonState::STATE_FALLING)); // start to decelerate due to the stall
+    timer->Timer_AddEvent(84.0f, Callable(camera_ctrl, "SetCameraOffsetFactor").bind(1.1f)); 
     timer->Timer_AddEvent(85.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_fall")); // change the animation to tr_glide_fall
     timer->Timer_AddEvent(86.0f, Callable(dragon_animator, "SetAnimation").bind("layer_eye_shape", "po_eye_small"));
+    timer->Timer_AddEvent(86.0f, Callable(camera_ctrl, "SetCameraOffsetFactor").bind(0.98f));
     // 1'25.0 the camera is now facing downwards
     // 1'27.0 start to change the camera to upwards within 1 second
     timer->Timer_AddEvent(88.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.0f)); // Toothless opens his mouth to roar
@@ -134,6 +137,7 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(89.9f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
     timer->Timer_AddEvent(91.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.0f)); // Toothless opens his mouth to roar
     timer->Timer_AddEvent(91.7f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
+    timer->Timer_AddEvent(91.7f, Callable(camera_ctrl, "SetCameraOffsetFactor").bind(1.1f));
     // 1'30.8 change the camera to downwards within 0.4 seconds
     // 1'32.0 hit Toothless's wing, and then start to rotate the camera for two rounds
     timer->Timer_AddEvent(93.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.0f)); // Toothless opens his mouth to roar

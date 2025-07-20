@@ -49,6 +49,9 @@ namespace godot
             Node3D *xr_node = nullptr;
             Node3D *xr_origin = nullptr;
             Node3D *xr_camera = nullptr;
+            float camera_offset_factor = 0.0f;
+            Node3D* pivot_camera = nullptr;
+            void SetCameraOffsetFactor(float factor);
     };
 }
 

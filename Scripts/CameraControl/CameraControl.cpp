@@ -82,6 +82,7 @@ void CameraControl::_ready()
     xr_node = get_parent()->get_node<Node>("Pivot")->get_node<Node3D>("XR");
     xr_origin = xr_node->get_node<Node3D>("XROrigin");
     xr_camera = xr_origin->get_node<Node3D>("XRCamera");
+    pivot_camera = dragon_rb->get_node<Node3D>("Pivot");
 
     if (!Engine::get_singleton()->is_editor_hint()) // only run when the game is running
     {
@@ -174,6 +175,14 @@ void CameraControl::_physics_process(double delta)
         String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1) + "\n" + info_debug + "\n" + time_elapsed;
         label_info->set_text(velocity_text);
     }
+
+    if (camera_offset_factor != 0.0f)
+    {
+        // UtilityFunctions::print("Camera offset factor: " + String::num(camera_offset_factor));
+        // pivot_camera->set_position(dragon_rb->get_global_position());
+        pivot_camera->set_position(pivot_camera->get_position() + Vector3(0, dragon_control->GetLinearVelocity() * camera_offset_factor * delta, 0));
+        
+    }
 }
 
 Vector3 CameraControl::GetPostureHeadset()
@@ -210,7 +219,18 @@ void CameraControl::_input(const Ref<InputEvent> &event)
     }
 }
 
+
+void CameraControl::SetCameraOffsetFactor(float factor) 
+{
+    if (camera_offset_factor == 0.0f)
+    {
+        pivot_camera->reparent(dragon_rb->get_parent());
+    }   
+    camera_offset_factor = factor;
+}
+
 void CameraControl::_bind_methods() 
 {
     ClassDB::bind_method(D_METHOD("Print_Collision", "body", "velocity"), &CameraControl::Print_Collision);
+    ClassDB::bind_method(D_METHOD("SetCameraOffsetFactor", "factor"), &CameraControl::SetCameraOffsetFactor);
 }

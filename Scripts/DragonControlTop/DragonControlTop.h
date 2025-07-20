@@ -37,6 +37,7 @@ namespace godot
     };
 
     class CameraControl;
+    // class GameTimer;
 
     class DragonControlTop : public Node 
     {
@@ -104,6 +105,7 @@ namespace godot
             float velocity_clamp = 300.0f;
             bool setting_angular = false;
             bool clear_pivot_rotation = false;
+            // GameTimer* timer = nullptr;
     };
 }
 

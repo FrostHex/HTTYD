@@ -81,6 +81,7 @@ void DragonControlTop::_ready()
         return;
     }
 
+    // timer = get_parent()->get_parent()->get_node<GameTimer>("MainControl/GameTimer");
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
     pivot_toothless = dragon_rb->get_node<Node3D>("Toothless");
     pivot_camera = dragon_rb->get_node<Node3D>("Pivot");
@@ -350,6 +351,7 @@ void DragonControlTop::SetState(DragonState state_new)
             break;
         case STATE_FALLING:
             p_gain = 0.015f; 
+            dragon_rb->set_linear_velocity(Vector3(0, dragon_rb->get_linear_velocity().y, 0));
     }
     state_current = state_new;
     UtilityFunctions::print("Dragon state changed to: ", state_current);
