@@ -183,12 +183,66 @@ void CameraControl::_physics_process(double delta)
         pivot_camera->set_position(pivot_camera->get_position() + Vector3(0, dragon_control->GetLinearVelocity() * camera_offset_factor * delta, 0));
         
     }
+
+    if (approaching_angle)
+    {   
+        Vector3 current_rotation = pivot_camera->get_rotation();
+        Vector3 delta_rotation = target_rotation - current_rotation;
+
+        if (p_gain < 0.0f) 
+        {
+            delta_rotation = Vector3(0, 0, 10); 
+        }
+        else
+        {
+            p_gain += delta * (p_gain + 0.1f);
+            if (p_gain > 5.0f) 
+            {
+                p_gain = 5.0f;
+            }
+        }
+
+        // Wrap angles to [-PI, PI] for smooth interpolation
+        for (int i = 0; i < 3; ++i) 
+        {
+            while (delta_rotation[i] > Math_PI) delta_rotation[i] -= 2 * Math_PI;
+            while (delta_rotation[i] < -Math_PI) delta_rotation[i] += 2 * Math_PI;
+        }
+
+        Vector3 new_rotation = current_rotation + delta_rotation * p_gain * delta;
+        pivot_camera->set_rotation(new_rotation);
+
+        // Stop approaching if close enough
+        if (delta_rotation.length() < 0.01f) 
+        {
+            pivot_camera->set_rotation(target_rotation);
+            approaching_angle = false;
+            p_gain = 0.0f;
+        }
+    }
+
+    if (approaching_position)
+    {
+        Vector3 current_position = pivot_camera->get_position();
+        Vector3 delta_position = dragon_rb->get_position() + target_position_offset - current_position;
+
+        pivot_camera->set_position(current_position + delta_position * delta);
+
+        // Stop approaching if close enough
+        // if (delta_position.x + delta_position.y + delta_position.z < 0.001f) 
+        // {
+        //     pivot_camera->set_position(dragon_rb->get_position() + target_position_offset);
+        //     approaching_position = false;
+        // }
+    }
 }
+
 
 Vector3 CameraControl::GetPostureHeadset()
 {
     return xr_camera->get_global_rotation();
 }
+
 
 void CameraControl::Print_Collision(Node* body, float velocity)
 {
@@ -216,6 +270,15 @@ void CameraControl::_input(const Ref<InputEvent> &event)
         {
             label_info->set_modulate(Color(0.863f, 0.953f, 1.0f, 1.0f));
         }
+        if (pivot_camera && pivot_camera->get_parent() && pivot_camera->get_parent()->get_name() == String("Main")) 
+        {
+            pivot_camera->reparent(dragon_rb);
+            pivot_camera->set_rotation(Vector3(0, 0, 0));
+            pivot_camera->set_position(Vector3(0, 0, 0));
+        }
+        camera_offset_factor = 0.0f; // reset camera offset factor
+        approaching_angle = false; // reset approaching angle flag
+        approaching_position = false; // reset approaching position flag
     }
 }
 
@@ -229,8 +292,38 @@ void CameraControl::SetCameraOffsetFactor(float factor)
     camera_offset_factor = factor;
 }
 
+
+void CameraControl::TriggerApproachingAngle(Vector3 target_rotation, float p_gain) 
+{
+    this->target_rotation = target_rotation;
+    approaching_angle = true;
+    this->p_gain = p_gain;
+}
+
+
+void CameraControl::TriggerApproachingPosition(Vector3 target_position_offset)
+{
+    this->target_position_offset = target_position_offset;
+    approaching_position = true;
+}
+
+
+void CameraControl::GrabSaddle()
+{
+    approaching_angle = false;
+    approaching_position = false;
+    camera_offset_factor = 0.0f; // reset camera offset factor
+    pivot_camera->reparent(dragon_rb);
+    pivot_camera->call_deferred("set_position", Vector3(0, 0, 0));
+    pivot_camera->call_deferred("set_rotation", Vector3(0, 0, 0));
+}
+
+
 void CameraControl::_bind_methods() 
 {
     ClassDB::bind_method(D_METHOD("Print_Collision", "body", "velocity"), &CameraControl::Print_Collision);
     ClassDB::bind_method(D_METHOD("SetCameraOffsetFactor", "factor"), &CameraControl::SetCameraOffsetFactor);
+    ClassDB::bind_method(D_METHOD("TriggerApproachingAngle", "target_rotation", "p_gain"), &CameraControl::TriggerApproachingAngle);
+    ClassDB::bind_method(D_METHOD("TriggerApproachingPosition", "target_position_offset"), &CameraControl::TriggerApproachingPosition);
+    ClassDB::bind_method(D_METHOD("GrabSaddle"), &CameraControl::GrabSaddle);
 }

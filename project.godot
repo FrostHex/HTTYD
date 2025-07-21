@@ -76,6 +76,10 @@ load_state={
 
 limits/debugger/max_chars_per_second=2147483647
 
+[physics]
+
+3d/default_angular_damp=0.0
+
 [shader_globals]
 
 displacements={

@@ -148541,7 +148541,7 @@ xfade_time = 0.6
 xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_050bj"]
-xfade_time = 0.3
+xfade_time = 0.15
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m2i4j"]
 xfade_time = 0.3
@@ -148560,7 +148560,7 @@ states/po_eye_narrow/position = Vector2(361.35175, -41.33297)
 states/po_eye_small/node = SubResource("AnimationNodeAnimation_2mv4b")
 states/po_eye_small/position = Vector2(609.9792, 66.666664)
 transitions = ["Start", "po_eye_medium", SubResource("AnimationNodeStateMachineTransition_v5fnx"), "po_eye_small", "po_eye_big", SubResource("AnimationNodeStateMachineTransition_u7evm"), "po_eye_big", "po_eye_small", SubResource("AnimationNodeStateMachineTransition_w3xi2"), "po_eye_small", "po_eye_medium", SubResource("AnimationNodeStateMachineTransition_ocxhn"), "po_eye_medium", "po_eye_small", SubResource("AnimationNodeStateMachineTransition_050bj"), "po_eye_medium", "po_eye_big", SubResource("AnimationNodeStateMachineTransition_m2i4j"), "po_eye_big", "po_eye_medium", SubResource("AnimationNodeStateMachineTransition_0neh7")]
-graph_offset = Vector2(120, -69)
+graph_offset = Vector2(130, 45)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ggcd"]
 animation = &"po_mouth_close"
@@ -148836,7 +148836,6 @@ animation = &"po_eyelid_close_down"
 animation = &"po_eyelid_close_up"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m2uv8"]
-graph_offset = Vector2(-1089.616, -263.6655)
 nodes/output/position = Vector2(413.33334, 266.66666)
 nodes/add_ear/node = SubResource("AnimationNodeAdd2_m2uv8")
 nodes/add_ear/position = Vector2(253.33333, 253.33333)
@@ -148885,7 +148884,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33, -1.3, 0)
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="CameraMain" type="Camera3D" parent="Pivot"]
-transform = Transform3D(-4.371139e-08, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, 1, 2.809714e-08, 3.3484866e-08, 0.45, 0.65, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.45, 0.65, 0)
 current = true
 far = 50000.0
 

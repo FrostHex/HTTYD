@@ -55,6 +55,8 @@ namespace godot
             DragonState GetState() const; // const: this function does not modify the object
             float time_to_target = 0.1f;
             void SetClearToothlessRotation(bool value);
+            void SetTargetRotation(Vector3 target_rotation);
+            void SetVelocityAngular(Vector3 angular_velocity);
 
         protected:
             static void _bind_methods();
@@ -105,6 +107,8 @@ namespace godot
             float velocity_clamp = 300.0f;
             bool setting_angular = false;
             bool clear_pivot_rotation = false;
+            Vector3 target_rotation = Vector3(0, 0, 0);
+            bool approach_target_rotation = false;
             // GameTimer* timer = nullptr;
     };
 }

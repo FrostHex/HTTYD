@@ -28,6 +28,7 @@ namespace godot
             void _input(const Ref<InputEvent> &event) override;
             Vector3 GetPostureHeadset();
             void SetDragonControl(DragonControlTop* dragon_control);
+            void GrabSaddle();
             String info_debug;
             String time_elapsed;
         
@@ -52,6 +53,13 @@ namespace godot
             float camera_offset_factor = 0.0f;
             Node3D* pivot_camera = nullptr;
             void SetCameraOffsetFactor(float factor);
+            void TriggerApproachingAngle(Vector3 target_rotation, float p_gain);
+            bool approaching_angle = false;
+            Vector3 target_rotation;
+            float p_gain = 0.0f;
+            void TriggerApproachingPosition(Vector3 target_position_offset);
+            Vector3 target_position_offset;
+            bool approaching_position = false;
     };
 }
 

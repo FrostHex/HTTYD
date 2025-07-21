@@ -55,6 +55,8 @@ void DragonControlTop::_bind_methods()
     ClassDB::bind_method(D_METHOD("SetStatus_Deferred", "dragon_transform", "linear_velocity_input"), &DragonControlTop::SetStatus_Deferred);
     ClassDB::bind_method(D_METHOD("TriggerApproaching", "setting_angular", "target_position", "time_to_target"), &DragonControlTop::TriggerApproaching);
     ClassDB::bind_method(D_METHOD("SetClearToothlessRotation", "value"), &DragonControlTop::SetClearToothlessRotation);
+    ClassDB::bind_method(D_METHOD("SetTargetRotation", "target_rotation"), &DragonControlTop::SetTargetRotation);
+    ClassDB::bind_method(D_METHOD("SetVelocityAngular", "angular_velocity"), &DragonControlTop::SetVelocityAngular);
 
     // signal declaration
     ADD_SIGNAL(MethodInfo("dragon_collision", PropertyInfo(Variant::OBJECT, "body"), PropertyInfo(Variant::FLOAT, "velocity")));
@@ -177,6 +179,24 @@ void DragonControlTop::ProcessApproaching(double delta)
         }
         pivot_camera->set_position(Vector3(pivot_camera->get_position().x * 0.98f, pivot_camera->get_position().y * 0.98f, 0));
     }
+    if (approach_target_rotation)
+    {
+        Vector3 current_rotation = dragon_rb->get_rotation();
+        Vector3 delta_rotation = target_rotation - current_rotation;
+        for (int i = 0; i < 3; ++i) // wrap angles to [-PI, PI] for smooth interpolation
+        {
+            while (delta_rotation[i] > Math_PI) delta_rotation[i] -= 2 * Math_PI;
+            while (delta_rotation[i] < -Math_PI) delta_rotation[i] += 2 * Math_PI;
+        }
+        Vector3 new_rotation = current_rotation + delta_rotation * 2 * delta;
+        dragon_rb->set_rotation(new_rotation);
+        
+        if (delta_rotation.length() < 0.01f) // stop approaching if close enough
+        {
+            dragon_rb->set_rotation(target_rotation);
+            approach_target_rotation = false;
+        }
+    }
 }
 
 
@@ -232,13 +252,37 @@ void DragonControlTop::ProcessHitCliff(double delta)
  */
 void DragonControlTop::ProcessFalling(double delta)
 {
-    Vector3 dragon_up = dragon_rb->get_global_transform().basis.get_column(1);
-    Vector3 target_up = Vector3(0, -1, 0); // Target upside-down orientation
-    Vector3 error = dragon_up.cross(target_up);
-    p_gain += delta * p_gain;
-    p_gain = p_gain > 5.0f ? 5.0f : p_gain;
-    Vector3 recovery_angular_velocity = error * p_gain;
-    dragon_rb->set_angular_velocity(recovery_angular_velocity);
+    if (approach_target_rotation)
+    {
+        if (target_rotation == Vector3(-1, -1, -1)) 
+        {
+            Vector3 dragon_up = dragon_rb->get_global_transform().basis.get_column(1);
+            Vector3 error = dragon_up.cross(Vector3(0, -1, 0));
+            p_gain += delta * p_gain;
+            p_gain = p_gain > 5.0f ? 5.0f : p_gain;
+            Vector3 recovery_angular_velocity = error * p_gain;
+            dragon_rb->set_angular_velocity(recovery_angular_velocity);
+        }
+        else
+        {
+            Vector3 current_rotation = dragon_rb->get_rotation();
+            Vector3 delta_rotation = target_rotation - current_rotation;
+            for (int i = 0; i < 3; ++i) // wrap angles to [-PI, PI] for smooth interpolation
+            {
+                while (delta_rotation[i] > Math_PI) delta_rotation[i] -= 2 * Math_PI;
+                while (delta_rotation[i] < -Math_PI) delta_rotation[i] += 2 * Math_PI;
+            }
+            Vector3 new_rotation = current_rotation + delta_rotation * 2 * delta;
+            dragon_rb->set_rotation(new_rotation);
+            
+            if (delta_rotation.length() < 0.01f) // stop approaching if close enough
+            {
+                dragon_rb->set_rotation(target_rotation);
+                approach_target_rotation = false;
+            }
+        }
+    }
+
 
     // GetInput(this->input_keys);
     // SetMotionAngular(delta);
@@ -306,10 +350,10 @@ void DragonControlTop::ApproachTarget(bool setting_angular, bool setting_linear,
     }
     if (setting_linear) 
     {
-        if (!setting_angular) 
-        {
-            target_direction = dragon_rb->get_global_transform().basis.get_column(0); 
-        }
+        // if (!setting_angular) 
+        // {
+        //     target_direction = dragon_rb->get_global_transform().basis.get_column(0); 
+        // }
         float target_distance = (*target_position - dragon_position).length() - distance_offset;
         if (target_distance > 10.0f) 
         {
@@ -352,6 +396,8 @@ void DragonControlTop::SetState(DragonState state_new)
         case STATE_FALLING:
             p_gain = 0.015f; 
             dragon_rb->set_linear_velocity(Vector3(0, dragon_rb->get_linear_velocity().y, 0));
+            approach_target_rotation = true;
+            target_rotation = Vector3(-1, -1, -1);
     }
     state_current = state_new;
     UtilityFunctions::print("Dragon state changed to: ", state_current);
@@ -505,6 +551,20 @@ void DragonControlTop::SetAnimationCrisis()
     {
         dragon_animator->SetAnimation("layer_wing_tail", "po_glide");
     }
+}
+
+
+void DragonControlTop::SetTargetRotation(Vector3 target_rotation)
+{
+    this->target_rotation = target_rotation;
+    approach_target_rotation = true;
+}
+
+
+void DragonControlTop::SetVelocityAngular(Vector3 angular_velocity)
+{
+    dragon_rb->set_angular_velocity(angular_velocity);
+    approach_target_rotation = false; // stop approaching the target rotation
 }
 
 
