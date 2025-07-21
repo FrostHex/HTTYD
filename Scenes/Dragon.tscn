@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://drg1ol84t4ys1"]
+[gd_scene load_steps=139 format=3 uid="uid://drg1ol84t4ys1"]
 
 [ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Toothless.tscn" id="1_v5fnx"]
 [ext_resource type="PackedScene" uid="uid://d1pgf1tf0t857" path="res://Scenes/XR.tscn" id="2_0snye"]
@@ -8,8 +8,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_guncu"]
 size = Vector3(0.168, 0.0608516, 0.202)
-
-[sub_resource type="BoxMesh" id="BoxMesh_x0p8c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v5fnx"]
 radius = 0.1
@@ -148908,10 +148906,6 @@ shape = SubResource("BoxShape3D_guncu")
 transform = Transform3D(-0.276865, 0.431805, -0.858423, 0.951042, 0.250828, -0.180566, 0.137348, -0.866389, -0.480111, 0.132192, -0.00658917, -0.0628843)
 script = ExtResource("4_guncu")
 metadata/_custom_type_script = "uid://p3wg21v7iut2"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.36195248, 0.6380716, 0)
-mesh = SubResource("BoxMesh_x0p8c")
 
 [node name="Collision_Shape_Wing" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.536, 0.395, 0)

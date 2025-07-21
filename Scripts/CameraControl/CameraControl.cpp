@@ -166,7 +166,7 @@ void CameraControl::_physics_process(double delta)
             }        
         }
         
-        xr_node->set_global_rotation(Vector3(0, -Math_PI / 2, 0)); // set the rotation of the XR origin to match the camera
+        // xr_node->set_global_rotation(Vector3(0, -Math_PI / 2, 0)); // set the rotation of the XR origin to match the camera
     }
 
     if (this->sub_view)

@@ -230,12 +230,12 @@ void CheatSheet::_on_pickable_dropped(Node* pickable)
     if (state_current == STATE_HELD) 
     {
         state_current = STATE_MOUTHED;
-        if (get_parent()->get_node<Node>("Pivot")->has_node("XR")) // change the parent to XR camera if it exists
+        if (get_parent()->get_parent()->get_node<Node>("Pivot")->has_node("XR")) // change the parent to XR camera if it exists
         {
             Transform3D global_pos = this->pickable->get_global_transform();
             this->pickable->get_parent()->remove_child(this->pickable);
-            get_parent()->get_node<Node>("Pivot")->get_node<Node>("XR")->get_node<Node>("XROrigin")
-                        ->get_node<Node>("XRCamera")->add_child(this->pickable);
+            get_parent()->get_parent()->get_node<Node>("Pivot")->get_node<Node>("XR")
+                        ->get_node<Node>("XROrigin")->get_node<Node>("XRCamera")->add_child(this->pickable);
             this->pickable->set_global_transform(global_pos);
         }
         detatch_position = this->pickable->get_position();
