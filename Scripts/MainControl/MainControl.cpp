@@ -193,19 +193,29 @@ void MainControl::TakeRest()
 {
     Node3D* rocks = get_parent()->get_node<Node3D>("Rocks");
     Node3D* fog = get_parent()->get_node<Node3D>("Fog_Volume");
-    Node3D *dragon_node = get_parent()->get_node<Node3D>("Dragon");
-    Node3D *toothless_node = get_parent()->get_node<Node3D>("Dragon/Toothless");
-    if (rocks && fog && dragon_node && toothless_node)
+    Node3D* dragon_node = get_parent()->get_node<Node3D>("Dragon");
+    Node3D* toothless_node = get_parent()->get_node<Node3D>("Dragon/Toothless");
+    Node3D* sun_node = get_parent()->get_node<Node3D>("Sun");
+    if (rocks && fog && dragon_node && toothless_node && sun_node)
     {
         rocks->set_visible(false); // hide the rocks
         fog->set_visible(false); // hide the fog
         dragon_node->set_position(Vector3(1025.584f, 6.443f, -813.842f));
         dragon_node->set_rotation(Vector3(0.0f, Math::deg_to_rad(-90.0f), 0.0f)); // set the position and rotation of the dragon node
         toothless_node->set_rotation(Vector3(0.0f, 0.0f, Math::deg_to_rad(14.3f)));
+    
+        sun_node->set("light_color", Color(1.164f, 0.989f, 0.76f));
     }
     dragon_animator->SetAnimation("layer_wing_main", "po_rest");
     camera_ctrl->pivot_camera->set_position(Vector3(-0.55f, -0.405f, -2.135f));
     camera_ctrl->pivot_camera->set_rotation(Vector3(Math::deg_to_rad(0.0f), Math::deg_to_rad(-20.1f), Math::deg_to_rad(0.0f)));
+
+
+
+
+
+
+
 
     // // 新增：橙黄色淡入淡出效果
     // using namespace godot;
