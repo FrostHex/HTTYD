@@ -175,13 +175,12 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(116.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-1, 0.33f)); // Toothless opens his mouth
     timer->Timer_AddEvent(120.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close"));
     timer->Timer_AddEvent(120.1f, Callable(dragon_control, "SetTargetRotation").bind(Vector3(0,-Math_PI/2, 0))); // glide diagonal downwards
+    // timer->Timer_AddEvent(120.5f, Callable(camera_ctrl, "SetCameraStabilized").bind(true));
     timer->Timer_AddEvent(121.7f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS)); // fully retrieve the control and the tail wing is fully extended
     timer->Timer_AddEvent(121.7f, Callable(dragon_animator, "SetAnimation_Mouth").bind(4, 1.0f)); // Toothless closes his mouth
-    // 2'08.7 start getting to the position of upside down
-    // 2'09.7 finish the spinning
-    // 2'10.5 retrieve the control
-    // 2'14.8 successfully traversed the crisis and set the velocity to horizontal
-    timer->Timer_AddEvent(142.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // disable the control
+    timer->Timer_AddEvent(121.7f, Callable(dragon_control, "SetStatus_Deferred").bind(Array{0}, 300.0f));
+    timer->Timer_AddEvent(129.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_ROLLING)); // start getting to the position of upside down
+    timer->Timer_AddEvent(134.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // successfully traversed the crisis and set the velocity to horizontal
     timer->Timer_AddEvent(142.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_celebrate")); // change the animation to celebrate
     timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_eye_shape", "po_eye_big"));
     timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_mouth", "tr_glide_celebrate"));
@@ -238,12 +237,13 @@ void MainControl::_input(const Ref<InputEvent> &event)
         timer->Timer_Reset();
         Initialize_TimerList();
         timer->Timer_ForceSetTime(time_elapsed);
-        if (sub_view && video_player) // 添加sub_view检查
+        if (sub_view && video_player)
         {
             video_player->set_stream_position(time_elapsed);
         }
         dragon_control->SetStatus(data_all); 
         dragon_control->time_to_target = 0.1f;
+        camera_ctrl->SetCameraStabilized(false);
     }
 }
 

@@ -78,6 +78,7 @@ limits/debugger/max_chars_per_second=2147483647
 
 [physics]
 
+3d/default_linear_damp=0.0
 3d/default_angular_damp=0.0
 
 [shader_globals]
@@ -105,7 +106,6 @@ num_cascades={
 
 [xr]
 
-openxr/enabled=true
 openxr/default_action_map="res://Addons/godot-xr-tools/addons/godot-xr-tools/openxr_action_map.tres"
 openxr/extensions/hand_tracking=true
 shaders/enabled=true

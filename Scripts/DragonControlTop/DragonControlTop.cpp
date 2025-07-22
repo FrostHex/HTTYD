@@ -30,6 +30,7 @@ DragonControlTop::DragonControlTop() : state_current(STATE_DEFAULT)
     state_process_funcs[STATE_HIT_CLIFF] = &DragonControlTop::ProcessHitCliff;
     state_process_funcs[STATE_FALLING] = &DragonControlTop::ProcessFalling;
     state_process_funcs[STATE_CRISIS] = &DragonControlTop::ProcessCrisis;
+    state_process_funcs[STATE_ROLLING] = &DragonControlTop::ProcessRolling;
     state_process_funcs[STATE_DISABLED] = &DragonControlTop::ProcessDisabled;
 }
 
@@ -68,6 +69,7 @@ void DragonControlTop::_bind_methods()
     BIND_ENUM_CONSTANT(STATE_HIT_CLIFF);
     BIND_ENUM_CONSTANT(STATE_FALLING);
     BIND_ENUM_CONSTANT(STATE_CRISIS);
+    BIND_ENUM_CONSTANT(STATE_ROLLING);
     BIND_ENUM_CONSTANT(STATE_DISABLED); 
 }
 
@@ -309,6 +311,30 @@ void DragonControlTop::ProcessCrisis(double delta)
 }
 
 
+void DragonControlTop::ProcessRolling(double delta)
+{
+    dragon_animator->SetAnimation("layer_wing_tail", "po_right");
+    dragon_animator->SetAnimation("layer_wing_main", "po_dive");
+
+    if (rolled_angle < Math_TAU)
+    {
+        int rotation_speed = 7; 
+        Vector3 linear_velocity_vector = dragon_rb->get_linear_velocity();
+        // UtilityFunctions::print(dragon_rb->get_global_transform().basis.get_column(1).dot(Vector3(0, 1, 0))); // [-1, 1]
+        linear_velocity_vector += Vector3(0, 6, 0) * (dragon_rb->get_global_transform().basis.get_column(1).dot(Vector3(0, 1, 0)) - 1);
+        dragon_rb->set_linear_velocity(linear_velocity_vector);
+        dragon_rb->set_angular_velocity(dragon_rb->get_global_transform().basis.get_column(0) * rotation_speed);
+        rolled_angle += std::abs(rotation_speed * delta);
+    } 
+    else 
+    {
+        dragon_rb->set_angular_velocity(Vector3(0, 0, 0));
+        dragon_animator->SetAnimation("layer_wing_main", "po_glide");
+        SetState(DragonState::STATE_CRISIS);
+    }
+}
+
+
 /**
  * @brief the disabled state processing function
  * @param delta time since last frame
@@ -391,13 +417,24 @@ void DragonControlTop::SetState(DragonState state_new)
                 time_to_target = 3.4f;
             }
         case STATE_DISABLED:
-            dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+            if (state_current == DragonState::STATE_CRISIS)
+            {
+                Vector3 vel = dragon_rb->get_linear_velocity();
+                dragon_rb->set_linear_velocity(Vector3(vel.x, 0, vel.z));
+                dragon_rb->set_angular_velocity(Vector3(0, 0, 0));
+            }
+            else
+            {
+                dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+            }
             break;
         case STATE_FALLING:
             p_gain = 0.015f; 
             dragon_rb->set_linear_velocity(Vector3(0, dragon_rb->get_linear_velocity().y, 0));
             approach_target_rotation = true;
             target_rotation = Vector3(-1, -1, -1);
+        case STATE_ROLLING:
+            rolled_angle = 0.0f; 
     }
     state_current = state_new;
     UtilityFunctions::print("Dragon state changed to: ", state_current);
@@ -615,14 +652,17 @@ void DragonControlTop::SetStatus(const Dictionary& status)
 
 void DragonControlTop::SetStatus_Deferred(const Array& dragon_transform, float linear_velocity_input)
 {
-    Vector3 position = Vector3(static_cast<float>(dragon_transform[0]),static_cast<float>(dragon_transform[1]),static_cast<float>(dragon_transform[2]));
-    Vector3 rotation = Vector3(static_cast<float>(dragon_transform[3]),static_cast<float>(dragon_transform[4]),static_cast<float>(dragon_transform[5]));
-    dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
-    dragon_rb->set_angular_velocity(Vector3(0, 0, 0));
-    Transform3D new_transform;
-    new_transform.basis = Basis::from_euler(rotation);
-    new_transform.origin = position;
-    dragon_rb->set_global_transform(new_transform);
+    if (dragon_transform.size() >= 6)
+    {
+        Vector3 position = Vector3(static_cast<float>(dragon_transform[0]),static_cast<float>(dragon_transform[1]),static_cast<float>(dragon_transform[2]));
+        Vector3 rotation = Vector3(static_cast<float>(dragon_transform[3]),static_cast<float>(dragon_transform[4]),static_cast<float>(dragon_transform[5]));
+        dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+        dragon_rb->set_angular_velocity(Vector3(0, 0, 0));
+        Transform3D new_transform;
+        new_transform.basis = Basis::from_euler(rotation);
+        new_transform.origin = position;
+        dragon_rb->set_global_transform(new_transform);
+    }
 
     dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
     this->linear_velocity_input = linear_velocity_input;

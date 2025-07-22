@@ -31,6 +31,7 @@ namespace godot
             void GrabSaddle();
             String info_debug;
             String time_elapsed;
+            void SetCameraStabilized(bool stabilized) {camera_stabilized = stabilized;}
         
         protected:
             static void _bind_methods();
@@ -60,6 +61,8 @@ namespace godot
             void TriggerApproachingPosition(Vector3 target_position_offset);
             Vector3 target_position_offset;
             bool approaching_position = false;
+            bool camera_stabilized = false;
+
     };
 }
 

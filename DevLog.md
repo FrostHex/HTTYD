@@ -1,6 +1,6 @@
 # TODO
 
-![实现事件列表](https://quickchart.io/chart?c={type:'pie',data:{labels:['已完成','未完成'],datasets:[{data:[87-4,4],backgroundColor:['%2362db5e','%232fb7ed']}]},options:{legend:{labels:{fontColor:'%23AAAAAA'}},plugins:{datalabels:{color:'white'}}}})
+![实现事件列表](https://quickchart.io/chart?c={type:'pie',data:{labels:['已完成','未完成'],datasets:[{data:[86,0],backgroundColor:['%2362db5e','%232fb7ed']}]},options:{legend:{labels:{fontColor:'%23AAAAAA'}},plugins:{datalabels:{color:'white'}}}})
 - 实现事件列表
 - 博克岛
 - 夕阳海滩场景

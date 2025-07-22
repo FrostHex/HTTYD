@@ -165,8 +165,11 @@ void CameraControl::_physics_process(double delta)
                 xr_position_initialized = true;
             }        
         }
-        
-        // xr_node->set_global_rotation(Vector3(0, -Math_PI / 2, 0)); // set the rotation of the XR origin to match the camera
+
+        if (camera_stabilized)
+        {
+            xr_node->set_global_rotation(Vector3(0, -Math_PI / 2, 0)); // set the rotation of the XR origin to match the camera
+        }
     }
 
     if (this->sub_view)
@@ -326,4 +329,5 @@ void CameraControl::_bind_methods()
     ClassDB::bind_method(D_METHOD("TriggerApproachingAngle", "target_rotation", "p_gain"), &CameraControl::TriggerApproachingAngle);
     ClassDB::bind_method(D_METHOD("TriggerApproachingPosition", "target_position_offset"), &CameraControl::TriggerApproachingPosition);
     ClassDB::bind_method(D_METHOD("GrabSaddle"), &CameraControl::GrabSaddle);
+    ClassDB::bind_method(D_METHOD("SetCameraStabilized", "stabilized"), &CameraControl::SetCameraStabilized);
 }
