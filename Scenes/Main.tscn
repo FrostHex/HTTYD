@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bftovvm0selct"]
+[gd_scene load_steps=22 format=3 uid="uid://bftovvm0selct"]
 
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="1_r150o"]
+[ext_resource type="CompositorEffect" uid="uid://m887bqphpbkm" path="res://NewCloudsGD.tres" id="2_346fj"]
 [ext_resource type="PackedScene" uid="uid://dx4r13gqfh13" path="res://Scenes/Ocean.tscn" id="2_idj7w"]
 [ext_resource type="Texture2D" uid="uid://nxqdv1m6j7pw" path="res://Environment/Ocean/assets/skybox.png" id="3_kln2b"]
 [ext_resource type="PackedScene" uid="uid://8fvlc7181mcm" path="res://Scenes/Mountain.tscn" id="4_rgh2o"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b48qubstjctb5" path="res://Scenes/Rocks/Basic/Rock_BA.tscn" id="12_hwpts"]
 [ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="14_1p5hy"]
 [ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="14_h1m7h"]
+[ext_resource type="Script" uid="uid://djusduuxf0voj" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/SunshineCloudsDriver.gd" id="18_0sclb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rgh2o"]
 panorama = ExtResource("3_kln2b")
@@ -61,7 +63,6 @@ adjustment_saturation = 1.5
 
 [node name="MainControl" type="MainControl" parent="."]
 "Enable Headset" = true
-"Sub View" = false
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pbw6q")
@@ -82,7 +83,6 @@ directional_shadow_max_distance = 400.0
 
 [node name="Fog_Volume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -718.279, 115.899, 3129.9905)
-visible = false
 size = Vector3(3229.85, 862.143, 5509.701)
 material = ExtResource("5_v1gob")
 
@@ -1349,7 +1349,7 @@ transform = Transform3D(-12.066347, 2.8704588, 3.8940637, 2.3527455, 12.625339, 
 transform = Transform3D(-11.988499, 0, -0.524353, 0, 5, 0, 0.524353, 0, -11.988499, 633.8246, 14, 841.99854)
 
 [node name="Rock_Pillar_C_24" parent="Rocks/Area_Final" instance=ExtResource("8_346fj")]
-transform = Transform3D(-7.4616566, -1.1695065, 2.4273727, -1.278101, 5.8656874, 1.095315, -2.5865312, 0.4753533, -7.543749, 587.74585, 14, 890.4196)
+transform = Transform3D(-7.4616566, -1.1695063, 2.4273727, -1.278101, 5.8656874, 1.095315, -2.5865312, 0.4753531, -7.543749, 615.4407, 13.999985, 905.5135)
 
 [node name="Rock_Pillar_D_24" parent="Rocks/Area_Final" instance=ExtResource("9_0sclb")]
 transform = Transform3D(11.0997, -1.7786429, -3.5632913, 2.9582603, 7.268389, -0.07276594, 3.4705002, -0.50695395, 11.458501, 504.319, -38, 976.499)
@@ -1415,3 +1415,14 @@ stream = ExtResource("7_jw32o")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1026.572, 5.861, -812.982)
 material_override = ExtResource("14_h1m7h")
 mesh = ExtResource("14_1p5hy")
+
+[node name="SunshineCloudsDriverGD" type="Node" parent="."]
+script = ExtResource("18_0sclb")
+clouds_resource = ExtResource("2_346fj")
+ambience_sample_environment = SubResource("Environment_pbw6q")
+tracked_directional_light_shadow_steps = Array[int]([32])
+extra_large_clouds_pos = Vector3(105619.54, 0, 105619.54)
+large_clouds_pos = Vector3(1249.6544, 0, 1249.6544)
+medium_clouds_pos = Vector3(-6001.6787, 0, -6001.6787)
+small_clouds_pos = Vector3(80.20423, 80.20423, 80.20423)
+metadata/_custom_type_script = "uid://djusduuxf0voj"

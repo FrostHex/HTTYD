@@ -41,7 +41,7 @@ project/assembly_name="HTTYD"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://Addons/SunshineClouds2/addons/SunshineClouds2/plugin.cfg", "res://addons/godot-xr-tools/addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://Addons/SunshineClouds2/addons/SunshineClouds2/plugin.cfg", "res://addons/SunshineClouds2/addons/SunshineClouds2/plugin.cfg", "res://addons/godot-xr-tools/addons/godot-xr-tools/plugin.cfg")
 
 [filesystem]
 

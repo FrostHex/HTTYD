@@ -53,7 +53,7 @@ void MainControl::_ready()
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
     cheat_sheet = dragon_node->get_node<CheatSheet>("CheatSheet");
     dragon_animator = get_parent()->get_node<Node>("Dragon")->get_node<DragonAnimator>("DragonAnimator");
-    camera_ctrl = memnew(CameraControl(sub_view, enable_headset));
+    camera_ctrl = memnew(CameraControl(sub_view, debug, enable_headset));
     camera_ctrl->set_name("CameraControl"); // set the name of the camera control node
     dragon_node->add_child(camera_ctrl); // add the camera control to the dragon node
     timer = memnew(GameTimer(camera_ctrl));
@@ -63,7 +63,7 @@ void MainControl::_ready()
     if (enable_headset) 
     {
         // memnew is "new" in Godot C++, which dynamically allocates memory for the object
-        // memnew() creates an instance of DragonControlKeyboard and returns a pointer to it
+        // memnew() creates an instance of DragonControlJoystick and returns a pointer to it
         dragon_control = memnew(DragonControlJoystick);
         dragon_node->add_child(dynamic_cast<Node*>(dragon_control)); // add the dragon control to the dragon node
     }
@@ -72,7 +72,7 @@ void MainControl::_ready()
         dragon_control = memnew(DragonControlKeyboard);
         dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
     }
-    if (sub_view) 
+    if (sub_view && debug) 
     {
         video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
     }
@@ -96,7 +96,7 @@ void MainControl::Initialize_TimerList()
     // timer->Timer_AddEvent(0.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS));
     // timer->Timer_AddEvent(3.0f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-1.0f));
 
-    if (sub_view && video_player)
+    if (sub_view && debug && video_player)
     {
         timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
     }
@@ -107,7 +107,9 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(18.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_check_tail_glide", true)); // the starting position of tr_check_tail_glide
     timer->Timer_AddEvent(19.1f, Callable(dragon_animator, "Unfreeze")); // change the animation to tr_check_tail_glide
     timer->Timer_AddEvent(20.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DEFAULT)); // enable the default animations
-    timer->Timer_AddEvent(45.0f, Callable(dragon_control, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_A_01")->get_global_transform().origin + Vector3(0, 60, 0), 7.0f)); 
+    timer->Timer_AddEvent(47.0f, Callable(dragon_control, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_A_01")->get_global_transform().origin + Vector3(0, 60, 0), 5.0f)); 
+    timer->Timer_AddEvent(47.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_glide")); 
+    timer->Timer_AddEvent(47.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide"));
     timer->Timer_AddEvent(53.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_HIT_CLIFF)); // the code takes control, unavoidable to fly towards the pillar
     timer->Timer_AddEvent(53.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_glide")); 
     timer->Timer_AddEvent(58.2f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_hit_glide", true)); // ready to hit the pillar, setting the animation to hit_cliff
@@ -167,7 +169,7 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(106.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.5f)); // Toothless opens his mouth
     timer->Timer_AddEvent(108.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_dive")); // change the animation to po_dive
     timer->Timer_AddEvent(113.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_crisis"));
-    timer->Timer_AddEvent(113.8f, Callable(dragon_control, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Final/Rock_Pillar_E_01")->get_global_transform().origin + Vector3(0, 15, 0), 9.0f)); // glide diagonal downwards
+    timer->Timer_AddEvent(113.8f, Callable(dragon_control, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Final/Rock_Pillar_E_01")->get_global_transform().origin + Vector3(0, 15, 0), 9.5f)); // glide diagonal downwards
     timer->Timer_AddEvent(113.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
     timer->Timer_AddEvent(113.7f, Callable(dragon_control, "SetTargetRotation").bind(Vector3(-0.3f, -Math_PI/2 + 0.3f, -Math_PI/2 -0.3f)));
     timer->Timer_AddEvent(113.8f, Callable(dragon_control, "SetTargetRotation").bind(Vector3(0.6f, -Math_PI/2 - 0.6f, -Math_PI/2 + 0.6f)));
@@ -181,6 +183,8 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(113.8f, Callable(camera_ctrl, "SetCameraStabilized").bind(true)); 
     timer->Timer_AddEvent(129.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_ROLLING)); // start getting to the position of upside down
     timer->Timer_AddEvent(137.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // successfully traversed the crisis and set the velocity to horizontal
+    timer->Timer_AddEvent(137.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_glide")); 
+    timer->Timer_AddEvent(137.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide"));
     timer->Timer_AddEvent(142.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_celebrate")); // change the animation to celebrate
     timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_eye_shape", "po_eye_big"));
     timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_mouth", "tr_glide_celebrate"));
@@ -298,7 +302,7 @@ void MainControl::_input(const Ref<InputEvent> &event)
         timer->Timer_Reset();
         Initialize_TimerList();
         timer->Timer_ForceSetTime(time_elapsed);
-        if (sub_view && video_player)
+        if (sub_view && debug && video_player)
         {
             video_player->set_stream_position(time_elapsed);
         }
@@ -362,6 +366,17 @@ bool MainControl::GetValSubView() const
 }
 
 
+void MainControl::SetValDebug(bool val)
+{
+    debug = val;
+}
+
+bool MainControl::GetValDebug() const
+{
+    return debug;
+}
+
+
 /**
  * @brief bind methods and properties to the Godot engine
  * @note if _bind_methods() is empty, it can still work, but the methods cannot be called in GDScript or C# or the Inspector
@@ -382,6 +397,9 @@ void MainControl::_bind_methods()
     ClassDB::bind_method(D_METHOD("sub_view_setter", "value"), &MainControl::SetValSubView);
     ClassDB::bind_method(D_METHOD("sub_view_getter"), &MainControl::GetValSubView);
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Sub View"), "sub_view_setter", "sub_view_getter");
+    ClassDB::bind_method(D_METHOD("debug_setter", "value"), &MainControl::SetValDebug);
+    ClassDB::bind_method(D_METHOD("debug_getter"), &MainControl::GetValDebug);
+    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Debug"), "debug_setter", "debug_getter");
     ClassDB::bind_method(D_METHOD("Start_Timer"), &MainControl::Start_Timer);
     ClassDB::bind_method(D_METHOD("TakeRest"), &MainControl::TakeRest);
 }

@@ -23,11 +23,13 @@ using namespace godot;
 /**
  * @brief constructor
  * @param sub_view whether to use the sub camera
+ * @param debug whether to enable debug mode
  * @param enable_headset whether to enable the XR headset
  */
-CameraControl::CameraControl(bool sub_view, bool enable_headset) 
+CameraControl::CameraControl(bool sub_view, bool debug, bool enable_headset) 
 {
     this->sub_view = sub_view;
+    this->debug = debug;
     this->enable_headset = enable_headset;
 
     if (enable_headset) 
@@ -105,8 +107,12 @@ void CameraControl::_ready()
             Node* sub_container = get_parent()->get_node<Node>("SubViewportContainer");
             Node* sub_viewport = sub_container->get_node<Node>("SubViewport");
             camera_sub = sub_viewport->get_node<Camera3D>("CameraSub");
-            label_info = sub_viewport->get_node<Label>("Info");
             camera_sub->set_rotation(Vector3(0, - Math_PI / 2, 0));
+
+            if (this->debug)
+            {
+                label_info = sub_viewport->get_node<Label>("Info");
+            }
 
             if (this->enable_headset)
             {
@@ -175,8 +181,11 @@ void CameraControl::_physics_process(double delta)
     if (this->sub_view)
     {
         camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
-        String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1) + "\n" + info_debug + "\n" + time_elapsed;
-        label_info->set_text(velocity_text);
+        if (this->debug && label_info)
+        {
+            String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1) + "\n" + info_debug + "\n" + time_elapsed;
+            label_info->set_text(velocity_text);
+        }
     }
 
     if (camera_offset_factor != 0.0f)
@@ -249,7 +258,7 @@ Vector3 CameraControl::GetPostureHeadset()
 
 void CameraControl::Print_Collision(Node* body, float velocity)
 {
-    if (label_info)
+    if (debug && label_info)
     {
         String collision_info = "Collision with " + body->get_name() + " at velocity: " + String::num(velocity, 1);
         info_debug = collision_info;
@@ -269,7 +278,7 @@ void CameraControl::_input(const Ref<InputEvent> &event)
     if (event->is_action_pressed("load_state")) 
     {
         info_debug = "State Loaded";
-        if (label_info)
+        if (debug && label_info)
         {
             label_info->set_modulate(Color(0.863f, 0.953f, 1.0f, 1.0f));
         }

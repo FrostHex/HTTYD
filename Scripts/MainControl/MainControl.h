@@ -26,6 +26,8 @@ namespace godot
             bool GetValJoystickInput() const;
             void SetValSubView(bool p_val);
             bool GetValSubView() const;
+            void SetValDebug(bool p_val);
+            bool GetValDebug() const;
 
         protected:
             static void _bind_methods();
@@ -36,6 +38,7 @@ namespace godot
             void TakeRest();
             bool enable_headset = false;
             bool sub_view = true;
+            bool debug = false; // debug mode
             DragonControlTop* dragon_control;
             DragonAnimator *dragon_animator;
             CheatSheet *cheat_sheet;

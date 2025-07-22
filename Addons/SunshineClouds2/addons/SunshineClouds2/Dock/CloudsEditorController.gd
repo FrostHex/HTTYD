@@ -168,15 +168,10 @@ func InitializeMaskTexture():
 	print("initializing mask")
 	if ResourceLoader.exists(MaskFilePath.text):
 		print("loading mask")
-		var image_res = ResourceLoader.load(MaskFilePath.text)
-		var image : Image = null
-		if image_res is Texture:
-			image = image_res.get_image()
-		elif image_res is Image:
-			image = image_res
-		if (!image or image.get_width() != MaskResolution.value):
+		var image = ResourceLoader.load(MaskFilePath.text) as CompressedTexture2D
+		if (!image || image.get_width() != MaskResolution.value):
 			print(MaskFilePath.text)
-			print("mask incorrect size found size:",  image.get_width() if image else "null", " desired:", MaskResolution.value)
+			print("mask incorrect size found size:",  image.get_width(), " desired:", MaskResolution.value)
 			image = Image.create(MaskResolution.value, MaskResolution.value, false, Image.FORMAT_RGBAF)
 			image.clear_mipmaps()
 			image.save_exr(MaskFilePath.text)

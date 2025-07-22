@@ -148950,7 +148950,6 @@ offset_top = 166.897
 offset_right = 46.8965
 offset_bottom = 189.897
 scale = Vector2(1.43606, 1.43606)
-text = "Info"
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewportContainer/SubViewport"]
 offset_top = 359.0
@@ -148968,7 +148967,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_rljbd")
 }
 tree_root = SubResource("AnimationNodeBlendTree_m2uv8")
-anim_player = NodePath("/root/@EditorNode@20442/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/Dragon/Toothless/AnimationPlayer")
+anim_player = NodePath("/root/@EditorNode@20487/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10883/@VSplitContainer@10528/@HSplitContainer@10530/@HSplitContainer@10532/@Control@10533/@SubViewportContainer@10534/@SubViewport@10535/Dragon/Toothless/AnimationPlayer")
 parameters/add_ear/add_amount = 0.8
 parameters/add_eyelid/add_amount = 1.0
 parameters/add_eyelid_down/add_amount = 0.3

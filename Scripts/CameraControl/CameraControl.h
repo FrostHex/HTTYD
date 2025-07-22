@@ -21,7 +21,7 @@ namespace godot
         GDCLASS(CameraControl, Node);
 
         public:
-            CameraControl(bool sub_view = true, bool enable_headset = false);
+            CameraControl(bool sub_view = true, bool debug = false, bool enable_headset = false);
             ~CameraControl(); // destructor
             void _ready();
             void _physics_process(double delta) override;
@@ -41,6 +41,7 @@ namespace godot
             void Print_Collision(Node* body, float velocity);
             bool sub_view = true; // whether to use the sub camera
             bool enable_headset = false; // whether to use the headset
+            bool debug = false; // whether to enable debug mode
             bool xr_position_initialized = false; // whether XR position has been initialized
             Vector3 initial_origin_position; // initial XR origin position
             Quaternion initial_origin_rotation; // initial XR origin rotation

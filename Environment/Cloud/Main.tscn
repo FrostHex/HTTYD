@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://co0lfw1xc5ds2"]
+
+[ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="1_r150o"]
+[ext_resource type="PackedScene" uid="uid://dx4r13gqfh13" path="res://Scenes/Ocean.tscn" id="2_idj7w"]
+[ext_resource type="CompositorEffect" uid="uid://dhl44j31e7a3v" path="res://Environment/Cloud/CloudSettings.tres" id="2_vy5pj"]
+[ext_resource type="Script" uid="uid://djusduuxf0voj" path="res://Addons/SunshineClouds2/addons/SunshineClouds2/SunshineCloudsDriver.gd" id="3_bmxlf"]
+[ext_resource type="Texture2D" uid="uid://cnft723bala47" path="res://Environment/Ocean/assets/skybox.png" id="3_kln2b"]
+[ext_resource type="PackedScene" uid="uid://cvjigyxbtcxbu" path="res://Scenes/Rocks/Rocks_Imported.tscn" id="4_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://8fvlc7181mcm" path="res://Scenes/Mountain.tscn" id="4_rgh2o"]
+[ext_resource type="Material" uid="uid://bcw5plagb6daq" path="res://Environment/Fog/volumetric_fog.tres" id="5_v1gob"]
+[ext_resource type="AudioStream" uid="uid://dom55m45v4wcr" path="res://Environment/Media/Test Drive.wav" id="7_jw32o"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rgh2o"]
+panorama = ExtResource("3_kln2b")
+
+[sub_resource type="Sky" id="Sky_vroi3"]
+sky_material = SubResource("PanoramaSkyMaterial_rgh2o")
+
+[sub_resource type="Environment" id="Environment_pbw6q"]
+background_mode = 2
+sky = SubResource("Sky_vroi3")
+tonemap_mode = 3
+tonemap_exposure = 0.8
+tonemap_white = 6.0
+ssao_enabled = true
+ssao_power = 3.0
+ssao_sharpness = 1.0
+ssao_light_affect = 1.0
+ssao_ao_channel_affect = 1.0
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.0
+sdfgi_cascades = 5
+glow_enabled = true
+glow_intensity = 0.1
+glow_blend_mode = 1
+glow_hdr_threshold = 2.0
+fog_mode = 1
+fog_light_color = Color(0.272954, 0.419272, 0.484632, 1)
+fog_sun_scatter = 0.05
+fog_density = 1.0
+fog_aerial_perspective = 0.626
+fog_sky_affect = 0.0
+fog_depth_curve = 0.25
+fog_depth_begin = 200.0
+fog_depth_end = 350.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 20000.0
+adjustment_enabled = true
+adjustment_brightness = 0.85
+adjustment_contrast = 1.07
+adjustment_saturation = 1.5
+
+[sub_resource type="Compositor" id="Compositor_4kpch"]
+compositor_effects = Array[CompositorEffect]([ExtResource("2_vy5pj")])
+
+[node name="Main" type="Node3D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pbw6q")
+compositor = SubResource("Compositor_4kpch")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.610288, 0.728554, 0.311059, 0.528901, 0.0824081, 0.844673, 0.589756, 0.680013, -0.435626, 250, 1003.33, -2800)
+light_energy = 3.0
+light_indirect_energy = 3.0
+shadow_enabled = true
+shadow_bias = 0.05
+shadow_blur = 0.5
+directional_shadow_split_1 = 0.02
+directional_shadow_split_2 = 0.06
+directional_shadow_split_3 = 0.25
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.9
+directional_shadow_max_distance = 400.0
+
+[node name="SunshineCloudsDriverGD" type="Node" parent="." node_paths=PackedStringArray("tracked_directional_lights")]
+script = ExtResource("3_bmxlf")
+update_continuously = true
+clouds_resource = ExtResource("2_vy5pj")
+ambience_sample_environment = SubResource("Environment_pbw6q")
+tracked_directional_lights = [NodePath("../Sun")]
+tracked_directional_light_shadow_steps = Array[int]([32])
+wind_direction = Vector3(0, 0, 0)
+extra_large_clouds_pos = Vector3(30000, 0, 1000)
+large_clouds_pos = Vector3(30000, 0, -11000)
+medium_clouds_pos = Vector3(-10000, 0, -1000)
+small_clouds_pos = Vector3(0, 1078.93, 0)
+metadata/_custom_type_script = "uid://djusduuxf0voj"
+
+[node name="Ocean" parent="." instance=ExtResource("2_idj7w")]
+
+[node name="Mountain" parent="." instance=ExtResource("4_rgh2o")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -89.0488, 720.157, 0)
+
+[node name="Rocks_Imported" parent="." instance=ExtResource("4_pbw6q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3237, 0, -118.657)
+
+[node name="Fog_Volume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -718.279, 115.899, 4030.15)
+size = Vector3(3229.85, 862.143, 7310.02)
+material = ExtResource("5_v1gob")
+
+[node name="Dragon" parent="." instance=ExtResource("1_r150o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 1000, -2800)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jw32o")
+volume_db = -80.0
+
+[node name="MainControl" type="MainControl" parent="."]

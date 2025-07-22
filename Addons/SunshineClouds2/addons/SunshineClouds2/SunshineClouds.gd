@@ -49,13 +49,13 @@ class_name SunshineCloudsGD
 @export_range(0, 2) var lod_bias : float = 1.0
 
 @export_subgroup("Noise Textures")
-@export var dither_noise : Texture
-@export var height_gradient : Texture
-@export var extra_large_noise_patterns : Texture
-@export var large_scale_noise : Texture
-@export var medium_scale_noise : Texture
-@export var small_scale_noise : Texture
-@export var curl_noise : Texture
+@export var dither_noise : Texture3D
+@export var height_gradient : Texture2D
+@export var extra_large_noise_patterns : Texture2D
+@export var large_scale_noise : Texture3D
+@export var medium_scale_noise : Texture3D
+@export var small_scale_noise : Texture3D
+@export var curl_noise : Texture3D
 
 @export_group("Advanced Settings")
 @export_subgroup("Visuals")
