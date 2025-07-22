@@ -148900,7 +148900,7 @@ current = true
 far = 50000.0
 
 [node name="XR" parent="Pivot" instance=ExtResource("2_0snye")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 0.8, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.5, 0.8, 0)
 
 [node name="XRToolsPickable" type="RigidBody3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934, 0.315, 0)

@@ -121,7 +121,7 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(63.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up"));
     timer->Timer_AddEvent(63.5f, Callable(dragon_control, "SetClearToothlessRotation").bind(true)); // set clear_pivot_rotation to true
     timer->Timer_AddEvent(65.3f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_slap_glide")); // Toothless flap my face with his ear
-    timer->Timer_AddEvent(70.0f, Callable(dragon_control, "TriggerApproaching").bind(true, Vector3(-1000, 3100, -500), 10.5f)); // fly up to the sky
+    timer->Timer_AddEvent(70.0f, Callable(dragon_control, "TriggerApproaching").bind(true, Vector3(-1000, 3150, -500), 10.5f)); // fly up to the sky
     timer->Timer_AddEvent(70.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up"));
     timer->Timer_AddEvent(80.5f, Callable(cheat_sheet, "Detatch")); // detatch the cheat sheet
     timer->Timer_AddEvent(82.5f, Callable(dragon_control, "SetState").bind(DragonState::STATE_FALLING)); // start to decelerate due to the stall
@@ -178,6 +178,7 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(121.7f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS)); // fully retrieve the control and the tail wing is fully extended
     timer->Timer_AddEvent(121.7f, Callable(dragon_animator, "SetAnimation_Mouth").bind(4, 1.0f)); // Toothless closes his mouth
     timer->Timer_AddEvent(121.7f, Callable(dragon_control, "SetStatus_Deferred").bind(Array{0}, 300.0f));
+    timer->Timer_AddEvent(113.8f, Callable(camera_ctrl, "SetCameraStabilized").bind(true)); 
     timer->Timer_AddEvent(129.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_ROLLING)); // start getting to the position of upside down
     timer->Timer_AddEvent(137.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // successfully traversed the crisis and set the velocity to horizontal
     timer->Timer_AddEvent(142.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_celebrate")); // change the animation to celebrate

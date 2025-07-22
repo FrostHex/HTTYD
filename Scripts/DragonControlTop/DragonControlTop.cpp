@@ -321,7 +321,7 @@ void DragonControlTop::ProcessRolling(double delta)
         int rotation_speed = 7; 
         Vector3 linear_velocity_vector = dragon_rb->get_linear_velocity();
         // UtilityFunctions::print(dragon_rb->get_global_transform().basis.get_column(1).dot(Vector3(0, 1, 0))); // [-1, 1]
-        linear_velocity_vector += Vector3(0, 6, 0) * (dragon_rb->get_global_transform().basis.get_column(1).dot(Vector3(0, 1, 0)) - 1);
+        linear_velocity_vector += Vector3(0, 4, 0) * (dragon_rb->get_global_transform().basis.get_column(1).dot(Vector3(0, 1, 0)) - 1);
         dragon_rb->set_linear_velocity(linear_velocity_vector);
         dragon_rb->set_angular_velocity(dragon_rb->get_global_transform().basis.get_column(0) * rotation_speed);
         rolled_angle += std::abs(rotation_speed * delta);
