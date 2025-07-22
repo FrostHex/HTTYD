@@ -31,6 +31,7 @@ void DragonAnimator::_bind_methods()
     ClassDB::bind_method(D_METHOD("SetAnimation", "layer", "animation", "freeze"), &DragonAnimator::SetAnimation, DEFVAL(false));
     ClassDB::bind_method(D_METHOD("Unfreeze"), &DragonAnimator::Unfreeze);
     ClassDB::bind_method(D_METHOD("SetAnimation_Mouth", "step", "thresh"), &DragonAnimator::SetAnimation_Mouth);
+    ClassDB::bind_method(D_METHOD("SetAnimation_Weight", "layer", "weight"), &DragonAnimator::SetAnimation_Weight);
 }
 
 
@@ -149,7 +150,7 @@ void DragonAnimator::_physics_process(float delta)
 }
 
 
-// void DragonAnimator::SetWeight(const String &layer, float weight)
-// {
-//     anim_tree->set("parameters/" + layer + "/blend_amount", weight); // Set the blend weight for the specified layer
-// }
+void DragonAnimator::SetAnimation_Weight(const String &layer, float weight)
+{
+    anim_tree->set("parameters/" + layer + "/add_amount", weight);
+}

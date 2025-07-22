@@ -175,7 +175,6 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(116.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-1, 0.33f)); // Toothless opens his mouth
     timer->Timer_AddEvent(120.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close"));
     timer->Timer_AddEvent(120.1f, Callable(dragon_control, "SetTargetRotation").bind(Vector3(0,-Math_PI/2, 0))); // glide diagonal downwards
-    // timer->Timer_AddEvent(120.5f, Callable(camera_ctrl, "SetCameraStabilized").bind(true));
     timer->Timer_AddEvent(121.7f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS)); // fully retrieve the control and the tail wing is fully extended
     timer->Timer_AddEvent(121.7f, Callable(dragon_animator, "SetAnimation_Mouth").bind(4, 1.0f)); // Toothless closes his mouth
     timer->Timer_AddEvent(121.7f, Callable(dragon_control, "SetStatus_Deferred").bind(Array{0}, 300.0f));
@@ -185,9 +184,8 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_eye_shape", "po_eye_big"));
     timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_mouth", "tr_glide_celebrate"));
     timer->Timer_AddEvent(147.5f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED));
-    timer->Timer_AddEvent(147.5f, Callable(this, "TakeRest"));
-    // timer->Timer_AddEvent(147.5f, Callable(dragon_animator, "SetAnimation").bind("layer_mouth", "po_rest"));
-    // timer->Timer_AddEvent(147.5f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.93f));
+    timer->Timer_AddEvent(147.5f, Callable(dragon_animator, "SetAnimation_Weight").bind("add_shake", 0.0f));
+    timer->Timer_AddEvent(147.5f, Callable(this, "TakeRest")); 
 }
 
 
@@ -196,17 +194,47 @@ void MainControl::TakeRest()
     Node3D* rocks = get_parent()->get_node<Node3D>("Rocks");
     Node3D* fog = get_parent()->get_node<Node3D>("Fog_Volume");
     Node3D *dragon_node = get_parent()->get_node<Node3D>("Dragon");
-    if (rocks && fog && dragon_node)
+    Node3D *toothless_node = get_parent()->get_node<Node3D>("Dragon/Toothless");
+    if (rocks && fog && dragon_node && toothless_node)
     {
         rocks->set_visible(false); // hide the rocks
         fog->set_visible(false); // hide the fog
-        dragon_node->set_position(Vector3(974.594f, 42.833f, -780.162f));
-        dragon_node->set_rotation(Vector3(0.0f, Math::deg_to_rad(-90.0f), 0.0f));
+        dragon_node->set_position(Vector3(1025.584f, 6.443f, -813.842f));
+        dragon_node->set_rotation(Vector3(0.0f, Math::deg_to_rad(-90.0f), 0.0f)); // set the position and rotation of the dragon node
+        toothless_node->set_rotation(Vector3(0.0f, 0.0f, Math::deg_to_rad(14.3f)));
     }
     dragon_animator->SetAnimation("layer_wing_main", "po_rest");
-    camera_ctrl->pivot_camera->set_position(Vector3(-0.265f, -0.645f, -1.725f));
-    camera_ctrl->pivot_camera->set_rotation(Vector3(Math::deg_to_rad(0.0f), Math::deg_to_rad(-8.5f), Math::deg_to_rad(0.0f)));
+    camera_ctrl->pivot_camera->set_position(Vector3(-0.55f, -0.405f, -2.135f));
+    camera_ctrl->pivot_camera->set_rotation(Vector3(Math::deg_to_rad(0.0f), Math::deg_to_rad(-20.1f), Math::deg_to_rad(0.0f)));
+
+    // // 新增：橙黄色淡入淡出效果
+    // using namespace godot;
+    // Node *root = get_tree()->get_root();
+    // Ref<Viewport> viewport = get_viewport();
+    // if (root && viewport.is_valid()) {
+    //     // 创建 ColorRect
+    //     ColorRect *color_rect = memnew(ColorRect);
+    //     color_rect->set_color(Color(1.0, 0.6, 0.0, 0.0)); // 橙黄色，初始透明
+    //     color_rect->set_anchors_preset(Control::PRESET_FULL_RECT);
+    //     color_rect->set_mouse_filter(Control::MOUSE_FILTER_IGNORE);
+    //     // 添加到场景树最顶层
+    //     viewport->add_child(color_rect);
+
+    //     // 创建 Tween
+    //     Tween *tween = memnew(Tween);
+    //     color_rect->add_child(tween);
+
+    //     // 淡入
+    //     tween->tween_property(color_rect, "modulate:a", 1.0, 0.5);
+    //     // 淡出
+    //     tween->tween_property(color_rect, "modulate:a", 0.0, 0.5)->set_delay(0.5);
+
+    //     // 结束后移除 ColorRect
+    //     tween->connect("finished", Callable(color_rect, "queue_free"));
+    // }
 }
+
+
 
 
 /**

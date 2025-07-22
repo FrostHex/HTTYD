@@ -23,7 +23,8 @@ namespace godot
             void SetAnimation(const String &layer, const String &animation, bool freeze = false);
             void Unfreeze();
             void SetAnimation_Mouth(int step, float thresh);
-
+            void SetAnimation_Weight(const String &layer, float weight);
+            
         protected:
             static void _bind_methods();
         

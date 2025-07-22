@@ -426,6 +426,10 @@ void DragonControlTop::SetState(DragonState state_new)
             else
             {
                 dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+                if (state_current == DragonState::STATE_DISABLED) 
+                {
+                    set_physics_process(false); 
+                }
             }
             break;
         case STATE_FALLING:

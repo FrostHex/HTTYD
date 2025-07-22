@@ -148588,6 +148588,7 @@ animation = &"lo_shake"
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_guncu"]
 states/lo_shake/node = SubResource("AnimationNodeAnimation_m2uv8")
 states/lo_shake/position = Vector2(366, 100.667)
+graph_offset = Vector2(-21, -8)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v5fnx"]
 animation = &"lo_flap"
@@ -148845,7 +148846,7 @@ animation = &"po_eyelid_close_down"
 animation = &"po_eyelid_close_up"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m2uv8"]
-graph_offset = Vector2(-570.14825, -15.420369)
+graph_offset = Vector2(-266.8495, 134.32802)
 nodes/output/position = Vector2(413.33334, 266.66666)
 nodes/add_ear/node = SubResource("AnimationNodeAdd2_m2uv8")
 nodes/add_ear/position = Vector2(253.33333, 253.33333)
