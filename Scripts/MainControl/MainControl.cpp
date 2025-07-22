@@ -180,10 +180,32 @@ void MainControl::Initialize_TimerList()
     timer->Timer_AddEvent(121.7f, Callable(dragon_animator, "SetAnimation_Mouth").bind(4, 1.0f)); // Toothless closes his mouth
     timer->Timer_AddEvent(121.7f, Callable(dragon_control, "SetStatus_Deferred").bind(Array{0}, 300.0f));
     timer->Timer_AddEvent(129.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_ROLLING)); // start getting to the position of upside down
-    timer->Timer_AddEvent(134.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // successfully traversed the crisis and set the velocity to horizontal
+    timer->Timer_AddEvent(137.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // successfully traversed the crisis and set the velocity to horizontal
     timer->Timer_AddEvent(142.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_celebrate")); // change the animation to celebrate
     timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_eye_shape", "po_eye_big"));
     timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_mouth", "tr_glide_celebrate"));
+    timer->Timer_AddEvent(147.5f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED));
+    timer->Timer_AddEvent(147.5f, Callable(this, "TakeRest"));
+    // timer->Timer_AddEvent(147.5f, Callable(dragon_animator, "SetAnimation").bind("layer_mouth", "po_rest"));
+    // timer->Timer_AddEvent(147.5f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.93f));
+}
+
+
+void MainControl::TakeRest()
+{
+    Node3D* rocks = get_parent()->get_node<Node3D>("Rocks");
+    Node3D* fog = get_parent()->get_node<Node3D>("Fog_Volume");
+    Node3D *dragon_node = get_parent()->get_node<Node3D>("Dragon");
+    if (rocks && fog && dragon_node)
+    {
+        rocks->set_visible(false); // hide the rocks
+        fog->set_visible(false); // hide the fog
+        dragon_node->set_position(Vector3(974.594f, 42.833f, -780.162f));
+        dragon_node->set_rotation(Vector3(0.0f, Math::deg_to_rad(-90.0f), 0.0f));
+    }
+    dragon_animator->SetAnimation("layer_wing_main", "po_rest");
+    camera_ctrl->pivot_camera->set_position(Vector3(-0.265f, -0.645f, -1.725f));
+    camera_ctrl->pivot_camera->set_rotation(Vector3(Math::deg_to_rad(0.0f), Math::deg_to_rad(-8.5f), Math::deg_to_rad(0.0f)));
 }
 
 
@@ -322,6 +344,7 @@ void MainControl::_bind_methods()
     ClassDB::bind_method(D_METHOD("sub_view_getter"), &MainControl::GetValSubView);
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Sub View"), "sub_view_setter", "sub_view_getter");
     ClassDB::bind_method(D_METHOD("Start_Timer"), &MainControl::Start_Timer);
+    ClassDB::bind_method(D_METHOD("TakeRest"), &MainControl::TakeRest);
 }
 
 

@@ -33,6 +33,7 @@ namespace godot
         private:
             void Initialize_TimerList();
             void Start_Timer();
+            void TakeRest();
             bool enable_headset = false;
             bool sub_view = true;
             DragonControlTop* dragon_control;

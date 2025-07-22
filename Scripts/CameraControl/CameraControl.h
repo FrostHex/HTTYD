@@ -32,6 +32,7 @@ namespace godot
             String info_debug;
             String time_elapsed;
             void SetCameraStabilized(bool stabilized) {camera_stabilized = stabilized;}
+            Node3D* pivot_camera = nullptr;
         
         protected:
             static void _bind_methods();
@@ -52,7 +53,6 @@ namespace godot
             Node3D *xr_origin = nullptr;
             Node3D *xr_camera = nullptr;
             float camera_offset_factor = 0.0f;
-            Node3D* pivot_camera = nullptr;
             void SetCameraOffsetFactor(float factor);
             void TriggerApproachingAngle(Vector3 target_rotation, float p_gain);
             bool approaching_angle = false;

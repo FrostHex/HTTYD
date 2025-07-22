@@ -135,12 +135,12 @@ void DragonAnimator::SetAnimation_Mouth(int step, float thresh)
 void DragonAnimator::_physics_process(float delta)
 {
     animation_mouth_weight += animation_mouth_step * delta;
-    if (animation_mouth_step < 0 && animation_mouth_weight < animation_mouth_thresh) 
+    if (animation_mouth_step < 0 && animation_mouth_weight <= animation_mouth_thresh) 
     {
         animation_mouth_weight = animation_mouth_thresh; // ensure the weight does not go below the threshold
         set_physics_process(false);
     }
-    else if (animation_mouth_step > 0 && animation_mouth_weight > animation_mouth_thresh) 
+    else if (animation_mouth_step > 0 && animation_mouth_weight >= animation_mouth_thresh) 
     {
         animation_mouth_weight = animation_mouth_thresh; // ensure the weight does not go above the threshold
         set_physics_process(false);
