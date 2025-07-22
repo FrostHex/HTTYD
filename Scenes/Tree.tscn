@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba5uke360oepc"]
+
+[ext_resource type="PackedScene" uid="uid://b47wfualap66v" path="res://Environment/Tree/high_quality_tree_36.glb" id="1_ln7wh"]
+
+[node name="Tree" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_ln7wh")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 12.090972, 0)

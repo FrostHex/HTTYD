@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bdttdlr2qln1f"]
+
+[ext_resource type="Texture2D" uid="uid://cqwtfsvwee0yt" path="res://Environment/Rocks/Mountain_Base.png" id="1_0y30e"]
+[ext_resource type="Texture2D" uid="uid://lv87qn0u72fl" path="res://Environment/Rocks/Rock_1_Mask.tga" id="2_oxxxl"]
+
+[resource]
+albedo_texture = ExtResource("1_0y30e")
+roughness = 0.75
+normal_enabled = true
+normal_scale = 0.0
+ao_enabled = true
+ao_light_affect = 0.5
+ao_texture = ExtResource("2_oxxxl")
+ao_texture_channel = 1

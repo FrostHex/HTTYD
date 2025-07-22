@@ -416,6 +416,7 @@ void DragonControlTop::SetState(DragonState state_new)
                 p_gain = 0.0f; 
                 time_to_target = 3.4f;
             }
+            break;
         case STATE_DISABLED:
             if (state_current == DragonState::STATE_CRISIS)
             {
@@ -437,8 +438,10 @@ void DragonControlTop::SetState(DragonState state_new)
             dragon_rb->set_linear_velocity(Vector3(0, dragon_rb->get_linear_velocity().y, 0));
             approach_target_rotation = true;
             target_rotation = Vector3(-1, -1, -1);
+            break;
         case STATE_ROLLING:
             rolled_angle = 0.0f; 
+            break;
     }
     state_current = state_new;
     UtilityFunctions::print("Dragon state changed to: ", state_current);
