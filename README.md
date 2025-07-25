@@ -1,6 +1,11 @@
 # How to Train Your Dragon
+![Demo Image](Environment/Media/Demo.png)
 
-## Develpment Environment
+## Demo Video
+Demo Video: [Environment/Media/Demo.mp4](Environment/Media/Demo.mp4) \
+Bilibili Link: [https://www.bilibili.com/video/BV1h5gxzNE4X/](https://www.bilibili.com/video/BV1h5gxzNE4X/)
+
+## Development Environment
 - Windows 64-bit
 - Godot v4.5-beta2
 - Godot-cpp
