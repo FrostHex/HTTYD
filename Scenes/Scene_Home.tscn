@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgb4s7fjr6q1e"]
+
+[ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Toothless.tscn" id="1_gsts8"]
+
+[node name="Scene_Home" type="Node3D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_top = -4.999996
+offset_right = 1588.9655
+offset_bottom = 895.6896
+scale = Vector2(0.725, 0.725)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1590, 900)
+render_target_update_mode = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button_TD" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1151.7241
+offset_top = 336.5517
+offset_right = 1475.8618
+offset_bottom = 553.1034
+focus_mode = 0
+text = "Test Drive"
+
+[node name="Button_Tutorial" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 624.8276
+offset_top = 335.1724
+offset_right = 948.96545
+offset_bottom = 551.7241
+focus_mode = 0
+text = "Flight Tutorial"
+
+[node name="Toothless" parent="." instance=ExtResource("1_gsts8")]
+transform = Transform3D(-0.88722837, 0, -0.4613305, 0, 1, 0, 0.4613305, 0, -0.88722837, 4.8539896, 0, 0)

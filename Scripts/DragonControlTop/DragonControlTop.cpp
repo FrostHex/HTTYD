@@ -88,7 +88,7 @@ void DragonControlTop::_ready()
     // timer = get_parent()->get_parent()->get_node<GameTimer>("MainControl/GameTimer");
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
     pivot_toothless = dragon_rb->get_node<Node3D>("Toothless");
-    pivot_camera = dragon_rb->get_node<Node3D>("Pivot");
+    camera_main = dragon_rb->get_node<Node3D>("Camera_Main");
     dragon_animator = get_parent()->get_node<DragonAnimator>("DragonAnimator");
     dragon_rb->set_gravity_scale(0); // disable gravity
     height_init = dragon_rb->get_global_transform().origin.y;
@@ -170,16 +170,16 @@ void DragonControlTop::ProcessApproaching(double delta)
         {
             pivot_toothless->set_rotation(current_rotation * 0.98f);
         }
-        if (pivot_camera->get_position().x < 0.01f && pivot_camera->get_position().y < 0.01f)
+        if (camera_main->get_position().x < 0.01f && camera_main->get_position().y < 0.01f)
         {
-            pivot_camera->set_position(Vector3(0, 0, 0));
+            camera_main->set_position(Vector3(0, 0, 0));
             clear_pivot_rotation = false;
         }
         else 
         {
             clear_pivot_rotation = true;
         }
-        pivot_camera->set_position(Vector3(pivot_camera->get_position().x * 0.98f, pivot_camera->get_position().y * 0.98f, 0));
+        camera_main->set_position(Vector3(camera_main->get_position().x * 0.98f, camera_main->get_position().y * 0.98f, 0));
     }
     if (approach_target_rotation)
     {
@@ -235,7 +235,7 @@ void DragonControlTop::ProcessHitCliff(double delta)
             float rotation_factor = (cliff_distance_threshold - target_distance) / cliff_distance_threshold;
             Vector3 pivot_rotation = Vector3(0, 0, rotation_factor * Math_PI / 5.0f);
             pivot_toothless->set_rotation(pivot_rotation);
-            pivot_camera->set_position(Vector3(-rotation_factor, rotation_factor / 2, 0));
+            camera_main->set_position(Vector3(-rotation_factor, rotation_factor / 2, 0));
         }
         ApproachTarget(true, true, &time_to_target, delta, &target_position, 60);
         if (time_to_target <= 0.0f) 

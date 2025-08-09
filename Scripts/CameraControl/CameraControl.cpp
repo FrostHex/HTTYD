@@ -81,10 +81,10 @@ void CameraControl::SetDragonControl(DragonControlTop* dragon_control)
 void CameraControl::_ready()
 {
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
-    xr_node = get_parent()->get_node<Node>("Pivot")->get_node<Node3D>("XR");
+    xr_node = get_parent()->get_node<Node>("Camera_Main")->get_node<Node3D>("XR");
     xr_origin = xr_node->get_node<Node3D>("XROrigin");
     xr_camera = xr_origin->get_node<Node3D>("XRCamera");
-    pivot_camera = dragon_rb->get_node<Node3D>("Pivot");
+    camera_main = dragon_rb->get_node<Node3D>("Camera_Main");
 
     if (!Engine::get_singleton()->is_editor_hint()) // only run when the game is running
     {
@@ -106,7 +106,7 @@ void CameraControl::_ready()
         {
             Node* sub_container = get_parent()->get_node<Node>("SubViewportContainer");
             Node* sub_viewport = sub_container->get_node<Node>("SubViewport");
-            camera_sub = sub_viewport->get_node<Camera3D>("CameraSub");
+            camera_sub = sub_viewport->get_node<Camera3D>("Camera_Sub");
             camera_sub->set_rotation(Vector3(0, - Math_PI / 2, 0));
 
             if (this->debug)
@@ -191,14 +191,14 @@ void CameraControl::_physics_process(double delta)
     if (camera_offset_factor != 0.0f)
     {
         // UtilityFunctions::print("Camera offset factor: " + String::num(camera_offset_factor));
-        // pivot_camera->set_position(dragon_rb->get_global_position());
-        pivot_camera->set_position(pivot_camera->get_position() + Vector3(0, dragon_control->GetLinearVelocity() * camera_offset_factor * delta, 0));
+        // camera_main->set_position(dragon_rb->get_global_position());
+        camera_main->set_position(camera_main->get_position() + Vector3(0, dragon_control->GetLinearVelocity() * camera_offset_factor * delta, 0));
         
     }
 
     if (approaching_angle)
     {   
-        Vector3 current_rotation = pivot_camera->get_rotation();
+        Vector3 current_rotation = camera_main->get_rotation();
         Vector3 delta_rotation = target_rotation - current_rotation;
 
         if (p_gain < 0.0f) 
@@ -222,12 +222,12 @@ void CameraControl::_physics_process(double delta)
         }
 
         Vector3 new_rotation = current_rotation + delta_rotation * p_gain * delta;
-        pivot_camera->set_rotation(new_rotation);
+        camera_main->set_rotation(new_rotation);
 
         // Stop approaching if close enough
         if (delta_rotation.length() < 0.01f) 
         {
-            pivot_camera->set_rotation(target_rotation);
+            camera_main->set_rotation(target_rotation);
             approaching_angle = false;
             p_gain = 0.0f;
         }
@@ -235,15 +235,15 @@ void CameraControl::_physics_process(double delta)
 
     if (approaching_position)
     {
-        Vector3 current_position = pivot_camera->get_position();
+        Vector3 current_position = camera_main->get_position();
         Vector3 delta_position = dragon_rb->get_position() + target_position_offset - current_position;
 
-        pivot_camera->set_position(current_position + delta_position * delta);
+        camera_main->set_position(current_position + delta_position * delta);
 
         // Stop approaching if close enough
         // if (delta_position.x + delta_position.y + delta_position.z < 0.001f) 
         // {
-        //     pivot_camera->set_position(dragon_rb->get_position() + target_position_offset);
+        //     camera_main->set_position(dragon_rb->get_position() + target_position_offset);
         //     approaching_position = false;
         // }
     }
@@ -282,11 +282,11 @@ void CameraControl::_input(const Ref<InputEvent> &event)
         {
             label_info->set_modulate(Color(0.863f, 0.953f, 1.0f, 1.0f));
         }
-        if (pivot_camera && pivot_camera->get_parent() && pivot_camera->get_parent()->get_name() == String("Main")) 
+        if (camera_main && camera_main->get_parent() && camera_main->get_parent()->get_name() == String("Main")) 
         {
-            pivot_camera->reparent(dragon_rb);
-            pivot_camera->set_rotation(Vector3(0, 0, 0));
-            pivot_camera->set_position(Vector3(0, 0, 0));
+            camera_main->reparent(dragon_rb);
+            camera_main->set_rotation(Vector3(0, 0, 0));
+            camera_main->set_position(Vector3(0, 0, 0));
         }
         camera_offset_factor = 0.0f; // reset camera offset factor
         approaching_angle = false; // reset approaching angle flag
@@ -299,7 +299,7 @@ void CameraControl::SetCameraOffsetFactor(float factor)
 {
     if (camera_offset_factor == 0.0f)
     {
-        pivot_camera->reparent(dragon_rb->get_parent());
+        camera_main->reparent(dragon_rb->get_parent());
     }   
     camera_offset_factor = factor;
 }
@@ -325,9 +325,9 @@ void CameraControl::GrabSaddle()
     approaching_angle = false;
     approaching_position = false;
     camera_offset_factor = 0.0f; // reset camera offset factor
-    pivot_camera->reparent(dragon_rb);
-    pivot_camera->call_deferred("set_position", Vector3(0, 0, 0));
-    pivot_camera->call_deferred("set_rotation", Vector3(0, 0, 0));
+    camera_main->reparent(dragon_rb);
+    camera_main->call_deferred("set_position", Vector3(0, 0, 0));
+    camera_main->call_deferred("set_rotation", Vector3(0, 0, 0));
 }
 
 

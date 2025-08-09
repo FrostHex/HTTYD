@@ -41,7 +41,7 @@ void CheatSheet::_ready()
     mesh = get_parent()->get_node<Node>("Toothless")->get_node<Node>("rig")
                        ->get_node<Node>("Skeleton3D")->get_node<MeshInstance3D>("cheat_sheet");
     dragon = get_parent()->get_parent()->get_node<RigidBody3D>("Dragon");
-    pickable = get_parent()->get_node<Node>("Pivot")->get_node<RigidBody3D>("XRToolsPickable");
+    pickable = get_parent()->get_node<Node>("Camera_Main")->get_node<RigidBody3D>("XRToolsPickable");
     pickable->connect("picked_up", Callable(this, "_on_pickable_picked_up"));
     pickable->connect("dropped", Callable(this, "_on_pickable_dropped"));
 
@@ -230,11 +230,11 @@ void CheatSheet::_on_pickable_dropped(Node* pickable)
     if (state_current == STATE_HELD) 
     {
         state_current = STATE_MOUTHED;
-        if (get_parent()->get_parent()->get_node<Node>("Pivot")->has_node("XR")) // change the parent to XR camera if it exists
+        if (get_parent()->get_parent()->get_node<Node>("Camera_Main")->has_node("XR")) // change the parent to XR camera if it exists
         {
             Transform3D global_pos = this->pickable->get_global_transform();
             this->pickable->get_parent()->remove_child(this->pickable);
-            get_parent()->get_parent()->get_node<Node>("Pivot")->get_node<Node>("XR")
+            get_parent()->get_parent()->get_node<Node>("Camera_Main")->get_node<Node>("XR")
                         ->get_node<Node>("XROrigin")->get_node<Node>("XRCamera")->add_child(this->pickable);
             this->pickable->set_global_transform(global_pos);
         }

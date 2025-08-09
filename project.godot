@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HTTYD"
-run/main_scene="uid://bftovvm0selct"
+run/main_scene="uid://clo2gf4m2p2an"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
@@ -106,7 +106,6 @@ num_cascades={
 
 [xr]
 
-openxr/enabled=true
 openxr/default_action_map="res://Addons/godot-xr-tools/addons/godot-xr-tools/openxr_action_map.tres"
 openxr/extensions/hand_tracking=true
 shaders/enabled=true

@@ -99,7 +99,7 @@ namespace godot
             void ProcessDisabled(double delta);
             float p_gain = 0.0f; 
             Node3D* pivot_toothless = nullptr;
-            Node3D* pivot_camera = nullptr;
+            Node3D* camera_main = nullptr;
             Vector3 target_position = Vector3(0, 0, 0);
             Node3D* pillar_hit_1 = nullptr;
             Node3D* pillar_hit_2 = nullptr;

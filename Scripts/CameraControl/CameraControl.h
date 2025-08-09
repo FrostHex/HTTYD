@@ -32,7 +32,7 @@ namespace godot
             String info_debug;
             String time_elapsed;
             void SetCameraStabilized(bool stabilized) {camera_stabilized = stabilized;}
-            Node3D* pivot_camera = nullptr;
+            Node3D* camera_main = nullptr;
         
         protected:
             static void _bind_methods();
