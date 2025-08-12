@@ -37,7 +37,7 @@ namespace godot
         STATE_COUNT // enum index start from 0, so the value of STATE_COUNT is the number of states above
     };
 
-    class CameraControl;
+    class Control_Camera;
     // class GameTimer;
 
     class DragonControlTop : public Node 
@@ -69,7 +69,7 @@ namespace godot
             virtual void GetInput(float* input_keys) = 0;
             Input *input_singleton;    
             RigidBody3D *dragon_rb;
-            CameraControl* camera_ctrl; // pointer to the CameraControl class instance
+            Control_Camera* ctrl_camera; // pointer to the Control_Camera class instance
             float input_keys[3] = {0.0f, 0.0f, 0.0f};
             Vector3 angular_velocity_buildup = Vector3(0, 0, 0);
 

@@ -1,5 +1,5 @@
 #include "DragonControlJoystick.h"
-#include "CameraControl.h"
+#include "Control_Camera.h"
 
 #include <godot_cpp/classes/xr_server.hpp>
 #include <godot_cpp/classes/xr_interface.hpp>
@@ -81,7 +81,7 @@ void DragonControlJoystick::GetInput(float* input_keys)
  */
 void DragonControlJoystick::SetMotionAngularCrisis(double delta) 
 {
-    Basis headset_basis = Basis::from_euler(camera_ctrl->GetPostureHeadset());
+    Basis headset_basis = Basis::from_euler(ctrl_camera->GetPostureHeadset());
     Basis dragon_basis = dragon_rb->get_global_transform().basis;
     Vector3 headset_forward = -headset_basis.get_column(2); // +z
     Vector3 headset_up = headset_basis.get_column(1); // +y

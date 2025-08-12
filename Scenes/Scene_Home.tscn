@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgb4s7fjr6q1e"]
+[gd_scene load_steps=9 format=3 uid="uid://dgb4s7fjr6q1e"]
 
-[ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Toothless.tscn" id="1_gsts8"]
+[ext_resource type="Script" uid="uid://cehr1okrnyy7i" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="2_h51dc"]
+[ext_resource type="Script" uid="uid://bcumf8556pakv" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="3_h51dc"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pkqoq"]
+size = Vector2(5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pkqoq"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_1"]
+size = Vector2(1590, 900)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_h51dc"]
+viewport_path = NodePath("XRToolsViewport2DIn3D/Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h51dc"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_h51dc")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(1590, 900, 0.02)
 
 [node name="Scene_Home" type="Node3D"]
 
@@ -10,21 +31,21 @@ offset_right = 1588.9655
 offset_bottom = 895.6896
 scale = Vector2(0.725, 0.725)
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="Viewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1590, 900)
 render_target_update_mode = 4
 
-[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/Viewport"]
 
-[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/CanvasLayer"]
+[node name="Control" type="Control" parent="SubViewportContainer/Viewport/CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button_TD" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/Control"]
+[node name="Button_TD" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 1151.7241
 offset_top = 336.5517
@@ -33,7 +54,7 @@ offset_bottom = 553.1034
 focus_mode = 0
 text = "Test Drive"
 
-[node name="Button_Tutorial" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/Control"]
+[node name="Button_Tutorial" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 624.8276
 offset_top = 335.1724
@@ -42,5 +63,42 @@ offset_bottom = 551.7241
 focus_mode = 0
 text = "Flight Tutorial"
 
-[node name="Toothless" parent="." instance=ExtResource("1_gsts8")]
-transform = Transform3D(-0.88722837, 0, -0.4613305, 0, 1, 0, 0.4613305, 0, -0.88722837, 4.8539896, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_pkqoq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7826406, 0, 0)
+mesh = SubResource("BoxMesh_pkqoq")
+
+[node name="XRToolsViewport2DIn3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("2_h51dc")
+screen_size = Vector2(1590, 900)
+viewport_size = Vector2(1590, 900)
+alpha_scissor_threshold = 0.25
+unshaded = false
+filter = true
+scene_properties_keys = PackedStringArray()
+metadata/_custom_type_script = "uid://cehr1okrnyy7i"
+
+[node name="Viewport" type="SubViewport" parent="XRToolsViewport2DIn3D"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1590, 900)
+render_target_update_mode = 1
+
+[node name="Screen" type="MeshInstance3D" parent="XRToolsViewport2DIn3D"]
+transform = Transform3D(-4.371139e-11, 0, -0.001, 0, 0.001, 0, 0.001, 0, -4.371139e-11, 1.330712, 1.0210727, 0)
+mesh = SubResource("QuadMesh_1")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_h51dc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="XRToolsViewport2DIn3D"]
+transform = Transform3D(-4.371139e-11, 0, -0.001, 0, 0.001, 0, 0.001, 0, -4.371139e-11, 1.330712, 1.0210727, 0)
+collision_layer = 5242881
+script = ExtResource("3_h51dc")
+screen_size = Vector2(1590, 900)
+viewport_size = Vector2(1590, 900)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsViewport2DIn3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_1")

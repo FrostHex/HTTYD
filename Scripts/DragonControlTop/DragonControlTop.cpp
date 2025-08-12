@@ -1,5 +1,5 @@
 #include "DragonControlTop.h"
-#include "CameraControl.h"
+#include "Control_Camera.h"
 
 #include <godot_cpp/godot.hpp> // a wrapper for the Godot C++ API
 #include <godot_cpp/core/class_db.hpp> // class registration
@@ -95,7 +95,7 @@ void DragonControlTop::_ready()
     dragon_rb->set_contact_monitor(true); // enable contact monitoring and reporting
     dragon_rb->set_max_contacts_reported(1); // set the maximum number of contacts reported to 1
     dragon_rb->connect("body_entered", Callable(this, "_on_body_entered")); // connect the signal to the function
-    camera_ctrl = get_parent()->get_node<CameraControl>("CameraControl");
+    ctrl_camera = get_parent()->get_node<Control_Camera>("Control_Camera");
     dragon_rb->set_linear_velocity(Vector3(0, 0, 0)); // set initial linear velocity to zero
     pillar_hit_1 = get_parent()->get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_B_15");
     pillar_hit_2 = get_parent()->get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_B_18");

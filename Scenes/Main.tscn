@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://clo2gf4m2p2an"]
+[gd_scene load_steps=5 format=3 uid="uid://clo2gf4m2p2an"]
 
 [ext_resource type="PackedScene" uid="uid://d1pgf1tf0t857" path="res://Scenes/XR.tscn" id="1_kln2b"]
 [ext_resource type="Script" uid="uid://mq1p8jxyitgi" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/pickable.gd" id="2_rgh2o"]
 [ext_resource type="Script" uid="uid://p3wg21v7iut2" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="3_pbw6q"]
-[ext_resource type="PackedScene" uid="uid://dgb4s7fjr6q1e" path="res://Scenes/Scene_Home.tscn" id="4_rgh2o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1gob"]
 size = Vector3(0.168, 0.0608516, 0.202)
 
 [node name="Main" type="Node3D"]
 
-[node name="MainControl" type="MainControl" parent="."]
+[node name="Control_Main" type="Control_Main" parent="."]
+"Enable Headset" = true
+Debug = true
 
 [node name="Camera_Main" type="Node3D" parent="."]
 
@@ -39,5 +40,3 @@ shape = SubResource("BoxShape3D_v1gob")
 transform = Transform3D(-0.276865, 0.431805, -0.858423, 0.951042, 0.250828, -0.180566, 0.137348, -0.866389, -0.480111, 0.132192, -0.00658917, -0.0628843)
 script = ExtResource("3_pbw6q")
 metadata/_custom_type_script = "uid://p3wg21v7iut2"
-
-[node name="Scene_Home" parent="." instance=ExtResource("4_rgh2o")]

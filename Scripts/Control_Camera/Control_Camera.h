@@ -16,13 +16,13 @@
 
 namespace godot 
 {
-    class CameraControl : public Node // extends the Node class
+    class Control_Camera : public Node // extends the Node class
     {
-        GDCLASS(CameraControl, Node);
+        GDCLASS(Control_Camera, Node);
 
         public:
-            CameraControl(bool sub_view = true, bool debug = false, bool enable_headset = false);
-            ~CameraControl(); // destructor
+            Control_Camera(bool enable_headset = false, bool sub_view = true, bool debug = false);
+            ~Control_Camera(); // destructor
             void _ready();
             void _physics_process(double delta) override;
             void _input(const Ref<InputEvent> &event) override;

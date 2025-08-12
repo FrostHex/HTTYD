@@ -1,5 +1,5 @@
-#ifndef TD_MAIN_CONTROL_H
-#define TD_MAIN_CONTROL_H
+#ifndef CONTROL_SCENE_TD_H
+#define CONTROL_SCENE_TD_H
 
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -13,21 +13,16 @@
 
 namespace godot 
 {
-    class TD_MainControl : public Node 
+    class Control_Scene_TD : public Node 
     {
-        GDCLASS(TD_MainControl, Node);
+        GDCLASS(Control_Scene_TD, Node);
 
         public:
-            TD_MainControl();
-            ~TD_MainControl();
+            Control_Scene_TD();
+            Control_Scene_TD(bool enable_headset, bool sub_view, bool debug);
+            ~Control_Scene_TD();
             void _ready() override;
             void _input(const Ref<InputEvent> &event) override;
-            void SetValJoystickInput(bool p_val);
-            bool GetValJoystickInput() const;
-            void SetValSubView(bool p_val);
-            bool GetValSubView() const;
-            void SetValDebug(bool p_val);
-            bool GetValDebug() const;
 
         protected:
             static void _bind_methods();
@@ -43,11 +38,11 @@ namespace godot
             DragonAnimator *dragon_animator;
             CheatSheet *cheat_sheet;
             GameTimer* timer;
-            CameraControl *camera_ctrl;
+            Control_Camera *ctrl_camera;
             SaveManager* save_manager;
             AudioStreamPlayer* audio_player;
             VideoStreamPlayer* video_player;
     };
 }
 
-#endif // TD_MAIN_CONTROL_H
+#endif // CONTROL_SCENE_TD_H

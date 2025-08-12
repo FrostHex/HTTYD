@@ -1,4 +1,4 @@
-#include "CameraControl.h"
+#include "Control_Camera.h"
 
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -26,45 +26,22 @@ using namespace godot;
  * @param debug whether to enable debug mode
  * @param enable_headset whether to enable the XR headset
  */
-CameraControl::CameraControl(bool sub_view, bool debug, bool enable_headset) 
+Control_Camera::Control_Camera(bool enable_headset, bool sub_view, bool debug) 
 {
+    this->enable_headset = enable_headset;
     this->sub_view = sub_view;
     this->debug = debug;
-    this->enable_headset = enable_headset;
-
-    if (enable_headset) 
-    {
-        DisplayServer::get_singleton()->window_set_vsync_mode(DisplayServer::VSYNC_DISABLED);
-        Ref<XRInterface> xr_interface = XRServer::get_singleton()->find_interface("OpenXR");
-        if (xr_interface.is_valid()) 
-        {
-            // if (xr_interface->has_method("set_render_target_size_multiplier")) 
-            // {
-            //     xr_interface->call("set_render_target_size_multiplier", 0.5f); // decrease resolution
-            // }
-            // if (xr_interface->has_method("set_display_refresh_rate")) 
-            // {
-            //     xr_interface->call("set_display_refresh_rate", 30.0f);
-            // }
-        }
-        Engine* engine = Engine::get_singleton();
-        if (engine) 
-        {
-            engine->set_physics_ticks_per_second(60);
-            // engine->set_max_fps(30);
-        }
-    }
 }
 
 
 /**
  * @brief destructor
  */
-CameraControl::~CameraControl() 
+Control_Camera::~Control_Camera() 
 {
 }
 
-void CameraControl::SetDragonControl(DragonControlTop* dragon_control) 
+void Control_Camera::SetDragonControl(DragonControlTop* dragon_control) 
 {
     if (dragon_control)
     {
@@ -78,7 +55,7 @@ void CameraControl::SetDragonControl(DragonControlTop* dragon_control)
 /**
  * @brief initialize the sub camera if the "Sub View" property is enabled
  */
-void CameraControl::_ready()
+void Control_Camera::_ready()
 {
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
     xr_node = get_parent()->get_node<Node>("Camera_Main")->get_node<Node3D>("XR");
@@ -95,7 +72,6 @@ void CameraControl::_ready()
             initial_origin_position = xr_origin->get_position();
             xr_position_initialized = false;
             set_physics_process(true);
-            DisplayServer::get_singleton()->window_set_vsync_mode(DisplayServer::VSYNC_DISABLED);
         }
         else
         {
@@ -152,7 +128,7 @@ void CameraControl::_ready()
 /**
  * @brief let the sub camera follow the dragon
  */
-void CameraControl::_physics_process(double delta) 
+void Control_Camera::_physics_process(double delta) 
 {
     if (this->enable_headset) 
     {
@@ -250,13 +226,13 @@ void CameraControl::_physics_process(double delta)
 }
 
 
-Vector3 CameraControl::GetPostureHeadset()
+Vector3 Control_Camera::GetPostureHeadset()
 {
     return xr_camera->get_global_rotation();
 }
 
 
-void CameraControl::Print_Collision(Node* body, float velocity)
+void Control_Camera::Print_Collision(Node* body, float velocity)
 {
     if (debug && label_info)
     {
@@ -269,7 +245,7 @@ void CameraControl::Print_Collision(Node* body, float velocity)
  * @brief called when an input event occurs
  * @param event the input event
  */
-void CameraControl::_input(const Ref<InputEvent> &event) 
+void Control_Camera::_input(const Ref<InputEvent> &event) 
 {
     if (event->is_action_pressed("save_state")) 
     {
@@ -295,7 +271,7 @@ void CameraControl::_input(const Ref<InputEvent> &event)
 }
 
 
-void CameraControl::SetCameraOffsetFactor(float factor) 
+void Control_Camera::SetCameraOffsetFactor(float factor) 
 {
     if (camera_offset_factor == 0.0f)
     {
@@ -305,7 +281,7 @@ void CameraControl::SetCameraOffsetFactor(float factor)
 }
 
 
-void CameraControl::TriggerApproachingAngle(Vector3 target_rotation, float p_gain) 
+void Control_Camera::TriggerApproachingAngle(Vector3 target_rotation, float p_gain) 
 {
     this->target_rotation = target_rotation;
     approaching_angle = true;
@@ -313,14 +289,14 @@ void CameraControl::TriggerApproachingAngle(Vector3 target_rotation, float p_gai
 }
 
 
-void CameraControl::TriggerApproachingPosition(Vector3 target_position_offset)
+void Control_Camera::TriggerApproachingPosition(Vector3 target_position_offset)
 {
     this->target_position_offset = target_position_offset;
     approaching_position = true;
 }
 
 
-void CameraControl::GrabSaddle()
+void Control_Camera::GrabSaddle()
 {
     approaching_angle = false;
     approaching_position = false;
@@ -331,12 +307,12 @@ void CameraControl::GrabSaddle()
 }
 
 
-void CameraControl::_bind_methods() 
+void Control_Camera::_bind_methods() 
 {
-    ClassDB::bind_method(D_METHOD("Print_Collision", "body", "velocity"), &CameraControl::Print_Collision);
-    ClassDB::bind_method(D_METHOD("SetCameraOffsetFactor", "factor"), &CameraControl::SetCameraOffsetFactor);
-    ClassDB::bind_method(D_METHOD("TriggerApproachingAngle", "target_rotation", "p_gain"), &CameraControl::TriggerApproachingAngle);
-    ClassDB::bind_method(D_METHOD("TriggerApproachingPosition", "target_position_offset"), &CameraControl::TriggerApproachingPosition);
-    ClassDB::bind_method(D_METHOD("GrabSaddle"), &CameraControl::GrabSaddle);
-    ClassDB::bind_method(D_METHOD("SetCameraStabilized", "stabilized"), &CameraControl::SetCameraStabilized);
+    ClassDB::bind_method(D_METHOD("Print_Collision", "body", "velocity"), &Control_Camera::Print_Collision);
+    ClassDB::bind_method(D_METHOD("SetCameraOffsetFactor", "factor"), &Control_Camera::SetCameraOffsetFactor);
+    ClassDB::bind_method(D_METHOD("TriggerApproachingAngle", "target_rotation", "p_gain"), &Control_Camera::TriggerApproachingAngle);
+    ClassDB::bind_method(D_METHOD("TriggerApproachingPosition", "target_position_offset"), &Control_Camera::TriggerApproachingPosition);
+    ClassDB::bind_method(D_METHOD("GrabSaddle"), &Control_Camera::GrabSaddle);
+    ClassDB::bind_method(D_METHOD("SetCameraStabilized", "stabilized"), &Control_Camera::SetCameraStabilized);
 }

@@ -8,7 +8,7 @@ using namespace godot;
 /**
  * @brief default constructor (for Godot registration)
  */
-GameTimer::GameTimer(): camera_control(nullptr), time_elapsed(0.0f), timer_paused(false), id_event_next(1)
+GameTimer::GameTimer(): ctrl_camera(nullptr), time_elapsed(0.0f), timer_paused(false), id_event_next(1)
 {
 }
 
@@ -16,7 +16,7 @@ GameTimer::GameTimer(): camera_control(nullptr), time_elapsed(0.0f), timer_pause
 /**
  * @brief constructor
  */
-GameTimer::GameTimer(CameraControl* camera_control): camera_control(camera_control), time_elapsed(0.0f), timer_paused(false), id_event_next(1)
+GameTimer::GameTimer(Control_Camera* ctrl_camera): ctrl_camera(ctrl_camera), time_elapsed(0.0f), timer_paused(false), id_event_next(1)
 {
 }
 
@@ -103,9 +103,9 @@ void GameTimer::_physics_process(double delta)
 
     time_elapsed = audio_player->get_playback_position(); // use the audio timer for time tracking
 
-    if (camera_control)
+    if (ctrl_camera)
     {
-        camera_control->time_elapsed = String::num(time_elapsed, 1);
+        ctrl_camera->time_elapsed = String::num(time_elapsed, 1);
     }
 
     while (!event_queue.empty()) // process all due events
@@ -116,9 +116,9 @@ void GameTimer::_physics_process(double delta)
             break;
         }
         event_next.callback.call();
-        if (camera_control) 
+        if (ctrl_camera) 
         {
-            camera_control->info_debug = "Event ID: " + String::num_int64(event_next.id) + " at " + String::num(time_elapsed);
+            ctrl_camera->info_debug = "Event ID: " + String::num_int64(event_next.id) + " at " + String::num(time_elapsed);
         }
         // UtilityFunctions::print("Event ID ", event_next.id, " triggered at ", time_elapsed, " seconds");
         event_queue.pop();

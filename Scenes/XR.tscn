@@ -1,17 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1pgf1tf0t857"]
+[gd_scene load_steps=9 format=3 uid="uid://d1pgf1tf0t857"]
 
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_fea57"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_erwv8"]
 [ext_resource type="Script" uid="uid://c8yelv878vxsd" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/functions/function_pickup.gd" id="2_tn2gp"]
 [ext_resource type="PackedScene" uid="uid://q1l3fknstir2" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/model/Hand_Nails_L.gltf" id="3_epyno"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/functions/function_pointer.tscn" id="3_mchfj"]
 [ext_resource type="Material" uid="uid://dy6nhifvvmm73" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/materials/caucasian_hand.tres" id="4_tn2gp"]
 [ext_resource type="PackedScene" uid="uid://c6s5nvekg0isa" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/model/Hand_Nails_R.gltf" id="5_mchfj"]
+[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="8_cache"]
 
 [node name="XR" type="Node3D"]
 
 [node name="XROrigin" type="XROrigin3D" parent="."]
 
 [node name="XRCamera" type="XRCamera3D" parent="XROrigin"]
+
+[node name="VRCommonShaderCache" parent="XROrigin/XRCamera" instance=ExtResource("8_cache")]
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin"]
 tracker = &"left_hand"
@@ -25,10 +29,18 @@ grab_collision_mask = 8
 ranged_collision_mask = 8
 metadata/_custom_type_script = "uid://c8yelv878vxsd"
 
+[node name="FunctionPointer" parent="XROrigin/LeftHand" instance=ExtResource("3_mchfj")]
+show_laser = 2
+laser_length = 1
+
 [node name="RightHand" type="XRController3D" parent="XROrigin"]
 tracker = &"right_hand"
 
 [node name="RightHand" parent="XROrigin/RightHand" instance=ExtResource("2_erwv8")]
+
+[node name="FunctionPointer" parent="XROrigin/RightHand" instance=ExtResource("3_mchfj")]
+show_laser = 2
+laser_length = 1
 
 [node name="OpenXRHandLeft" type="OpenXRHand" parent="XROrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.687643)
