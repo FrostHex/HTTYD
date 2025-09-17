@@ -62,4 +62,18 @@ Transform3D AudioListener3D::get_listener_transform() const {
 	return internal::_call_native_mb_ret<Transform3D>(_gde_method_bind, _owner);
 }
 
+void AudioListener3D::set_doppler_tracking(AudioListener3D::DopplerTracking p_mode) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("set_doppler_tracking")._native_ptr(), 2365921740);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_mode_encoded;
+	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+}
+
+AudioListener3D::DopplerTracking AudioListener3D::get_doppler_tracking() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("get_doppler_tracking")._native_ptr(), 550229039);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (AudioListener3D::DopplerTracking(0)));
+	return (AudioListener3D::DopplerTracking)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 } // namespace godot

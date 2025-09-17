@@ -296,12 +296,12 @@ float Camera2D::get_position_smoothing_speed() const {
 	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
-void Camera2D::set_position_smoothing_enabled(bool p_position_smoothing_speed) {
+void Camera2D::set_position_smoothing_enabled(bool p_enabled) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Camera2D::get_class_static()._native_ptr(), StringName("set_position_smoothing_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	int8_t p_position_smoothing_speed_encoded;
-	PtrToArg<bool>::encode(p_position_smoothing_speed, &p_position_smoothing_speed_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_position_smoothing_speed_encoded);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool Camera2D::is_position_smoothing_enabled() const {

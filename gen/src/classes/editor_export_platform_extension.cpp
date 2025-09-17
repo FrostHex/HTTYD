@@ -37,7 +37,6 @@
 #include <godot_cpp/core/error_macros.hpp>
 
 #include <godot_cpp/classes/editor_export_preset.hpp>
-#include <godot_cpp/classes/image_texture.hpp>
 #include <godot_cpp/classes/texture2d.hpp>
 #include <godot_cpp/variant/string_name.hpp>
 
@@ -117,8 +116,8 @@ String EditorExportPlatformExtension::_get_options_tooltip() const {
 	return String();
 }
 
-Ref<ImageTexture> EditorExportPlatformExtension::_get_option_icon(int32_t p_device) const {
-	return Ref<ImageTexture>();
+Ref<Texture2D> EditorExportPlatformExtension::_get_option_icon(int32_t p_device) const {
+	return Ref<Texture2D>();
 }
 
 String EditorExportPlatformExtension::_get_option_label(int32_t p_device) const {

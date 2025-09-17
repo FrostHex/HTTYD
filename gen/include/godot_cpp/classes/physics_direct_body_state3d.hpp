@@ -81,6 +81,10 @@ public:
 	Vector3 get_constant_torque() const;
 	void set_sleep_state(bool p_enabled);
 	bool is_sleeping() const;
+	void set_collision_layer(uint32_t p_layer);
+	uint32_t get_collision_layer() const;
+	void set_collision_mask(uint32_t p_mask);
+	uint32_t get_collision_mask() const;
 	int32_t get_contact_count() const;
 	Vector3 get_contact_local_position(int32_t p_contact_idx) const;
 	Vector3 get_contact_local_normal(int32_t p_contact_idx) const;

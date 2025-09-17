@@ -95,7 +95,7 @@ public:
 	Node *get_custom_viewport() const;
 	void set_position_smoothing_speed(float p_position_smoothing_speed);
 	float get_position_smoothing_speed() const;
-	void set_position_smoothing_enabled(bool p_position_smoothing_speed);
+	void set_position_smoothing_enabled(bool p_enabled);
 	bool is_position_smoothing_enabled() const;
 	void set_rotation_smoothing_enabled(bool p_enabled);
 	bool is_rotation_smoothing_enabled() const;

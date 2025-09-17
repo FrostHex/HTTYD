@@ -206,6 +206,20 @@ public:
 		LIVE_ASSERTIVE = 2,
 	};
 
+	enum AccessibilityScrollUnit {
+		SCROLL_UNIT_ITEM = 0,
+		SCROLL_UNIT_PAGE = 1,
+	};
+
+	enum AccessibilityScrollHint {
+		SCROLL_HINT_TOP_LEFT = 0,
+		SCROLL_HINT_BOTTOM_RIGHT = 1,
+		SCROLL_HINT_TOP_EDGE = 2,
+		SCROLL_HINT_BOTTOM_EDGE = 3,
+		SCROLL_HINT_LEFT_EDGE = 4,
+		SCROLL_HINT_RIGHT_EDGE = 5,
+	};
+
 	enum MouseMode {
 		MOUSE_MODE_VISIBLE = 0,
 		MOUSE_MODE_HIDDEN = 1,
@@ -636,6 +650,8 @@ VARIANT_ENUM_CAST(DisplayServer::AccessibilityPopupType);
 VARIANT_ENUM_CAST(DisplayServer::AccessibilityFlags);
 VARIANT_ENUM_CAST(DisplayServer::AccessibilityAction);
 VARIANT_ENUM_CAST(DisplayServer::AccessibilityLiveMode);
+VARIANT_ENUM_CAST(DisplayServer::AccessibilityScrollUnit);
+VARIANT_ENUM_CAST(DisplayServer::AccessibilityScrollHint);
 VARIANT_ENUM_CAST(DisplayServer::MouseMode);
 VARIANT_ENUM_CAST(DisplayServer::ScreenOrientation);
 VARIANT_ENUM_CAST(DisplayServer::VirtualKeyboardType);

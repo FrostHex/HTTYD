@@ -36,8 +36,6 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
-#include <godot_cpp/classes/editor_export_preset.hpp>
-
 namespace godot {
 
 String EditorExportPlatform::get_os_name() const {
@@ -233,7 +231,7 @@ Dictionary EditorExportPlatform::get_internal_export_files(const Ref<EditorExpor
 }
 
 PackedStringArray EditorExportPlatform::get_forced_export_files(const Ref<EditorExportPreset> &p_preset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlatform::get_class_static()._native_ptr(), StringName("get_forced_export_files")._native_ptr(), 3424652832);
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlatform::get_class_static()._native_ptr(), StringName("get_forced_export_files")._native_ptr(), 1939331020);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));
 	return internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, nullptr, (p_preset != nullptr ? &p_preset->_owner : nullptr));
 }

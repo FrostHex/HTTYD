@@ -58,6 +58,8 @@ public:
 	bool has_point(int64_t p_id) const;
 	PackedInt64Array get_point_connections(int64_t p_id);
 	PackedInt64Array get_point_ids();
+	void set_neighbor_filter_enabled(bool p_enabled);
+	bool is_neighbor_filter_enabled() const;
 	void set_point_disabled(int64_t p_id, bool p_disabled = true);
 	bool is_point_disabled(int64_t p_id) const;
 	void connect_points(int64_t p_id, int64_t p_to_id, bool p_bidirectional = true);
@@ -71,6 +73,7 @@ public:
 	Vector2 get_closest_position_in_segment(const Vector2 &p_to_position) const;
 	PackedVector2Array get_point_path(int64_t p_from_id, int64_t p_to_id, bool p_allow_partial_path = false);
 	PackedInt64Array get_id_path(int64_t p_from_id, int64_t p_to_id, bool p_allow_partial_path = false);
+	virtual bool _filter_neighbor(int64_t p_from_id, int64_t p_neighbor_id) const;
 	virtual float _estimate_cost(int64_t p_from_id, int64_t p_end_id) const;
 	virtual float _compute_cost(int64_t p_from_id, int64_t p_to_id) const;
 
@@ -78,6 +81,9 @@ protected:
 	template <typename T, typename B>
 	static void register_virtuals() {
 		RefCounted::register_virtuals<T, B>();
+		if constexpr (!std::is_same_v<decltype(&B::_filter_neighbor), decltype(&T::_filter_neighbor)>) {
+			BIND_VIRTUAL_METHOD(T, _filter_neighbor, 2522259332);
+		}
 		if constexpr (!std::is_same_v<decltype(&B::_estimate_cost), decltype(&T::_estimate_cost)>) {
 			BIND_VIRTUAL_METHOD(T, _estimate_cost, 3085491603);
 		}

@@ -45,10 +45,18 @@ class AudioListener3D : public Node3D {
 	GDEXTENSION_CLASS(AudioListener3D, Node3D)
 
 public:
+	enum DopplerTracking {
+		DOPPLER_TRACKING_DISABLED = 0,
+		DOPPLER_TRACKING_IDLE_STEP = 1,
+		DOPPLER_TRACKING_PHYSICS_STEP = 2,
+	};
+
 	void make_current();
 	void clear_current();
 	bool is_current() const;
 	Transform3D get_listener_transform() const;
+	void set_doppler_tracking(AudioListener3D::DopplerTracking p_mode);
+	AudioListener3D::DopplerTracking get_doppler_tracking() const;
 
 protected:
 	template <typename T, typename B>
@@ -60,4 +68,6 @@ public:
 };
 
 } // namespace godot
+
+VARIANT_ENUM_CAST(AudioListener3D::DopplerTracking);
 

@@ -127,6 +127,18 @@ bool PhysicsDirectBodyState2DExtension::_is_sleeping() const {
 	return false;
 }
 
+void PhysicsDirectBodyState2DExtension::_set_collision_layer(uint32_t p_layer) {}
+
+uint32_t PhysicsDirectBodyState2DExtension::_get_collision_layer() const {
+	return 0;
+}
+
+void PhysicsDirectBodyState2DExtension::_set_collision_mask(uint32_t p_mask) {}
+
+uint32_t PhysicsDirectBodyState2DExtension::_get_collision_mask() const {
+	return 0;
+}
+
 int32_t PhysicsDirectBodyState2DExtension::_get_contact_count() const {
 	return 0;
 }

@@ -35,5 +35,5 @@
 #define GODOT_VERSION_MAJOR 4
 #define GODOT_VERSION_MINOR 5
 #define GODOT_VERSION_PATCH 0
-#define GODOT_VERSION_STATUS "beta2"
+#define GODOT_VERSION_STATUS "stable"
 #define GODOT_VERSION_BUILD "official"

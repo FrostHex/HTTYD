@@ -118,6 +118,20 @@ PackedInt64Array AStar2D::get_point_ids() {
 	return internal::_call_native_mb_ret<PackedInt64Array>(_gde_method_bind, _owner);
 }
 
+void AStar2D::set_neighbor_filter_enabled(bool p_enabled) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AStar2D::get_class_static()._native_ptr(), StringName("set_neighbor_filter_enabled")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+}
+
+bool AStar2D::is_neighbor_filter_enabled() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AStar2D::get_class_static()._native_ptr(), StringName("is_neighbor_filter_enabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 void AStar2D::set_point_disabled(int64_t p_id, bool p_disabled) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AStar2D::get_class_static()._native_ptr(), StringName("set_point_disabled")._native_ptr(), 972357352);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -234,6 +248,10 @@ PackedInt64Array AStar2D::get_id_path(int64_t p_from_id, int64_t p_to_id, bool p
 	int8_t p_allow_partial_path_encoded;
 	PtrToArg<bool>::encode(p_allow_partial_path, &p_allow_partial_path_encoded);
 	return internal::_call_native_mb_ret<PackedInt64Array>(_gde_method_bind, _owner, &p_from_id_encoded, &p_to_id_encoded, &p_allow_partial_path_encoded);
+}
+
+bool AStar2D::_filter_neighbor(int64_t p_from_id, int64_t p_neighbor_id) const {
+	return false;
 }
 
 float AStar2D::_estimate_cost(int64_t p_from_id, int64_t p_end_id) const {

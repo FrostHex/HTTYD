@@ -140,6 +140,22 @@ bool Input::is_action_just_released(const StringName &p_action, bool p_exact_mat
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_action, &p_exact_match_encoded);
 }
 
+bool Input::is_action_just_pressed_by_event(const StringName &p_action, const Ref<InputEvent> &p_event, bool p_exact_match) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("is_action_just_pressed_by_event")._native_ptr(), 551972873);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int8_t p_exact_match_encoded;
+	PtrToArg<bool>::encode(p_exact_match, &p_exact_match_encoded);
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_action, (p_event != nullptr ? &p_event->_owner : nullptr), &p_exact_match_encoded);
+}
+
+bool Input::is_action_just_released_by_event(const StringName &p_action, const Ref<InputEvent> &p_event, bool p_exact_match) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("is_action_just_released_by_event")._native_ptr(), 551972873);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int8_t p_exact_match_encoded;
+	PtrToArg<bool>::encode(p_exact_match, &p_exact_match_encoded);
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_action, (p_event != nullptr ? &p_event->_owner : nullptr), &p_exact_match_encoded);
+}
+
 float Input::get_action_strength(const StringName &p_action, bool p_exact_match) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("get_action_strength")._native_ptr(), 801543509);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));

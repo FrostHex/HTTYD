@@ -226,6 +226,34 @@ bool PhysicsDirectBodyState2D::is_sleeping() const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+void PhysicsDirectBodyState2D::set_collision_layer(uint32_t p_layer) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsDirectBodyState2D::get_class_static()._native_ptr(), StringName("set_collision_layer")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_layer_encoded;
+	PtrToArg<int64_t>::encode(p_layer, &p_layer_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_layer_encoded);
+}
+
+uint32_t PhysicsDirectBodyState2D::get_collision_layer() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsDirectBodyState2D::get_class_static()._native_ptr(), StringName("get_collision_layer")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void PhysicsDirectBodyState2D::set_collision_mask(uint32_t p_mask) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsDirectBodyState2D::get_class_static()._native_ptr(), StringName("set_collision_mask")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_mask_encoded;
+	PtrToArg<int64_t>::encode(p_mask, &p_mask_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mask_encoded);
+}
+
+uint32_t PhysicsDirectBodyState2D::get_collision_mask() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsDirectBodyState2D::get_class_static()._native_ptr(), StringName("get_collision_mask")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 int32_t PhysicsDirectBodyState2D::get_contact_count() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsDirectBodyState2D::get_class_static()._native_ptr(), StringName("get_contact_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));

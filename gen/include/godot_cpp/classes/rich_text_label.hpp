@@ -41,6 +41,7 @@
 #include <godot_cpp/variant/dictionary.hpp>
 #include <godot_cpp/variant/packed_float32_array.hpp>
 #include <godot_cpp/variant/rect2.hpp>
+#include <godot_cpp/variant/rect2i.hpp>
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/variant.hpp>
 #include <godot_cpp/variant/vector2i.hpp>
@@ -163,6 +164,8 @@ public:
 	bool is_hint_underlined() const;
 	void set_scroll_active(bool p_active);
 	bool is_scroll_active() const;
+	void set_scroll_follow_visible_characters(bool p_follow);
+	bool is_scroll_following_visible_characters() const;
 	void set_scroll_follow(bool p_follow);
 	bool is_scroll_following() const;
 	VScrollBar *get_v_scroll_bar();
@@ -218,6 +221,7 @@ public:
 	int32_t get_content_width() const;
 	int32_t get_line_height(int32_t p_line) const;
 	int32_t get_line_width(int32_t p_line) const;
+	Rect2i get_visible_content_rect() const;
 	float get_line_offset(int32_t p_line);
 	float get_paragraph_offset(int32_t p_paragraph);
 	Dictionary parse_expressions_for_values(const PackedStringArray &p_expressions);

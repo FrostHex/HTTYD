@@ -564,6 +564,20 @@ bool RichTextLabel::is_scroll_active() const {
 	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+void RichTextLabel::set_scroll_follow_visible_characters(bool p_follow) {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("set_scroll_follow_visible_characters")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_follow_encoded;
+	PtrToArg<bool>::encode(p_follow, &p_follow_encoded);
+	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_follow_encoded);
+}
+
+bool RichTextLabel::is_scroll_following_visible_characters() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("is_scroll_following_visible_characters")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 void RichTextLabel::set_scroll_follow(bool p_follow) {
 	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("set_scroll_follow")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -934,6 +948,12 @@ int32_t RichTextLabel::get_line_width(int32_t p_line) const {
 	int64_t p_line_encoded;
 	PtrToArg<int64_t>::encode(p_line, &p_line_encoded);
 	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_line_encoded);
+}
+
+Rect2i RichTextLabel::get_visible_content_rect() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("get_visible_content_rect")._native_ptr(), 410525958);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Rect2i()));
+	return internal::_call_native_mb_ret<Rect2i>(_gde_method_bind, _owner);
 }
 
 float RichTextLabel::get_line_offset(int32_t p_line) {
