@@ -1,6 +1,7 @@
 #include "Control_Main.h"
 #include "Control_Scene_Home.h"
 #include "Control_Scene_TD.h"
+#include "Control_Scene_Tutorial.h"
 #include "DragonAnimator.h"
 #include "CheatSheet.h"
 #include "GameTimer.h"
@@ -72,11 +73,23 @@ void Control_Main::Switch_Scene(const String &scene_name)
     Ref<PackedScene> scene = ResourceLoader::get_singleton()->load("res://Scenes/" + scene_name + ".tscn");
     if (scene.is_valid()) 
     {
-        if (scene_name != "Scene_Home")
-        {
-            Node *current = get_parent()->get_node<Node>("Scene_Home");
-            current->queue_free();
+        // Clean up current scene before loading new one
+        Node *parent = get_parent();
+        PackedStringArray scene_names = PackedStringArray();
+        scene_names.push_back("Scene_Home");
+        scene_names.push_back("Scene_TD");
+        scene_names.push_back("Scene_Tutorial");
+        
+        for (int i = 0; i < scene_names.size(); i++) {
+            String current_scene_name = scene_names[i];
+            if (current_scene_name != scene_name) {
+                Node *current_scene = parent->get_node_or_null(NodePath(current_scene_name));
+                if (current_scene) {
+                    current_scene->queue_free();
+                }
+            }
         }
+        
         Node *new_scene = scene->instantiate();
         get_parent()->call_deferred("add_child", new_scene);
         new_scene->set_name(scene_name);
@@ -89,6 +102,11 @@ void Control_Main::Switch_Scene(const String &scene_name)
             new_scene->get_node<Node>("Dragon")->add_child(node_cheat_sheet);
             node_cheat_sheet->set_name("CheatSheet");
             new_scene->add_child(memnew(Control_Scene_TD(enable_headset, sub_view, debug)));
+        }
+        if (scene_name == "Scene_Tutorial")
+        {
+            // Attach tutorial controller to play simple dialog
+            new_scene->add_child(memnew(Control_Scene_Tutorial()));
         }
         if (scene_name == "Scene_Home")
         {
@@ -126,6 +144,8 @@ void Control_Main::SetValJoystickInput(bool val)
 
 void Control_Main::_bind_methods()
 {
+    // Expose Switch_Scene so it can be called via Node.call
+    ClassDB::bind_method(D_METHOD("Switch_Scene", "scene_name"), &Control_Main::Switch_Scene);
     ClassDB::bind_method(D_METHOD("enable_headset_setter", "value"), &Control_Main::SetValJoystickInput);
     ClassDB::bind_method(D_METHOD("enable_headset_getter"), &Control_Main::GetValJoystickInput);
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Enable Headset"), "enable_headset_setter", "enable_headset_getter");
@@ -158,6 +178,7 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
         {            
             godot::ClassDB::register_class<Control_Main>();
             godot::ClassDB::register_class<Control_Scene_TD>();
+            godot::ClassDB::register_class<Control_Scene_Tutorial>();
             godot::ClassDB::register_class<Control_Scene_Home>();
             godot::ClassDB::register_abstract_class<DragonControlTop>();
             godot::ClassDB::register_class<DragonControlKeyboard>();

@@ -45,6 +45,33 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Button_Settings" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 634.4827
+offset_top = 648.2759
+offset_right = 958.6205
+offset_bottom = 864.8276
+focus_mode = 0
+text = "Settings"
+
+[node name="Button_Tutorial" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 98.2759
+offset_top = 336.5517
+offset_right = 422.4137
+offset_bottom = 553.1034
+focus_mode = 0
+text = "Note Book"
+
+[node name="Button_Practice" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 624.8276
+offset_top = 335.1724
+offset_right = 948.96545
+offset_bottom = 551.7241
+focus_mode = 0
+text = "Flight Practice"
+
 [node name="Button_TD" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 1151.7241
@@ -54,14 +81,97 @@ offset_bottom = 553.1034
 focus_mode = 0
 text = "Test Drive"
 
-[node name="Button_Tutorial" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
+[node name="Settings_Panel" type="Panel" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
+visible = false
 layout_mode = 0
-offset_left = 624.8276
-offset_top = 335.1724
-offset_right = 948.96545
-offset_bottom = 551.7241
-focus_mode = 0
-text = "Flight Tutorial"
+offset_left = 400.0
+offset_top = 200.0
+offset_right = 1200.0
+offset_bottom = 700.0
+
+[node name="Close_Button" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = -10.0
+offset_bottom = 30.0
+grow_horizontal = 0
+text = "×"
+
+[node name="Settings_Content" type="VBoxContainer" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title_Label" type="Label" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content"]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content"]
+layout_mode = 2
+
+[node name="Language_Container" type="HBoxContainer" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content"]
+layout_mode = 2
+
+[node name="Language_Label" type="Label" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Language_Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Language:"
+
+[node name="Language_ComboBox" type="OptionButton" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Language_Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "中文"
+popup/item_1/id = 1
+
+[node name="HSeparator2" type="HSeparator" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content"]
+layout_mode = 2
+
+[node name="EnableHeadset_Container" type="HBoxContainer" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content"]
+layout_mode = 2
+
+[node name="EnableHeadset_Label" type="Label" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enable Headset:"
+
+[node name="EnableHeadset_CheckBox" type="CheckBox" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container"]
+layout_mode = 2
+
+[node name="SubView_Container" type="HBoxContainer" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content"]
+layout_mode = 2
+
+[node name="SubView_Label" type="Label" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/SubView_Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sub View:"
+
+[node name="SubView_CheckBox" type="CheckBox" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/SubView_Container"]
+layout_mode = 2
+
+[node name="Debug_Container" type="HBoxContainer" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content"]
+layout_mode = 2
+
+[node name="Debug_Label" type="Label" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Debug_Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Debug:"
+
+[node name="Debug_CheckBox" type="CheckBox" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Debug_Container"]
+layout_mode = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_pkqoq")

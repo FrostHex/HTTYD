@@ -34,7 +34,10 @@ namespace godot
             bool enable_headset = false;
             Control_Main* main_control = nullptr;
             void _on_button_pressed(const String& scene_name);
+            void _on_settings_button_pressed();
+            void _on_close_button_pressed();
             Node* viewport_container = nullptr;
+            Node* settings_panel = nullptr;
     };
 }
 

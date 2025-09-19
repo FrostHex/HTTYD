@@ -32,15 +32,39 @@ void Control_Scene_Home::_ready()
         viewport_container = get_parent()->get_node<Node>("XRToolsViewport2DIn3D");
         canvas_layer->reparent(viewport_container->get_node<Node>("Viewport"));
     }
-    const char* button_names[] = { "Button_TD", "Button_Tutorial" };
+    const char* button_names[] = { "Button_TD", "Button_Tutorial", "Button_Practice" };
     for (const char* btn_name : button_names) 
     {
         Node *button = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/" + String(btn_name));
         if (button) 
         {
-            String scene_name = "Scene_" + String(btn_name).replace("Button_", "");
+            String scene_name;
+            if (String(btn_name) == "Button_Tutorial") {
+                scene_name = "Scene_Tutorial";
+            } else if (String(btn_name) == "Button_Practice") {
+                scene_name = "Scene_Tutorial"; // Practice also goes to Tutorial for now
+            } else {
+                scene_name = "Scene_" + String(btn_name).replace("Button_", "");
+            }
             button->connect("pressed", Callable(this, "_on_button_pressed").bind(scene_name));
         }
+    }
+    
+    // Connect Settings button
+    Node *settings_button = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Button_Settings");
+    if (settings_button) 
+    {
+        settings_button->connect("pressed", Callable(this, "_on_settings_button_pressed"));
+    }
+    
+    // Get settings panel reference
+    settings_panel = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel");
+    
+    // Connect Close button
+    Node *close_button = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel/Close_Button");
+    if (close_button) 
+    {
+        close_button->connect("pressed", Callable(this, "_on_close_button_pressed"));
     }
 }
 
@@ -57,8 +81,26 @@ void Control_Scene_Home::_on_button_pressed(const String& scene_name)
     }
 }
 
+void Control_Scene_Home::_on_settings_button_pressed()
+{
+    if (settings_panel) 
+    {
+        settings_panel->set("visible", true);
+    }
+}
+
+void Control_Scene_Home::_on_close_button_pressed()
+{
+    if (settings_panel) 
+    {
+        settings_panel->set("visible", false);
+    }
+}
+
 
 void Control_Scene_Home::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("_on_button_pressed", "scene_name"), &Control_Scene_Home::_on_button_pressed);
+    ClassDB::bind_method(D_METHOD("_on_settings_button_pressed"), &Control_Scene_Home::_on_settings_button_pressed);
+    ClassDB::bind_method(D_METHOD("_on_close_button_pressed"), &Control_Scene_Home::_on_close_button_pressed);
 }
