@@ -9,6 +9,13 @@
 
 namespace godot
 {
+    enum Language {
+        LANGUAGE_ENGLISH = 0,
+        LANGUAGE_CHINESE = 1
+    };
+
+    class SaveManager; // Forward declaration
+
     class Control_Main : public Node3D // Change made here
     {
         GDCLASS(Control_Main, Node3D); // Change made here
@@ -18,12 +25,16 @@ namespace godot
             ~Control_Main();
             void _ready();
             void Switch_Scene(const String &scene_name);
-            void SetValJoystickInput(bool val);
-            bool GetValJoystickInput() const { return enable_headset; } // the const keyword indicates that this function does not modify the instance variables
-            void SetValSubView(bool val) { sub_view = val; }
+            void SetValEnableHeadset(bool val);
+            bool GetValEnableHeadset() const { return enable_headset; } // the const keyword indicates that this function does not modify the instance variables
+            void SetValSubView(bool val);
             bool GetValSubView() const { return sub_view; }
-            void SetValDebug(bool val) { debug = val; }
+            void SetValDebug(bool val);
             bool GetValDebug() const { return debug; }
+            void SetValLanguage(int val);
+            int GetValLanguage() const { return static_cast<int>(language); }
+            void LoadSettings();
+            void SaveSettings();
 
         protected:
             static void _bind_methods();
@@ -32,7 +43,10 @@ namespace godot
             bool enable_headset = false;
             bool sub_view = true;
             bool debug = false; // debug mode
+            Language language = LANGUAGE_ENGLISH; // default language
             Node3D* camera_main = nullptr;
+            SaveManager* save_manager = nullptr;
+            bool is_loading_settings = false; // flag to prevent saving during loading
     };
 }
 

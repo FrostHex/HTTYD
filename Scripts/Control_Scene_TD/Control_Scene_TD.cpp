@@ -1,4 +1,5 @@
 #include "Control_Scene_TD.h"
+#include "Control_Main.h"
 #include "DragonControlKeyboard.h"
 #include "DragonControlJoystick.h"
 #include "Control_Camera.h"
@@ -16,19 +17,11 @@
 #include <godot_cpp/classes/scene_tree.hpp> // for get_tree()
 #include <godot_cpp/variant/callable.hpp>
 #include <godot_cpp/classes/timer.hpp>
+#include <godot_cpp/classes/window.hpp> // for Window class
+
 
 using namespace godot;
 
-
-/**
- * @brief constructor
- */
-Control_Scene_TD::Control_Scene_TD(bool enable_headset, bool sub_view, bool debug)
-{
-    this->enable_headset = enable_headset;
-    this->sub_view = sub_view;
-    this->debug = debug;
-}
 
 /**
  * @brief default constructor for Godot registration
@@ -57,17 +50,33 @@ void Control_Scene_TD::_ready()
         return;
     }
 
+    // Get reference to Control_Main
+    SceneTree *tree = get_tree();
+    if (tree) 
+    {
+        Window *root = tree->get_root();
+        if (root) 
+        {
+            control_main = Object::cast_to<Control_Main>(root->get_node_or_null(NodePath("Main/Control_Main")));
+            if (!control_main) 
+            {
+                UtilityFunctions::printerr("Control_Scene_TD: Could not find Control_Main at Main/Control_Main");
+                return;
+            }
+        }
+    }
+
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
     cheat_sheet = dragon_node->get_node<CheatSheet>("CheatSheet");
     dragon_animator = get_parent()->get_node<Node>("Dragon")->get_node<DragonAnimator>("DragonAnimator");
-    ctrl_camera = memnew(Control_Camera(enable_headset, sub_view, debug));
+    ctrl_camera = memnew(Control_Camera());
     ctrl_camera->set_name("Control_Camera"); // set the name of the camera control node
     dragon_node->add_child(ctrl_camera); // add the camera control to the dragon node
     timer = memnew(GameTimer(ctrl_camera));
     timer->set_name("GameTimer");
     add_child(timer);
 
-    if (enable_headset) 
+    if (control_main->GetValEnableHeadset()) 
     {
         // memnew is "new" in Godot C++, which dynamically allocates memory for the object
         // memnew() creates an instance of DragonControlJoystick and returns a pointer to it
@@ -79,7 +88,7 @@ void Control_Scene_TD::_ready()
         dragon_control = memnew(DragonControlKeyboard);
         dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
     }
-    if (sub_view && debug) 
+    if (control_main->GetValSubView() && control_main->GetValDebug()) 
     {
         video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
     }
@@ -99,7 +108,7 @@ void Control_Scene_TD::_ready()
  */
 void Control_Scene_TD::Initialize_TimerList() 
 {
-    if (sub_view && debug && video_player)
+    if (control_main->GetValSubView() && control_main->GetValDebug() && video_player)
     {
         timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
     }
@@ -270,7 +279,7 @@ void Control_Scene_TD::_input(const Ref<InputEvent> &event)
         timer->Timer_Reset();
         Initialize_TimerList();
         timer->Timer_ForceSetTime(time_elapsed);
-        if (sub_view && debug && video_player)
+        if (control_main->GetValSubView() && control_main->GetValDebug() && video_player)
         {
             video_player->set_stream_position(time_elapsed);
         }
@@ -286,8 +295,8 @@ void Control_Scene_TD::_input(const Ref<InputEvent> &event)
  * @note if _bind_methods() is empty, it can still work, but the methods cannot be called in GDScript or C# or the Inspector
  * @note call ClassDB::bind_method() to expose methods to Godot in order to be used in GDScript or C#
  * @note the first line is the setter method, the second line is the getter method
- * @note &Control_Scene_TD::SetValJoystickInput is the method pointer, which points to the actual method
- * @note this enables the method to be called like "obj.SetValJoystickInput(true)" in GDScript or C#
+ * @note &Control_Scene_TD::SetValEnableHeadset is the method pointer, which points to the actual method
+ * @note this enables the method to be called like "obj.SetValEnableHeadset(true)" in GDScript or C#
  * @note call ADD_PROPERTY() to register properties to Godot
  * @note the second and third parameters are names of the binded getters and setters
  * @note after adding the property, it can be accessed in the Inspector of Godot Engine

@@ -23,6 +23,51 @@ texture_filter = 1
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(1590, 900, 0.02)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Normal"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_width_left = 1
+border_color = Color(0.35, 0.35, 0.35, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Hover"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_width_left = 1
+border_color = Color(0.45, 0.45, 0.45, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Pressed"]
+bg_color = Color(0.16, 0.5, 0.16, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_width_left = 1
+border_color = Color(0.24, 0.75, 0.24, 1)
+
+[sub_resource type="Theme" id="Theme_Settings"]
+types = ["CheckButton"]
+CheckButton/styles/normal = SubResource("StyleBoxFlat_Normal")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_Hover")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_Pressed")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_Pressed")
+CheckButton/styles/focus = SubResource("StyleBoxFlat_Normal")
+CheckButton/styles/focus_pressed = SubResource("StyleBoxFlat_Pressed")
+
 [node name="Scene_Home" type="Node3D"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -88,6 +133,7 @@ offset_left = 400.0
 offset_top = 200.0
 offset_right = 1200.0
 offset_bottom = 700.0
+theme = SubResource("Theme_Settings")
 
 [node name="Close_Button" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel"]
 layout_mode = 0
@@ -148,8 +194,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Enable Headset:"
 
-[node name="EnableHeadset_CheckBox" type="CheckBox" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container"]
+[node name="EnableHeadset_CheckBox" type="CheckButton" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container"]
 layout_mode = 2
+toggle_mode = true
+focus_mode = 0
 
 [node name="SubView_Container" type="HBoxContainer" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content"]
 layout_mode = 2
@@ -159,8 +207,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Sub View:"
 
-[node name="SubView_CheckBox" type="CheckBox" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/SubView_Container"]
+[node name="SubView_CheckBox" type="CheckButton" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/SubView_Container"]
 layout_mode = 2
+toggle_mode = true
+focus_mode = 0
 
 [node name="Debug_Container" type="HBoxContainer" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content"]
 layout_mode = 2
@@ -170,8 +220,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Debug:"
 
-[node name="Debug_CheckBox" type="CheckBox" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Debug_Container"]
+[node name="Debug_CheckBox" type="CheckButton" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Debug_Container"]
 layout_mode = 2
+toggle_mode = true
+focus_mode = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_pkqoq")

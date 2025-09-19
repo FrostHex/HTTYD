@@ -23,7 +23,6 @@ namespace godot
 
         public:
             Control_Scene_Home();
-            Control_Scene_Home(Control_Main* main_control, bool enable_headset);
             ~Control_Scene_Home();
             void _ready();
 
@@ -31,11 +30,14 @@ namespace godot
             static void _bind_methods();
 
         private:
-            bool enable_headset = false;
-            Control_Main* main_control = nullptr;
+            Control_Main* control_main = nullptr;
             void _on_button_pressed(const String& scene_name);
             void _on_settings_button_pressed();
             void _on_close_button_pressed();
+            void _on_language_changed(int index);
+            void _on_enable_headset_toggled(bool pressed);
+            void _on_sub_view_toggled(bool pressed);
+            void _on_debug_toggled(bool pressed);
             Node* viewport_container = nullptr;
             Node* settings_panel = nullptr;
     };

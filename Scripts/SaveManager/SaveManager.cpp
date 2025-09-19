@@ -206,10 +206,141 @@ Dictionary SaveManager::State_Load()
 
 
 /**
+ * @brief saves the current settings
+ */
+void SaveManager::Settings_Save(const Dictionary& settings_data)
+{
+    UtilityFunctions::print("Saving settings...");
+
+    // path validation
+    Ref<DirAccess> dir = DirAccess::open("res://"); // get the Godot file access API
+    if (!dir.is_valid()) 
+    {
+        UtilityFunctions::printerr("Failed to access res:// directory.");
+        return;
+    }
+    if (!dir->dir_exists("Saves")) // check if "Saves" directory exists, if not, create it
+    {
+        Error err = dir->make_dir("Saves");
+        if (err != OK) {
+            UtilityFunctions::printerr("Failed to create Saves directory.");
+            return;
+        }
+    }
+
+    String settings_file_path = "res://Saves/Settings.json";
+    String json_content = "{\n";
+    
+    // Add language setting
+    if (settings_data.has("language")) 
+    {
+        json_content += "\t\"language\": " + String::num(static_cast<int>(settings_data["language"])) + ",\n";
+    }
+    
+    // Add enable_headset setting
+    if (settings_data.has("enable_headset")) 
+    {
+        json_content += "\t\"enable_headset\": " + String(static_cast<bool>(settings_data["enable_headset"]) ? "true" : "false") + ",\n";
+    }
+    
+    // Add sub_view setting
+    if (settings_data.has("sub_view")) 
+    {
+        json_content += "\t\"sub_view\": " + String(static_cast<bool>(settings_data["sub_view"]) ? "true" : "false") + ",\n";
+    }
+    
+    // Add debug setting
+    if (settings_data.has("debug")) 
+    {
+        json_content += "\t\"debug\": " + String(static_cast<bool>(settings_data["debug"]) ? "true" : "false") + "\n";
+    }
+    
+    json_content += "}";
+    
+    Ref<FileAccess> settings_file = FileAccess::open(settings_file_path, FileAccess::WRITE);
+    if (settings_file.is_valid()) 
+    {
+        settings_file->store_string(json_content);
+        settings_file->close();
+        UtilityFunctions::print("Settings saved successfully.");
+    } 
+    else 
+    {
+        UtilityFunctions::printerr("Failed to save settings.");
+    }
+}
+
+
+/**
+ * @brief loads the saved settings
+ */
+Dictionary SaveManager::Settings_Load()
+{
+    UtilityFunctions::print("Loading settings...");
+    String settings_file_path = "res://Saves/Settings.json";
+    
+    // Check if settings file exists
+    Ref<DirAccess> dir = DirAccess::open("res://");
+    if (!dir.is_valid()) 
+    {
+        UtilityFunctions::printerr("Failed to access res:// directory.");
+        return Dictionary();
+    }
+    
+    if (!dir->dir_exists("Saves")) 
+    {
+        Error err = dir->make_dir("Saves");
+        if (err != OK) {
+            UtilityFunctions::printerr("Failed to create Saves directory.");
+            return Dictionary();
+        }
+    }
+    
+    if (!dir->file_exists("Saves/Settings.json")) 
+    {
+        // Create default settings file
+        Dictionary default_settings;
+        default_settings["language"] = 0; // English
+        default_settings["enable_headset"] = false;
+        default_settings["sub_view"] = true;
+        default_settings["debug"] = false;
+        
+        Settings_Save(default_settings);
+        UtilityFunctions::print("Created default settings file.");
+        return default_settings;
+    }
+    
+    Ref<FileAccess> file = FileAccess::open(settings_file_path, FileAccess::READ);
+    if (!file.is_valid()) 
+    {
+        UtilityFunctions::printerr("Failed to open settings file.");
+        return Dictionary();
+    }
+    
+    String content = file->get_as_text();
+    file->close();
+    
+    Ref<JSON> json = memnew(JSON);
+    Error parse_result = json->parse(content);
+    if (parse_result != OK) 
+    {
+        UtilityFunctions::printerr("Failed to parse settings file JSON.");
+        return Dictionary();
+    }
+    
+    Dictionary settings_data = json->get_data();
+    UtilityFunctions::print("Settings loaded successfully.");
+    return settings_data;
+}
+
+
+/**
  * @brief bind methods to the Godot engine
  */
 void SaveManager::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("State_Save", "game_data"), &SaveManager::State_Save);
     ClassDB::bind_method(D_METHOD("State_Load"), &SaveManager::State_Load);
+    ClassDB::bind_method(D_METHOD("Settings_Save", "settings_data"), &SaveManager::Settings_Save);
+    ClassDB::bind_method(D_METHOD("Settings_Load"), &SaveManager::Settings_Load);
 }

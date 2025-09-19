@@ -16,12 +16,14 @@
 
 namespace godot 
 {
+    class Control_Main; // Forward declaration
+
     class Control_Camera : public Node // extends the Node class
     {
         GDCLASS(Control_Camera, Node);
 
         public:
-            Control_Camera(bool enable_headset = false, bool sub_view = true, bool debug = false);
+            Control_Camera();
             ~Control_Camera(); // destructor
             void _ready();
             void _physics_process(double delta) override;
@@ -39,9 +41,7 @@ namespace godot
         
         private:
             void Print_Collision(Node* body, float velocity);
-            bool sub_view = true; // whether to use the sub camera
-            bool enable_headset = false; // whether to use the headset
-            bool debug = false; // whether to enable debug mode
+            Control_Main* control_main = nullptr; // reference to Control_Main for accessing shared variables
             bool xr_position_initialized = false; // whether XR position has been initialized
             Vector3 initial_origin_position; // initial XR origin position
             Quaternion initial_origin_rotation; // initial XR origin rotation

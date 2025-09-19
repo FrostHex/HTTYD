@@ -18,6 +18,9 @@ namespace godot
             
             void State_Save(const Dictionary& game_data);
             Dictionary State_Load();
+            
+            void Settings_Save(const Dictionary& settings_data);
+            Dictionary Settings_Load();
 
         protected:
             static void _bind_methods();

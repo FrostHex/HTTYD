@@ -1,0 +1,3 @@
+Tutorial_Line1=欢迎
+Tutorial_Line2=看看四周
+Tutorial_Line3=好，开始吧

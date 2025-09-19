@@ -13,13 +13,14 @@
 
 namespace godot 
 {
+    class Control_Main; // Forward declaration
+
     class Control_Scene_TD : public Node 
     {
         GDCLASS(Control_Scene_TD, Node);
 
         public:
             Control_Scene_TD();
-            Control_Scene_TD(bool enable_headset, bool sub_view, bool debug);
             ~Control_Scene_TD();
             void _ready() override;
             void _input(const Ref<InputEvent> &event) override;
@@ -31,9 +32,7 @@ namespace godot
             void Initialize_TimerList();
             void Start_Timer();
             void TakeRest();
-            bool enable_headset = false;
-            bool sub_view = true;
-            bool debug = false; // debug mode
+            Control_Main* control_main = nullptr; // reference to Control_Main for accessing shared variables
             DragonControlTop* dragon_control;
             DragonAnimator *dragon_animator;
             CheatSheet *cheat_sheet;

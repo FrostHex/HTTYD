@@ -1,4 +1,5 @@
 #include "Control_Camera.h"
+#include "Control_Main.h"
 
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -22,15 +23,9 @@ using namespace godot;
 
 /**
  * @brief constructor
- * @param sub_view whether to use the sub camera
- * @param debug whether to enable debug mode
- * @param enable_headset whether to enable the XR headset
  */
-Control_Camera::Control_Camera(bool enable_headset, bool sub_view, bool debug) 
+Control_Camera::Control_Camera() 
 {
-    this->enable_headset = enable_headset;
-    this->sub_view = sub_view;
-    this->debug = debug;
 }
 
 
@@ -57,6 +52,22 @@ void Control_Camera::SetDragonControl(DragonControlTop* dragon_control)
  */
 void Control_Camera::_ready()
 {
+    // Get reference to Control_Main
+    SceneTree *tree = get_tree();
+    if (tree) 
+    {
+        Window *root = tree->get_root();
+        if (root) 
+        {
+            control_main = Object::cast_to<Control_Main>(root->get_node_or_null(NodePath("Main/Control_Main")));
+            if (!control_main) 
+            {
+                UtilityFunctions::printerr("Control_Camera: Could not find Control_Main at Main/Control_Main");
+                return;
+            }
+        }
+    }
+
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
     xr_node = get_parent()->get_node<Node>("Camera_Main")->get_node<Node3D>("XR");
     xr_origin = xr_node->get_node<Node3D>("XROrigin");
@@ -67,7 +78,7 @@ void Control_Camera::_ready()
     {
         set_physics_process(false);
 
-        if (this->enable_headset)
+        if (control_main->GetValEnableHeadset())
         {
             initial_origin_position = xr_origin->get_position();
             xr_position_initialized = false;
@@ -78,19 +89,19 @@ void Control_Camera::_ready()
             xr_node->queue_free();
         }
 
-        if (this->sub_view)
+        if (control_main->GetValSubView())
         {
             Node* sub_container = get_parent()->get_node<Node>("SubViewportContainer");
             Node* sub_viewport = sub_container->get_node<Node>("SubViewport");
             camera_sub = sub_viewport->get_node<Camera3D>("Camera_Sub");
             camera_sub->set_rotation(Vector3(0, - Math_PI / 2, 0));
 
-            if (this->debug)
+            if (control_main->GetValDebug())
             {
                 label_info = sub_viewport->get_node<Label>("Info");
             }
 
-            if (this->enable_headset)
+            if (control_main->GetValEnableHeadset())
             {
                 Ref<godot::ViewportTexture> vp_tex = Object::cast_to<Viewport>(sub_viewport)->get_texture();
 
@@ -130,7 +141,7 @@ void Control_Camera::_ready()
  */
 void Control_Camera::_physics_process(double delta) 
 {
-    if (this->enable_headset) 
+    if (control_main->GetValEnableHeadset()) 
     {
         // wait until we get a valid camera position (not 0,0,0)
         if (!xr_position_initialized)
@@ -154,10 +165,10 @@ void Control_Camera::_physics_process(double delta)
         }
     }
 
-    if (this->sub_view)
+    if (control_main->GetValSubView())
     {
         camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
-        if (this->debug && label_info)
+        if (control_main->GetValDebug() && label_info)
         {
             String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1) + "\n" + info_debug + "\n" + time_elapsed;
             label_info->set_text(velocity_text);
@@ -234,7 +245,7 @@ Vector3 Control_Camera::GetPostureHeadset()
 
 void Control_Camera::Print_Collision(Node* body, float velocity)
 {
-    if (debug && label_info)
+    if (control_main->GetValDebug() && label_info)
     {
         String collision_info = "Collision with " + body->get_name() + " at velocity: " + String::num(velocity, 1);
         info_debug = collision_info;
@@ -254,7 +265,7 @@ void Control_Camera::_input(const Ref<InputEvent> &event)
     if (event->is_action_pressed("load_state")) 
     {
         info_debug = "State Loaded";
-        if (debug && label_info)
+        if (control_main->GetValDebug() && label_info)
         {
             label_info->set_modulate(Color(0.863f, 0.953f, 1.0f, 1.0f));
         }
