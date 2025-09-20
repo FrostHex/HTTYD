@@ -16,6 +16,7 @@ namespace godot
             ~DragonControlJoystick(); // destructor
             void _ready() override;
             void GetInput(float* input_keys) override;
+            void _physics_process(double delta) override;
 
         protected:
             static void _bind_methods();
@@ -24,6 +25,7 @@ namespace godot
         private:
             XRController3D *hand_left = nullptr;
             XRController3D *hand_right = nullptr;
+            bool y_button_prev = false; // edge detection for Y/B button
     };
 }
 

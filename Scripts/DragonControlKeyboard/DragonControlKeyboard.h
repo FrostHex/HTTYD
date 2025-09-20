@@ -2,6 +2,7 @@
 #define DRAGON_CONTROL_KEYBOARD_H
 
 #include "DragonControlTop.h"
+#include <godot_cpp/classes/input_event.hpp>
 
 namespace godot 
 {
@@ -13,6 +14,7 @@ namespace godot
             DragonControlKeyboard();  // constructor
             ~DragonControlKeyboard(); // destructor
             void GetInput(float* input_keys) override;
+            void _input(const Ref<InputEvent> &event) override;
 
         protected:
             static void _bind_methods();

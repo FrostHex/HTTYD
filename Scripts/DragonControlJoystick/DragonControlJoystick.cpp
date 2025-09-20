@@ -59,6 +59,26 @@ void DragonControlJoystick::_ready()
     hand_right = get_parent()->get_node<Node>("Camera_Main")->get_node<Node>("XR")->get_node<Node>("XROrigin")->get_node<XRController3D>("RightHand");
 }
 
+void DragonControlJoystick::_physics_process(double delta)
+{
+    // run base state machine first
+    DragonControlTop::_physics_process(delta);
+
+    // Edge-detect Y button click on the LEFT hand only (ignore B on right hand)
+    bool y_pressed = false;
+    if (hand_left) {
+        y_pressed = (hand_left->get_float("by_button") > 0.5f); // Y on left
+    }
+
+    if (y_pressed && !y_button_prev) {
+        // Rising edge: trigger rolling if currently in crisis state
+        if (GetState() == DragonState::STATE_CRISIS) {
+            SetState(DragonState::STATE_ROLLING);
+        }
+    }
+    y_button_prev = y_pressed;
+}
+
 
 /**
  * @brief get input from the joystick

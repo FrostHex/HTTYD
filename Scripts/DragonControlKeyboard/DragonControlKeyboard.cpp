@@ -1,5 +1,6 @@
 #include "DragonControlKeyboard.h"
 #include "Control_Camera.h"
+#include <godot_cpp/classes/input_event.hpp>
 
 using namespace godot;
 
@@ -65,6 +66,22 @@ void DragonControlKeyboard::SetMotionAngularCrisis(double delta)
         angular_velocity_posture -= axis * std::asin(tilt) * DRAGON_FACTOR_UPSIDE_DOWN;
     }
     dragon_rb->set_angular_velocity(angular_velocity_buildup + angular_velocity_posture);
+}
+
+
+/**
+ * @brief handle input events, specifically space key for rolling in crisis state
+ * @param event the input event
+ */
+void DragonControlKeyboard::_input(const Ref<InputEvent> &event) 
+{
+    if (event->is_action_pressed("ui_accept")) // ui_accept is mapped to space key by default in Godot
+    {
+        if (GetState() == DragonState::STATE_CRISIS) 
+        {
+            SetState(DragonState::STATE_ROLLING);
+        }
+    }
 }
 
 
