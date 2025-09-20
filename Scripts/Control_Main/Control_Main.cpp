@@ -54,12 +54,21 @@ void Control_Main::_ready()
     {
         DisplayServer::get_singleton()->window_set_vsync_mode(DisplayServer::VSYNC_DISABLED);
         Ref<XRInterface> xr_interface = XRServer::get_singleton()->find_interface("OpenXR");
-        if (xr_interface.is_valid() && xr_interface->initialize()) 
-        {
-            Viewport* main_viewport = get_viewport();
-            if (main_viewport) 
-            {
-                main_viewport->set_use_xr(true);
+        if (!xr_interface.is_valid()) {
+            UtilityFunctions::printerr("[OpenXR] Interface not found. Ensure OpenXR is available in this export template.");
+        } else {
+            UtilityFunctions::print("[OpenXR] Interface found: ", xr_interface->get_name());
+            if (xr_interface->initialize()) {
+                UtilityFunctions::print("[OpenXR] Initialize OK");
+                // Set primary interface for XR rendering
+                XRServer::get_singleton()->set_primary_interface(xr_interface);
+
+                Viewport* main_viewport = get_viewport();
+                if (main_viewport) {
+                    main_viewport->set_use_xr(true);
+                }
+            } else {
+                UtilityFunctions::printerr("[OpenXR] Initialize FAILED. Make sure an OpenXR runtime (SteamVR/Meta/WMR) is installed and set as active, and start it before launching the game.");
             }
         }
         Engine* engine = Engine::get_singleton();

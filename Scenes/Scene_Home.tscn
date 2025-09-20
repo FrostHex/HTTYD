@@ -191,16 +191,6 @@ offset_right = 1200.0
 offset_bottom = 700.0
 theme = SubResource("Theme_Settings")
 
-[node name="Close_Button" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel"]
-layout_mode = 0
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_right = -10.0
-offset_bottom = 30.0
-grow_horizontal = 0
-text = "×"
-
 [node name="Settings_Content" type="VBoxContainer" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel"]
 layout_mode = 1
 anchors_preset = 15
@@ -248,7 +238,7 @@ layout_mode = 2
 [node name="EnableHeadset_Label" type="Label" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Enable Headset (Please Restart the Program After Enabled):"
+text = "Enable Headset:"
 
 [node name="EnableHeadset_CheckBox" type="CheckButton" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container"]
 layout_mode = 2
@@ -278,15 +268,29 @@ text = "Debug:"
 layout_mode = 2
 focus_mode = 0
 
+[node name="Close_Button" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.413696
+offset_right = -0.00012207031
+offset_bottom = 37.24138
+grow_horizontal = 0
+text = "×"
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+visible = false
 mesh = SubResource("PlaneMesh_pkqoq")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7826406, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.783, 10, 0)
+visible = false
 mesh = SubResource("BoxMesh_pkqoq")
 
 [node name="XRToolsViewport2DIn3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
 script = ExtResource("2_h51dc")
 screen_size = Vector2(1590, 900)
 viewport_size = Vector2(1590, 900)

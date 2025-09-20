@@ -38,6 +38,8 @@ namespace godot
             void _on_enable_headset_toggled(bool pressed);
             void _on_sub_view_toggled(bool pressed);
             void _on_debug_toggled(bool pressed);
+            void _update_button_texts(); // Helper function to update button texts
+            String _get_json_text(const String& key, const String& fallback = ""); // Helper function to get text from JSON
             Node* viewport_container = nullptr;
             Node* settings_panel = nullptr;
     };

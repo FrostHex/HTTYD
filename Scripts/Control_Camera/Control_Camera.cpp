@@ -117,7 +117,7 @@ void Control_Camera::_ready()
                 sub_mesh->set_material_override(mat);
 
                 xr_camera->add_child(sub_mesh);
-                sub_mesh->set_position(Vector3(0.27f, 0.213f, -0.5f));
+                sub_mesh->set_position(Vector3(0.27f, 0.24f, -0.5f));
                 sub_mesh->set_rotation(Vector3(Math_PI / 2, 0, 0));
             }
 

@@ -11,6 +11,7 @@ size = Vector3(0.168, 0.0608516, 0.202)
 [node name="Main" type="Node3D"]
 
 [node name="Control_Main" type="Control_Main" parent="."]
+Debug = true
 
 [node name="Camera_Main" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)

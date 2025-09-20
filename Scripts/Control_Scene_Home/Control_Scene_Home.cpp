@@ -8,6 +8,8 @@
 #include <godot_cpp/classes/window.hpp> // for Window class
 #include <godot_cpp/classes/xr_server.hpp>
 #include <godot_cpp/classes/xr_interface.hpp>
+#include <godot_cpp/classes/file_access.hpp>
+#include <godot_cpp/classes/json.hpp>
 
 using namespace godot;
 
@@ -61,6 +63,10 @@ void Control_Scene_Home::_ready()
             UtilityFunctions::print("XR initialization failed, restored UI to SubViewportContainer.");
         }
     }
+
+    // Load and set button texts from JSON file based on current language
+    _update_button_texts();
+
     const char* button_names[] = { "Button_TD", "Button_Tutorial", "Button_Practice" };
     for (const char* btn_name : button_names) 
     {
@@ -100,38 +106,122 @@ void Control_Scene_Home::_ready()
     Node *language_combo = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Language_Container/Language_ComboBox");
     if (language_combo) 
     {
-        language_combo->connect("item_selected", Callable(this, "_on_language_changed"));
-        // Set initial value
+        // Set initial value BEFORE connecting signal to avoid unintended emission
         language_combo->call("select", control_main->GetValLanguage());
+        language_combo->connect("item_selected", Callable(this, "_on_language_changed"));
     }
 
     Node *enable_headset_checkbox = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container/EnableHeadset_CheckBox");
     if (enable_headset_checkbox) 
     {
+        // Set initial value WITHOUT emitting signal, then connect
+        enable_headset_checkbox->call("set_pressed_no_signal", control_main->GetValEnableHeadset());
         enable_headset_checkbox->connect("toggled", Callable(this, "_on_enable_headset_toggled"));
-        // Set initial value for Button in toggle mode
-        enable_headset_checkbox->set("button_pressed", control_main->GetValEnableHeadset());
     }
 
     Node *sub_view_checkbox = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/SubView_Container/SubView_CheckBox");
     if (sub_view_checkbox) 
     {
+        // Set initial value WITHOUT emitting signal, then connect
+        sub_view_checkbox->call("set_pressed_no_signal", control_main->GetValSubView());
         sub_view_checkbox->connect("toggled", Callable(this, "_on_sub_view_toggled"));
-        // Set initial value for Button in toggle mode
-        sub_view_checkbox->set("button_pressed", control_main->GetValSubView());
     }
 
     Node *debug_checkbox = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Debug_Container/Debug_CheckBox");
     if (debug_checkbox) 
     {
+        // Set initial value WITHOUT emitting signal, then connect
+        debug_checkbox->call("set_pressed_no_signal", control_main->GetValDebug());
         debug_checkbox->connect("toggled", Callable(this, "_on_debug_toggled"));
-        // Set initial value for Button in toggle mode
-        debug_checkbox->set("button_pressed", control_main->GetValDebug());
     }
 }
 
 Control_Scene_Home::~Control_Scene_Home()
 {
+}
+
+void Control_Scene_Home::_update_button_texts()
+{
+    if (!control_main || !viewport_container) return;
+
+    // Set button texts
+    Node *settings_btn = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Button_Settings"));
+    if (settings_btn) {
+        settings_btn->set("text", _get_json_text("button_settings", "Settings"));
+    }
+    
+    Node *tutorial_btn = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Button_Tutorial"));
+    if (tutorial_btn) {
+        tutorial_btn->set("text", _get_json_text("button_tutorial", "Note Book"));
+    }
+    
+    Node *practice_btn = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Button_Practice"));
+    if (practice_btn) {
+        practice_btn->set("text", _get_json_text("button_practice", "Flight Practice"));
+    }
+    
+    Node *td_btn = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Button_TD"));
+    if (td_btn) {
+        td_btn->set("text", _get_json_text("button_td", "Test Drive"));
+    }
+    
+    Node *close_btn = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Close_Button"));
+    if (close_btn) {
+        close_btn->set("text", _get_json_text("button_back", "Back"));
+    }
+    
+    // Set settings entry texts
+    Node *settings_label = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Title"));
+    if (settings_label) {
+        settings_label->set("text", _get_json_text("entry_settings", "Settings"));
+    }
+    
+    Node *headset_label = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container/EnableHeadset_Label"));
+    if (headset_label) {
+        headset_label->set("text", _get_json_text("entry_enable_headset", "Enable Headset") + ":");
+    }
+    
+    Node *subview_label = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/SubView_Container/SubView_Label"));
+    if (subview_label) {
+        subview_label->set("text", _get_json_text("entry_sub_view", "Sub View") + ":");
+    }
+    
+    Node *debug_label = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Debug_Container/Debug_Label"));
+    if (debug_label) {
+        debug_label->set("text", _get_json_text("entry_debug", "Debug Info") + ":");
+    }
+}
+
+String Control_Scene_Home::_get_json_text(const String& key, const String& fallback)
+{
+    if (!control_main) return fallback;
+
+    // Determine JSON file based on current language
+    String json_file = "res://Text/English.json";
+    if (control_main->GetValLanguage() == 1) 
+    {
+        json_file = "res://Text/Chinese.json";
+    }
+
+    // Read JSON file and get specific text
+    Ref<FileAccess> f = FileAccess::open(json_file, FileAccess::READ);
+    if (f.is_valid()) 
+    {
+        String content = f->get_as_text();
+        f->close();
+        
+        Ref<JSON> json = memnew(JSON);
+        Error parse_result = json->parse(content);
+        if (parse_result == OK) 
+        {
+            Dictionary data = json->get_data();
+            if (data.has(key)) {
+                return String(data[key]);
+            }
+        }
+    }
+    
+    return fallback;
 }
 
 void Control_Scene_Home::_on_button_pressed(const String& scene_name)
@@ -165,6 +255,9 @@ void Control_Scene_Home::_on_language_changed(int index)
     {
         control_main->SetValLanguage(index);
         UtilityFunctions::print("Language changed to: ", index == 0 ? "English" : "中文");
+        
+        // Update button texts immediately after language change
+        _update_button_texts();
     }
 }
 
@@ -174,6 +267,16 @@ void Control_Scene_Home::_on_enable_headset_toggled(bool pressed)
     {
         control_main->SetValEnableHeadset(pressed);
         UtilityFunctions::print("Enable Headset toggled: ", pressed);
+
+        // Update the label text to inform user to restart after changes using JSON text
+        if (viewport_container) 
+        {
+            Node *label_node = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container/EnableHeadset_Label"));
+            if (label_node) {
+                String tip_text = _get_json_text("entry_enable_headset_tip", "Enable Headset (Please restart the software to apply changes):");
+                label_node->set("text", tip_text);
+            }
+        }
     }
 }
 

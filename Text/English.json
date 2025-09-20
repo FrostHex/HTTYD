@@ -10,5 +10,17 @@
         "(i.e. in VR mode, the left joystick controls looking up and down)",
         "(i.e. in non-VR mode, the ↑ and ↓ arrow keys control looking up and down)",
         "I think I need to practice more on these basic manoeuvres."
-    ]
+    ],
+
+    "button_settings": "Settings",
+    "button_back": "Back",
+    "button_tutorial": "Note Book",
+    "button_practice": "Flight Practice",
+    "button_td": "Test Drive",
+    
+    "entry_settings": "Settings",
+    "entry_enable_headset": "Enable Headset",
+    "entry_enable_headset_tip": "Enable Headset (Please restart the software to apply changes)",
+    "entry_sub_view": "Sub View",
+    "entry_debug": "Debug Info"
 }

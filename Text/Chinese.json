@@ -10,5 +10,17 @@
         "(即，在 VR 模式下，左手摇杆控制上下转向)",
         "(即，在非 VR 模式下，↑ 和 ↓ 方向键控制上下转向)",
         "我觉得这些基本操作我还需要多练习一下"
-    ]
+    ],
+    
+    "button_settings": "设置",
+    "button_back": "返回",
+    "button_tutorial": "笔记",
+    "button_practice": "操作练习",
+    "button_td": "Test Drive\n测试飞行",
+    
+    "entry_settings": "设置",
+    "entry_enable_headset": "VR模式",
+    "entry_enable_headset_tip": "VR模式 (请重启软件以使更改生效)",
+    "entry_sub_view": "辅助视角",
+    "entry_debug": "调试信息"
 }
