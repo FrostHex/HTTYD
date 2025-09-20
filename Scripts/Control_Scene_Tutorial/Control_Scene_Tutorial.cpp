@@ -29,22 +29,26 @@ void Control_Scene_Tutorial::_bind_methods()
 
 void Control_Scene_Tutorial::_ready() 
 {
-	SceneTree *tree = get_tree();
-	if (tree) {
-		Window *root = tree->get_root();
-		if (root) {
-			control_main = Object::cast_to<Control_Main>(root->get_node_or_null(NodePath("Main/Control_Main")));
-			if (!control_main) 
-			{
-				Node *cand = root->find_child("Control_Main", /*recursive*/ true, /*owned*/ false);
-				control_main = Object::cast_to<Control_Main>(cand);
-			}
-			if (!control_main) 
-			{
-				UtilityFunctions::printerr("Control_Scene_Tutorial: Control_Main not found. If you ran Scene_Tutorial directly, please run the project Main scene.");
-			}
-		}
-	}
+	if (Engine::get_singleton()->is_editor_hint()) // only run when the game is running
+    {
+        return;
+    }
+	
+    // Get reference to Control_Main
+    SceneTree *tree = get_tree();
+    if (tree) 
+    {
+        Window *root = tree->get_root();
+        if (root) 
+        {
+            control_main = Object::cast_to<Control_Main>(root->get_node_or_null(NodePath("Main/Control_Main")));
+            if (!control_main) 
+            {
+                UtilityFunctions::printerr("Control_Camera: Could not find Control_Main at Main/Control_Main");
+                return;
+            }
+        }
+    }
 
 	// 获取3D文字标签引用
 	Node *parent_node = get_parent();

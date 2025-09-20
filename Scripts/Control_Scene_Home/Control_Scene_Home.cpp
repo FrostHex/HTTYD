@@ -6,6 +6,8 @@
 #include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/classes/scene_tree.hpp> // for get_tree()
 #include <godot_cpp/classes/window.hpp> // for Window class
+#include <godot_cpp/classes/xr_server.hpp>
+#include <godot_cpp/classes/xr_interface.hpp>
 
 using namespace godot;
 
@@ -43,6 +45,21 @@ void Control_Scene_Home::_ready()
         Node* canvas_layer = viewport_container->get_node<Node>("Viewport/CanvasLayer");
         viewport_container = get_parent()->get_node<Node>("XRToolsViewport2DIn3D");
         canvas_layer->reparent(viewport_container->get_node<Node>("Viewport"));
+
+        // If XR failed to initialize, restore UI back to SubViewportContainer instead of using XRToolsViewport2DIn3D
+        Ref<XRInterface> primary = XRServer::get_singleton()->get_primary_interface();
+        bool xr_active = primary.is_valid() && primary->is_initialized();
+        if (!xr_active)
+        {
+            // Move CanvasLayer back to original 2D SubViewport
+            Node *xr_viewport = viewport_container->get_node<Node>("Viewport");
+            Node *canvas_in_xr = xr_viewport->get_node<Node>("CanvasLayer");
+            Node *base_container = get_parent()->get_node<Node>("SubViewportContainer");
+            Node *base_viewport = base_container->get_node<Node>("Viewport");
+            canvas_in_xr->reparent(base_viewport);
+            viewport_container = base_container;
+            UtilityFunctions::print("XR initialization failed, restored UI to SubViewportContainer.");
+        }
     }
     const char* button_names[] = { "Button_TD", "Button_Tutorial", "Button_Practice" };
     for (const char* btn_name : button_names) 

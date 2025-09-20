@@ -7,7 +7,7 @@ Bilibili Link: [https://www.bilibili.com/video/BV1h5gxzNE4X/](https://www.bilibi
 
 ## Development Environment
 - Windows 64-bit
-- Godot v4.5-beta2
+- Godot v4.5-stable
 - Godot-cpp
 
 ## Quick Start

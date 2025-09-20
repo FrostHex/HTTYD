@@ -26,6 +26,7 @@ namespace godot
             static void _bind_methods();
 
         private:
+            String get_executable_directory();
     };
 }
 

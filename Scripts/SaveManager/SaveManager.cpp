@@ -7,6 +7,7 @@
 #include <godot_cpp/classes/dir_access.hpp>
 #include <godot_cpp/classes/file_access.hpp>
 #include <godot_cpp/classes/json.hpp>
+#include <godot_cpp/classes/os.hpp>
 
 using namespace godot;
 
@@ -22,6 +23,15 @@ SaveManager::SaveManager()
  */
 SaveManager::~SaveManager() 
 {
+}
+
+/**
+ * @brief get the directory where the executable is located
+ */
+String SaveManager::get_executable_directory()
+{
+    String executable_path = OS::get_singleton()->get_executable_path();
+    return executable_path.get_base_dir();
 }
 
 /**
@@ -43,10 +53,13 @@ void SaveManager::State_Save(const Dictionary& game_data)
     UtilityFunctions::print("Saving game state...");
 
     // path validation
-    Ref<DirAccess> dir = DirAccess::open("res://"); // get the Godot file access API
+    String exe_dir = get_executable_directory();
+    String saves_dir_path = exe_dir + "/Saves";
+    
+    Ref<DirAccess> dir = DirAccess::open(exe_dir); // get the directory access API for executable directory
     if (!dir.is_valid()) 
     {
-        UtilityFunctions::printerr("Failed to access res:// directory.");
+        UtilityFunctions::printerr("Failed to access executable directory: " + exe_dir);
         return;
     }
     if (!dir->dir_exists("Saves")) // check if "Saves" directory exists, if not, create it
@@ -57,7 +70,7 @@ void SaveManager::State_Save(const Dictionary& game_data)
             return;
         }
     }
-    String save_file_path = "res://Saves/Save.json"; // check if "Save.json" exists inside "Saves", if not, create it
+    String save_file_path = saves_dir_path + "/Save.json"; // check if "Save.json" exists inside "Saves", if not, create it
     if (!dir->file_exists("Saves/Save.json")) 
     {
         Ref<FileAccess> file = FileAccess::open(save_file_path, FileAccess::WRITE);
@@ -82,7 +95,7 @@ void SaveManager::State_Save(const Dictionary& game_data)
         content = content.strip_edges();
         if (!content.is_empty() && content != "{}") 
         {
-            Ref<DirAccess> saves_dir = DirAccess::open("res://Saves/");
+            Ref<DirAccess> saves_dir = DirAccess::open(saves_dir_path);
             if (!saves_dir.is_valid()) 
             {
                 UtilityFunctions::printerr("Failed to access Saves directory.");
@@ -109,7 +122,7 @@ void SaveManager::State_Save(const Dictionary& game_data)
             }
             int next_num = max_num + 1;
             String backup_name = vformat("Save_Backup_%02d.json", next_num);
-            String backup_path = "res://Saves/" + backup_name;
+            String backup_path = saves_dir_path + "/" + backup_name;
             Ref<FileAccess> backup_file = FileAccess::open(backup_path, FileAccess::WRITE);
             if (backup_file.is_valid()) 
             {
@@ -177,8 +190,11 @@ void SaveManager::State_Save(const Dictionary& game_data)
 Dictionary SaveManager::State_Load()
 {
     UtilityFunctions::print("Loading game state...");
-    String save_file_path = "res://Saves/Save.json";
-    Ref<DirAccess> dir = DirAccess::open("res://Saves/");
+    String exe_dir = get_executable_directory();
+    String saves_dir_path = exe_dir + "/Saves";
+    String save_file_path = saves_dir_path + "/Save.json";
+    
+    Ref<DirAccess> dir = DirAccess::open(saves_dir_path);
     if (!dir.is_valid() || !dir->file_exists("Save.json")) 
     {
         UtilityFunctions::printerr("Save file does not exist.");
@@ -213,10 +229,13 @@ void SaveManager::Settings_Save(const Dictionary& settings_data)
     UtilityFunctions::print("Saving settings...");
 
     // path validation
-    Ref<DirAccess> dir = DirAccess::open("res://"); // get the Godot file access API
+    String exe_dir = get_executable_directory();
+    String saves_dir_path = exe_dir + "/Saves";
+    
+    Ref<DirAccess> dir = DirAccess::open(exe_dir); // get the directory access API for executable directory
     if (!dir.is_valid()) 
     {
-        UtilityFunctions::printerr("Failed to access res:// directory.");
+        UtilityFunctions::printerr("Failed to access executable directory: " + exe_dir);
         return;
     }
     if (!dir->dir_exists("Saves")) // check if "Saves" directory exists, if not, create it
@@ -228,7 +247,7 @@ void SaveManager::Settings_Save(const Dictionary& settings_data)
         }
     }
 
-    String settings_file_path = "res://Saves/Settings.json";
+    String settings_file_path = saves_dir_path + "/Settings.json";
     String json_content = "{\n";
     
     // Add language setting
@@ -277,13 +296,15 @@ void SaveManager::Settings_Save(const Dictionary& settings_data)
 Dictionary SaveManager::Settings_Load()
 {
     UtilityFunctions::print("Loading settings...");
-    String settings_file_path = "res://Saves/Settings.json";
+    String exe_dir = get_executable_directory();
+    String saves_dir_path = exe_dir + "/Saves";
+    String settings_file_path = saves_dir_path + "/Settings.json";
     
     // Check if settings file exists
-    Ref<DirAccess> dir = DirAccess::open("res://");
+    Ref<DirAccess> dir = DirAccess::open(exe_dir);
     if (!dir.is_valid()) 
     {
-        UtilityFunctions::printerr("Failed to access res:// directory.");
+        UtilityFunctions::printerr("Failed to access executable directory: " + exe_dir);
         return Dictionary();
     }
     
