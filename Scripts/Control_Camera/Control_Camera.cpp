@@ -84,10 +84,10 @@ void Control_Camera::_ready()
             xr_position_initialized = false;
             set_physics_process(true);
         }
-        else
-        {
-            xr_node->queue_free();
-        }
+        // else
+        // {
+        //     xr_node->queue_free();
+        // }
 
         if (control_main->GetValSubView())
         {
@@ -119,6 +119,7 @@ void Control_Camera::_ready()
                 xr_camera->add_child(sub_mesh);
                 sub_mesh->set_position(Vector3(0.27f, 0.24f, -0.5f));
                 sub_mesh->set_rotation(Vector3(Math_PI / 2, 0, 0));
+                sub_mesh->set_name("SubViewportMesh");
             }
 
             set_physics_process(true);

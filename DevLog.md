@@ -153,6 +153,7 @@
 ### v1.1.0
 TODO:
 - tutorial文本和基础飞行
+- tutorial手柄翻页
 - 飞行练习，自由状态飞行
 - Test Drive，自动存档
 - Test Drive，完成标识

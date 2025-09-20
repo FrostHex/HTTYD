@@ -77,7 +77,7 @@ directional_shadow_fade_start = 0.9
 directional_shadow_max_distance = 400.0
 
 [node name="TutorialPaper" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-09, 0.025881905, -0.09659258, 0, 0.09659258, 0.025881905, 0.1, 1.131334e-09, -4.222196e-09, 0.8, 10.6, 0)
+transform = Transform3D(-4.371139e-09, 0.025881905, -0.09659258, 0, 0.09659258, 0.025881905, 0.1, 1.131334e-09, -4.222196e-09, 0.8, 10.65, 0)
 mesh = SubResource("QuadMesh_paper")
 surface_material_override/0 = SubResource("StandardMaterial3D_paper")
 
@@ -111,9 +111,9 @@ grow_vertical = 0
 text = "Back"
 
 [node name="Ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 8, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.65, 9.5, 0)
 material_override = ExtResource("3_037q7")
 mesh = ExtResource("4_exo1t")
 
 [node name="Dragon" parent="." instance=ExtResource("5_exo1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)

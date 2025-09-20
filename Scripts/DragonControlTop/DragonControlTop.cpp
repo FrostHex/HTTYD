@@ -97,8 +97,8 @@ void DragonControlTop::_ready()
     dragon_rb->connect("body_entered", Callable(this, "_on_body_entered")); // connect the signal to the function
     ctrl_camera = get_parent()->get_node<Control_Camera>("Control_Camera");
     dragon_rb->set_linear_velocity(Vector3(0, 0, 0)); // set initial linear velocity to zero
-    pillar_hit_1 = get_parent()->get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_B_15");
-    pillar_hit_2 = get_parent()->get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_B_18");
+    pillar_hit_1 = Object::cast_to<Node3D>(get_parent()->get_parent()->get_node_or_null("Rocks/Area_Beginning/Rock_Pillar_B_15"));
+    pillar_hit_2 = Object::cast_to<Node3D>(get_parent()->get_parent()->get_node_or_null("Rocks/Area_Beginning/Rock_Pillar_B_18"));
     if (pillar_hit_1 && pillar_hit_2) 
     {
         StaticBody3D* static_body_1 = pillar_hit_1->get_node<StaticBody3D>("StaticBody3D");

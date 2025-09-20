@@ -15,6 +15,7 @@
 // 字体相关
 #include <godot_cpp/classes/system_font.hpp>
 #include <godot_cpp/variant/packed_string_array.hpp>
+#include <godot_cpp/classes/xr_controller3d.hpp>
 
 using namespace godot;
 
@@ -23,7 +24,6 @@ Control_Scene_Tutorial::~Control_Scene_Tutorial() {}
 
 void Control_Scene_Tutorial::_bind_methods() 
 {
-    ClassDB::bind_method(D_METHOD("_on_timer_timeout"), &Control_Scene_Tutorial::_on_timer_timeout);
     ClassDB::bind_method(D_METHOD("_on_back_button_pressed"), &Control_Scene_Tutorial::_on_back_button_pressed);
 }
 
@@ -115,15 +115,6 @@ void Control_Scene_Tutorial::_ready()
 	{
 		UtilityFunctions::printerr("Failed to open JSON file: " + json_file);
 	}
-
-	// 立即显示第一句话（current_index 表示当前显示的索引，保持为 0）
-	if (tutorial_label && lines.size() > 0) {
-		tutorial_label->set_text(lines[0]);
-		current_index = 0;
-	}
-
-	// 不再使用计时器自动翻页
-	// 如果未来需要恢复自动播放，可重新启用计时器逻辑
     
 	// Connect back button safely
 	Node *back_node = get_parent()->get_node_or_null(NodePath("UI/Button_Back"));
@@ -132,69 +123,240 @@ void Control_Scene_Tutorial::_ready()
 			back_button->connect("pressed", callable_mp(this, &Control_Scene_Tutorial::_on_back_button_pressed));
 		}
 	}
+
+	// Set the connection with dragon
+	Node *dragon_node = get_parent()->get_node<Node>("Dragon");
+    dragon_animator = get_parent()->get_node<Node>("Dragon")->get_node<DragonAnimator>("DragonAnimator");
+    camera_main = tree->get_root()->get_node<Node>("Main/Camera_Main");
+	camera_main->reparent(dragon_node);
+	tutorial_paper = get_parent()->get_node<Node3D>("TutorialPaper");
+	tutorial_paper->call_deferred("reparent", dragon_node);
+	ctrl_camera = memnew(Control_Camera());
+    ctrl_camera->set_name("Control_Camera"); // set the name of the camera control node
+    dragon_node->add_child(ctrl_camera); // add the camera control to the dragon node
+    if (control_main->GetValEnableHeadset()) 
+    {
+        dragon_control = memnew(DragonControlJoystick);
+        dragon_node->add_child(dynamic_cast<Node*>(dragon_control)); // add the dragon control to the dragon node
+    }
+    else
+    {
+        dragon_control = memnew(DragonControlKeyboard);
+        dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
+    }
+    ctrl_camera->SetDragonControl(dragon_control); // set the dragon control to the camera control
+	dragon_node->call_deferred("set_rotation", Vector3(0.0f, 0.0f, 0.05f));
+
+	// 记录右手控制器（用于 A/B 翻页）。优先从 Dragon 下的 XR 层级查找
+	// 期望路径：Dragon/Camera_Main/XR/XROrigin/RightHand 或 Main/Camera_Main/XR/XROrigin/RightHand
+	hand_right = nullptr;
+	Node *xr_origin = nullptr;
+	// 尝试从场景树根定位
+	if (tree && tree->get_root()) {
+		Node *main_node = tree->get_root()->get_node_or_null(NodePath("Main"));
+		if (main_node) {
+			Node *cam_main = main_node->get_node_or_null(NodePath("Camera_Main"));
+			if (cam_main) {
+				Node *xr_node = cam_main->get_node_or_null(NodePath("XR"));
+				if (xr_node) {
+					xr_origin = xr_node->get_node_or_null(NodePath("XROrigin"));
+				}
+			}
+		}
+	}
+	// 如果上述未找到，尝试从 Dragon 节点的相对路径查找（用户项目里的 Joystick 代码使用了这种方式）
+	if (!xr_origin && dragon_node) {
+		Node *cam_main_rel = dragon_node->get_node_or_null(NodePath("Camera_Main"));
+		if (cam_main_rel) {
+			Node *xr_rel = cam_main_rel->get_node_or_null(NodePath("XR"));
+			if (xr_rel) {
+				xr_origin = xr_rel->get_node_or_null(NodePath("XROrigin"));
+			}
+		}
+	}
+	if (xr_origin) {
+		hand_right = Object::cast_to<XRController3D>(xr_origin->get_node_or_null(NodePath("RightHand")));
+	}
+
+	// 立即显示第一句话（current_index 表示当前显示的索引，保持为 0）
+	if (tutorial_label && lines.size() > 0) {
+		current_index = 0;
+		String processed_text = _process_tutorial_text(lines[0]);
+		tutorial_label->set_text(processed_text);
+	}
 }
 
-void Control_Scene_Tutorial::_on_timer_timeout() {
-	// 已弃用：计时器不再用于翻页
+void Control_Scene_Tutorial::_goto_next_line() {
+	if (!tutorial_label || lines.size() == 0) return;
+	if (current_index >= lines.size() - 1) return; // 已是最后一句
+	current_index += 1;
+	String processed_text = _process_tutorial_text(lines[current_index]);
+	tutorial_label->set_text(processed_text);
 }
 
-void Control_Scene_Tutorial::_input(const Ref<InputEvent> &event) {
+void Control_Scene_Tutorial::_goto_prev_line() {
+	if (!tutorial_label || lines.size() == 0) return;
+	if (current_index <= 0) return; // 已是第一句
+	current_index -= 1;
+	String processed_text = _process_tutorial_text(lines[current_index]);
+	tutorial_label->set_text(processed_text);
+}
+
+String Control_Scene_Tutorial::_process_tutorial_text(const String &text) 
+{
+	// 检查是否以"/!"开头
+	if (text.length() >= 3 && text.substr(0, 2) == "/!") 
+	{
+		tutorial_paper->set_position(Vector3(0.85f, 0.48f, 0.4f));
+		dragon_animator->SetAnimation_Weight("add_shake", 1.0f);
+		char state_char = text[2];
+		if (state_char == '1') 
+		{
+			// 设置龙状态为默认
+			if (dragon_control) 
+			{
+				dragon_control->SetState(DragonState::STATE_DEFAULT);
+				dragon_control->set_physics_process(true);
+			}
+			return text.substr(3); // 返回去掉前三个字符后的文本
+		}
+		else if (state_char == '2') 
+		{
+			// 设置龙状态为危机模式
+			if (dragon_control) 
+			{
+				dragon_control->SetState(DragonState::STATE_CRISIS);
+				dragon_control->set_physics_process(true);
+			}
+			return text.substr(3);
+		}
+	}
+	if (dragon_control) 	// 匹配失败，设置为禁用状态
+	{
+		if (Math::abs(dragon_control->GetLinearVelocity()) > 0.01f) 
+		{
+			dragon_animator->call_deferred("SetAnimation", "layer_wing_main", "lo_up");
+		}
+		dragon_animator->call_deferred("SetAnimation_Weight", "add_shake", 0.0f);
+		dragon_control->call_deferred("SetState", DragonState::STATE_DISABLED);
+		dragon_control->call_deferred("SetState", DragonState::STATE_DISABLED);
+		dragon_control->call_deferred("SetVelocityAngular", Vector3(0.0f, 0.0f, 0.0f));
+		tutorial_paper->call_deferred("set_position", Vector3(0.8f, 0.65f, 0.0f));
+	}
+	return text;
+}
+
+void Control_Scene_Tutorial::_input(const Ref<InputEvent> &event) 
+{
 	if (!event.is_valid()) return;
 	Ref<InputEventKey> key_event = event;
 	if (key_event.is_null()) return;
 	if (!key_event->is_pressed() || key_event->is_echo()) return; // 只处理按下的首次事件
 
-	// 向右：下一页
-	if (key_event->is_action_pressed("ui_right")) {
-		if (lines.size() == 0 || !tutorial_label) return;
-		// 边界保护：在最后一句时按右键无效果
-		if (current_index >= lines.size() - 1) {
-			return;
-		}
-		current_index += 1;
-		tutorial_label->set_text(lines[current_index]);
+	// Enter 或小键盘回车：下一页
+	if (key_event->get_keycode() == Key::KEY_ENTER || key_event->get_keycode() == Key::KEY_KP_ENTER) {
+		_goto_next_line();
 		return;
 	}
 
-	// 向左：上一页
-	if (key_event->is_action_pressed("ui_left")) {
-		if (lines.size() == 0 || !tutorial_label) return;
-		// 边界保护：在第一句时按左键无效果
-		if (current_index <= 0) {
-			return;
-		}
-		current_index -= 1;
-		tutorial_label->set_text(lines[current_index]);
+	// Backspace：上一页
+	if (key_event->get_keycode() == Key::KEY_BACKSPACE) {
+		_goto_prev_line();
 		return;
 	}
 }
 
-void Control_Scene_Tutorial::_on_back_button_pressed() {
+void Control_Scene_Tutorial::_physics_process(double delta)
+{
+	// 保持教程页逻辑每帧轮询 VR 手柄，且不影响键盘输入
+	// 仅当存在右手控制器并且龙控制为 VR 模式时才启用
+	if (hand_right && control_main && control_main->GetValEnableHeadset()) 
+	{
+		// A/B 为右手按钮。参考 DragonControlJoystick：按钮名使用 "ax_button" / "by_button"
+		float a_val = hand_right->get_float("ax_button");
+		float b_val = hand_right->get_float("by_button");
+		bool a_now = a_val > 0.5f;
+		bool b_now = b_val > 0.5f;
+
+		// 边沿触发：A 上一页，B 下一页
+		if (b_now && !b_button_prev) 
+		{
+			// VR 模式下：若已在最后一页，再次按 B 触发返回主页
+			if (tutorial_label && lines.size() > 0 && current_index >= lines.size() - 1) 
+			{
+				call_deferred("_on_back_button_pressed");
+			} 
+			else 
+			{
+				_goto_next_line();
+			}
+		}
+		if (a_now && !a_button_prev) 
+		{
+			_goto_prev_line();
+		}
+		a_button_prev = a_now;
+		b_button_prev = b_now;
+	}
+}
+
+void Control_Scene_Tutorial::_on_back_button_pressed() 
+{
 	// Get the scene tree and switch back to Scene_Home via Control_Main
 	UtilityFunctions::print("Back button pressed, returning to Scene_Home");
 	SceneTree *tree = get_tree();
-	if (!tree) {
+	if (!tree) 
+	{
 		UtilityFunctions::printerr("SceneTree not available");
 		return;
 	}
 	Window *root = tree->get_root();
-	if (!root) {
+	if (!root) 
+	{
 		UtilityFunctions::printerr("Root window not available");
 		return;
 	}
+
+	// 将camera_main恢复到原位
+	if (camera_main && root) 
+	{
+		Node *main_node = root->get_node_or_null(NodePath("Main"));
+		if (main_node) {
+			camera_main->reparent(main_node);
+			camera_main->call_deferred("set_transform", Transform3D(Basis(), Vector3(0.0f, 10.0f, 0.0f)));
+			Node* xr_origin = main_node->get_node_or_null(NodePath("Camera_Main/XR/XROrigin"));
+			if (xr_origin) 
+			{
+				xr_origin->call_deferred("set_position", Vector3(0.0f, 0.0f, 0.0f));
+				Node* sub_viewport_mesh = xr_origin->get_node_or_null(NodePath("XRCamera/SubViewportMesh"));
+				if (sub_viewport_mesh)
+				{
+					sub_viewport_mesh->queue_free();
+				}
+			}	
+			UtilityFunctions::print("Camera_Main restored to original position");
+		} else {
+			UtilityFunctions::printerr("Could not find Main node to restore camera");
+		}
+	}
+
 	// 优先使用已有缓存引用
-	if (!control_main) {
+	if (!control_main) 
+	{
 		// 再次尝试定位（支持直接运行子场景的情况）
 		Node *cm = root->get_node_or_null(NodePath("Main/Control_Main"));
-		if (!cm) {
+		if (!cm) 
+		{
 			cm = root->find_child("Control_Main", /*recursive*/ true, /*owned*/ false);
 		}
 		control_main = Object::cast_to<Control_Main>(cm);
 	}
-	if (control_main) {
+	if (control_main) 
+	{
 		control_main->call("Switch_Scene", "Scene_Home");
-	} else {
+	} 
+	else 
+	{
 		UtilityFunctions::printerr("Control_Scene_Tutorial: Control_Main not available to switch scene. Run from Main scene to enable navigation.");
 	}
 }
-
