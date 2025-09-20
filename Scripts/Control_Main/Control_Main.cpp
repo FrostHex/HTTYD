@@ -110,13 +110,10 @@ void Control_Main::Switch_Scene(const String &scene_name)
             node_cheat_sheet->set_name("CheatSheet");
             new_scene->add_child(memnew(Control_Scene_TD()));
         }
-        if (scene_name == "Scene_Tutorial")
-        {
-            // Attach tutorial controller to play simple dialog
-            new_scene->add_child(memnew(Control_Scene_Tutorial()));
-        }
+        // Scene_Tutorial已经在.tscn文件中包含了Control_Scene_Tutorial节点，不需要手动添加
         if (scene_name == "Scene_Home")
         {
+            // Scene_Home需要手动添加Control_Scene_Home节点，因为.tscn文件中没有包含
             Control_Scene_Home* control_home = memnew(Control_Scene_Home());
             new_scene->add_child(control_home);
         }

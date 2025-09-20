@@ -1,6 +1,6 @@
 {
-	"language": 1.0,
+	"language": 0.0,
 	"enable_headset": false,
 	"sub_view": true,
-	"debug": false
+	"debug": true
 }

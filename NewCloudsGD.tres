@@ -52,5 +52,5 @@ extra_large_scale_clouds_position = Vector3(105619.54, 0, 105619.54)
 large_scale_clouds_position = Vector3(1249.6544, 0, 1249.6544)
 medium_scale_clouds_position = Vector3(-6001.6787, 0, -6001.6787)
 detail_clouds_position = Vector3(80.20423, 80.20423, 80.20423)
-current_time = 744.6368165892352
+current_time = 5653.397572373543
 directional_lights_data = Array[Vector4]([Vector4(0.5, 1, 0.5, 16), Vector4(1, 1, 1, 1)])

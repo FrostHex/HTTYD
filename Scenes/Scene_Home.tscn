@@ -1,7 +1,92 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgb4s7fjr6q1e"]
+[gd_scene load_steps=17 format=3 uid="uid://dgb4s7fjr6q1e"]
 
+[ext_resource type="Texture2D" uid="uid://nxqdv1m6j7pw" path="res://Environment/Ocean/assets/skybox.png" id="1_cm807"]
 [ext_resource type="Script" uid="uid://cehr1okrnyy7i" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="2_h51dc"]
 [ext_resource type="Script" uid="uid://bcumf8556pakv" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="3_h51dc"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wbj3w"]
+panorama = ExtResource("1_cm807")
+
+[sub_resource type="Sky" id="Sky_cm807"]
+sky_material = SubResource("PanoramaSkyMaterial_wbj3w")
+
+[sub_resource type="Environment" id="Environment_cayul"]
+background_mode = 2
+sky = SubResource("Sky_cm807")
+tonemap_mode = 3
+tonemap_exposure = 0.8
+tonemap_white = 6.0
+ssao_enabled = true
+ssao_power = 3.0
+ssao_sharpness = 1.0
+ssao_light_affect = 1.0
+ssao_ao_channel_affect = 1.0
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.0
+sdfgi_cascades = 5
+glow_enabled = true
+glow_intensity = 0.1
+glow_blend_mode = 1
+glow_hdr_threshold = 2.0
+fog_mode = 1
+fog_light_color = Color(0.272954, 0.419272, 0.484632, 1)
+fog_sun_scatter = 0.05
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_curve = 0.25
+fog_depth_begin = 200.0
+fog_depth_end = 350.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 20000.0
+adjustment_enabled = true
+adjustment_brightness = 0.85
+adjustment_contrast = 1.07
+adjustment_saturation = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Normal"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.35, 0.35, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Pressed"]
+bg_color = Color(0.16, 0.5, 0.16, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.24, 0.75, 0.24, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Hover"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.45, 0.45, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Theme" id="Theme_Settings"]
+CheckButton/styles/focus = SubResource("StyleBoxFlat_Normal")
+CheckButton/styles/focus_pressed = SubResource("StyleBoxFlat_Pressed")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_Hover")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_Pressed")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_Normal")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_Pressed")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pkqoq"]
 size = Vector2(5, 5)
@@ -11,64 +96,35 @@ size = Vector2(5, 5)
 [sub_resource type="QuadMesh" id="QuadMesh_1"]
 size = Vector2(1590, 900)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_h51dc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cm807"]
 viewport_path = NodePath("XRToolsViewport2DIn3D/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h51dc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbj3w"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_h51dc")
+albedo_texture = SubResource("ViewportTexture_cm807")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(1590, 900, 0.02)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Normal"]
-bg_color = Color(0.15, 0.15, 0.15, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_left = 6
-corner_radius_bottom_right = 6
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_width_left = 1
-border_color = Color(0.35, 0.35, 0.35, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Hover"]
-bg_color = Color(0.2, 0.2, 0.2, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_left = 6
-corner_radius_bottom_right = 6
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_width_left = 1
-border_color = Color(0.45, 0.45, 0.45, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Pressed"]
-bg_color = Color(0.16, 0.5, 0.16, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_left = 6
-corner_radius_bottom_right = 6
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_width_left = 1
-border_color = Color(0.24, 0.75, 0.24, 1)
-
-[sub_resource type="Theme" id="Theme_Settings"]
-types = ["CheckButton"]
-CheckButton/styles/normal = SubResource("StyleBoxFlat_Normal")
-CheckButton/styles/hover = SubResource("StyleBoxFlat_Hover")
-CheckButton/styles/pressed = SubResource("StyleBoxFlat_Pressed")
-CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_Pressed")
-CheckButton/styles/focus = SubResource("StyleBoxFlat_Normal")
-CheckButton/styles/focus_pressed = SubResource("StyleBoxFlat_Pressed")
-
 [node name="Scene_Home" type="Node3D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cayul")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.6102881, 0.7285539, 0.31105897, 0.52890104, 0.082408264, 0.8446731, 0.5897561, 0.68001324, -0.43562573, 250, 1003.33, -2800)
+light_indirect_energy = 8.0
+shadow_enabled = true
+shadow_bias = 0.05
+shadow_blur = 0.5
+directional_shadow_split_1 = 0.02
+directional_shadow_split_2 = 0.06
+directional_shadow_split_3 = 0.25
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.9
+directional_shadow_max_distance = 400.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 offset_top = -4.999996
@@ -92,37 +148,37 @@ offset_bottom = 40.0
 
 [node name="Button_Settings" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 634.4827
-offset_top = 648.2759
-offset_right = 958.6205
-offset_bottom = 864.8276
+offset_left = 636.5521
+offset_top = 518.1738
+offset_right = 960.6899
+offset_bottom = 734.72546
 focus_mode = 0
 text = "Settings"
 
 [node name="Button_Tutorial" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 98.2759
-offset_top = 336.5517
-offset_right = 422.4137
-offset_bottom = 553.1034
+offset_left = 220.00041
+offset_top = 224.3808
+offset_right = 544.1383
+offset_bottom = 440.9325
 focus_mode = 0
 text = "Note Book"
 
 [node name="Button_Practice" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 624.8276
-offset_top = 335.1724
-offset_right = 948.96545
-offset_bottom = 551.7241
+offset_left = 642.0694
+offset_top = 223.00146
+offset_right = 966.2073
+offset_bottom = 439.5532
 focus_mode = 0
 text = "Flight Practice"
 
 [node name="Button_TD" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 1151.7241
-offset_top = 336.5517
-offset_right = 1475.8618
-offset_bottom = 553.1034
+offset_left = 1064.1382
+offset_top = 224.3808
+offset_right = 1388.2759
+offset_bottom = 440.93246
 focus_mode = 0
 text = "Test Drive"
 
@@ -196,7 +252,6 @@ text = "Enable Headset:"
 
 [node name="EnableHeadset_CheckBox" type="CheckButton" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container"]
 layout_mode = 2
-toggle_mode = true
 focus_mode = 0
 
 [node name="SubView_Container" type="HBoxContainer" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content"]
@@ -209,7 +264,6 @@ text = "Sub View:"
 
 [node name="SubView_CheckBox" type="CheckButton" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/SubView_Container"]
 layout_mode = 2
-toggle_mode = true
 focus_mode = 0
 
 [node name="Debug_Container" type="HBoxContainer" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content"]
@@ -222,7 +276,6 @@ text = "Debug:"
 
 [node name="Debug_CheckBox" type="CheckButton" parent="SubViewportContainer/Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Debug_Container"]
 layout_mode = 2
-toggle_mode = true
 focus_mode = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -253,7 +306,7 @@ render_target_update_mode = 1
 transform = Transform3D(-4.371139e-11, 0, -0.001, 0, 0.001, 0, 0.001, 0, -4.371139e-11, 1.330712, 1.0210727, 0)
 mesh = SubResource("QuadMesh_1")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_h51dc")
+surface_material_override/0 = SubResource("StandardMaterial3D_wbj3w")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="XRToolsViewport2DIn3D"]
 transform = Transform3D(-4.371139e-11, 0, -0.001, 0, 0.001, 0, 0.001, 0, -4.371139e-11, 1.330712, 1.0210727, 0)

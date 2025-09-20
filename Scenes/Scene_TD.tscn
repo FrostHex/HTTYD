@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bftovvm0selct"]
+[gd_scene load_steps=21 format=3 uid="uid://bftovvm0selct"]
 
 [ext_resource type="Texture2D" uid="uid://nxqdv1m6j7pw" path="res://Environment/Ocean/assets/skybox.png" id="1_3jyqp"]
 [ext_resource type="Material" uid="uid://bcw5plagb6daq" path="res://Environment/Fog/volumetric_fog.tres" id="2_h2c8m"]
-[ext_resource type="PackedScene" uid="uid://dx4r13gqfh13" path="res://Scenes/Ocean.tscn" id="3_m3vbg"]
 [ext_resource type="PackedScene" uid="uid://8fvlc7181mcm" path="res://Scenes/Mountain.tscn" id="4_yiqy3"]
 [ext_resource type="PackedScene" uid="uid://ba5uke360oepc" path="res://Scenes/Tree.tscn" id="5_c5bm5"]
 [ext_resource type="PackedScene" uid="uid://cly3287m20uwj" path="res://Scenes/Rocks/Pillar/Rock_Pillar_A.tscn" id="6_ooqpm"]
@@ -22,12 +21,12 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rgh2o"]
 panorama = ExtResource("1_3jyqp")
 
-[sub_resource type="Sky" id="Sky_vroi3"]
+[sub_resource type="Sky" id="Sky_urilc"]
 sky_material = SubResource("PanoramaSkyMaterial_rgh2o")
 
 [sub_resource type="Environment" id="Environment_pbw6q"]
 background_mode = 2
-sky = SubResource("Sky_vroi3")
+sky = SubResource("Sky_urilc")
 tonemap_mode = 3
 tonemap_exposure = 0.8
 tonemap_white = 6.0
@@ -82,9 +81,6 @@ directional_shadow_max_distance = 400.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -718.279, 115.899, 3129.9905)
 size = Vector3(3229.85, 862.143, 5509.701)
 material = ExtResource("2_h2c8m")
-
-[node name="Ocean" parent="." instance=ExtResource("3_m3vbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.019, 5.589, 14.02)
 
 [node name="Mountain" parent="." instance=ExtResource("4_yiqy3")]
 transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, -260.464, 429.788, -765.437)

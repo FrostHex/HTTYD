@@ -1,12 +1,95 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmp4elrtjke2y"]
+[gd_scene load_steps=11 format=3 uid="uid://dmp4elrtjke2y"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_kwuhg"]
+[ext_resource type="Texture2D" uid="uid://nxqdv1m6j7pw" path="res://Environment/Ocean/assets/skybox.png" id="1_unsya"]
+[ext_resource type="Texture2D" uid="uid://dbk3xtf5w0l6k" path="res://Image/paper.png" id="2_paper"]
+[ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="3_037q7"]
+[ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="4_exo1t"]
+[ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="5_exo1t"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5kfbp"]
+panorama = ExtResource("1_unsya")
+
+[sub_resource type="Sky" id="Sky_vroi3"]
+sky_material = SubResource("PanoramaSkyMaterial_5kfbp")
+
+[sub_resource type="Environment" id="Environment_7iq0u"]
+background_mode = 2
+sky = SubResource("Sky_vroi3")
+tonemap_mode = 3
+tonemap_exposure = 0.8
+tonemap_white = 6.0
+ssao_enabled = true
+ssao_power = 3.0
+ssao_sharpness = 1.0
+ssao_light_affect = 1.0
+ssao_ao_channel_affect = 1.0
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.0
+sdfgi_cascades = 5
+glow_enabled = true
+glow_intensity = 0.1
+glow_blend_mode = 1
+glow_hdr_threshold = 2.0
+fog_mode = 1
+fog_light_color = Color(0.272954, 0.419272, 0.484632, 1)
+fog_sun_scatter = 0.05
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_curve = 0.25
+fog_depth_begin = 200.0
+fog_depth_end = 350.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 20000.0
+adjustment_enabled = true
+adjustment_brightness = 0.85
+adjustment_contrast = 1.07
+adjustment_saturation = 1.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_paper"]
+size = Vector2(4, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paper"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.9)
+albedo_texture = ExtResource("2_paper")
 
 [node name="Scene_Tutorial" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1093845, 0, 0)
-mesh = SubResource("BoxMesh_kwuhg")
+[node name="Control_Scene_Tutorial" type="Control_Scene_Tutorial" parent="."]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7iq0u")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.6102881, 0.72855395, 0.31105894, 0.52890104, 0.08240829, 0.8446731, 0.5897561, 0.6800133, -0.4356257, 250, 1003.33, -2800)
+light_indirect_energy = 8.0
+shadow_enabled = true
+shadow_bias = 0.05
+shadow_blur = 0.5
+directional_shadow_split_1 = 0.02
+directional_shadow_split_2 = 0.06
+directional_shadow_split_3 = 0.25
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.9
+directional_shadow_max_distance = 400.0
+
+[node name="TutorialPaper" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-09, 0.025881905, -0.09659258, 0, 0.09659258, 0.025881905, 0.1, 1.131334e-09, -4.222196e-09, 0.8, 10.6, 0)
+mesh = SubResource("QuadMesh_paper")
+surface_material_override/0 = SubResource("StandardMaterial3D_paper")
+
+[node name="TutorialText" type="Label3D" parent="TutorialPaper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+pixel_size = 0.006
+modulate = Color(0.2, 0.2, 0.2, 1)
+outline_modulate = Color(1, 1, 1, 0.5)
+text = "I think I need to practice more on these basic manoeuvres."
+outline_size = 2
+autowrap_mode = 3
+width = 380.0
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -26,3 +109,11 @@ offset_right = 150.0
 offset_bottom = -20.0
 grow_vertical = 0
 text = "Back"
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 8, 0)
+material_override = ExtResource("3_037q7")
+mesh = ExtResource("4_exo1t")
+
+[node name="Dragon" parent="." instance=ExtResource("5_exo1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0)

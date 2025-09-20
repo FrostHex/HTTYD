@@ -54,7 +54,7 @@ void Control_Scene_Home::_ready()
             if (String(btn_name) == "Button_Tutorial") {
                 scene_name = "Scene_Tutorial";
             } else if (String(btn_name) == "Button_Practice") {
-                scene_name = "Scene_Tutorial"; // Practice also goes to Tutorial for now
+                // scene_name = "Scene_Tutorial"; // Practice also goes to Tutorial for now
             } else {
                 scene_name = "Scene_" + String(btn_name).replace("Button_", "");
             }

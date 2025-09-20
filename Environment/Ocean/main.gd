@@ -16,6 +16,9 @@ func _init() -> void:
 	DisplayServer.window_set_position(DisplayServer.screen_get_size() * 0.25 / 2.0)
 
 func _physics_process(delta: float) -> void:
+	if not camera or not is_instance_valid(camera) or not camera.is_inside_tree():
+		return
+		
 	# Shift water mesh whenever player moves into a new tile.
 	var tile := (Vector3(camera.global_position.x, 0.0, camera.global_position.z) / clipmap_tile_size).ceil()
 	if not tile.is_equal_approx(previous_tile):
