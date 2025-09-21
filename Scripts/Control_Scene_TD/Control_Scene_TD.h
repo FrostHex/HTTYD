@@ -32,6 +32,16 @@ namespace godot
             void Initialize_TimerList();
             void Start_Timer();
             void TakeRest();
+            void AutoSave(); // 自动存档方法
+            // 成就与徽章逻辑
+            void _on_td_area_1_body_entered(Node* body);
+            void _on_td_area_2_body_entered(Node* body);
+            void _update_badge_on_completion();
+            bool visited_area_1 = false;
+            bool visited_area_2 = false;
+            bool used_load_state = false; // 本轮是否使用过读档
+            Node* td_area_1 = nullptr;
+            Node* td_area_2 = nullptr;
             Control_Main* control_main = nullptr; // reference to Control_Main for accessing shared variables
             DragonControlTop* dragon_control;
             DragonAnimator *dragon_animator;

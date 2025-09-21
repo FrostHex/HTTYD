@@ -55,6 +55,7 @@ no_depth_test = true
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.9)
 albedo_texture = ExtResource("2_paper")
+cull_mode = 2
 
 [node name="Scene_Tutorial" type="Node3D"]
 

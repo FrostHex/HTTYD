@@ -1,6 +1,7 @@
 #include "Control_Main.h"
 #include "Control_Scene_Home.h"
 #include "Control_Scene_TD.h"
+#include "Control_Scene_Practice.h"
 #include "Control_Scene_Tutorial.h"
 #include "DragonAnimator.h"
 #include "CheatSheet.h"
@@ -54,17 +55,22 @@ void Control_Main::_ready()
     {
         DisplayServer::get_singleton()->window_set_vsync_mode(DisplayServer::VSYNC_DISABLED);
         Ref<XRInterface> xr_interface = XRServer::get_singleton()->find_interface("OpenXR");
-        if (!xr_interface.is_valid()) {
+        if (!xr_interface.is_valid()) 
+        {
             UtilityFunctions::printerr("[OpenXR] Interface not found. Ensure OpenXR is available in this export template.");
-        } else {
+        } 
+        else 
+        {
             UtilityFunctions::print("[OpenXR] Interface found: ", xr_interface->get_name());
-            if (xr_interface->initialize()) {
+            if (xr_interface->initialize()) 
+            {
                 UtilityFunctions::print("[OpenXR] Initialize OK");
                 // Set primary interface for XR rendering
                 XRServer::get_singleton()->set_primary_interface(xr_interface);
 
                 Viewport* main_viewport = get_viewport();
-                if (main_viewport) {
+                if (main_viewport) 
+                {
                     main_viewport->set_use_xr(true);
                 }
             } else {
@@ -93,14 +99,19 @@ void Control_Main::Switch_Scene(const String &scene_name)
         Node *parent = get_parent();
         PackedStringArray scene_names = PackedStringArray();
         scene_names.push_back("Scene_Home");
-        scene_names.push_back("Scene_TD");
         scene_names.push_back("Scene_Tutorial");
+        scene_names.push_back("Scene_Practice");
+        scene_names.push_back("Scene_TD");
+
         
-        for (int i = 0; i < scene_names.size(); i++) {
+        for (int i = 0; i < scene_names.size(); i++) 
+        {
             String current_scene_name = scene_names[i];
-            if (current_scene_name != scene_name) {
+            if (current_scene_name != scene_name) 
+            {
                 Node *current_scene = parent->get_node_or_null(NodePath(current_scene_name));
-                if (current_scene) {
+                if (current_scene) 
+                {
                     current_scene->queue_free();
                 }
             }
@@ -208,6 +219,20 @@ void Control_Main::SetValLanguage(int val)
     notify_property_list_changed();
 }
 
+/**
+ * @brief set the badge value (0-3)
+ * @param val the badge value to set
+ */
+void Control_Main::SetValBadge(int val)
+{
+    badge = val;
+    if (!is_loading_settings && save_manager) 
+    {
+        SaveSettings();
+    }
+    notify_property_list_changed();
+}
+
 
 void Control_Main::_bind_methods()
 {
@@ -226,6 +251,9 @@ void Control_Main::_bind_methods()
     ClassDB::bind_method(D_METHOD("debug_setter", "value"), &Control_Main::SetValDebug);
     ClassDB::bind_method(D_METHOD("debug_getter"), &Control_Main::GetValDebug);
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "Debug"), "debug_setter", "debug_getter");
+    ClassDB::bind_method(D_METHOD("badge_setter", "value"), &Control_Main::SetValBadge);
+    ClassDB::bind_method(D_METHOD("badge_getter"), &Control_Main::GetValBadge);
+    ADD_PROPERTY(PropertyInfo(Variant::INT, "Badge", PROPERTY_HINT_RANGE, "0,3"), "badge_setter", "badge_getter");
 }
 
 
@@ -256,6 +284,10 @@ void Control_Main::LoadSettings()
         SetValDebug(static_cast<bool>(settings["debug"]));
     }
     
+    if (settings.has("badge")) {
+        SetValBadge(static_cast<int>(settings["badge"]));
+    }
+    
     is_loading_settings = false; // Clear flag after loading
     UtilityFunctions::print("Settings loaded and applied");
     notify_property_list_changed();
@@ -275,6 +307,7 @@ void Control_Main::SaveSettings()
     settings["enable_headset"] = GetValEnableHeadset();
     settings["sub_view"] = GetValSubView();
     settings["debug"] = GetValDebug();
+    settings["badge"] = GetValBadge();
     
     save_manager->Settings_Save(settings);
     UtilityFunctions::print("Settings saved");
@@ -301,6 +334,7 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
         {            
             godot::ClassDB::register_class<Control_Main>();
             godot::ClassDB::register_class<Control_Scene_TD>();
+            godot::ClassDB::register_class<Control_Scene_Practice>();
             godot::ClassDB::register_class<Control_Scene_Tutorial>();
             godot::ClassDB::register_class<Control_Scene_Home>();
             godot::ClassDB::register_abstract_class<DragonControlTop>();

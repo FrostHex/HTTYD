@@ -39,9 +39,11 @@ namespace godot
             void _on_sub_view_toggled(bool pressed);
             void _on_debug_toggled(bool pressed);
             void _update_button_texts(); // Helper function to update button texts
+            void _update_badge_display(); // Helper function to update badge display
             String _get_json_text(const String& key, const String& fallback = ""); // Helper function to get text from JSON
             Node* viewport_container = nullptr;
             Node* settings_panel = nullptr;
+            Node* badge_icon = nullptr; // Badge display node
     };
 }
 

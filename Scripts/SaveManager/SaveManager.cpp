@@ -271,7 +271,13 @@ void SaveManager::Settings_Save(const Dictionary& settings_data)
     // Add debug setting
     if (settings_data.has("debug")) 
     {
-        json_content += "\t\"debug\": " + String(static_cast<bool>(settings_data["debug"]) ? "true" : "false") + "\n";
+        json_content += "\t\"debug\": " + String(static_cast<bool>(settings_data["debug"]) ? "true" : "false") + ",\n";
+    }
+    
+    // Add badge setting
+    if (settings_data.has("badge")) 
+    {
+        json_content += "\t\"badge\": " + String::num(static_cast<int>(settings_data["badge"])) + "\n";
     }
     
     json_content += "}";
@@ -325,6 +331,7 @@ Dictionary SaveManager::Settings_Load()
         default_settings["enable_headset"] = false;
         default_settings["sub_view"] = true;
         default_settings["debug"] = false;
+        default_settings["badge"] = 0; // 初始徽章为0（透明）
         
         Settings_Save(default_settings);
         UtilityFunctions::print("Created default settings file.");

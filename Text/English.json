@@ -26,6 +26,11 @@
         "That went pretty well. I think now I should take a look at the place for the test drive."
     ],
 
+    "practice":
+    [
+        "(In VR mode, please press B to switch dragon state, A to quit.\nIn non-VR mode, please press Enter to switch dragon state, Backspace to quit)"
+    ],
+
     "button_settings": "Settings",
     "button_back": "Back",
     "button_tutorial": "Note Book",

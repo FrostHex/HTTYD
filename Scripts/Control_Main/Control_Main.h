@@ -33,6 +33,8 @@ namespace godot
             bool GetValDebug() const { return debug; }
             void SetValLanguage(int val);
             int GetValLanguage() const { return static_cast<int>(language); }
+            void SetValBadge(int val);
+            int GetValBadge() const { return badge; }
             void LoadSettings();
             void SaveSettings();
 
@@ -44,6 +46,7 @@ namespace godot
             bool sub_view = true;
             bool debug = false; // debug mode
             Language language = LANGUAGE_ENGLISH; // default language
+            int badge = 0; // 徽章状态：0-透明，1-3对应不同徽章图片
             Node3D* camera_main = nullptr;
             SaveManager* save_manager = nullptr;
             bool is_loading_settings = false; // flag to prevent saving during loading

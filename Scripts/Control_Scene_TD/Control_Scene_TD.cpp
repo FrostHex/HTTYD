@@ -98,6 +98,20 @@ void Control_Scene_TD::_ready()
     add_child(save_manager);
     audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
 
+    // 连接成就区域信号（若存在）
+    td_area_1 = get_parent()->get_node_or_null(NodePath("TD_Area_1"));
+    td_area_2 = get_parent()->get_node_or_null(NodePath("TD_Area_2"));
+    if (td_area_1) {
+        td_area_1->connect("body_entered", Callable(this, "_on_td_area_1_body_entered"));
+    } else {
+        UtilityFunctions::push_warning("Control_Scene_TD: TD_Area_1 not found in Scene_TD.tscn root. Achievements area1 disabled.");
+    }
+    if (td_area_2) {
+        td_area_2->connect("body_entered", Callable(this, "_on_td_area_2_body_entered"));
+    } else {
+        UtilityFunctions::push_warning("Control_Scene_TD: TD_Area_2 not found in Scene_TD.tscn root. Achievements area2 disabled.");
+    }
+
     Initialize_TimerList();
     call_deferred("Start_Timer"); // postpone for one frame to ensure the scene is fully initialized and rendered
 }
@@ -113,6 +127,7 @@ void Control_Scene_TD::Initialize_TimerList()
         timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
     }
     timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
+    timer->Timer_AddEvent(3.0f, Callable(this, "AutoSave"));
     timer->Timer_AddEvent(16.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // disable the default animations
     timer->Timer_AddEvent(16.8f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close")); // the tail wing folds
     timer->Timer_AddEvent(17.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide")); // the tail wing is now fully extended
@@ -180,6 +195,7 @@ void Control_Scene_TD::Initialize_TimerList()
     timer->Timer_AddEvent(106.5f, Callable(ctrl_camera, "GrabSaddle")); // grab the saddle
     timer->Timer_AddEvent(106.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.5f)); // Toothless opens his mouth
     timer->Timer_AddEvent(108.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_dive")); // change the animation to po_dive
+    timer->Timer_AddEvent(112.5f, Callable(this, "AutoSave"));
     timer->Timer_AddEvent(113.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_crisis"));
     timer->Timer_AddEvent(113.8f, Callable(dragon_control, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Final/Rock_Pillar_E_01")->get_global_transform().origin + Vector3(0, 15, 0), 9.5f)); // glide diagonal downwards
     timer->Timer_AddEvent(113.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
@@ -226,6 +242,28 @@ void Control_Scene_TD::TakeRest()
     dragon_animator->SetAnimation("layer_wing_main", "po_rest");
     ctrl_camera->camera_main->set_position(Vector3(-0.55f, -0.405f, -2.135f));
     ctrl_camera->camera_main->set_rotation(Vector3(Math::deg_to_rad(0.0f), Math::deg_to_rad(-20.1f), Math::deg_to_rad(0.0f)));
+
+    // 完成本次 Test Drive，更新徽章
+    _update_badge_on_completion();
+}
+
+void Control_Scene_TD::AutoSave()
+{
+    if (save_manager && timer && dragon_control) 
+    {
+        Dictionary data_all;
+        data_all["time"] = timer->Timer_GetTimeElapsed();
+        Dictionary data_dragon = dragon_control->GetStatus();
+        Array keys = data_dragon.keys();
+        for (int i = 0; i < keys.size(); i++) 
+        {
+            Variant key = keys[i];
+            Variant value = data_dragon[key];
+            data_all[key] = value;
+        }
+        save_manager->State_Save(data_all);
+        UtilityFunctions::print("Auto-saved at time: ", timer->Timer_GetTimeElapsed());
+    }
 }
 
 
@@ -286,6 +324,13 @@ void Control_Scene_TD::_input(const Ref<InputEvent> &event)
         dragon_control->SetStatus(data_all); 
         dragon_control->time_to_target = 0.1f;
         ctrl_camera->SetCameraStabilized(false);
+        used_load_state = true;
+        // 加载存档后只清除 Area2 的触发记录
+        if (visited_area_2) 
+        {
+            UtilityFunctions::print("[TD] load_state: clearing Area2 visited flag");
+        }
+        visited_area_2 = false;
     }
 }
 
@@ -306,4 +351,49 @@ void Control_Scene_TD::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("Start_Timer"), &Control_Scene_TD::Start_Timer);
     ClassDB::bind_method(D_METHOD("TakeRest"), &Control_Scene_TD::TakeRest);
+    ClassDB::bind_method(D_METHOD("AutoSave"), &Control_Scene_TD::AutoSave);
+    ClassDB::bind_method(D_METHOD("_on_td_area_1_body_entered", "body"), &Control_Scene_TD::_on_td_area_1_body_entered);
+    ClassDB::bind_method(D_METHOD("_on_td_area_2_body_entered", "body"), &Control_Scene_TD::_on_td_area_2_body_entered);
+}
+
+// 区域信号回调：当 Toothless（RigidBody3D 在 Dragon.tscn 中）进入区域时标记
+void Control_Scene_TD::_on_td_area_1_body_entered(Node* body)
+{
+    if (!body) return;
+    // 只在主龙体进入时计数：名称为 "Dragon" 的 RigidBody3D
+    if (Object::cast_to<RigidBody3D>(body) && body->get_name() == StringName("Dragon")) {
+        visited_area_1 = true;
+        UtilityFunctions::print("[TD] Area1 triggered by ", body->get_name());
+    }
+}
+
+void Control_Scene_TD::_on_td_area_2_body_entered(Node* body)
+{
+    if (!body) return;
+    if (Object::cast_to<RigidBody3D>(body) && body->get_name() == StringName("Dragon")) {
+        visited_area_2 = true;
+        UtilityFunctions::print("[TD] Area2 triggered by ", body->get_name());
+    }
+}
+
+// 完成后更新徽章：若 badge < 1 则设为 1；若两个区域都进过且 badge < 2 则设为 2
+void Control_Scene_TD::_update_badge_on_completion()
+{
+    if (!control_main) return;
+    int current_badge = control_main->GetValBadge();
+    int target_badge = current_badge;
+    if (current_badge < 1) {
+        target_badge = 1;
+    }
+    if (visited_area_1 && visited_area_2 && current_badge < 2) {
+        target_badge = 2;
+    }
+    // 额外：未用过 load_state 且两个区域都触发 → 设为 3
+    if (!used_load_state && visited_area_1 && visited_area_2 && current_badge < 3) {
+        target_badge = 3;
+    }
+    if (target_badge != current_badge) {
+        control_main->SetValBadge(target_badge);
+        UtilityFunctions::print("Badge updated to ", target_badge);
+    }
 }

@@ -84,10 +84,10 @@ void Control_Camera::_ready()
             xr_position_initialized = false;
             set_physics_process(true);
         }
-        // else
-        // {
-        //     xr_node->queue_free();
-        // }
+        else
+        {
+            xr_node->set_visible(false);
+        }
 
         if (control_main->GetValSubView())
         {

@@ -10,6 +10,9 @@
 #include <godot_cpp/classes/xr_interface.hpp>
 #include <godot_cpp/classes/file_access.hpp>
 #include <godot_cpp/classes/json.hpp>
+#include <godot_cpp/classes/texture_rect.hpp>
+#include <godot_cpp/classes/resource_loader.hpp>
+#include <godot_cpp/classes/texture2d.hpp>
 
 using namespace godot;
 
@@ -67,6 +70,17 @@ void Control_Scene_Home::_ready()
     // Load and set button texts from JSON file based on current language
     _update_button_texts();
 
+    // Get badge icon reference and update display
+    badge_icon = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Button_TD/Badge_Icon");
+    if (badge_icon) 
+    {
+        _update_badge_display();
+    }
+    else 
+    {
+        UtilityFunctions::printerr("Control_Scene_Home: Could not find Badge_Icon");
+    }
+
     const char* button_names[] = { "Button_TD", "Button_Tutorial", "Button_Practice" };
     for (const char* btn_name : button_names) 
     {
@@ -74,11 +88,16 @@ void Control_Scene_Home::_ready()
         if (button) 
         {
             String scene_name;
-            if (String(btn_name) == "Button_Tutorial") {
+            if (String(btn_name) == "Button_Tutorial") 
+            {
                 scene_name = "Scene_Tutorial";
-            } else if (String(btn_name) == "Button_Practice") {
-                // scene_name = "Scene_Tutorial"; // Practice also goes to Tutorial for now
-            } else {
+            } 
+            else if (String(btn_name) == "Button_Practice") 
+            {
+                scene_name = "Scene_Practice";
+            } 
+            else 
+            {
                 scene_name = "Scene_" + String(btn_name).replace("Button_", "");
             }
             button->connect("pressed", Callable(this, "_on_button_pressed").bind(scene_name));
@@ -298,6 +317,60 @@ void Control_Scene_Home::_on_debug_toggled(bool pressed)
     }
 }
 
+void Control_Scene_Home::_update_badge_display()
+{
+    if (!badge_icon || !control_main) 
+    {
+        return;
+    }
+
+    TextureRect* texture_rect = Object::cast_to<TextureRect>(badge_icon);
+    if (!texture_rect) 
+    {
+        UtilityFunctions::printerr("Badge_Icon is not a TextureRect");
+        return;
+    }
+
+    int badge_value = control_main->GetValBadge();
+    String texture_path;
+
+    switch (badge_value) 
+    {
+        case 0:
+            // 透明/无徽章 - 设置为null或透明纹理
+            texture_rect->set_texture(Ref<Texture2D>());
+            texture_rect->set_visible(false);
+            break;
+        case 1:
+            texture_path = "res://Image/badge_1.png";
+            break;
+        case 2:
+            texture_path = "res://Image/badge_2.png";
+            break;
+        case 3:
+            texture_path = "res://Image/badge_3.png";
+            break;
+        default:
+            UtilityFunctions::printerr("Invalid badge value: ", badge_value);
+            return;
+    }
+
+    if (badge_value > 0) 
+    {
+        Ref<Texture2D> texture = ResourceLoader::get_singleton()->load(texture_path);
+        if (texture.is_valid()) 
+        {
+            texture_rect->set_texture(texture);
+            texture_rect->set_visible(true);
+            UtilityFunctions::print("Badge updated to: ", badge_value, " using texture: ", texture_path);
+        } 
+        else 
+        {
+            UtilityFunctions::printerr("Failed to load badge texture: ", texture_path);
+            texture_rect->set_visible(false);
+        }
+    }
+}
 
 void Control_Scene_Home::_bind_methods()
 {
@@ -308,4 +381,5 @@ void Control_Scene_Home::_bind_methods()
     ClassDB::bind_method(D_METHOD("_on_enable_headset_toggled", "pressed"), &Control_Scene_Home::_on_enable_headset_toggled);
     ClassDB::bind_method(D_METHOD("_on_sub_view_toggled", "pressed"), &Control_Scene_Home::_on_sub_view_toggled);
     ClassDB::bind_method(D_METHOD("_on_debug_toggled", "pressed"), &Control_Scene_Home::_on_debug_toggled);
+    ClassDB::bind_method(D_METHOD("_update_badge_display"), &Control_Scene_Home::_update_badge_display);
 }
