@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cg5w2p5oh71ys"]
+[gd_scene load_steps=27 format=4 uid="uid://cg5w2p5oh71ys"]
 
 [ext_resource type="Texture2D" uid="uid://nxqdv1m6j7pw" path="res://Environment/Ocean/assets/skybox.png" id="1_7pm0g"]
 [ext_resource type="PackedScene" uid="uid://8fvlc7181mcm" path="res://Scenes/Mountain.tscn" id="3_iknak"]
@@ -60,11 +60,81 @@ size = Vector2(4, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_558l6"]
 transparency = 1
+cull_mode = 2
 no_depth_test = true
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.9)
 albedo_texture = ExtResource("12_b4lvp")
-cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hvyi"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.2, 0.8, 1, 0.4)
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20r2v"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_g8k65"]
+_surfaces = [{
+"aabb": AABB(-0.40168804, -0.40000013, -0.20000003, 2.198292, 0.8000001, 0.20000006),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAAAEAAEAAgAFAAMAAgABAAUAAAADAAYABAAAAAYABgADAAUAAQAEAAcABAAGAAcAAQAHAAUABgAFAAcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/UDdutDMzL5WtAEzA0PduszMzD5TtAGzHvflP2SkETQSejioHvflP9ptATTNzEy+DqrNvnRAArOS+yQnA0PdusvMzD7PzEy+/UDdutHMzL7LzEy+DqrNvp4aQ7PNzEy+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rcyfx"]
+resource_name = "untitled_Grid"
+_surfaces = [{
+"aabb": AABB(-0.40168804, -0.40000013, -0.20000003, 2.198292, 0.8000001, 0.20000006),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_20r2v"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/UDdutDMzL5WtAEzA0PduszMzD5TtAGzHvflP2SkETQSejioDqrNvnRAArOS+yQn/UDdutHMzL7LzEy+A0PdusvMzD7PzEy+DqrNvp4aQ7PNzEy+HvflP9ptATTNzEy+HvflP2SkETQSejioA0PdusvMzD7PzEy+HvflP9ptATTNzEy+A0PduszMzD5TtAGzDqrNvnRAArOS+yQn/UDdutHMzL7LzEy+DqrNvp4aQ7PNzEy+/UDdutDMzL5WtAEz/UDdutDMzL5WtAEzHvflP9ptATTNzEy+/UDdutHMzL7LzEy+HvflP2SkETQSejioA0PduszMzD5TtAGzDqrNvp4aQ7PNzEy+A0PdusvMzD7PzEy+DqrNvnRAArOS+yQn/3//f////z//f/9/////P/9//3////8//3//f////z//////////v/////////+//////////7//////////v0mXtej///+/SZe16P///79Jl7Xo////v0mXtej///+//z//P////7//P/8/////v/8//z////+//z//P////79Jl0kX////v0mXSRf///+/SZdJF////79Jl0kX////v/8//7////+//z//v////7//P/+/////v/8//7////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_g8k65")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pm0g"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_558l6"]
+_surfaces = [{
+"aabb": AABB(-0.40168804, -0.40000013, -0.20000003, 2.198292, 0.8000001, 0.20000006),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAAAEAAEAAgAFAAMAAgABAAUAAAADAAYABAAAAAYABgADAAUAAQAEAAcABAAGAAcAAQAHAAUABgAFAAcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/UDdutDMzL5WtAEzA0PduszMzD5TtAGzHvflP2SkETQSejioHvflP9ptATTNzEy+DqrNvnRAArOS+yQnA0PdusvMzD7PzEy+/UDdutHMzL7LzEy+DqrNvp4aQ7PNzEy+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5a23x"]
+resource_name = "untitled_Grid"
+_surfaces = [{
+"aabb": AABB(-0.40168804, -0.40000013, -0.20000003, 2.198292, 0.8000001, 0.20000006),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_7pm0g"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/UDdutDMzL5WtAEzA0PduszMzD5TtAGzHvflP2SkETQSejioDqrNvnRAArOS+yQn/UDdutHMzL7LzEy+A0PdusvMzD7PzEy+DqrNvp4aQ7PNzEy+HvflP9ptATTNzEy+HvflP2SkETQSejioA0PdusvMzD7PzEy+HvflP9ptATTNzEy+A0PduszMzD5TtAGzDqrNvnRAArOS+yQn/UDdutHMzL7LzEy+DqrNvp4aQ7PNzEy+/UDdutDMzL5WtAEz/UDdutDMzL5WtAEzHvflP9ptATTNzEy+/UDdutHMzL7LzEy+HvflP2SkETQSejioA0PduszMzD5TtAGzDqrNvp4aQ7PNzEy+A0PdusvMzD7PzEy+DqrNvnRAArOS+yQn/3//f////z//f/9/////P/9//3////8//3//f////z//////////v/////////+//////////7//////////v0mXtej///+/SZe16P///79Jl7Xo////v0mXtej///+//z//P////7//P/8/////v/8//z////+//z//P////79Jl0kX////v0mXSRf///+/SZdJF////79Jl0kX////v/8//7////+//z//v////7//P/+/////v/8//7////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_558l6")
 
 [node name="Scene_TD" type="Node3D"]
 
@@ -1426,3 +1496,1372 @@ width = 380.0
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1026.572, 5.861, -812.982)
 material_override = ExtResource("14_ffdpd")
 mesh = ExtResource("15_1quxv")
+
+[node name="PathMarkers" type="Node3D" parent="."]
+
+[node name="_MeshInstance3D_37971" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 100, 979.782, -3500)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37972" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 200, 979.75366, -3499.979)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37973" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 300, 979.72534, -3499.958)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37974" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(19.99994, 0.048825003, 2.1342088e-09, 0, -8.742278e-07, 20, 0.048825003, -19.99994, -8.742251e-07, 400, 979.697, -3499.937)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37975" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 500, 979.6687, -3499.9158)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37976" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 600, 979.6403, -3499.8948)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37977" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(19.99994, 0.0488399, 2.1348598e-09, 0, -8.742278e-07, 20, 0.0488399, -19.99994, -8.742251e-07, 700, 979.612, -3499.8738)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37991" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 2100, 979.2154, -3499.5789)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="Grid" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6149801, 19.73253, 2.831795, -17.37328, -7.594102e-07, 9.908033, 9.775529, -3.2599423, 17.14094, -891.5368, 2695.185, -438.1883)
+mesh = SubResource("ArrayMesh_5a23x")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38116" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6149801, 19.73253, 2.831795, -17.37328, -7.594102e-07, 9.908033, 9.775529, -3.2599423, 17.14094, -891.5368, 2695.185, -438.1883)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38117" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.626891, 19.728878, 2.8503683, -17.369822, -7.59259e-07, 9.914095, 9.779699, -3.2819772, 17.134356, -883.4255, 2608.3833, -389.202)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38118" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.618176, 19.732859, 2.8276837, -17.358625, -7.587696e-07, 9.933687, 9.8010025, -3.2579577, 17.126766, -875.31415, 2521.5813, -340.21555)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38119" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6303538, 19.728878, 2.848389, -17.357761, -7.587318e-07, 9.935198, 9.800515, -3.281977, 17.122458, -867.2029, 2434.7795, -291.2291)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38120" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6182977, 19.732695, 2.8287573, -17.359928, -7.5882656e-07, 9.93141, 9.798674, -3.2589502, 17.127907, -859.0915, 2347.9775, -242.24263)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38121" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.618176, 19.732859, 2.8276837, -17.358625, -7.587696e-07, 9.933687, 9.8010025, -3.2579577, 17.126766, -850.9801, 2261.1758, -193.2562)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38122" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6303538, 19.728878, 2.848389, -17.357761, -7.587318e-07, 9.935198, 9.800515, -3.281977, 17.122458, -842.8687, 2174.374, -144.26974)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38123" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6303538, 19.728878, 2.848389, -17.357761, -7.587318e-07, 9.935198, 9.800515, -3.281977, 17.122458, -834.7573, 2087.5723, -95.28339)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38124" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.618176, 19.732859, 2.8276837, -17.358625, -7.587696e-07, 9.933687, 9.8010025, -3.2579577, 17.126766, -826.64594, 2000.7706, -46.29711)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38125" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.618176, 19.732859, 2.8276837, -17.358625, -7.587696e-07, 9.933687, 9.8010025, -3.2579577, 17.126766, -818.5346, 1913.969, 2.6891708)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38126" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6303844, 19.728836, 2.8486588, -17.358086, -7.58746e-07, 9.934629, 9.799934, -3.2822266, 17.122744, -810.4233, 1827.1674, 51.675472)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38127" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6303538, 19.728878, 2.848389, -17.357761, -7.587318e-07, 9.935198, 9.800515, -3.281977, 17.122458, -802.31195, 1740.3656, 100.661835)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38128" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6164556, 19.732859, 2.828667, -17.364662, -7.590335e-07, 9.923128, 9.790585, -3.2579575, 17.132723, -794.20056, 1653.564, 149.6482)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38129" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6165768, 19.732695, 2.8297405, -17.365965, -7.590904e-07, 9.92085, 9.788255, -3.2589498, 17.133863, -786.08923, 1566.7622, 198.63457)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38130" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6164556, 19.732859, 2.828667, -17.364662, -7.590335e-07, 9.923128, 9.790585, -3.2579575, 17.132723, -777.9779, 1479.9604, 247.6209)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38131" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6303538, 19.728878, 2.848389, -17.357761, -7.587318e-07, 9.935198, 9.800515, -3.281977, 17.122458, -769.8666, 1393.1587, 296.60724)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38132" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.618176, 19.732859, 2.8276837, -17.358625, -7.587696e-07, 9.933687, 9.8010025, -3.2579577, 17.126766, -761.7552, 1306.3569, 345.59357)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38133" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6305984, 19.728544, 2.8505511, -17.360367, -7.588457e-07, 9.930642, 9.7958555, -3.2839754, 17.124739, -753.64386, 1219.5553, 394.5799)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38134" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6164556, 19.732859, 2.828667, -17.364662, -7.590335e-07, 9.923128, 9.790585, -3.2579575, 17.132723, -745.5325, 1132.7538, 443.5662)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38135" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6184192, 19.73253, 2.8298306, -17.36123, -7.588835e-07, 9.9291315, 9.796345, -3.2599423, 17.129051, -737.42114, 1045.9521, 492.5525)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38136" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6184192, 19.73253, 2.8298306, -17.36123, -7.588835e-07, 9.9291315, 9.796345, -3.2599423, 17.129051, -729.30975, 959.1504, 541.5389)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38137" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6292427, 19.72921, 2.8467252, -17.358177, -7.5875005e-07, 9.934467, 9.79996, -3.2799814, 17.123158, -721.1984, 872.3485, 590.5253)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38138" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6175581, 19.73253, 2.830323, -17.36425, -7.5901545e-07, 9.92385, 9.791135, -3.2599423, 17.13203, -713.08704, 785.5466, 639.51184)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38139" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6292427, 19.72921, 2.8467252, -17.358177, -7.5875005e-07, 9.934467, 9.79996, -3.2799814, 17.123158, -704.9757, 698.7447, 688.4982)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38140" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6184192, 19.73253, 2.8298306, -17.36123, -7.588835e-07, 9.9291315, 9.796345, -3.2599423, 17.129051, -696.8643, 611.9428, 737.4847)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38141" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6170729, 19.733185, 2.8260307, -17.359041, -7.587878e-07, 9.9329605, 9.800447, -3.2559755, 17.127459, -688.753, 525.141, 786.47107)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38142" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6175029, 19.733185, 2.8257847, -17.357529, -7.5872174e-07, 9.9356, 9.803053, -3.2559755, 17.125967, -680.6416, 438.33917, 835.45746)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38089" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.329674, 13.574842, -9.346772, 12.727489, -5.5633626e-07, 15.427605, 10.471364, -14.687534, -8.638683, -2193.4697, 1684.955, -1836.3751)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38090" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -2136.7954, 1748.5548, -1784.0006)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38091" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -2080.121, 1812.1547, -1731.626)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38092" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.346312, 13.559006, -9.349578, 12.718649, -5.559498e-07, 15.434895, 10.46409, -14.702156, -8.622611, -2023.447, 1875.7545, -1679.2513)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38093" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.329674, 13.574842, -9.346772, 12.727489, -5.5633626e-07, 15.427605, 10.471364, -14.687534, -8.638683, -1966.7727, 1939.3544, -1626.8767)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38094" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.339035, 13.576137, -9.333529, 12.710494, -5.555933e-07, 15.44161, 10.481871, -14.6863365, -8.62797, -1910.0985, 2002.9542, -1574.5022)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38095" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.337472, 13.559006, -9.360295, 12.733229, -5.565871e-07, 15.42287, 10.455937, -14.702156, -8.632496, -1853.4243, 2066.554, -1522.1276)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38096" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.337472, 13.559006, -9.360295, 12.733229, -5.565871e-07, 15.42287, 10.455937, -14.702156, -8.632496, -1796.7501, 2130.1538, -1469.7529)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38097" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.337472, 13.559006, -9.360295, 12.733229, -5.565871e-07, 15.42287, 10.455937, -14.702156, -8.632496, -1740.0759, 2193.7537, -1417.3784)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38098" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.347861, 13.576137, -9.322797, 12.695877, -5.5495445e-07, 15.45363, 10.490028, -14.6863365, -8.618049, -1683.4017, 2257.3535, -1365.0039)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38099" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.313577, 13.591961, -9.341391, 12.733894, 9.613823e-07, 15.422319, 10.480978, -14.671694, -8.653929, -1626.7275, 2320.9531, -1312.6294)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38100" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.3312235, 13.591961, -9.319978, 12.704705, 9.591786e-07, 15.446375, 10.497326, -14.671694, -8.634091, -1570.0533, 2384.553, -1260.2549)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38101" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.355154, 13.559006, -9.338836, 12.704037, -5.553111e-07, 15.446924, 10.472245, -14.702156, -8.612705, -1513.3793, 2448.1528, -1207.8802)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38102" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.320835, 13.574842, -9.357476, 12.742065, -5.5697336e-07, 15.415569, 10.463195, -14.687534, -8.648576, -1456.7051, 2511.7524, -1155.5057)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38103" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.338516, 13.574842, -9.336043, 12.71288, -5.556976e-07, 15.439646, 10.479537, -14.687534, -8.628767, -1400.0309, 2575.3523, -1103.1312)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38104" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.313577, 13.591961, -9.341391, 12.733894, 9.613823e-07, 15.422319, 10.480978, -14.671694, -8.653929, -1343.3567, 2638.952, -1050.7567)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38105" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.320835, 13.574842, -9.357476, 12.742065, -5.5697336e-07, 15.415569, 10.463195, -14.687534, -8.648576, -1286.6825, 2702.5518, -998.3821)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38106" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.317205, 13.583408, -9.349431, 12.737981, -5.567948e-07, 15.418944, 10.47209, -14.679612, -8.65126, -1230.0083, 2766.1516, -946.0075)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38107" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.355154, 13.559006, -9.338836, 12.704037, -5.553111e-07, 15.446924, 10.472245, -14.702156, -8.612705, -1173.3341, 2829.7517, -893.6329)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38108" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.351508, 13.567577, -9.330814, 12.699958, -5.551328e-07, 15.450277, 10.48114, -14.694244, -8.615383, -1116.6599, 2893.3516, -841.2583)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38109" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.338516, 13.574842, -9.336043, 12.71288, -5.556976e-07, 15.439646, 10.479537, -14.687534, -8.628767, -1059.9856, 2956.9514, -788.88367)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38110" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.32553, 13.575489, -9.350854, 12.733566, -5.566019e-07, 15.42259, 10.468459, -14.686936, -8.64322, -1003.3115, 3020.551, -736.50916)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38111" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.343194, 13.575489, -9.329417, 12.704374, -5.5532587e-07, 15.446645, 10.484787, -14.686936, -8.623405, -946.6373, 3084.151, -684.1346)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38112" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6305984, 19.728544, 2.8505511, -17.360367, -7.588457e-07, 9.930642, 9.7958555, -3.2839754, 17.124739, -923.9823, 3042.3916, -634.1335)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38113" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6301088, 19.72921, 2.8462288, -17.355154, -7.5861783e-07, 9.939751, 9.805172, -3.2799807, 17.120174, -915.8709, 2955.59, -585.14716)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38114" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6184192, 19.73253, 2.8298306, -17.36123, -7.588835e-07, 9.9291315, 9.796345, -3.2599423, 17.129051, -907.7595, 2868.7883, -536.1608)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38115" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6305984, 19.728544, 2.8505511, -17.360367, -7.588457e-07, 9.930642, 9.7958555, -3.2839754, 17.124739, -899.6482, 2781.9866, -487.17456)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38171" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-0.53889614, 19.991215, -0.24682456, -8.328379, -3.6404498e-07, 18.183456, 18.175468, 0.5927322, 8.324719, -1015.7737, 142.70685, 3452.2483)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38172" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-0.53891337, 19.991215, -0.24678713, -8.327114, -3.6398973e-07, 18.184036, 18.176048, 0.5927322, 8.323457, -1018.45605, 101.05222, 3543.12)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38173" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-0.53891337, 19.991215, -0.24678713, -8.327114, -3.6398973e-07, 18.184036, 18.176048, 0.5927322, 8.323457, -1021.1385, 59.3976, 3633.9922)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38174" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(0.5879587, 19.99127, -0.058647934, 1.9851195, -8.6772324e-08, 19.90124, 19.892551, -0.59087646, -1.9842529, -1023.23834, 23.06882, 3725.751)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38175" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(0.6016601, 19.990858, -0.06016117, 1.9899187, -8.698211e-08, 19.900759, 19.891663, -0.60466045, -1.9890091, -1020.27844, 33.00016, 3825.2126)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38176" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(0.5879565, 19.99127, -0.058670156, 1.9858716, -8.68052e-08, 19.901163, 19.892477, -0.59087646, -1.9850047, -1017.3185, 42.931496, 3924.674)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38177" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(0.600195, 19.990902, -0.059867404, 1.9850838, -8.677077e-08, 19.901241, 19.892189, -0.60317343, -1.9841808, -1014.3586, 52.86284, 4024.1355)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38178" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(0.5879587, 19.99127, -0.058647934, 1.9851195, -8.6772324e-08, 19.90124, 19.892551, -0.59087646, -1.9842529, -1011.3986, 62.794178, 4123.597)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38179" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(0.58796096, 19.99127, -0.058625363, 1.9843554, -8.673893e-08, 19.901316, 19.892628, -0.59087646, -1.9834893, -1008.43866, 72.72552, 4223.0586)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38180" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(0.5879565, 19.99127, -0.058670156, 1.9858716, -8.68052e-08, 19.901163, 19.892477, -0.59087646, -1.9850047, -1005.47876, 82.65685, 4322.52)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38181" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(0.6001973, 19.990902, -0.059844293, 1.9843174, -8.6737266e-08, 19.901318, 19.892265, -0.60317343, -1.9834148, -1002.51886, 92.588196, 4421.9814)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38182" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(0.58796096, 19.99127, -0.058625363, 1.9843554, -8.673893e-08, 19.901316, 19.892628, -0.59087646, -1.9834893, -999.5589, 102.51953, 4521.4434)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38183" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(0.5879565, 19.99127, -0.058670156, 1.9858716, -8.68052e-08, 19.901163, 19.892477, -0.59087646, -1.9850047, -996.599, 112.45087, 4620.905)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38184" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.219405, 19.30038, -0.5031186, 1.9189823, -8.388138e-08, 19.907724, 19.211334, -5.243598, -1.8518544, -983.1502, 122.228264, 4718.8247)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38185" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.208025, 19.303492, -0.50170135, 1.9177697, -8.3828375e-08, 19.90784, 19.214542, -5.2321343, -1.8509824, -957.08215, 131.82045, 4814.8896)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38186" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.2194443, 19.30038, -0.5027197, 1.917461, -8.381488e-08, 19.907871, 19.211475, -5.243598, -1.8503864, -931.0142, 141.41263, 4910.954)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38187" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.2079487, 19.303492, -0.50249726, 1.920812, -8.396136e-08, 19.907549, 19.21426, -5.2321343, -1.8539189, -904.9463, 151.00478, 5007.019)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38188" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.208025, 19.303492, -0.50170135, 1.9177697, -8.3828375e-08, 19.90784, 19.214542, -5.2321343, -1.8509824, -878.87836, 160.59694, 5103.084)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38189" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.2194443, 19.30038, -0.5027197, 1.917461, -8.381488e-08, 19.907871, 19.211475, -5.243598, -1.8503864, -852.8105, 170.18909, 5199.1484)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38190" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.2194443, 19.30038, -0.5027197, 1.917461, -8.381488e-08, 19.907871, 19.211475, -5.243598, -1.8503864, -826.74255, 179.78125, 5295.2134)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38191" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.2326612, 19.296703, -0.5064816, 1.9268422, -8.422495e-08, 19.906965, 19.20694, -5.257116, -1.8590851, -800.6746, 189.3734, 5391.2783)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38192" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.208025, 19.303492, -0.50170135, 1.9177697, -8.3828375e-08, 19.90784, 19.214542, -5.2321343, -1.8509824, -774.60675, 198.96555, 5487.343)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38193" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.208025, 19.303492, -0.50170135, 1.9177697, -8.3828375e-08, 19.90784, 19.214542, -5.2321343, -1.8509824, -748.5388, 208.55771, 5583.4077)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38194" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.244126, 19.293564, -0.5075098, 1.926536, -8.4211564e-08, 19.906996, 19.203844, -5.268626, -1.8584871, -722.47095, 218.14986, 5679.4727)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38195" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.2194443, 19.30038, -0.5027197, 1.917461, -8.381488e-08, 19.907871, 19.211475, -5.243598, -1.8503864, -696.4031, 227.742, 5775.537)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38196" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.208025, 19.303492, -0.50170135, 1.9177697, -8.3828375e-08, 19.90784, 19.214542, -5.2321343, -1.8509824, -670.335, 237.33418, 5871.602)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38197" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(5.219367, 19.30038, -0.50351673, 1.9205011, -8.3947775e-08, 19.907578, 19.211193, -5.243598, -1.8533201, -644.267, 246.92636, 5967.667)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38143" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6296756, 19.72921, 2.846477, -17.356667, -7.58684e-07, 9.937109, 9.802566, -3.2799811, 17.121666, -672.5303, 351.53738, 884.44385)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38144" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6175029, 19.733185, 2.8257847, -17.357529, -7.5872174e-07, 9.9356, 9.803053, -3.2559755, 17.125967, -664.4189, 264.7356, 933.43024)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38145" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6296756, 19.72921, 2.846477, -17.356667, -7.58684e-07, 9.937109, 9.802566, -3.2799811, 17.121666, -656.30756, 177.9338, 982.4166)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38146" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(1.6295671, 19.72921, 2.8465388, -17.357044, -7.587005e-07, 9.936448, 9.801913, -3.2799807, 17.122038, -648.19617, 91.131966, 1031.4031)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38147" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4683638, 19.696535, 0.13026746, 0.75064576, -3.281177e-08, 19.985909, 19.682657, 3.4708095, -0.739256, -650.5032, 41.377594, 1100.6101)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38148" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4683638, 19.696535, 0.13026746, 0.75064576, -3.281177e-08, 19.985909, 19.682657, 3.4708095, -0.739256, -667.85706, 45.129547, 1199.0211)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38149" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.468369, 19.696535, 0.13013558, 0.7498858, -3.277855e-08, 19.985937, 19.682686, 3.4708095, -0.73850757, -685.21094, 48.881504, 1297.4321)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38150" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4802458, 19.694435, 0.13070291, 0.7505839, -3.2809062e-08, 19.98591, 19.680561, 3.4826992, -0.7391163, -702.5648, 52.633457, 1395.843)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38151" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.468369, 19.696535, 0.13013558, 0.7498858, -3.277855e-08, 19.985937, 19.682686, 3.4708095, -0.73850757, -719.91876, 56.38542, 1494.2543)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38152" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4683638, 19.696535, 0.13026746, 0.75064576, -3.281177e-08, 19.985909, 19.682657, 3.4708095, -0.739256, -737.27264, 60.137383, 1592.6654)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38153" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4725535, 19.695795, 0.13057944, 0.75153446, -3.2850615e-08, 19.985874, 19.681885, 3.4750078, -0.7401034, -754.6265, 63.889343, 1691.0767)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38154" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4683638, 19.696535, 0.13026746, 0.75064576, -3.281177e-08, 19.985909, 19.682657, 3.4708095, -0.739256, -771.98047, 67.641304, 1789.4878)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38155" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4760668, 19.695177, 0.1301194, 0.7481346, -3.2702005e-08, 19.986002, 19.681393, 3.4785013, -0.7367322, -789.33435, 71.39327, 1887.8989)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38156" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4683638, 19.696535, 0.13026746, 0.75064576, -3.281177e-08, 19.985909, 19.682657, 3.4708095, -0.739256, -806.6883, 75.14523, 1986.3102)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38157" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4725535, 19.695795, 0.13057944, 0.75153446, -3.2850615e-08, 19.985874, 19.681885, 3.4750078, -0.7401034, -824.04224, 78.897194, 2084.7214)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38158" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4641938, 19.697273, 0.12968612, 0.7481989, -3.2704815e-08, 19.986, 19.683485, 3.4666204, -0.73687387, -841.3962, 82.64916, 2183.1326)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38159" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4725535, 19.695795, 0.13057944, 0.75153446, -3.2850615e-08, 19.985874, 19.681885, 3.4750078, -0.7401034, -858.75006, 86.40112, 2281.544)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38160" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4641838, 19.697273, 0.12995082, 0.7497262, -3.277157e-08, 19.985943, 19.683428, 3.4666204, -0.73837805, -876.104, 90.15308, 2379.955)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38161" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.484449, 19.693691, 0.13101594, 0.7514726, -3.2847908e-08, 19.985878, 19.679783, 3.486911, -0.7399634, -893.4579, 93.905045, 2478.3665)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38162" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4725585, 19.695795, 0.13031474, 0.75001204, -3.2784065e-08, 19.985931, 19.681942, 3.475003, -0.7386042, -910.8118, 97.65701, 2576.7776)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38163" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.484449, 19.693691, 0.13101594, 0.7514726, -3.2847908e-08, 19.985878, 19.679783, 3.486911, -0.7399634, -928.1657, 101.40897, 2675.1887)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38164" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4725535, 19.695795, 0.13057944, 0.75153446, -3.2850615e-08, 19.985874, 19.681885, 3.4750078, -0.7401034, -945.51965, 105.160934, 2773.5999)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38165" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4725535, 19.695795, 0.13057944, 0.75153446, -3.2850615e-08, 19.985874, 19.681885, 3.4750078, -0.7401034, -962.87354, 108.912895, 2872.011)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38166" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4641838, 19.697273, 0.12995082, 0.7497262, -3.277157e-08, 19.985943, 19.683428, 3.4666204, -0.73837805, -980.2274, 112.66485, 2970.4219)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38167" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-3.4725535, 19.695795, 0.13057944, 0.75153446, -3.2850615e-08, 19.985874, 19.681885, 3.4750078, -0.7401034, -997.5813, 116.4168, 3068.833)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38168" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-0.57623786, 19.991201, 0.14072359, 4.744774, -2.0740066e-07, 19.429028, 19.42048, 0.59317213, -4.7426867, -1007.36163, 130.59775, 3166.5618)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38169" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-0.57623786, 19.991201, 0.14072359, 4.744774, -2.0740066e-07, 19.429028, 19.42048, 0.59317213, -4.7426867, -1010.218, 154.31325, 3263.667)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38170" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-0.57623786, 19.991205, 0.1407236, -1.2314572, -0.17600918, 19.961277, 19.953733, 0.5664574, 1.2359867, -1013.0744, 178.02873, 3360.7725)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38007" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.999762, -0.09755875, -4.2644284e-09, 0, -8.742278e-07, 20, -0.09755875, 19.999762, 8.7421733e-07, 1956.0825, 979.79175, -4001.7878)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38008" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.047829, 0.45369154, -13.16651, -13.169899, -5.7567456e-07, 15.0517025, 0.34144115, 19.994854, 0.29875404, 1860.821, 967.1927, -4001.7354)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38009" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.047829, 0.45369154, -13.16651, -13.169899, -5.7567456e-07, 15.0517025, 0.34144115, 19.994854, 0.29875404, 1785.5828, 901.3412, -4000.071)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38010" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.047829, 0.45369154, -13.16651, -13.169899, -5.7567456e-07, 15.0517025, 0.34144115, 19.994854, 0.29875404, 1710.3445, 835.48975, -3998.4067)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38011" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.047829, 0.45369154, -13.16651, -13.169899, -5.7567456e-07, 15.0517025, 0.34144115, 19.994854, 0.29875404, 1635.1061, 769.63824, -3996.7424)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38012" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.047829, 0.45369154, -13.16651, -13.169899, -5.7567456e-07, 15.0517025, 0.34144115, 19.994854, 0.29875404, 1559.8677, 703.7868, -3995.0781)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38013" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.047829, 0.45369154, -13.16651, -13.169899, -5.7567456e-07, 15.0517025, 0.34144115, 19.994854, 0.29875404, 1484.6294, 637.93536, -3993.414)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38014" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.047829, 0.45369154, -13.16651, -13.169899, -5.7567456e-07, 15.0517025, 0.34144115, 19.994854, 0.29875404, 1409.391, 572.08386, -3991.7498)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38015" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.037233, 0.45442808, -13.178586, -13.18199, -5.7620304e-07, 15.041117, 0.3417549, 19.994837, 0.29951376, 1334.1526, 506.23242, -3990.0854)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38016" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.048412, 0.3889038, -13.167917, -13.170408, -5.7569684e-07, 15.051258, 0.29267418, 19.99622, 0.25610152, 1258.9143, 440.38095, -3988.4211)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38017" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.047829, 0.45369154, -13.16651, -13.169899, -5.7567456e-07, 15.0517025, 0.34144115, 19.994854, 0.29875404, 1183.676, 374.52948, -3986.757)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38018" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.047829, 0.45369154, -13.16651, -13.169899, -5.7567456e-07, 15.0517025, 0.34144115, 19.994854, 0.29875404, 1108.4376, 308.67804, -3985.0928)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38019" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.047829, 0.45369154, -13.16651, -13.169899, -5.7567456e-07, 15.0517025, 0.34144115, 19.994854, 0.29875404, 1033.1993, 242.82657, -3983.4285)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38020" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.048412, 0.3889038, -13.167917, -13.170408, -5.7569684e-07, 15.051258, 0.29267418, 19.99622, 0.25610152, 957.961, 176.9751, -3981.7642)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38021" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.048585, 0.45369154, -13.165647, -13.169036, -5.756369e-07, 15.052458, 0.34145832, 19.994854, 0.29873446, 882.7226, 111.12363, -3980.1)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38022" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-15.044046, 0.45405862, -13.17082, -13.174215, -5.758633e-07, 15.047924, 0.34163162, 19.994846, 0.29909375, 807.4842, 45.272156, -3978.4358)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38023" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.93505, 1.6094412, -0.059208386, -0.059401028, -2.5965012e-09, 19.999912, 1.609434, 19.935137, 0.004780126, 722.3527, 21.91011, -3974.2544)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38024" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.938904, 1.560971, -0.05921983, -0.059401028, -2.5965012e-09, 19.999912, 1.5609641, 19.938992, 0.0046361666, 622.66455, 21.61314, -3966.3694)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38025" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.93883, 1.5619218, -0.058817916, -0.0589981, -2.578889e-09, 19.999912, 1.5619149, 19.938917, 0.004607524, 522.9763, 21.316168, -3958.4844)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38026" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.935051, 1.6094412, -0.05840276, -0.05859279, -2.5611722e-09, 19.999914, 1.6094344, 19.935137, 0.004715085, 423.28815, 21.019197, -3950.5996)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38027" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.93505, 1.6094412, -0.059208386, -0.059401028, -2.5965012e-09, 19.999912, 1.609434, 19.935137, 0.004780126, 323.59998, 20.722225, -3942.7146)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38028" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.938885, 1.5612088, -0.05881808, -0.0589981, -2.578889e-09, 19.999912, 1.5612019, 19.938972, 0.0046054204, 223.91176, 20.425255, -3934.8293)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38029" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.938921, 1.5607357, -0.059219882, -0.059401028, -2.5965012e-09, 19.999912, 1.5607288, 19.939009, 0.004635468, 124.22357, 20.128284, -3926.9443)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38030" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.938904, 1.560971, -0.05921983, -0.059401028, -2.5965012e-09, 19.999912, 1.5609641, 19.938992, 0.0046361666, 24.53537, 19.831314, -3919.0593)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38031" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.93779, 1.5609392, 0.21863213, 0.21760325, -0.021687249, 19.998804, 1.5610831, 19.938982, 0.0046365215, -75.194016, 9.147337, -3911.174)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38032" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937803, 1.5608203, 0.21863219, 0.2176034, -0.021685598, 19.998804, 1.5609642, 19.938992, 0.004636166, -174.87674, 10.235297, -3903.2896)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38033" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.933939, 1.6092857, 0.21944913, 0.21835807, -0.02235896, 19.998795, 1.6094344, 19.935135, 0.0047150822, -274.5594, 11.323262, -3895.4045)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37978" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 800, 979.5837, -3499.8525)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37979" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 900, 979.55536, -3499.8315)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37980" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 1000, 979.52704, -3499.8105)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37981" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 1100, 979.4987, -3499.7893)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37982" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 1200, 979.47034, -3499.7683)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37983" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 1300, 979.442, -3499.7473)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37984" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 1400, 979.4137, -3499.7263)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37985" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 1500, 979.3854, -3499.7053)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37986" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 1600, 979.35706, -3499.6843)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37987" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 1700, 979.32874, -3499.6633)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37988" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(19.99994, 0.0488399, 2.1348598e-09, 0, -8.742278e-07, 20, 0.0488399, -19.99994, -8.742251e-07, 1800, 979.3004, -3499.6423)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37989" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 1900, 979.2721, -3499.621)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37990" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 2000, 979.2437, -3499.6)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37992" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 2200, 979.1871, -3499.5579)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37993" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 2300, 979.15875, -3499.5369)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37994" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(19.931252, -1.6568769, -7.242439e-08, 0, -8.7422785e-07, 20, -1.6568769, -19.931252, -8.7122265e-07, 2406.3064, 979.15497, -3507.8289)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37995" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(17.648407, -9.409235, -4.1129078e-07, -9.473118e-15, -8.742278e-07, 20, -9.409235, -17.648407, -7.714364e-07, 2504.7424, 979.2066, -3520.2578)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37996" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(17.61725, -9.467441, -4.1383512e-07, 6.158115e-14, -8.742278e-07, 20.000002, -9.467441, -17.61725, -7.700747e-07, 2592.9011, 979.24976, -3567.46)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37997" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(8.670454, -18.022854, -7.87804e-07, 6.158115e-14, -8.742279e-07, 20, -18.022854, -8.670454, -3.7899756e-07, 2657.2402, 979.3173, -3637.4932)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37998" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(2.5083203, -19.842083, -8.673249e-07, 0, -8.742278e-07, 20, -19.842083, -2.5083203, -1.09642144e-07, 2700.665, 979.4064, -3727.5728)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_37999" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-9.658959, -17.512978, 0.01155196, 0.023919657, -1.0455613e-09, 19.999987, -17.512964, 9.658968, 0.020945223, 2685.286, 979.4843, -3816.087)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38000" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-14.695562, -13.5661545, -5.9299583e-07, -8.526513e-14, -8.742281e-07, 20.000004, -13.5661545, 14.695562, 6.423636e-07, 2637.1326, 979.55615, -3903.73)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38001" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.349926, -7.954888, -3.477192e-07, 2.6054019e-14, -8.742279e-07, 20, -7.954888, 18.349926, 8.021008e-07, 2556.1255, 979.6201, -3955.2942)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38002" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.922598, -1.757876, -7.683921e-08, 6.5135046e-15, -8.742278e-07, 20, -1.757876, 19.922598, 8.7084436e-07, 2462.1218, 979.68225, -3986.203)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38003" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.99994, -0.048778646, -2.1321822e-09, 0, -8.742278e-07, 20, -0.048778646, 19.99994, 8.742251e-07, 2356.0803, 979.78455, -4000.4731)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38004" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.99994, -0.048659436, -2.1269715e-09, 0, -8.742278e-07, 20, -0.048659436, 19.99994, 8.742251e-07, 2256.081, 979.7864, -4000.8018)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38005" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.999762, -0.09755875, -4.2644284e-09, 0, -8.742278e-07, 20, -0.09755875, 19.999762, 8.7421733e-07, 2156.0815, 979.78815, -4001.1304)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38006" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.99994, -0.048778646, -2.1321822e-09, 0, -8.742278e-07, 20, -0.048778646, 19.99994, 8.742251e-07, 2056.082, 979.79, -4001.4592)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38062" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129198, 8.063062, 2.5138164, 2.7469423, -1.2007266e-07, 19.81046, 7.986648, 18.302652, -1.1074382, -3031.5225, 202.04541, -3192.1392)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38063" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129198, 8.063062, 2.5138164, 2.7469423, -1.2007266e-07, 19.81046, 7.986648, 18.302652, -1.1074382, -3122.158, 215.78249, -3152.183)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38064" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.120432, 8.081348, 2.5182927, 2.753047, -1.2033951e-07, 19.809612, 8.004418, 18.294584, -1.1124165, -3212.7937, 229.51955, -3112.227)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38065" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129198, 8.063062, 2.5138164, 2.7469423, -1.2007266e-07, 19.81046, 7.986648, 18.302652, -1.1074382, -3303.4292, 243.25662, -3072.271)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38066" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.128817, 8.06306, 2.5165524, 2.749932, -1.2020335e-07, 19.810045, 7.9864783, 18.302652, -1.1086432, -3394.065, 256.99368, -3032.315)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38067" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.355637, 13.560338, -9.336315, 12.701669, -5.552076e-07, 15.448871, 10.474594, -14.700927, -8.611946, -3440.302, 285.7592, -2988.616)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38068" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.355637, 13.560338, -9.336315, 12.701669, -5.552076e-07, 15.448871, 10.474594, -14.700927, -8.611946, -3383.628, 349.35895, -2936.2415)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38069" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -3326.9536, 412.95874, -2883.867)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38070" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.355637, 13.560338, -9.336315, 12.701669, -5.552076e-07, 15.448871, 10.474594, -14.700927, -8.611946, -3270.2795, 476.5586, -2831.4924)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38071" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -3213.6052, 540.15845, -2779.118)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38072" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.336946, 13.557671, -9.362866, 12.735659, -5.566933e-07, 15.420862, 10.4535475, -14.703387, -8.633293, -3156.931, 603.75824, -2726.7432)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38073" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.355637, 13.560338, -9.336315, 12.701669, -5.552076e-07, 15.448871, 10.474594, -14.700927, -8.611946, -3100.2568, 667.3581, -2674.3687)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38074" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -3043.5825, 730.9579, -2621.9941)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38075" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.355637, 13.560338, -9.336315, 12.701669, -5.552076e-07, 15.448871, 10.474594, -14.700927, -8.611946, -2986.9084, 794.5577, -2569.6194)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38076" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.336946, 13.557671, -9.362866, 12.735659, -5.566933e-07, 15.420862, 10.4535475, -14.703387, -8.633293, -2930.2341, 858.1574, -2517.2446)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38077" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -2873.56, 921.75714, -2464.87)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38078" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.370184, 13.5259905, -9.368378, 12.717943, -5.559189e-07, 15.435476, 10.439004, -14.732534, -8.601139, -2816.886, 985.35693, -2412.4954)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38079" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.370184, 13.5259905, -9.368378, 12.717943, -5.559189e-07, 15.435476, 10.439004, -14.732534, -8.601139, -2760.212, 1048.9567, -2360.1208)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38080" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.355637, 13.560338, -9.336315, 12.701669, -5.552076e-07, 15.448871, 10.474594, -14.700927, -8.611946, -2703.5378, 1112.5564, -2307.7463)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38081" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -2646.8635, 1176.1561, -2255.3718)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38082" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -2590.1895, 1239.756, -2202.9973)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38083" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -2533.5151, 1303.3558, -2150.6228)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38084" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -2476.841, 1366.9556, -2098.2483)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38085" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -2420.1667, 1430.5554, -2045.8738)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38086" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -2363.4924, 1494.1553, -1993.4991)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38087" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.322398, 13.591961, -9.330696, 12.7193165, 9.602817e-07, 15.434343, 10.48915, -14.671694, -8.644022, -2306.818, 1557.7551, -1941.1245)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38088" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(11.354073, 13.543192, -9.363066, 12.724389, -5.562007e-07, 15.430163, 10.448683, -14.7167225, -8.616442, -2250.144, 1621.355, -1888.7498)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38034" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937803, 1.5608203, 0.21863219, 0.2176034, -0.021685598, 19.998804, 1.5609642, 19.938992, 0.004636166, -374.24213, 12.411223, -3887.5195)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38035" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937761, 1.5612957, 0.2190339, 0.21800578, -0.0216922, 19.998798, 1.5614398, 19.938953, 0.0046061184, -473.9248, 7.1555753, -3879.6345)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38036" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937721, 1.5617709, 0.21903405, 0.21800525, -0.021698805, 19.998798, 1.5619149, 19.938917, 0.004607526, -573.6074, 8.243539, -3871.7493)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38037" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937803, 1.5608203, 0.21863219, 0.2176034, -0.021685598, 19.998804, 1.5609642, 19.938992, 0.004636166, -673.2902, 9.331502, -3863.8647)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38038" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937803, 1.5608203, 0.21863219, 0.2176034, -0.021685598, 19.998804, 1.5609642, 19.938992, 0.004636166, -772.97284, 6.3014536, -3855.9792)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38039" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.933872, 1.6102649, 0.21864384, 0.2175488, -0.022372562, 19.998804, 1.6104131, 19.935057, 0.004783032, -872.6556, 1.8868692, -3848.0947)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38040" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937803, 1.5608203, 0.21863219, 0.2176034, -0.021685598, 19.998804, 1.5609642, 19.938992, 0.004636166, -972.3383, 2.9748325, -3840.2095)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38041" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937872, 1.5598723, 0.21903357, 0.2180073, -0.021672416, 19.9988, 1.5600162, 19.939064, 0.004601923, -1072.021, 4.062795, -3832.3242)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38042" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937721, 1.5617709, 0.21903405, 0.21800525, -0.021698805, 19.998798, 1.5619149, 19.938917, 0.004607526, -1171.7036, 5.150758, -3824.4392)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38043" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937721, 1.5617709, 0.21903405, 0.21800525, -0.021698805, 19.998798, 1.5619149, 19.938917, 0.004607526, -1271.3864, 6.2387223, -3816.554)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38044" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937872, 1.5598723, 0.21903357, 0.2180073, -0.021672416, 19.9988, 1.5600162, 19.939064, 0.004601923, -1371.069, 7.326685, -3808.6692)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38045" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.937721, 1.5617709, 0.21903405, 0.21800525, -0.021698805, 19.998798, 1.5619149, 19.938917, 0.004607526, -1470.7517, 8.414648, -3800.7842)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38046" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.934027, 1.6083096, 0.2190449, 0.21795386, -0.022345392, 19.9988, 1.6084578, 19.935215, 0.0047448208, -1570.4343, 9.502612, -3792.8994)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38047" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-19.93513, 1.6084645, -0.058806993, -0.0589981, -2.578889e-09, 19.999912, 1.6084574, 19.935215, 0.0047448203, -1670.1638, -1.1813669, -3785.0144)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38048" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.140673, 8.0357685, 2.518414, 2.7501633, -1.2021346e-07, 19.810013, 7.9594345, 18.31465, -1.1049838, -1762.6244, 9.726557, -3751.5234)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38049" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129293, 8.06306, 2.5131226, 2.746184, -1.2003953e-07, 19.810564, 7.986688, 18.302652, -1.1071322, -1853.26, 23.463629, -3711.5674)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38050" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.124823, 8.072194, 2.5160527, 2.7499912, 2.0761857e-07, 19.810036, 7.9955235, 18.298626, -1.1099234, -1943.8958, 37.2007, -3671.6113)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38051" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129389, 8.063062, 2.5124397, 2.7454379, -1.200069e-07, 19.810669, 7.986732, 18.302652, -1.1068318, -2034.5313, 50.937767, -3631.6553)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38052" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129389, 8.063062, 2.5124397, 2.7454379, -1.200069e-07, 19.810669, 7.986732, 18.302652, -1.1068318, -2125.1667, 64.67483, -3591.6992)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38053" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.120432, 8.081348, 2.5182927, 2.753047, -1.2033951e-07, 19.809612, 8.004418, 18.294584, -1.1124165, -2215.8025, 78.41188, -3551.7432)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38054" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129389, 8.063062, 2.5124397, 2.7454379, -1.200069e-07, 19.810669, 7.986732, 18.302652, -1.1068318, -2306.438, 92.14895, -3511.787)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38055" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129198, 8.063062, 2.5138164, 2.7469423, -1.2007266e-07, 19.81046, 7.986648, 18.302652, -1.1074382, -2397.0735, 105.886, -3471.831)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38056" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.120623, 8.081348, 2.5169187, 2.751545, -1.2027385e-07, 19.80982, 8.004502, 18.294584, -1.1118095, -2487.7092, 119.62306, -3431.8752)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38057" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.12958, 8.06306, 2.5110612, 2.7439313, -1.1994105e-07, 19.810877, 7.9868135, 18.302652, -1.1062241, -2578.3447, 133.36012, -3391.9192)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38058" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129198, 8.063062, 2.5138164, 2.7469423, -1.2007266e-07, 19.81046, 7.986648, 18.302652, -1.1074382, -2668.9802, 147.09717, -3351.9631)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38059" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129198, 8.063062, 2.5138164, 2.7469423, -1.2007266e-07, 19.81046, 7.986648, 18.302652, -1.1074382, -2759.6157, 160.83423, -3312.0073)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38060" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129198, 8.063062, 2.5138164, 2.7469423, -1.2007266e-07, 19.81046, 7.986648, 18.302652, -1.1074382, -2850.2515, 174.57129, -3272.0513)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
+
+[node name="_MeshInstance3D_38061" type="MeshInstance3D" parent="PathMarkers"]
+transform = Transform3D(-18.129198, 8.063062, 2.5138164, 2.7469423, -1.2007266e-07, 19.81046, 7.986648, 18.302652, -1.1074382, -2940.887, 188.30835, -3232.0952)
+material_override = SubResource("StandardMaterial3D_8hvyi")
+mesh = SubResource("ArrayMesh_rcyfx")
+skeleton = NodePath("")
