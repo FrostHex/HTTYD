@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://by1mu77fg2ay1"]
+
+[ext_resource type="PackedScene" uid="uid://cws4tkufm50dh" path="res://Scenes/Gronckle.tscn" id="1_de3cf"]
+[ext_resource type="VideoStream" uid="uid://buidgmw8u3jfg" path="res://Environment/Media/Test Drive.ogv" id="2_s4a4u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v5fnx"]
+radius = 0.1
+height = 2.8132262
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0snye"]
+radius = 0.58
+height = 2.565918
+
+[node name="Dragon_Temp" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 4
+linear_velocity = Vector3(0, 0, 100)
+
+[node name="Gronckle" parent="." instance=ExtResource("1_de3cf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19192982, -1.0540903, 0)
+
+[node name="Collision_Shape_Wing" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.082, 0.395, 0)
+shape = SubResource("CapsuleShape3D_v5fnx")
+
+[node name="Collision_Shape_Head" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -0.30936348, -0.03700001, -1.2368533e-08)
+shape = SubResource("CapsuleShape3D_0snye")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 784.0
+offset_top = -118.0
+offset_right = 1296.0
+offset_bottom = 394.0
+scale = Vector2(0.725, 0.725)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera_Sub" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.72889, 1.79735, 0)
+current = true
+far = 50000.0
+
+[node name="Info" type="Label" parent="SubViewportContainer/SubViewport"]
+offset_left = 6.89655
+offset_top = 166.897
+offset_right = 46.8965
+offset_bottom = 189.897
+scale = Vector2(1.43606, 1.43606)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewportContainer/SubViewport"]
+offset_top = 359.0
+offset_right = 480.0
+offset_bottom = 587.0
+scale = Vector2(0.75, 0.75)
+stream = ExtResource("2_s4a4u")
+volume_db = -80.0

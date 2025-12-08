@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://dgb4s7fjr6q1e"]
 
 [ext_resource type="Texture2D" uid="uid://nxqdv1m6j7pw" path="res://Environment/Ocean/assets/skybox.png" id="1_cm807"]
-[ext_resource type="Script" uid="uid://cehr1okrnyy7i" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="2_h51dc"]
+[ext_resource type="Script" uid="uid://eavk7267igp7" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="2_h51dc"]
 [ext_resource type="Script" uid="uid://bcumf8556pakv" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="3_h51dc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wbj3w"]
@@ -165,15 +165,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme = SubResource("Theme_Settings")
 
-[node name="Button_Settings" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 636.5521
-offset_top = 518.1738
-offset_right = 960.6899
-offset_bottom = 734.72546
-focus_mode = 0
-text = "Settings"
-
 [node name="Button_Tutorial" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 220.00041
@@ -213,6 +204,24 @@ offset_bottom = 67.34343
 grow_horizontal = 0
 expand_mode = 1
 stretch_mode = 4
+
+[node name="Button_Settings" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 636.5521
+offset_top = 518.1738
+offset_right = 960.6899
+offset_bottom = 734.72546
+focus_mode = 0
+text = "Settings"
+
+[node name="Button_Dodge" type="Button" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1064.8275
+offset_top = 518.6207
+offset_right = 1388.9652
+offset_bottom = 735.17236
+focus_mode = 0
+text = "Dodge"
 
 [node name="Settings_Panel" type="Panel" parent="SubViewportContainer/Viewport/CanvasLayer/Control"]
 visible = false
@@ -326,11 +335,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
 script = ExtResource("2_h51dc")
 screen_size = Vector2(1590, 900)
 viewport_size = Vector2(1590, 900)
+transparent = 1
 alpha_scissor_threshold = 0.25
 unshaded = false
 filter = true
 scene_properties_keys = PackedStringArray()
-metadata/_custom_type_script = "uid://cehr1okrnyy7i"
 
 [node name="Viewport" type="SubViewport" parent="XRToolsViewport2DIn3D"]
 transparent_bg = true

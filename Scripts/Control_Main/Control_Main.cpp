@@ -4,6 +4,7 @@
 #include "Control_Scene_Practice.h"
 #include "Control_Scene_Tutorial.h"
 #include "DragonAnimator.h"
+#include "DragonAnimator_Temp.h"
 #include "CheatSheet.h"
 #include "GameTimer.h"
 #include "SaveManager.h"
@@ -36,6 +37,8 @@ Control_Main::~Control_Main()
 
 void Control_Main::_ready()
 {
+    // ProjectSettings::get_singleton()->set_setting("xr/openxr/enabled", false);
+
     // Initialize SaveManager for both editor and runtime
     if (!save_manager) {
         save_manager = memnew(SaveManager);
@@ -135,10 +138,8 @@ void Control_Main::Switch_Scene(const String &scene_name)
             node_cheat_sheet->set_name("CheatSheet");
             new_scene->add_child(memnew(Control_Scene_TD()));
         }
-        // Scene_Tutorial已经在.tscn文件中包含了Control_Scene_Tutorial节点，不需要手动添加
         if (scene_name == "Scene_Home")
         {
-            // Scene_Home需要手动添加Control_Scene_Home节点，因为.tscn文件中没有包含
             Control_Scene_Home* control_home = memnew(Control_Scene_Home());
             new_scene->add_child(control_home);
         }
@@ -157,12 +158,22 @@ void Control_Main::Switch_Scene(const String &scene_name)
 void Control_Main::SetValEnableHeadset(bool val)
 {
     enable_headset = val;
-    // UtilityFunctions::print("SetValEnableHeadset called with value: ", val);
+    UtilityFunctions::print("SetValEnableHeadset called with value: ", val);
 
     bool current_xr_enabled = ProjectSettings::get_singleton()->get_setting("xr/openxr/enabled");
+
+    // bool current_xr_enabled = false;
+    // Ref<FileAccess> project_file = FileAccess::open("res://project.godot", FileAccess::READ);
+    // if (project_file.is_valid()) 
+    // {
+    //     String file_content = project_file->get_as_text();
+    //     current_xr_enabled = file_content.find("openxr/enabled=true") != -1;
+    // }
+
     // UtilityFunctions::print("Current XR enabled: ", current_xr_enabled);
     if (current_xr_enabled != val) 
     {
+        UtilityFunctions::print("Current XR setting (", current_xr_enabled, ") differs from new value (", val, "). Updating Project Settings.");
         ProjectSettings::get_singleton()->set_setting("xr/openxr/enabled", val);
         Error err = ProjectSettings::get_singleton()->save(); // save the settings to project.godot file
         if (err != OK) 
@@ -278,15 +289,15 @@ void Control_Main::LoadSettings()
     }
     
     if (settings.has("enable_headset")) {
-        SetValEnableHeadset(static_cast<bool>(settings["enable_headset"]));
+        SetValEnableHeadset(settings["enable_headset"].operator bool());
     }
     
     if (settings.has("sub_view")) {
-        SetValSubView(static_cast<bool>(settings["sub_view"]));
+        SetValSubView(settings["sub_view"].operator bool());
     }
     
     if (settings.has("debug")) {
-        SetValDebug(static_cast<bool>(settings["debug"]));
+        SetValDebug(settings["debug"].operator bool());
     }
     
     if (settings.has("badge")) {
@@ -346,6 +357,7 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
             godot::ClassDB::register_class<DragonControlKeyboard>();
             godot::ClassDB::register_class<DragonControlJoystick>();
             godot::ClassDB::register_class<DragonAnimator>();
+            godot::ClassDB::register_class<DragonAnimator_Temp>();
             godot::ClassDB::register_class<Control_Camera>();
             godot::ClassDB::register_class<GameTimer>();
             godot::ClassDB::register_class<CheatSheet>();

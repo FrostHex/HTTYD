@@ -81,7 +81,7 @@ void Control_Scene_Home::_ready()
         UtilityFunctions::printerr("Control_Scene_Home: Could not find Badge_Icon");
     }
 
-    const char* button_names[] = { "Button_TD", "Button_Tutorial", "Button_Practice" };
+    const char* button_names[] = {"Button_TD", "Button_Tutorial", "Button_Practice", "Button_Dodge"};
     for (const char* btn_name : button_names) 
     {
         Node *button = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/" + String(btn_name));
