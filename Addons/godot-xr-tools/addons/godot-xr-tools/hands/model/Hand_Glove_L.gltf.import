@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dbd1kg3cli0yj"
+uid="uid://bu07alt6vkbaq"
 path="res://.godot/imported/Hand_Glove_L.gltf-104fec22cc81b1558d13e65e53096315.scn"
 
 [deps]
@@ -13,8 +13,8 @@ dest_files=["res://.godot/imported/Hand_Glove_L.gltf-104fec22cc81b1558d13e65e530
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
 nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
@@ -38,5 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=2
+gltf/naming_version=0
 gltf/embedded_image_handling=1

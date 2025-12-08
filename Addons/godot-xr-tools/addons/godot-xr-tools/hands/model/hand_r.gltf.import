@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ueb0ukfpihvu"
+uid="uid://ds1t8vc0kxoeo"
 path="res://.godot/imported/hand_r.gltf-a99e8c78ed445457fa0d46a4a95e702c.scn"
 
 [deps]
@@ -13,8 +13,8 @@ dest_files=["res://.godot/imported/hand_r.gltf-a99e8c78ed445457fa0d46a4a95e702c.
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
 nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
@@ -38,5 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=2
+gltf/naming_version=0
 gltf/embedded_image_handling=1

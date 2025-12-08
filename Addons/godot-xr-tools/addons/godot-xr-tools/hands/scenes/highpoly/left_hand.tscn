@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://q1l3fknstir2" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/model/Hand_Nails_L.gltf" id="1"]
 [ext_resource type="PackedScene" uid="uid://the6y7swe6j0" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/animations/left/AnimationPlayer.tscn" id="2"]
-[ext_resource type="Script" uid="uid://d0aqhii2wcf46" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/hand.gd" id="3"]
+[ext_resource type="Script" uid="uid://cnwtovj4mqc45" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/hand.gd" id="3"]
 [ext_resource type="Resource" uid="uid://dertgu7k8alls" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/poses/pose_default_left.tres" id="3_k56uy"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://dl8yf7ipqotd1" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/animations/left/hand_blend_tree.tres" id="5"]
 [ext_resource type="Material" uid="uid://dy6nhifvvmm73" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/materials/caucasian_hand.tres" id="6"]
@@ -47,7 +47,7 @@ default_pose = ExtResource("3_k56uy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, -0.05, 0.15)
 
 [node name="Skeleton3D" parent="Hand_Nails_L/Armature" index="0"]
-bones/1/rotation = Quaternion(0.323537, -2.56581e-05, -0.0272204, 0.945824)
+bones/1/rotation = Quaternion(0.323537, -2.56577e-05, -0.0272204, 0.945824)
 bones/2/rotation = Quaternion(-0.0904441, -0.0415175, -0.166293, 0.981042)
 bones/3/rotation = Quaternion(-0.0466199, 0.020971, 0.0103276, 0.998639)
 bones/5/rotation = Quaternion(-0.00128455, -0.0116081, -0.0168259, 0.99979)
@@ -73,9 +73,9 @@ surface_material_override/0 = ExtResource("6")
 [node name="AnimationPlayer" parent="Hand_Nails_L" instance=ExtResource("2")]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../Hand_Nails_L")
 tree_root = SubResource("AnimationNodeBlendTree_v8owg")
 anim_player = NodePath("../Hand_Nails_L/AnimationPlayer")
+active = true
 parameters/Grip/blend_amount = 0.0
 parameters/Trigger/blend_amount = 0.0
 
