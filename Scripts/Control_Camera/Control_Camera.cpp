@@ -74,7 +74,7 @@ void Control_Camera::_ready()
     xr_camera = xr_origin->get_node<Node3D>("XRCamera");
     camera_main = dragon_rb->get_node<Node3D>("Camera_Main");
 
-    if (!Engine::get_singleton()->is_editor_hint()) // only run when the game is running
+    if (!Engine::get_singleton()->is_editor_hint()) // only proceed when the game is running
     {
         set_physics_process(false);
 

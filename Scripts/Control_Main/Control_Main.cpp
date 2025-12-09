@@ -10,6 +10,7 @@
 #include "SaveManager.h"
 #include "DragonControlKeyboard.h"
 #include "DragonControlJoystick.h"
+#include "DragonControl_Temp.h"
 #include "Control_Camera.h"
 
 #include <godot_cpp/godot.hpp>
@@ -47,7 +48,7 @@ void Control_Main::_ready()
     }
     LoadSettings();
 
-    if (Engine::get_singleton()->is_editor_hint()) // only run when the game is running
+    if (Engine::get_singleton()->is_editor_hint()) // only proceed when the game is running
     {
         return;
     }
@@ -56,6 +57,7 @@ void Control_Main::_ready()
 
     if (enable_headset) 
     {
+        UtilityFunctions::print("Starting XR interface initialization...");
         DisplayServer::get_singleton()->window_set_vsync_mode(DisplayServer::VSYNC_DISABLED);
         Ref<XRInterface> xr_interface = XRServer::get_singleton()->find_interface("OpenXR");
         if (!xr_interface.is_valid()) 
@@ -138,6 +140,14 @@ void Control_Main::Switch_Scene(const String &scene_name)
             node_cheat_sheet->set_name("CheatSheet");
             new_scene->add_child(memnew(Control_Scene_TD()));
         }
+
+        if (scene_name == "Scene_Dodge")
+        {
+            camera_main->reparent(new_scene->get_node<Node>("Dragon_Temp"));
+            camera_main->set_position(Vector3(-0.2f, 0.8f, 0.0f));
+            camera_main->get_node<Node3D>("Camera_Main_NonXR")->set_position(Vector3(0, 0, 0));
+        }
+            
         if (scene_name == "Scene_Home")
         {
             Control_Scene_Home* control_home = memnew(Control_Scene_Home());
@@ -356,6 +366,7 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
             godot::ClassDB::register_abstract_class<DragonControlTop>();
             godot::ClassDB::register_class<DragonControlKeyboard>();
             godot::ClassDB::register_class<DragonControlJoystick>();
+            godot::ClassDB::register_class<DragonControl_Temp>();
             godot::ClassDB::register_class<DragonAnimator>();
             godot::ClassDB::register_class<DragonAnimator_Temp>();
             godot::ClassDB::register_class<Control_Camera>();

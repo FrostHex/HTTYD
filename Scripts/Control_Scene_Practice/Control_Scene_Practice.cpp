@@ -29,7 +29,7 @@ void Control_Scene_Practice::_bind_methods()
 
 void Control_Scene_Practice::_ready() 
 {
-	if (Engine::get_singleton()->is_editor_hint()) // only run when the game is running
+	if (Engine::get_singleton()->is_editor_hint()) // only proceed when the game is running
     {
         return;
     }
