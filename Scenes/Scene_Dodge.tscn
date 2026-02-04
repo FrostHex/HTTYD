@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://nxqdv1m6j7pw" path="res://Environment/Ocean/assets/skybox.png" id="1_pkuwg"]
 [ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="3_evq41"]
 [ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="4_8pkyu"]
-[ext_resource type="PackedScene" uid="uid://by1mu77fg2ay1" path="res://Scenes/Dragon_Temp.tscn" id="4_wq5c6"]
+[ext_resource type="PackedScene" uid="uid://by1mu77fg2ay1" path="res://Scenes/Dragons/Dragon_Temp.tscn" id="4_wq5c6"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5kfbp"]
 panorama = ExtResource("1_pkuwg")

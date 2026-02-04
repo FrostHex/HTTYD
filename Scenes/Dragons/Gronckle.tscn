@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cws4tkufm50dh"]
+
+[ext_resource type="PackedScene" uid="uid://dsqi6wttp0wgp" path="res://Dragons/Gronckle/Gronckle.glb" id="1_782g8"]
+
+[node name="Gronckle" instance=ExtResource("1_782g8")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/28/position = Vector3(0, -0.29920644, 0.6676533)
+bones/32/rotation = Quaternion(0.07515047, 0.18787615, 0.36370793, 0.90926975)
+bones/38/rotation = Quaternion(0.0741709, -0.1854272, -0.36390904, 0.90977234)

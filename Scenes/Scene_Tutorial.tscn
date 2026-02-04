@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbk3xtf5w0l6k" path="res://Image/paper.png" id="2_paper"]
 [ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="3_037q7"]
 [ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="4_exo1t"]
-[ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="5_exo1t"]
+[ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragons/Dragon.tscn" id="5_exo1t"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5kfbp"]
 panorama = ExtResource("1_unsya")

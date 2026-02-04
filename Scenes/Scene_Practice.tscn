@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c74y6c048cr3i" path="res://Scenes/Rocks/Pillar/Rock_Pillar_E.tscn" id="9_li6cs"]
 [ext_resource type="PackedScene" uid="uid://dlolbj7a40xmc" path="res://Scenes/Rocks/Basic/Rock_CA.tscn" id="10_05ihc"]
 [ext_resource type="PackedScene" uid="uid://b48qubstjctb5" path="res://Scenes/Rocks/Basic/Rock_BA.tscn" id="11_hrosw"]
-[ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="12_7k0bh"]
+[ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragons/Dragon.tscn" id="12_7k0bh"]
 [ext_resource type="Texture2D" uid="uid://dbk3xtf5w0l6k" path="res://Image/paper.png" id="12_b4lvp"]
 [ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="14_ffdpd"]
 [ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="15_1quxv"]

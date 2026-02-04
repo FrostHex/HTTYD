@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://c74y6c048cr3i" path="res://Scenes/Rocks/Pillar/Rock_Pillar_E.tscn" id="10_j2myj"]
 [ext_resource type="PackedScene" uid="uid://dlolbj7a40xmc" path="res://Scenes/Rocks/Basic/Rock_CA.tscn" id="11_r6yhq"]
 [ext_resource type="PackedScene" uid="uid://b48qubstjctb5" path="res://Scenes/Rocks/Basic/Rock_BA.tscn" id="12_kt7wv"]
-[ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragon.tscn" id="13_4puyq"]
+[ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragons/Dragon.tscn" id="13_4puyq"]
 [ext_resource type="AudioStream" uid="uid://lqe1phtle7us" path="res://Environment/Media/Test Drive.wav" id="14_lvt7o"]
 [ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="15_f234u"]
 [ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="16_bo2qs"]
-[ext_resource type="PackedScene" uid="uid://b8u4epkh67hsj" path="res://Environment/untitled.glb" id="16_urilc"]
+[ext_resource type="PackedScene" uid="uid://b8u4epkh67hsj" path="res://Environment/PathMarker.glb" id="16_urilc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rgh2o"]
 panorama = ExtResource("1_3jyqp")
