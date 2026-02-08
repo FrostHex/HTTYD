@@ -39,17 +39,17 @@
 namespace godot {
 
 Dictionary EditorVCSInterface::create_diff_line(int32_t p_new_line_no, int32_t p_old_line_no, const String &p_content, const String &p_status) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("create_diff_line")._native_ptr(), 2901184053);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("create_diff_line")._native_ptr(), 2901184053);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
 	int64_t p_new_line_no_encoded;
 	PtrToArg<int64_t>::encode(p_new_line_no, &p_new_line_no_encoded);
 	int64_t p_old_line_no_encoded;
 	PtrToArg<int64_t>::encode(p_old_line_no, &p_old_line_no_encoded);
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_new_line_no_encoded, &p_old_line_no_encoded, &p_content, &p_status);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_new_line_no_encoded, &p_old_line_no_encoded, &p_content, &p_status);
 }
 
 Dictionary EditorVCSInterface::create_diff_hunk(int32_t p_old_start, int32_t p_new_start, int32_t p_old_lines, int32_t p_new_lines) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("create_diff_hunk")._native_ptr(), 3784842090);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("create_diff_hunk")._native_ptr(), 3784842090);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
 	int64_t p_old_start_encoded;
 	PtrToArg<int64_t>::encode(p_old_start, &p_old_start_encoded);
@@ -59,51 +59,51 @@ Dictionary EditorVCSInterface::create_diff_hunk(int32_t p_old_start, int32_t p_n
 	PtrToArg<int64_t>::encode(p_old_lines, &p_old_lines_encoded);
 	int64_t p_new_lines_encoded;
 	PtrToArg<int64_t>::encode(p_new_lines, &p_new_lines_encoded);
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_old_start_encoded, &p_new_start_encoded, &p_old_lines_encoded, &p_new_lines_encoded);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_old_start_encoded, &p_new_start_encoded, &p_old_lines_encoded, &p_new_lines_encoded);
 }
 
 Dictionary EditorVCSInterface::create_diff_file(const String &p_new_file, const String &p_old_file) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("create_diff_file")._native_ptr(), 2723227684);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("create_diff_file")._native_ptr(), 2723227684);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_new_file, &p_old_file);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_new_file, &p_old_file);
 }
 
 Dictionary EditorVCSInterface::create_commit(const String &p_msg, const String &p_author, const String &p_id, int64_t p_unix_timestamp, int64_t p_offset_minutes) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("create_commit")._native_ptr(), 1075983584);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("create_commit")._native_ptr(), 1075983584);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
 	int64_t p_unix_timestamp_encoded;
 	PtrToArg<int64_t>::encode(p_unix_timestamp, &p_unix_timestamp_encoded);
 	int64_t p_offset_minutes_encoded;
 	PtrToArg<int64_t>::encode(p_offset_minutes, &p_offset_minutes_encoded);
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_msg, &p_author, &p_id, &p_unix_timestamp_encoded, &p_offset_minutes_encoded);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_msg, &p_author, &p_id, &p_unix_timestamp_encoded, &p_offset_minutes_encoded);
 }
 
 Dictionary EditorVCSInterface::create_status_file(const String &p_file_path, EditorVCSInterface::ChangeType p_change_type, EditorVCSInterface::TreeArea p_area) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("create_status_file")._native_ptr(), 1083471673);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("create_status_file")._native_ptr(), 1083471673);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
 	int64_t p_change_type_encoded;
 	PtrToArg<int64_t>::encode(p_change_type, &p_change_type_encoded);
 	int64_t p_area_encoded;
 	PtrToArg<int64_t>::encode(p_area, &p_area_encoded);
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_file_path, &p_change_type_encoded, &p_area_encoded);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_file_path, &p_change_type_encoded, &p_area_encoded);
 }
 
 Dictionary EditorVCSInterface::add_diff_hunks_into_diff_file(const Dictionary &p_diff_file, const TypedArray<Dictionary> &p_diff_hunks) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("add_diff_hunks_into_diff_file")._native_ptr(), 4015243225);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("add_diff_hunks_into_diff_file")._native_ptr(), 4015243225);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_diff_file, &p_diff_hunks);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_diff_file, &p_diff_hunks);
 }
 
 Dictionary EditorVCSInterface::add_line_diffs_into_diff_hunk(const Dictionary &p_diff_hunk, const TypedArray<Dictionary> &p_line_diffs) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("add_line_diffs_into_diff_hunk")._native_ptr(), 4015243225);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("add_line_diffs_into_diff_hunk")._native_ptr(), 4015243225);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_diff_hunk, &p_line_diffs);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_diff_hunk, &p_line_diffs);
 }
 
 void EditorVCSInterface::popup_error(const String &p_msg) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("popup_error")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorVCSInterface::get_class_static()._native_ptr(), StringName("popup_error")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_msg);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_msg);
 }
 
 bool EditorVCSInterface::_initialize(const String &p_project_path) {

@@ -125,8 +125,8 @@ public:
 	PackedVector4Array slice(int64_t p_begin, int64_t p_end = 2147483647) const;
 	PackedByteArray to_byte_array() const;
 	void sort();
-	int64_t bsearch(const Vector4 &p_value, bool p_before = true);
-	PackedVector4Array duplicate();
+	int64_t bsearch(const Vector4 &p_value, bool p_before = true) const;
+	PackedVector4Array duplicate() const;
 	int64_t find(const Vector4 &p_value, int64_t p_from = 0) const;
 	int64_t rfind(const Vector4 &p_value, int64_t p_from = -1) const;
 	int64_t count(const Vector4 &p_value) const;

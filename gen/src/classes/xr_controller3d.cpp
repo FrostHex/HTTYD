@@ -41,33 +41,33 @@
 namespace godot {
 
 bool XRController3D::is_button_pressed(const StringName &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRController3D::get_class_static()._native_ptr(), StringName("is_button_pressed")._native_ptr(), 2619796661);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRController3D::get_class_static()._native_ptr(), StringName("is_button_pressed")._native_ptr(), 2619796661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_name);
 }
 
 Variant XRController3D::get_input(const StringName &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRController3D::get_class_static()._native_ptr(), StringName("get_input")._native_ptr(), 2760726917);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRController3D::get_class_static()._native_ptr(), StringName("get_input")._native_ptr(), 2760726917);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
-	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_name);
 }
 
 float XRController3D::get_float(const StringName &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRController3D::get_class_static()._native_ptr(), StringName("get_float")._native_ptr(), 2349060816);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRController3D::get_class_static()._native_ptr(), StringName("get_float")._native_ptr(), 2349060816);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_name);
 }
 
 Vector2 XRController3D::get_vector2(const StringName &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRController3D::get_class_static()._native_ptr(), StringName("get_vector2")._native_ptr(), 3100822709);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRController3D::get_class_static()._native_ptr(), StringName("get_vector2")._native_ptr(), 3100822709);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner, &p_name);
 }
 
 XRPositionalTracker::TrackerHand XRController3D::get_tracker_hand() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRController3D::get_class_static()._native_ptr(), StringName("get_tracker_hand")._native_ptr(), 4181770860);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRController3D::get_class_static()._native_ptr(), StringName("get_tracker_hand")._native_ptr(), 4181770860);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (XRPositionalTracker::TrackerHand(0)));
-	return (XRPositionalTracker::TrackerHand)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (XRPositionalTracker::TrackerHand)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

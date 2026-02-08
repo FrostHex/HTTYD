@@ -41,27 +41,27 @@
 namespace godot {
 
 void GPUParticlesAttractorVectorField3D::set_size(const Vector3 &p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesAttractorVectorField3D::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 3460891852);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesAttractorVectorField3D::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 3460891852);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
 }
 
 Vector3 GPUParticlesAttractorVectorField3D::get_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesAttractorVectorField3D::get_class_static()._native_ptr(), StringName("get_size")._native_ptr(), 3360562783);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesAttractorVectorField3D::get_class_static()._native_ptr(), StringName("get_size")._native_ptr(), 3360562783);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
-	return internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
 }
 
 void GPUParticlesAttractorVectorField3D::set_texture(const Ref<Texture3D> &p_texture) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesAttractorVectorField3D::get_class_static()._native_ptr(), StringName("set_texture")._native_ptr(), 1188404210);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesAttractorVectorField3D::get_class_static()._native_ptr(), StringName("set_texture")._native_ptr(), 1188404210);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_texture != nullptr ? &p_texture->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_texture != nullptr ? &p_texture->_owner : nullptr));
 }
 
 Ref<Texture3D> GPUParticlesAttractorVectorField3D::get_texture() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesAttractorVectorField3D::get_class_static()._native_ptr(), StringName("get_texture")._native_ptr(), 373985333);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesAttractorVectorField3D::get_class_static()._native_ptr(), StringName("get_texture")._native_ptr(), 373985333);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Texture3D>()));
-	return Ref<Texture3D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Texture3D>(_gde_method_bind, _owner));
+	return Ref<Texture3D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Texture3D>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

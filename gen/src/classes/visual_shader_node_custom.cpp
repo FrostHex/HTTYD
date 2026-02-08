@@ -39,11 +39,11 @@
 namespace godot {
 
 int32_t VisualShaderNodeCustom::get_option_index(int32_t p_option) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeCustom::get_class_static()._native_ptr(), StringName("get_option_index")._native_ptr(), 923996154);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeCustom::get_class_static()._native_ptr(), StringName("get_option_index")._native_ptr(), 923996154);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	int64_t p_option_encoded;
 	PtrToArg<int64_t>::encode(p_option, &p_option_encoded);
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_option_encoded);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_option_encoded);
 }
 
 String VisualShaderNodeCustom::_get_name() const {

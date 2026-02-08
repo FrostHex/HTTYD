@@ -35,6 +35,7 @@
 #include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/core/object.hpp>
 #include <godot_cpp/variant/dictionary.hpp>
+#include <godot_cpp/variant/packed_string_array.hpp>
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/typed_array.hpp>
 #include <godot_cpp/variant/variant.hpp>
@@ -45,7 +46,6 @@
 
 namespace godot {
 
-class PackedStringArray;
 class StringName;
 
 class ProjectSettings : public Object {
@@ -75,6 +75,8 @@ public:
 	Error save();
 	bool load_resource_pack(const String &p_pack, bool p_replace_files = true, int32_t p_offset = 0);
 	Error save_custom(const String &p_file);
+	PackedStringArray get_changed_settings() const;
+	bool check_changed_settings_in_group(const String &p_setting_prefix) const;
 
 protected:
 	template <typename T, typename B>

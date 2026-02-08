@@ -39,29 +39,29 @@
 namespace godot {
 
 void VisualShaderNodeVarying::set_varying_name(const String &p_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeVarying::get_class_static()._native_ptr(), StringName("set_varying_name")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeVarying::get_class_static()._native_ptr(), StringName("set_varying_name")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
 }
 
 String VisualShaderNodeVarying::get_varying_name() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeVarying::get_class_static()._native_ptr(), StringName("get_varying_name")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeVarying::get_class_static()._native_ptr(), StringName("get_varying_name")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeVarying::set_varying_type(VisualShader::VaryingType p_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeVarying::get_class_static()._native_ptr(), StringName("set_varying_type")._native_ptr(), 3565867981);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeVarying::get_class_static()._native_ptr(), StringName("set_varying_type")._native_ptr(), 3565867981);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_type_encoded;
 	PtrToArg<int64_t>::encode(p_type, &p_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded);
 }
 
 VisualShader::VaryingType VisualShaderNodeVarying::get_varying_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeVarying::get_class_static()._native_ptr(), StringName("get_varying_type")._native_ptr(), 523183580);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeVarying::get_class_static()._native_ptr(), StringName("get_varying_type")._native_ptr(), 523183580);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShader::VaryingType(0)));
-	return (VisualShader::VaryingType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShader::VaryingType)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

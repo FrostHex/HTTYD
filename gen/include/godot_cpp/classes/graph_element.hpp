@@ -53,6 +53,8 @@ public:
 	bool is_selectable();
 	void set_selected(bool p_selected);
 	bool is_selected();
+	void set_scaling_menus(bool p_scaling_menus);
+	bool is_scaling_menus() const;
 	void set_position_offset(const Vector2 &p_offset);
 	Vector2 get_position_offset() const;
 

@@ -39,45 +39,45 @@
 namespace godot {
 
 void AudioEffectSpectrumAnalyzer::set_buffer_length(float p_seconds) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("set_buffer_length")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("set_buffer_length")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_seconds_encoded;
 	PtrToArg<double>::encode(p_seconds, &p_seconds_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_seconds_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_seconds_encoded);
 }
 
 float AudioEffectSpectrumAnalyzer::get_buffer_length() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("get_buffer_length")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("get_buffer_length")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AudioEffectSpectrumAnalyzer::set_tap_back_pos(float p_seconds) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("set_tap_back_pos")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("set_tap_back_pos")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_seconds_encoded;
 	PtrToArg<double>::encode(p_seconds, &p_seconds_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_seconds_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_seconds_encoded);
 }
 
 float AudioEffectSpectrumAnalyzer::get_tap_back_pos() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("get_tap_back_pos")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("get_tap_back_pos")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AudioEffectSpectrumAnalyzer::set_fft_size(AudioEffectSpectrumAnalyzer::FFTSize p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("set_fft_size")._native_ptr(), 1202879215);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("set_fft_size")._native_ptr(), 1202879215);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_size_encoded;
 	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
 }
 
 AudioEffectSpectrumAnalyzer::FFTSize AudioEffectSpectrumAnalyzer::get_fft_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("get_fft_size")._native_ptr(), 3925405343);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectSpectrumAnalyzer::get_class_static()._native_ptr(), StringName("get_fft_size")._native_ptr(), 3925405343);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AudioEffectSpectrumAnalyzer::FFTSize(0)));
-	return (AudioEffectSpectrumAnalyzer::FFTSize)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AudioEffectSpectrumAnalyzer::FFTSize)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

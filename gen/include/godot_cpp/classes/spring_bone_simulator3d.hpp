@@ -50,28 +50,10 @@ class SpringBoneSimulator3D : public SkeletonModifier3D {
 	GDEXTENSION_CLASS(SpringBoneSimulator3D, SkeletonModifier3D)
 
 public:
-	enum BoneDirection {
-		BONE_DIRECTION_PLUS_X = 0,
-		BONE_DIRECTION_MINUS_X = 1,
-		BONE_DIRECTION_PLUS_Y = 2,
-		BONE_DIRECTION_MINUS_Y = 3,
-		BONE_DIRECTION_PLUS_Z = 4,
-		BONE_DIRECTION_MINUS_Z = 5,
-		BONE_DIRECTION_FROM_PARENT = 6,
-	};
-
 	enum CenterFrom {
 		CENTER_FROM_WORLD_ORIGIN = 0,
 		CENTER_FROM_NODE = 1,
 		CENTER_FROM_BONE = 2,
-	};
-
-	enum RotationAxis {
-		ROTATION_AXIS_X = 0,
-		ROTATION_AXIS_Y = 1,
-		ROTATION_AXIS_Z = 2,
-		ROTATION_AXIS_ALL = 3,
-		ROTATION_AXIS_CUSTOM = 4,
 	};
 
 	void set_root_bone_name(int32_t p_index, const String &p_bone_name);
@@ -84,8 +66,8 @@ public:
 	int32_t get_end_bone(int32_t p_index) const;
 	void set_extend_end_bone(int32_t p_index, bool p_enabled);
 	bool is_end_bone_extended(int32_t p_index) const;
-	void set_end_bone_direction(int32_t p_index, SpringBoneSimulator3D::BoneDirection p_bone_direction);
-	SpringBoneSimulator3D::BoneDirection get_end_bone_direction(int32_t p_index) const;
+	void set_end_bone_direction(int32_t p_index, SkeletonModifier3D::BoneDirection p_bone_direction);
+	SkeletonModifier3D::BoneDirection get_end_bone_direction(int32_t p_index) const;
 	void set_end_bone_length(int32_t p_index, float p_length);
 	float get_end_bone_length(int32_t p_index) const;
 	void set_center_from(int32_t p_index, SpringBoneSimulator3D::CenterFrom p_center_from);
@@ -98,8 +80,8 @@ public:
 	int32_t get_center_bone(int32_t p_index) const;
 	void set_radius(int32_t p_index, float p_radius);
 	float get_radius(int32_t p_index) const;
-	void set_rotation_axis(int32_t p_index, SpringBoneSimulator3D::RotationAxis p_axis);
-	SpringBoneSimulator3D::RotationAxis get_rotation_axis(int32_t p_index) const;
+	void set_rotation_axis(int32_t p_index, SkeletonModifier3D::RotationAxis p_axis);
+	SkeletonModifier3D::RotationAxis get_rotation_axis(int32_t p_index) const;
 	void set_rotation_axis_vector(int32_t p_index, const Vector3 &p_vector);
 	Vector3 get_rotation_axis_vector(int32_t p_index) const;
 	void set_radius_damping_curve(int32_t p_index, const Ref<Curve> &p_curve);
@@ -125,8 +107,8 @@ public:
 	bool is_config_individual(int32_t p_index) const;
 	String get_joint_bone_name(int32_t p_index, int32_t p_joint) const;
 	int32_t get_joint_bone(int32_t p_index, int32_t p_joint) const;
-	void set_joint_rotation_axis(int32_t p_index, int32_t p_joint, SpringBoneSimulator3D::RotationAxis p_axis);
-	SpringBoneSimulator3D::RotationAxis get_joint_rotation_axis(int32_t p_index, int32_t p_joint) const;
+	void set_joint_rotation_axis(int32_t p_index, int32_t p_joint, SkeletonModifier3D::RotationAxis p_axis);
+	SkeletonModifier3D::RotationAxis get_joint_rotation_axis(int32_t p_index, int32_t p_joint) const;
 	void set_joint_rotation_axis_vector(int32_t p_index, int32_t p_joint, const Vector3 &p_vector);
 	Vector3 get_joint_rotation_axis_vector(int32_t p_index, int32_t p_joint) const;
 	void set_joint_radius(int32_t p_index, int32_t p_joint, float p_radius);
@@ -154,6 +136,8 @@ public:
 	void clear_collisions(int32_t p_index);
 	void set_external_force(const Vector3 &p_force);
 	Vector3 get_external_force() const;
+	void set_mutable_bone_axes(bool p_enabled);
+	bool are_bone_axes_mutable() const;
 	void reset();
 
 protected:
@@ -167,7 +151,5 @@ public:
 
 } // namespace godot
 
-VARIANT_ENUM_CAST(SpringBoneSimulator3D::BoneDirection);
 VARIANT_ENUM_CAST(SpringBoneSimulator3D::CenterFrom);
-VARIANT_ENUM_CAST(SpringBoneSimulator3D::RotationAxis);
 

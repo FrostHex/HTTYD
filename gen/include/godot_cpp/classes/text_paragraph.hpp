@@ -59,6 +59,7 @@ class TextParagraph : public RefCounted {
 
 public:
 	void clear();
+	Ref<TextParagraph> duplicate() const;
 	void set_direction(TextServer::Direction p_direction);
 	TextServer::Direction get_direction() const;
 	TextServer::Direction get_inferred_direction() const;
@@ -76,6 +77,7 @@ public:
 	bool add_string(const String &p_text, const Ref<Font> &p_font, int32_t p_font_size, const String &p_language = String(), const Variant &p_meta = nullptr);
 	bool add_object(const Variant &p_key, const Vector2 &p_size, InlineAlignment p_inline_align = (InlineAlignment)5, int32_t p_length = 1, float p_baseline = 0.0);
 	bool resize_object(const Variant &p_key, const Vector2 &p_size, InlineAlignment p_inline_align = (InlineAlignment)5, float p_baseline = 0.0);
+	bool has_object(const Variant &p_key) const;
 	void set_alignment(HorizontalAlignment p_alignment);
 	HorizontalAlignment get_alignment() const;
 	void tab_align(const PackedFloat32Array &p_tab_stops);

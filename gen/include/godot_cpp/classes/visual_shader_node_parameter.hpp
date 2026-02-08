@@ -50,13 +50,16 @@ public:
 		QUAL_NONE = 0,
 		QUAL_GLOBAL = 1,
 		QUAL_INSTANCE = 2,
-		QUAL_MAX = 3,
+		QUAL_INSTANCE_INDEX = 3,
+		QUAL_MAX = 4,
 	};
 
 	void set_parameter_name(const String &p_name);
 	String get_parameter_name() const;
 	void set_qualifier(VisualShaderNodeParameter::Qualifier p_qualifier);
 	VisualShaderNodeParameter::Qualifier get_qualifier() const;
+	void set_instance_index(int32_t p_instance_index);
+	int32_t get_instance_index() const;
 
 protected:
 	template <typename T, typename B>

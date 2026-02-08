@@ -42,27 +42,27 @@
 namespace godot {
 
 void CSGMesh3D::set_mesh(const Ref<Mesh> &p_mesh) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGMesh3D::get_class_static()._native_ptr(), StringName("set_mesh")._native_ptr(), 194775623);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGMesh3D::get_class_static()._native_ptr(), StringName("set_mesh")._native_ptr(), 194775623);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_mesh != nullptr ? &p_mesh->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_mesh != nullptr ? &p_mesh->_owner : nullptr));
 }
 
 Ref<Mesh> CSGMesh3D::get_mesh() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGMesh3D::get_class_static()._native_ptr(), StringName("get_mesh")._native_ptr(), 4081188045);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGMesh3D::get_class_static()._native_ptr(), StringName("get_mesh")._native_ptr(), 4081188045);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Mesh>()));
-	return Ref<Mesh>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Mesh>(_gde_method_bind, _owner));
+	return Ref<Mesh>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Mesh>(_gde_method_bind, _owner));
 }
 
 void CSGMesh3D::set_material(const Ref<Material> &p_material) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGMesh3D::get_class_static()._native_ptr(), StringName("set_material")._native_ptr(), 2757459619);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGMesh3D::get_class_static()._native_ptr(), StringName("set_material")._native_ptr(), 2757459619);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_material != nullptr ? &p_material->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_material != nullptr ? &p_material->_owner : nullptr));
 }
 
 Ref<Material> CSGMesh3D::get_material() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGMesh3D::get_class_static()._native_ptr(), StringName("get_material")._native_ptr(), 5934680);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGMesh3D::get_class_static()._native_ptr(), StringName("get_material")._native_ptr(), 5934680);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Material>()));
-	return Ref<Material>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Material>(_gde_method_bind, _owner));
+	return Ref<Material>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Material>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

@@ -39,69 +39,69 @@
 namespace godot {
 
 void RootMotionView::set_animation_path(const NodePath &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("set_animation_path")._native_ptr(), 1348162250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("set_animation_path")._native_ptr(), 1348162250);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
 }
 
 NodePath RootMotionView::get_animation_path() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("get_animation_path")._native_ptr(), 4075236667);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("get_animation_path")._native_ptr(), 4075236667);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
 }
 
 void RootMotionView::set_color(const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("set_color")._native_ptr(), 2920490490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("set_color")._native_ptr(), 2920490490);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
 }
 
 Color RootMotionView::get_color() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("get_color")._native_ptr(), 3444240500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("get_color")._native_ptr(), 3444240500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
-	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
 }
 
 void RootMotionView::set_cell_size(float p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("set_cell_size")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("set_cell_size")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_size_encoded;
 	PtrToArg<double>::encode(p_size, &p_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
 }
 
 float RootMotionView::get_cell_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("get_cell_size")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("get_cell_size")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void RootMotionView::set_radius(float p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("set_radius")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("set_radius")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_size_encoded;
 	PtrToArg<double>::encode(p_size, &p_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
 }
 
 float RootMotionView::get_radius() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("get_radius")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("get_radius")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void RootMotionView::set_zero_y(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("set_zero_y")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("set_zero_y")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool RootMotionView::get_zero_y() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("get_zero_y")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RootMotionView::get_class_static()._native_ptr(), StringName("get_zero_y")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

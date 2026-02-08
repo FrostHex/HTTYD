@@ -39,11 +39,11 @@
 namespace godot {
 
 Ref<SubtweenTweener> SubtweenTweener::set_delay(double p_delay) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SubtweenTweener::get_class_static()._native_ptr(), StringName("set_delay")._native_ptr(), 449181780);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SubtweenTweener::get_class_static()._native_ptr(), StringName("set_delay")._native_ptr(), 449181780);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<SubtweenTweener>()));
 	double p_delay_encoded;
 	PtrToArg<double>::encode(p_delay, &p_delay_encoded);
-	return Ref<SubtweenTweener>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<SubtweenTweener>(_gde_method_bind, _owner, &p_delay_encoded));
+	return Ref<SubtweenTweener>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<SubtweenTweener>(_gde_method_bind, _owner, &p_delay_encoded));
 }
 
 } // namespace godot

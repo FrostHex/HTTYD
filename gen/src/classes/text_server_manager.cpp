@@ -45,11 +45,11 @@ TextServerManager *TextServerManager::singleton = nullptr;
 
 TextServerManager *TextServerManager::get_singleton() {
 	if (unlikely(singleton == nullptr)) {
-		GDExtensionObjectPtr singleton_obj = internal::gdextension_interface_global_get_singleton(TextServerManager::get_class_static()._native_ptr());
+		GDExtensionObjectPtr singleton_obj = ::godot::gdextension_interface::global_get_singleton(TextServerManager::get_class_static()._native_ptr());
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton_obj, nullptr);
 #endif // DEBUG_ENABLED
-		singleton = reinterpret_cast<TextServerManager *>(internal::gdextension_interface_object_get_instance_binding(singleton_obj, internal::token, &TextServerManager::_gde_binding_callbacks));
+		singleton = reinterpret_cast<TextServerManager *>(::godot::gdextension_interface::object_get_instance_binding(singleton_obj, ::godot::gdextension_interface::token, &TextServerManager::_gde_binding_callbacks));
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton, nullptr);
 #endif // DEBUG_ENABLED
@@ -68,53 +68,53 @@ TextServerManager::~TextServerManager() {
 }
 
 void TextServerManager::add_interface(const Ref<TextServer> &p_interface) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("add_interface")._native_ptr(), 1799689403);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("add_interface")._native_ptr(), 1799689403);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_interface != nullptr ? &p_interface->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_interface != nullptr ? &p_interface->_owner : nullptr));
 }
 
 int32_t TextServerManager::get_interface_count() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("get_interface_count")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("get_interface_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void TextServerManager::remove_interface(const Ref<TextServer> &p_interface) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("remove_interface")._native_ptr(), 1799689403);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("remove_interface")._native_ptr(), 1799689403);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_interface != nullptr ? &p_interface->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_interface != nullptr ? &p_interface->_owner : nullptr));
 }
 
 Ref<TextServer> TextServerManager::get_interface(int32_t p_idx) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("get_interface")._native_ptr(), 1672475555);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("get_interface")._native_ptr(), 1672475555);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<TextServer>()));
 	int64_t p_idx_encoded;
 	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
-	return Ref<TextServer>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<TextServer>(_gde_method_bind, _owner, &p_idx_encoded));
+	return Ref<TextServer>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<TextServer>(_gde_method_bind, _owner, &p_idx_encoded));
 }
 
 TypedArray<Dictionary> TextServerManager::get_interfaces() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("get_interfaces")._native_ptr(), 3995934104);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("get_interfaces")._native_ptr(), 3995934104);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Dictionary>()));
-	return internal::_call_native_mb_ret<TypedArray<Dictionary>>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Dictionary>>(_gde_method_bind, _owner);
 }
 
 Ref<TextServer> TextServerManager::find_interface(const String &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("find_interface")._native_ptr(), 2240905781);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("find_interface")._native_ptr(), 2240905781);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<TextServer>()));
-	return Ref<TextServer>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<TextServer>(_gde_method_bind, _owner, &p_name));
+	return Ref<TextServer>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<TextServer>(_gde_method_bind, _owner, &p_name));
 }
 
 void TextServerManager::set_primary_interface(const Ref<TextServer> &p_index) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("set_primary_interface")._native_ptr(), 1799689403);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("set_primary_interface")._native_ptr(), 1799689403);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_index != nullptr ? &p_index->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_index != nullptr ? &p_index->_owner : nullptr));
 }
 
 Ref<TextServer> TextServerManager::get_primary_interface() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("get_primary_interface")._native_ptr(), 905850878);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServerManager::get_class_static()._native_ptr(), StringName("get_primary_interface")._native_ptr(), 905850878);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<TextServer>()));
-	return Ref<TextServer>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<TextServer>(_gde_method_bind, _owner));
+	return Ref<TextServer>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<TextServer>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

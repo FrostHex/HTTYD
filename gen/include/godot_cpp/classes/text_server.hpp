@@ -148,6 +148,7 @@ public:
 		OVERRUN_ADD_ELLIPSIS = 4,
 		OVERRUN_ENFORCE_ELLIPSIS = 8,
 		OVERRUN_JUSTIFICATION_AWARE = 16,
+		OVERRUN_SHORT_STRING_ELLIPSIS = 32,
 	};
 
 	enum GraphemeFlag : uint64_t {
@@ -244,6 +245,7 @@ public:
 	String get_support_data_info() const;
 	bool save_support_data(const String &p_filename) const;
 	PackedByteArray get_support_data() const;
+	bool is_locale_using_support_data(const String &p_locale) const;
 	bool is_locale_right_to_left(const String &p_locale) const;
 	int64_t name_to_tag(const String &p_name) const;
 	String tag_to_name(int64_t p_tag) const;
@@ -378,6 +380,7 @@ public:
 	void draw_hex_code_box(const RID &p_canvas, int64_t p_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color) const;
 	RID create_shaped_text(TextServer::Direction p_direction = (TextServer::Direction)0, TextServer::Orientation p_orientation = (TextServer::Orientation)0);
 	void shaped_text_clear(const RID &p_rid);
+	RID shaped_text_duplicate(const RID &p_rid);
 	void shaped_text_set_direction(const RID &p_shaped, TextServer::Direction p_direction = (TextServer::Direction)0);
 	TextServer::Direction shaped_text_get_direction(const RID &p_shaped) const;
 	TextServer::Direction shaped_text_get_inferred_direction(const RID &p_shaped) const;
@@ -397,6 +400,7 @@ public:
 	bool shaped_text_add_string(const RID &p_shaped, const String &p_text, const TypedArray<RID> &p_fonts, int64_t p_size, const Dictionary &p_opentype_features = Dictionary(), const String &p_language = String(), const Variant &p_meta = nullptr);
 	bool shaped_text_add_object(const RID &p_shaped, const Variant &p_key, const Vector2 &p_size, InlineAlignment p_inline_align = (InlineAlignment)5, int64_t p_length = 1, double p_baseline = 0.0);
 	bool shaped_text_resize_object(const RID &p_shaped, const Variant &p_key, const Vector2 &p_size, InlineAlignment p_inline_align = (InlineAlignment)5, double p_baseline = 0.0);
+	bool shaped_text_has_object(const RID &p_shaped, const Variant &p_key) const;
 	String shaped_get_text(const RID &p_shaped) const;
 	int64_t shaped_get_span_count(const RID &p_shaped) const;
 	Variant shaped_get_span_meta(const RID &p_shaped, int64_t p_index) const;

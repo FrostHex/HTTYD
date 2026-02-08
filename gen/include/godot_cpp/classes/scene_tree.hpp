@@ -132,6 +132,7 @@ public:
 	Node *get_current_scene() const;
 	Error change_scene_to_file(const String &p_path);
 	Error change_scene_to_packed(const Ref<PackedScene> &p_packed_scene);
+	Error change_scene_to_node(Node *p_node);
 	Error reload_current_scene();
 	void unload_current_scene();
 	void set_multiplayer(const Ref<MultiplayerAPI> &p_multiplayer, const NodePath &p_root_path = NodePath(""));

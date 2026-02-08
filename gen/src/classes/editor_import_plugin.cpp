@@ -41,9 +41,9 @@
 namespace godot {
 
 Error EditorImportPlugin::append_import_external_resource(const String &p_path, const Dictionary &p_custom_options, const String &p_custom_importer, const Variant &p_generator_parameters) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorImportPlugin::get_class_static()._native_ptr(), StringName("append_import_external_resource")._native_ptr(), 320493106);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorImportPlugin::get_class_static()._native_ptr(), StringName("append_import_external_resource")._native_ptr(), 320493106);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_custom_options, &p_custom_importer, &p_generator_parameters);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_custom_options, &p_custom_importer, &p_generator_parameters);
 }
 
 String EditorImportPlugin::_get_importer_name() const {

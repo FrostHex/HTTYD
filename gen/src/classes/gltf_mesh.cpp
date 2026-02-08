@@ -43,63 +43,63 @@
 namespace godot {
 
 String GLTFMesh::get_original_name() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("get_original_name")._native_ptr(), 2841200299);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("get_original_name")._native_ptr(), 2841200299);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void GLTFMesh::set_original_name(const String &p_original_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("set_original_name")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("set_original_name")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_original_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_original_name);
 }
 
 Ref<ImporterMesh> GLTFMesh::get_mesh() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("get_mesh")._native_ptr(), 3754628756);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("get_mesh")._native_ptr(), 3754628756);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<ImporterMesh>()));
-	return Ref<ImporterMesh>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<ImporterMesh>(_gde_method_bind, _owner));
+	return Ref<ImporterMesh>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<ImporterMesh>(_gde_method_bind, _owner));
 }
 
 void GLTFMesh::set_mesh(const Ref<ImporterMesh> &p_mesh) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("set_mesh")._native_ptr(), 2255166972);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("set_mesh")._native_ptr(), 2255166972);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_mesh != nullptr ? &p_mesh->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_mesh != nullptr ? &p_mesh->_owner : nullptr));
 }
 
 PackedFloat32Array GLTFMesh::get_blend_weights() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("get_blend_weights")._native_ptr(), 2445143706);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("get_blend_weights")._native_ptr(), 2445143706);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedFloat32Array()));
-	return internal::_call_native_mb_ret<PackedFloat32Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedFloat32Array>(_gde_method_bind, _owner);
 }
 
 void GLTFMesh::set_blend_weights(const PackedFloat32Array &p_blend_weights) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("set_blend_weights")._native_ptr(), 2899603908);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("set_blend_weights")._native_ptr(), 2899603908);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_blend_weights);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_blend_weights);
 }
 
 TypedArray<Ref<Material>> GLTFMesh::get_instance_materials() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("get_instance_materials")._native_ptr(), 2915620761);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("get_instance_materials")._native_ptr(), 2915620761);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Material>>()));
-	return internal::_call_native_mb_ret<TypedArray<Ref<Material>>>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Ref<Material>>>(_gde_method_bind, _owner);
 }
 
 void GLTFMesh::set_instance_materials(const TypedArray<Ref<Material>> &p_instance_materials) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("set_instance_materials")._native_ptr(), 381264803);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("set_instance_materials")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_instance_materials);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_instance_materials);
 }
 
 Variant GLTFMesh::get_additional_data(const StringName &p_extension_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("get_additional_data")._native_ptr(), 2138907829);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("get_additional_data")._native_ptr(), 2138907829);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
-	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_extension_name);
+	return ::godot::internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_extension_name);
 }
 
 void GLTFMesh::set_additional_data(const StringName &p_extension_name, const Variant &p_additional_data) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("set_additional_data")._native_ptr(), 3776071444);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFMesh::get_class_static()._native_ptr(), StringName("set_additional_data")._native_ptr(), 3776071444);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_extension_name, &p_additional_data);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_extension_name, &p_additional_data);
 }
 
 } // namespace godot

@@ -39,41 +39,41 @@
 namespace godot {
 
 XRServer::TrackerType XRTracker::get_tracker_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("get_tracker_type")._native_ptr(), 2784508102);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("get_tracker_type")._native_ptr(), 2784508102);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (XRServer::TrackerType(0)));
-	return (XRServer::TrackerType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (XRServer::TrackerType)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void XRTracker::set_tracker_type(XRServer::TrackerType p_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("set_tracker_type")._native_ptr(), 3055763575);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("set_tracker_type")._native_ptr(), 3055763575);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_type_encoded;
 	PtrToArg<int64_t>::encode(p_type, &p_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded);
 }
 
 StringName XRTracker::get_tracker_name() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("get_tracker_name")._native_ptr(), 2002593661);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("get_tracker_name")._native_ptr(), 2002593661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
-	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
 }
 
 void XRTracker::set_tracker_name(const StringName &p_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("set_tracker_name")._native_ptr(), 3304788590);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("set_tracker_name")._native_ptr(), 3304788590);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
 }
 
 String XRTracker::get_tracker_desc() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("get_tracker_desc")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("get_tracker_desc")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void XRTracker::set_tracker_desc(const String &p_description) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("set_tracker_desc")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRTracker::get_class_static()._native_ptr(), StringName("set_tracker_desc")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_description);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_description);
 }
 
 } // namespace godot

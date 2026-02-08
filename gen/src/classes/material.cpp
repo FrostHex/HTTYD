@@ -39,41 +39,41 @@
 namespace godot {
 
 void Material::set_next_pass(const Ref<Material> &p_next_pass) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("set_next_pass")._native_ptr(), 2757459619);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("set_next_pass")._native_ptr(), 2757459619);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_next_pass != nullptr ? &p_next_pass->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_next_pass != nullptr ? &p_next_pass->_owner : nullptr));
 }
 
 Ref<Material> Material::get_next_pass() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("get_next_pass")._native_ptr(), 5934680);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("get_next_pass")._native_ptr(), 5934680);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Material>()));
-	return Ref<Material>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Material>(_gde_method_bind, _owner));
+	return Ref<Material>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Material>(_gde_method_bind, _owner));
 }
 
 void Material::set_render_priority(int32_t p_priority) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("set_render_priority")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("set_render_priority")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_priority_encoded;
 	PtrToArg<int64_t>::encode(p_priority, &p_priority_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_priority_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_priority_encoded);
 }
 
 int32_t Material::get_render_priority() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("get_render_priority")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("get_render_priority")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void Material::inspect_native_shader_code() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("inspect_native_shader_code")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("inspect_native_shader_code")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 Ref<Resource> Material::create_placeholder() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("create_placeholder")._native_ptr(), 121922552);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Material::get_class_static()._native_ptr(), StringName("create_placeholder")._native_ptr(), 121922552);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Resource>()));
-	return Ref<Resource>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner));
+	return Ref<Resource>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner));
 }
 
 RID Material::_get_shader_rid() const {

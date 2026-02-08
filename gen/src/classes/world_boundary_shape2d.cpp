@@ -39,29 +39,29 @@
 namespace godot {
 
 void WorldBoundaryShape2D::set_normal(const Vector2 &p_normal) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorldBoundaryShape2D::get_class_static()._native_ptr(), StringName("set_normal")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(WorldBoundaryShape2D::get_class_static()._native_ptr(), StringName("set_normal")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_normal);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_normal);
 }
 
 Vector2 WorldBoundaryShape2D::get_normal() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorldBoundaryShape2D::get_class_static()._native_ptr(), StringName("get_normal")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(WorldBoundaryShape2D::get_class_static()._native_ptr(), StringName("get_normal")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 void WorldBoundaryShape2D::set_distance(float p_distance) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorldBoundaryShape2D::get_class_static()._native_ptr(), StringName("set_distance")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(WorldBoundaryShape2D::get_class_static()._native_ptr(), StringName("set_distance")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_distance_encoded;
 	PtrToArg<double>::encode(p_distance, &p_distance_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_distance_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_distance_encoded);
 }
 
 float WorldBoundaryShape2D::get_distance() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorldBoundaryShape2D::get_class_static()._native_ptr(), StringName("get_distance")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(WorldBoundaryShape2D::get_class_static()._native_ptr(), StringName("get_distance")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

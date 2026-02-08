@@ -42,6 +42,7 @@
 namespace godot {
 
 class Dictionary;
+class RID;
 class Resource;
 class String;
 class Texture2D;
@@ -51,6 +52,7 @@ class EditorResourcePreviewGenerator : public RefCounted {
 	GDEXTENSION_CLASS(EditorResourcePreviewGenerator, RefCounted)
 
 public:
+	void request_draw_and_wait(const RID &p_viewport) const;
 	virtual bool _handles(const String &p_type) const;
 	virtual Ref<Texture2D> _generate(const Ref<Resource> &p_resource, const Vector2i &p_size, const Dictionary &p_metadata) const;
 	virtual Ref<Texture2D> _generate_from_path(const String &p_path, const Vector2i &p_size, const Dictionary &p_metadata) const;

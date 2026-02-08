@@ -42,11 +42,11 @@ Marshalls *Marshalls::singleton = nullptr;
 
 Marshalls *Marshalls::get_singleton() {
 	if (unlikely(singleton == nullptr)) {
-		GDExtensionObjectPtr singleton_obj = internal::gdextension_interface_global_get_singleton(Marshalls::get_class_static()._native_ptr());
+		GDExtensionObjectPtr singleton_obj = ::godot::gdextension_interface::global_get_singleton(Marshalls::get_class_static()._native_ptr());
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton_obj, nullptr);
 #endif // DEBUG_ENABLED
-		singleton = reinterpret_cast<Marshalls *>(internal::gdextension_interface_object_get_instance_binding(singleton_obj, internal::token, &Marshalls::_gde_binding_callbacks));
+		singleton = reinterpret_cast<Marshalls *>(::godot::gdextension_interface::object_get_instance_binding(singleton_obj, ::godot::gdextension_interface::token, &Marshalls::_gde_binding_callbacks));
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton, nullptr);
 #endif // DEBUG_ENABLED
@@ -65,43 +65,43 @@ Marshalls::~Marshalls() {
 }
 
 String Marshalls::variant_to_base64(const Variant &p_variant, bool p_full_objects) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("variant_to_base64")._native_ptr(), 3876248563);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("variant_to_base64")._native_ptr(), 3876248563);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
 	int8_t p_full_objects_encoded;
 	PtrToArg<bool>::encode(p_full_objects, &p_full_objects_encoded);
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_variant, &p_full_objects_encoded);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_variant, &p_full_objects_encoded);
 }
 
 Variant Marshalls::base64_to_variant(const String &p_base64_str, bool p_allow_objects) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("base64_to_variant")._native_ptr(), 218087648);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("base64_to_variant")._native_ptr(), 218087648);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
 	int8_t p_allow_objects_encoded;
 	PtrToArg<bool>::encode(p_allow_objects, &p_allow_objects_encoded);
-	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_base64_str, &p_allow_objects_encoded);
+	return ::godot::internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_base64_str, &p_allow_objects_encoded);
 }
 
 String Marshalls::raw_to_base64(const PackedByteArray &p_array) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("raw_to_base64")._native_ptr(), 3999417757);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("raw_to_base64")._native_ptr(), 3999417757);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_array);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_array);
 }
 
 PackedByteArray Marshalls::base64_to_raw(const String &p_base64_str) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("base64_to_raw")._native_ptr(), 659035735);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("base64_to_raw")._native_ptr(), 659035735);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedByteArray()));
-	return internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner, &p_base64_str);
+	return ::godot::internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner, &p_base64_str);
 }
 
 String Marshalls::utf8_to_base64(const String &p_utf8_str) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("utf8_to_base64")._native_ptr(), 1703090593);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("utf8_to_base64")._native_ptr(), 1703090593);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_utf8_str);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_utf8_str);
 }
 
 String Marshalls::base64_to_utf8(const String &p_base64_str) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("base64_to_utf8")._native_ptr(), 1703090593);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Marshalls::get_class_static()._native_ptr(), StringName("base64_to_utf8")._native_ptr(), 1703090593);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_base64_str);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_base64_str);
 }
 
 } // namespace godot

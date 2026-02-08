@@ -39,73 +39,73 @@
 namespace godot {
 
 void RDTextureView::set_format_override(RenderingDevice::DataFormat p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("set_format_override")._native_ptr(), 565531219);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("set_format_override")._native_ptr(), 565531219);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::DataFormat RDTextureView::get_format_override() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("get_format_override")._native_ptr(), 2235804183);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("get_format_override")._native_ptr(), 2235804183);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::DataFormat(0)));
-	return (RenderingDevice::DataFormat)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::DataFormat)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDTextureView::set_swizzle_r(RenderingDevice::TextureSwizzle p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("set_swizzle_r")._native_ptr(), 3833362581);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("set_swizzle_r")._native_ptr(), 3833362581);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::TextureSwizzle RDTextureView::get_swizzle_r() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("get_swizzle_r")._native_ptr(), 4150792614);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("get_swizzle_r")._native_ptr(), 4150792614);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::TextureSwizzle(0)));
-	return (RenderingDevice::TextureSwizzle)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::TextureSwizzle)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDTextureView::set_swizzle_g(RenderingDevice::TextureSwizzle p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("set_swizzle_g")._native_ptr(), 3833362581);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("set_swizzle_g")._native_ptr(), 3833362581);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::TextureSwizzle RDTextureView::get_swizzle_g() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("get_swizzle_g")._native_ptr(), 4150792614);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("get_swizzle_g")._native_ptr(), 4150792614);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::TextureSwizzle(0)));
-	return (RenderingDevice::TextureSwizzle)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::TextureSwizzle)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDTextureView::set_swizzle_b(RenderingDevice::TextureSwizzle p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("set_swizzle_b")._native_ptr(), 3833362581);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("set_swizzle_b")._native_ptr(), 3833362581);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::TextureSwizzle RDTextureView::get_swizzle_b() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("get_swizzle_b")._native_ptr(), 4150792614);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("get_swizzle_b")._native_ptr(), 4150792614);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::TextureSwizzle(0)));
-	return (RenderingDevice::TextureSwizzle)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::TextureSwizzle)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDTextureView::set_swizzle_a(RenderingDevice::TextureSwizzle p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("set_swizzle_a")._native_ptr(), 3833362581);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("set_swizzle_a")._native_ptr(), 3833362581);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::TextureSwizzle RDTextureView::get_swizzle_a() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("get_swizzle_a")._native_ptr(), 4150792614);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDTextureView::get_class_static()._native_ptr(), StringName("get_swizzle_a")._native_ptr(), 4150792614);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::TextureSwizzle(0)));
-	return (RenderingDevice::TextureSwizzle)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::TextureSwizzle)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -39,29 +39,29 @@
 namespace godot {
 
 OpenXRRenderModelManager::RenderModelTracker OpenXRRenderModelManager::get_tracker() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRRenderModelManager::get_class_static()._native_ptr(), StringName("get_tracker")._native_ptr(), 2456466356);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRRenderModelManager::get_class_static()._native_ptr(), StringName("get_tracker")._native_ptr(), 2456466356);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (OpenXRRenderModelManager::RenderModelTracker(0)));
-	return (OpenXRRenderModelManager::RenderModelTracker)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (OpenXRRenderModelManager::RenderModelTracker)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void OpenXRRenderModelManager::set_tracker(OpenXRRenderModelManager::RenderModelTracker p_tracker) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRRenderModelManager::get_class_static()._native_ptr(), StringName("set_tracker")._native_ptr(), 2814627380);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRRenderModelManager::get_class_static()._native_ptr(), StringName("set_tracker")._native_ptr(), 2814627380);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_tracker_encoded;
 	PtrToArg<int64_t>::encode(p_tracker, &p_tracker_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_tracker_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_tracker_encoded);
 }
 
 String OpenXRRenderModelManager::get_make_local_to_pose() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRRenderModelManager::get_class_static()._native_ptr(), StringName("get_make_local_to_pose")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRRenderModelManager::get_class_static()._native_ptr(), StringName("get_make_local_to_pose")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void OpenXRRenderModelManager::set_make_local_to_pose(const String &p_make_local_to_pose) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRRenderModelManager::get_class_static()._native_ptr(), StringName("set_make_local_to_pose")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRRenderModelManager::get_class_static()._native_ptr(), StringName("set_make_local_to_pose")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_make_local_to_pose);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_make_local_to_pose);
 }
 
 } // namespace godot

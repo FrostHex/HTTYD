@@ -41,27 +41,27 @@
 namespace godot {
 
 void Path3D::set_curve(const Ref<Curve3D> &p_curve) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Path3D::get_class_static()._native_ptr(), StringName("set_curve")._native_ptr(), 408955118);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Path3D::get_class_static()._native_ptr(), StringName("set_curve")._native_ptr(), 408955118);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
 }
 
 Ref<Curve3D> Path3D::get_curve() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Path3D::get_class_static()._native_ptr(), StringName("get_curve")._native_ptr(), 4244715212);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Path3D::get_class_static()._native_ptr(), StringName("get_curve")._native_ptr(), 4244715212);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Curve3D>()));
-	return Ref<Curve3D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Curve3D>(_gde_method_bind, _owner));
+	return Ref<Curve3D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Curve3D>(_gde_method_bind, _owner));
 }
 
 void Path3D::set_debug_custom_color(const Color &p_debug_custom_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Path3D::get_class_static()._native_ptr(), StringName("set_debug_custom_color")._native_ptr(), 2920490490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Path3D::get_class_static()._native_ptr(), StringName("set_debug_custom_color")._native_ptr(), 2920490490);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_debug_custom_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_debug_custom_color);
 }
 
 Color Path3D::get_debug_custom_color() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Path3D::get_class_static()._native_ptr(), StringName("get_debug_custom_color")._native_ptr(), 3444240500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Path3D::get_class_static()._native_ptr(), StringName("get_debug_custom_color")._native_ptr(), 3444240500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
-	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

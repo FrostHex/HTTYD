@@ -39,59 +39,59 @@
 namespace godot {
 
 void AspectRatioContainer::set_ratio(float p_ratio) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("set_ratio")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("set_ratio")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_ratio_encoded;
 	PtrToArg<double>::encode(p_ratio, &p_ratio_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_ratio_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_ratio_encoded);
 }
 
 float AspectRatioContainer::get_ratio() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("get_ratio")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("get_ratio")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AspectRatioContainer::set_stretch_mode(AspectRatioContainer::StretchMode p_stretch_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("set_stretch_mode")._native_ptr(), 1876743467);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("set_stretch_mode")._native_ptr(), 1876743467);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_stretch_mode_encoded;
 	PtrToArg<int64_t>::encode(p_stretch_mode, &p_stretch_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stretch_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stretch_mode_encoded);
 }
 
 AspectRatioContainer::StretchMode AspectRatioContainer::get_stretch_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("get_stretch_mode")._native_ptr(), 3416449033);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("get_stretch_mode")._native_ptr(), 3416449033);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AspectRatioContainer::StretchMode(0)));
-	return (AspectRatioContainer::StretchMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AspectRatioContainer::StretchMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void AspectRatioContainer::set_alignment_horizontal(AspectRatioContainer::AlignmentMode p_alignment_horizontal) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("set_alignment_horizontal")._native_ptr(), 2147829016);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("set_alignment_horizontal")._native_ptr(), 2147829016);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_alignment_horizontal_encoded;
 	PtrToArg<int64_t>::encode(p_alignment_horizontal, &p_alignment_horizontal_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_alignment_horizontal_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_alignment_horizontal_encoded);
 }
 
 AspectRatioContainer::AlignmentMode AspectRatioContainer::get_alignment_horizontal() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("get_alignment_horizontal")._native_ptr(), 3838875429);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("get_alignment_horizontal")._native_ptr(), 3838875429);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AspectRatioContainer::AlignmentMode(0)));
-	return (AspectRatioContainer::AlignmentMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AspectRatioContainer::AlignmentMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void AspectRatioContainer::set_alignment_vertical(AspectRatioContainer::AlignmentMode p_alignment_vertical) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("set_alignment_vertical")._native_ptr(), 2147829016);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("set_alignment_vertical")._native_ptr(), 2147829016);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_alignment_vertical_encoded;
 	PtrToArg<int64_t>::encode(p_alignment_vertical, &p_alignment_vertical_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_alignment_vertical_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_alignment_vertical_encoded);
 }
 
 AspectRatioContainer::AlignmentMode AspectRatioContainer::get_alignment_vertical() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("get_alignment_vertical")._native_ptr(), 3838875429);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AspectRatioContainer::get_class_static()._native_ptr(), StringName("get_alignment_vertical")._native_ptr(), 3838875429);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AspectRatioContainer::AlignmentMode(0)));
-	return (AspectRatioContainer::AlignmentMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AspectRatioContainer::AlignmentMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

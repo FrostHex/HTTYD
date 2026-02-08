@@ -95,6 +95,8 @@ public:
 	bool get_alpha_blend() const;
 	Ref<JavaObject> get_android_surface();
 	bool is_natively_supported() const;
+	bool is_protected_content() const;
+	void set_protected_content(bool p_protected_content);
 	void set_min_filter(OpenXRCompositionLayer::Filter p_mode);
 	OpenXRCompositionLayer::Filter get_min_filter() const;
 	void set_mag_filter(OpenXRCompositionLayer::Filter p_mode);

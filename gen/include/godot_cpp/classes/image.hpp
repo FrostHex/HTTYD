@@ -93,7 +93,15 @@ public:
 		FORMAT_ASTC_4x4_HDR = 36,
 		FORMAT_ASTC_8x8 = 37,
 		FORMAT_ASTC_8x8_HDR = 38,
-		FORMAT_MAX = 39,
+		FORMAT_R16 = 39,
+		FORMAT_RG16 = 40,
+		FORMAT_RGB16 = 41,
+		FORMAT_RGBA16 = 42,
+		FORMAT_R16I = 43,
+		FORMAT_RG16I = 44,
+		FORMAT_RGB16I = 45,
+		FORMAT_RGBA16I = 46,
+		FORMAT_MAX = 47,
 	};
 
 	enum Interpolation {
@@ -215,6 +223,7 @@ public:
 	Error load_bmp_from_buffer(const PackedByteArray &p_buffer);
 	Error load_ktx_from_buffer(const PackedByteArray &p_buffer);
 	Error load_dds_from_buffer(const PackedByteArray &p_buffer);
+	Error load_exr_from_buffer(const PackedByteArray &p_buffer);
 	Error load_svg_from_buffer(const PackedByteArray &p_buffer, float p_scale = 1.0);
 	Error load_svg_from_string(const String &p_svg_str, float p_scale = 1.0);
 

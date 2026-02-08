@@ -42,57 +42,57 @@
 namespace godot {
 
 void EditorDebuggerSession::send_message(const String &p_message, const Array &p_data) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("send_message")._native_ptr(), 85656714);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("send_message")._native_ptr(), 85656714);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_message, &p_data);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_message, &p_data);
 }
 
 void EditorDebuggerSession::toggle_profiler(const String &p_profiler, bool p_enable, const Array &p_data) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("toggle_profiler")._native_ptr(), 1198443697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("toggle_profiler")._native_ptr(), 1198443697);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_profiler, &p_enable_encoded, &p_data);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_profiler, &p_enable_encoded, &p_data);
 }
 
 bool EditorDebuggerSession::is_breaked() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("is_breaked")._native_ptr(), 2240911060);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("is_breaked")._native_ptr(), 2240911060);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 bool EditorDebuggerSession::is_debuggable() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("is_debuggable")._native_ptr(), 2240911060);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("is_debuggable")._native_ptr(), 2240911060);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 bool EditorDebuggerSession::is_active() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("is_active")._native_ptr(), 2240911060);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("is_active")._native_ptr(), 2240911060);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void EditorDebuggerSession::add_session_tab(Control *p_control) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("add_session_tab")._native_ptr(), 1496901182);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("add_session_tab")._native_ptr(), 1496901182);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_control != nullptr ? &p_control->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_control != nullptr ? &p_control->_owner : nullptr));
 }
 
 void EditorDebuggerSession::remove_session_tab(Control *p_control) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("remove_session_tab")._native_ptr(), 1496901182);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("remove_session_tab")._native_ptr(), 1496901182);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_control != nullptr ? &p_control->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_control != nullptr ? &p_control->_owner : nullptr));
 }
 
 void EditorDebuggerSession::set_breakpoint(const String &p_path, int32_t p_line, bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("set_breakpoint")._native_ptr(), 4108344793);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorDebuggerSession::get_class_static()._native_ptr(), StringName("set_breakpoint")._native_ptr(), 4108344793);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_line_encoded;
 	PtrToArg<int64_t>::encode(p_line, &p_line_encoded);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path, &p_line_encoded, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path, &p_line_encoded, &p_enabled_encoded);
 }
 
 } // namespace godot

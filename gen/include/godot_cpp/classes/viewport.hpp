@@ -279,6 +279,8 @@ public:
 	void set_embedding_subwindows(bool p_enable);
 	bool is_embedding_subwindows() const;
 	TypedArray<Window> get_embedded_subwindows() const;
+	void set_drag_threshold(int32_t p_threshold);
+	int32_t get_drag_threshold() const;
 	void set_canvas_cull_mask(uint32_t p_mask);
 	uint32_t get_canvas_cull_mask() const;
 	void set_canvas_cull_mask_bit(uint32_t p_layer, bool p_enable);

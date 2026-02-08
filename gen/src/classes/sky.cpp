@@ -41,43 +41,43 @@
 namespace godot {
 
 void Sky::set_radiance_size(Sky::RadianceSize p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("set_radiance_size")._native_ptr(), 1512957179);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("set_radiance_size")._native_ptr(), 1512957179);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_size_encoded;
 	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
 }
 
 Sky::RadianceSize Sky::get_radiance_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("get_radiance_size")._native_ptr(), 2708733976);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("get_radiance_size")._native_ptr(), 2708733976);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Sky::RadianceSize(0)));
-	return (Sky::RadianceSize)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Sky::RadianceSize)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void Sky::set_process_mode(Sky::ProcessMode p_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("set_process_mode")._native_ptr(), 875986769);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("set_process_mode")._native_ptr(), 875986769);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
 }
 
 Sky::ProcessMode Sky::get_process_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("get_process_mode")._native_ptr(), 731245043);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("get_process_mode")._native_ptr(), 731245043);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Sky::ProcessMode(0)));
-	return (Sky::ProcessMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Sky::ProcessMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void Sky::set_material(const Ref<Material> &p_material) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("set_material")._native_ptr(), 2757459619);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("set_material")._native_ptr(), 2757459619);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_material != nullptr ? &p_material->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_material != nullptr ? &p_material->_owner : nullptr));
 }
 
 Ref<Material> Sky::get_material() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("get_material")._native_ptr(), 5934680);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sky::get_class_static()._native_ptr(), StringName("get_material")._native_ptr(), 5934680);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Material>()));
-	return Ref<Material>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Material>(_gde_method_bind, _owner));
+	return Ref<Material>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Material>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

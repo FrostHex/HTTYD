@@ -36,6 +36,7 @@
 #include <godot_cpp/classes/ref_counted.hpp>
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/string_name.hpp>
+#include <godot_cpp/variant/typed_array.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -53,6 +54,10 @@ public:
 	void add_translation(const Ref<Translation> &p_translation);
 	void remove_translation(const Ref<Translation> &p_translation);
 	void clear();
+	TypedArray<Ref<Translation>> get_translations() const;
+	bool has_translation_for_locale(const String &p_locale, bool p_exact) const;
+	bool has_translation(const Ref<Translation> &p_translation) const;
+	TypedArray<Ref<Translation>> find_translations(const String &p_locale, bool p_exact) const;
 	StringName translate(const StringName &p_message, const StringName &p_context = StringName()) const;
 	StringName translate_plural(const StringName &p_message, const StringName &p_message_plural, int32_t p_n, const StringName &p_context = StringName()) const;
 	String get_locale_override() const;

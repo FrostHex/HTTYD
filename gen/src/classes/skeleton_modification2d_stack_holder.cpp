@@ -41,15 +41,15 @@
 namespace godot {
 
 void SkeletonModification2DStackHolder::set_held_modification_stack(const Ref<SkeletonModificationStack2D> &p_held_modification_stack) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DStackHolder::get_class_static()._native_ptr(), StringName("set_held_modification_stack")._native_ptr(), 3907307132);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DStackHolder::get_class_static()._native_ptr(), StringName("set_held_modification_stack")._native_ptr(), 3907307132);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_held_modification_stack != nullptr ? &p_held_modification_stack->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_held_modification_stack != nullptr ? &p_held_modification_stack->_owner : nullptr));
 }
 
 Ref<SkeletonModificationStack2D> SkeletonModification2DStackHolder::get_held_modification_stack() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DStackHolder::get_class_static()._native_ptr(), StringName("get_held_modification_stack")._native_ptr(), 2107508396);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DStackHolder::get_class_static()._native_ptr(), StringName("get_held_modification_stack")._native_ptr(), 2107508396);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<SkeletonModificationStack2D>()));
-	return Ref<SkeletonModificationStack2D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<SkeletonModificationStack2D>(_gde_method_bind, _owner));
+	return Ref<SkeletonModificationStack2D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<SkeletonModificationStack2D>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

@@ -382,6 +382,7 @@ public:
 		TEXTURE_USAGE_SAMPLING_BIT = 1,
 		TEXTURE_USAGE_COLOR_ATTACHMENT_BIT = 2,
 		TEXTURE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT = 4,
+		TEXTURE_USAGE_DEPTH_RESOLVE_ATTACHMENT_BIT = 4096,
 		TEXTURE_USAGE_STORAGE_BIT = 8,
 		TEXTURE_USAGE_STORAGE_ATOMIC_BIT = 16,
 		TEXTURE_USAGE_CPU_READ_BIT = 32,
@@ -462,7 +463,9 @@ public:
 		UNIFORM_TYPE_UNIFORM_BUFFER = 7,
 		UNIFORM_TYPE_STORAGE_BUFFER = 8,
 		UNIFORM_TYPE_INPUT_ATTACHMENT = 9,
-		UNIFORM_TYPE_MAX = 10,
+		UNIFORM_TYPE_UNIFORM_BUFFER_DYNAMIC = 10,
+		UNIFORM_TYPE_STORAGE_BUFFER_DYNAMIC = 11,
+		UNIFORM_TYPE_MAX = 12,
 	};
 
 	enum RenderPrimitive {
@@ -790,6 +793,7 @@ public:
 	void draw_list_bind_render_pipeline(int64_t p_draw_list, const RID &p_render_pipeline);
 	void draw_list_bind_uniform_set(int64_t p_draw_list, const RID &p_uniform_set, uint32_t p_set_index);
 	void draw_list_bind_vertex_array(int64_t p_draw_list, const RID &p_vertex_array);
+	void draw_list_bind_vertex_buffers_format(int64_t p_draw_list, int64_t p_vertex_format, uint32_t p_vertex_count, const TypedArray<RID> &p_vertex_buffers, const PackedInt64Array &p_offsets = PackedInt64Array());
 	void draw_list_bind_index_array(int64_t p_draw_list, const RID &p_index_array);
 	void draw_list_set_push_constant(int64_t p_draw_list, const PackedByteArray &p_buffer, uint32_t p_size_bytes);
 	void draw_list_draw(int64_t p_draw_list, bool p_use_indices, uint32_t p_instances, uint32_t p_procedural_vertex_count = 0);

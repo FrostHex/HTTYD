@@ -39,31 +39,31 @@
 namespace godot {
 
 void SeparationRayShape2D::set_length(float p_length) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SeparationRayShape2D::get_class_static()._native_ptr(), StringName("set_length")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SeparationRayShape2D::get_class_static()._native_ptr(), StringName("set_length")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_length_encoded;
 	PtrToArg<double>::encode(p_length, &p_length_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_length_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_length_encoded);
 }
 
 float SeparationRayShape2D::get_length() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SeparationRayShape2D::get_class_static()._native_ptr(), StringName("get_length")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SeparationRayShape2D::get_class_static()._native_ptr(), StringName("get_length")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void SeparationRayShape2D::set_slide_on_slope(bool p_active) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SeparationRayShape2D::get_class_static()._native_ptr(), StringName("set_slide_on_slope")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SeparationRayShape2D::get_class_static()._native_ptr(), StringName("set_slide_on_slope")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_active_encoded;
 	PtrToArg<bool>::encode(p_active, &p_active_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_active_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_active_encoded);
 }
 
 bool SeparationRayShape2D::get_slide_on_slope() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SeparationRayShape2D::get_class_static()._native_ptr(), StringName("get_slide_on_slope")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SeparationRayShape2D::get_class_static()._native_ptr(), StringName("get_slide_on_slope")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

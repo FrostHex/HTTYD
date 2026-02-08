@@ -74,6 +74,7 @@ public:
 	void set_surface_material(int32_t p_surface_idx, const Ref<Material> &p_material);
 	void generate_lods(float p_normal_merge_angle, float p_normal_split_angle, const Array &p_bone_transform_array);
 	Ref<ArrayMesh> get_mesh(const Ref<ArrayMesh> &p_base_mesh = nullptr);
+	static Ref<ImporterMesh> from_mesh(const Ref<Mesh> &p_mesh);
 	void clear();
 	void set_lightmap_size_hint(const Vector2i &p_size);
 	Vector2i get_lightmap_size_hint() const;

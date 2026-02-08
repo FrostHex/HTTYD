@@ -32,8 +32,8 @@
 
 #pragma once
 
+#include <godot_cpp/classes/editor_dock.hpp>
 #include <godot_cpp/classes/ref.hpp>
-#include <godot_cpp/classes/v_box_container.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -44,8 +44,8 @@ namespace godot {
 class EditorResourceTooltipPlugin;
 class String;
 
-class FileSystemDock : public VBoxContainer {
-	GDEXTENSION_CLASS(FileSystemDock, VBoxContainer)
+class FileSystemDock : public EditorDock {
+	GDEXTENSION_CLASS(FileSystemDock, EditorDock)
 
 public:
 	void navigate_to_path(const String &p_path);
@@ -55,7 +55,7 @@ public:
 protected:
 	template <typename T, typename B>
 	static void register_virtuals() {
-		VBoxContainer::register_virtuals<T, B>();
+		EditorDock::register_virtuals<T, B>();
 	}
 
 public:

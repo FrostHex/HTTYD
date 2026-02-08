@@ -69,6 +69,13 @@ public:
 		SELECT_TOGGLE = 2,
 	};
 
+	enum ScrollHintMode {
+		SCROLL_HINT_MODE_DISABLED = 0,
+		SCROLL_HINT_MODE_BOTH = 1,
+		SCROLL_HINT_MODE_TOP = 2,
+		SCROLL_HINT_MODE_BOTTOM = 3,
+	};
+
 	int32_t add_item(const String &p_text, const Ref<Texture2D> &p_icon = nullptr, bool p_selectable = true);
 	int32_t add_icon_item(const Ref<Texture2D> &p_icon, bool p_selectable = true);
 	void set_item_text(int32_t p_idx, const String &p_text);
@@ -144,6 +151,10 @@ public:
 	void ensure_current_is_visible();
 	VScrollBar *get_v_scroll_bar();
 	HScrollBar *get_h_scroll_bar();
+	void set_scroll_hint_mode(ItemList::ScrollHintMode p_scroll_hint_mode);
+	ItemList::ScrollHintMode get_scroll_hint_mode() const;
+	void set_tile_scroll_hint(bool p_tile_scroll_hint);
+	bool is_scroll_hint_tiled();
 	void set_text_overrun_behavior(TextServer::OverrunBehavior p_overrun_behavior);
 	TextServer::OverrunBehavior get_text_overrun_behavior() const;
 	void set_wraparound_items(bool p_enable);
@@ -163,4 +174,5 @@ public:
 
 VARIANT_ENUM_CAST(ItemList::IconMode);
 VARIANT_ENUM_CAST(ItemList::SelectMode);
+VARIANT_ENUM_CAST(ItemList::ScrollHintMode);
 

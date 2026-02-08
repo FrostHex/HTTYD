@@ -180,6 +180,8 @@ public:
 	Window::ContentScaleAspect get_content_scale_aspect() const;
 	void set_content_scale_stretch(Window::ContentScaleStretch p_stretch);
 	Window::ContentScaleStretch get_content_scale_stretch() const;
+	void set_nonclient_area(const Rect2i &p_area);
+	Rect2i get_nonclient_area() const;
 	void set_keep_title_visible(bool p_title_visible);
 	bool get_keep_title_visible() const;
 	void set_content_scale_factor(float p_factor);

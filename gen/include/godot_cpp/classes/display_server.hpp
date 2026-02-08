@@ -418,7 +418,7 @@ public:
 	bool tts_is_paused() const;
 	TypedArray<Dictionary> tts_get_voices() const;
 	PackedStringArray tts_get_voices_for_language(const String &p_language) const;
-	void tts_speak(const String &p_text, const String &p_voice, int32_t p_volume = 50, float p_pitch = 1.0, float p_rate = 1.0, int32_t p_utterance_id = 0, bool p_interrupt = false);
+	void tts_speak(const String &p_text, const String &p_voice, int32_t p_volume = 50, float p_pitch = 1.0, float p_rate = 1.0, int64_t p_utterance_id = 0, bool p_interrupt = false);
 	void tts_pause();
 	void tts_resume();
 	void tts_stop();
@@ -509,13 +509,14 @@ public:
 	bool window_minimize_on_title_dbl_click() const;
 	void window_start_drag(int32_t p_window_id = 0);
 	void window_start_resize(DisplayServer::WindowResizeEdge p_edge, int32_t p_window_id = 0);
+	void window_set_color(const Color &p_color);
 	int32_t accessibility_should_increase_contrast() const;
 	int32_t accessibility_should_reduce_animation() const;
 	int32_t accessibility_should_reduce_transparency() const;
 	int32_t accessibility_screen_reader_active() const;
 	RID accessibility_create_element(int32_t p_window_id, DisplayServer::AccessibilityRole p_role);
 	RID accessibility_create_sub_element(const RID &p_parent_rid, DisplayServer::AccessibilityRole p_role, int32_t p_insert_pos = -1);
-	RID accessibility_create_sub_text_edit_elements(const RID &p_parent_rid, const RID &p_shaped_text, float p_min_height, int32_t p_insert_pos = -1);
+	RID accessibility_create_sub_text_edit_elements(const RID &p_parent_rid, const RID &p_shaped_text, float p_min_height, int32_t p_insert_pos = -1, bool p_is_last_line = false);
 	bool accessibility_has_element(const RID &p_id) const;
 	void accessibility_free_element(const RID &p_id);
 	void accessibility_element_set_meta(const RID &p_id, const Variant &p_meta);

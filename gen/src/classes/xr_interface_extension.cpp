@@ -43,25 +43,25 @@
 namespace godot {
 
 RID XRInterfaceExtension::get_color_texture() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRInterfaceExtension::get_class_static()._native_ptr(), StringName("get_color_texture")._native_ptr(), 529393457);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRInterfaceExtension::get_class_static()._native_ptr(), StringName("get_color_texture")._native_ptr(), 529393457);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 RID XRInterfaceExtension::get_depth_texture() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRInterfaceExtension::get_class_static()._native_ptr(), StringName("get_depth_texture")._native_ptr(), 529393457);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRInterfaceExtension::get_class_static()._native_ptr(), StringName("get_depth_texture")._native_ptr(), 529393457);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 RID XRInterfaceExtension::get_velocity_texture() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRInterfaceExtension::get_class_static()._native_ptr(), StringName("get_velocity_texture")._native_ptr(), 529393457);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRInterfaceExtension::get_class_static()._native_ptr(), StringName("get_velocity_texture")._native_ptr(), 529393457);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 void XRInterfaceExtension::add_blit(const RID &p_render_target, const Rect2 &p_src_rect, const Rect2i &p_dst_rect, bool p_use_layer, uint32_t p_layer, bool p_apply_lens_distortion, const Vector2 &p_eye_center, double p_k1, double p_k2, double p_upscale, double p_aspect_ratio) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRInterfaceExtension::get_class_static()._native_ptr(), StringName("add_blit")._native_ptr(), 258596971);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRInterfaceExtension::get_class_static()._native_ptr(), StringName("add_blit")._native_ptr(), 258596971);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_use_layer_encoded;
 	PtrToArg<bool>::encode(p_use_layer, &p_use_layer_encoded);
@@ -77,13 +77,13 @@ void XRInterfaceExtension::add_blit(const RID &p_render_target, const Rect2 &p_s
 	PtrToArg<double>::encode(p_upscale, &p_upscale_encoded);
 	double p_aspect_ratio_encoded;
 	PtrToArg<double>::encode(p_aspect_ratio, &p_aspect_ratio_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_render_target, &p_src_rect, &p_dst_rect, &p_use_layer_encoded, &p_layer_encoded, &p_apply_lens_distortion_encoded, &p_eye_center, &p_k1_encoded, &p_k2_encoded, &p_upscale_encoded, &p_aspect_ratio_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_render_target, &p_src_rect, &p_dst_rect, &p_use_layer_encoded, &p_layer_encoded, &p_apply_lens_distortion_encoded, &p_eye_center, &p_k1_encoded, &p_k2_encoded, &p_upscale_encoded, &p_aspect_ratio_encoded);
 }
 
 RID XRInterfaceExtension::get_render_target_texture(const RID &p_render_target) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRInterfaceExtension::get_class_static()._native_ptr(), StringName("get_render_target_texture")._native_ptr(), 41030802);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRInterfaceExtension::get_class_static()._native_ptr(), StringName("get_render_target_texture")._native_ptr(), 41030802);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_render_target);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_render_target);
 }
 
 StringName XRInterfaceExtension::_get_name() const {

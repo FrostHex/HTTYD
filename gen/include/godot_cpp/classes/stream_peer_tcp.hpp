@@ -34,7 +34,7 @@
 
 #include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/ref.hpp>
-#include <godot_cpp/classes/stream_peer.hpp>
+#include <godot_cpp/classes/stream_peer_socket.hpp>
 #include <godot_cpp/variant/string.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
@@ -43,37 +43,25 @@
 
 namespace godot {
 
-class StreamPeerTCP : public StreamPeer {
-	GDEXTENSION_CLASS(StreamPeerTCP, StreamPeer)
+class StreamPeerTCP : public StreamPeerSocket {
+	GDEXTENSION_CLASS(StreamPeerTCP, StreamPeerSocket)
 
 public:
-	enum Status {
-		STATUS_NONE = 0,
-		STATUS_CONNECTING = 1,
-		STATUS_CONNECTED = 2,
-		STATUS_ERROR = 3,
-	};
-
 	Error bind(int32_t p_port, const String &p_host = "*");
 	Error connect_to_host(const String &p_host, int32_t p_port);
-	Error poll();
-	StreamPeerTCP::Status get_status() const;
 	String get_connected_host() const;
 	int32_t get_connected_port() const;
 	int32_t get_local_port() const;
-	void disconnect_from_host();
 	void set_no_delay(bool p_enabled);
 
 protected:
 	template <typename T, typename B>
 	static void register_virtuals() {
-		StreamPeer::register_virtuals<T, B>();
+		StreamPeerSocket::register_virtuals<T, B>();
 	}
 
 public:
 };
 
 } // namespace godot
-
-VARIANT_ENUM_CAST(StreamPeerTCP::Status);
 

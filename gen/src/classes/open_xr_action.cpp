@@ -39,41 +39,41 @@
 namespace godot {
 
 void OpenXRAction::set_localized_name(const String &p_localized_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("set_localized_name")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("set_localized_name")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_localized_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_localized_name);
 }
 
 String OpenXRAction::get_localized_name() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("get_localized_name")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("get_localized_name")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void OpenXRAction::set_action_type(OpenXRAction::ActionType p_action_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("set_action_type")._native_ptr(), 1675238366);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("set_action_type")._native_ptr(), 1675238366);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_action_type_encoded;
 	PtrToArg<int64_t>::encode(p_action_type, &p_action_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_action_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_action_type_encoded);
 }
 
 OpenXRAction::ActionType OpenXRAction::get_action_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("get_action_type")._native_ptr(), 3536542431);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("get_action_type")._native_ptr(), 3536542431);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (OpenXRAction::ActionType(0)));
-	return (OpenXRAction::ActionType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (OpenXRAction::ActionType)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void OpenXRAction::set_toplevel_paths(const PackedStringArray &p_toplevel_paths) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("set_toplevel_paths")._native_ptr(), 4015028928);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("set_toplevel_paths")._native_ptr(), 4015028928);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_toplevel_paths);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_toplevel_paths);
 }
 
 PackedStringArray OpenXRAction::get_toplevel_paths() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("get_toplevel_paths")._native_ptr(), 1139954409);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAction::get_class_static()._native_ptr(), StringName("get_toplevel_paths")._native_ptr(), 1139954409);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));
-	return internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -39,63 +39,63 @@
 namespace godot {
 
 bool AudioEffectCapture::can_get_buffer(int32_t p_frames) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("can_get_buffer")._native_ptr(), 1116898809);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("can_get_buffer")._native_ptr(), 1116898809);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_frames_encoded;
 	PtrToArg<int64_t>::encode(p_frames, &p_frames_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_frames_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_frames_encoded);
 }
 
 PackedVector2Array AudioEffectCapture::get_buffer(int32_t p_frames) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_buffer")._native_ptr(), 2649534757);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_buffer")._native_ptr(), 2649534757);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedVector2Array()));
 	int64_t p_frames_encoded;
 	PtrToArg<int64_t>::encode(p_frames, &p_frames_encoded);
-	return internal::_call_native_mb_ret<PackedVector2Array>(_gde_method_bind, _owner, &p_frames_encoded);
+	return ::godot::internal::_call_native_mb_ret<PackedVector2Array>(_gde_method_bind, _owner, &p_frames_encoded);
 }
 
 void AudioEffectCapture::clear_buffer() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("clear_buffer")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("clear_buffer")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void AudioEffectCapture::set_buffer_length(float p_buffer_length_seconds) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("set_buffer_length")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("set_buffer_length")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_buffer_length_seconds_encoded;
 	PtrToArg<double>::encode(p_buffer_length_seconds, &p_buffer_length_seconds_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_buffer_length_seconds_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_buffer_length_seconds_encoded);
 }
 
 float AudioEffectCapture::get_buffer_length() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_buffer_length")._native_ptr(), 191475506);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_buffer_length")._native_ptr(), 191475506);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 int32_t AudioEffectCapture::get_frames_available() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_frames_available")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_frames_available")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 int64_t AudioEffectCapture::get_discarded_frames() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_discarded_frames")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_discarded_frames")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 int32_t AudioEffectCapture::get_buffer_length_frames() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_buffer_length_frames")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_buffer_length_frames")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 int64_t AudioEffectCapture::get_pushed_frames() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_pushed_frames")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectCapture::get_class_static()._native_ptr(), StringName("get_pushed_frames")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

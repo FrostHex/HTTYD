@@ -39,23 +39,23 @@
 namespace godot {
 
 Error HMACContext::start(HashingContext::HashType p_hash_type, const PackedByteArray &p_key) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(HMACContext::get_class_static()._native_ptr(), StringName("start")._native_ptr(), 3537364598);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(HMACContext::get_class_static()._native_ptr(), StringName("start")._native_ptr(), 3537364598);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int64_t p_hash_type_encoded;
 	PtrToArg<int64_t>::encode(p_hash_type, &p_hash_type_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_hash_type_encoded, &p_key);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_hash_type_encoded, &p_key);
 }
 
 Error HMACContext::update(const PackedByteArray &p_data) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(HMACContext::get_class_static()._native_ptr(), StringName("update")._native_ptr(), 680677267);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(HMACContext::get_class_static()._native_ptr(), StringName("update")._native_ptr(), 680677267);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_data);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_data);
 }
 
 PackedByteArray HMACContext::finish() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(HMACContext::get_class_static()._native_ptr(), StringName("finish")._native_ptr(), 2115431945);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(HMACContext::get_class_static()._native_ptr(), StringName("finish")._native_ptr(), 2115431945);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedByteArray()));
-	return internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

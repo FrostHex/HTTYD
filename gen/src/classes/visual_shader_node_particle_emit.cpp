@@ -39,17 +39,17 @@
 namespace godot {
 
 void VisualShaderNodeParticleEmit::set_flags(VisualShaderNodeParticleEmit::EmitFlags p_flags) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeParticleEmit::get_class_static()._native_ptr(), StringName("set_flags")._native_ptr(), 3960756792);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeParticleEmit::get_class_static()._native_ptr(), StringName("set_flags")._native_ptr(), 3960756792);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_flags_encoded;
 	PtrToArg<int64_t>::encode(p_flags, &p_flags_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flags_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flags_encoded);
 }
 
 VisualShaderNodeParticleEmit::EmitFlags VisualShaderNodeParticleEmit::get_flags() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeParticleEmit::get_class_static()._native_ptr(), StringName("get_flags")._native_ptr(), 171277835);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeParticleEmit::get_class_static()._native_ptr(), StringName("get_flags")._native_ptr(), 171277835);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeParticleEmit::EmitFlags(0)));
-	return (VisualShaderNodeParticleEmit::EmitFlags)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeParticleEmit::EmitFlags)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

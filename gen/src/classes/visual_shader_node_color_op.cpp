@@ -39,17 +39,17 @@
 namespace godot {
 
 void VisualShaderNodeColorOp::set_operator(VisualShaderNodeColorOp::Operator p_op) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeColorOp::get_class_static()._native_ptr(), StringName("set_operator")._native_ptr(), 4260370673);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeColorOp::get_class_static()._native_ptr(), StringName("set_operator")._native_ptr(), 4260370673);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_op_encoded;
 	PtrToArg<int64_t>::encode(p_op, &p_op_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_op_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_op_encoded);
 }
 
 VisualShaderNodeColorOp::Operator VisualShaderNodeColorOp::get_operator() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeColorOp::get_class_static()._native_ptr(), StringName("get_operator")._native_ptr(), 1950956529);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeColorOp::get_class_static()._native_ptr(), StringName("get_operator")._native_ptr(), 1950956529);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeColorOp::Operator(0)));
-	return (VisualShaderNodeColorOp::Operator)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeColorOp::Operator)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

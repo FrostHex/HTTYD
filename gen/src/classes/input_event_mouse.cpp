@@ -39,39 +39,39 @@
 namespace godot {
 
 void InputEventMouse::set_button_mask(BitField<MouseButtonMask> p_button_mask) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("set_button_mask")._native_ptr(), 3950145251);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("set_button_mask")._native_ptr(), 3950145251);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_button_mask);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_button_mask);
 }
 
 BitField<MouseButtonMask> InputEventMouse::get_button_mask() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("get_button_mask")._native_ptr(), 2512161324);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("get_button_mask")._native_ptr(), 2512161324);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (BitField<MouseButtonMask>(0)));
-	return (int64_t)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (int64_t)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void InputEventMouse::set_position(const Vector2 &p_position) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("set_position")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("set_position")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_position);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_position);
 }
 
 Vector2 InputEventMouse::get_position() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("get_position")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("get_position")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 void InputEventMouse::set_global_position(const Vector2 &p_global_position) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("set_global_position")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("set_global_position")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_global_position);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_global_position);
 }
 
 Vector2 InputEventMouse::get_global_position() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("get_global_position")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventMouse::get_class_static()._native_ptr(), StringName("get_global_position")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

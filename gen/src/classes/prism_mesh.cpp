@@ -39,71 +39,71 @@
 namespace godot {
 
 void PrismMesh::set_left_to_right(float p_left_to_right) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("set_left_to_right")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("set_left_to_right")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_left_to_right_encoded;
 	PtrToArg<double>::encode(p_left_to_right, &p_left_to_right_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_left_to_right_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_left_to_right_encoded);
 }
 
 float PrismMesh::get_left_to_right() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("get_left_to_right")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("get_left_to_right")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void PrismMesh::set_size(const Vector3 &p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 3460891852);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 3460891852);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
 }
 
 Vector3 PrismMesh::get_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("get_size")._native_ptr(), 3360562783);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("get_size")._native_ptr(), 3360562783);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
-	return internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
 }
 
 void PrismMesh::set_subdivide_width(int32_t p_segments) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("set_subdivide_width")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("set_subdivide_width")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_segments_encoded;
 	PtrToArg<int64_t>::encode(p_segments, &p_segments_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_segments_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_segments_encoded);
 }
 
 int32_t PrismMesh::get_subdivide_width() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("get_subdivide_width")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("get_subdivide_width")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void PrismMesh::set_subdivide_height(int32_t p_segments) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("set_subdivide_height")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("set_subdivide_height")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_segments_encoded;
 	PtrToArg<int64_t>::encode(p_segments, &p_segments_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_segments_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_segments_encoded);
 }
 
 int32_t PrismMesh::get_subdivide_height() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("get_subdivide_height")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("get_subdivide_height")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void PrismMesh::set_subdivide_depth(int32_t p_segments) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("set_subdivide_depth")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("set_subdivide_depth")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_segments_encoded;
 	PtrToArg<int64_t>::encode(p_segments, &p_segments_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_segments_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_segments_encoded);
 }
 
 int32_t PrismMesh::get_subdivide_depth() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("get_subdivide_depth")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PrismMesh::get_class_static()._native_ptr(), StringName("get_subdivide_depth")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -41,89 +41,89 @@
 namespace godot {
 
 void GraphFrame::set_title(const String &p_title) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_title")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_title")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_title);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_title);
 }
 
 String GraphFrame::get_title() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("get_title")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("get_title")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 HBoxContainer *GraphFrame::get_titlebar_hbox() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("get_titlebar_hbox")._native_ptr(), 3590609951);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("get_titlebar_hbox")._native_ptr(), 3590609951);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return internal::_call_native_mb_ret_obj<HBoxContainer>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret_obj<HBoxContainer>(_gde_method_bind, _owner);
 }
 
 void GraphFrame::set_autoshrink_enabled(bool p_shrink) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_autoshrink_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_autoshrink_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_shrink_encoded;
 	PtrToArg<bool>::encode(p_shrink, &p_shrink_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_shrink_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_shrink_encoded);
 }
 
 bool GraphFrame::is_autoshrink_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("is_autoshrink_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("is_autoshrink_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void GraphFrame::set_autoshrink_margin(int32_t p_autoshrink_margin) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_autoshrink_margin")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_autoshrink_margin")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_autoshrink_margin_encoded;
 	PtrToArg<int64_t>::encode(p_autoshrink_margin, &p_autoshrink_margin_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_autoshrink_margin_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_autoshrink_margin_encoded);
 }
 
 int32_t GraphFrame::get_autoshrink_margin() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("get_autoshrink_margin")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("get_autoshrink_margin")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GraphFrame::set_drag_margin(int32_t p_drag_margin) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_drag_margin")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_drag_margin")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_drag_margin_encoded;
 	PtrToArg<int64_t>::encode(p_drag_margin, &p_drag_margin_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_drag_margin_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_drag_margin_encoded);
 }
 
 int32_t GraphFrame::get_drag_margin() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("get_drag_margin")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("get_drag_margin")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GraphFrame::set_tint_color_enabled(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_tint_color_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_tint_color_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool GraphFrame::is_tint_color_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("is_tint_color_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("is_tint_color_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void GraphFrame::set_tint_color(const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_tint_color")._native_ptr(), 2920490490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("set_tint_color")._native_ptr(), 2920490490);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
 }
 
 Color GraphFrame::get_tint_color() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("get_tint_color")._native_ptr(), 3444240500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GraphFrame::get_class_static()._native_ptr(), StringName("get_tint_color")._native_ptr(), 3444240500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
-	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

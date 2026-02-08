@@ -39,17 +39,17 @@
 namespace godot {
 
 void VisualShaderNodeRemap::set_op_type(VisualShaderNodeRemap::OpType p_op_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeRemap::get_class_static()._native_ptr(), StringName("set_op_type")._native_ptr(), 1703697889);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeRemap::get_class_static()._native_ptr(), StringName("set_op_type")._native_ptr(), 1703697889);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_op_type_encoded;
 	PtrToArg<int64_t>::encode(p_op_type, &p_op_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_op_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_op_type_encoded);
 }
 
 VisualShaderNodeRemap::OpType VisualShaderNodeRemap::get_op_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeRemap::get_class_static()._native_ptr(), StringName("get_op_type")._native_ptr(), 1678380563);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeRemap::get_class_static()._native_ptr(), StringName("get_op_type")._native_ptr(), 1678380563);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeRemap::OpType(0)));
-	return (VisualShaderNodeRemap::OpType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeRemap::OpType)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

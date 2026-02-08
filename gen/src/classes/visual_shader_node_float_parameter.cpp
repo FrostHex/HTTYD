@@ -39,87 +39,87 @@
 namespace godot {
 
 void VisualShaderNodeFloatParameter::set_hint(VisualShaderNodeFloatParameter::Hint p_hint) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_hint")._native_ptr(), 3712586466);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_hint")._native_ptr(), 3712586466);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_hint_encoded;
 	PtrToArg<int64_t>::encode(p_hint, &p_hint_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_hint_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_hint_encoded);
 }
 
 VisualShaderNodeFloatParameter::Hint VisualShaderNodeFloatParameter::get_hint() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("get_hint")._native_ptr(), 3042240429);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("get_hint")._native_ptr(), 3042240429);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeFloatParameter::Hint(0)));
-	return (VisualShaderNodeFloatParameter::Hint)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeFloatParameter::Hint)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeFloatParameter::set_min(float p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_min")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_min")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_value_encoded;
 	PtrToArg<double>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded);
 }
 
 float VisualShaderNodeFloatParameter::get_min() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("get_min")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("get_min")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeFloatParameter::set_max(float p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_max")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_max")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_value_encoded;
 	PtrToArg<double>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded);
 }
 
 float VisualShaderNodeFloatParameter::get_max() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("get_max")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("get_max")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeFloatParameter::set_step(float p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_step")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_step")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_value_encoded;
 	PtrToArg<double>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded);
 }
 
 float VisualShaderNodeFloatParameter::get_step() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("get_step")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("get_step")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeFloatParameter::set_default_value_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_default_value_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_default_value_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool VisualShaderNodeFloatParameter::is_default_value_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("is_default_value_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("is_default_value_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeFloatParameter::set_default_value(float p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_default_value")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("set_default_value")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_value_encoded;
 	PtrToArg<double>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded);
 }
 
 float VisualShaderNodeFloatParameter::get_default_value() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("get_default_value")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeFloatParameter::get_class_static()._native_ptr(), StringName("get_default_value")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

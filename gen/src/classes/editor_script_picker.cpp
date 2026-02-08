@@ -41,15 +41,15 @@
 namespace godot {
 
 void EditorScriptPicker::set_script_owner(Node *p_owner_node) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorScriptPicker::get_class_static()._native_ptr(), StringName("set_script_owner")._native_ptr(), 1078189570);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorScriptPicker::get_class_static()._native_ptr(), StringName("set_script_owner")._native_ptr(), 1078189570);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_owner_node != nullptr ? &p_owner_node->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_owner_node != nullptr ? &p_owner_node->_owner : nullptr));
 }
 
 Node *EditorScriptPicker::get_script_owner() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorScriptPicker::get_class_static()._native_ptr(), StringName("get_script_owner")._native_ptr(), 3160264692);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorScriptPicker::get_class_static()._native_ptr(), StringName("get_script_owner")._native_ptr(), 3160264692);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return internal::_call_native_mb_ret_obj<Node>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret_obj<Node>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

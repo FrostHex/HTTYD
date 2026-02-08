@@ -41,29 +41,35 @@
 namespace godot {
 
 void OpenXRInteractionProfileMetadata::register_profile_rename(const String &p_old_name, const String &p_new_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRInteractionProfileMetadata::get_class_static()._native_ptr(), StringName("register_profile_rename")._native_ptr(), 3186203200);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRInteractionProfileMetadata::get_class_static()._native_ptr(), StringName("register_profile_rename")._native_ptr(), 3186203200);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_old_name, &p_new_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_old_name, &p_new_name);
 }
 
-void OpenXRInteractionProfileMetadata::register_top_level_path(const String &p_display_name, const String &p_openxr_path, const String &p_openxr_extension_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRInteractionProfileMetadata::get_class_static()._native_ptr(), StringName("register_top_level_path")._native_ptr(), 254767734);
+void OpenXRInteractionProfileMetadata::register_path_rename(const String &p_old_name, const String &p_new_name) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRInteractionProfileMetadata::get_class_static()._native_ptr(), StringName("register_path_rename")._native_ptr(), 3186203200);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_display_name, &p_openxr_path, &p_openxr_extension_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_old_name, &p_new_name);
 }
 
-void OpenXRInteractionProfileMetadata::register_interaction_profile(const String &p_display_name, const String &p_openxr_path, const String &p_openxr_extension_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRInteractionProfileMetadata::get_class_static()._native_ptr(), StringName("register_interaction_profile")._native_ptr(), 254767734);
+void OpenXRInteractionProfileMetadata::register_top_level_path(const String &p_display_name, const String &p_openxr_path, const String &p_openxr_extension_names) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRInteractionProfileMetadata::get_class_static()._native_ptr(), StringName("register_top_level_path")._native_ptr(), 254767734);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_display_name, &p_openxr_path, &p_openxr_extension_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_display_name, &p_openxr_path, &p_openxr_extension_names);
 }
 
-void OpenXRInteractionProfileMetadata::register_io_path(const String &p_interaction_profile, const String &p_display_name, const String &p_toplevel_path, const String &p_openxr_path, const String &p_openxr_extension_name, OpenXRAction::ActionType p_action_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRInteractionProfileMetadata::get_class_static()._native_ptr(), StringName("register_io_path")._native_ptr(), 3443511926);
+void OpenXRInteractionProfileMetadata::register_interaction_profile(const String &p_display_name, const String &p_openxr_path, const String &p_openxr_extension_names) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRInteractionProfileMetadata::get_class_static()._native_ptr(), StringName("register_interaction_profile")._native_ptr(), 254767734);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_display_name, &p_openxr_path, &p_openxr_extension_names);
+}
+
+void OpenXRInteractionProfileMetadata::register_io_path(const String &p_interaction_profile, const String &p_display_name, const String &p_toplevel_path, const String &p_openxr_path, const String &p_openxr_extension_names, OpenXRAction::ActionType p_action_type) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRInteractionProfileMetadata::get_class_static()._native_ptr(), StringName("register_io_path")._native_ptr(), 3443511926);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_action_type_encoded;
 	PtrToArg<int64_t>::encode(p_action_type, &p_action_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_interaction_profile, &p_display_name, &p_toplevel_path, &p_openxr_path, &p_openxr_extension_name, &p_action_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_interaction_profile, &p_display_name, &p_toplevel_path, &p_openxr_path, &p_openxr_extension_names, &p_action_type_encoded);
 }
 
 } // namespace godot

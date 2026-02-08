@@ -39,29 +39,29 @@
 namespace godot {
 
 Error AESContext::start(AESContext::Mode p_mode, const PackedByteArray &p_key, const PackedByteArray &p_iv) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AESContext::get_class_static()._native_ptr(), StringName("start")._native_ptr(), 3122411423);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AESContext::get_class_static()._native_ptr(), StringName("start")._native_ptr(), 3122411423);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_mode_encoded, &p_key, &p_iv);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_mode_encoded, &p_key, &p_iv);
 }
 
 PackedByteArray AESContext::update(const PackedByteArray &p_src) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AESContext::get_class_static()._native_ptr(), StringName("update")._native_ptr(), 527836100);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AESContext::get_class_static()._native_ptr(), StringName("update")._native_ptr(), 527836100);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedByteArray()));
-	return internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner, &p_src);
+	return ::godot::internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner, &p_src);
 }
 
 PackedByteArray AESContext::get_iv_state() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AESContext::get_class_static()._native_ptr(), StringName("get_iv_state")._native_ptr(), 2115431945);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AESContext::get_class_static()._native_ptr(), StringName("get_iv_state")._native_ptr(), 2115431945);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedByteArray()));
-	return internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner);
 }
 
 void AESContext::finish() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AESContext::get_class_static()._native_ptr(), StringName("finish")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AESContext::get_class_static()._native_ptr(), StringName("finish")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 } // namespace godot

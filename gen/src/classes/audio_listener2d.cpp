@@ -39,21 +39,21 @@
 namespace godot {
 
 void AudioListener2D::make_current() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioListener2D::get_class_static()._native_ptr(), StringName("make_current")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioListener2D::get_class_static()._native_ptr(), StringName("make_current")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void AudioListener2D::clear_current() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioListener2D::get_class_static()._native_ptr(), StringName("clear_current")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioListener2D::get_class_static()._native_ptr(), StringName("clear_current")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 bool AudioListener2D::is_current() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioListener2D::get_class_static()._native_ptr(), StringName("is_current")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioListener2D::get_class_static()._native_ptr(), StringName("is_current")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

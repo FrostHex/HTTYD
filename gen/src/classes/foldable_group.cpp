@@ -41,29 +41,29 @@
 namespace godot {
 
 FoldableContainer *FoldableGroup::get_expanded_container() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FoldableGroup::get_class_static()._native_ptr(), StringName("get_expanded_container")._native_ptr(), 1427441056);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FoldableGroup::get_class_static()._native_ptr(), StringName("get_expanded_container")._native_ptr(), 1427441056);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return internal::_call_native_mb_ret_obj<FoldableContainer>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret_obj<FoldableContainer>(_gde_method_bind, _owner);
 }
 
 TypedArray<FoldableContainer> FoldableGroup::get_containers() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FoldableGroup::get_class_static()._native_ptr(), StringName("get_containers")._native_ptr(), 3995934104);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FoldableGroup::get_class_static()._native_ptr(), StringName("get_containers")._native_ptr(), 3995934104);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<FoldableContainer>()));
-	return internal::_call_native_mb_ret<TypedArray<FoldableContainer>>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<FoldableContainer>>(_gde_method_bind, _owner);
 }
 
 void FoldableGroup::set_allow_folding_all(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FoldableGroup::get_class_static()._native_ptr(), StringName("set_allow_folding_all")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FoldableGroup::get_class_static()._native_ptr(), StringName("set_allow_folding_all")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool FoldableGroup::is_allow_folding_all() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FoldableGroup::get_class_static()._native_ptr(), StringName("is_allow_folding_all")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FoldableGroup::get_class_static()._native_ptr(), StringName("is_allow_folding_all")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

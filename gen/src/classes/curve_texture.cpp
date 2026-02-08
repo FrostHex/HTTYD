@@ -41,37 +41,37 @@
 namespace godot {
 
 void CurveTexture::set_width(int32_t p_width) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CurveTexture::get_class_static()._native_ptr(), StringName("set_width")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CurveTexture::get_class_static()._native_ptr(), StringName("set_width")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_width_encoded;
 	PtrToArg<int64_t>::encode(p_width, &p_width_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_width_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_width_encoded);
 }
 
 void CurveTexture::set_curve(const Ref<Curve> &p_curve) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CurveTexture::get_class_static()._native_ptr(), StringName("set_curve")._native_ptr(), 270443179);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CurveTexture::get_class_static()._native_ptr(), StringName("set_curve")._native_ptr(), 270443179);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
 }
 
 Ref<Curve> CurveTexture::get_curve() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CurveTexture::get_class_static()._native_ptr(), StringName("get_curve")._native_ptr(), 2460114913);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CurveTexture::get_class_static()._native_ptr(), StringName("get_curve")._native_ptr(), 2460114913);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Curve>()));
-	return Ref<Curve>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Curve>(_gde_method_bind, _owner));
+	return Ref<Curve>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Curve>(_gde_method_bind, _owner));
 }
 
 void CurveTexture::set_texture_mode(CurveTexture::TextureMode p_texture_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CurveTexture::get_class_static()._native_ptr(), StringName("set_texture_mode")._native_ptr(), 1321955367);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CurveTexture::get_class_static()._native_ptr(), StringName("set_texture_mode")._native_ptr(), 1321955367);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_texture_mode_encoded;
 	PtrToArg<int64_t>::encode(p_texture_mode, &p_texture_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_texture_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_texture_mode_encoded);
 }
 
 CurveTexture::TextureMode CurveTexture::get_texture_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CurveTexture::get_class_static()._native_ptr(), StringName("get_texture_mode")._native_ptr(), 715756376);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CurveTexture::get_class_static()._native_ptr(), StringName("get_texture_mode")._native_ptr(), 715756376);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (CurveTexture::TextureMode(0)));
-	return (CurveTexture::TextureMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (CurveTexture::TextureMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

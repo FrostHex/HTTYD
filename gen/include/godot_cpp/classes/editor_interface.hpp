@@ -103,6 +103,11 @@ public:
 	bool is_distraction_free_mode_enabled() const;
 	bool is_multi_window_enabled() const;
 	float get_editor_scale() const;
+	String get_editor_language() const;
+	bool is_node_3d_snap_enabled() const;
+	float get_node_3d_translate_snap() const;
+	float get_node_3d_rotate_snap() const;
+	float get_node_3d_scale_snap() const;
 	void popup_dialog(Window *p_dialog, const Rect2i &p_rect = Rect2i(0, 0, 0, 0));
 	void popup_dialog_centered(Window *p_dialog, const Vector2i &p_minsize = Vector2i(0, 0));
 	void popup_dialog_centered_ratio(Window *p_dialog, float p_ratio = 0.8);
@@ -126,9 +131,12 @@ public:
 	void edit_script(const Ref<Script> &p_script, int32_t p_line = -1, int32_t p_column = 0, bool p_grab_focus = true);
 	void open_scene_from_path(const String &p_scene_filepath, bool p_set_inherited = false);
 	void reload_scene_from_path(const String &p_scene_filepath);
+	void set_object_edited(Object *p_object, bool p_edited);
+	bool is_object_edited(Object *p_object) const;
 	PackedStringArray get_open_scenes() const;
 	TypedArray<Node> get_open_scene_roots() const;
 	Node *get_edited_scene_root() const;
+	void add_root_node(Node *p_node);
 	Error save_scene();
 	void save_scene_as(const String &p_path, bool p_with_preview = true);
 	void save_all_scenes();

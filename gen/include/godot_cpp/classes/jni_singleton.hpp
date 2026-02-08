@@ -40,10 +40,14 @@
 
 namespace godot {
 
+class StringName;
+
 class JNISingleton : public Object {
 	GDEXTENSION_CLASS(JNISingleton, Object)
 
 public:
+	bool has_java_method(const StringName &p_method) const;
+
 protected:
 	template <typename T, typename B>
 	static void register_virtuals() {

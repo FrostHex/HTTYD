@@ -42,49 +42,49 @@
 namespace godot {
 
 Error ZIPPacker::open(const String &p_path, ZIPPacker::ZipAppend p_append) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("open")._native_ptr(), 1936816515);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("open")._native_ptr(), 1936816515);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int64_t p_append_encoded;
 	PtrToArg<int64_t>::encode(p_append, &p_append_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_append_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_append_encoded);
 }
 
 void ZIPPacker::set_compression_level(int32_t p_compression_level) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("set_compression_level")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("set_compression_level")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_compression_level_encoded;
 	PtrToArg<int64_t>::encode(p_compression_level, &p_compression_level_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_compression_level_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_compression_level_encoded);
 }
 
 int32_t ZIPPacker::get_compression_level() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("get_compression_level")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("get_compression_level")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Error ZIPPacker::start_file(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("start_file")._native_ptr(), 166001499);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("start_file")._native_ptr(), 166001499);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path);
 }
 
 Error ZIPPacker::write_file(const PackedByteArray &p_data) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("write_file")._native_ptr(), 680677267);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("write_file")._native_ptr(), 680677267);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_data);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_data);
 }
 
 Error ZIPPacker::close_file() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("close_file")._native_ptr(), 166280745);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("close_file")._native_ptr(), 166280745);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Error ZIPPacker::close() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("close")._native_ptr(), 166280745);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("close")._native_ptr(), 166280745);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

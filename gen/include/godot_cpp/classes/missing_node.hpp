@@ -51,6 +51,8 @@ public:
 	String get_original_scene() const;
 	void set_recording_properties(bool p_enable);
 	bool is_recording_properties() const;
+	void set_recording_signals(bool p_enable);
+	bool is_recording_signals() const;
 
 protected:
 	template <typename T, typename B>

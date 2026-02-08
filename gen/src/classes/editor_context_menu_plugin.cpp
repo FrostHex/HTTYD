@@ -45,27 +45,27 @@
 namespace godot {
 
 void EditorContextMenuPlugin::add_menu_shortcut(const Ref<Shortcut> &p_shortcut, const Callable &p_callback) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorContextMenuPlugin::get_class_static()._native_ptr(), StringName("add_menu_shortcut")._native_ptr(), 851596305);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorContextMenuPlugin::get_class_static()._native_ptr(), StringName("add_menu_shortcut")._native_ptr(), 851596305);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_shortcut != nullptr ? &p_shortcut->_owner : nullptr), &p_callback);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_shortcut != nullptr ? &p_shortcut->_owner : nullptr), &p_callback);
 }
 
 void EditorContextMenuPlugin::add_context_menu_item(const String &p_name, const Callable &p_callback, const Ref<Texture2D> &p_icon) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorContextMenuPlugin::get_class_static()._native_ptr(), StringName("add_context_menu_item")._native_ptr(), 2748336951);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorContextMenuPlugin::get_class_static()._native_ptr(), StringName("add_context_menu_item")._native_ptr(), 2748336951);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_callback, (p_icon != nullptr ? &p_icon->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_callback, (p_icon != nullptr ? &p_icon->_owner : nullptr));
 }
 
 void EditorContextMenuPlugin::add_context_menu_item_from_shortcut(const String &p_name, const Ref<Shortcut> &p_shortcut, const Ref<Texture2D> &p_icon) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorContextMenuPlugin::get_class_static()._native_ptr(), StringName("add_context_menu_item_from_shortcut")._native_ptr(), 3799546916);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorContextMenuPlugin::get_class_static()._native_ptr(), StringName("add_context_menu_item_from_shortcut")._native_ptr(), 3799546916);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, (p_shortcut != nullptr ? &p_shortcut->_owner : nullptr), (p_icon != nullptr ? &p_icon->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, (p_shortcut != nullptr ? &p_shortcut->_owner : nullptr), (p_icon != nullptr ? &p_icon->_owner : nullptr));
 }
 
 void EditorContextMenuPlugin::add_context_submenu_item(const String &p_name, PopupMenu *p_menu, const Ref<Texture2D> &p_icon) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorContextMenuPlugin::get_class_static()._native_ptr(), StringName("add_context_submenu_item")._native_ptr(), 1994674995);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorContextMenuPlugin::get_class_static()._native_ptr(), StringName("add_context_submenu_item")._native_ptr(), 1994674995);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, (p_menu != nullptr ? &p_menu->_owner : nullptr), (p_icon != nullptr ? &p_icon->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, (p_menu != nullptr ? &p_menu->_owner : nullptr), (p_icon != nullptr ? &p_icon->_owner : nullptr));
 }
 
 void EditorContextMenuPlugin::_popup_menu(const PackedStringArray &p_paths) {}

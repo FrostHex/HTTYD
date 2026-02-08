@@ -134,6 +134,10 @@ public:
 	float get_tonemap_exposure() const;
 	void set_tonemap_white(float p_white);
 	float get_tonemap_white() const;
+	void set_tonemap_agx_white(float p_white);
+	float get_tonemap_agx_white() const;
+	void set_tonemap_agx_contrast(float p_contrast);
+	float get_tonemap_agx_contrast() const;
 	void set_ssr_enabled(bool p_enabled);
 	bool is_ssr_enabled() const;
 	void set_ssr_max_steps(int32_t p_max_steps);

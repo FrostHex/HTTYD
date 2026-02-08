@@ -41,39 +41,39 @@
 namespace godot {
 
 void EditorSelection::clear() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("clear")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("clear")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void EditorSelection::add_node(Node *p_node) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("add_node")._native_ptr(), 1078189570);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("add_node")._native_ptr(), 1078189570);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_node != nullptr ? &p_node->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_node != nullptr ? &p_node->_owner : nullptr));
 }
 
 void EditorSelection::remove_node(Node *p_node) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("remove_node")._native_ptr(), 1078189570);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("remove_node")._native_ptr(), 1078189570);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_node != nullptr ? &p_node->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_node != nullptr ? &p_node->_owner : nullptr));
 }
 
 TypedArray<Node> EditorSelection::get_selected_nodes() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("get_selected_nodes")._native_ptr(), 2915620761);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("get_selected_nodes")._native_ptr(), 2915620761);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Node>()));
-	return internal::_call_native_mb_ret<TypedArray<Node>>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Node>>(_gde_method_bind, _owner);
 }
 
 TypedArray<Node> EditorSelection::get_top_selected_nodes() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("get_top_selected_nodes")._native_ptr(), 2915620761);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("get_top_selected_nodes")._native_ptr(), 2915620761);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Node>()));
-	return internal::_call_native_mb_ret<TypedArray<Node>>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Node>>(_gde_method_bind, _owner);
 }
 
 TypedArray<Node> EditorSelection::get_transformable_selected_nodes() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("get_transformable_selected_nodes")._native_ptr(), 2915620761);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorSelection::get_class_static()._native_ptr(), StringName("get_transformable_selected_nodes")._native_ptr(), 2915620761);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Node>()));
-	return internal::_call_native_mb_ret<TypedArray<Node>>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Node>>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

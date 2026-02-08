@@ -39,61 +39,61 @@
 namespace godot {
 
 void XRBodyTracker::set_has_tracking_data(bool p_has_data) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("set_has_tracking_data")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("set_has_tracking_data")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_has_data_encoded;
 	PtrToArg<bool>::encode(p_has_data, &p_has_data_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_has_data_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_has_data_encoded);
 }
 
 bool XRBodyTracker::get_has_tracking_data() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("get_has_tracking_data")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("get_has_tracking_data")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void XRBodyTracker::set_body_flags(BitField<XRBodyTracker::BodyFlags> p_flags) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("set_body_flags")._native_ptr(), 2103235750);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("set_body_flags")._native_ptr(), 2103235750);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flags);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flags);
 }
 
 BitField<XRBodyTracker::BodyFlags> XRBodyTracker::get_body_flags() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("get_body_flags")._native_ptr(), 3543166366);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("get_body_flags")._native_ptr(), 3543166366);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (BitField<XRBodyTracker::BodyFlags>(0)));
-	return (int64_t)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (int64_t)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void XRBodyTracker::set_joint_flags(XRBodyTracker::Joint p_joint, BitField<XRBodyTracker::JointFlags> p_flags) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("set_joint_flags")._native_ptr(), 592144999);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("set_joint_flags")._native_ptr(), 592144999);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_flags);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_flags);
 }
 
 BitField<XRBodyTracker::JointFlags> XRBodyTracker::get_joint_flags(XRBodyTracker::Joint p_joint) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("get_joint_flags")._native_ptr(), 1030162609);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("get_joint_flags")._native_ptr(), 1030162609);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (BitField<XRBodyTracker::JointFlags>(0)));
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	return (int64_t)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_joint_encoded);
+	return (int64_t)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_joint_encoded);
 }
 
 void XRBodyTracker::set_joint_transform(XRBodyTracker::Joint p_joint, const Transform3D &p_transform) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("set_joint_transform")._native_ptr(), 2635424328);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("set_joint_transform")._native_ptr(), 2635424328);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_transform);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_transform);
 }
 
 Transform3D XRBodyTracker::get_joint_transform(XRBodyTracker::Joint p_joint) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("get_joint_transform")._native_ptr(), 3474811534);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyTracker::get_class_static()._native_ptr(), StringName("get_joint_transform")._native_ptr(), 3474811534);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Transform3D()));
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	return internal::_call_native_mb_ret<Transform3D>(_gde_method_bind, _owner, &p_joint_encoded);
+	return ::godot::internal::_call_native_mb_ret<Transform3D>(_gde_method_bind, _owner, &p_joint_encoded);
 }
 
 } // namespace godot

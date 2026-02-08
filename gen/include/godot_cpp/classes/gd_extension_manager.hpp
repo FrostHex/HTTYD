@@ -62,6 +62,7 @@ public:
 	static GDExtensionManager *get_singleton();
 
 	GDExtensionManager::LoadStatus load_extension(const String &p_path);
+	GDExtensionManager::LoadStatus load_extension_from_function(const String &p_path, const GDExtensionInitializationFunction *p_init_func);
 	GDExtensionManager::LoadStatus reload_extension(const String &p_path);
 	GDExtensionManager::LoadStatus unload_extension(const String &p_path);
 	bool is_extension_loaded(const String &p_path) const;

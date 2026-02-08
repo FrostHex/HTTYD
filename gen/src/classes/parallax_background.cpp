@@ -39,77 +39,77 @@
 namespace godot {
 
 void ParallaxBackground::set_scroll_offset(const Vector2 &p_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_scroll_offset")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_scroll_offset")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
 }
 
 Vector2 ParallaxBackground::get_scroll_offset() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("get_scroll_offset")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("get_scroll_offset")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 void ParallaxBackground::set_scroll_base_offset(const Vector2 &p_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_scroll_base_offset")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_scroll_base_offset")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
 }
 
 Vector2 ParallaxBackground::get_scroll_base_offset() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("get_scroll_base_offset")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("get_scroll_base_offset")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 void ParallaxBackground::set_scroll_base_scale(const Vector2 &p_scale) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_scroll_base_scale")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_scroll_base_scale")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_scale);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_scale);
 }
 
 Vector2 ParallaxBackground::get_scroll_base_scale() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("get_scroll_base_scale")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("get_scroll_base_scale")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 void ParallaxBackground::set_limit_begin(const Vector2 &p_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_limit_begin")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_limit_begin")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
 }
 
 Vector2 ParallaxBackground::get_limit_begin() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("get_limit_begin")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("get_limit_begin")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 void ParallaxBackground::set_limit_end(const Vector2 &p_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_limit_end")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_limit_end")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
 }
 
 Vector2 ParallaxBackground::get_limit_end() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("get_limit_end")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("get_limit_end")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 void ParallaxBackground::set_ignore_camera_zoom(bool p_ignore) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_ignore_camera_zoom")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("set_ignore_camera_zoom")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_ignore_encoded;
 	PtrToArg<bool>::encode(p_ignore, &p_ignore_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_ignore_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_ignore_encoded);
 }
 
 bool ParallaxBackground::is_ignore_camera_zoom() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("is_ignore_camera_zoom")._native_ptr(), 2240911060);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParallaxBackground::get_class_static()._native_ptr(), StringName("is_ignore_camera_zoom")._native_ptr(), 2240911060);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

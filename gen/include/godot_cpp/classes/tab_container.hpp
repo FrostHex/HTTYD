@@ -99,6 +99,8 @@ public:
 	int32_t get_tab_idx_from_control(Control *p_control) const;
 	void set_popup(Node *p_popup);
 	Popup *get_popup() const;
+	void set_switch_on_drag_hover(bool p_enabled);
+	bool get_switch_on_drag_hover() const;
 	void set_drag_to_rearrange_enabled(bool p_enabled);
 	bool get_drag_to_rearrange_enabled() const;
 	void set_tabs_rearrange_group(int32_t p_group_id);

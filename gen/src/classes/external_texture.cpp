@@ -41,23 +41,23 @@
 namespace godot {
 
 void ExternalTexture::set_size(const Vector2 &p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ExternalTexture::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ExternalTexture::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
 }
 
 uint64_t ExternalTexture::get_external_texture_id() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ExternalTexture::get_class_static()._native_ptr(), StringName("get_external_texture_id")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ExternalTexture::get_class_static()._native_ptr(), StringName("get_external_texture_id")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<uint64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<uint64_t>(_gde_method_bind, _owner);
 }
 
 void ExternalTexture::set_external_buffer_id(uint64_t p_external_buffer_id) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ExternalTexture::get_class_static()._native_ptr(), StringName("set_external_buffer_id")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ExternalTexture::get_class_static()._native_ptr(), StringName("set_external_buffer_id")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_external_buffer_id_encoded;
 	PtrToArg<int64_t>::encode(p_external_buffer_id, &p_external_buffer_id_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_external_buffer_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_external_buffer_id_encoded);
 }
 
 } // namespace godot

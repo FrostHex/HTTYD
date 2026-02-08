@@ -42,29 +42,29 @@
 namespace godot {
 
 Error PackedScene::pack(Node *p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PackedScene::get_class_static()._native_ptr(), StringName("pack")._native_ptr(), 2584678054);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PackedScene::get_class_static()._native_ptr(), StringName("pack")._native_ptr(), 2584678054);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_path != nullptr ? &p_path->_owner : nullptr));
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_path != nullptr ? &p_path->_owner : nullptr));
 }
 
 Node *PackedScene::instantiate(PackedScene::GenEditState p_edit_state) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PackedScene::get_class_static()._native_ptr(), StringName("instantiate")._native_ptr(), 2628778455);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PackedScene::get_class_static()._native_ptr(), StringName("instantiate")._native_ptr(), 2628778455);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
 	int64_t p_edit_state_encoded;
 	PtrToArg<int64_t>::encode(p_edit_state, &p_edit_state_encoded);
-	return internal::_call_native_mb_ret_obj<Node>(_gde_method_bind, _owner, &p_edit_state_encoded);
+	return ::godot::internal::_call_native_mb_ret_obj<Node>(_gde_method_bind, _owner, &p_edit_state_encoded);
 }
 
 bool PackedScene::can_instantiate() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PackedScene::get_class_static()._native_ptr(), StringName("can_instantiate")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PackedScene::get_class_static()._native_ptr(), StringName("can_instantiate")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 Ref<SceneState> PackedScene::get_state() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PackedScene::get_class_static()._native_ptr(), StringName("get_state")._native_ptr(), 3479783971);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PackedScene::get_class_static()._native_ptr(), StringName("get_state")._native_ptr(), 3479783971);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<SceneState>()));
-	return Ref<SceneState>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<SceneState>(_gde_method_bind, _owner));
+	return Ref<SceneState>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<SceneState>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

@@ -42,18 +42,18 @@
 namespace godot {
 
 Ref<OpenXRAPIExtension> OpenXRExtensionWrapper::get_openxr_api() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRExtensionWrapper::get_class_static()._native_ptr(), StringName("get_openxr_api")._native_ptr(), 1637791613);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRExtensionWrapper::get_class_static()._native_ptr(), StringName("get_openxr_api")._native_ptr(), 1637791613);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRAPIExtension>()));
-	return Ref<OpenXRAPIExtension>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<OpenXRAPIExtension>(_gde_method_bind, _owner));
+	return Ref<OpenXRAPIExtension>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OpenXRAPIExtension>(_gde_method_bind, _owner));
 }
 
 void OpenXRExtensionWrapper::register_extension_wrapper() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRExtensionWrapper::get_class_static()._native_ptr(), StringName("register_extension_wrapper")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRExtensionWrapper::get_class_static()._native_ptr(), StringName("register_extension_wrapper")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
-Dictionary OpenXRExtensionWrapper::_get_requested_extensions() {
+Dictionary OpenXRExtensionWrapper::_get_requested_extensions(uint64_t p_xr_version) {
 	return Dictionary();
 }
 
@@ -61,7 +61,7 @@ uint64_t OpenXRExtensionWrapper::_set_system_properties_and_get_next_pointer(voi
 	return 0;
 }
 
-uint64_t OpenXRExtensionWrapper::_set_instance_create_info_and_get_next_pointer(void *p_next_pointer) {
+uint64_t OpenXRExtensionWrapper::_set_instance_create_info_and_get_next_pointer(uint64_t p_xr_version, void *p_next_pointer) {
 	return 0;
 }
 
@@ -96,6 +96,14 @@ uint64_t OpenXRExtensionWrapper::_set_view_locate_info_and_get_next_pointer(void
 uint64_t OpenXRExtensionWrapper::_set_reference_space_create_info_and_get_next_pointer(int32_t p_reference_space_type, void *p_next_pointer) {
 	return 0;
 }
+
+void OpenXRExtensionWrapper::_prepare_view_configuration(int32_t p_view_count) {}
+
+uint64_t OpenXRExtensionWrapper::_set_view_configuration_and_get_next_pointer(uint32_t p_view, void *p_next_pointer) {
+	return 0;
+}
+
+void OpenXRExtensionWrapper::_print_view_configuration_info(int32_t p_view) const {}
 
 int32_t OpenXRExtensionWrapper::_get_composition_layer_count() {
 	return 0;

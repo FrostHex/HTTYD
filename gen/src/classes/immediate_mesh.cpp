@@ -44,65 +44,65 @@
 namespace godot {
 
 void ImmediateMesh::surface_begin(Mesh::PrimitiveType p_primitive, const Ref<Material> &p_material) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_begin")._native_ptr(), 2794442543);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_begin")._native_ptr(), 2794442543);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_primitive_encoded;
 	PtrToArg<int64_t>::encode(p_primitive, &p_primitive_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_primitive_encoded, (p_material != nullptr ? &p_material->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_primitive_encoded, (p_material != nullptr ? &p_material->_owner : nullptr));
 }
 
 void ImmediateMesh::surface_set_color(const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_set_color")._native_ptr(), 2920490490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_set_color")._native_ptr(), 2920490490);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
 }
 
 void ImmediateMesh::surface_set_normal(const Vector3 &p_normal) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_set_normal")._native_ptr(), 3460891852);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_set_normal")._native_ptr(), 3460891852);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_normal);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_normal);
 }
 
 void ImmediateMesh::surface_set_tangent(const Plane &p_tangent) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_set_tangent")._native_ptr(), 3505987427);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_set_tangent")._native_ptr(), 3505987427);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_tangent);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_tangent);
 }
 
 void ImmediateMesh::surface_set_uv(const Vector2 &p_uv) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_set_uv")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_set_uv")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_uv);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_uv);
 }
 
 void ImmediateMesh::surface_set_uv2(const Vector2 &p_uv2) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_set_uv2")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_set_uv2")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_uv2);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_uv2);
 }
 
 void ImmediateMesh::surface_add_vertex(const Vector3 &p_vertex) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_add_vertex")._native_ptr(), 3460891852);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_add_vertex")._native_ptr(), 3460891852);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_vertex);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_vertex);
 }
 
 void ImmediateMesh::surface_add_vertex_2d(const Vector2 &p_vertex) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_add_vertex_2d")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_add_vertex_2d")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_vertex);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_vertex);
 }
 
 void ImmediateMesh::surface_end() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_end")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("surface_end")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void ImmediateMesh::clear_surfaces() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("clear_surfaces")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImmediateMesh::get_class_static()._native_ptr(), StringName("clear_surfaces")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -45,11 +45,11 @@ ResourceLoader *ResourceLoader::singleton = nullptr;
 
 ResourceLoader *ResourceLoader::get_singleton() {
 	if (unlikely(singleton == nullptr)) {
-		GDExtensionObjectPtr singleton_obj = internal::gdextension_interface_global_get_singleton(ResourceLoader::get_class_static()._native_ptr());
+		GDExtensionObjectPtr singleton_obj = ::godot::gdextension_interface::global_get_singleton(ResourceLoader::get_class_static()._native_ptr());
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton_obj, nullptr);
 #endif // DEBUG_ENABLED
-		singleton = reinterpret_cast<ResourceLoader *>(internal::gdextension_interface_object_get_instance_binding(singleton_obj, internal::token, &ResourceLoader::_gde_binding_callbacks));
+		singleton = reinterpret_cast<ResourceLoader *>(::godot::gdextension_interface::object_get_instance_binding(singleton_obj, ::godot::gdextension_interface::token, &ResourceLoader::_gde_binding_callbacks));
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton, nullptr);
 #endif // DEBUG_ENABLED
@@ -68,97 +68,97 @@ ResourceLoader::~ResourceLoader() {
 }
 
 Error ResourceLoader::load_threaded_request(const String &p_path, const String &p_type_hint, bool p_use_sub_threads, ResourceLoader::CacheMode p_cache_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("load_threaded_request")._native_ptr(), 3614384323);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("load_threaded_request")._native_ptr(), 3614384323);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int8_t p_use_sub_threads_encoded;
 	PtrToArg<bool>::encode(p_use_sub_threads, &p_use_sub_threads_encoded);
 	int64_t p_cache_mode_encoded;
 	PtrToArg<int64_t>::encode(p_cache_mode, &p_cache_mode_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_type_hint, &p_use_sub_threads_encoded, &p_cache_mode_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_type_hint, &p_use_sub_threads_encoded, &p_cache_mode_encoded);
 }
 
 ResourceLoader::ThreadLoadStatus ResourceLoader::load_threaded_get_status(const String &p_path, const Array &p_progress) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("load_threaded_get_status")._native_ptr(), 4137685479);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("load_threaded_get_status")._native_ptr(), 4137685479);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (ResourceLoader::ThreadLoadStatus(0)));
-	return (ResourceLoader::ThreadLoadStatus)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_progress);
+	return (ResourceLoader::ThreadLoadStatus)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_progress);
 }
 
 Ref<Resource> ResourceLoader::load_threaded_get(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("load_threaded_get")._native_ptr(), 1748875256);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("load_threaded_get")._native_ptr(), 1748875256);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Resource>()));
-	return Ref<Resource>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner, &p_path));
+	return Ref<Resource>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner, &p_path));
 }
 
 Ref<Resource> ResourceLoader::load(const String &p_path, const String &p_type_hint, ResourceLoader::CacheMode p_cache_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("load")._native_ptr(), 3358495409);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("load")._native_ptr(), 3358495409);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Resource>()));
 	int64_t p_cache_mode_encoded;
 	PtrToArg<int64_t>::encode(p_cache_mode, &p_cache_mode_encoded);
-	return Ref<Resource>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner, &p_path, &p_type_hint, &p_cache_mode_encoded));
+	return Ref<Resource>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner, &p_path, &p_type_hint, &p_cache_mode_encoded));
 }
 
 PackedStringArray ResourceLoader::get_recognized_extensions_for_type(const String &p_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("get_recognized_extensions_for_type")._native_ptr(), 3538744774);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("get_recognized_extensions_for_type")._native_ptr(), 3538744774);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));
-	return internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner, &p_type);
+	return ::godot::internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner, &p_type);
 }
 
 void ResourceLoader::add_resource_format_loader(const Ref<ResourceFormatLoader> &p_format_loader, bool p_at_front) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("add_resource_format_loader")._native_ptr(), 2896595483);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("add_resource_format_loader")._native_ptr(), 2896595483);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_at_front_encoded;
 	PtrToArg<bool>::encode(p_at_front, &p_at_front_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_format_loader != nullptr ? &p_format_loader->_owner : nullptr), &p_at_front_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_format_loader != nullptr ? &p_format_loader->_owner : nullptr), &p_at_front_encoded);
 }
 
 void ResourceLoader::remove_resource_format_loader(const Ref<ResourceFormatLoader> &p_format_loader) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("remove_resource_format_loader")._native_ptr(), 405397102);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("remove_resource_format_loader")._native_ptr(), 405397102);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_format_loader != nullptr ? &p_format_loader->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_format_loader != nullptr ? &p_format_loader->_owner : nullptr));
 }
 
 void ResourceLoader::set_abort_on_missing_resources(bool p_abort) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("set_abort_on_missing_resources")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("set_abort_on_missing_resources")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_abort_encoded;
 	PtrToArg<bool>::encode(p_abort, &p_abort_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_abort_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_abort_encoded);
 }
 
 PackedStringArray ResourceLoader::get_dependencies(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("get_dependencies")._native_ptr(), 3538744774);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("get_dependencies")._native_ptr(), 3538744774);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));
-	return internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner, &p_path);
+	return ::godot::internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner, &p_path);
 }
 
 bool ResourceLoader::has_cached(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("has_cached")._native_ptr(), 2323990056);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("has_cached")._native_ptr(), 2323990056);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_path);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_path);
 }
 
 Ref<Resource> ResourceLoader::get_cached_ref(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("get_cached_ref")._native_ptr(), 1748875256);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("get_cached_ref")._native_ptr(), 1748875256);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Resource>()));
-	return Ref<Resource>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner, &p_path));
+	return Ref<Resource>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner, &p_path));
 }
 
 bool ResourceLoader::exists(const String &p_path, const String &p_type_hint) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("exists")._native_ptr(), 4185558881);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("exists")._native_ptr(), 4185558881);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_path, &p_type_hint);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_path, &p_type_hint);
 }
 
 int64_t ResourceLoader::get_resource_uid(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("get_resource_uid")._native_ptr(), 1597066294);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("get_resource_uid")._native_ptr(), 1597066294);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path);
 }
 
 PackedStringArray ResourceLoader::list_directory(const String &p_directory_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("list_directory")._native_ptr(), 3538744774);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ResourceLoader::get_class_static()._native_ptr(), StringName("list_directory")._native_ptr(), 3538744774);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));
-	return internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner, &p_directory_path);
+	return ::godot::internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner, &p_directory_path);
 }
 
 } // namespace godot

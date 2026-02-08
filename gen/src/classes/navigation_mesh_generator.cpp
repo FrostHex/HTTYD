@@ -46,11 +46,11 @@ NavigationMeshGenerator *NavigationMeshGenerator::singleton = nullptr;
 
 NavigationMeshGenerator *NavigationMeshGenerator::get_singleton() {
 	if (unlikely(singleton == nullptr)) {
-		GDExtensionObjectPtr singleton_obj = internal::gdextension_interface_global_get_singleton(NavigationMeshGenerator::get_class_static()._native_ptr());
+		GDExtensionObjectPtr singleton_obj = ::godot::gdextension_interface::global_get_singleton(NavigationMeshGenerator::get_class_static()._native_ptr());
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton_obj, nullptr);
 #endif // DEBUG_ENABLED
-		singleton = reinterpret_cast<NavigationMeshGenerator *>(internal::gdextension_interface_object_get_instance_binding(singleton_obj, internal::token, &NavigationMeshGenerator::_gde_binding_callbacks));
+		singleton = reinterpret_cast<NavigationMeshGenerator *>(::godot::gdextension_interface::object_get_instance_binding(singleton_obj, ::godot::gdextension_interface::token, &NavigationMeshGenerator::_gde_binding_callbacks));
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton, nullptr);
 #endif // DEBUG_ENABLED
@@ -69,27 +69,27 @@ NavigationMeshGenerator::~NavigationMeshGenerator() {
 }
 
 void NavigationMeshGenerator::bake(const Ref<NavigationMesh> &p_navigation_mesh, Node *p_root_node) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NavigationMeshGenerator::get_class_static()._native_ptr(), StringName("bake")._native_ptr(), 1401173477);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(NavigationMeshGenerator::get_class_static()._native_ptr(), StringName("bake")._native_ptr(), 1401173477);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_navigation_mesh != nullptr ? &p_navigation_mesh->_owner : nullptr), (p_root_node != nullptr ? &p_root_node->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_navigation_mesh != nullptr ? &p_navigation_mesh->_owner : nullptr), (p_root_node != nullptr ? &p_root_node->_owner : nullptr));
 }
 
 void NavigationMeshGenerator::clear(const Ref<NavigationMesh> &p_navigation_mesh) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NavigationMeshGenerator::get_class_static()._native_ptr(), StringName("clear")._native_ptr(), 2923361153);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(NavigationMeshGenerator::get_class_static()._native_ptr(), StringName("clear")._native_ptr(), 2923361153);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_navigation_mesh != nullptr ? &p_navigation_mesh->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_navigation_mesh != nullptr ? &p_navigation_mesh->_owner : nullptr));
 }
 
 void NavigationMeshGenerator::parse_source_geometry_data(const Ref<NavigationMesh> &p_navigation_mesh, const Ref<NavigationMeshSourceGeometryData3D> &p_source_geometry_data, Node *p_root_node, const Callable &p_callback) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NavigationMeshGenerator::get_class_static()._native_ptr(), StringName("parse_source_geometry_data")._native_ptr(), 3172802542);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(NavigationMeshGenerator::get_class_static()._native_ptr(), StringName("parse_source_geometry_data")._native_ptr(), 3172802542);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_navigation_mesh != nullptr ? &p_navigation_mesh->_owner : nullptr), (p_source_geometry_data != nullptr ? &p_source_geometry_data->_owner : nullptr), (p_root_node != nullptr ? &p_root_node->_owner : nullptr), &p_callback);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_navigation_mesh != nullptr ? &p_navigation_mesh->_owner : nullptr), (p_source_geometry_data != nullptr ? &p_source_geometry_data->_owner : nullptr), (p_root_node != nullptr ? &p_root_node->_owner : nullptr), &p_callback);
 }
 
 void NavigationMeshGenerator::bake_from_source_geometry_data(const Ref<NavigationMesh> &p_navigation_mesh, const Ref<NavigationMeshSourceGeometryData3D> &p_source_geometry_data, const Callable &p_callback) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(NavigationMeshGenerator::get_class_static()._native_ptr(), StringName("bake_from_source_geometry_data")._native_ptr(), 1286748856);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(NavigationMeshGenerator::get_class_static()._native_ptr(), StringName("bake_from_source_geometry_data")._native_ptr(), 1286748856);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_navigation_mesh != nullptr ? &p_navigation_mesh->_owner : nullptr), (p_source_geometry_data != nullptr ? &p_source_geometry_data->_owner : nullptr), &p_callback);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_navigation_mesh != nullptr ? &p_navigation_mesh->_owner : nullptr), (p_source_geometry_data != nullptr ? &p_source_geometry_data->_owner : nullptr), &p_callback);
 }
 
 } // namespace godot

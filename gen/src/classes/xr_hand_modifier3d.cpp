@@ -39,29 +39,29 @@
 namespace godot {
 
 void XRHandModifier3D::set_hand_tracker(const StringName &p_tracker_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandModifier3D::get_class_static()._native_ptr(), StringName("set_hand_tracker")._native_ptr(), 3304788590);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandModifier3D::get_class_static()._native_ptr(), StringName("set_hand_tracker")._native_ptr(), 3304788590);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_tracker_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_tracker_name);
 }
 
 StringName XRHandModifier3D::get_hand_tracker() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandModifier3D::get_class_static()._native_ptr(), StringName("get_hand_tracker")._native_ptr(), 2002593661);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandModifier3D::get_class_static()._native_ptr(), StringName("get_hand_tracker")._native_ptr(), 2002593661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
-	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
 }
 
 void XRHandModifier3D::set_bone_update(XRHandModifier3D::BoneUpdate p_bone_update) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandModifier3D::get_class_static()._native_ptr(), StringName("set_bone_update")._native_ptr(), 3635701455);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandModifier3D::get_class_static()._native_ptr(), StringName("set_bone_update")._native_ptr(), 3635701455);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_bone_update_encoded;
 	PtrToArg<int64_t>::encode(p_bone_update, &p_bone_update_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone_update_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone_update_encoded);
 }
 
 XRHandModifier3D::BoneUpdate XRHandModifier3D::get_bone_update() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandModifier3D::get_class_static()._native_ptr(), StringName("get_bone_update")._native_ptr(), 2873665691);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandModifier3D::get_class_static()._native_ptr(), StringName("get_bone_update")._native_ptr(), 2873665691);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (XRHandModifier3D::BoneUpdate(0)));
-	return (XRHandModifier3D::BoneUpdate)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (XRHandModifier3D::BoneUpdate)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -39,101 +39,101 @@
 namespace godot {
 
 int32_t EditorFileSystemDirectory::get_subdir_count() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_subdir_count")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_subdir_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 EditorFileSystemDirectory *EditorFileSystemDirectory::get_subdir(int32_t p_idx) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_subdir")._native_ptr(), 2330964164);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_subdir")._native_ptr(), 2330964164);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
 	int64_t p_idx_encoded;
 	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
-	return internal::_call_native_mb_ret_obj<EditorFileSystemDirectory>(_gde_method_bind, _owner, &p_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret_obj<EditorFileSystemDirectory>(_gde_method_bind, _owner, &p_idx_encoded);
 }
 
 int32_t EditorFileSystemDirectory::get_file_count() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_count")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 String EditorFileSystemDirectory::get_file(int32_t p_idx) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file")._native_ptr(), 844755477);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file")._native_ptr(), 844755477);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
 	int64_t p_idx_encoded;
 	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_idx_encoded);
 }
 
 String EditorFileSystemDirectory::get_file_path(int32_t p_idx) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_path")._native_ptr(), 844755477);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_path")._native_ptr(), 844755477);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
 	int64_t p_idx_encoded;
 	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_idx_encoded);
 }
 
 StringName EditorFileSystemDirectory::get_file_type(int32_t p_idx) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_type")._native_ptr(), 659327637);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_type")._native_ptr(), 659327637);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
 	int64_t p_idx_encoded;
 	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
-	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner, &p_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner, &p_idx_encoded);
 }
 
 String EditorFileSystemDirectory::get_file_script_class_name(int32_t p_idx) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_script_class_name")._native_ptr(), 844755477);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_script_class_name")._native_ptr(), 844755477);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
 	int64_t p_idx_encoded;
 	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_idx_encoded);
 }
 
 String EditorFileSystemDirectory::get_file_script_class_extends(int32_t p_idx) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_script_class_extends")._native_ptr(), 844755477);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_script_class_extends")._native_ptr(), 844755477);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
 	int64_t p_idx_encoded;
 	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_idx_encoded);
 }
 
 bool EditorFileSystemDirectory::get_file_import_is_valid(int32_t p_idx) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_import_is_valid")._native_ptr(), 1116898809);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_file_import_is_valid")._native_ptr(), 1116898809);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_idx_encoded;
 	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_idx_encoded);
 }
 
 String EditorFileSystemDirectory::get_name() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_name")._native_ptr(), 2841200299);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_name")._native_ptr(), 2841200299);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 String EditorFileSystemDirectory::get_path() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_path")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_path")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 EditorFileSystemDirectory *EditorFileSystemDirectory::get_parent() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_parent")._native_ptr(), 842323275);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("get_parent")._native_ptr(), 842323275);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return internal::_call_native_mb_ret_obj<EditorFileSystemDirectory>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret_obj<EditorFileSystemDirectory>(_gde_method_bind, _owner);
 }
 
 int32_t EditorFileSystemDirectory::find_file_index(const String &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("find_file_index")._native_ptr(), 1321353865);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("find_file_index")._native_ptr(), 1321353865);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_name);
 }
 
 int32_t EditorFileSystemDirectory::find_dir_index(const String &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("find_dir_index")._native_ptr(), 1321353865);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorFileSystemDirectory::get_class_static()._native_ptr(), StringName("find_dir_index")._native_ptr(), 1321353865);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_name);
 }
 
 } // namespace godot

@@ -39,45 +39,45 @@
 namespace godot {
 
 void RDAttachmentFormat::set_format(RenderingDevice::DataFormat p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("set_format")._native_ptr(), 565531219);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("set_format")._native_ptr(), 565531219);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::DataFormat RDAttachmentFormat::get_format() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("get_format")._native_ptr(), 2235804183);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("get_format")._native_ptr(), 2235804183);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::DataFormat(0)));
-	return (RenderingDevice::DataFormat)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::DataFormat)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDAttachmentFormat::set_samples(RenderingDevice::TextureSamples p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("set_samples")._native_ptr(), 3774171498);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("set_samples")._native_ptr(), 3774171498);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::TextureSamples RDAttachmentFormat::get_samples() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("get_samples")._native_ptr(), 407791724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("get_samples")._native_ptr(), 407791724);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::TextureSamples(0)));
-	return (RenderingDevice::TextureSamples)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::TextureSamples)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDAttachmentFormat::set_usage_flags(uint32_t p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("set_usage_flags")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("set_usage_flags")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 uint32_t RDAttachmentFormat::get_usage_flags() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("get_usage_flags")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDAttachmentFormat::get_class_static()._native_ptr(), StringName("get_usage_flags")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -49,28 +49,28 @@ namespace godot {
 RID::_MethodBindings RID::_method_bindings;
 
 void RID::_init_bindings_constructors_destructor() {
-	_method_bindings.from_variant_constructor = internal::gdextension_interface_get_variant_to_type_constructor(GDEXTENSION_VARIANT_TYPE_RID);
-	_method_bindings.constructor_0 = internal::gdextension_interface_variant_get_ptr_constructor(GDEXTENSION_VARIANT_TYPE_RID, 0);
-	_method_bindings.constructor_1 = internal::gdextension_interface_variant_get_ptr_constructor(GDEXTENSION_VARIANT_TYPE_RID, 1);
+	_method_bindings.from_variant_constructor = ::godot::gdextension_interface::get_variant_to_type_constructor(GDEXTENSION_VARIANT_TYPE_RID);
+	_method_bindings.constructor_0 = ::godot::gdextension_interface::variant_get_ptr_constructor(GDEXTENSION_VARIANT_TYPE_RID, 0);
+	_method_bindings.constructor_1 = ::godot::gdextension_interface::variant_get_ptr_constructor(GDEXTENSION_VARIANT_TYPE_RID, 1);
 }
 void RID::init_bindings() {
 	RID::_init_bindings_constructors_destructor();
 	StringName _gde_name;
 	_gde_name = StringName("is_valid");
-	_method_bindings.method_is_valid = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_RID, _gde_name._native_ptr(), 3918633141);
+	_method_bindings.method_is_valid = ::godot::gdextension_interface::variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_RID, _gde_name._native_ptr(), 3918633141);
 	_gde_name = StringName("get_id");
-	_method_bindings.method_get_id = internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_RID, _gde_name._native_ptr(), 3173160232);
-	_method_bindings.operator_equal_Variant = internal::gdextension_interface_variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_NIL);
-	_method_bindings.operator_not_equal_Variant = internal::gdextension_interface_variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_NOT_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_NIL);
-	_method_bindings.operator_not = internal::gdextension_interface_variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_NOT, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_NIL);
-	_method_bindings.operator_equal_RID = internal::gdextension_interface_variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
-	_method_bindings.operator_not_equal_RID = internal::gdextension_interface_variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_NOT_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
-	_method_bindings.operator_less_RID = internal::gdextension_interface_variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_LESS, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
-	_method_bindings.operator_less_equal_RID = internal::gdextension_interface_variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_LESS_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
-	_method_bindings.operator_greater_RID = internal::gdextension_interface_variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_GREATER, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
-	_method_bindings.operator_greater_equal_RID = internal::gdextension_interface_variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_GREATER_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
-	_method_bindings.operator_in_Dictionary = internal::gdextension_interface_variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_IN, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_DICTIONARY);
-	_method_bindings.operator_in_Array = internal::gdextension_interface_variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_IN, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_ARRAY);
+	_method_bindings.method_get_id = ::godot::gdextension_interface::variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_RID, _gde_name._native_ptr(), 3173160232);
+	_method_bindings.operator_equal_Variant = ::godot::gdextension_interface::variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_NIL);
+	_method_bindings.operator_not_equal_Variant = ::godot::gdextension_interface::variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_NOT_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_NIL);
+	_method_bindings.operator_not = ::godot::gdextension_interface::variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_NOT, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_NIL);
+	_method_bindings.operator_equal_RID = ::godot::gdextension_interface::variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
+	_method_bindings.operator_not_equal_RID = ::godot::gdextension_interface::variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_NOT_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
+	_method_bindings.operator_less_RID = ::godot::gdextension_interface::variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_LESS, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
+	_method_bindings.operator_less_equal_RID = ::godot::gdextension_interface::variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_LESS_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
+	_method_bindings.operator_greater_RID = ::godot::gdextension_interface::variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_GREATER, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
+	_method_bindings.operator_greater_equal_RID = ::godot::gdextension_interface::variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_GREATER_EQUAL, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_RID);
+	_method_bindings.operator_in_Dictionary = ::godot::gdextension_interface::variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_IN, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_DICTIONARY);
+	_method_bindings.operator_in_Array = ::godot::gdextension_interface::variant_get_ptr_operator_evaluator(GDEXTENSION_VARIANT_OP_IN, GDEXTENSION_VARIANT_TYPE_RID, GDEXTENSION_VARIANT_TYPE_ARRAY);
 }
 
 RID::RID(const Variant *p_variant) {
@@ -78,11 +78,11 @@ RID::RID(const Variant *p_variant) {
 }
 
 RID::RID() {
-	internal::_call_builtin_constructor(_method_bindings.constructor_0, &opaque);
+	::godot::internal::_call_builtin_constructor(_method_bindings.constructor_0, &opaque);
 }
 
 RID::RID(const RID &p_from) {
-	internal::_call_builtin_constructor(_method_bindings.constructor_1, &opaque, &p_from);
+	::godot::internal::_call_builtin_constructor(_method_bindings.constructor_1, &opaque, &p_from);
 }
 
 RID::RID(RID &&p_other) {
@@ -90,51 +90,51 @@ RID::RID(RID &&p_other) {
 }
 
 bool RID::is_valid() const {
-	return internal::_call_builtin_method_ptr_ret<int8_t>(_method_bindings.method_is_valid, (GDExtensionTypePtr)&opaque);
+	return ::godot::internal::_call_builtin_method_ptr_ret<int8_t>(_method_bindings.method_is_valid, (GDExtensionTypePtr)&opaque);
 }
 
 int64_t RID::get_id() const {
-	return internal::_call_builtin_method_ptr_ret<int64_t>(_method_bindings.method_get_id, (GDExtensionTypePtr)&opaque);
+	return ::godot::internal::_call_builtin_method_ptr_ret<int64_t>(_method_bindings.method_get_id, (GDExtensionTypePtr)&opaque);
 }
 
 bool RID::operator==(const Variant &p_other) const {
-	return internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_equal_Variant, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
+	return ::godot::internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_equal_Variant, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
 }
 
 bool RID::operator!=(const Variant &p_other) const {
-	return internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_not_equal_Variant, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
+	return ::godot::internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_not_equal_Variant, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
 }
 
 bool RID::operator!() const {
-	return internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_not, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr) nullptr);
+	return ::godot::internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_not, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr) nullptr);
 }
 
 bool RID::operator==(const RID &p_other) const {
-	return internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_equal_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
+	return ::godot::internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_equal_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
 }
 
 bool RID::operator!=(const RID &p_other) const {
-	return internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_not_equal_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
+	return ::godot::internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_not_equal_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
 }
 
 bool RID::operator<(const RID &p_other) const {
-	return internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_less_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
+	return ::godot::internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_less_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
 }
 
 bool RID::operator<=(const RID &p_other) const {
-	return internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_less_equal_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
+	return ::godot::internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_less_equal_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
 }
 
 bool RID::operator>(const RID &p_other) const {
-	return internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_greater_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
+	return ::godot::internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_greater_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
 }
 
 bool RID::operator>=(const RID &p_other) const {
-	return internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_greater_equal_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
+	return ::godot::internal::_call_builtin_operator_ptr<int8_t>(_method_bindings.operator_greater_equal_RID, (GDExtensionConstTypePtr)&opaque, (GDExtensionConstTypePtr)&p_other);
 }
 
 RID &RID::operator=(const RID &p_other) {
-	internal::_call_builtin_constructor(_method_bindings.constructor_1, &opaque, &p_other);
+	::godot::internal::_call_builtin_constructor(_method_bindings.constructor_1, &opaque, &p_other);
 	return *this;
 }
 

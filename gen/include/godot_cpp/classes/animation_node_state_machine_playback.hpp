@@ -56,6 +56,10 @@ public:
 	float get_current_play_position() const;
 	float get_current_length() const;
 	StringName get_fading_from_node() const;
+	float get_fading_from_play_position() const;
+	float get_fading_from_length() const;
+	float get_fading_position() const;
+	float get_fading_length() const;
 	TypedArray<StringName> get_travel_path() const;
 
 protected:

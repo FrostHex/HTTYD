@@ -39,67 +39,91 @@
 namespace godot {
 
 void AnimationNodeStateMachinePlayback::travel(const StringName &p_to_node, bool p_reset_on_teleport) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("travel")._native_ptr(), 3823612587);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("travel")._native_ptr(), 3823612587);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_reset_on_teleport_encoded;
 	PtrToArg<bool>::encode(p_reset_on_teleport, &p_reset_on_teleport_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_to_node, &p_reset_on_teleport_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_to_node, &p_reset_on_teleport_encoded);
 }
 
 void AnimationNodeStateMachinePlayback::start(const StringName &p_node, bool p_reset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("start")._native_ptr(), 3823612587);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("start")._native_ptr(), 3823612587);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_reset_encoded;
 	PtrToArg<bool>::encode(p_reset, &p_reset_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_node, &p_reset_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_node, &p_reset_encoded);
 }
 
 void AnimationNodeStateMachinePlayback::next() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("next")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("next")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void AnimationNodeStateMachinePlayback::stop() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("stop")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("stop")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 bool AnimationNodeStateMachinePlayback::is_playing() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("is_playing")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("is_playing")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 StringName AnimationNodeStateMachinePlayback::get_current_node() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_current_node")._native_ptr(), 2002593661);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_current_node")._native_ptr(), 2002593661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
-	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
 }
 
 float AnimationNodeStateMachinePlayback::get_current_play_position() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_current_play_position")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_current_play_position")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 float AnimationNodeStateMachinePlayback::get_current_length() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_current_length")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_current_length")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 StringName AnimationNodeStateMachinePlayback::get_fading_from_node() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_fading_from_node")._native_ptr(), 2002593661);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_fading_from_node")._native_ptr(), 2002593661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
-	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
+}
+
+float AnimationNodeStateMachinePlayback::get_fading_from_play_position() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_fading_from_play_position")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+float AnimationNodeStateMachinePlayback::get_fading_from_length() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_fading_from_length")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+float AnimationNodeStateMachinePlayback::get_fading_position() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_fading_position")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+float AnimationNodeStateMachinePlayback::get_fading_length() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_fading_length")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 TypedArray<StringName> AnimationNodeStateMachinePlayback::get_travel_path() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_travel_path")._native_ptr(), 3995934104);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachinePlayback::get_class_static()._native_ptr(), StringName("get_travel_path")._native_ptr(), 3995934104);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<StringName>()));
-	return internal::_call_native_mb_ret<TypedArray<StringName>>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<StringName>>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

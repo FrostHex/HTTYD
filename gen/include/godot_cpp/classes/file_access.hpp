@@ -85,7 +85,7 @@ public:
 	static Ref<FileAccess> open_encrypted_with_pass(const String &p_path, FileAccess::ModeFlags p_mode_flags, const String &p_pass);
 	static Ref<FileAccess> open_compressed(const String &p_path, FileAccess::ModeFlags p_mode_flags, FileAccess::CompressionMode p_compression_mode = (FileAccess::CompressionMode)0);
 	static Error get_open_error();
-	static Ref<FileAccess> create_temp(int32_t p_mode_flags, const String &p_prefix = String(), const String &p_extension = String(), bool p_keep = false);
+	static Ref<FileAccess> create_temp(FileAccess::ModeFlags p_mode_flags, const String &p_prefix = String(), const String &p_extension = String(), bool p_keep = false);
 	static PackedByteArray get_file_as_bytes(const String &p_path);
 	static String get_file_as_string(const String &p_path);
 	Error resize(int64_t p_length);
@@ -109,7 +109,7 @@ public:
 	PackedByteArray get_buffer(int64_t p_length) const;
 	String get_line() const;
 	PackedStringArray get_csv_line(const String &p_delim = ",") const;
-	String get_as_text(bool p_skip_cr = false) const;
+	String get_as_text() const;
 	static String get_md5(const String &p_path);
 	static String get_sha256(const String &p_path);
 	bool is_big_endian() const;
@@ -142,6 +142,12 @@ public:
 	static Error set_hidden_attribute(const String &p_file, bool p_hidden);
 	static Error set_read_only_attribute(const String &p_file, bool p_ro);
 	static bool get_read_only_attribute(const String &p_file);
+	static PackedByteArray get_extended_attribute(const String &p_file, const String &p_attribute_name);
+	static String get_extended_attribute_string(const String &p_file, const String &p_attribute_name);
+	static Error set_extended_attribute(const String &p_file, const String &p_attribute_name, const PackedByteArray &p_data);
+	static Error set_extended_attribute_string(const String &p_file, const String &p_attribute_name, const String &p_data);
+	static Error remove_extended_attribute(const String &p_file, const String &p_attribute_name);
+	static PackedStringArray get_extended_attributes_list(const String &p_file);
 
 protected:
 	template <typename T, typename B>

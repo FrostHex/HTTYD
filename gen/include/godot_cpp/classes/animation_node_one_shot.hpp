@@ -69,6 +69,8 @@ public:
 	Ref<Curve> get_fadeout_curve() const;
 	void set_break_loop_at_end(bool p_enable);
 	bool is_loop_broken_at_end() const;
+	void set_abort_on_reset(bool p_enable);
+	bool is_aborted_on_reset() const;
 	void set_autorestart(bool p_active);
 	bool has_autorestart() const;
 	void set_autorestart_delay(double p_time);

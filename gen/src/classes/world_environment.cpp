@@ -43,39 +43,39 @@
 namespace godot {
 
 void WorldEnvironment::set_environment(const Ref<Environment> &p_env) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("set_environment")._native_ptr(), 4143518816);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("set_environment")._native_ptr(), 4143518816);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_env != nullptr ? &p_env->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_env != nullptr ? &p_env->_owner : nullptr));
 }
 
 Ref<Environment> WorldEnvironment::get_environment() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("get_environment")._native_ptr(), 3082064660);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("get_environment")._native_ptr(), 3082064660);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Environment>()));
-	return Ref<Environment>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Environment>(_gde_method_bind, _owner));
+	return Ref<Environment>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Environment>(_gde_method_bind, _owner));
 }
 
 void WorldEnvironment::set_camera_attributes(const Ref<CameraAttributes> &p_camera_attributes) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("set_camera_attributes")._native_ptr(), 2817810567);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("set_camera_attributes")._native_ptr(), 2817810567);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_camera_attributes != nullptr ? &p_camera_attributes->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_camera_attributes != nullptr ? &p_camera_attributes->_owner : nullptr));
 }
 
 Ref<CameraAttributes> WorldEnvironment::get_camera_attributes() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("get_camera_attributes")._native_ptr(), 3921283215);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("get_camera_attributes")._native_ptr(), 3921283215);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<CameraAttributes>()));
-	return Ref<CameraAttributes>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<CameraAttributes>(_gde_method_bind, _owner));
+	return Ref<CameraAttributes>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<CameraAttributes>(_gde_method_bind, _owner));
 }
 
 void WorldEnvironment::set_compositor(const Ref<Compositor> &p_compositor) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("set_compositor")._native_ptr(), 1586754307);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("set_compositor")._native_ptr(), 1586754307);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_compositor != nullptr ? &p_compositor->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_compositor != nullptr ? &p_compositor->_owner : nullptr));
 }
 
 Ref<Compositor> WorldEnvironment::get_compositor() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("get_compositor")._native_ptr(), 3647707413);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(WorldEnvironment::get_class_static()._native_ptr(), StringName("get_compositor")._native_ptr(), 3647707413);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Compositor>()));
-	return Ref<Compositor>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Compositor>(_gde_method_bind, _owner));
+	return Ref<Compositor>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Compositor>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

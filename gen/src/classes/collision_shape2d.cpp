@@ -41,69 +41,69 @@
 namespace godot {
 
 void CollisionShape2D::set_shape(const Ref<Shape2D> &p_shape) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("set_shape")._native_ptr(), 771364740);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("set_shape")._native_ptr(), 771364740);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_shape != nullptr ? &p_shape->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_shape != nullptr ? &p_shape->_owner : nullptr));
 }
 
 Ref<Shape2D> CollisionShape2D::get_shape() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("get_shape")._native_ptr(), 522005891);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("get_shape")._native_ptr(), 522005891);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Shape2D>()));
-	return Ref<Shape2D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Shape2D>(_gde_method_bind, _owner));
+	return Ref<Shape2D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Shape2D>(_gde_method_bind, _owner));
 }
 
 void CollisionShape2D::set_disabled(bool p_disabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("set_disabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("set_disabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_disabled_encoded;
 	PtrToArg<bool>::encode(p_disabled, &p_disabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_disabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_disabled_encoded);
 }
 
 bool CollisionShape2D::is_disabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("is_disabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("is_disabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void CollisionShape2D::set_one_way_collision(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("set_one_way_collision")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("set_one_way_collision")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool CollisionShape2D::is_one_way_collision_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("is_one_way_collision_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("is_one_way_collision_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void CollisionShape2D::set_one_way_collision_margin(float p_margin) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("set_one_way_collision_margin")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("set_one_way_collision_margin")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_margin_encoded;
 	PtrToArg<double>::encode(p_margin, &p_margin_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_margin_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_margin_encoded);
 }
 
 float CollisionShape2D::get_one_way_collision_margin() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("get_one_way_collision_margin")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("get_one_way_collision_margin")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CollisionShape2D::set_debug_color(const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("set_debug_color")._native_ptr(), 2920490490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("set_debug_color")._native_ptr(), 2920490490);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
 }
 
 Color CollisionShape2D::get_debug_color() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("get_debug_color")._native_ptr(), 3444240500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionShape2D::get_class_static()._native_ptr(), StringName("get_debug_color")._native_ptr(), 3444240500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
-	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

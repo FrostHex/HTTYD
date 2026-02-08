@@ -34,7 +34,7 @@
 
 #include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/ref.hpp>
-#include <godot_cpp/classes/ref_counted.hpp>
+#include <godot_cpp/classes/socket_server.hpp>
 #include <godot_cpp/variant/string.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
@@ -45,21 +45,18 @@ namespace godot {
 
 class StreamPeerTCP;
 
-class TCPServer : public RefCounted {
-	GDEXTENSION_CLASS(TCPServer, RefCounted)
+class TCPServer : public SocketServer {
+	GDEXTENSION_CLASS(TCPServer, SocketServer)
 
 public:
 	Error listen(uint16_t p_port, const String &p_bind_address = "*");
-	bool is_connection_available() const;
-	bool is_listening() const;
 	int32_t get_local_port() const;
 	Ref<StreamPeerTCP> take_connection();
-	void stop();
 
 protected:
 	template <typename T, typename B>
 	static void register_virtuals() {
-		RefCounted::register_virtuals<T, B>();
+		SocketServer::register_virtuals<T, B>();
 	}
 
 public:

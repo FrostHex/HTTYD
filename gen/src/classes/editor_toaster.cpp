@@ -39,11 +39,11 @@
 namespace godot {
 
 void EditorToaster::push_toast(const String &p_message, EditorToaster::Severity p_severity, const String &p_tooltip) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorToaster::get_class_static()._native_ptr(), StringName("push_toast")._native_ptr(), 1813923476);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorToaster::get_class_static()._native_ptr(), StringName("push_toast")._native_ptr(), 1813923476);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_severity_encoded;
 	PtrToArg<int64_t>::encode(p_severity, &p_severity_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_message, &p_severity_encoded, &p_tooltip);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_message, &p_severity_encoded, &p_tooltip);
 }
 
 } // namespace godot

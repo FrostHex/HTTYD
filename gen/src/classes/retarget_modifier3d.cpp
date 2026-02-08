@@ -41,83 +41,83 @@
 namespace godot {
 
 void RetargetModifier3D::set_profile(const Ref<SkeletonProfile> &p_profile) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_profile")._native_ptr(), 3870374136);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_profile")._native_ptr(), 3870374136);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_profile != nullptr ? &p_profile->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_profile != nullptr ? &p_profile->_owner : nullptr));
 }
 
 Ref<SkeletonProfile> RetargetModifier3D::get_profile() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("get_profile")._native_ptr(), 4291782652);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("get_profile")._native_ptr(), 4291782652);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<SkeletonProfile>()));
-	return Ref<SkeletonProfile>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<SkeletonProfile>(_gde_method_bind, _owner));
+	return Ref<SkeletonProfile>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<SkeletonProfile>(_gde_method_bind, _owner));
 }
 
 void RetargetModifier3D::set_use_global_pose(bool p_use_global_pose) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_use_global_pose")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_use_global_pose")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_use_global_pose_encoded;
 	PtrToArg<bool>::encode(p_use_global_pose, &p_use_global_pose_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_use_global_pose_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_use_global_pose_encoded);
 }
 
 bool RetargetModifier3D::is_using_global_pose() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("is_using_global_pose")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("is_using_global_pose")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void RetargetModifier3D::set_enable_flags(BitField<RetargetModifier3D::TransformFlag> p_enable_flags) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_enable_flags")._native_ptr(), 2687954213);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_enable_flags")._native_ptr(), 2687954213);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_flags);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_flags);
 }
 
 BitField<RetargetModifier3D::TransformFlag> RetargetModifier3D::get_enable_flags() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("get_enable_flags")._native_ptr(), 358995420);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("get_enable_flags")._native_ptr(), 358995420);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (BitField<RetargetModifier3D::TransformFlag>(0)));
-	return (int64_t)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (int64_t)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RetargetModifier3D::set_position_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_position_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_position_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool RetargetModifier3D::is_position_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("is_position_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("is_position_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void RetargetModifier3D::set_rotation_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_rotation_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_rotation_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool RetargetModifier3D::is_rotation_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("is_rotation_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("is_rotation_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void RetargetModifier3D::set_scale_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_scale_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("set_scale_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool RetargetModifier3D::is_scale_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("is_scale_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RetargetModifier3D::get_class_static()._native_ptr(), StringName("is_scale_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

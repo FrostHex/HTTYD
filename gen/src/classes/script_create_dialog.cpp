@@ -41,13 +41,13 @@
 namespace godot {
 
 void ScriptCreateDialog::config(const String &p_inherits, const String &p_path, bool p_built_in_enabled, bool p_load_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ScriptCreateDialog::get_class_static()._native_ptr(), StringName("config")._native_ptr(), 869314288);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScriptCreateDialog::get_class_static()._native_ptr(), StringName("config")._native_ptr(), 869314288);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_built_in_enabled_encoded;
 	PtrToArg<bool>::encode(p_built_in_enabled, &p_built_in_enabled_encoded);
 	int8_t p_load_enabled_encoded;
 	PtrToArg<bool>::encode(p_load_enabled, &p_load_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_inherits, &p_path, &p_built_in_enabled_encoded, &p_load_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_inherits, &p_path, &p_built_in_enabled_encoded, &p_load_enabled_encoded);
 }
 
 } // namespace godot

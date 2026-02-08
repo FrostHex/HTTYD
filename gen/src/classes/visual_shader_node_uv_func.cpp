@@ -39,17 +39,17 @@
 namespace godot {
 
 void VisualShaderNodeUVFunc::set_function(VisualShaderNodeUVFunc::Function p_func) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeUVFunc::get_class_static()._native_ptr(), StringName("set_function")._native_ptr(), 765791915);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeUVFunc::get_class_static()._native_ptr(), StringName("set_function")._native_ptr(), 765791915);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_func_encoded;
 	PtrToArg<int64_t>::encode(p_func, &p_func_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_func_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_func_encoded);
 }
 
 VisualShaderNodeUVFunc::Function VisualShaderNodeUVFunc::get_function() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeUVFunc::get_class_static()._native_ptr(), StringName("get_function")._native_ptr(), 3772902164);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeUVFunc::get_class_static()._native_ptr(), StringName("get_function")._native_ptr(), 3772902164);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeUVFunc::Function(0)));
-	return (VisualShaderNodeUVFunc::Function)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeUVFunc::Function)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

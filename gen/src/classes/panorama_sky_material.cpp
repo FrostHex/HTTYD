@@ -41,43 +41,43 @@
 namespace godot {
 
 void PanoramaSkyMaterial::set_panorama(const Ref<Texture2D> &p_texture) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("set_panorama")._native_ptr(), 4051416890);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("set_panorama")._native_ptr(), 4051416890);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_texture != nullptr ? &p_texture->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_texture != nullptr ? &p_texture->_owner : nullptr));
 }
 
 Ref<Texture2D> PanoramaSkyMaterial::get_panorama() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("get_panorama")._native_ptr(), 3635182373);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("get_panorama")._native_ptr(), 3635182373);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Texture2D>()));
-	return Ref<Texture2D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Texture2D>(_gde_method_bind, _owner));
+	return Ref<Texture2D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Texture2D>(_gde_method_bind, _owner));
 }
 
 void PanoramaSkyMaterial::set_filtering_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("set_filtering_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("set_filtering_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool PanoramaSkyMaterial::is_filtering_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("is_filtering_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("is_filtering_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void PanoramaSkyMaterial::set_energy_multiplier(float p_multiplier) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("set_energy_multiplier")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("set_energy_multiplier")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_multiplier_encoded;
 	PtrToArg<double>::encode(p_multiplier, &p_multiplier_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_multiplier_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_multiplier_encoded);
 }
 
 float PanoramaSkyMaterial::get_energy_multiplier() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("get_energy_multiplier")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PanoramaSkyMaterial::get_class_static()._native_ptr(), StringName("get_energy_multiplier")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

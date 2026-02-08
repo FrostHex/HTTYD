@@ -39,29 +39,29 @@
 namespace godot {
 
 void RDPipelineSpecializationConstant::set_value(const Variant &p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineSpecializationConstant::get_class_static()._native_ptr(), StringName("set_value")._native_ptr(), 1114965689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineSpecializationConstant::get_class_static()._native_ptr(), StringName("set_value")._native_ptr(), 1114965689);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value);
 }
 
 Variant RDPipelineSpecializationConstant::get_value() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineSpecializationConstant::get_class_static()._native_ptr(), StringName("get_value")._native_ptr(), 1214101251);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineSpecializationConstant::get_class_static()._native_ptr(), StringName("get_value")._native_ptr(), 1214101251);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
-	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner);
 }
 
 void RDPipelineSpecializationConstant::set_constant_id(uint32_t p_constant_id) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineSpecializationConstant::get_class_static()._native_ptr(), StringName("set_constant_id")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineSpecializationConstant::get_class_static()._native_ptr(), StringName("set_constant_id")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_constant_id_encoded;
 	PtrToArg<int64_t>::encode(p_constant_id, &p_constant_id_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_constant_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_constant_id_encoded);
 }
 
 uint32_t RDPipelineSpecializationConstant::get_constant_id() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineSpecializationConstant::get_class_static()._native_ptr(), StringName("get_constant_id")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineSpecializationConstant::get_class_static()._native_ptr(), StringName("get_constant_id")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

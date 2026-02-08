@@ -42,53 +42,53 @@
 namespace godot {
 
 GridMap *GridMapEditorPlugin::get_current_grid_map() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("get_current_grid_map")._native_ptr(), 1184264483);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("get_current_grid_map")._native_ptr(), 1184264483);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return internal::_call_native_mb_ret_obj<GridMap>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret_obj<GridMap>(_gde_method_bind, _owner);
 }
 
 void GridMapEditorPlugin::set_selection(const Vector3i &p_begin, const Vector3i &p_end) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("set_selection")._native_ptr(), 3659408297);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("set_selection")._native_ptr(), 3659408297);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_begin, &p_end);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_begin, &p_end);
 }
 
 void GridMapEditorPlugin::clear_selection() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("clear_selection")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("clear_selection")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 AABB GridMapEditorPlugin::get_selection() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("get_selection")._native_ptr(), 1068685055);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("get_selection")._native_ptr(), 1068685055);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AABB()));
-	return internal::_call_native_mb_ret<AABB>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<AABB>(_gde_method_bind, _owner);
 }
 
 bool GridMapEditorPlugin::has_selection() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("has_selection")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("has_selection")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 Array GridMapEditorPlugin::get_selected_cells() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("get_selected_cells")._native_ptr(), 3995934104);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("get_selected_cells")._native_ptr(), 3995934104);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Array()));
-	return internal::_call_native_mb_ret<Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Array>(_gde_method_bind, _owner);
 }
 
 void GridMapEditorPlugin::set_selected_palette_item(int32_t p_item) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("set_selected_palette_item")._native_ptr(), 998575451);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("set_selected_palette_item")._native_ptr(), 998575451);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_item_encoded;
 	PtrToArg<int64_t>::encode(p_item, &p_item_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_item_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_item_encoded);
 }
 
 int32_t GridMapEditorPlugin::get_selected_palette_item() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("get_selected_palette_item")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMapEditorPlugin::get_class_static()._native_ptr(), StringName("get_selected_palette_item")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

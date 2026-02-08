@@ -80,6 +80,10 @@ PackedByteArray TextServerExtension::_get_support_data() const {
 	return PackedByteArray();
 }
 
+bool TextServerExtension::_is_locale_using_support_data(const String &p_locale) const {
+	return false;
+}
+
 bool TextServerExtension::_is_locale_right_to_left(const String &p_locale) const {
 	return false;
 }
@@ -492,6 +496,10 @@ RID TextServerExtension::_create_shaped_text(TextServer::Direction p_direction, 
 
 void TextServerExtension::_shaped_text_clear(const RID &p_shaped) {}
 
+RID TextServerExtension::_shaped_text_duplicate(const RID &p_shaped) {
+	return RID();
+}
+
 void TextServerExtension::_shaped_text_set_direction(const RID &p_shaped, TextServer::Direction p_direction) {}
 
 TextServer::Direction TextServerExtension::_shaped_text_get_direction(const RID &p_shaped) const {
@@ -549,6 +557,10 @@ bool TextServerExtension::_shaped_text_add_object(const RID &p_shaped, const Var
 }
 
 bool TextServerExtension::_shaped_text_resize_object(const RID &p_shaped, const Variant &p_key, const Vector2 &p_size, InlineAlignment p_inline_align, double p_baseline) {
+	return false;
+}
+
+bool TextServerExtension::_shaped_text_has_object(const RID &p_shaped, const Variant &p_key) const {
 	return false;
 }
 

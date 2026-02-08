@@ -98,12 +98,18 @@ public:
 		KEYBOARD_TYPE_URL = 7,
 	};
 
+	enum ExpandMode {
+		EXPAND_MODE_ORIGINAL_SIZE = 0,
+		EXPAND_MODE_FIT_TO_TEXT = 1,
+		EXPAND_MODE_FIT_TO_LINE_EDIT = 2,
+	};
+
 	bool has_ime_text() const;
 	void cancel_ime();
 	void apply_ime();
 	void set_horizontal_alignment(HorizontalAlignment p_alignment);
 	HorizontalAlignment get_horizontal_alignment() const;
-	void edit();
+	void edit(bool p_hide_focus = false);
 	void unedit();
 	bool is_editing() const;
 	void set_keep_editing_on_text_submit(bool p_enable);
@@ -187,6 +193,10 @@ public:
 	bool is_drag_and_drop_selection_enabled() const;
 	void set_right_icon(const Ref<Texture2D> &p_icon);
 	Ref<Texture2D> get_right_icon();
+	void set_icon_expand_mode(LineEdit::ExpandMode p_mode);
+	LineEdit::ExpandMode get_icon_expand_mode() const;
+	void set_right_icon_scale(float p_scale);
+	float get_right_icon_scale() const;
 	void set_flat(bool p_enabled);
 	bool is_flat() const;
 	void set_select_all_on_focus(bool p_enabled);
@@ -205,4 +215,5 @@ public:
 
 VARIANT_ENUM_CAST(LineEdit::MenuItems);
 VARIANT_ENUM_CAST(LineEdit::VirtualKeyboardType);
+VARIANT_ENUM_CAST(LineEdit::ExpandMode);
 

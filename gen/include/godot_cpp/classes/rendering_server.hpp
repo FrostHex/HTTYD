@@ -793,6 +793,15 @@ public:
 		PIPELINE_SOURCE_MAX = 5,
 	};
 
+	enum SplashStretchMode {
+		SPLASH_STRETCH_MODE_DISABLED = 0,
+		SPLASH_STRETCH_MODE_KEEP = 1,
+		SPLASH_STRETCH_MODE_KEEP_WIDTH = 2,
+		SPLASH_STRETCH_MODE_KEEP_HEIGHT = 3,
+		SPLASH_STRETCH_MODE_COVER = 4,
+		SPLASH_STRETCH_MODE_IGNORE = 5,
+	};
+
 	enum Features {
 		FEATURE_SHADERS = 0,
 		FEATURE_MULTITHREADED = 1,
@@ -856,6 +865,7 @@ public:
 	Variant material_get_param(const RID &p_material, const StringName &p_parameter) const;
 	void material_set_render_priority(const RID &p_material, int32_t p_priority);
 	void material_set_next_pass(const RID &p_material, const RID &p_next_material);
+	void material_set_use_debanding(bool p_enable);
 	RID mesh_create_from_surfaces(const TypedArray<Dictionary> &p_surfaces, int32_t p_blend_shape_count = 0);
 	RID mesh_create();
 	uint32_t mesh_surface_get_format_offset(BitField<RenderingServer::ArrayFormat> p_format, int32_t p_vertex_count, int32_t p_array_index) const;
@@ -910,6 +920,7 @@ public:
 	void multimesh_set_physics_interpolated(const RID &p_multimesh, bool p_interpolated);
 	void multimesh_set_physics_interpolation_quality(const RID &p_multimesh, RenderingServer::MultimeshPhysicsInterpolationQuality p_quality);
 	void multimesh_instance_reset_physics_interpolation(const RID &p_multimesh, int32_t p_index);
+	void multimesh_instances_reset_physics_interpolation(const RID &p_multimesh);
 	RID skeleton_create();
 	void skeleton_allocate_data(const RID &p_skeleton, int32_t p_bones, bool p_is_2d_skeleton = false);
 	int32_t skeleton_get_bone_count(const RID &p_skeleton) const;
@@ -1140,6 +1151,7 @@ public:
 	void environment_set_ambient_light(const RID &p_env, const Color &p_color, RenderingServer::EnvironmentAmbientSource p_ambient = (RenderingServer::EnvironmentAmbientSource)0, float p_energy = 1.0, float p_sky_contribution = 0.0, RenderingServer::EnvironmentReflectionSource p_reflection_source = (RenderingServer::EnvironmentReflectionSource)0);
 	void environment_set_glow(const RID &p_env, bool p_enable, const PackedFloat32Array &p_levels, float p_intensity, float p_strength, float p_mix, float p_bloom_threshold, RenderingServer::EnvironmentGlowBlendMode p_blend_mode, float p_hdr_bleed_threshold, float p_hdr_bleed_scale, float p_hdr_luminance_cap, float p_glow_map_strength, const RID &p_glow_map);
 	void environment_set_tonemap(const RID &p_env, RenderingServer::EnvironmentToneMapper p_tone_mapper, float p_exposure, float p_white);
+	void environment_set_tonemap_agx_contrast(const RID &p_env, float p_agx_contrast);
 	void environment_set_adjustment(const RID &p_env, bool p_enable, float p_brightness, float p_contrast, float p_saturation, bool p_use_1d_color_correction, const RID &p_color_correction);
 	void environment_set_ssr(const RID &p_env, bool p_enable, int32_t p_max_steps, float p_fade_in, float p_fade_out, float p_depth_tolerance);
 	void environment_set_ssao(const RID &p_env, bool p_enable, float p_radius, float p_intensity, float p_power, float p_detail, float p_horizon, float p_sharpness, float p_light_affect, float p_ao_channel_affect);
@@ -1148,6 +1160,7 @@ public:
 	void environment_set_sdfgi(const RID &p_env, bool p_enable, int32_t p_cascades, float p_min_cell_size, RenderingServer::EnvironmentSDFGIYScale p_y_scale, bool p_use_occlusion, float p_bounce_feedback, bool p_read_sky, float p_energy, float p_normal_bias, float p_probe_bias);
 	void environment_set_volumetric_fog(const RID &p_env, bool p_enable, float p_density, const Color &p_albedo, const Color &p_emission, float p_emission_energy, float p_anisotropy, float p_length, float p_detail_spread, float p_gi_inject, bool p_temporal_reprojection, float p_temporal_reprojection_amount, float p_ambient_inject, float p_sky_affect);
 	void environment_glow_set_use_bicubic_upscale(bool p_enable);
+	void environment_set_ssr_half_size(bool p_half_size);
 	void environment_set_ssr_roughness_quality(RenderingServer::EnvironmentSSRRoughnessQuality p_quality);
 	void environment_set_ssao_quality(RenderingServer::EnvironmentSSAOQuality p_quality, bool p_half_size, float p_adaptive_target, int32_t p_blur_passes, float p_fadeout_from, float p_fadeout_to);
 	void environment_set_ssil_quality(RenderingServer::EnvironmentSSILQuality p_quality, bool p_half_size, float p_adaptive_target, int32_t p_blur_passes, float p_fadeout_from, float p_fadeout_to);
@@ -1236,6 +1249,7 @@ public:
 	void canvas_item_add_multiline(const RID &p_item, const PackedVector2Array &p_points, const PackedColorArray &p_colors, float p_width = -1.0, bool p_antialiased = false);
 	void canvas_item_add_rect(const RID &p_item, const Rect2 &p_rect, const Color &p_color, bool p_antialiased = false);
 	void canvas_item_add_circle(const RID &p_item, const Vector2 &p_pos, float p_radius, const Color &p_color, bool p_antialiased = false);
+	void canvas_item_add_ellipse(const RID &p_item, const Vector2 &p_pos, float p_major, float p_minor, const Color &p_color, bool p_antialiased = false);
 	void canvas_item_add_texture_rect(const RID &p_item, const Rect2 &p_rect, const RID &p_texture, bool p_tile = false, const Color &p_modulate = Color(1, 1, 1, 1), bool p_transpose = false);
 	void canvas_item_add_msdf_texture_rect_region(const RID &p_item, const Rect2 &p_rect, const RID &p_texture, const Rect2 &p_src_rect, const Color &p_modulate = Color(1, 1, 1, 1), int32_t p_outline_size = 0, float p_px_range = 1.0, float p_scale = 1.0);
 	void canvas_item_add_lcd_texture_rect_region(const RID &p_item, const Rect2 &p_rect, const RID &p_texture, const Rect2 &p_src_rect, const Color &p_modulate);
@@ -1324,6 +1338,7 @@ public:
 	RID get_test_cube();
 	RID get_test_texture();
 	RID get_white_texture();
+	void set_boot_image_with_stretch(const Ref<Image> &p_image, const Color &p_color, RenderingServer::SplashStretchMode p_stretch_mode, bool p_use_filter = true);
 	void set_boot_image(const Ref<Image> &p_image, const Color &p_color, bool p_scale, bool p_use_filter = true);
 	Color get_default_clear_color();
 	void set_default_clear_color(const Color &p_color);
@@ -1434,5 +1449,6 @@ VARIANT_ENUM_CAST(RenderingServer::CanvasOccluderPolygonCullMode);
 VARIANT_ENUM_CAST(RenderingServer::GlobalShaderParameterType);
 VARIANT_ENUM_CAST(RenderingServer::RenderingInfo);
 VARIANT_ENUM_CAST(RenderingServer::PipelineSource);
+VARIANT_ENUM_CAST(RenderingServer::SplashStretchMode);
 VARIANT_ENUM_CAST(RenderingServer::Features);
 

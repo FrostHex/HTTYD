@@ -42,27 +42,27 @@
 namespace godot {
 
 void MeshInstance2D::set_mesh(const Ref<Mesh> &p_mesh) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MeshInstance2D::get_class_static()._native_ptr(), StringName("set_mesh")._native_ptr(), 194775623);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MeshInstance2D::get_class_static()._native_ptr(), StringName("set_mesh")._native_ptr(), 194775623);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_mesh != nullptr ? &p_mesh->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_mesh != nullptr ? &p_mesh->_owner : nullptr));
 }
 
 Ref<Mesh> MeshInstance2D::get_mesh() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MeshInstance2D::get_class_static()._native_ptr(), StringName("get_mesh")._native_ptr(), 1808005922);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MeshInstance2D::get_class_static()._native_ptr(), StringName("get_mesh")._native_ptr(), 1808005922);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Mesh>()));
-	return Ref<Mesh>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Mesh>(_gde_method_bind, _owner));
+	return Ref<Mesh>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Mesh>(_gde_method_bind, _owner));
 }
 
 void MeshInstance2D::set_texture(const Ref<Texture2D> &p_texture) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MeshInstance2D::get_class_static()._native_ptr(), StringName("set_texture")._native_ptr(), 4051416890);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MeshInstance2D::get_class_static()._native_ptr(), StringName("set_texture")._native_ptr(), 4051416890);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_texture != nullptr ? &p_texture->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_texture != nullptr ? &p_texture->_owner : nullptr));
 }
 
 Ref<Texture2D> MeshInstance2D::get_texture() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MeshInstance2D::get_class_static()._native_ptr(), StringName("get_texture")._native_ptr(), 3635182373);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MeshInstance2D::get_class_static()._native_ptr(), StringName("get_texture")._native_ptr(), 3635182373);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Texture2D>()));
-	return Ref<Texture2D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Texture2D>(_gde_method_bind, _owner));
+	return Ref<Texture2D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Texture2D>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

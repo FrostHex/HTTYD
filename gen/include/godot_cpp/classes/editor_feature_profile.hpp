@@ -59,7 +59,9 @@ public:
 		FEATURE_IMPORT_DOCK = 6,
 		FEATURE_HISTORY_DOCK = 7,
 		FEATURE_GAME = 8,
-		FEATURE_MAX = 9,
+		FEATURE_SIGNALS_DOCK = 9,
+		FEATURE_GROUPS_DOCK = 10,
+		FEATURE_MAX = 11,
 	};
 
 	void set_disable_class(const StringName &p_class_name, bool p_disable);

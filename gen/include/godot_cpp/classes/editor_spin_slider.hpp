@@ -45,6 +45,12 @@ class EditorSpinSlider : public Range {
 	GDEXTENSION_CLASS(EditorSpinSlider, Range)
 
 public:
+	enum ControlState {
+		CONTROL_STATE_DEFAULT = 0,
+		CONTROL_STATE_PREFER_SLIDER = 1,
+		CONTROL_STATE_HIDE = 2,
+	};
+
 	void set_label(const String &p_label);
 	String get_label() const;
 	void set_suffix(const String &p_suffix);
@@ -53,6 +59,8 @@ public:
 	bool is_read_only() const;
 	void set_flat(bool p_flat);
 	bool is_flat() const;
+	void set_control_state(EditorSpinSlider::ControlState p_state);
+	EditorSpinSlider::ControlState get_control_state() const;
 	void set_hide_slider(bool p_hide_slider);
 	bool is_hiding_slider() const;
 	void set_editing_integer(bool p_editing_integer);
@@ -68,4 +76,6 @@ public:
 };
 
 } // namespace godot
+
+VARIANT_ENUM_CAST(EditorSpinSlider::ControlState);
 

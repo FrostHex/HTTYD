@@ -39,41 +39,41 @@
 namespace godot {
 
 void XRBodyModifier3D::set_body_tracker(const StringName &p_tracker_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("set_body_tracker")._native_ptr(), 3304788590);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("set_body_tracker")._native_ptr(), 3304788590);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_tracker_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_tracker_name);
 }
 
 StringName XRBodyModifier3D::get_body_tracker() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("get_body_tracker")._native_ptr(), 2002593661);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("get_body_tracker")._native_ptr(), 2002593661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
-	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
 }
 
 void XRBodyModifier3D::set_body_update(BitField<XRBodyModifier3D::BodyUpdate> p_body_update) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("set_body_update")._native_ptr(), 2211199417);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("set_body_update")._native_ptr(), 2211199417);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_body_update);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_body_update);
 }
 
 BitField<XRBodyModifier3D::BodyUpdate> XRBodyModifier3D::get_body_update() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("get_body_update")._native_ptr(), 2642335328);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("get_body_update")._native_ptr(), 2642335328);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (BitField<XRBodyModifier3D::BodyUpdate>(0)));
-	return (int64_t)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (int64_t)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void XRBodyModifier3D::set_bone_update(XRBodyModifier3D::BoneUpdate p_bone_update) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("set_bone_update")._native_ptr(), 3356796943);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("set_bone_update")._native_ptr(), 3356796943);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_bone_update_encoded;
 	PtrToArg<int64_t>::encode(p_bone_update, &p_bone_update_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone_update_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone_update_encoded);
 }
 
 XRBodyModifier3D::BoneUpdate XRBodyModifier3D::get_bone_update() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("get_bone_update")._native_ptr(), 1309305964);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRBodyModifier3D::get_class_static()._native_ptr(), StringName("get_bone_update")._native_ptr(), 1309305964);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (XRBodyModifier3D::BoneUpdate(0)));
-	return (XRBodyModifier3D::BoneUpdate)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (XRBodyModifier3D::BoneUpdate)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

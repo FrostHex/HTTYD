@@ -39,131 +39,131 @@
 namespace godot {
 
 void InputEventKey::set_pressed(bool p_pressed) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_pressed")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_pressed")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_pressed_encoded;
 	PtrToArg<bool>::encode(p_pressed, &p_pressed_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pressed_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pressed_encoded);
 }
 
 void InputEventKey::set_keycode(Key p_keycode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_keycode")._native_ptr(), 888074362);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_keycode")._native_ptr(), 888074362);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_keycode_encoded;
 	PtrToArg<int64_t>::encode(p_keycode, &p_keycode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_keycode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_keycode_encoded);
 }
 
 Key InputEventKey::get_keycode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_keycode")._native_ptr(), 1585896689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_keycode")._native_ptr(), 1585896689);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Key(0)));
-	return (Key)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Key)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void InputEventKey::set_physical_keycode(Key p_physical_keycode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_physical_keycode")._native_ptr(), 888074362);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_physical_keycode")._native_ptr(), 888074362);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_physical_keycode_encoded;
 	PtrToArg<int64_t>::encode(p_physical_keycode, &p_physical_keycode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_physical_keycode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_physical_keycode_encoded);
 }
 
 Key InputEventKey::get_physical_keycode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_physical_keycode")._native_ptr(), 1585896689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_physical_keycode")._native_ptr(), 1585896689);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Key(0)));
-	return (Key)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Key)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void InputEventKey::set_key_label(Key p_key_label) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_key_label")._native_ptr(), 888074362);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_key_label")._native_ptr(), 888074362);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_key_label_encoded;
 	PtrToArg<int64_t>::encode(p_key_label, &p_key_label_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_key_label_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_key_label_encoded);
 }
 
 Key InputEventKey::get_key_label() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_key_label")._native_ptr(), 1585896689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_key_label")._native_ptr(), 1585896689);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Key(0)));
-	return (Key)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Key)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void InputEventKey::set_unicode(char32_t p_unicode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_unicode")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_unicode")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_unicode_encoded;
 	PtrToArg<int64_t>::encode(p_unicode, &p_unicode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_unicode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_unicode_encoded);
 }
 
 char32_t InputEventKey::get_unicode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_unicode")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_unicode")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<char32_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<char32_t>(_gde_method_bind, _owner);
 }
 
 void InputEventKey::set_location(KeyLocation p_location) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_location")._native_ptr(), 634453155);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_location")._native_ptr(), 634453155);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_location_encoded;
 	PtrToArg<int64_t>::encode(p_location, &p_location_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_location_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_location_encoded);
 }
 
 KeyLocation InputEventKey::get_location() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_location")._native_ptr(), 211810873);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_location")._native_ptr(), 211810873);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (KeyLocation(0)));
-	return (KeyLocation)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (KeyLocation)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void InputEventKey::set_echo(bool p_echo) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_echo")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("set_echo")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_echo_encoded;
 	PtrToArg<bool>::encode(p_echo, &p_echo_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_echo_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_echo_encoded);
 }
 
 Key InputEventKey::get_keycode_with_modifiers() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_keycode_with_modifiers")._native_ptr(), 1585896689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_keycode_with_modifiers")._native_ptr(), 1585896689);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Key(0)));
-	return (Key)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Key)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Key InputEventKey::get_physical_keycode_with_modifiers() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_physical_keycode_with_modifiers")._native_ptr(), 1585896689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_physical_keycode_with_modifiers")._native_ptr(), 1585896689);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Key(0)));
-	return (Key)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Key)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Key InputEventKey::get_key_label_with_modifiers() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_key_label_with_modifiers")._native_ptr(), 1585896689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("get_key_label_with_modifiers")._native_ptr(), 1585896689);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Key(0)));
-	return (Key)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Key)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 String InputEventKey::as_text_keycode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("as_text_keycode")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("as_text_keycode")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 String InputEventKey::as_text_physical_keycode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("as_text_physical_keycode")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("as_text_physical_keycode")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 String InputEventKey::as_text_key_label() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("as_text_key_label")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("as_text_key_label")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 String InputEventKey::as_text_location() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("as_text_location")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventKey::get_class_static()._native_ptr(), StringName("as_text_location")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

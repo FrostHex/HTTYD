@@ -43,29 +43,29 @@
 namespace godot {
 
 void EditorExportPlatformExtension::set_config_error(const String &p_error_text) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlatformExtension::get_class_static()._native_ptr(), StringName("set_config_error")._native_ptr(), 3089850668);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorExportPlatformExtension::get_class_static()._native_ptr(), StringName("set_config_error")._native_ptr(), 3089850668);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_error_text);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_error_text);
 }
 
 String EditorExportPlatformExtension::get_config_error() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlatformExtension::get_class_static()._native_ptr(), StringName("get_config_error")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorExportPlatformExtension::get_class_static()._native_ptr(), StringName("get_config_error")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void EditorExportPlatformExtension::set_config_missing_templates(bool p_missing_templates) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlatformExtension::get_class_static()._native_ptr(), StringName("set_config_missing_templates")._native_ptr(), 1695273946);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorExportPlatformExtension::get_class_static()._native_ptr(), StringName("set_config_missing_templates")._native_ptr(), 1695273946);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_missing_templates_encoded;
 	PtrToArg<bool>::encode(p_missing_templates, &p_missing_templates_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_missing_templates_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_missing_templates_encoded);
 }
 
 bool EditorExportPlatformExtension::get_config_missing_templates() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorExportPlatformExtension::get_class_static()._native_ptr(), StringName("get_config_missing_templates")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorExportPlatformExtension::get_class_static()._native_ptr(), StringName("get_config_missing_templates")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 PackedStringArray EditorExportPlatformExtension::_get_preset_features(const Ref<EditorExportPreset> &p_preset) const {
@@ -185,5 +185,7 @@ PackedStringArray EditorExportPlatformExtension::_get_platform_features() const 
 String EditorExportPlatformExtension::_get_debug_protocol() const {
 	return String();
 }
+
+void EditorExportPlatformExtension::_initialize() {}
 
 } // namespace godot

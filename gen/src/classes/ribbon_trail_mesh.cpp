@@ -41,85 +41,85 @@
 namespace godot {
 
 void RibbonTrailMesh::set_size(float p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_size_encoded;
 	PtrToArg<double>::encode(p_size, &p_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
 }
 
 float RibbonTrailMesh::get_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_size")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_size")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void RibbonTrailMesh::set_sections(int32_t p_sections) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_sections")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_sections")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sections_encoded;
 	PtrToArg<int64_t>::encode(p_sections, &p_sections_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sections_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sections_encoded);
 }
 
 int32_t RibbonTrailMesh::get_sections() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_sections")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_sections")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RibbonTrailMesh::set_section_length(float p_section_length) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_section_length")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_section_length")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_section_length_encoded;
 	PtrToArg<double>::encode(p_section_length, &p_section_length_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_section_length_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_section_length_encoded);
 }
 
 float RibbonTrailMesh::get_section_length() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_section_length")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_section_length")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void RibbonTrailMesh::set_section_segments(int32_t p_section_segments) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_section_segments")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_section_segments")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_section_segments_encoded;
 	PtrToArg<int64_t>::encode(p_section_segments, &p_section_segments_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_section_segments_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_section_segments_encoded);
 }
 
 int32_t RibbonTrailMesh::get_section_segments() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_section_segments")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_section_segments")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RibbonTrailMesh::set_curve(const Ref<Curve> &p_curve) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_curve")._native_ptr(), 270443179);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_curve")._native_ptr(), 270443179);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
 }
 
 Ref<Curve> RibbonTrailMesh::get_curve() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_curve")._native_ptr(), 2460114913);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_curve")._native_ptr(), 2460114913);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Curve>()));
-	return Ref<Curve>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Curve>(_gde_method_bind, _owner));
+	return Ref<Curve>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Curve>(_gde_method_bind, _owner));
 }
 
 void RibbonTrailMesh::set_shape(RibbonTrailMesh::Shape p_shape) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_shape")._native_ptr(), 1684440262);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("set_shape")._native_ptr(), 1684440262);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_shape_encoded;
 	PtrToArg<int64_t>::encode(p_shape, &p_shape_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_shape_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_shape_encoded);
 }
 
 RibbonTrailMesh::Shape RibbonTrailMesh::get_shape() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_shape")._native_ptr(), 1317484155);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RibbonTrailMesh::get_class_static()._native_ptr(), StringName("get_shape")._native_ptr(), 1317484155);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RibbonTrailMesh::Shape(0)));
-	return (RibbonTrailMesh::Shape)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RibbonTrailMesh::Shape)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

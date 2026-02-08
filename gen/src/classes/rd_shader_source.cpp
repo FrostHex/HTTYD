@@ -39,33 +39,33 @@
 namespace godot {
 
 void RDShaderSource::set_stage_source(RenderingDevice::ShaderStage p_stage, const String &p_source) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderSource::get_class_static()._native_ptr(), StringName("set_stage_source")._native_ptr(), 620821314);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderSource::get_class_static()._native_ptr(), StringName("set_stage_source")._native_ptr(), 620821314);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_stage_encoded;
 	PtrToArg<int64_t>::encode(p_stage, &p_stage_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stage_encoded, &p_source);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stage_encoded, &p_source);
 }
 
 String RDShaderSource::get_stage_source(RenderingDevice::ShaderStage p_stage) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderSource::get_class_static()._native_ptr(), StringName("get_stage_source")._native_ptr(), 3354920045);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderSource::get_class_static()._native_ptr(), StringName("get_stage_source")._native_ptr(), 3354920045);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
 	int64_t p_stage_encoded;
 	PtrToArg<int64_t>::encode(p_stage, &p_stage_encoded);
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_stage_encoded);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_stage_encoded);
 }
 
 void RDShaderSource::set_language(RenderingDevice::ShaderLanguage p_language) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderSource::get_class_static()._native_ptr(), StringName("set_language")._native_ptr(), 3422186742);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderSource::get_class_static()._native_ptr(), StringName("set_language")._native_ptr(), 3422186742);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_language_encoded;
 	PtrToArg<int64_t>::encode(p_language, &p_language_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_language_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_language_encoded);
 }
 
 RenderingDevice::ShaderLanguage RDShaderSource::get_language() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderSource::get_class_static()._native_ptr(), StringName("get_language")._native_ptr(), 1063538261);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderSource::get_class_static()._native_ptr(), StringName("get_language")._native_ptr(), 1063538261);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::ShaderLanguage(0)));
-	return (RenderingDevice::ShaderLanguage)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::ShaderLanguage)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

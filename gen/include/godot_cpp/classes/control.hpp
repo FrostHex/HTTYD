@@ -208,6 +208,7 @@ public:
 	void set_rotation_degrees(float p_degrees);
 	void set_scale(const Vector2 &p_scale);
 	void set_pivot_offset(const Vector2 &p_pivot_offset);
+	void set_pivot_offset_ratio(const Vector2 &p_ratio);
 	Vector2 get_begin() const;
 	Vector2 get_end() const;
 	Vector2 get_position() const;
@@ -216,6 +217,8 @@ public:
 	float get_rotation_degrees() const;
 	Vector2 get_scale() const;
 	Vector2 get_pivot_offset() const;
+	Vector2 get_pivot_offset_ratio() const;
+	Vector2 get_combined_pivot_offset() const;
 	Vector2 get_custom_minimum_size() const;
 	Vector2 get_parent_area_size() const;
 	Vector2 get_global_position() const;
@@ -227,8 +230,8 @@ public:
 	Control::FocusMode get_focus_mode_with_override() const;
 	void set_focus_behavior_recursive(Control::FocusBehaviorRecursive p_focus_behavior_recursive);
 	Control::FocusBehaviorRecursive get_focus_behavior_recursive() const;
-	bool has_focus() const;
-	void grab_focus();
+	bool has_focus(bool p_ignore_hidden_focus = false) const;
+	void grab_focus(bool p_hide_focus = false);
 	void release_focus();
 	Control *find_prev_valid_focus() const;
 	Control *find_next_valid_focus() const;

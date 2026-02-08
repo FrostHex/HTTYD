@@ -39,35 +39,35 @@
 namespace godot {
 
 void VisibleOnScreenNotifier2D::set_rect(const Rect2 &p_rect) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisibleOnScreenNotifier2D::get_class_static()._native_ptr(), StringName("set_rect")._native_ptr(), 2046264180);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisibleOnScreenNotifier2D::get_class_static()._native_ptr(), StringName("set_rect")._native_ptr(), 2046264180);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rect);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rect);
 }
 
 Rect2 VisibleOnScreenNotifier2D::get_rect() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisibleOnScreenNotifier2D::get_class_static()._native_ptr(), StringName("get_rect")._native_ptr(), 1639390495);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisibleOnScreenNotifier2D::get_class_static()._native_ptr(), StringName("get_rect")._native_ptr(), 1639390495);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Rect2()));
-	return internal::_call_native_mb_ret<Rect2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Rect2>(_gde_method_bind, _owner);
 }
 
 void VisibleOnScreenNotifier2D::set_show_rect(bool p_show_rect) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisibleOnScreenNotifier2D::get_class_static()._native_ptr(), StringName("set_show_rect")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisibleOnScreenNotifier2D::get_class_static()._native_ptr(), StringName("set_show_rect")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_show_rect_encoded;
 	PtrToArg<bool>::encode(p_show_rect, &p_show_rect_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_show_rect_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_show_rect_encoded);
 }
 
 bool VisibleOnScreenNotifier2D::is_showing_rect() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisibleOnScreenNotifier2D::get_class_static()._native_ptr(), StringName("is_showing_rect")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisibleOnScreenNotifier2D::get_class_static()._native_ptr(), StringName("is_showing_rect")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 bool VisibleOnScreenNotifier2D::is_on_screen() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisibleOnScreenNotifier2D::get_class_static()._native_ptr(), StringName("is_on_screen")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisibleOnScreenNotifier2D::get_class_static()._native_ptr(), StringName("is_on_screen")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

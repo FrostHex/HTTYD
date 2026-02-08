@@ -39,17 +39,17 @@
 namespace godot {
 
 void VisualShaderNodeSample3D::set_source(VisualShaderNodeSample3D::Source p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeSample3D::get_class_static()._native_ptr(), StringName("set_source")._native_ptr(), 3315130991);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeSample3D::get_class_static()._native_ptr(), StringName("set_source")._native_ptr(), 3315130991);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_value_encoded;
 	PtrToArg<int64_t>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded);
 }
 
 VisualShaderNodeSample3D::Source VisualShaderNodeSample3D::get_source() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeSample3D::get_class_static()._native_ptr(), StringName("get_source")._native_ptr(), 1079494121);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeSample3D::get_class_static()._native_ptr(), StringName("get_source")._native_ptr(), 1079494121);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeSample3D::Source(0)));
-	return (VisualShaderNodeSample3D::Source)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeSample3D::Source)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

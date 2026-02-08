@@ -41,27 +41,27 @@
 namespace godot {
 
 RID World2D::get_canvas() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(World2D::get_class_static()._native_ptr(), StringName("get_canvas")._native_ptr(), 2944877500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(World2D::get_class_static()._native_ptr(), StringName("get_canvas")._native_ptr(), 2944877500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 RID World2D::get_navigation_map() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(World2D::get_class_static()._native_ptr(), StringName("get_navigation_map")._native_ptr(), 2944877500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(World2D::get_class_static()._native_ptr(), StringName("get_navigation_map")._native_ptr(), 2944877500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 RID World2D::get_space() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(World2D::get_class_static()._native_ptr(), StringName("get_space")._native_ptr(), 2944877500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(World2D::get_class_static()._native_ptr(), StringName("get_space")._native_ptr(), 2944877500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 PhysicsDirectSpaceState2D *World2D::get_direct_space_state() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(World2D::get_class_static()._native_ptr(), StringName("get_direct_space_state")._native_ptr(), 2506717822);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(World2D::get_class_static()._native_ptr(), StringName("get_direct_space_state")._native_ptr(), 2506717822);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return internal::_call_native_mb_ret_obj<PhysicsDirectSpaceState2D>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret_obj<PhysicsDirectSpaceState2D>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

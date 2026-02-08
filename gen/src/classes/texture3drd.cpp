@@ -39,15 +39,15 @@
 namespace godot {
 
 void Texture3DRD::set_texture_rd_rid(const RID &p_texture_rd_rid) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Texture3DRD::get_class_static()._native_ptr(), StringName("set_texture_rd_rid")._native_ptr(), 2722037293);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Texture3DRD::get_class_static()._native_ptr(), StringName("set_texture_rd_rid")._native_ptr(), 2722037293);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_texture_rd_rid);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_texture_rd_rid);
 }
 
 RID Texture3DRD::get_texture_rd_rid() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Texture3DRD::get_class_static()._native_ptr(), StringName("get_texture_rd_rid")._native_ptr(), 2944877500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Texture3DRD::get_class_static()._native_ptr(), StringName("get_texture_rd_rid")._native_ptr(), 2944877500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

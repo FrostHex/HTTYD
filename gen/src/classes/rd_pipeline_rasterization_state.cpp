@@ -39,157 +39,157 @@
 namespace godot {
 
 void RDPipelineRasterizationState::set_enable_depth_clamp(bool p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_enable_depth_clamp")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_enable_depth_clamp")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_member_encoded;
 	PtrToArg<bool>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 bool RDPipelineRasterizationState::get_enable_depth_clamp() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_enable_depth_clamp")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_enable_depth_clamp")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineRasterizationState::set_discard_primitives(bool p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_discard_primitives")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_discard_primitives")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_member_encoded;
 	PtrToArg<bool>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 bool RDPipelineRasterizationState::get_discard_primitives() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_discard_primitives")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_discard_primitives")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineRasterizationState::set_wireframe(bool p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_wireframe")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_wireframe")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_member_encoded;
 	PtrToArg<bool>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 bool RDPipelineRasterizationState::get_wireframe() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_wireframe")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_wireframe")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineRasterizationState::set_cull_mode(RenderingDevice::PolygonCullMode p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_cull_mode")._native_ptr(), 2662586502);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_cull_mode")._native_ptr(), 2662586502);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::PolygonCullMode RDPipelineRasterizationState::get_cull_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_cull_mode")._native_ptr(), 2192484313);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_cull_mode")._native_ptr(), 2192484313);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::PolygonCullMode(0)));
-	return (RenderingDevice::PolygonCullMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::PolygonCullMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineRasterizationState::set_front_face(RenderingDevice::PolygonFrontFace p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_front_face")._native_ptr(), 2637251213);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_front_face")._native_ptr(), 2637251213);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::PolygonFrontFace RDPipelineRasterizationState::get_front_face() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_front_face")._native_ptr(), 708793786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_front_face")._native_ptr(), 708793786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::PolygonFrontFace(0)));
-	return (RenderingDevice::PolygonFrontFace)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::PolygonFrontFace)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineRasterizationState::set_depth_bias_enabled(bool p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_depth_bias_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_depth_bias_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_member_encoded;
 	PtrToArg<bool>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 bool RDPipelineRasterizationState::get_depth_bias_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_depth_bias_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_depth_bias_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineRasterizationState::set_depth_bias_constant_factor(float p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_depth_bias_constant_factor")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_depth_bias_constant_factor")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_member_encoded;
 	PtrToArg<double>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 float RDPipelineRasterizationState::get_depth_bias_constant_factor() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_depth_bias_constant_factor")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_depth_bias_constant_factor")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void RDPipelineRasterizationState::set_depth_bias_clamp(float p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_depth_bias_clamp")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_depth_bias_clamp")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_member_encoded;
 	PtrToArg<double>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 float RDPipelineRasterizationState::get_depth_bias_clamp() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_depth_bias_clamp")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_depth_bias_clamp")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void RDPipelineRasterizationState::set_depth_bias_slope_factor(float p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_depth_bias_slope_factor")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_depth_bias_slope_factor")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_member_encoded;
 	PtrToArg<double>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 float RDPipelineRasterizationState::get_depth_bias_slope_factor() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_depth_bias_slope_factor")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_depth_bias_slope_factor")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void RDPipelineRasterizationState::set_line_width(float p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_line_width")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_line_width")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_member_encoded;
 	PtrToArg<double>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 float RDPipelineRasterizationState::get_line_width() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_line_width")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_line_width")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void RDPipelineRasterizationState::set_patch_control_points(uint32_t p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_patch_control_points")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("set_patch_control_points")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 uint32_t RDPipelineRasterizationState::get_patch_control_points() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_patch_control_points")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineRasterizationState::get_class_static()._native_ptr(), StringName("get_patch_control_points")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

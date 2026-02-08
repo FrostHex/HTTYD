@@ -39,21 +39,21 @@
 namespace godot {
 
 String OpenXRRenderModel::get_top_level_path() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRRenderModel::get_class_static()._native_ptr(), StringName("get_top_level_path")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRRenderModel::get_class_static()._native_ptr(), StringName("get_top_level_path")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 RID OpenXRRenderModel::get_render_model() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRRenderModel::get_class_static()._native_ptr(), StringName("get_render_model")._native_ptr(), 2944877500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRRenderModel::get_class_static()._native_ptr(), StringName("get_render_model")._native_ptr(), 2944877500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 void OpenXRRenderModel::set_render_model(const RID &p_render_model) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRRenderModel::get_class_static()._native_ptr(), StringName("set_render_model")._native_ptr(), 2722037293);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRRenderModel::get_class_static()._native_ptr(), StringName("set_render_model")._native_ptr(), 2722037293);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_render_model);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_render_model);
 }
 
 } // namespace godot

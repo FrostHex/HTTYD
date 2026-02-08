@@ -41,57 +41,57 @@
 namespace godot {
 
 Ref<TLSOptions> TLSOptions::client(const Ref<X509Certificate> &p_trusted_chain, const String &p_common_name_override) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("client")._native_ptr(), 3565000357);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("client")._native_ptr(), 3565000357);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<TLSOptions>()));
-	return Ref<TLSOptions>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<TLSOptions>(_gde_method_bind, nullptr, (p_trusted_chain != nullptr ? &p_trusted_chain->_owner : nullptr), &p_common_name_override));
+	return Ref<TLSOptions>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<TLSOptions>(_gde_method_bind, nullptr, (p_trusted_chain != nullptr ? &p_trusted_chain->_owner : nullptr), &p_common_name_override));
 }
 
 Ref<TLSOptions> TLSOptions::client_unsafe(const Ref<X509Certificate> &p_trusted_chain) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("client_unsafe")._native_ptr(), 2090251749);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("client_unsafe")._native_ptr(), 2090251749);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<TLSOptions>()));
-	return Ref<TLSOptions>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<TLSOptions>(_gde_method_bind, nullptr, (p_trusted_chain != nullptr ? &p_trusted_chain->_owner : nullptr)));
+	return Ref<TLSOptions>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<TLSOptions>(_gde_method_bind, nullptr, (p_trusted_chain != nullptr ? &p_trusted_chain->_owner : nullptr)));
 }
 
 Ref<TLSOptions> TLSOptions::server(const Ref<CryptoKey> &p_key, const Ref<X509Certificate> &p_certificate) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("server")._native_ptr(), 36969539);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("server")._native_ptr(), 36969539);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<TLSOptions>()));
-	return Ref<TLSOptions>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<TLSOptions>(_gde_method_bind, nullptr, (p_key != nullptr ? &p_key->_owner : nullptr), (p_certificate != nullptr ? &p_certificate->_owner : nullptr)));
+	return Ref<TLSOptions>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<TLSOptions>(_gde_method_bind, nullptr, (p_key != nullptr ? &p_key->_owner : nullptr), (p_certificate != nullptr ? &p_certificate->_owner : nullptr)));
 }
 
 bool TLSOptions::is_server() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("is_server")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("is_server")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 bool TLSOptions::is_unsafe_client() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("is_unsafe_client")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("is_unsafe_client")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 String TLSOptions::get_common_name_override() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("get_common_name_override")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("get_common_name_override")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 Ref<X509Certificate> TLSOptions::get_trusted_ca_chain() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("get_trusted_ca_chain")._native_ptr(), 1120709175);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("get_trusted_ca_chain")._native_ptr(), 1120709175);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<X509Certificate>()));
-	return Ref<X509Certificate>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<X509Certificate>(_gde_method_bind, _owner));
+	return Ref<X509Certificate>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<X509Certificate>(_gde_method_bind, _owner));
 }
 
 Ref<CryptoKey> TLSOptions::get_private_key() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("get_private_key")._native_ptr(), 2119971811);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("get_private_key")._native_ptr(), 2119971811);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<CryptoKey>()));
-	return Ref<CryptoKey>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<CryptoKey>(_gde_method_bind, _owner));
+	return Ref<CryptoKey>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<CryptoKey>(_gde_method_bind, _owner));
 }
 
 Ref<X509Certificate> TLSOptions::get_own_certificate() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("get_own_certificate")._native_ptr(), 1120709175);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TLSOptions::get_class_static()._native_ptr(), StringName("get_own_certificate")._native_ptr(), 1120709175);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<X509Certificate>()));
-	return Ref<X509Certificate>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<X509Certificate>(_gde_method_bind, _owner));
+	return Ref<X509Certificate>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<X509Certificate>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

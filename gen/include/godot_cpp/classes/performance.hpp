@@ -34,6 +34,7 @@
 
 #include <godot_cpp/core/object.hpp>
 #include <godot_cpp/variant/array.hpp>
+#include <godot_cpp/variant/packed_int32_array.hpp>
 #include <godot_cpp/variant/string_name.hpp>
 #include <godot_cpp/variant/typed_array.hpp>
 #include <godot_cpp/variant/variant.hpp>
@@ -115,15 +116,23 @@ public:
 		MONITOR_MAX = 59,
 	};
 
+	enum MonitorType {
+		MONITOR_TYPE_QUANTITY = 0,
+		MONITOR_TYPE_MEMORY = 1,
+		MONITOR_TYPE_TIME = 2,
+		MONITOR_TYPE_PERCENTAGE = 3,
+	};
+
 	static Performance *get_singleton();
 
 	double get_monitor(Performance::Monitor p_monitor) const;
-	void add_custom_monitor(const StringName &p_id, const Callable &p_callable, const Array &p_arguments = Array());
+	void add_custom_monitor(const StringName &p_id, const Callable &p_callable, const Array &p_arguments = Array(), Performance::MonitorType p_type = (Performance::MonitorType)0);
 	void remove_custom_monitor(const StringName &p_id);
 	bool has_custom_monitor(const StringName &p_id);
 	Variant get_custom_monitor(const StringName &p_id);
 	uint64_t get_monitor_modification_time();
 	TypedArray<StringName> get_custom_monitor_names();
+	PackedInt32Array get_custom_monitor_types();
 
 protected:
 	template <typename T, typename B>
@@ -139,4 +148,5 @@ public:
 } // namespace godot
 
 VARIANT_ENUM_CAST(Performance::Monitor);
+VARIANT_ENUM_CAST(Performance::MonitorType);
 

@@ -39,65 +39,65 @@
 namespace godot {
 
 void RDFramebufferPass::set_color_attachments(const PackedInt32Array &p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("set_color_attachments")._native_ptr(), 3614634198);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("set_color_attachments")._native_ptr(), 3614634198);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member);
 }
 
 PackedInt32Array RDFramebufferPass::get_color_attachments() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("get_color_attachments")._native_ptr(), 1930428628);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("get_color_attachments")._native_ptr(), 1930428628);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedInt32Array()));
-	return internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
 }
 
 void RDFramebufferPass::set_input_attachments(const PackedInt32Array &p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("set_input_attachments")._native_ptr(), 3614634198);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("set_input_attachments")._native_ptr(), 3614634198);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member);
 }
 
 PackedInt32Array RDFramebufferPass::get_input_attachments() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("get_input_attachments")._native_ptr(), 1930428628);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("get_input_attachments")._native_ptr(), 1930428628);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedInt32Array()));
-	return internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
 }
 
 void RDFramebufferPass::set_resolve_attachments(const PackedInt32Array &p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("set_resolve_attachments")._native_ptr(), 3614634198);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("set_resolve_attachments")._native_ptr(), 3614634198);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member);
 }
 
 PackedInt32Array RDFramebufferPass::get_resolve_attachments() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("get_resolve_attachments")._native_ptr(), 1930428628);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("get_resolve_attachments")._native_ptr(), 1930428628);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedInt32Array()));
-	return internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
 }
 
 void RDFramebufferPass::set_preserve_attachments(const PackedInt32Array &p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("set_preserve_attachments")._native_ptr(), 3614634198);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("set_preserve_attachments")._native_ptr(), 3614634198);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member);
 }
 
 PackedInt32Array RDFramebufferPass::get_preserve_attachments() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("get_preserve_attachments")._native_ptr(), 1930428628);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("get_preserve_attachments")._native_ptr(), 1930428628);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedInt32Array()));
-	return internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
 }
 
 void RDFramebufferPass::set_depth_attachment(int32_t p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("set_depth_attachment")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("set_depth_attachment")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 int32_t RDFramebufferPass::get_depth_attachment() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("get_depth_attachment")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDFramebufferPass::get_class_static()._native_ptr(), StringName("get_depth_attachment")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

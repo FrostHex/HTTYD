@@ -41,33 +41,33 @@
 namespace godot {
 
 bool PhysicalBoneSimulator3D::is_simulating_physics() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicalBoneSimulator3D::get_class_static()._native_ptr(), StringName("is_simulating_physics")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicalBoneSimulator3D::get_class_static()._native_ptr(), StringName("is_simulating_physics")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void PhysicalBoneSimulator3D::physical_bones_stop_simulation() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicalBoneSimulator3D::get_class_static()._native_ptr(), StringName("physical_bones_stop_simulation")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicalBoneSimulator3D::get_class_static()._native_ptr(), StringName("physical_bones_stop_simulation")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void PhysicalBoneSimulator3D::physical_bones_start_simulation(const TypedArray<StringName> &p_bones) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicalBoneSimulator3D::get_class_static()._native_ptr(), StringName("physical_bones_start_simulation")._native_ptr(), 2787316981);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicalBoneSimulator3D::get_class_static()._native_ptr(), StringName("physical_bones_start_simulation")._native_ptr(), 2787316981);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bones);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bones);
 }
 
 void PhysicalBoneSimulator3D::physical_bones_add_collision_exception(const RID &p_exception) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicalBoneSimulator3D::get_class_static()._native_ptr(), StringName("physical_bones_add_collision_exception")._native_ptr(), 2722037293);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicalBoneSimulator3D::get_class_static()._native_ptr(), StringName("physical_bones_add_collision_exception")._native_ptr(), 2722037293);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_exception);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_exception);
 }
 
 void PhysicalBoneSimulator3D::physical_bones_remove_collision_exception(const RID &p_exception) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicalBoneSimulator3D::get_class_static()._native_ptr(), StringName("physical_bones_remove_collision_exception")._native_ptr(), 2722037293);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicalBoneSimulator3D::get_class_static()._native_ptr(), StringName("physical_bones_remove_collision_exception")._native_ptr(), 2722037293);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_exception);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_exception);
 }
 
 } // namespace godot

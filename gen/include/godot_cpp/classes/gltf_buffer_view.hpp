@@ -34,6 +34,7 @@
 
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/resource.hpp>
+#include <godot_cpp/variant/dictionary.hpp>
 #include <godot_cpp/variant/packed_byte_array.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
@@ -49,6 +50,8 @@ class GLTFBufferView : public Resource {
 
 public:
 	PackedByteArray load_buffer_view_data(const Ref<GLTFState> &p_state) const;
+	static Ref<GLTFBufferView> from_dictionary(const Dictionary &p_dictionary);
+	Dictionary to_dictionary() const;
 	int32_t get_buffer() const;
 	void set_buffer(int32_t p_buffer);
 	int64_t get_byte_offset() const;

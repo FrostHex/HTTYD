@@ -129,11 +129,13 @@ public:
 	void draw_dashed_line(const Vector2 &p_from, const Vector2 &p_to, const Color &p_color, float p_width = -1.0, float p_dash = 2.0, bool p_aligned = true, bool p_antialiased = false);
 	void draw_polyline(const PackedVector2Array &p_points, const Color &p_color, float p_width = -1.0, bool p_antialiased = false);
 	void draw_polyline_colors(const PackedVector2Array &p_points, const PackedColorArray &p_colors, float p_width = -1.0, bool p_antialiased = false);
+	void draw_ellipse_arc(const Vector2 &p_center, float p_major, float p_minor, float p_start_angle, float p_end_angle, int32_t p_point_count, const Color &p_color, float p_width = -1.0, bool p_antialiased = false);
 	void draw_arc(const Vector2 &p_center, float p_radius, float p_start_angle, float p_end_angle, int32_t p_point_count, const Color &p_color, float p_width = -1.0, bool p_antialiased = false);
 	void draw_multiline(const PackedVector2Array &p_points, const Color &p_color, float p_width = -1.0, bool p_antialiased = false);
 	void draw_multiline_colors(const PackedVector2Array &p_points, const PackedColorArray &p_colors, float p_width = -1.0, bool p_antialiased = false);
 	void draw_rect(const Rect2 &p_rect, const Color &p_color, bool p_filled = true, float p_width = -1.0, bool p_antialiased = false);
 	void draw_circle(const Vector2 &p_position, float p_radius, const Color &p_color, bool p_filled = true, float p_width = -1.0, bool p_antialiased = false);
+	void draw_ellipse(const Vector2 &p_position, float p_major, float p_minor, const Color &p_color, bool p_filled = true, float p_width = -1.0, bool p_antialiased = false);
 	void draw_texture(const Ref<Texture2D> &p_texture, const Vector2 &p_position, const Color &p_modulate = Color(1, 1, 1, 1));
 	void draw_texture_rect(const Ref<Texture2D> &p_texture, const Rect2 &p_rect, bool p_tile, const Color &p_modulate = Color(1, 1, 1, 1), bool p_transpose = false);
 	void draw_texture_rect_region(const Ref<Texture2D> &p_texture, const Rect2 &p_rect, const Rect2 &p_src_rect, const Color &p_modulate = Color(1, 1, 1, 1), bool p_transpose = false, bool p_clip_uv = true);

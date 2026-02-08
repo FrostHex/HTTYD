@@ -32,9 +32,11 @@
 
 #pragma once
 
+#include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/core/object.hpp>
 #include <godot_cpp/variant/packed_string_array.hpp>
+#include <godot_cpp/variant/packed_vector2_array.hpp>
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/string_name.hpp>
 
@@ -119,6 +121,10 @@ public:
 	PackedStringArray get_input_device_list();
 	String get_input_device();
 	void set_input_device(const String &p_name);
+	Error set_input_device_active(bool p_active);
+	int32_t get_input_frames_available();
+	int32_t get_input_buffer_length_frames();
+	PackedVector2Array get_input_frames(int32_t p_frames);
 	void set_bus_layout(const Ref<AudioBusLayout> &p_bus_layout);
 	Ref<AudioBusLayout> generate_bus_layout() const;
 	void set_enable_tagging_used_audio_streams(bool p_enable);

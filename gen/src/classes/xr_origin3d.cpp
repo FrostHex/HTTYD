@@ -39,31 +39,31 @@
 namespace godot {
 
 void XROrigin3D::set_world_scale(float p_world_scale) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XROrigin3D::get_class_static()._native_ptr(), StringName("set_world_scale")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XROrigin3D::get_class_static()._native_ptr(), StringName("set_world_scale")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_world_scale_encoded;
 	PtrToArg<double>::encode(p_world_scale, &p_world_scale_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_world_scale_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_world_scale_encoded);
 }
 
 float XROrigin3D::get_world_scale() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XROrigin3D::get_class_static()._native_ptr(), StringName("get_world_scale")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XROrigin3D::get_class_static()._native_ptr(), StringName("get_world_scale")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void XROrigin3D::set_current(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XROrigin3D::get_class_static()._native_ptr(), StringName("set_current")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XROrigin3D::get_class_static()._native_ptr(), StringName("set_current")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool XROrigin3D::is_current() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XROrigin3D::get_class_static()._native_ptr(), StringName("is_current")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XROrigin3D::get_class_static()._native_ptr(), StringName("is_current")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

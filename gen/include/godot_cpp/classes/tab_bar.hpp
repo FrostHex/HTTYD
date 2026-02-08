@@ -114,6 +114,8 @@ public:
 	bool get_scrolling_enabled() const;
 	void set_drag_to_rearrange_enabled(bool p_enabled);
 	bool get_drag_to_rearrange_enabled() const;
+	void set_switch_on_drag_hover(bool p_enabled);
+	bool get_switch_on_drag_hover() const;
 	void set_tabs_rearrange_group(int32_t p_group_id);
 	int32_t get_tabs_rearrange_group() const;
 	void set_scroll_to_selected(bool p_enabled);

@@ -41,9 +41,9 @@
 namespace godot {
 
 void RenderSceneBuffers::configure(const Ref<RenderSceneBuffersConfiguration> &p_config) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderSceneBuffers::get_class_static()._native_ptr(), StringName("configure")._native_ptr(), 3072623270);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderSceneBuffers::get_class_static()._native_ptr(), StringName("configure")._native_ptr(), 3072623270);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_config != nullptr ? &p_config->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_config != nullptr ? &p_config->_owner : nullptr));
 }
 
 } // namespace godot

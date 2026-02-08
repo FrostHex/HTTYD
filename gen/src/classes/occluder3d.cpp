@@ -39,15 +39,15 @@
 namespace godot {
 
 PackedVector3Array Occluder3D::get_vertices() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Occluder3D::get_class_static()._native_ptr(), StringName("get_vertices")._native_ptr(), 497664490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Occluder3D::get_class_static()._native_ptr(), StringName("get_vertices")._native_ptr(), 497664490);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedVector3Array()));
-	return internal::_call_native_mb_ret<PackedVector3Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedVector3Array>(_gde_method_bind, _owner);
 }
 
 PackedInt32Array Occluder3D::get_indices() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Occluder3D::get_class_static()._native_ptr(), StringName("get_indices")._native_ptr(), 1930428628);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Occluder3D::get_class_static()._native_ptr(), StringName("get_indices")._native_ptr(), 1930428628);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedInt32Array()));
-	return internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -39,43 +39,43 @@
 namespace godot {
 
 Color ReferenceRect::get_border_color() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("get_border_color")._native_ptr(), 3444240500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("get_border_color")._native_ptr(), 3444240500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
-	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
 }
 
 void ReferenceRect::set_border_color(const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("set_border_color")._native_ptr(), 2920490490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("set_border_color")._native_ptr(), 2920490490);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
 }
 
 float ReferenceRect::get_border_width() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("get_border_width")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("get_border_width")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void ReferenceRect::set_border_width(float p_width) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("set_border_width")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("set_border_width")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_width_encoded;
 	PtrToArg<double>::encode(p_width, &p_width_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_width_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_width_encoded);
 }
 
 bool ReferenceRect::get_editor_only() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("get_editor_only")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("get_editor_only")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void ReferenceRect::set_editor_only(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("set_editor_only")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ReferenceRect::get_class_static()._native_ptr(), StringName("set_editor_only")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 } // namespace godot

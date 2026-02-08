@@ -36,6 +36,14 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/variant/string_name.hpp>
+
 namespace godot {
+
+bool JNISingleton::has_java_method(const StringName &p_method) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(JNISingleton::get_class_static()._native_ptr(), StringName("has_java_method")._native_ptr(), 2619796661);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_method);
+}
 
 } // namespace godot

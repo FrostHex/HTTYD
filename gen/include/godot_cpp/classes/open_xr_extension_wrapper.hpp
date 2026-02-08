@@ -53,9 +53,9 @@ class OpenXRExtensionWrapper : public Object {
 public:
 	Ref<OpenXRAPIExtension> get_openxr_api();
 	void register_extension_wrapper();
-	virtual Dictionary _get_requested_extensions();
+	virtual Dictionary _get_requested_extensions(uint64_t p_xr_version);
 	virtual uint64_t _set_system_properties_and_get_next_pointer(void *p_next_pointer);
-	virtual uint64_t _set_instance_create_info_and_get_next_pointer(void *p_next_pointer);
+	virtual uint64_t _set_instance_create_info_and_get_next_pointer(uint64_t p_xr_version, void *p_next_pointer);
 	virtual uint64_t _set_session_create_and_get_next_pointer(void *p_next_pointer);
 	virtual uint64_t _set_swapchain_create_info_and_get_next_pointer(void *p_next_pointer);
 	virtual uint64_t _set_hand_joint_locations_and_get_next_pointer(int32_t p_hand_index, void *p_next_pointer);
@@ -64,6 +64,9 @@ public:
 	virtual uint64_t _set_frame_end_info_and_get_next_pointer(void *p_next_pointer);
 	virtual uint64_t _set_view_locate_info_and_get_next_pointer(void *p_next_pointer);
 	virtual uint64_t _set_reference_space_create_info_and_get_next_pointer(int32_t p_reference_space_type, void *p_next_pointer);
+	virtual void _prepare_view_configuration(int32_t p_view_count);
+	virtual uint64_t _set_view_configuration_and_get_next_pointer(uint32_t p_view, void *p_next_pointer);
+	virtual void _print_view_configuration_info(int32_t p_view) const;
 	virtual int32_t _get_composition_layer_count();
 	virtual uint64_t _get_composition_layer(int32_t p_index);
 	virtual int32_t _get_composition_layer_order(int32_t p_index);
@@ -100,13 +103,13 @@ protected:
 	static void register_virtuals() {
 		Object::register_virtuals<T, B>();
 		if constexpr (!std::is_same_v<decltype(&B::_get_requested_extensions), decltype(&T::_get_requested_extensions)>) {
-			BIND_VIRTUAL_METHOD(T, _get_requested_extensions, 2382534195);
+			BIND_VIRTUAL_METHOD(T, _get_requested_extensions, 3554694381);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_set_system_properties_and_get_next_pointer), decltype(&T::_set_system_properties_and_get_next_pointer)>) {
 			BIND_VIRTUAL_METHOD(T, _set_system_properties_and_get_next_pointer, 3744713108);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_set_instance_create_info_and_get_next_pointer), decltype(&T::_set_instance_create_info_and_get_next_pointer)>) {
-			BIND_VIRTUAL_METHOD(T, _set_instance_create_info_and_get_next_pointer, 3744713108);
+			BIND_VIRTUAL_METHOD(T, _set_instance_create_info_and_get_next_pointer, 50157827);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_set_session_create_and_get_next_pointer), decltype(&T::_set_session_create_and_get_next_pointer)>) {
 			BIND_VIRTUAL_METHOD(T, _set_session_create_and_get_next_pointer, 3744713108);
@@ -131,6 +134,15 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_set_reference_space_create_info_and_get_next_pointer), decltype(&T::_set_reference_space_create_info_and_get_next_pointer)>) {
 			BIND_VIRTUAL_METHOD(T, _set_reference_space_create_info_and_get_next_pointer, 50157827);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_prepare_view_configuration), decltype(&T::_prepare_view_configuration)>) {
+			BIND_VIRTUAL_METHOD(T, _prepare_view_configuration, 1286410249);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_set_view_configuration_and_get_next_pointer), decltype(&T::_set_view_configuration_and_get_next_pointer)>) {
+			BIND_VIRTUAL_METHOD(T, _set_view_configuration_and_get_next_pointer, 50157827);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_print_view_configuration_info), decltype(&T::_print_view_configuration_info)>) {
+			BIND_VIRTUAL_METHOD(T, _print_view_configuration_info, 998575451);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_composition_layer_count), decltype(&T::_get_composition_layer_count)>) {
 			BIND_VIRTUAL_METHOD(T, _get_composition_layer_count, 2455072627);

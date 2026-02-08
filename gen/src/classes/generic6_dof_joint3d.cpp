@@ -39,111 +39,111 @@
 namespace godot {
 
 void Generic6DOFJoint3D::set_param_x(Generic6DOFJoint3D::Param p_param, float p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_param_x")._native_ptr(), 2018184242);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_param_x")._native_ptr(), 2018184242);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_param_encoded;
 	PtrToArg<int64_t>::encode(p_param, &p_param_encoded);
 	double p_value_encoded;
 	PtrToArg<double>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param_encoded, &p_value_encoded);
 }
 
 float Generic6DOFJoint3D::get_param_x(Generic6DOFJoint3D::Param p_param) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_param_x")._native_ptr(), 2599835054);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_param_x")._native_ptr(), 2599835054);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	int64_t p_param_encoded;
 	PtrToArg<int64_t>::encode(p_param, &p_param_encoded);
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_param_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_param_encoded);
 }
 
 void Generic6DOFJoint3D::set_param_y(Generic6DOFJoint3D::Param p_param, float p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_param_y")._native_ptr(), 2018184242);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_param_y")._native_ptr(), 2018184242);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_param_encoded;
 	PtrToArg<int64_t>::encode(p_param, &p_param_encoded);
 	double p_value_encoded;
 	PtrToArg<double>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param_encoded, &p_value_encoded);
 }
 
 float Generic6DOFJoint3D::get_param_y(Generic6DOFJoint3D::Param p_param) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_param_y")._native_ptr(), 2599835054);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_param_y")._native_ptr(), 2599835054);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	int64_t p_param_encoded;
 	PtrToArg<int64_t>::encode(p_param, &p_param_encoded);
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_param_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_param_encoded);
 }
 
 void Generic6DOFJoint3D::set_param_z(Generic6DOFJoint3D::Param p_param, float p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_param_z")._native_ptr(), 2018184242);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_param_z")._native_ptr(), 2018184242);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_param_encoded;
 	PtrToArg<int64_t>::encode(p_param, &p_param_encoded);
 	double p_value_encoded;
 	PtrToArg<double>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param_encoded, &p_value_encoded);
 }
 
 float Generic6DOFJoint3D::get_param_z(Generic6DOFJoint3D::Param p_param) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_param_z")._native_ptr(), 2599835054);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_param_z")._native_ptr(), 2599835054);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	int64_t p_param_encoded;
 	PtrToArg<int64_t>::encode(p_param, &p_param_encoded);
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_param_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_param_encoded);
 }
 
 void Generic6DOFJoint3D::set_flag_x(Generic6DOFJoint3D::Flag p_flag, bool p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_flag_x")._native_ptr(), 2451594564);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_flag_x")._native_ptr(), 2451594564);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_flag_encoded;
 	PtrToArg<int64_t>::encode(p_flag, &p_flag_encoded);
 	int8_t p_value_encoded;
 	PtrToArg<bool>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flag_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flag_encoded, &p_value_encoded);
 }
 
 bool Generic6DOFJoint3D::get_flag_x(Generic6DOFJoint3D::Flag p_flag) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_flag_x")._native_ptr(), 2122427807);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_flag_x")._native_ptr(), 2122427807);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_flag_encoded;
 	PtrToArg<int64_t>::encode(p_flag, &p_flag_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_flag_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_flag_encoded);
 }
 
 void Generic6DOFJoint3D::set_flag_y(Generic6DOFJoint3D::Flag p_flag, bool p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_flag_y")._native_ptr(), 2451594564);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_flag_y")._native_ptr(), 2451594564);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_flag_encoded;
 	PtrToArg<int64_t>::encode(p_flag, &p_flag_encoded);
 	int8_t p_value_encoded;
 	PtrToArg<bool>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flag_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flag_encoded, &p_value_encoded);
 }
 
 bool Generic6DOFJoint3D::get_flag_y(Generic6DOFJoint3D::Flag p_flag) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_flag_y")._native_ptr(), 2122427807);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_flag_y")._native_ptr(), 2122427807);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_flag_encoded;
 	PtrToArg<int64_t>::encode(p_flag, &p_flag_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_flag_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_flag_encoded);
 }
 
 void Generic6DOFJoint3D::set_flag_z(Generic6DOFJoint3D::Flag p_flag, bool p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_flag_z")._native_ptr(), 2451594564);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("set_flag_z")._native_ptr(), 2451594564);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_flag_encoded;
 	PtrToArg<int64_t>::encode(p_flag, &p_flag_encoded);
 	int8_t p_value_encoded;
 	PtrToArg<bool>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flag_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flag_encoded, &p_value_encoded);
 }
 
 bool Generic6DOFJoint3D::get_flag_z(Generic6DOFJoint3D::Flag p_flag) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_flag_z")._native_ptr(), 2122427807);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Generic6DOFJoint3D::get_class_static()._native_ptr(), StringName("get_flag_z")._native_ptr(), 2122427807);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_flag_encoded;
 	PtrToArg<int64_t>::encode(p_flag, &p_flag_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_flag_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_flag_encoded);
 }
 
 } // namespace godot

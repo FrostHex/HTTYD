@@ -41,45 +41,45 @@
 namespace godot {
 
 Error AnimationLibrary::add_animation(const StringName &p_name, const Ref<Animation> &p_animation) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("add_animation")._native_ptr(), 1811855551);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("add_animation")._native_ptr(), 1811855551);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_name, (p_animation != nullptr ? &p_animation->_owner : nullptr));
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_name, (p_animation != nullptr ? &p_animation->_owner : nullptr));
 }
 
 void AnimationLibrary::remove_animation(const StringName &p_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("remove_animation")._native_ptr(), 3304788590);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("remove_animation")._native_ptr(), 3304788590);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
 }
 
 void AnimationLibrary::rename_animation(const StringName &p_name, const StringName &p_newname) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("rename_animation")._native_ptr(), 3740211285);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("rename_animation")._native_ptr(), 3740211285);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_newname);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_newname);
 }
 
 bool AnimationLibrary::has_animation(const StringName &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("has_animation")._native_ptr(), 2619796661);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("has_animation")._native_ptr(), 2619796661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_name);
 }
 
 Ref<Animation> AnimationLibrary::get_animation(const StringName &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("get_animation")._native_ptr(), 2933122410);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("get_animation")._native_ptr(), 2933122410);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Animation>()));
-	return Ref<Animation>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Animation>(_gde_method_bind, _owner, &p_name));
+	return Ref<Animation>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Animation>(_gde_method_bind, _owner, &p_name));
 }
 
 TypedArray<StringName> AnimationLibrary::get_animation_list() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("get_animation_list")._native_ptr(), 3995934104);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("get_animation_list")._native_ptr(), 3995934104);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<StringName>()));
-	return internal::_call_native_mb_ret<TypedArray<StringName>>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<StringName>>(_gde_method_bind, _owner);
 }
 
 int32_t AnimationLibrary::get_animation_list_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("get_animation_list_size")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationLibrary::get_class_static()._native_ptr(), StringName("get_animation_list_size")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -43,45 +43,45 @@
 namespace godot {
 
 TypedArray<Dictionary> PhysicsDirectSpaceState3D::intersect_point(const Ref<PhysicsPointQueryParameters3D> &p_parameters, int32_t p_max_results) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("intersect_point")._native_ptr(), 975173756);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("intersect_point")._native_ptr(), 975173756);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Dictionary>()));
 	int64_t p_max_results_encoded;
 	PtrToArg<int64_t>::encode(p_max_results, &p_max_results_encoded);
-	return internal::_call_native_mb_ret<TypedArray<Dictionary>>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr), &p_max_results_encoded);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Dictionary>>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr), &p_max_results_encoded);
 }
 
 Dictionary PhysicsDirectSpaceState3D::intersect_ray(const Ref<PhysicsRayQueryParameters3D> &p_parameters) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("intersect_ray")._native_ptr(), 3957970750);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("intersect_ray")._native_ptr(), 3957970750);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr));
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr));
 }
 
 TypedArray<Dictionary> PhysicsDirectSpaceState3D::intersect_shape(const Ref<PhysicsShapeQueryParameters3D> &p_parameters, int32_t p_max_results) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("intersect_shape")._native_ptr(), 3762137681);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("intersect_shape")._native_ptr(), 3762137681);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Dictionary>()));
 	int64_t p_max_results_encoded;
 	PtrToArg<int64_t>::encode(p_max_results, &p_max_results_encoded);
-	return internal::_call_native_mb_ret<TypedArray<Dictionary>>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr), &p_max_results_encoded);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Dictionary>>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr), &p_max_results_encoded);
 }
 
 PackedFloat32Array PhysicsDirectSpaceState3D::cast_motion(const Ref<PhysicsShapeQueryParameters3D> &p_parameters) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("cast_motion")._native_ptr(), 1778757334);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("cast_motion")._native_ptr(), 1778757334);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedFloat32Array()));
-	return internal::_call_native_mb_ret<PackedFloat32Array>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr));
+	return ::godot::internal::_call_native_mb_ret<PackedFloat32Array>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr));
 }
 
 TypedArray<Vector3> PhysicsDirectSpaceState3D::collide_shape(const Ref<PhysicsShapeQueryParameters3D> &p_parameters, int32_t p_max_results) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("collide_shape")._native_ptr(), 3762137681);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("collide_shape")._native_ptr(), 3762137681);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Vector3>()));
 	int64_t p_max_results_encoded;
 	PtrToArg<int64_t>::encode(p_max_results, &p_max_results_encoded);
-	return internal::_call_native_mb_ret<TypedArray<Vector3>>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr), &p_max_results_encoded);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Vector3>>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr), &p_max_results_encoded);
 }
 
 Dictionary PhysicsDirectSpaceState3D::get_rest_info(const Ref<PhysicsShapeQueryParameters3D> &p_parameters) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("get_rest_info")._native_ptr(), 1376751592);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsDirectSpaceState3D::get_class_static()._native_ptr(), StringName("get_rest_info")._native_ptr(), 1376751592);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr));
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, (p_parameters != nullptr ? &p_parameters->_owner : nullptr));
 }
 
 } // namespace godot

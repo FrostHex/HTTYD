@@ -39,10 +39,17 @@
 #include <godot_cpp/classes/resource.hpp>
 #include <godot_cpp/classes/texture2d.hpp>
 #include <godot_cpp/variant/dictionary.hpp>
+#include <godot_cpp/variant/rid.hpp>
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/vector2i.hpp>
 
 namespace godot {
+
+void EditorResourcePreviewGenerator::request_draw_and_wait(const RID &p_viewport) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePreviewGenerator::get_class_static()._native_ptr(), StringName("request_draw_and_wait")._native_ptr(), 145472570);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_viewport);
+}
 
 bool EditorResourcePreviewGenerator::_handles(const String &p_type) const {
 	return false;

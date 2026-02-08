@@ -41,27 +41,27 @@
 namespace godot {
 
 bool TriangleMesh::create_from_faces(const PackedVector3Array &p_faces) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TriangleMesh::get_class_static()._native_ptr(), StringName("create_from_faces")._native_ptr(), 2637816732);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TriangleMesh::get_class_static()._native_ptr(), StringName("create_from_faces")._native_ptr(), 2637816732);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_faces);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_faces);
 }
 
 PackedVector3Array TriangleMesh::get_faces() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TriangleMesh::get_class_static()._native_ptr(), StringName("get_faces")._native_ptr(), 497664490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TriangleMesh::get_class_static()._native_ptr(), StringName("get_faces")._native_ptr(), 497664490);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedVector3Array()));
-	return internal::_call_native_mb_ret<PackedVector3Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedVector3Array>(_gde_method_bind, _owner);
 }
 
 Dictionary TriangleMesh::intersect_segment(const Vector3 &p_begin, const Vector3 &p_end) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TriangleMesh::get_class_static()._native_ptr(), StringName("intersect_segment")._native_ptr(), 3648293151);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TriangleMesh::get_class_static()._native_ptr(), StringName("intersect_segment")._native_ptr(), 3648293151);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_begin, &p_end);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_begin, &p_end);
 }
 
 Dictionary TriangleMesh::intersect_ray(const Vector3 &p_begin, const Vector3 &p_dir) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TriangleMesh::get_class_static()._native_ptr(), StringName("intersect_ray")._native_ptr(), 3648293151);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TriangleMesh::get_class_static()._native_ptr(), StringName("intersect_ray")._native_ptr(), 3648293151);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_begin, &p_dir);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_begin, &p_dir);
 }
 
 } // namespace godot

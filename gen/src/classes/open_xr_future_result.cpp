@@ -39,33 +39,33 @@
 namespace godot {
 
 OpenXRFutureResult::ResultStatus OpenXRFutureResult::get_status() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("get_status")._native_ptr(), 2023607463);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("get_status")._native_ptr(), 2023607463);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (OpenXRFutureResult::ResultStatus(0)));
-	return (OpenXRFutureResult::ResultStatus)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (OpenXRFutureResult::ResultStatus)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 uint64_t OpenXRFutureResult::get_future() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("get_future")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("get_future")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<uint64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<uint64_t>(_gde_method_bind, _owner);
 }
 
 void OpenXRFutureResult::cancel_future() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("cancel_future")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("cancel_future")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void OpenXRFutureResult::set_result_value(const Variant &p_result_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("set_result_value")._native_ptr(), 1114965689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("set_result_value")._native_ptr(), 1114965689);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_result_value);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_result_value);
 }
 
 Variant OpenXRFutureResult::get_result_value() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("get_result_value")._native_ptr(), 1214101251);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRFutureResult::get_class_static()._native_ptr(), StringName("get_result_value")._native_ptr(), 1214101251);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
-	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

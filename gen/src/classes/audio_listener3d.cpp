@@ -39,41 +39,41 @@
 namespace godot {
 
 void AudioListener3D::make_current() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("make_current")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("make_current")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void AudioListener3D::clear_current() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("clear_current")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("clear_current")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 bool AudioListener3D::is_current() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("is_current")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("is_current")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 Transform3D AudioListener3D::get_listener_transform() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("get_listener_transform")._native_ptr(), 3229777777);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("get_listener_transform")._native_ptr(), 3229777777);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Transform3D()));
-	return internal::_call_native_mb_ret<Transform3D>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Transform3D>(_gde_method_bind, _owner);
 }
 
 void AudioListener3D::set_doppler_tracking(AudioListener3D::DopplerTracking p_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("set_doppler_tracking")._native_ptr(), 2365921740);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("set_doppler_tracking")._native_ptr(), 2365921740);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
 }
 
 AudioListener3D::DopplerTracking AudioListener3D::get_doppler_tracking() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("get_doppler_tracking")._native_ptr(), 550229039);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioListener3D::get_class_static()._native_ptr(), StringName("get_doppler_tracking")._native_ptr(), 550229039);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AudioListener3D::DopplerTracking(0)));
-	return (AudioListener3D::DopplerTracking)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AudioListener3D::DopplerTracking)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

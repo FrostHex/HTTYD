@@ -39,89 +39,89 @@
 namespace godot {
 
 void GPUParticlesCollisionHeightField3D::set_size(const Vector3 &p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 3460891852);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 3460891852);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
 }
 
 Vector3 GPUParticlesCollisionHeightField3D::get_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("get_size")._native_ptr(), 3360562783);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("get_size")._native_ptr(), 3360562783);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
-	return internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
 }
 
 void GPUParticlesCollisionHeightField3D::set_resolution(GPUParticlesCollisionHeightField3D::Resolution p_resolution) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_resolution")._native_ptr(), 1009996517);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_resolution")._native_ptr(), 1009996517);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_resolution_encoded;
 	PtrToArg<int64_t>::encode(p_resolution, &p_resolution_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_resolution_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_resolution_encoded);
 }
 
 GPUParticlesCollisionHeightField3D::Resolution GPUParticlesCollisionHeightField3D::get_resolution() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("get_resolution")._native_ptr(), 1156065644);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("get_resolution")._native_ptr(), 1156065644);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (GPUParticlesCollisionHeightField3D::Resolution(0)));
-	return (GPUParticlesCollisionHeightField3D::Resolution)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (GPUParticlesCollisionHeightField3D::Resolution)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GPUParticlesCollisionHeightField3D::set_update_mode(GPUParticlesCollisionHeightField3D::UpdateMode p_update_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_update_mode")._native_ptr(), 673680859);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_update_mode")._native_ptr(), 673680859);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_update_mode_encoded;
 	PtrToArg<int64_t>::encode(p_update_mode, &p_update_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_update_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_update_mode_encoded);
 }
 
 GPUParticlesCollisionHeightField3D::UpdateMode GPUParticlesCollisionHeightField3D::get_update_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("get_update_mode")._native_ptr(), 1998141380);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("get_update_mode")._native_ptr(), 1998141380);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (GPUParticlesCollisionHeightField3D::UpdateMode(0)));
-	return (GPUParticlesCollisionHeightField3D::UpdateMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (GPUParticlesCollisionHeightField3D::UpdateMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GPUParticlesCollisionHeightField3D::set_heightfield_mask(uint32_t p_heightfield_mask) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_heightfield_mask")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_heightfield_mask")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_heightfield_mask_encoded;
 	PtrToArg<int64_t>::encode(p_heightfield_mask, &p_heightfield_mask_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_heightfield_mask_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_heightfield_mask_encoded);
 }
 
 uint32_t GPUParticlesCollisionHeightField3D::get_heightfield_mask() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("get_heightfield_mask")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("get_heightfield_mask")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GPUParticlesCollisionHeightField3D::set_heightfield_mask_value(int32_t p_layer_number, bool p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_heightfield_mask_value")._native_ptr(), 300928843);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_heightfield_mask_value")._native_ptr(), 300928843);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_layer_number_encoded;
 	PtrToArg<int64_t>::encode(p_layer_number, &p_layer_number_encoded);
 	int8_t p_value_encoded;
 	PtrToArg<bool>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_layer_number_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_layer_number_encoded, &p_value_encoded);
 }
 
 bool GPUParticlesCollisionHeightField3D::get_heightfield_mask_value(int32_t p_layer_number) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("get_heightfield_mask_value")._native_ptr(), 1116898809);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("get_heightfield_mask_value")._native_ptr(), 1116898809);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_layer_number_encoded;
 	PtrToArg<int64_t>::encode(p_layer_number, &p_layer_number_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_layer_number_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_layer_number_encoded);
 }
 
 void GPUParticlesCollisionHeightField3D::set_follow_camera_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_follow_camera_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("set_follow_camera_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool GPUParticlesCollisionHeightField3D::is_follow_camera_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("is_follow_camera_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticlesCollisionHeightField3D::get_class_static()._native_ptr(), StringName("is_follow_camera_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

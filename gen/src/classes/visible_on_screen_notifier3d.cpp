@@ -41,15 +41,15 @@
 namespace godot {
 
 void VisibleOnScreenNotifier3D::set_aabb(const AABB &p_rect) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisibleOnScreenNotifier3D::get_class_static()._native_ptr(), StringName("set_aabb")._native_ptr(), 259215842);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisibleOnScreenNotifier3D::get_class_static()._native_ptr(), StringName("set_aabb")._native_ptr(), 259215842);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rect);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rect);
 }
 
 bool VisibleOnScreenNotifier3D::is_on_screen() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisibleOnScreenNotifier3D::get_class_static()._native_ptr(), StringName("is_on_screen")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisibleOnScreenNotifier3D::get_class_static()._native_ptr(), StringName("is_on_screen")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

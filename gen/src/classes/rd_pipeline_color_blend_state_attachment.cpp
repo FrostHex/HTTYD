@@ -39,163 +39,163 @@
 namespace godot {
 
 void RDPipelineColorBlendStateAttachment::set_as_mix() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_as_mix")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_as_mix")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void RDPipelineColorBlendStateAttachment::set_enable_blend(bool p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_enable_blend")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_enable_blend")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_member_encoded;
 	PtrToArg<bool>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 bool RDPipelineColorBlendStateAttachment::get_enable_blend() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_enable_blend")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_enable_blend")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineColorBlendStateAttachment::set_src_color_blend_factor(RenderingDevice::BlendFactor p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_src_color_blend_factor")._native_ptr(), 2251019273);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_src_color_blend_factor")._native_ptr(), 2251019273);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::BlendFactor RDPipelineColorBlendStateAttachment::get_src_color_blend_factor() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_src_color_blend_factor")._native_ptr(), 3691288359);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_src_color_blend_factor")._native_ptr(), 3691288359);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::BlendFactor(0)));
-	return (RenderingDevice::BlendFactor)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::BlendFactor)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineColorBlendStateAttachment::set_dst_color_blend_factor(RenderingDevice::BlendFactor p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_dst_color_blend_factor")._native_ptr(), 2251019273);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_dst_color_blend_factor")._native_ptr(), 2251019273);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::BlendFactor RDPipelineColorBlendStateAttachment::get_dst_color_blend_factor() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_dst_color_blend_factor")._native_ptr(), 3691288359);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_dst_color_blend_factor")._native_ptr(), 3691288359);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::BlendFactor(0)));
-	return (RenderingDevice::BlendFactor)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::BlendFactor)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineColorBlendStateAttachment::set_color_blend_op(RenderingDevice::BlendOperation p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_color_blend_op")._native_ptr(), 3073022720);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_color_blend_op")._native_ptr(), 3073022720);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::BlendOperation RDPipelineColorBlendStateAttachment::get_color_blend_op() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_color_blend_op")._native_ptr(), 1385093561);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_color_blend_op")._native_ptr(), 1385093561);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::BlendOperation(0)));
-	return (RenderingDevice::BlendOperation)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::BlendOperation)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineColorBlendStateAttachment::set_src_alpha_blend_factor(RenderingDevice::BlendFactor p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_src_alpha_blend_factor")._native_ptr(), 2251019273);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_src_alpha_blend_factor")._native_ptr(), 2251019273);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::BlendFactor RDPipelineColorBlendStateAttachment::get_src_alpha_blend_factor() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_src_alpha_blend_factor")._native_ptr(), 3691288359);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_src_alpha_blend_factor")._native_ptr(), 3691288359);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::BlendFactor(0)));
-	return (RenderingDevice::BlendFactor)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::BlendFactor)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineColorBlendStateAttachment::set_dst_alpha_blend_factor(RenderingDevice::BlendFactor p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_dst_alpha_blend_factor")._native_ptr(), 2251019273);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_dst_alpha_blend_factor")._native_ptr(), 2251019273);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::BlendFactor RDPipelineColorBlendStateAttachment::get_dst_alpha_blend_factor() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_dst_alpha_blend_factor")._native_ptr(), 3691288359);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_dst_alpha_blend_factor")._native_ptr(), 3691288359);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::BlendFactor(0)));
-	return (RenderingDevice::BlendFactor)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::BlendFactor)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineColorBlendStateAttachment::set_alpha_blend_op(RenderingDevice::BlendOperation p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_alpha_blend_op")._native_ptr(), 3073022720);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_alpha_blend_op")._native_ptr(), 3073022720);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_member_encoded;
 	PtrToArg<int64_t>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 RenderingDevice::BlendOperation RDPipelineColorBlendStateAttachment::get_alpha_blend_op() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_alpha_blend_op")._native_ptr(), 1385093561);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_alpha_blend_op")._native_ptr(), 1385093561);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingDevice::BlendOperation(0)));
-	return (RenderingDevice::BlendOperation)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (RenderingDevice::BlendOperation)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineColorBlendStateAttachment::set_write_r(bool p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_write_r")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_write_r")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_member_encoded;
 	PtrToArg<bool>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 bool RDPipelineColorBlendStateAttachment::get_write_r() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_write_r")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_write_r")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineColorBlendStateAttachment::set_write_g(bool p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_write_g")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_write_g")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_member_encoded;
 	PtrToArg<bool>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 bool RDPipelineColorBlendStateAttachment::get_write_g() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_write_g")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_write_g")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineColorBlendStateAttachment::set_write_b(bool p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_write_b")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_write_b")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_member_encoded;
 	PtrToArg<bool>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 bool RDPipelineColorBlendStateAttachment::get_write_b() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_write_b")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_write_b")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void RDPipelineColorBlendStateAttachment::set_write_a(bool p_member) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_write_a")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("set_write_a")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_member_encoded;
 	PtrToArg<bool>::encode(p_member, &p_member_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_encoded);
 }
 
 bool RDPipelineColorBlendStateAttachment::get_write_a() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_write_a")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDPipelineColorBlendStateAttachment::get_class_static()._native_ptr(), StringName("get_write_a")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

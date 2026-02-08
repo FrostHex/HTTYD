@@ -39,45 +39,45 @@
 namespace godot {
 
 void VisualShaderNodeCompare::set_comparison_type(VisualShaderNodeCompare::ComparisonType p_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("set_comparison_type")._native_ptr(), 516558320);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("set_comparison_type")._native_ptr(), 516558320);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_type_encoded;
 	PtrToArg<int64_t>::encode(p_type, &p_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded);
 }
 
 VisualShaderNodeCompare::ComparisonType VisualShaderNodeCompare::get_comparison_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("get_comparison_type")._native_ptr(), 3495315961);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("get_comparison_type")._native_ptr(), 3495315961);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeCompare::ComparisonType(0)));
-	return (VisualShaderNodeCompare::ComparisonType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeCompare::ComparisonType)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeCompare::set_function(VisualShaderNodeCompare::Function p_func) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("set_function")._native_ptr(), 2370951349);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("set_function")._native_ptr(), 2370951349);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_func_encoded;
 	PtrToArg<int64_t>::encode(p_func, &p_func_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_func_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_func_encoded);
 }
 
 VisualShaderNodeCompare::Function VisualShaderNodeCompare::get_function() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("get_function")._native_ptr(), 4089164265);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("get_function")._native_ptr(), 4089164265);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeCompare::Function(0)));
-	return (VisualShaderNodeCompare::Function)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeCompare::Function)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeCompare::set_condition(VisualShaderNodeCompare::Condition p_condition) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("set_condition")._native_ptr(), 918742392);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("set_condition")._native_ptr(), 918742392);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_condition_encoded;
 	PtrToArg<int64_t>::encode(p_condition, &p_condition_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_condition_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_condition_encoded);
 }
 
 VisualShaderNodeCompare::Condition VisualShaderNodeCompare::get_condition() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("get_condition")._native_ptr(), 3281078941);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeCompare::get_class_static()._native_ptr(), StringName("get_condition")._native_ptr(), 3281078941);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeCompare::Condition(0)));
-	return (VisualShaderNodeCompare::Condition)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeCompare::Condition)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -39,27 +39,27 @@
 namespace godot {
 
 void AudioEffectEQ::set_band_gain_db(int32_t p_band_idx, float p_volume_db) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectEQ::get_class_static()._native_ptr(), StringName("set_band_gain_db")._native_ptr(), 1602489585);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectEQ::get_class_static()._native_ptr(), StringName("set_band_gain_db")._native_ptr(), 1602489585);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_band_idx_encoded;
 	PtrToArg<int64_t>::encode(p_band_idx, &p_band_idx_encoded);
 	double p_volume_db_encoded;
 	PtrToArg<double>::encode(p_volume_db, &p_volume_db_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_band_idx_encoded, &p_volume_db_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_band_idx_encoded, &p_volume_db_encoded);
 }
 
 float AudioEffectEQ::get_band_gain_db(int32_t p_band_idx) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectEQ::get_class_static()._native_ptr(), StringName("get_band_gain_db")._native_ptr(), 2339986948);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectEQ::get_class_static()._native_ptr(), StringName("get_band_gain_db")._native_ptr(), 2339986948);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	int64_t p_band_idx_encoded;
 	PtrToArg<int64_t>::encode(p_band_idx, &p_band_idx_encoded);
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_band_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_band_idx_encoded);
 }
 
 int32_t AudioEffectEQ::get_band_count() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectEQ::get_class_static()._native_ptr(), StringName("get_band_count")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectEQ::get_class_static()._native_ptr(), StringName("get_band_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

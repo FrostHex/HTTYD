@@ -145,6 +145,10 @@ public:
 	bool is_system_menu() const;
 	void set_system_menu(NativeMenu::SystemMenus p_system_menu_id);
 	NativeMenu::SystemMenus get_system_menu() const;
+	void set_shrink_height(bool p_shrink);
+	bool get_shrink_height() const;
+	void set_shrink_width(bool p_shrink);
+	bool get_shrink_width() const;
 
 protected:
 	template <typename T, typename B>

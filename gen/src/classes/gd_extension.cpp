@@ -39,15 +39,15 @@
 namespace godot {
 
 bool GDExtension::is_library_open() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GDExtension::get_class_static()._native_ptr(), StringName("is_library_open")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GDExtension::get_class_static()._native_ptr(), StringName("is_library_open")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 GDExtension::InitializationLevel GDExtension::get_minimum_library_initialization_level() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GDExtension::get_class_static()._native_ptr(), StringName("get_minimum_library_initialization_level")._native_ptr(), 964858755);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GDExtension::get_class_static()._native_ptr(), StringName("get_minimum_library_initialization_level")._native_ptr(), 964858755);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (GDExtension::InitializationLevel(0)));
-	return (GDExtension::InitializationLevel)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (GDExtension::InitializationLevel)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

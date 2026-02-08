@@ -39,61 +39,61 @@
 namespace godot {
 
 void Joint2D::set_node_a(const NodePath &p_node) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("set_node_a")._native_ptr(), 1348162250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("set_node_a")._native_ptr(), 1348162250);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_node);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_node);
 }
 
 NodePath Joint2D::get_node_a() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("get_node_a")._native_ptr(), 4075236667);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("get_node_a")._native_ptr(), 4075236667);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
 }
 
 void Joint2D::set_node_b(const NodePath &p_node) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("set_node_b")._native_ptr(), 1348162250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("set_node_b")._native_ptr(), 1348162250);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_node);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_node);
 }
 
 NodePath Joint2D::get_node_b() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("get_node_b")._native_ptr(), 4075236667);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("get_node_b")._native_ptr(), 4075236667);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
 }
 
 void Joint2D::set_bias(float p_bias) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("set_bias")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("set_bias")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_bias_encoded;
 	PtrToArg<double>::encode(p_bias, &p_bias_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bias_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bias_encoded);
 }
 
 float Joint2D::get_bias() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("get_bias")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("get_bias")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void Joint2D::set_exclude_nodes_from_collision(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("set_exclude_nodes_from_collision")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("set_exclude_nodes_from_collision")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool Joint2D::get_exclude_nodes_from_collision() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("get_exclude_nodes_from_collision")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("get_exclude_nodes_from_collision")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 RID Joint2D::get_rid() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("get_rid")._native_ptr(), 2944877500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Joint2D::get_class_static()._native_ptr(), StringName("get_rid")._native_ptr(), 2944877500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

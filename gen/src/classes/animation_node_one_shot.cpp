@@ -41,125 +41,139 @@
 namespace godot {
 
 void AnimationNodeOneShot::set_fadein_time(double p_time) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_fadein_time")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_fadein_time")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_time_encoded;
 	PtrToArg<double>::encode(p_time, &p_time_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_encoded);
 }
 
 double AnimationNodeOneShot::get_fadein_time() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_fadein_time")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_fadein_time")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeOneShot::set_fadein_curve(const Ref<Curve> &p_curve) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_fadein_curve")._native_ptr(), 270443179);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_fadein_curve")._native_ptr(), 270443179);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
 }
 
 Ref<Curve> AnimationNodeOneShot::get_fadein_curve() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_fadein_curve")._native_ptr(), 2460114913);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_fadein_curve")._native_ptr(), 2460114913);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Curve>()));
-	return Ref<Curve>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Curve>(_gde_method_bind, _owner));
+	return Ref<Curve>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Curve>(_gde_method_bind, _owner));
 }
 
 void AnimationNodeOneShot::set_fadeout_time(double p_time) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_fadeout_time")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_fadeout_time")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_time_encoded;
 	PtrToArg<double>::encode(p_time, &p_time_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_encoded);
 }
 
 double AnimationNodeOneShot::get_fadeout_time() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_fadeout_time")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_fadeout_time")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeOneShot::set_fadeout_curve(const Ref<Curve> &p_curve) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_fadeout_curve")._native_ptr(), 270443179);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_fadeout_curve")._native_ptr(), 270443179);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
 }
 
 Ref<Curve> AnimationNodeOneShot::get_fadeout_curve() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_fadeout_curve")._native_ptr(), 2460114913);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_fadeout_curve")._native_ptr(), 2460114913);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Curve>()));
-	return Ref<Curve>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Curve>(_gde_method_bind, _owner));
+	return Ref<Curve>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Curve>(_gde_method_bind, _owner));
 }
 
 void AnimationNodeOneShot::set_break_loop_at_end(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_break_loop_at_end")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_break_loop_at_end")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool AnimationNodeOneShot::is_loop_broken_at_end() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("is_loop_broken_at_end")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("is_loop_broken_at_end")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void AnimationNodeOneShot::set_abort_on_reset(bool p_enable) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_abort_on_reset")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enable_encoded;
+	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+}
+
+bool AnimationNodeOneShot::is_aborted_on_reset() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("is_aborted_on_reset")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeOneShot::set_autorestart(bool p_active) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_autorestart")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_autorestart")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_active_encoded;
 	PtrToArg<bool>::encode(p_active, &p_active_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_active_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_active_encoded);
 }
 
 bool AnimationNodeOneShot::has_autorestart() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("has_autorestart")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("has_autorestart")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeOneShot::set_autorestart_delay(double p_time) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_autorestart_delay")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_autorestart_delay")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_time_encoded;
 	PtrToArg<double>::encode(p_time, &p_time_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_encoded);
 }
 
 double AnimationNodeOneShot::get_autorestart_delay() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_autorestart_delay")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_autorestart_delay")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeOneShot::set_autorestart_random_delay(double p_time) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_autorestart_random_delay")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_autorestart_random_delay")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_time_encoded;
 	PtrToArg<double>::encode(p_time, &p_time_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_encoded);
 }
 
 double AnimationNodeOneShot::get_autorestart_random_delay() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_autorestart_random_delay")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_autorestart_random_delay")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeOneShot::set_mix_mode(AnimationNodeOneShot::MixMode p_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_mix_mode")._native_ptr(), 1018899799);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("set_mix_mode")._native_ptr(), 1018899799);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
 }
 
 AnimationNodeOneShot::MixMode AnimationNodeOneShot::get_mix_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_mix_mode")._native_ptr(), 3076550526);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeOneShot::get_class_static()._native_ptr(), StringName("get_mix_mode")._native_ptr(), 3076550526);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AnimationNodeOneShot::MixMode(0)));
-	return (AnimationNodeOneShot::MixMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AnimationNodeOneShot::MixMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

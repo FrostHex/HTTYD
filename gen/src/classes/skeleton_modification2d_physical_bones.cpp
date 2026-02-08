@@ -39,51 +39,51 @@
 namespace godot {
 
 void SkeletonModification2DPhysicalBones::set_physical_bone_chain_length(int32_t p_length) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("set_physical_bone_chain_length")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("set_physical_bone_chain_length")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_length_encoded;
 	PtrToArg<int64_t>::encode(p_length, &p_length_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_length_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_length_encoded);
 }
 
 int32_t SkeletonModification2DPhysicalBones::get_physical_bone_chain_length() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("get_physical_bone_chain_length")._native_ptr(), 2455072627);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("get_physical_bone_chain_length")._native_ptr(), 2455072627);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void SkeletonModification2DPhysicalBones::set_physical_bone_node(int32_t p_joint_idx, const NodePath &p_physicalbone2d_node) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("set_physical_bone_node")._native_ptr(), 2761262315);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("set_physical_bone_node")._native_ptr(), 2761262315);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_joint_idx_encoded;
 	PtrToArg<int64_t>::encode(p_joint_idx, &p_joint_idx_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_idx_encoded, &p_physicalbone2d_node);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_idx_encoded, &p_physicalbone2d_node);
 }
 
 NodePath SkeletonModification2DPhysicalBones::get_physical_bone_node(int32_t p_joint_idx) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("get_physical_bone_node")._native_ptr(), 408788394);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("get_physical_bone_node")._native_ptr(), 408788394);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
 	int64_t p_joint_idx_encoded;
 	PtrToArg<int64_t>::encode(p_joint_idx, &p_joint_idx_encoded);
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner, &p_joint_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner, &p_joint_idx_encoded);
 }
 
 void SkeletonModification2DPhysicalBones::fetch_physical_bones() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("fetch_physical_bones")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("fetch_physical_bones")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void SkeletonModification2DPhysicalBones::start_simulation(const TypedArray<StringName> &p_bones) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("start_simulation")._native_ptr(), 2787316981);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("start_simulation")._native_ptr(), 2787316981);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bones);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bones);
 }
 
 void SkeletonModification2DPhysicalBones::stop_simulation(const TypedArray<StringName> &p_bones) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("stop_simulation")._native_ptr(), 2787316981);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DPhysicalBones::get_class_static()._native_ptr(), StringName("stop_simulation")._native_ptr(), 2787316981);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bones);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bones);
 }
 
 } // namespace godot

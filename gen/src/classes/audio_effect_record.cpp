@@ -39,37 +39,37 @@
 namespace godot {
 
 void AudioEffectRecord::set_recording_active(bool p_record) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectRecord::get_class_static()._native_ptr(), StringName("set_recording_active")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectRecord::get_class_static()._native_ptr(), StringName("set_recording_active")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_record_encoded;
 	PtrToArg<bool>::encode(p_record, &p_record_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_record_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_record_encoded);
 }
 
 bool AudioEffectRecord::is_recording_active() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectRecord::get_class_static()._native_ptr(), StringName("is_recording_active")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectRecord::get_class_static()._native_ptr(), StringName("is_recording_active")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void AudioEffectRecord::set_format(AudioStreamWAV::Format p_format) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectRecord::get_class_static()._native_ptr(), StringName("set_format")._native_ptr(), 60648488);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectRecord::get_class_static()._native_ptr(), StringName("set_format")._native_ptr(), 60648488);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_format_encoded;
 	PtrToArg<int64_t>::encode(p_format, &p_format_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_format_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_format_encoded);
 }
 
 AudioStreamWAV::Format AudioEffectRecord::get_format() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectRecord::get_class_static()._native_ptr(), StringName("get_format")._native_ptr(), 3151724922);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectRecord::get_class_static()._native_ptr(), StringName("get_format")._native_ptr(), 3151724922);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AudioStreamWAV::Format(0)));
-	return (AudioStreamWAV::Format)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AudioStreamWAV::Format)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Ref<AudioStreamWAV> AudioEffectRecord::get_recording() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectRecord::get_class_static()._native_ptr(), StringName("get_recording")._native_ptr(), 2964110865);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectRecord::get_class_static()._native_ptr(), StringName("get_recording")._native_ptr(), 2964110865);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<AudioStreamWAV>()));
-	return Ref<AudioStreamWAV>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<AudioStreamWAV>(_gde_method_bind, _owner));
+	return Ref<AudioStreamWAV>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<AudioStreamWAV>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

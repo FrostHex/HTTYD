@@ -42,15 +42,15 @@
 namespace godot {
 
 void ImageFormatLoaderExtension::add_format_loader() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImageFormatLoaderExtension::get_class_static()._native_ptr(), StringName("add_format_loader")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImageFormatLoaderExtension::get_class_static()._native_ptr(), StringName("add_format_loader")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void ImageFormatLoaderExtension::remove_format_loader() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImageFormatLoaderExtension::get_class_static()._native_ptr(), StringName("remove_format_loader")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImageFormatLoaderExtension::get_class_static()._native_ptr(), StringName("remove_format_loader")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 PackedStringArray ImageFormatLoaderExtension::_get_recognized_extensions() const {

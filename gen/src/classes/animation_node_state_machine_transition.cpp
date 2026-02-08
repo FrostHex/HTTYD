@@ -41,123 +41,123 @@
 namespace godot {
 
 void AnimationNodeStateMachineTransition::set_switch_mode(AnimationNodeStateMachineTransition::SwitchMode p_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_switch_mode")._native_ptr(), 2074906633);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_switch_mode")._native_ptr(), 2074906633);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
 }
 
 AnimationNodeStateMachineTransition::SwitchMode AnimationNodeStateMachineTransition::get_switch_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_switch_mode")._native_ptr(), 2138562085);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_switch_mode")._native_ptr(), 2138562085);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AnimationNodeStateMachineTransition::SwitchMode(0)));
-	return (AnimationNodeStateMachineTransition::SwitchMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AnimationNodeStateMachineTransition::SwitchMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeStateMachineTransition::set_advance_mode(AnimationNodeStateMachineTransition::AdvanceMode p_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_advance_mode")._native_ptr(), 1210869868);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_advance_mode")._native_ptr(), 1210869868);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
 }
 
 AnimationNodeStateMachineTransition::AdvanceMode AnimationNodeStateMachineTransition::get_advance_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_advance_mode")._native_ptr(), 61101689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_advance_mode")._native_ptr(), 61101689);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AnimationNodeStateMachineTransition::AdvanceMode(0)));
-	return (AnimationNodeStateMachineTransition::AdvanceMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AnimationNodeStateMachineTransition::AdvanceMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeStateMachineTransition::set_advance_condition(const StringName &p_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_advance_condition")._native_ptr(), 3304788590);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_advance_condition")._native_ptr(), 3304788590);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
 }
 
 StringName AnimationNodeStateMachineTransition::get_advance_condition() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_advance_condition")._native_ptr(), 2002593661);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_advance_condition")._native_ptr(), 2002593661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
-	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeStateMachineTransition::set_xfade_time(float p_secs) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_xfade_time")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_xfade_time")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_secs_encoded;
 	PtrToArg<double>::encode(p_secs, &p_secs_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_secs_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_secs_encoded);
 }
 
 float AnimationNodeStateMachineTransition::get_xfade_time() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_xfade_time")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_xfade_time")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeStateMachineTransition::set_xfade_curve(const Ref<Curve> &p_curve) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_xfade_curve")._native_ptr(), 270443179);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_xfade_curve")._native_ptr(), 270443179);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_curve != nullptr ? &p_curve->_owner : nullptr));
 }
 
 Ref<Curve> AnimationNodeStateMachineTransition::get_xfade_curve() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_xfade_curve")._native_ptr(), 2460114913);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_xfade_curve")._native_ptr(), 2460114913);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Curve>()));
-	return Ref<Curve>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Curve>(_gde_method_bind, _owner));
+	return Ref<Curve>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Curve>(_gde_method_bind, _owner));
 }
 
 void AnimationNodeStateMachineTransition::set_break_loop_at_end(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_break_loop_at_end")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_break_loop_at_end")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool AnimationNodeStateMachineTransition::is_loop_broken_at_end() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("is_loop_broken_at_end")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("is_loop_broken_at_end")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeStateMachineTransition::set_reset(bool p_reset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_reset")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_reset")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_reset_encoded;
 	PtrToArg<bool>::encode(p_reset, &p_reset_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_reset_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_reset_encoded);
 }
 
 bool AnimationNodeStateMachineTransition::is_reset() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("is_reset")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("is_reset")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeStateMachineTransition::set_priority(int32_t p_priority) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_priority")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_priority")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_priority_encoded;
 	PtrToArg<int64_t>::encode(p_priority, &p_priority_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_priority_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_priority_encoded);
 }
 
 int32_t AnimationNodeStateMachineTransition::get_priority() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_priority")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_priority")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void AnimationNodeStateMachineTransition::set_advance_expression(const String &p_text) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_advance_expression")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("set_advance_expression")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_text);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_text);
 }
 
 String AnimationNodeStateMachineTransition::get_advance_expression() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_advance_expression")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeStateMachineTransition::get_class_static()._native_ptr(), StringName("get_advance_expression")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

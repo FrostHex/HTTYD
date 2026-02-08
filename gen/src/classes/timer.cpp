@@ -39,113 +39,113 @@
 namespace godot {
 
 void Timer::set_wait_time(double p_time_sec) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_wait_time")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_wait_time")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_time_sec_encoded;
 	PtrToArg<double>::encode(p_time_sec, &p_time_sec_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_sec_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_sec_encoded);
 }
 
 double Timer::get_wait_time() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("get_wait_time")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("get_wait_time")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void Timer::set_one_shot(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_one_shot")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_one_shot")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool Timer::is_one_shot() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("is_one_shot")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("is_one_shot")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void Timer::set_autostart(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_autostart")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_autostart")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool Timer::has_autostart() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("has_autostart")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("has_autostart")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void Timer::start(double p_time_sec) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("start")._native_ptr(), 1392008558);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("start")._native_ptr(), 1392008558);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_time_sec_encoded;
 	PtrToArg<double>::encode(p_time_sec, &p_time_sec_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_sec_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_sec_encoded);
 }
 
 void Timer::stop() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("stop")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("stop")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void Timer::set_paused(bool p_paused) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_paused")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_paused")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_paused_encoded;
 	PtrToArg<bool>::encode(p_paused, &p_paused_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_paused_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_paused_encoded);
 }
 
 bool Timer::is_paused() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("is_paused")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("is_paused")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void Timer::set_ignore_time_scale(bool p_ignore) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_ignore_time_scale")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_ignore_time_scale")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_ignore_encoded;
 	PtrToArg<bool>::encode(p_ignore, &p_ignore_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_ignore_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_ignore_encoded);
 }
 
 bool Timer::is_ignoring_time_scale() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("is_ignoring_time_scale")._native_ptr(), 2240911060);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("is_ignoring_time_scale")._native_ptr(), 2240911060);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 bool Timer::is_stopped() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("is_stopped")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("is_stopped")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 double Timer::get_time_left() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("get_time_left")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("get_time_left")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void Timer::set_timer_process_callback(Timer::TimerProcessCallback p_callback) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_timer_process_callback")._native_ptr(), 3469495063);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("set_timer_process_callback")._native_ptr(), 3469495063);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_callback_encoded;
 	PtrToArg<int64_t>::encode(p_callback, &p_callback_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_callback_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_callback_encoded);
 }
 
 Timer::TimerProcessCallback Timer::get_timer_process_callback() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("get_timer_process_callback")._native_ptr(), 2672570227);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Timer::get_class_static()._native_ptr(), StringName("get_timer_process_callback")._native_ptr(), 2672570227);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Timer::TimerProcessCallback(0)));
-	return (Timer::TimerProcessCallback)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Timer::TimerProcessCallback)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

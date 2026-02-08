@@ -39,17 +39,17 @@
 namespace godot {
 
 void GridContainer::set_columns(int32_t p_columns) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GridContainer::get_class_static()._native_ptr(), StringName("set_columns")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridContainer::get_class_static()._native_ptr(), StringName("set_columns")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_columns_encoded;
 	PtrToArg<int64_t>::encode(p_columns, &p_columns_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_columns_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_columns_encoded);
 }
 
 int32_t GridContainer::get_columns() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GridContainer::get_class_static()._native_ptr(), StringName("get_columns")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridContainer::get_class_static()._native_ptr(), StringName("get_columns")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

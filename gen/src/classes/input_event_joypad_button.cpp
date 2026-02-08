@@ -39,39 +39,39 @@
 namespace godot {
 
 void InputEventJoypadButton::set_button_index(JoyButton p_button_index) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventJoypadButton::get_class_static()._native_ptr(), StringName("set_button_index")._native_ptr(), 1466368136);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventJoypadButton::get_class_static()._native_ptr(), StringName("set_button_index")._native_ptr(), 1466368136);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_button_index_encoded;
 	PtrToArg<int64_t>::encode(p_button_index, &p_button_index_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_button_index_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_button_index_encoded);
 }
 
 JoyButton InputEventJoypadButton::get_button_index() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventJoypadButton::get_class_static()._native_ptr(), StringName("get_button_index")._native_ptr(), 595588182);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventJoypadButton::get_class_static()._native_ptr(), StringName("get_button_index")._native_ptr(), 595588182);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (JoyButton(0)));
-	return (JoyButton)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (JoyButton)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void InputEventJoypadButton::set_pressure(float p_pressure) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventJoypadButton::get_class_static()._native_ptr(), StringName("set_pressure")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventJoypadButton::get_class_static()._native_ptr(), StringName("set_pressure")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_pressure_encoded;
 	PtrToArg<double>::encode(p_pressure, &p_pressure_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pressure_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pressure_encoded);
 }
 
 float InputEventJoypadButton::get_pressure() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventJoypadButton::get_class_static()._native_ptr(), StringName("get_pressure")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventJoypadButton::get_class_static()._native_ptr(), StringName("get_pressure")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void InputEventJoypadButton::set_pressed(bool p_pressed) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventJoypadButton::get_class_static()._native_ptr(), StringName("set_pressed")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventJoypadButton::get_class_static()._native_ptr(), StringName("set_pressed")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_pressed_encoded;
 	PtrToArg<bool>::encode(p_pressed, &p_pressed_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pressed_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pressed_encoded);
 }
 
 } // namespace godot

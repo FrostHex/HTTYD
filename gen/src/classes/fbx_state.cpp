@@ -39,17 +39,17 @@
 namespace godot {
 
 bool FBXState::get_allow_geometry_helper_nodes() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FBXState::get_class_static()._native_ptr(), StringName("get_allow_geometry_helper_nodes")._native_ptr(), 2240911060);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FBXState::get_class_static()._native_ptr(), StringName("get_allow_geometry_helper_nodes")._native_ptr(), 2240911060);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void FBXState::set_allow_geometry_helper_nodes(bool p_allow) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FBXState::get_class_static()._native_ptr(), StringName("set_allow_geometry_helper_nodes")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FBXState::get_class_static()._native_ptr(), StringName("set_allow_geometry_helper_nodes")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_allow_encoded;
 	PtrToArg<bool>::encode(p_allow, &p_allow_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_allow_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_allow_encoded);
 }
 
 } // namespace godot

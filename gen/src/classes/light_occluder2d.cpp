@@ -41,43 +41,43 @@
 namespace godot {
 
 void LightOccluder2D::set_occluder_polygon(const Ref<OccluderPolygon2D> &p_polygon) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("set_occluder_polygon")._native_ptr(), 3258315893);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("set_occluder_polygon")._native_ptr(), 3258315893);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_polygon != nullptr ? &p_polygon->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_polygon != nullptr ? &p_polygon->_owner : nullptr));
 }
 
 Ref<OccluderPolygon2D> LightOccluder2D::get_occluder_polygon() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("get_occluder_polygon")._native_ptr(), 3962317075);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("get_occluder_polygon")._native_ptr(), 3962317075);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OccluderPolygon2D>()));
-	return Ref<OccluderPolygon2D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<OccluderPolygon2D>(_gde_method_bind, _owner));
+	return Ref<OccluderPolygon2D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OccluderPolygon2D>(_gde_method_bind, _owner));
 }
 
 void LightOccluder2D::set_occluder_light_mask(int32_t p_mask) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("set_occluder_light_mask")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("set_occluder_light_mask")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mask_encoded;
 	PtrToArg<int64_t>::encode(p_mask, &p_mask_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mask_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mask_encoded);
 }
 
 int32_t LightOccluder2D::get_occluder_light_mask() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("get_occluder_light_mask")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("get_occluder_light_mask")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void LightOccluder2D::set_as_sdf_collision(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("set_as_sdf_collision")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("set_as_sdf_collision")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool LightOccluder2D::is_set_as_sdf_collision() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("is_set_as_sdf_collision")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(LightOccluder2D::get_class_static()._native_ptr(), StringName("is_set_as_sdf_collision")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

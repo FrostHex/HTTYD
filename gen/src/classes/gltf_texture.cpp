@@ -39,31 +39,31 @@
 namespace godot {
 
 int32_t GLTFTexture::get_src_image() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFTexture::get_class_static()._native_ptr(), StringName("get_src_image")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFTexture::get_class_static()._native_ptr(), StringName("get_src_image")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFTexture::set_src_image(int32_t p_src_image) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFTexture::get_class_static()._native_ptr(), StringName("set_src_image")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFTexture::get_class_static()._native_ptr(), StringName("set_src_image")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_src_image_encoded;
 	PtrToArg<int64_t>::encode(p_src_image, &p_src_image_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_src_image_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_src_image_encoded);
 }
 
 int32_t GLTFTexture::get_sampler() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFTexture::get_class_static()._native_ptr(), StringName("get_sampler")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFTexture::get_class_static()._native_ptr(), StringName("get_sampler")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFTexture::set_sampler(int32_t p_sampler) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFTexture::get_class_static()._native_ptr(), StringName("set_sampler")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFTexture::get_class_static()._native_ptr(), StringName("set_sampler")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sampler_encoded;
 	PtrToArg<int64_t>::encode(p_sampler, &p_sampler_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sampler_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sampler_encoded);
 }
 
 } // namespace godot

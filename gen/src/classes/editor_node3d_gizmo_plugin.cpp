@@ -45,7 +45,7 @@
 namespace godot {
 
 void EditorNode3DGizmoPlugin::create_material(const String &p_name, const Color &p_color, bool p_billboard, bool p_on_top, bool p_use_vertex_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorNode3DGizmoPlugin::get_class_static()._native_ptr(), StringName("create_material")._native_ptr(), 3486012546);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorNode3DGizmoPlugin::get_class_static()._native_ptr(), StringName("create_material")._native_ptr(), 3486012546);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_billboard_encoded;
 	PtrToArg<bool>::encode(p_billboard, &p_billboard_encoded);
@@ -53,35 +53,35 @@ void EditorNode3DGizmoPlugin::create_material(const String &p_name, const Color 
 	PtrToArg<bool>::encode(p_on_top, &p_on_top_encoded);
 	int8_t p_use_vertex_color_encoded;
 	PtrToArg<bool>::encode(p_use_vertex_color, &p_use_vertex_color_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_color, &p_billboard_encoded, &p_on_top_encoded, &p_use_vertex_color_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_color, &p_billboard_encoded, &p_on_top_encoded, &p_use_vertex_color_encoded);
 }
 
 void EditorNode3DGizmoPlugin::create_icon_material(const String &p_name, const Ref<Texture2D> &p_texture, bool p_on_top, const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorNode3DGizmoPlugin::get_class_static()._native_ptr(), StringName("create_icon_material")._native_ptr(), 3804976916);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorNode3DGizmoPlugin::get_class_static()._native_ptr(), StringName("create_icon_material")._native_ptr(), 3804976916);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_on_top_encoded;
 	PtrToArg<bool>::encode(p_on_top, &p_on_top_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, (p_texture != nullptr ? &p_texture->_owner : nullptr), &p_on_top_encoded, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, (p_texture != nullptr ? &p_texture->_owner : nullptr), &p_on_top_encoded, &p_color);
 }
 
 void EditorNode3DGizmoPlugin::create_handle_material(const String &p_name, bool p_billboard, const Ref<Texture2D> &p_texture) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorNode3DGizmoPlugin::get_class_static()._native_ptr(), StringName("create_handle_material")._native_ptr(), 2486475223);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorNode3DGizmoPlugin::get_class_static()._native_ptr(), StringName("create_handle_material")._native_ptr(), 2486475223);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_billboard_encoded;
 	PtrToArg<bool>::encode(p_billboard, &p_billboard_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_billboard_encoded, (p_texture != nullptr ? &p_texture->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_billboard_encoded, (p_texture != nullptr ? &p_texture->_owner : nullptr));
 }
 
 void EditorNode3DGizmoPlugin::add_material(const String &p_name, const Ref<StandardMaterial3D> &p_material) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorNode3DGizmoPlugin::get_class_static()._native_ptr(), StringName("add_material")._native_ptr(), 1374068695);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorNode3DGizmoPlugin::get_class_static()._native_ptr(), StringName("add_material")._native_ptr(), 1374068695);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, (p_material != nullptr ? &p_material->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, (p_material != nullptr ? &p_material->_owner : nullptr));
 }
 
 Ref<StandardMaterial3D> EditorNode3DGizmoPlugin::get_material(const String &p_name, const Ref<EditorNode3DGizmo> &p_gizmo) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorNode3DGizmoPlugin::get_class_static()._native_ptr(), StringName("get_material")._native_ptr(), 974464017);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorNode3DGizmoPlugin::get_class_static()._native_ptr(), StringName("get_material")._native_ptr(), 974464017);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<StandardMaterial3D>()));
-	return Ref<StandardMaterial3D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<StandardMaterial3D>(_gde_method_bind, _owner, &p_name, (p_gizmo != nullptr ? &p_gizmo->_owner : nullptr)));
+	return Ref<StandardMaterial3D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<StandardMaterial3D>(_gde_method_bind, _owner, &p_name, (p_gizmo != nullptr ? &p_gizmo->_owner : nullptr)));
 }
 
 bool EditorNode3DGizmoPlugin::_has_gizmo(Node3D *p_for_node_3d) const {

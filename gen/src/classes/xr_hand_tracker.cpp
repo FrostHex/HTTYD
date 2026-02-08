@@ -39,113 +39,113 @@
 namespace godot {
 
 void XRHandTracker::set_has_tracking_data(bool p_has_data) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_has_tracking_data")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_has_tracking_data")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_has_data_encoded;
 	PtrToArg<bool>::encode(p_has_data, &p_has_data_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_has_data_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_has_data_encoded);
 }
 
 bool XRHandTracker::get_has_tracking_data() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_has_tracking_data")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_has_tracking_data")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void XRHandTracker::set_hand_tracking_source(XRHandTracker::HandTrackingSource p_source) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_tracking_source")._native_ptr(), 2958308861);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_tracking_source")._native_ptr(), 2958308861);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_source_encoded;
 	PtrToArg<int64_t>::encode(p_source, &p_source_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_source_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_source_encoded);
 }
 
 XRHandTracker::HandTrackingSource XRHandTracker::get_hand_tracking_source() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_tracking_source")._native_ptr(), 2475045250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_tracking_source")._native_ptr(), 2475045250);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (XRHandTracker::HandTrackingSource(0)));
-	return (XRHandTracker::HandTrackingSource)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (XRHandTracker::HandTrackingSource)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void XRHandTracker::set_hand_joint_flags(XRHandTracker::HandJoint p_joint, BitField<XRHandTracker::HandJointFlags> p_flags) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_joint_flags")._native_ptr(), 3028437365);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_joint_flags")._native_ptr(), 3028437365);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_flags);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_flags);
 }
 
 BitField<XRHandTracker::HandJointFlags> XRHandTracker::get_hand_joint_flags(XRHandTracker::HandJoint p_joint) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_joint_flags")._native_ptr(), 1730972401);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_joint_flags")._native_ptr(), 1730972401);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (BitField<XRHandTracker::HandJointFlags>(0)));
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	return (int64_t)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_joint_encoded);
+	return (int64_t)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_joint_encoded);
 }
 
 void XRHandTracker::set_hand_joint_transform(XRHandTracker::HandJoint p_joint, const Transform3D &p_transform) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_joint_transform")._native_ptr(), 2529959613);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_joint_transform")._native_ptr(), 2529959613);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_transform);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_transform);
 }
 
 Transform3D XRHandTracker::get_hand_joint_transform(XRHandTracker::HandJoint p_joint) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_joint_transform")._native_ptr(), 1090840196);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_joint_transform")._native_ptr(), 1090840196);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Transform3D()));
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	return internal::_call_native_mb_ret<Transform3D>(_gde_method_bind, _owner, &p_joint_encoded);
+	return ::godot::internal::_call_native_mb_ret<Transform3D>(_gde_method_bind, _owner, &p_joint_encoded);
 }
 
 void XRHandTracker::set_hand_joint_radius(XRHandTracker::HandJoint p_joint, float p_radius) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_joint_radius")._native_ptr(), 2723659615);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_joint_radius")._native_ptr(), 2723659615);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
 	double p_radius_encoded;
 	PtrToArg<double>::encode(p_radius, &p_radius_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_radius_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_radius_encoded);
 }
 
 float XRHandTracker::get_hand_joint_radius(XRHandTracker::HandJoint p_joint) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_joint_radius")._native_ptr(), 3400025734);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_joint_radius")._native_ptr(), 3400025734);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_joint_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_joint_encoded);
 }
 
 void XRHandTracker::set_hand_joint_linear_velocity(XRHandTracker::HandJoint p_joint, const Vector3 &p_linear_velocity) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_joint_linear_velocity")._native_ptr(), 1978646737);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_joint_linear_velocity")._native_ptr(), 1978646737);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_linear_velocity);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_linear_velocity);
 }
 
 Vector3 XRHandTracker::get_hand_joint_linear_velocity(XRHandTracker::HandJoint p_joint) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_joint_linear_velocity")._native_ptr(), 547240792);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_joint_linear_velocity")._native_ptr(), 547240792);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	return internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner, &p_joint_encoded);
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner, &p_joint_encoded);
 }
 
 void XRHandTracker::set_hand_joint_angular_velocity(XRHandTracker::HandJoint p_joint, const Vector3 &p_angular_velocity) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_joint_angular_velocity")._native_ptr(), 1978646737);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("set_hand_joint_angular_velocity")._native_ptr(), 1978646737);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_angular_velocity);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joint_encoded, &p_angular_velocity);
 }
 
 Vector3 XRHandTracker::get_hand_joint_angular_velocity(XRHandTracker::HandJoint p_joint) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_joint_angular_velocity")._native_ptr(), 547240792);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRHandTracker::get_class_static()._native_ptr(), StringName("get_hand_joint_angular_velocity")._native_ptr(), 547240792);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
 	int64_t p_joint_encoded;
 	PtrToArg<int64_t>::encode(p_joint, &p_joint_encoded);
-	return internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner, &p_joint_encoded);
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner, &p_joint_encoded);
 }
 
 } // namespace godot

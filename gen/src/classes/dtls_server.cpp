@@ -43,15 +43,15 @@
 namespace godot {
 
 Error DTLSServer::setup(const Ref<TLSOptions> &p_server_options) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DTLSServer::get_class_static()._native_ptr(), StringName("setup")._native_ptr(), 1262296096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DTLSServer::get_class_static()._native_ptr(), StringName("setup")._native_ptr(), 1262296096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_server_options != nullptr ? &p_server_options->_owner : nullptr));
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_server_options != nullptr ? &p_server_options->_owner : nullptr));
 }
 
 Ref<PacketPeerDTLS> DTLSServer::take_connection(const Ref<PacketPeerUDP> &p_udp_peer) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DTLSServer::get_class_static()._native_ptr(), StringName("take_connection")._native_ptr(), 3946580474);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DTLSServer::get_class_static()._native_ptr(), StringName("take_connection")._native_ptr(), 3946580474);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<PacketPeerDTLS>()));
-	return Ref<PacketPeerDTLS>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<PacketPeerDTLS>(_gde_method_bind, _owner, (p_udp_peer != nullptr ? &p_udp_peer->_owner : nullptr)));
+	return Ref<PacketPeerDTLS>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<PacketPeerDTLS>(_gde_method_bind, _owner, (p_udp_peer != nullptr ? &p_udp_peer->_owner : nullptr)));
 }
 
 } // namespace godot

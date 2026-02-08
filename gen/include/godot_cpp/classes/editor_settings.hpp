@@ -46,6 +46,7 @@ namespace godot {
 
 class Dictionary;
 class InputEvent;
+class Shortcut;
 class String;
 class StringName;
 
@@ -68,6 +69,12 @@ public:
 	void set_recent_dirs(const PackedStringArray &p_dirs);
 	PackedStringArray get_recent_dirs() const;
 	void set_builtin_action_override(const String &p_name, const TypedArray<Ref<InputEvent>> &p_actions_list);
+	void add_shortcut(const String &p_path, const Ref<Shortcut> &p_shortcut);
+	void remove_shortcut(const String &p_path);
+	bool is_shortcut(const String &p_path, const Ref<InputEvent> &p_event) const;
+	bool has_shortcut(const String &p_path) const;
+	Ref<Shortcut> get_shortcut(const String &p_path) const;
+	PackedStringArray get_shortcut_list();
 	bool check_changed_settings_in_group(const String &p_setting_prefix) const;
 	PackedStringArray get_changed_settings() const;
 	void mark_setting_changed(const String &p_setting);

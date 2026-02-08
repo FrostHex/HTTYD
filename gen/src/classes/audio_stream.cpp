@@ -42,39 +42,39 @@
 namespace godot {
 
 double AudioStream::get_length() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("get_length")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("get_length")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 bool AudioStream::is_monophonic() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("is_monophonic")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("is_monophonic")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 Ref<AudioStreamPlayback> AudioStream::instantiate_playback() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("instantiate_playback")._native_ptr(), 210135309);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("instantiate_playback")._native_ptr(), 210135309);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<AudioStreamPlayback>()));
-	return Ref<AudioStreamPlayback>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<AudioStreamPlayback>(_gde_method_bind, _owner));
+	return Ref<AudioStreamPlayback>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<AudioStreamPlayback>(_gde_method_bind, _owner));
 }
 
 bool AudioStream::can_be_sampled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("can_be_sampled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("can_be_sampled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 Ref<AudioSample> AudioStream::generate_sample() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("generate_sample")._native_ptr(), 2646048999);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("generate_sample")._native_ptr(), 2646048999);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<AudioSample>()));
-	return Ref<AudioSample>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<AudioSample>(_gde_method_bind, _owner));
+	return Ref<AudioSample>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<AudioSample>(_gde_method_bind, _owner));
 }
 
 bool AudioStream::is_meta_stream() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("is_meta_stream")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStream::get_class_static()._native_ptr(), StringName("is_meta_stream")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 Ref<AudioStreamPlayback> AudioStream::_instantiate_playback() const {

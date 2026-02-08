@@ -58,6 +58,8 @@ public:
 	PackedStringArray get_message_list() const;
 	PackedStringArray get_translated_message_list() const;
 	int32_t get_message_count() const;
+	void set_plural_rules_override(const String &p_rules);
+	String get_plural_rules_override() const;
 	virtual StringName _get_plural_message(const StringName &p_src_message, const StringName &p_src_plural_message, int32_t p_n, const StringName &p_context) const;
 	virtual StringName _get_message(const StringName &p_src_message, const StringName &p_context) const;
 

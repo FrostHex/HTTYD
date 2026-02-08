@@ -39,45 +39,45 @@
 namespace godot {
 
 void AudioStreamGenerator::set_mix_rate(float p_hz) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("set_mix_rate")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("set_mix_rate")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_hz_encoded;
 	PtrToArg<double>::encode(p_hz, &p_hz_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_hz_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_hz_encoded);
 }
 
 float AudioStreamGenerator::get_mix_rate() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("get_mix_rate")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("get_mix_rate")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AudioStreamGenerator::set_mix_rate_mode(AudioStreamGenerator::AudioStreamGeneratorMixRate p_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("set_mix_rate_mode")._native_ptr(), 3354885803);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("set_mix_rate_mode")._native_ptr(), 3354885803);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
 }
 
 AudioStreamGenerator::AudioStreamGeneratorMixRate AudioStreamGenerator::get_mix_rate_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("get_mix_rate_mode")._native_ptr(), 3537132591);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("get_mix_rate_mode")._native_ptr(), 3537132591);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AudioStreamGenerator::AudioStreamGeneratorMixRate(0)));
-	return (AudioStreamGenerator::AudioStreamGeneratorMixRate)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AudioStreamGenerator::AudioStreamGeneratorMixRate)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void AudioStreamGenerator::set_buffer_length(float p_seconds) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("set_buffer_length")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("set_buffer_length")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_seconds_encoded;
 	PtrToArg<double>::encode(p_seconds, &p_seconds_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_seconds_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_seconds_encoded);
 }
 
 float AudioStreamGenerator::get_buffer_length() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("get_buffer_length")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGenerator::get_class_static()._native_ptr(), StringName("get_buffer_length")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

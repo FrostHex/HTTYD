@@ -39,73 +39,73 @@
 namespace godot {
 
 void VisualShaderNodeTextureParameter::set_texture_type(VisualShaderNodeTextureParameter::TextureType p_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("set_texture_type")._native_ptr(), 2227296876);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("set_texture_type")._native_ptr(), 2227296876);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_type_encoded;
 	PtrToArg<int64_t>::encode(p_type, &p_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded);
 }
 
 VisualShaderNodeTextureParameter::TextureType VisualShaderNodeTextureParameter::get_texture_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("get_texture_type")._native_ptr(), 367922070);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("get_texture_type")._native_ptr(), 367922070);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeTextureParameter::TextureType(0)));
-	return (VisualShaderNodeTextureParameter::TextureType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeTextureParameter::TextureType)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeTextureParameter::set_color_default(VisualShaderNodeTextureParameter::ColorDefault p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("set_color_default")._native_ptr(), 4217624432);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("set_color_default")._native_ptr(), 4217624432);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_color_encoded;
 	PtrToArg<int64_t>::encode(p_color, &p_color_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color_encoded);
 }
 
 VisualShaderNodeTextureParameter::ColorDefault VisualShaderNodeTextureParameter::get_color_default() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("get_color_default")._native_ptr(), 3837060134);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("get_color_default")._native_ptr(), 3837060134);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeTextureParameter::ColorDefault(0)));
-	return (VisualShaderNodeTextureParameter::ColorDefault)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeTextureParameter::ColorDefault)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeTextureParameter::set_texture_filter(VisualShaderNodeTextureParameter::TextureFilter p_filter) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("set_texture_filter")._native_ptr(), 2147684752);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("set_texture_filter")._native_ptr(), 2147684752);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_filter_encoded;
 	PtrToArg<int64_t>::encode(p_filter, &p_filter_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_filter_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_filter_encoded);
 }
 
 VisualShaderNodeTextureParameter::TextureFilter VisualShaderNodeTextureParameter::get_texture_filter() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("get_texture_filter")._native_ptr(), 4184490817);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("get_texture_filter")._native_ptr(), 4184490817);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeTextureParameter::TextureFilter(0)));
-	return (VisualShaderNodeTextureParameter::TextureFilter)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeTextureParameter::TextureFilter)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeTextureParameter::set_texture_repeat(VisualShaderNodeTextureParameter::TextureRepeat p_repeat) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("set_texture_repeat")._native_ptr(), 2036143070);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("set_texture_repeat")._native_ptr(), 2036143070);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_repeat_encoded;
 	PtrToArg<int64_t>::encode(p_repeat, &p_repeat_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_repeat_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_repeat_encoded);
 }
 
 VisualShaderNodeTextureParameter::TextureRepeat VisualShaderNodeTextureParameter::get_texture_repeat() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("get_texture_repeat")._native_ptr(), 1690132794);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("get_texture_repeat")._native_ptr(), 1690132794);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeTextureParameter::TextureRepeat(0)));
-	return (VisualShaderNodeTextureParameter::TextureRepeat)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeTextureParameter::TextureRepeat)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeTextureParameter::set_texture_source(VisualShaderNodeTextureParameter::TextureSource p_source) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("set_texture_source")._native_ptr(), 1212687372);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("set_texture_source")._native_ptr(), 1212687372);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_source_encoded;
 	PtrToArg<int64_t>::encode(p_source, &p_source_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_source_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_source_encoded);
 }
 
 VisualShaderNodeTextureParameter::TextureSource VisualShaderNodeTextureParameter::get_texture_source() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("get_texture_source")._native_ptr(), 2039092262);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTextureParameter::get_class_static()._native_ptr(), StringName("get_texture_source")._native_ptr(), 2039092262);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeTextureParameter::TextureSource(0)));
-	return (VisualShaderNodeTextureParameter::TextureSource)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeTextureParameter::TextureSource)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

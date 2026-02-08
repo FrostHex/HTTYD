@@ -37,13 +37,20 @@
 #include <godot_cpp/core/error_macros.hpp>
 
 #include <godot_cpp/classes/java_class.hpp>
+#include <godot_cpp/variant/string_name.hpp>
 
 namespace godot {
 
 Ref<JavaClass> JavaObject::get_java_class() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(JavaObject::get_class_static()._native_ptr(), StringName("get_java_class")._native_ptr(), 541536347);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(JavaObject::get_class_static()._native_ptr(), StringName("get_java_class")._native_ptr(), 541536347);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<JavaClass>()));
-	return Ref<JavaClass>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<JavaClass>(_gde_method_bind, _owner));
+	return Ref<JavaClass>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<JavaClass>(_gde_method_bind, _owner));
+}
+
+bool JavaObject::has_java_method(const StringName &p_method) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(JavaObject::get_class_static()._native_ptr(), StringName("has_java_method")._native_ptr(), 2619796661);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_method);
 }
 
 } // namespace godot

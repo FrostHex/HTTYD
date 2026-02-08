@@ -43,9 +43,9 @@
 namespace godot {
 
 void MovieWriter::add_writer(MovieWriter *p_writer) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MovieWriter::get_class_static()._native_ptr(), StringName("add_writer")._native_ptr(), 4023702871);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MovieWriter::get_class_static()._native_ptr(), StringName("add_writer")._native_ptr(), 4023702871);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, nullptr, (p_writer != nullptr ? &p_writer->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, nullptr, (p_writer != nullptr ? &p_writer->_owner : nullptr));
 }
 
 uint32_t MovieWriter::_get_audio_mix_rate() const {

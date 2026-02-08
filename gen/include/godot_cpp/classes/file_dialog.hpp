@@ -43,6 +43,7 @@
 
 namespace godot {
 
+class Callable;
 class LineEdit;
 class VBoxContainer;
 
@@ -77,10 +78,12 @@ public:
 		CUSTOMIZATION_FAVORITES = 4,
 		CUSTOMIZATION_RECENT = 5,
 		CUSTOMIZATION_LAYOUT = 6,
+		CUSTOMIZATION_OVERWRITE_WARNING = 7,
+		CUSTOMIZATION_DELETE = 8,
 	};
 
 	void clear_filters();
-	void add_filter(const String &p_filter, const String &p_description = String());
+	void add_filter(const String &p_filter, const String &p_description = String(), const String &p_mime_type = String());
 	void set_filters(const PackedStringArray &p_filters);
 	PackedStringArray get_filters() const;
 	void clear_filename_filter();
@@ -121,6 +124,13 @@ public:
 	void set_customization_flag_enabled(FileDialog::Customization p_flag, bool p_enabled);
 	bool is_customization_flag_enabled(FileDialog::Customization p_flag) const;
 	void deselect_all();
+	static void set_favorite_list(const PackedStringArray &p_favorites);
+	static PackedStringArray get_favorite_list();
+	static void set_recent_list(const PackedStringArray &p_recents);
+	static PackedStringArray get_recent_list();
+	static void set_get_icon_callback(const Callable &p_callback);
+	static void set_get_thumbnail_callback(const Callable &p_callback);
+	void popup_file_dialog();
 	void invalidate();
 
 protected:

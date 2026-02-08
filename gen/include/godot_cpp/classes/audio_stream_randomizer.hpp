@@ -62,6 +62,8 @@ public:
 	int32_t get_streams_count() const;
 	void set_random_pitch(float p_scale);
 	float get_random_pitch() const;
+	void set_random_pitch_semitones(float p_semitones);
+	float get_random_pitch_semitones() const;
 	void set_random_volume_offset_db(float p_db_offset);
 	float get_random_volume_offset_db() const;
 	void set_playback_mode(AudioStreamRandomizer::PlaybackMode p_mode);

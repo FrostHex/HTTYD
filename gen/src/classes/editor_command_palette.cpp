@@ -41,15 +41,15 @@
 namespace godot {
 
 void EditorCommandPalette::add_command(const String &p_command_name, const String &p_key_name, const Callable &p_binded_callable, const String &p_shortcut_text) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorCommandPalette::get_class_static()._native_ptr(), StringName("add_command")._native_ptr(), 864043298);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorCommandPalette::get_class_static()._native_ptr(), StringName("add_command")._native_ptr(), 864043298);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_command_name, &p_key_name, &p_binded_callable, &p_shortcut_text);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_command_name, &p_key_name, &p_binded_callable, &p_shortcut_text);
 }
 
 void EditorCommandPalette::remove_command(const String &p_key_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorCommandPalette::get_class_static()._native_ptr(), StringName("remove_command")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorCommandPalette::get_class_static()._native_ptr(), StringName("remove_command")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_key_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_key_name);
 }
 
 } // namespace godot

@@ -39,39 +39,39 @@
 namespace godot {
 
 void HingeJoint3D::set_param(HingeJoint3D::Param p_param, float p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(HingeJoint3D::get_class_static()._native_ptr(), StringName("set_param")._native_ptr(), 3082977519);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(HingeJoint3D::get_class_static()._native_ptr(), StringName("set_param")._native_ptr(), 3082977519);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_param_encoded;
 	PtrToArg<int64_t>::encode(p_param, &p_param_encoded);
 	double p_value_encoded;
 	PtrToArg<double>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param_encoded, &p_value_encoded);
 }
 
 float HingeJoint3D::get_param(HingeJoint3D::Param p_param) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(HingeJoint3D::get_class_static()._native_ptr(), StringName("get_param")._native_ptr(), 4066002676);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(HingeJoint3D::get_class_static()._native_ptr(), StringName("get_param")._native_ptr(), 4066002676);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	int64_t p_param_encoded;
 	PtrToArg<int64_t>::encode(p_param, &p_param_encoded);
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_param_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_param_encoded);
 }
 
 void HingeJoint3D::set_flag(HingeJoint3D::Flag p_flag, bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(HingeJoint3D::get_class_static()._native_ptr(), StringName("set_flag")._native_ptr(), 1083494620);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(HingeJoint3D::get_class_static()._native_ptr(), StringName("set_flag")._native_ptr(), 1083494620);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_flag_encoded;
 	PtrToArg<int64_t>::encode(p_flag, &p_flag_encoded);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flag_encoded, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flag_encoded, &p_enabled_encoded);
 }
 
 bool HingeJoint3D::get_flag(HingeJoint3D::Flag p_flag) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(HingeJoint3D::get_class_static()._native_ptr(), StringName("get_flag")._native_ptr(), 2841369610);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(HingeJoint3D::get_class_static()._native_ptr(), StringName("get_flag")._native_ptr(), 2841369610);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_flag_encoded;
 	PtrToArg<int64_t>::encode(p_flag, &p_flag_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_flag_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_flag_encoded);
 }
 
 } // namespace godot

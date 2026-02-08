@@ -39,21 +39,21 @@
 namespace godot {
 
 PackedStringArray ShaderIncludeDB::list_built_in_include_files() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ShaderIncludeDB::get_class_static()._native_ptr(), StringName("list_built_in_include_files")._native_ptr(), 2981934095);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ShaderIncludeDB::get_class_static()._native_ptr(), StringName("list_built_in_include_files")._native_ptr(), 2981934095);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));
-	return internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, nullptr);
+	return ::godot::internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, nullptr);
 }
 
 bool ShaderIncludeDB::has_built_in_include_file(const String &p_filename) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ShaderIncludeDB::get_class_static()._native_ptr(), StringName("has_built_in_include_file")._native_ptr(), 2323990056);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ShaderIncludeDB::get_class_static()._native_ptr(), StringName("has_built_in_include_file")._native_ptr(), 2323990056);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, nullptr, &p_filename);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, nullptr, &p_filename);
 }
 
 String ShaderIncludeDB::get_built_in_include_file(const String &p_filename) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ShaderIncludeDB::get_class_static()._native_ptr(), StringName("get_built_in_include_file")._native_ptr(), 1703090593);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ShaderIncludeDB::get_class_static()._native_ptr(), StringName("get_built_in_include_file")._native_ptr(), 1703090593);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, nullptr, &p_filename);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, nullptr, &p_filename);
 }
 
 } // namespace godot

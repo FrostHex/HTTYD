@@ -42,21 +42,21 @@
 namespace godot {
 
 void FileSystemDock::navigate_to_path(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FileSystemDock::get_class_static()._native_ptr(), StringName("navigate_to_path")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FileSystemDock::get_class_static()._native_ptr(), StringName("navigate_to_path")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
 }
 
 void FileSystemDock::add_resource_tooltip_plugin(const Ref<EditorResourceTooltipPlugin> &p_plugin) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FileSystemDock::get_class_static()._native_ptr(), StringName("add_resource_tooltip_plugin")._native_ptr(), 2258356838);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FileSystemDock::get_class_static()._native_ptr(), StringName("add_resource_tooltip_plugin")._native_ptr(), 2258356838);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_plugin != nullptr ? &p_plugin->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_plugin != nullptr ? &p_plugin->_owner : nullptr));
 }
 
 void FileSystemDock::remove_resource_tooltip_plugin(const Ref<EditorResourceTooltipPlugin> &p_plugin) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(FileSystemDock::get_class_static()._native_ptr(), StringName("remove_resource_tooltip_plugin")._native_ptr(), 2258356838);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FileSystemDock::get_class_static()._native_ptr(), StringName("remove_resource_tooltip_plugin")._native_ptr(), 2258356838);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_plugin != nullptr ? &p_plugin->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_plugin != nullptr ? &p_plugin->_owner : nullptr));
 }
 
 } // namespace godot

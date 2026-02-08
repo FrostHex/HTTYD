@@ -41,9 +41,9 @@
 namespace godot {
 
 void PlaceholderTexture2D::set_size(const Vector2 &p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PlaceholderTexture2D::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PlaceholderTexture2D::get_class_static()._native_ptr(), StringName("set_size")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
 }
 
 } // namespace godot

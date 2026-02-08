@@ -39,33 +39,33 @@
 namespace godot {
 
 float XRFaceTracker::get_blend_shape(XRFaceTracker::BlendShapeEntry p_blend_shape) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRFaceTracker::get_class_static()._native_ptr(), StringName("get_blend_shape")._native_ptr(), 330010046);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRFaceTracker::get_class_static()._native_ptr(), StringName("get_blend_shape")._native_ptr(), 330010046);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	int64_t p_blend_shape_encoded;
 	PtrToArg<int64_t>::encode(p_blend_shape, &p_blend_shape_encoded);
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_blend_shape_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_blend_shape_encoded);
 }
 
 void XRFaceTracker::set_blend_shape(XRFaceTracker::BlendShapeEntry p_blend_shape, float p_weight) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRFaceTracker::get_class_static()._native_ptr(), StringName("set_blend_shape")._native_ptr(), 2352588791);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRFaceTracker::get_class_static()._native_ptr(), StringName("set_blend_shape")._native_ptr(), 2352588791);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_blend_shape_encoded;
 	PtrToArg<int64_t>::encode(p_blend_shape, &p_blend_shape_encoded);
 	double p_weight_encoded;
 	PtrToArg<double>::encode(p_weight, &p_weight_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_blend_shape_encoded, &p_weight_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_blend_shape_encoded, &p_weight_encoded);
 }
 
 PackedFloat32Array XRFaceTracker::get_blend_shapes() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRFaceTracker::get_class_static()._native_ptr(), StringName("get_blend_shapes")._native_ptr(), 675695659);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRFaceTracker::get_class_static()._native_ptr(), StringName("get_blend_shapes")._native_ptr(), 675695659);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedFloat32Array()));
-	return internal::_call_native_mb_ret<PackedFloat32Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedFloat32Array>(_gde_method_bind, _owner);
 }
 
 void XRFaceTracker::set_blend_shapes(const PackedFloat32Array &p_weights) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRFaceTracker::get_class_static()._native_ptr(), StringName("set_blend_shapes")._native_ptr(), 2899603908);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRFaceTracker::get_class_static()._native_ptr(), StringName("set_blend_shapes")._native_ptr(), 2899603908);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_weights);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_weights);
 }
 
 } // namespace godot

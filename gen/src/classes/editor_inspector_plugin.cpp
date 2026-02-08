@@ -43,23 +43,23 @@
 namespace godot {
 
 void EditorInspectorPlugin::add_custom_control(Control *p_control) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorInspectorPlugin::get_class_static()._native_ptr(), StringName("add_custom_control")._native_ptr(), 1496901182);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorInspectorPlugin::get_class_static()._native_ptr(), StringName("add_custom_control")._native_ptr(), 1496901182);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_control != nullptr ? &p_control->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_control != nullptr ? &p_control->_owner : nullptr));
 }
 
 void EditorInspectorPlugin::add_property_editor(const String &p_property, Control *p_editor, bool p_add_to_end, const String &p_label) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorInspectorPlugin::get_class_static()._native_ptr(), StringName("add_property_editor")._native_ptr(), 2042698479);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorInspectorPlugin::get_class_static()._native_ptr(), StringName("add_property_editor")._native_ptr(), 2042698479);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_add_to_end_encoded;
 	PtrToArg<bool>::encode(p_add_to_end, &p_add_to_end_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_property, (p_editor != nullptr ? &p_editor->_owner : nullptr), &p_add_to_end_encoded, &p_label);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_property, (p_editor != nullptr ? &p_editor->_owner : nullptr), &p_add_to_end_encoded, &p_label);
 }
 
 void EditorInspectorPlugin::add_property_editor_for_multiple_properties(const String &p_label, const PackedStringArray &p_properties, Control *p_editor) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorInspectorPlugin::get_class_static()._native_ptr(), StringName("add_property_editor_for_multiple_properties")._native_ptr(), 788598683);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorInspectorPlugin::get_class_static()._native_ptr(), StringName("add_property_editor_for_multiple_properties")._native_ptr(), 788598683);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_label, &p_properties, (p_editor != nullptr ? &p_editor->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_label, &p_properties, (p_editor != nullptr ? &p_editor->_owner : nullptr));
 }
 
 bool EditorInspectorPlugin::_can_handle(Object *p_object) const {

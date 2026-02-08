@@ -41,33 +41,33 @@
 namespace godot {
 
 void Shortcut::set_events(const Array &p_events) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Shortcut::get_class_static()._native_ptr(), StringName("set_events")._native_ptr(), 381264803);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Shortcut::get_class_static()._native_ptr(), StringName("set_events")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_events);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_events);
 }
 
 Array Shortcut::get_events() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Shortcut::get_class_static()._native_ptr(), StringName("get_events")._native_ptr(), 3995934104);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Shortcut::get_class_static()._native_ptr(), StringName("get_events")._native_ptr(), 3995934104);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Array()));
-	return internal::_call_native_mb_ret<Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Array>(_gde_method_bind, _owner);
 }
 
 bool Shortcut::has_valid_event() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Shortcut::get_class_static()._native_ptr(), StringName("has_valid_event")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Shortcut::get_class_static()._native_ptr(), StringName("has_valid_event")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 bool Shortcut::matches_event(const Ref<InputEvent> &p_event) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Shortcut::get_class_static()._native_ptr(), StringName("matches_event")._native_ptr(), 3738334489);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Shortcut::get_class_static()._native_ptr(), StringName("matches_event")._native_ptr(), 3738334489);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, (p_event != nullptr ? &p_event->_owner : nullptr));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, (p_event != nullptr ? &p_event->_owner : nullptr));
 }
 
 String Shortcut::get_as_text() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Shortcut::get_class_static()._native_ptr(), StringName("get_as_text")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Shortcut::get_class_static()._native_ptr(), StringName("get_as_text")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

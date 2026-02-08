@@ -44,6 +44,8 @@
 
 namespace godot {
 
+class StringName;
+
 class JavaClass : public RefCounted {
 	GDEXTENSION_CLASS(JavaClass, RefCounted)
 
@@ -51,6 +53,7 @@ public:
 	String get_java_class_name() const;
 	TypedArray<Dictionary> get_java_method_list() const;
 	Ref<JavaClass> get_java_parent_class() const;
+	bool has_java_method(const StringName &p_method) const;
 
 protected:
 	template <typename T, typename B>

@@ -44,9 +44,9 @@
 namespace godot {
 
 void EditorResourceTooltipPlugin::request_thumbnail(const String &p_path, TextureRect *p_control) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourceTooltipPlugin::get_class_static()._native_ptr(), StringName("request_thumbnail")._native_ptr(), 3245519720);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourceTooltipPlugin::get_class_static()._native_ptr(), StringName("request_thumbnail")._native_ptr(), 3245519720);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path, (p_control != nullptr ? &p_control->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path, (p_control != nullptr ? &p_control->_owner : nullptr));
 }
 
 bool EditorResourceTooltipPlugin::_handles(const String &p_type) const {

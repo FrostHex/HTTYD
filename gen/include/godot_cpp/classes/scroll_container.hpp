@@ -56,6 +56,13 @@ public:
 		SCROLL_MODE_RESERVE = 4,
 	};
 
+	enum ScrollHintMode {
+		SCROLL_HINT_MODE_DISABLED = 0,
+		SCROLL_HINT_MODE_ALL = 1,
+		SCROLL_HINT_MODE_TOP_AND_LEFT = 2,
+		SCROLL_HINT_MODE_BOTTOM_AND_RIGHT = 3,
+	};
+
 	void set_h_scroll(int32_t p_value);
 	int32_t get_h_scroll() const;
 	void set_v_scroll(int32_t p_value);
@@ -70,6 +77,10 @@ public:
 	ScrollContainer::ScrollMode get_vertical_scroll_mode() const;
 	void set_deadzone(int32_t p_deadzone);
 	int32_t get_deadzone() const;
+	void set_scroll_hint_mode(ScrollContainer::ScrollHintMode p_scroll_hint_mode);
+	ScrollContainer::ScrollHintMode get_scroll_hint_mode() const;
+	void set_tile_scroll_hint(bool p_tile_scroll_hint);
+	bool is_scroll_hint_tiled();
 	void set_follow_focus(bool p_enabled);
 	bool is_following_focus() const;
 	HScrollBar *get_h_scroll_bar();
@@ -90,4 +101,5 @@ public:
 } // namespace godot
 
 VARIANT_ENUM_CAST(ScrollContainer::ScrollMode);
+VARIANT_ENUM_CAST(ScrollContainer::ScrollHintMode);
 

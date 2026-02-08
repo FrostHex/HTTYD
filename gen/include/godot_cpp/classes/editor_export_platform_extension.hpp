@@ -88,6 +88,7 @@ public:
 	virtual Error _export_zip_patch(const Ref<EditorExportPreset> &p_preset, bool p_debug, const String &p_path, const PackedStringArray &p_patches, BitField<EditorExportPlatform::DebugFlags> p_flags);
 	virtual PackedStringArray _get_platform_features() const;
 	virtual String _get_debug_protocol() const;
+	virtual void _initialize();
 
 protected:
 	template <typename T, typename B>
@@ -182,6 +183,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_debug_protocol), decltype(&T::_get_debug_protocol)>) {
 			BIND_VIRTUAL_METHOD(T, _get_debug_protocol, 201670096);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_initialize), decltype(&T::_initialize)>) {
+			BIND_VIRTUAL_METHOD(T, _initialize, 3218959716);
 		}
 	}
 

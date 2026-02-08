@@ -39,17 +39,17 @@
 namespace godot {
 
 void InputEventMagnifyGesture::set_factor(float p_factor) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventMagnifyGesture::get_class_static()._native_ptr(), StringName("set_factor")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventMagnifyGesture::get_class_static()._native_ptr(), StringName("set_factor")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_factor_encoded;
 	PtrToArg<double>::encode(p_factor, &p_factor_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_factor_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_factor_encoded);
 }
 
 float InputEventMagnifyGesture::get_factor() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventMagnifyGesture::get_class_static()._native_ptr(), StringName("get_factor")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventMagnifyGesture::get_class_static()._native_ptr(), StringName("get_factor")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -38,210 +38,222 @@
 
 namespace godot {
 
+Ref<GLTFAccessor> GLTFAccessor::from_dictionary(const Dictionary &p_dictionary) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("from_dictionary")._native_ptr(), 3495091019);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<GLTFAccessor>()));
+	return Ref<GLTFAccessor>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<GLTFAccessor>(_gde_method_bind, nullptr, &p_dictionary));
+}
+
+Dictionary GLTFAccessor::to_dictionary() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("to_dictionary")._native_ptr(), 3102165223);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
+}
+
 int32_t GLTFAccessor::get_buffer_view() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_buffer_view")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_buffer_view")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_buffer_view(int32_t p_buffer_view) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_buffer_view")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_buffer_view")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_buffer_view_encoded;
 	PtrToArg<int64_t>::encode(p_buffer_view, &p_buffer_view_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_buffer_view_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_buffer_view_encoded);
 }
 
 int64_t GLTFAccessor::get_byte_offset() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_byte_offset")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_byte_offset")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_byte_offset(int64_t p_byte_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_byte_offset")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_byte_offset")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_byte_offset_encoded;
 	PtrToArg<int64_t>::encode(p_byte_offset, &p_byte_offset_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_byte_offset_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_byte_offset_encoded);
 }
 
 GLTFAccessor::GLTFComponentType GLTFAccessor::get_component_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_component_type")._native_ptr(), 852227802);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_component_type")._native_ptr(), 852227802);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (GLTFAccessor::GLTFComponentType(0)));
-	return (GLTFAccessor::GLTFComponentType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (GLTFAccessor::GLTFComponentType)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_component_type(GLTFAccessor::GLTFComponentType p_component_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_component_type")._native_ptr(), 1780020221);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_component_type")._native_ptr(), 1780020221);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_component_type_encoded;
 	PtrToArg<int64_t>::encode(p_component_type, &p_component_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_component_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_component_type_encoded);
 }
 
 bool GLTFAccessor::get_normalized() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_normalized")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_normalized")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_normalized(bool p_normalized) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_normalized")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_normalized")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_normalized_encoded;
 	PtrToArg<bool>::encode(p_normalized, &p_normalized_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_normalized_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_normalized_encoded);
 }
 
 int64_t GLTFAccessor::get_count() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_count")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_count(int64_t p_count) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_count")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_count")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_count_encoded;
 	PtrToArg<int64_t>::encode(p_count, &p_count_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_count_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_count_encoded);
 }
 
 GLTFAccessor::GLTFAccessorType GLTFAccessor::get_accessor_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_accessor_type")._native_ptr(), 1998183368);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_accessor_type")._native_ptr(), 1998183368);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (GLTFAccessor::GLTFAccessorType(0)));
-	return (GLTFAccessor::GLTFAccessorType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (GLTFAccessor::GLTFAccessorType)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_accessor_type(GLTFAccessor::GLTFAccessorType p_accessor_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_accessor_type")._native_ptr(), 2347728198);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_accessor_type")._native_ptr(), 2347728198);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_accessor_type_encoded;
 	PtrToArg<int64_t>::encode(p_accessor_type, &p_accessor_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_accessor_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_accessor_type_encoded);
 }
 
 int32_t GLTFAccessor::get_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_type")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_type")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_type(int32_t p_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_type")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_type")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_type_encoded;
 	PtrToArg<int64_t>::encode(p_type, &p_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded);
 }
 
 PackedFloat64Array GLTFAccessor::get_min() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_min")._native_ptr(), 547233126);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_min")._native_ptr(), 547233126);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedFloat64Array()));
-	return internal::_call_native_mb_ret<PackedFloat64Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedFloat64Array>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_min(const PackedFloat64Array &p_min) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_min")._native_ptr(), 2576592201);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_min")._native_ptr(), 2576592201);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_min);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_min);
 }
 
 PackedFloat64Array GLTFAccessor::get_max() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_max")._native_ptr(), 547233126);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_max")._native_ptr(), 547233126);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedFloat64Array()));
-	return internal::_call_native_mb_ret<PackedFloat64Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedFloat64Array>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_max(const PackedFloat64Array &p_max) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_max")._native_ptr(), 2576592201);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_max")._native_ptr(), 2576592201);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_max);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_max);
 }
 
 int64_t GLTFAccessor::get_sparse_count() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_count")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_sparse_count(int64_t p_sparse_count) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_count")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_count")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sparse_count_encoded;
 	PtrToArg<int64_t>::encode(p_sparse_count, &p_sparse_count_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_count_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_count_encoded);
 }
 
 int32_t GLTFAccessor::get_sparse_indices_buffer_view() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_buffer_view")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_buffer_view")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_sparse_indices_buffer_view(int32_t p_sparse_indices_buffer_view) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_indices_buffer_view")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_indices_buffer_view")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sparse_indices_buffer_view_encoded;
 	PtrToArg<int64_t>::encode(p_sparse_indices_buffer_view, &p_sparse_indices_buffer_view_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_indices_buffer_view_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_indices_buffer_view_encoded);
 }
 
 int64_t GLTFAccessor::get_sparse_indices_byte_offset() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_byte_offset")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_byte_offset")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_sparse_indices_byte_offset(int64_t p_sparse_indices_byte_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_indices_byte_offset")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_indices_byte_offset")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sparse_indices_byte_offset_encoded;
 	PtrToArg<int64_t>::encode(p_sparse_indices_byte_offset, &p_sparse_indices_byte_offset_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_indices_byte_offset_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_indices_byte_offset_encoded);
 }
 
 GLTFAccessor::GLTFComponentType GLTFAccessor::get_sparse_indices_component_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_component_type")._native_ptr(), 852227802);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_indices_component_type")._native_ptr(), 852227802);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (GLTFAccessor::GLTFComponentType(0)));
-	return (GLTFAccessor::GLTFComponentType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (GLTFAccessor::GLTFComponentType)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_sparse_indices_component_type(GLTFAccessor::GLTFComponentType p_sparse_indices_component_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_indices_component_type")._native_ptr(), 1780020221);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_indices_component_type")._native_ptr(), 1780020221);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sparse_indices_component_type_encoded;
 	PtrToArg<int64_t>::encode(p_sparse_indices_component_type, &p_sparse_indices_component_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_indices_component_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_indices_component_type_encoded);
 }
 
 int32_t GLTFAccessor::get_sparse_values_buffer_view() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_values_buffer_view")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_values_buffer_view")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_sparse_values_buffer_view(int32_t p_sparse_values_buffer_view) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_values_buffer_view")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_values_buffer_view")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sparse_values_buffer_view_encoded;
 	PtrToArg<int64_t>::encode(p_sparse_values_buffer_view, &p_sparse_values_buffer_view_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_values_buffer_view_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_values_buffer_view_encoded);
 }
 
 int64_t GLTFAccessor::get_sparse_values_byte_offset() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_values_byte_offset")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("get_sparse_values_byte_offset")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GLTFAccessor::set_sparse_values_byte_offset(int64_t p_sparse_values_byte_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_values_byte_offset")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFAccessor::get_class_static()._native_ptr(), StringName("set_sparse_values_byte_offset")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_sparse_values_byte_offset_encoded;
 	PtrToArg<int64_t>::encode(p_sparse_values_byte_offset, &p_sparse_values_byte_offset_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_values_byte_offset_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sparse_values_byte_offset_encoded);
 }
 
 } // namespace godot

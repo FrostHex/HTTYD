@@ -94,7 +94,7 @@ public:
 	bool get_encrypt_pck() const;
 	bool get_encrypt_directory() const;
 	String get_encryption_key() const;
-	int32_t get_script_export_mode() const;
+	EditorExportPreset::ScriptExportMode get_script_export_mode() const;
 	Variant get_or_env(const StringName &p_name, const String &p_env_var) const;
 	String get_version(const StringName &p_name, bool p_windows_version) const;
 

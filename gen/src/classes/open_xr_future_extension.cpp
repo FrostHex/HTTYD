@@ -41,25 +41,25 @@
 namespace godot {
 
 bool OpenXRFutureExtension::is_active() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRFutureExtension::get_class_static()._native_ptr(), StringName("is_active")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRFutureExtension::get_class_static()._native_ptr(), StringName("is_active")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 Ref<OpenXRFutureResult> OpenXRFutureExtension::register_future(uint64_t p_future, const Callable &p_on_success) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRFutureExtension::get_class_static()._native_ptr(), StringName("register_future")._native_ptr(), 1038012256);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRFutureExtension::get_class_static()._native_ptr(), StringName("register_future")._native_ptr(), 1038012256);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRFutureResult>()));
 	int64_t p_future_encoded;
 	PtrToArg<int64_t>::encode(p_future, &p_future_encoded);
-	return Ref<OpenXRFutureResult>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<OpenXRFutureResult>(_gde_method_bind, _owner, &p_future_encoded, &p_on_success));
+	return Ref<OpenXRFutureResult>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OpenXRFutureResult>(_gde_method_bind, _owner, &p_future_encoded, &p_on_success));
 }
 
 void OpenXRFutureExtension::cancel_future(uint64_t p_future) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRFutureExtension::get_class_static()._native_ptr(), StringName("cancel_future")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRFutureExtension::get_class_static()._native_ptr(), StringName("cancel_future")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_future_encoded;
 	PtrToArg<int64_t>::encode(p_future, &p_future_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_future_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_future_encoded);
 }
 
 } // namespace godot

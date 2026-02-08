@@ -42,41 +42,41 @@
 namespace godot {
 
 bool AudioStreamGeneratorPlayback::push_frame(const Vector2 &p_frame) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("push_frame")._native_ptr(), 3975407249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("push_frame")._native_ptr(), 3975407249);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_frame);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_frame);
 }
 
 bool AudioStreamGeneratorPlayback::can_push_buffer(int32_t p_amount) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("can_push_buffer")._native_ptr(), 1116898809);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("can_push_buffer")._native_ptr(), 1116898809);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_amount_encoded;
 	PtrToArg<int64_t>::encode(p_amount, &p_amount_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_amount_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_amount_encoded);
 }
 
 bool AudioStreamGeneratorPlayback::push_buffer(const PackedVector2Array &p_frames) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("push_buffer")._native_ptr(), 1361156557);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("push_buffer")._native_ptr(), 1361156557);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_frames);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_frames);
 }
 
 int32_t AudioStreamGeneratorPlayback::get_frames_available() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("get_frames_available")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("get_frames_available")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 int32_t AudioStreamGeneratorPlayback::get_skips() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("get_skips")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("get_skips")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void AudioStreamGeneratorPlayback::clear_buffer() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("clear_buffer")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamGeneratorPlayback::get_class_static()._native_ptr(), StringName("clear_buffer")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 } // namespace godot

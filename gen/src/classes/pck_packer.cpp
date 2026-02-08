@@ -39,35 +39,35 @@
 namespace godot {
 
 Error PCKPacker::pck_start(const String &p_pck_path, int32_t p_alignment, const String &p_key, bool p_encrypt_directory) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PCKPacker::get_class_static()._native_ptr(), StringName("pck_start")._native_ptr(), 508410629);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PCKPacker::get_class_static()._native_ptr(), StringName("pck_start")._native_ptr(), 508410629);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int64_t p_alignment_encoded;
 	PtrToArg<int64_t>::encode(p_alignment, &p_alignment_encoded);
 	int8_t p_encrypt_directory_encoded;
 	PtrToArg<bool>::encode(p_encrypt_directory, &p_encrypt_directory_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_pck_path, &p_alignment_encoded, &p_key, &p_encrypt_directory_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_pck_path, &p_alignment_encoded, &p_key, &p_encrypt_directory_encoded);
 }
 
 Error PCKPacker::add_file(const String &p_target_path, const String &p_source_path, bool p_encrypt) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PCKPacker::get_class_static()._native_ptr(), StringName("add_file")._native_ptr(), 2215643711);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PCKPacker::get_class_static()._native_ptr(), StringName("add_file")._native_ptr(), 2215643711);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int8_t p_encrypt_encoded;
 	PtrToArg<bool>::encode(p_encrypt, &p_encrypt_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_target_path, &p_source_path, &p_encrypt_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_target_path, &p_source_path, &p_encrypt_encoded);
 }
 
 Error PCKPacker::add_file_removal(const String &p_target_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PCKPacker::get_class_static()._native_ptr(), StringName("add_file_removal")._native_ptr(), 166001499);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PCKPacker::get_class_static()._native_ptr(), StringName("add_file_removal")._native_ptr(), 166001499);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_target_path);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_target_path);
 }
 
 Error PCKPacker::flush(bool p_verbose) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PCKPacker::get_class_static()._native_ptr(), StringName("flush")._native_ptr(), 1633102583);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PCKPacker::get_class_static()._native_ptr(), StringName("flush")._native_ptr(), 1633102583);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int8_t p_verbose_encoded;
 	PtrToArg<bool>::encode(p_verbose, &p_verbose_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_verbose_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_verbose_encoded);
 }
 
 } // namespace godot

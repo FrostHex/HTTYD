@@ -43,67 +43,67 @@
 namespace godot {
 
 String XRPositionalTracker::get_tracker_profile() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("get_tracker_profile")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("get_tracker_profile")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void XRPositionalTracker::set_tracker_profile(const String &p_profile) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("set_tracker_profile")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("set_tracker_profile")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_profile);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_profile);
 }
 
 XRPositionalTracker::TrackerHand XRPositionalTracker::get_tracker_hand() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("get_tracker_hand")._native_ptr(), 4181770860);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("get_tracker_hand")._native_ptr(), 4181770860);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (XRPositionalTracker::TrackerHand(0)));
-	return (XRPositionalTracker::TrackerHand)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (XRPositionalTracker::TrackerHand)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void XRPositionalTracker::set_tracker_hand(XRPositionalTracker::TrackerHand p_hand) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("set_tracker_hand")._native_ptr(), 3904108980);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("set_tracker_hand")._native_ptr(), 3904108980);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_hand_encoded;
 	PtrToArg<int64_t>::encode(p_hand, &p_hand_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_hand_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_hand_encoded);
 }
 
 bool XRPositionalTracker::has_pose(const StringName &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("has_pose")._native_ptr(), 2619796661);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("has_pose")._native_ptr(), 2619796661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_name);
 }
 
 Ref<XRPose> XRPositionalTracker::get_pose(const StringName &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("get_pose")._native_ptr(), 4099720006);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("get_pose")._native_ptr(), 4099720006);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<XRPose>()));
-	return Ref<XRPose>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<XRPose>(_gde_method_bind, _owner, &p_name));
+	return Ref<XRPose>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<XRPose>(_gde_method_bind, _owner, &p_name));
 }
 
 void XRPositionalTracker::invalidate_pose(const StringName &p_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("invalidate_pose")._native_ptr(), 3304788590);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("invalidate_pose")._native_ptr(), 3304788590);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
 }
 
 void XRPositionalTracker::set_pose(const StringName &p_name, const Transform3D &p_transform, const Vector3 &p_linear_velocity, const Vector3 &p_angular_velocity, XRPose::TrackingConfidence p_tracking_confidence) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("set_pose")._native_ptr(), 3451230163);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("set_pose")._native_ptr(), 3451230163);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_tracking_confidence_encoded;
 	PtrToArg<int64_t>::encode(p_tracking_confidence, &p_tracking_confidence_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_transform, &p_linear_velocity, &p_angular_velocity, &p_tracking_confidence_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_transform, &p_linear_velocity, &p_angular_velocity, &p_tracking_confidence_encoded);
 }
 
 Variant XRPositionalTracker::get_input(const StringName &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("get_input")._native_ptr(), 2760726917);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("get_input")._native_ptr(), 2760726917);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
-	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_name);
 }
 
 void XRPositionalTracker::set_input(const StringName &p_name, const Variant &p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("set_input")._native_ptr(), 3776071444);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRPositionalTracker::get_class_static()._native_ptr(), StringName("set_input")._native_ptr(), 3776071444);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_value);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_value);
 }
 
 } // namespace godot

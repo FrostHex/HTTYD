@@ -39,23 +39,23 @@
 namespace godot {
 
 void Semaphore::wait() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Semaphore::get_class_static()._native_ptr(), StringName("wait")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Semaphore::get_class_static()._native_ptr(), StringName("wait")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 bool Semaphore::try_wait() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Semaphore::get_class_static()._native_ptr(), StringName("try_wait")._native_ptr(), 2240911060);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Semaphore::get_class_static()._native_ptr(), StringName("try_wait")._native_ptr(), 2240911060);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void Semaphore::post(int32_t p_count) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Semaphore::get_class_static()._native_ptr(), StringName("post")._native_ptr(), 1667783136);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Semaphore::get_class_static()._native_ptr(), StringName("post")._native_ptr(), 1667783136);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_count_encoded;
 	PtrToArg<int64_t>::encode(p_count, &p_count_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_count_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_count_encoded);
 }
 
 } // namespace godot

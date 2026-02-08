@@ -42,71 +42,71 @@
 namespace godot {
 
 PackedInt32Array GLTFSkeleton::get_joints() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_joints")._native_ptr(), 969006518);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_joints")._native_ptr(), 969006518);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedInt32Array()));
-	return internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
 }
 
 void GLTFSkeleton::set_joints(const PackedInt32Array &p_joints) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("set_joints")._native_ptr(), 3614634198);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("set_joints")._native_ptr(), 3614634198);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joints);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_joints);
 }
 
 PackedInt32Array GLTFSkeleton::get_roots() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_roots")._native_ptr(), 969006518);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_roots")._native_ptr(), 969006518);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedInt32Array()));
-	return internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
 }
 
 void GLTFSkeleton::set_roots(const PackedInt32Array &p_roots) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("set_roots")._native_ptr(), 3614634198);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("set_roots")._native_ptr(), 3614634198);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_roots);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_roots);
 }
 
 Skeleton3D *GLTFSkeleton::get_godot_skeleton() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_godot_skeleton")._native_ptr(), 1814733083);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_godot_skeleton")._native_ptr(), 1814733083);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return internal::_call_native_mb_ret_obj<Skeleton3D>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret_obj<Skeleton3D>(_gde_method_bind, _owner);
 }
 
 TypedArray<String> GLTFSkeleton::get_unique_names() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_unique_names")._native_ptr(), 2915620761);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_unique_names")._native_ptr(), 2915620761);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<String>()));
-	return internal::_call_native_mb_ret<TypedArray<String>>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<String>>(_gde_method_bind, _owner);
 }
 
 void GLTFSkeleton::set_unique_names(const TypedArray<String> &p_unique_names) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("set_unique_names")._native_ptr(), 381264803);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("set_unique_names")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_unique_names);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_unique_names);
 }
 
 Dictionary GLTFSkeleton::get_godot_bone_node() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_godot_bone_node")._native_ptr(), 2382534195);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_godot_bone_node")._native_ptr(), 2382534195);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
 }
 
 void GLTFSkeleton::set_godot_bone_node(const Dictionary &p_godot_bone_node) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("set_godot_bone_node")._native_ptr(), 4155329257);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("set_godot_bone_node")._native_ptr(), 4155329257);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_godot_bone_node);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_godot_bone_node);
 }
 
 int32_t GLTFSkeleton::get_bone_attachment_count() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_bone_attachment_count")._native_ptr(), 2455072627);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_bone_attachment_count")._native_ptr(), 2455072627);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 BoneAttachment3D *GLTFSkeleton::get_bone_attachment(int32_t p_idx) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_bone_attachment")._native_ptr(), 945440495);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFSkeleton::get_class_static()._native_ptr(), StringName("get_bone_attachment")._native_ptr(), 945440495);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
 	int64_t p_idx_encoded;
 	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
-	return internal::_call_native_mb_ret_obj<BoneAttachment3D>(_gde_method_bind, _owner, &p_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret_obj<BoneAttachment3D>(_gde_method_bind, _owner, &p_idx_encoded);
 }
 
 } // namespace godot

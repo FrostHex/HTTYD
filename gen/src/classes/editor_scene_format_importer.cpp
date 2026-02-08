@@ -42,13 +42,13 @@
 namespace godot {
 
 void EditorSceneFormatImporter::add_import_option(const String &p_name, const Variant &p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorSceneFormatImporter::get_class_static()._native_ptr(), StringName("add_import_option")._native_ptr(), 402577236);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorSceneFormatImporter::get_class_static()._native_ptr(), StringName("add_import_option")._native_ptr(), 402577236);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_value);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_value);
 }
 
 void EditorSceneFormatImporter::add_import_option_advanced(Variant::Type p_type, const String &p_name, const Variant &p_default_value, PropertyHint p_hint, const String &p_hint_string, int32_t p_usage_flags) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorSceneFormatImporter::get_class_static()._native_ptr(), StringName("add_import_option_advanced")._native_ptr(), 3674075649);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorSceneFormatImporter::get_class_static()._native_ptr(), StringName("add_import_option_advanced")._native_ptr(), 3674075649);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_type_encoded;
 	PtrToArg<int64_t>::encode(p_type, &p_type_encoded);
@@ -56,7 +56,7 @@ void EditorSceneFormatImporter::add_import_option_advanced(Variant::Type p_type,
 	PtrToArg<int64_t>::encode(p_hint, &p_hint_encoded);
 	int64_t p_usage_flags_encoded;
 	PtrToArg<int64_t>::encode(p_usage_flags, &p_usage_flags_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded, &p_name, &p_default_value, &p_hint_encoded, &p_hint_string, &p_usage_flags_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_type_encoded, &p_name, &p_default_value, &p_hint_encoded, &p_hint_string, &p_usage_flags_encoded);
 }
 
 PackedStringArray EditorSceneFormatImporter::_get_extensions() const {

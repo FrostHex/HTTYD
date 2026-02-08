@@ -41,15 +41,15 @@
 namespace godot {
 
 void Container::queue_sort() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Container::get_class_static()._native_ptr(), StringName("queue_sort")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Container::get_class_static()._native_ptr(), StringName("queue_sort")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void Container::fit_child_in_rect(Control *p_child, const Rect2 &p_rect) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Container::get_class_static()._native_ptr(), StringName("fit_child_in_rect")._native_ptr(), 1993438598);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Container::get_class_static()._native_ptr(), StringName("fit_child_in_rect")._native_ptr(), 1993438598);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_child != nullptr ? &p_child->_owner : nullptr), &p_rect);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_child != nullptr ? &p_child->_owner : nullptr), &p_rect);
 }
 
 PackedInt32Array Container::_get_allowed_size_flags_horizontal() const {

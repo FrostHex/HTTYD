@@ -41,15 +41,15 @@
 namespace godot {
 
 void VisualShaderNodeTexture3D::set_texture(const Ref<Texture3D> &p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTexture3D::get_class_static()._native_ptr(), StringName("set_texture")._native_ptr(), 1188404210);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTexture3D::get_class_static()._native_ptr(), StringName("set_texture")._native_ptr(), 1188404210);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_value != nullptr ? &p_value->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_value != nullptr ? &p_value->_owner : nullptr));
 }
 
 Ref<Texture3D> VisualShaderNodeTexture3D::get_texture() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeTexture3D::get_class_static()._native_ptr(), StringName("get_texture")._native_ptr(), 373985333);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeTexture3D::get_class_static()._native_ptr(), StringName("get_texture")._native_ptr(), 373985333);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Texture3D>()));
-	return Ref<Texture3D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Texture3D>(_gde_method_bind, _owner));
+	return Ref<Texture3D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Texture3D>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

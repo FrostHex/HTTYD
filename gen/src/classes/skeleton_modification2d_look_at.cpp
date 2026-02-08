@@ -39,111 +39,111 @@
 namespace godot {
 
 void SkeletonModification2DLookAt::set_bone2d_node(const NodePath &p_bone2d_nodepath) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_bone2d_node")._native_ptr(), 1348162250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_bone2d_node")._native_ptr(), 1348162250);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone2d_nodepath);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone2d_nodepath);
 }
 
 NodePath SkeletonModification2DLookAt::get_bone2d_node() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_bone2d_node")._native_ptr(), 4075236667);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_bone2d_node")._native_ptr(), 4075236667);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
 }
 
 void SkeletonModification2DLookAt::set_bone_index(int32_t p_bone_idx) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_bone_index")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_bone_index")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_bone_idx_encoded;
 	PtrToArg<int64_t>::encode(p_bone_idx, &p_bone_idx_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone_idx_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone_idx_encoded);
 }
 
 int32_t SkeletonModification2DLookAt::get_bone_index() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_bone_index")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_bone_index")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void SkeletonModification2DLookAt::set_target_node(const NodePath &p_target_nodepath) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_target_node")._native_ptr(), 1348162250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_target_node")._native_ptr(), 1348162250);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_target_nodepath);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_target_nodepath);
 }
 
 NodePath SkeletonModification2DLookAt::get_target_node() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_target_node")._native_ptr(), 4075236667);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_target_node")._native_ptr(), 4075236667);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
 }
 
 void SkeletonModification2DLookAt::set_additional_rotation(float p_rotation) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_additional_rotation")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_additional_rotation")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_rotation_encoded;
 	PtrToArg<double>::encode(p_rotation, &p_rotation_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rotation_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rotation_encoded);
 }
 
 float SkeletonModification2DLookAt::get_additional_rotation() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_additional_rotation")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_additional_rotation")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void SkeletonModification2DLookAt::set_enable_constraint(bool p_enable_constraint) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_enable_constraint")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_enable_constraint")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_constraint_encoded;
 	PtrToArg<bool>::encode(p_enable_constraint, &p_enable_constraint_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_constraint_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_constraint_encoded);
 }
 
 bool SkeletonModification2DLookAt::get_enable_constraint() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_enable_constraint")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_enable_constraint")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void SkeletonModification2DLookAt::set_constraint_angle_min(float p_angle_min) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_constraint_angle_min")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_constraint_angle_min")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_angle_min_encoded;
 	PtrToArg<double>::encode(p_angle_min, &p_angle_min_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_angle_min_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_angle_min_encoded);
 }
 
 float SkeletonModification2DLookAt::get_constraint_angle_min() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_constraint_angle_min")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_constraint_angle_min")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void SkeletonModification2DLookAt::set_constraint_angle_max(float p_angle_max) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_constraint_angle_max")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_constraint_angle_max")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_angle_max_encoded;
 	PtrToArg<double>::encode(p_angle_max, &p_angle_max_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_angle_max_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_angle_max_encoded);
 }
 
 float SkeletonModification2DLookAt::get_constraint_angle_max() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_constraint_angle_max")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_constraint_angle_max")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void SkeletonModification2DLookAt::set_constraint_angle_invert(bool p_invert) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_constraint_angle_invert")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("set_constraint_angle_invert")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_invert_encoded;
 	PtrToArg<bool>::encode(p_invert, &p_invert_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_invert_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_invert_encoded);
 }
 
 bool SkeletonModification2DLookAt::get_constraint_angle_invert() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_constraint_angle_invert")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DLookAt::get_class_static()._native_ptr(), StringName("get_constraint_angle_invert")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

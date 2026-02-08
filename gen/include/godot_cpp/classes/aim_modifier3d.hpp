@@ -54,6 +54,8 @@ public:
 	Vector3::Axis get_primary_rotation_axis(int32_t p_index) const;
 	void set_use_secondary_rotation(int32_t p_index, bool p_enabled);
 	bool is_using_secondary_rotation(int32_t p_index) const;
+	void set_relative(int32_t p_index, bool p_enabled);
+	bool is_relative(int32_t p_index) const;
 
 protected:
 	template <typename T, typename B>

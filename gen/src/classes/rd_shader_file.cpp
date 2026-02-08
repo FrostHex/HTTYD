@@ -41,33 +41,33 @@
 namespace godot {
 
 void RDShaderFile::set_bytecode(const Ref<RDShaderSPIRV> &p_bytecode, const StringName &p_version) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderFile::get_class_static()._native_ptr(), StringName("set_bytecode")._native_ptr(), 1526857008);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderFile::get_class_static()._native_ptr(), StringName("set_bytecode")._native_ptr(), 1526857008);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_bytecode != nullptr ? &p_bytecode->_owner : nullptr), &p_version);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_bytecode != nullptr ? &p_bytecode->_owner : nullptr), &p_version);
 }
 
 Ref<RDShaderSPIRV> RDShaderFile::get_spirv(const StringName &p_version) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderFile::get_class_static()._native_ptr(), StringName("get_spirv")._native_ptr(), 2689310080);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderFile::get_class_static()._native_ptr(), StringName("get_spirv")._native_ptr(), 2689310080);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<RDShaderSPIRV>()));
-	return Ref<RDShaderSPIRV>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<RDShaderSPIRV>(_gde_method_bind, _owner, &p_version));
+	return Ref<RDShaderSPIRV>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<RDShaderSPIRV>(_gde_method_bind, _owner, &p_version));
 }
 
 TypedArray<StringName> RDShaderFile::get_version_list() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderFile::get_class_static()._native_ptr(), StringName("get_version_list")._native_ptr(), 3995934104);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderFile::get_class_static()._native_ptr(), StringName("get_version_list")._native_ptr(), 3995934104);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<StringName>()));
-	return internal::_call_native_mb_ret<TypedArray<StringName>>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<StringName>>(_gde_method_bind, _owner);
 }
 
 void RDShaderFile::set_base_error(const String &p_error) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderFile::get_class_static()._native_ptr(), StringName("set_base_error")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderFile::get_class_static()._native_ptr(), StringName("set_base_error")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_error);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_error);
 }
 
 String RDShaderFile::get_base_error() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderFile::get_class_static()._native_ptr(), StringName("get_base_error")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderFile::get_class_static()._native_ptr(), StringName("get_base_error")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

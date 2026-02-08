@@ -39,17 +39,17 @@
 namespace godot {
 
 void SphereOccluder3D::set_radius(float p_radius) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SphereOccluder3D::get_class_static()._native_ptr(), StringName("set_radius")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SphereOccluder3D::get_class_static()._native_ptr(), StringName("set_radius")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_radius_encoded;
 	PtrToArg<double>::encode(p_radius, &p_radius_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_radius_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_radius_encoded);
 }
 
 float SphereOccluder3D::get_radius() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SphereOccluder3D::get_class_static()._native_ptr(), StringName("get_radius")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SphereOccluder3D::get_class_static()._native_ptr(), StringName("get_radius")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

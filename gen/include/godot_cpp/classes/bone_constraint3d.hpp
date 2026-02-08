@@ -33,6 +33,7 @@
 #pragma once
 
 #include <godot_cpp/classes/skeleton_modifier3d.hpp>
+#include <godot_cpp/variant/node_path.hpp>
 #include <godot_cpp/variant/string.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
@@ -45,16 +46,25 @@ class BoneConstraint3D : public SkeletonModifier3D {
 	GDEXTENSION_CLASS(BoneConstraint3D, SkeletonModifier3D)
 
 public:
+	enum ReferenceType {
+		REFERENCE_TYPE_BONE = 0,
+		REFERENCE_TYPE_NODE = 1,
+	};
+
 	void set_amount(int32_t p_index, float p_amount);
 	float get_amount(int32_t p_index) const;
 	void set_apply_bone_name(int32_t p_index, const String &p_bone_name);
 	String get_apply_bone_name(int32_t p_index) const;
 	void set_apply_bone(int32_t p_index, int32_t p_bone);
 	int32_t get_apply_bone(int32_t p_index) const;
+	void set_reference_type(int32_t p_index, BoneConstraint3D::ReferenceType p_type);
+	BoneConstraint3D::ReferenceType get_reference_type(int32_t p_index) const;
 	void set_reference_bone_name(int32_t p_index, const String &p_bone_name);
 	String get_reference_bone_name(int32_t p_index) const;
 	void set_reference_bone(int32_t p_index, int32_t p_bone);
 	int32_t get_reference_bone(int32_t p_index) const;
+	void set_reference_node(int32_t p_index, const NodePath &p_node);
+	NodePath get_reference_node(int32_t p_index) const;
 	void set_setting_count(int32_t p_count);
 	int32_t get_setting_count() const;
 	void clear_setting();
@@ -69,4 +79,6 @@ public:
 };
 
 } // namespace godot
+
+VARIANT_ENUM_CAST(BoneConstraint3D::ReferenceType);
 

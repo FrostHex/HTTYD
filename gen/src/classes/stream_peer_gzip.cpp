@@ -39,35 +39,35 @@
 namespace godot {
 
 Error StreamPeerGZIP::start_compression(bool p_use_deflate, int32_t p_buffer_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerGZIP::get_class_static()._native_ptr(), StringName("start_compression")._native_ptr(), 781582770);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerGZIP::get_class_static()._native_ptr(), StringName("start_compression")._native_ptr(), 781582770);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int8_t p_use_deflate_encoded;
 	PtrToArg<bool>::encode(p_use_deflate, &p_use_deflate_encoded);
 	int64_t p_buffer_size_encoded;
 	PtrToArg<int64_t>::encode(p_buffer_size, &p_buffer_size_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_use_deflate_encoded, &p_buffer_size_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_use_deflate_encoded, &p_buffer_size_encoded);
 }
 
 Error StreamPeerGZIP::start_decompression(bool p_use_deflate, int32_t p_buffer_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerGZIP::get_class_static()._native_ptr(), StringName("start_decompression")._native_ptr(), 781582770);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerGZIP::get_class_static()._native_ptr(), StringName("start_decompression")._native_ptr(), 781582770);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int8_t p_use_deflate_encoded;
 	PtrToArg<bool>::encode(p_use_deflate, &p_use_deflate_encoded);
 	int64_t p_buffer_size_encoded;
 	PtrToArg<int64_t>::encode(p_buffer_size, &p_buffer_size_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_use_deflate_encoded, &p_buffer_size_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_use_deflate_encoded, &p_buffer_size_encoded);
 }
 
 Error StreamPeerGZIP::finish() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerGZIP::get_class_static()._native_ptr(), StringName("finish")._native_ptr(), 166280745);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerGZIP::get_class_static()._native_ptr(), StringName("finish")._native_ptr(), 166280745);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void StreamPeerGZIP::clear() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerGZIP::get_class_static()._native_ptr(), StringName("clear")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerGZIP::get_class_static()._native_ptr(), StringName("clear")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 } // namespace godot

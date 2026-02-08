@@ -39,45 +39,45 @@
 namespace godot {
 
 void AudioEffectHardLimiter::set_ceiling_db(float p_ceiling) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("set_ceiling_db")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("set_ceiling_db")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_ceiling_encoded;
 	PtrToArg<double>::encode(p_ceiling, &p_ceiling_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_ceiling_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_ceiling_encoded);
 }
 
 float AudioEffectHardLimiter::get_ceiling_db() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("get_ceiling_db")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("get_ceiling_db")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AudioEffectHardLimiter::set_pre_gain_db(float p_pre_gain) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("set_pre_gain_db")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("set_pre_gain_db")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_pre_gain_encoded;
 	PtrToArg<double>::encode(p_pre_gain, &p_pre_gain_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pre_gain_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pre_gain_encoded);
 }
 
 float AudioEffectHardLimiter::get_pre_gain_db() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("get_pre_gain_db")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("get_pre_gain_db")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AudioEffectHardLimiter::set_release(float p_release) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("set_release")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("set_release")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_release_encoded;
 	PtrToArg<double>::encode(p_release, &p_release_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_release_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_release_encoded);
 }
 
 float AudioEffectHardLimiter::get_release() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("get_release")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectHardLimiter::get_class_static()._native_ptr(), StringName("get_release")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

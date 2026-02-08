@@ -66,6 +66,8 @@ public:
 	Vector3::Axis get_primary_rotation_axis() const;
 	void set_use_secondary_rotation(bool p_enabled);
 	bool is_using_secondary_rotation() const;
+	void set_relative(bool p_enabled);
+	bool is_relative() const;
 	void set_origin_safe_margin(float p_margin);
 	float get_origin_safe_margin() const;
 	void set_origin_from(LookAtModifier3D::OriginFrom p_origin_from);

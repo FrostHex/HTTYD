@@ -39,21 +39,21 @@
 namespace godot {
 
 void ConeTwistJoint3D::set_param(ConeTwistJoint3D::Param p_param, float p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ConeTwistJoint3D::get_class_static()._native_ptr(), StringName("set_param")._native_ptr(), 1062470226);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ConeTwistJoint3D::get_class_static()._native_ptr(), StringName("set_param")._native_ptr(), 1062470226);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_param_encoded;
 	PtrToArg<int64_t>::encode(p_param, &p_param_encoded);
 	double p_value_encoded;
 	PtrToArg<double>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param_encoded, &p_value_encoded);
 }
 
 float ConeTwistJoint3D::get_param(ConeTwistJoint3D::Param p_param) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ConeTwistJoint3D::get_class_static()._native_ptr(), StringName("get_param")._native_ptr(), 2928790850);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ConeTwistJoint3D::get_class_static()._native_ptr(), StringName("get_param")._native_ptr(), 2928790850);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	int64_t p_param_encoded;
 	PtrToArg<int64_t>::encode(p_param, &p_param_encoded);
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_param_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_param_encoded);
 }
 
 } // namespace godot

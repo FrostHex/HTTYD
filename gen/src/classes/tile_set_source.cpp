@@ -39,45 +39,45 @@
 namespace godot {
 
 int32_t TileSetSource::get_tiles_count() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("get_tiles_count")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("get_tiles_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Vector2i TileSetSource::get_tile_id(int32_t p_index) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("get_tile_id")._native_ptr(), 880721226);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("get_tile_id")._native_ptr(), 880721226);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2i()));
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
-	return internal::_call_native_mb_ret<Vector2i>(_gde_method_bind, _owner, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<Vector2i>(_gde_method_bind, _owner, &p_index_encoded);
 }
 
 bool TileSetSource::has_tile(const Vector2i &p_atlas_coords) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("has_tile")._native_ptr(), 3900751641);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("has_tile")._native_ptr(), 3900751641);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_atlas_coords);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_atlas_coords);
 }
 
 int32_t TileSetSource::get_alternative_tiles_count(const Vector2i &p_atlas_coords) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("get_alternative_tiles_count")._native_ptr(), 2485466453);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("get_alternative_tiles_count")._native_ptr(), 2485466453);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_atlas_coords);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_atlas_coords);
 }
 
 int32_t TileSetSource::get_alternative_tile_id(const Vector2i &p_atlas_coords, int32_t p_index) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("get_alternative_tile_id")._native_ptr(), 89881719);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("get_alternative_tile_id")._native_ptr(), 89881719);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_atlas_coords, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_atlas_coords, &p_index_encoded);
 }
 
 bool TileSetSource::has_alternative_tile(const Vector2i &p_atlas_coords, int32_t p_alternative_tile) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("has_alternative_tile")._native_ptr(), 1073731340);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetSource::get_class_static()._native_ptr(), StringName("has_alternative_tile")._native_ptr(), 1073731340);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_alternative_tile_encoded;
 	PtrToArg<int64_t>::encode(p_alternative_tile, &p_alternative_tile_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_atlas_coords, &p_alternative_tile_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_atlas_coords, &p_alternative_tile_encoded);
 }
 
 } // namespace godot

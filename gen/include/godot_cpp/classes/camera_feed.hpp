@@ -77,6 +77,7 @@ public:
 	void set_transform(const Transform2D &p_transform);
 	void set_rgb_image(const Ref<Image> &p_rgb_image);
 	void set_ycbcr_image(const Ref<Image> &p_ycbcr_image);
+	void set_ycbcr_images(const Ref<Image> &p_y_image, const Ref<Image> &p_cbcr_image);
 	void set_external(int32_t p_width, int32_t p_height);
 	uint64_t get_texture_tex_id(CameraServer::FeedImage p_feed_image_type);
 	CameraFeed::FeedDataType get_datatype() const;

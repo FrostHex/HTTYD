@@ -39,59 +39,59 @@
 namespace godot {
 
 void PhysicsMaterial::set_friction(float p_friction) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("set_friction")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("set_friction")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_friction_encoded;
 	PtrToArg<double>::encode(p_friction, &p_friction_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_friction_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_friction_encoded);
 }
 
 float PhysicsMaterial::get_friction() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("get_friction")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("get_friction")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void PhysicsMaterial::set_rough(bool p_rough) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("set_rough")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("set_rough")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_rough_encoded;
 	PtrToArg<bool>::encode(p_rough, &p_rough_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rough_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rough_encoded);
 }
 
 bool PhysicsMaterial::is_rough() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("is_rough")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("is_rough")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void PhysicsMaterial::set_bounce(float p_bounce) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("set_bounce")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("set_bounce")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_bounce_encoded;
 	PtrToArg<double>::encode(p_bounce, &p_bounce_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bounce_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bounce_encoded);
 }
 
 float PhysicsMaterial::get_bounce() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("get_bounce")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("get_bounce")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void PhysicsMaterial::set_absorbent(bool p_absorbent) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("set_absorbent")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("set_absorbent")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_absorbent_encoded;
 	PtrToArg<bool>::encode(p_absorbent, &p_absorbent_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_absorbent_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_absorbent_encoded);
 }
 
 bool PhysicsMaterial::is_absorbent() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("is_absorbent")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsMaterial::get_class_static()._native_ptr(), StringName("is_absorbent")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

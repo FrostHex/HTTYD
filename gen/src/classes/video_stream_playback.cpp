@@ -41,13 +41,13 @@
 namespace godot {
 
 int32_t VideoStreamPlayback::mix_audio(int32_t p_num_frames, const PackedFloat32Array &p_buffer, int32_t p_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VideoStreamPlayback::get_class_static()._native_ptr(), StringName("mix_audio")._native_ptr(), 93876830);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VideoStreamPlayback::get_class_static()._native_ptr(), StringName("mix_audio")._native_ptr(), 93876830);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	int64_t p_num_frames_encoded;
 	PtrToArg<int64_t>::encode(p_num_frames, &p_num_frames_encoded);
 	int64_t p_offset_encoded;
 	PtrToArg<int64_t>::encode(p_offset, &p_offset_encoded);
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_num_frames_encoded, &p_buffer, &p_offset_encoded);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_num_frames_encoded, &p_buffer, &p_offset_encoded);
 }
 
 void VideoStreamPlayback::_stop() {}

@@ -33,6 +33,8 @@
 #pragma once
 
 #include <godot_cpp/classes/container.hpp>
+#include <godot_cpp/variant/packed_int32_array.hpp>
+#include <godot_cpp/variant/typed_array.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -52,9 +54,9 @@ public:
 		DRAGGER_HIDDEN_COLLAPSED = 2,
 	};
 
-	void set_split_offset(int32_t p_offset);
-	int32_t get_split_offset() const;
-	void clamp_split_offset();
+	void set_split_offsets(const PackedInt32Array &p_offsets);
+	PackedInt32Array get_split_offsets() const;
+	void clamp_split_offset(int32_t p_priority_index = 0);
 	void set_collapsed(bool p_collapsed);
 	bool is_collapsed() const;
 	void set_dragger_visibility(SplitContainer::DraggerVisibility p_mode);
@@ -71,9 +73,12 @@ public:
 	int32_t get_drag_area_offset() const;
 	void set_drag_area_highlight_in_editor(bool p_drag_area_highlight_in_editor);
 	bool is_drag_area_highlight_in_editor_enabled() const;
-	Control *get_drag_area_control();
+	TypedArray<Control> get_drag_area_controls();
 	void set_touch_dragger_enabled(bool p_enabled);
 	bool is_touch_dragger_enabled() const;
+	Control *get_drag_area_control();
+	void set_split_offset(int32_t p_offset);
+	int32_t get_split_offset() const;
 
 protected:
 	template <typename T, typename B>

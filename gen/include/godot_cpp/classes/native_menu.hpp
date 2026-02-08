@@ -79,6 +79,8 @@ public:
 	bool has_system_menu(NativeMenu::SystemMenus p_menu_id) const;
 	RID get_system_menu(NativeMenu::SystemMenus p_menu_id) const;
 	String get_system_menu_name(NativeMenu::SystemMenus p_menu_id) const;
+	String get_system_menu_text(NativeMenu::SystemMenus p_menu_id) const;
+	void set_system_menu_text(NativeMenu::SystemMenus p_menu_id, const String &p_name);
 	RID create_menu();
 	bool has_menu(const RID &p_rid) const;
 	void free_menu(const RID &p_rid);

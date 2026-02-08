@@ -48,9 +48,10 @@ class OpenXRInteractionProfileMetadata : public Object {
 
 public:
 	void register_profile_rename(const String &p_old_name, const String &p_new_name);
-	void register_top_level_path(const String &p_display_name, const String &p_openxr_path, const String &p_openxr_extension_name);
-	void register_interaction_profile(const String &p_display_name, const String &p_openxr_path, const String &p_openxr_extension_name);
-	void register_io_path(const String &p_interaction_profile, const String &p_display_name, const String &p_toplevel_path, const String &p_openxr_path, const String &p_openxr_extension_name, OpenXRAction::ActionType p_action_type);
+	void register_path_rename(const String &p_old_name, const String &p_new_name);
+	void register_top_level_path(const String &p_display_name, const String &p_openxr_path, const String &p_openxr_extension_names);
+	void register_interaction_profile(const String &p_display_name, const String &p_openxr_path, const String &p_openxr_extension_names);
+	void register_io_path(const String &p_interaction_profile, const String &p_display_name, const String &p_toplevel_path, const String &p_openxr_path, const String &p_openxr_extension_names, OpenXRAction::ActionType p_action_type);
 
 protected:
 	template <typename T, typename B>

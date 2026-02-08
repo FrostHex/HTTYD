@@ -39,75 +39,93 @@
 namespace godot {
 
 void AimModifier3D::set_forward_axis(int32_t p_index, SkeletonModifier3D::BoneAxis p_axis) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("set_forward_axis")._native_ptr(), 2496831085);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("set_forward_axis")._native_ptr(), 2496831085);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
 	int64_t p_axis_encoded;
 	PtrToArg<int64_t>::encode(p_axis, &p_axis_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_axis_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_axis_encoded);
 }
 
 SkeletonModifier3D::BoneAxis AimModifier3D::get_forward_axis(int32_t p_index) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("get_forward_axis")._native_ptr(), 3949866735);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("get_forward_axis")._native_ptr(), 3949866735);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (SkeletonModifier3D::BoneAxis(0)));
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
-	return (SkeletonModifier3D::BoneAxis)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_index_encoded);
+	return (SkeletonModifier3D::BoneAxis)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_index_encoded);
 }
 
 void AimModifier3D::set_use_euler(int32_t p_index, bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("set_use_euler")._native_ptr(), 300928843);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("set_use_euler")._native_ptr(), 300928843);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_enabled_encoded);
 }
 
 bool AimModifier3D::is_using_euler(int32_t p_index) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("is_using_euler")._native_ptr(), 1116898809);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("is_using_euler")._native_ptr(), 1116898809);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_index_encoded);
 }
 
 void AimModifier3D::set_primary_rotation_axis(int32_t p_index, Vector3::Axis p_axis) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("set_primary_rotation_axis")._native_ptr(), 776736805);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("set_primary_rotation_axis")._native_ptr(), 776736805);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
 	int64_t p_axis_encoded;
 	PtrToArg<int64_t>::encode(p_axis, &p_axis_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_axis_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_axis_encoded);
 }
 
 Vector3::Axis AimModifier3D::get_primary_rotation_axis(int32_t p_index) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("get_primary_rotation_axis")._native_ptr(), 4131134770);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("get_primary_rotation_axis")._native_ptr(), 4131134770);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3::Axis(0)));
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
-	return (Vector3::Axis)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_index_encoded);
+	return (Vector3::Axis)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_index_encoded);
 }
 
 void AimModifier3D::set_use_secondary_rotation(int32_t p_index, bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("set_use_secondary_rotation")._native_ptr(), 300928843);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("set_use_secondary_rotation")._native_ptr(), 300928843);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_enabled_encoded);
 }
 
 bool AimModifier3D::is_using_secondary_rotation(int32_t p_index) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("is_using_secondary_rotation")._native_ptr(), 1116898809);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("is_using_secondary_rotation")._native_ptr(), 1116898809);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_index_encoded);
+}
+
+void AimModifier3D::set_relative(int32_t p_index, bool p_enabled) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("set_relative")._native_ptr(), 300928843);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_enabled_encoded);
+}
+
+bool AimModifier3D::is_relative(int32_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AimModifier3D::get_class_static()._native_ptr(), StringName("is_relative")._native_ptr(), 1116898809);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_index_encoded);
 }
 
 } // namespace godot

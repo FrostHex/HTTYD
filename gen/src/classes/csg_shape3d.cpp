@@ -42,161 +42,161 @@
 namespace godot {
 
 bool CSGShape3D::is_root_shape() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("is_root_shape")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("is_root_shape")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void CSGShape3D::set_operation(CSGShape3D::Operation p_operation) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_operation")._native_ptr(), 811425055);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_operation")._native_ptr(), 811425055);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_operation_encoded;
 	PtrToArg<int64_t>::encode(p_operation, &p_operation_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_operation_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_operation_encoded);
 }
 
 CSGShape3D::Operation CSGShape3D::get_operation() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_operation")._native_ptr(), 2662425879);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_operation")._native_ptr(), 2662425879);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (CSGShape3D::Operation(0)));
-	return (CSGShape3D::Operation)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (CSGShape3D::Operation)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void CSGShape3D::set_snap(float p_snap) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_snap")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_snap")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_snap_encoded;
 	PtrToArg<double>::encode(p_snap, &p_snap_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_snap_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_snap_encoded);
 }
 
 float CSGShape3D::get_snap() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_snap")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_snap")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CSGShape3D::set_use_collision(bool p_operation) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_use_collision")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_use_collision")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_operation_encoded;
 	PtrToArg<bool>::encode(p_operation, &p_operation_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_operation_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_operation_encoded);
 }
 
 bool CSGShape3D::is_using_collision() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("is_using_collision")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("is_using_collision")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void CSGShape3D::set_collision_layer(uint32_t p_layer) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_collision_layer")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_collision_layer")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_layer_encoded;
 	PtrToArg<int64_t>::encode(p_layer, &p_layer_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_layer_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_layer_encoded);
 }
 
 uint32_t CSGShape3D::get_collision_layer() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_collision_layer")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_collision_layer")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void CSGShape3D::set_collision_mask(uint32_t p_mask) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_collision_mask")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_collision_mask")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mask_encoded;
 	PtrToArg<int64_t>::encode(p_mask, &p_mask_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mask_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mask_encoded);
 }
 
 uint32_t CSGShape3D::get_collision_mask() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_collision_mask")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_collision_mask")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void CSGShape3D::set_collision_mask_value(int32_t p_layer_number, bool p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_collision_mask_value")._native_ptr(), 300928843);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_collision_mask_value")._native_ptr(), 300928843);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_layer_number_encoded;
 	PtrToArg<int64_t>::encode(p_layer_number, &p_layer_number_encoded);
 	int8_t p_value_encoded;
 	PtrToArg<bool>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_layer_number_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_layer_number_encoded, &p_value_encoded);
 }
 
 bool CSGShape3D::get_collision_mask_value(int32_t p_layer_number) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_collision_mask_value")._native_ptr(), 1116898809);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_collision_mask_value")._native_ptr(), 1116898809);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_layer_number_encoded;
 	PtrToArg<int64_t>::encode(p_layer_number, &p_layer_number_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_layer_number_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_layer_number_encoded);
 }
 
 void CSGShape3D::set_collision_layer_value(int32_t p_layer_number, bool p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_collision_layer_value")._native_ptr(), 300928843);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_collision_layer_value")._native_ptr(), 300928843);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_layer_number_encoded;
 	PtrToArg<int64_t>::encode(p_layer_number, &p_layer_number_encoded);
 	int8_t p_value_encoded;
 	PtrToArg<bool>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_layer_number_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_layer_number_encoded, &p_value_encoded);
 }
 
 bool CSGShape3D::get_collision_layer_value(int32_t p_layer_number) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_collision_layer_value")._native_ptr(), 1116898809);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_collision_layer_value")._native_ptr(), 1116898809);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_layer_number_encoded;
 	PtrToArg<int64_t>::encode(p_layer_number, &p_layer_number_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_layer_number_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_layer_number_encoded);
 }
 
 void CSGShape3D::set_collision_priority(float p_priority) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_collision_priority")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_collision_priority")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_priority_encoded;
 	PtrToArg<double>::encode(p_priority, &p_priority_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_priority_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_priority_encoded);
 }
 
 float CSGShape3D::get_collision_priority() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_collision_priority")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_collision_priority")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 Ref<ConcavePolygonShape3D> CSGShape3D::bake_collision_shape() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("bake_collision_shape")._native_ptr(), 36102322);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("bake_collision_shape")._native_ptr(), 36102322);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<ConcavePolygonShape3D>()));
-	return Ref<ConcavePolygonShape3D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<ConcavePolygonShape3D>(_gde_method_bind, _owner));
+	return Ref<ConcavePolygonShape3D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<ConcavePolygonShape3D>(_gde_method_bind, _owner));
 }
 
 void CSGShape3D::set_calculate_tangents(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_calculate_tangents")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_calculate_tangents")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool CSGShape3D::is_calculating_tangents() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("is_calculating_tangents")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("is_calculating_tangents")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 Array CSGShape3D::get_meshes() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_meshes")._native_ptr(), 3995934104);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_meshes")._native_ptr(), 3995934104);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Array()));
-	return internal::_call_native_mb_ret<Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Array>(_gde_method_bind, _owner);
 }
 
 Ref<ArrayMesh> CSGShape3D::bake_static_mesh() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("bake_static_mesh")._native_ptr(), 1605880883);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("bake_static_mesh")._native_ptr(), 1605880883);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<ArrayMesh>()));
-	return Ref<ArrayMesh>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<ArrayMesh>(_gde_method_bind, _owner));
+	return Ref<ArrayMesh>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<ArrayMesh>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

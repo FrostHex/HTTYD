@@ -39,73 +39,73 @@
 namespace godot {
 
 void CameraAttributes::set_exposure_multiplier(float p_multiplier) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("set_exposure_multiplier")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("set_exposure_multiplier")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_multiplier_encoded;
 	PtrToArg<double>::encode(p_multiplier, &p_multiplier_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_multiplier_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_multiplier_encoded);
 }
 
 float CameraAttributes::get_exposure_multiplier() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("get_exposure_multiplier")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("get_exposure_multiplier")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CameraAttributes::set_exposure_sensitivity(float p_sensitivity) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("set_exposure_sensitivity")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("set_exposure_sensitivity")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_sensitivity_encoded;
 	PtrToArg<double>::encode(p_sensitivity, &p_sensitivity_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sensitivity_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sensitivity_encoded);
 }
 
 float CameraAttributes::get_exposure_sensitivity() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("get_exposure_sensitivity")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("get_exposure_sensitivity")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CameraAttributes::set_auto_exposure_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("set_auto_exposure_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("set_auto_exposure_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool CameraAttributes::is_auto_exposure_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("is_auto_exposure_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("is_auto_exposure_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void CameraAttributes::set_auto_exposure_speed(float p_exposure_speed) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("set_auto_exposure_speed")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("set_auto_exposure_speed")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_exposure_speed_encoded;
 	PtrToArg<double>::encode(p_exposure_speed, &p_exposure_speed_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_exposure_speed_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_exposure_speed_encoded);
 }
 
 float CameraAttributes::get_auto_exposure_speed() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("get_auto_exposure_speed")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("get_auto_exposure_speed")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CameraAttributes::set_auto_exposure_scale(float p_exposure_grey) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("set_auto_exposure_scale")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("set_auto_exposure_scale")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_exposure_grey_encoded;
 	PtrToArg<double>::encode(p_exposure_grey, &p_exposure_grey_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_exposure_grey_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_exposure_grey_encoded);
 }
 
 float CameraAttributes::get_auto_exposure_scale() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("get_auto_exposure_scale")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributes::get_class_static()._native_ptr(), StringName("get_auto_exposure_scale")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

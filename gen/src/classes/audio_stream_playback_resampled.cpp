@@ -39,9 +39,9 @@
 namespace godot {
 
 void AudioStreamPlaybackResampled::begin_resample() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioStreamPlaybackResampled::get_class_static()._native_ptr(), StringName("begin_resample")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioStreamPlaybackResampled::get_class_static()._native_ptr(), StringName("begin_resample")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 int32_t AudioStreamPlaybackResampled::_mix_resampled(AudioFrame *p_dst_buffer, int32_t p_frame_count) {

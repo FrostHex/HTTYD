@@ -39,73 +39,73 @@
 namespace godot {
 
 void MultiplayerSpawner::add_spawnable_scene(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("add_spawnable_scene")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("add_spawnable_scene")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
 }
 
 int32_t MultiplayerSpawner::get_spawnable_scene_count() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("get_spawnable_scene_count")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("get_spawnable_scene_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 String MultiplayerSpawner::get_spawnable_scene(int32_t p_index) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("get_spawnable_scene")._native_ptr(), 844755477);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("get_spawnable_scene")._native_ptr(), 844755477);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_index_encoded);
 }
 
 void MultiplayerSpawner::clear_spawnable_scenes() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("clear_spawnable_scenes")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("clear_spawnable_scenes")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 Node *MultiplayerSpawner::spawn(const Variant &p_data) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("spawn")._native_ptr(), 1991184589);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("spawn")._native_ptr(), 1991184589);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return internal::_call_native_mb_ret_obj<Node>(_gde_method_bind, _owner, &p_data);
+	return ::godot::internal::_call_native_mb_ret_obj<Node>(_gde_method_bind, _owner, &p_data);
 }
 
 NodePath MultiplayerSpawner::get_spawn_path() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("get_spawn_path")._native_ptr(), 4075236667);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("get_spawn_path")._native_ptr(), 4075236667);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
 }
 
 void MultiplayerSpawner::set_spawn_path(const NodePath &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("set_spawn_path")._native_ptr(), 1348162250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("set_spawn_path")._native_ptr(), 1348162250);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
 }
 
 uint32_t MultiplayerSpawner::get_spawn_limit() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("get_spawn_limit")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("get_spawn_limit")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void MultiplayerSpawner::set_spawn_limit(uint32_t p_limit) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("set_spawn_limit")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("set_spawn_limit")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_limit_encoded;
 	PtrToArg<int64_t>::encode(p_limit, &p_limit_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_limit_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_limit_encoded);
 }
 
 Callable MultiplayerSpawner::get_spawn_function() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("get_spawn_function")._native_ptr(), 1307783378);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("get_spawn_function")._native_ptr(), 1307783378);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Callable()));
-	return internal::_call_native_mb_ret<Callable>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Callable>(_gde_method_bind, _owner);
 }
 
 void MultiplayerSpawner::set_spawn_function(const Callable &p_spawn_function) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("set_spawn_function")._native_ptr(), 1611583062);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerSpawner::get_class_static()._native_ptr(), StringName("set_spawn_function")._native_ptr(), 1611583062);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_spawn_function);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_spawn_function);
 }
 
 } // namespace godot

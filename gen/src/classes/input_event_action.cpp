@@ -39,51 +39,51 @@
 namespace godot {
 
 void InputEventAction::set_action(const StringName &p_action) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("set_action")._native_ptr(), 3304788590);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("set_action")._native_ptr(), 3304788590);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_action);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_action);
 }
 
 StringName InputEventAction::get_action() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("get_action")._native_ptr(), 2002593661);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("get_action")._native_ptr(), 2002593661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
-	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
 }
 
 void InputEventAction::set_pressed(bool p_pressed) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("set_pressed")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("set_pressed")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_pressed_encoded;
 	PtrToArg<bool>::encode(p_pressed, &p_pressed_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pressed_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pressed_encoded);
 }
 
 void InputEventAction::set_strength(float p_strength) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("set_strength")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("set_strength")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_strength_encoded;
 	PtrToArg<double>::encode(p_strength, &p_strength_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_strength_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_strength_encoded);
 }
 
 float InputEventAction::get_strength() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("get_strength")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("get_strength")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void InputEventAction::set_event_index(int32_t p_index) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("set_event_index")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("set_event_index")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded);
 }
 
 int32_t InputEventAction::get_event_index() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("get_event_index")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventAction::get_class_static()._native_ptr(), StringName("get_event_index")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -39,15 +39,15 @@
 namespace godot {
 
 void VisualShaderNodeExpression::set_expression(const String &p_expression) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeExpression::get_class_static()._native_ptr(), StringName("set_expression")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeExpression::get_class_static()._native_ptr(), StringName("set_expression")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_expression);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_expression);
 }
 
 String VisualShaderNodeExpression::get_expression() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeExpression::get_class_static()._native_ptr(), StringName("get_expression")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeExpression::get_class_static()._native_ptr(), StringName("get_expression")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

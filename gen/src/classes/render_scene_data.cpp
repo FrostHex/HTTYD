@@ -39,43 +39,43 @@
 namespace godot {
 
 Transform3D RenderSceneData::get_cam_transform() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_cam_transform")._native_ptr(), 3229777777);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_cam_transform")._native_ptr(), 3229777777);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Transform3D()));
-	return internal::_call_native_mb_ret<Transform3D>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Transform3D>(_gde_method_bind, _owner);
 }
 
 Projection RenderSceneData::get_cam_projection() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_cam_projection")._native_ptr(), 2910717950);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_cam_projection")._native_ptr(), 2910717950);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Projection()));
-	return internal::_call_native_mb_ret<Projection>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Projection>(_gde_method_bind, _owner);
 }
 
 uint32_t RenderSceneData::get_view_count() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_view_count")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_view_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Vector3 RenderSceneData::get_view_eye_offset(uint32_t p_view) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_view_eye_offset")._native_ptr(), 711720468);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_view_eye_offset")._native_ptr(), 711720468);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
 	int64_t p_view_encoded;
 	PtrToArg<int64_t>::encode(p_view, &p_view_encoded);
-	return internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner, &p_view_encoded);
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner, &p_view_encoded);
 }
 
 Projection RenderSceneData::get_view_projection(uint32_t p_view) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_view_projection")._native_ptr(), 3179846605);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_view_projection")._native_ptr(), 3179846605);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Projection()));
 	int64_t p_view_encoded;
 	PtrToArg<int64_t>::encode(p_view, &p_view_encoded);
-	return internal::_call_native_mb_ret<Projection>(_gde_method_bind, _owner, &p_view_encoded);
+	return ::godot::internal::_call_native_mb_ret<Projection>(_gde_method_bind, _owner, &p_view_encoded);
 }
 
 RID RenderSceneData::get_uniform_buffer() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_uniform_buffer")._native_ptr(), 2944877500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderSceneData::get_class_static()._native_ptr(), StringName("get_uniform_buffer")._native_ptr(), 2944877500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -54,6 +54,7 @@ class Camera3D;
 class ConfigFile;
 class Control;
 class EditorDebuggerPlugin;
+class EditorDock;
 class EditorExportPlatform;
 class EditorExportPlugin;
 class EditorImportPlugin;
@@ -92,6 +93,7 @@ public:
 	};
 
 	enum DockSlot {
+		DOCK_SLOT_NONE = -1,
 		DOCK_SLOT_LEFT_UL = 0,
 		DOCK_SLOT_LEFT_BL = 1,
 		DOCK_SLOT_LEFT_UR = 2,
@@ -100,7 +102,8 @@ public:
 		DOCK_SLOT_RIGHT_BL = 5,
 		DOCK_SLOT_RIGHT_UR = 6,
 		DOCK_SLOT_RIGHT_BR = 7,
-		DOCK_SLOT_MAX = 8,
+		DOCK_SLOT_BOTTOM = 8,
+		DOCK_SLOT_MAX = 9,
 	};
 
 	enum AfterGUIInput {
@@ -109,19 +112,21 @@ public:
 		AFTER_GUI_INPUT_CUSTOM = 2,
 	};
 
+	void add_dock(EditorDock *p_dock);
+	void remove_dock(EditorDock *p_dock);
 	void add_control_to_container(EditorPlugin::CustomControlContainer p_container, Control *p_control);
-	Button *add_control_to_bottom_panel(Control *p_control, const String &p_title, const Ref<Shortcut> &p_shortcut = nullptr);
-	void add_control_to_dock(EditorPlugin::DockSlot p_slot, Control *p_control, const Ref<Shortcut> &p_shortcut = nullptr);
-	void remove_control_from_docks(Control *p_control);
-	void remove_control_from_bottom_panel(Control *p_control);
 	void remove_control_from_container(EditorPlugin::CustomControlContainer p_container, Control *p_control);
-	void set_dock_tab_icon(Control *p_control, const Ref<Texture2D> &p_icon);
 	void add_tool_menu_item(const String &p_name, const Callable &p_callable);
 	void add_tool_submenu_item(const String &p_name, PopupMenu *p_submenu);
 	void remove_tool_menu_item(const String &p_name);
 	PopupMenu *get_export_as_menu();
 	void add_custom_type(const String &p_type, const String &p_base, const Ref<Script> &p_script, const Ref<Texture2D> &p_icon);
 	void remove_custom_type(const String &p_type);
+	void add_control_to_dock(EditorPlugin::DockSlot p_slot, Control *p_control, const Ref<Shortcut> &p_shortcut = nullptr);
+	void remove_control_from_docks(Control *p_control);
+	void set_dock_tab_icon(Control *p_control, const Ref<Texture2D> &p_icon);
+	Button *add_control_to_bottom_panel(Control *p_control, const String &p_title, const Ref<Shortcut> &p_shortcut = nullptr);
+	void remove_control_from_bottom_panel(Control *p_control);
 	void add_autoload_singleton(const String &p_name, const String &p_path);
 	void remove_autoload_singleton(const String &p_name);
 	int32_t update_overlays() const;
@@ -180,6 +185,7 @@ public:
 	virtual void _set_window_layout(const Ref<ConfigFile> &p_configuration);
 	virtual void _get_window_layout(const Ref<ConfigFile> &p_configuration);
 	virtual bool _build();
+	virtual PackedStringArray _run_scene(const String &p_scene, const PackedStringArray &p_args) const;
 	virtual void _enable_plugin();
 	virtual void _disable_plugin();
 
@@ -252,6 +258,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_build), decltype(&T::_build)>) {
 			BIND_VIRTUAL_METHOD(T, _build, 2240911060);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_run_scene), decltype(&T::_run_scene)>) {
+			BIND_VIRTUAL_METHOD(T, _run_scene, 3911848509);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_enable_plugin), decltype(&T::_enable_plugin)>) {
 			BIND_VIRTUAL_METHOD(T, _enable_plugin, 3218959716);

@@ -117,6 +117,8 @@ public:
 	bool is_draw_line_numbers_enabled() const;
 	void set_line_numbers_zero_padded(bool p_enable);
 	bool is_line_numbers_zero_padded() const;
+	void set_line_numbers_min_digits(int32_t p_count);
+	int32_t get_line_numbers_min_digits() const;
 	void set_draw_fold_gutter(bool p_enable);
 	bool is_drawing_fold_gutter() const;
 	void set_line_folding_enabled(bool p_enabled);

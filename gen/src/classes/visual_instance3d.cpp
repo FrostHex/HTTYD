@@ -39,87 +39,87 @@
 namespace godot {
 
 void VisualInstance3D::set_base(const RID &p_base) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("set_base")._native_ptr(), 2722037293);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("set_base")._native_ptr(), 2722037293);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_base);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_base);
 }
 
 RID VisualInstance3D::get_base() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_base")._native_ptr(), 2944877500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_base")._native_ptr(), 2944877500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 RID VisualInstance3D::get_instance() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_instance")._native_ptr(), 2944877500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_instance")._native_ptr(), 2944877500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 void VisualInstance3D::set_layer_mask(uint32_t p_mask) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("set_layer_mask")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("set_layer_mask")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mask_encoded;
 	PtrToArg<int64_t>::encode(p_mask, &p_mask_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mask_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mask_encoded);
 }
 
 uint32_t VisualInstance3D::get_layer_mask() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_layer_mask")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_layer_mask")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void VisualInstance3D::set_layer_mask_value(int32_t p_layer_number, bool p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("set_layer_mask_value")._native_ptr(), 300928843);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("set_layer_mask_value")._native_ptr(), 300928843);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_layer_number_encoded;
 	PtrToArg<int64_t>::encode(p_layer_number, &p_layer_number_encoded);
 	int8_t p_value_encoded;
 	PtrToArg<bool>::encode(p_value, &p_value_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_layer_number_encoded, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_layer_number_encoded, &p_value_encoded);
 }
 
 bool VisualInstance3D::get_layer_mask_value(int32_t p_layer_number) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_layer_mask_value")._native_ptr(), 1116898809);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_layer_mask_value")._native_ptr(), 1116898809);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_layer_number_encoded;
 	PtrToArg<int64_t>::encode(p_layer_number, &p_layer_number_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_layer_number_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_layer_number_encoded);
 }
 
 void VisualInstance3D::set_sorting_offset(float p_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("set_sorting_offset")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("set_sorting_offset")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_offset_encoded;
 	PtrToArg<double>::encode(p_offset, &p_offset_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset_encoded);
 }
 
 float VisualInstance3D::get_sorting_offset() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_sorting_offset")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_sorting_offset")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void VisualInstance3D::set_sorting_use_aabb_center(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("set_sorting_use_aabb_center")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("set_sorting_use_aabb_center")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool VisualInstance3D::is_sorting_use_aabb_center() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("is_sorting_use_aabb_center")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("is_sorting_use_aabb_center")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 AABB VisualInstance3D::get_aabb() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_aabb")._native_ptr(), 1068685055);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualInstance3D::get_class_static()._native_ptr(), StringName("get_aabb")._native_ptr(), 1068685055);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AABB()));
-	return internal::_call_native_mb_ret<AABB>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<AABB>(_gde_method_bind, _owner);
 }
 
 AABB VisualInstance3D::_get_aabb() const {

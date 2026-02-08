@@ -85,6 +85,7 @@ public:
 	void set_instance_custom_data(int32_t p_instance, const Color &p_custom_data);
 	Color get_instance_custom_data(int32_t p_instance) const;
 	void reset_instance_physics_interpolation(int32_t p_instance);
+	void reset_instances_physics_interpolation();
 	void set_custom_aabb(const AABB &p_aabb);
 	AABB get_custom_aabb() const;
 	AABB get_aabb() const;

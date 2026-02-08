@@ -39,101 +39,101 @@
 namespace godot {
 
 void CylinderMesh::set_top_radius(float p_radius) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_top_radius")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_top_radius")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_radius_encoded;
 	PtrToArg<double>::encode(p_radius, &p_radius_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_radius_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_radius_encoded);
 }
 
 float CylinderMesh::get_top_radius() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("get_top_radius")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("get_top_radius")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CylinderMesh::set_bottom_radius(float p_radius) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_bottom_radius")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_bottom_radius")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_radius_encoded;
 	PtrToArg<double>::encode(p_radius, &p_radius_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_radius_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_radius_encoded);
 }
 
 float CylinderMesh::get_bottom_radius() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("get_bottom_radius")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("get_bottom_radius")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CylinderMesh::set_height(float p_height) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_height")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_height")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_height_encoded;
 	PtrToArg<double>::encode(p_height, &p_height_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_height_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_height_encoded);
 }
 
 float CylinderMesh::get_height() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("get_height")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("get_height")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CylinderMesh::set_radial_segments(int32_t p_segments) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_radial_segments")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_radial_segments")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_segments_encoded;
 	PtrToArg<int64_t>::encode(p_segments, &p_segments_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_segments_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_segments_encoded);
 }
 
 int32_t CylinderMesh::get_radial_segments() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("get_radial_segments")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("get_radial_segments")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void CylinderMesh::set_rings(int32_t p_rings) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_rings")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_rings")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_rings_encoded;
 	PtrToArg<int64_t>::encode(p_rings, &p_rings_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rings_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rings_encoded);
 }
 
 int32_t CylinderMesh::get_rings() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("get_rings")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("get_rings")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void CylinderMesh::set_cap_top(bool p_cap_top) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_cap_top")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_cap_top")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_cap_top_encoded;
 	PtrToArg<bool>::encode(p_cap_top, &p_cap_top_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_cap_top_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_cap_top_encoded);
 }
 
 bool CylinderMesh::is_cap_top() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("is_cap_top")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("is_cap_top")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void CylinderMesh::set_cap_bottom(bool p_cap_bottom) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_cap_bottom")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("set_cap_bottom")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_cap_bottom_encoded;
 	PtrToArg<bool>::encode(p_cap_bottom, &p_cap_bottom_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_cap_bottom_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_cap_bottom_encoded);
 }
 
 bool CylinderMesh::is_cap_bottom() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("is_cap_bottom")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CylinderMesh::get_class_static()._native_ptr(), StringName("is_cap_bottom")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -55,6 +55,7 @@ namespace godot {
 
 class Font;
 class StringName;
+class StyleBox;
 class Texture2D;
 class Tree;
 
@@ -118,6 +119,8 @@ public:
 	void set_custom_draw(int32_t p_column, Object *p_object, const StringName &p_callback);
 	void set_custom_draw_callback(int32_t p_column, const Callable &p_callback);
 	Callable get_custom_draw_callback(int32_t p_column) const;
+	void set_custom_stylebox(int32_t p_column, const Ref<StyleBox> &p_stylebox);
+	Ref<StyleBox> get_custom_stylebox(int32_t p_column) const;
 	void set_collapsed(bool p_enable);
 	bool is_collapsed();
 	void set_collapsed_recursive(bool p_enable);

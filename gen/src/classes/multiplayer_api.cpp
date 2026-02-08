@@ -43,89 +43,89 @@
 namespace godot {
 
 bool MultiplayerAPI::has_multiplayer_peer() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("has_multiplayer_peer")._native_ptr(), 2240911060);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("has_multiplayer_peer")._native_ptr(), 2240911060);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 Ref<MultiplayerPeer> MultiplayerAPI::get_multiplayer_peer() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("get_multiplayer_peer")._native_ptr(), 3223692825);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("get_multiplayer_peer")._native_ptr(), 3223692825);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<MultiplayerPeer>()));
-	return Ref<MultiplayerPeer>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<MultiplayerPeer>(_gde_method_bind, _owner));
+	return Ref<MultiplayerPeer>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<MultiplayerPeer>(_gde_method_bind, _owner));
 }
 
 void MultiplayerAPI::set_multiplayer_peer(const Ref<MultiplayerPeer> &p_peer) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("set_multiplayer_peer")._native_ptr(), 3694835298);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("set_multiplayer_peer")._native_ptr(), 3694835298);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_peer != nullptr ? &p_peer->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_peer != nullptr ? &p_peer->_owner : nullptr));
 }
 
 int32_t MultiplayerAPI::get_unique_id() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("get_unique_id")._native_ptr(), 2455072627);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("get_unique_id")._native_ptr(), 2455072627);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 bool MultiplayerAPI::is_server() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("is_server")._native_ptr(), 2240911060);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("is_server")._native_ptr(), 2240911060);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 int32_t MultiplayerAPI::get_remote_sender_id() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("get_remote_sender_id")._native_ptr(), 2455072627);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("get_remote_sender_id")._native_ptr(), 2455072627);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Error MultiplayerAPI::poll() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("poll")._native_ptr(), 166280745);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("poll")._native_ptr(), 166280745);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Error MultiplayerAPI::rpc(int32_t p_peer, Object *p_object, const StringName &p_method, const Array &p_arguments) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("rpc")._native_ptr(), 2077486355);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("rpc")._native_ptr(), 2077486355);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int64_t p_peer_encoded;
 	PtrToArg<int64_t>::encode(p_peer, &p_peer_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_peer_encoded, (p_object != nullptr ? &p_object->_owner : nullptr), &p_method, &p_arguments);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_peer_encoded, (p_object != nullptr ? &p_object->_owner : nullptr), &p_method, &p_arguments);
 }
 
 Error MultiplayerAPI::object_configuration_add(Object *p_object, const Variant &p_configuration) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("object_configuration_add")._native_ptr(), 1171879464);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("object_configuration_add")._native_ptr(), 1171879464);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_object != nullptr ? &p_object->_owner : nullptr), &p_configuration);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_object != nullptr ? &p_object->_owner : nullptr), &p_configuration);
 }
 
 Error MultiplayerAPI::object_configuration_remove(Object *p_object, const Variant &p_configuration) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("object_configuration_remove")._native_ptr(), 1171879464);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("object_configuration_remove")._native_ptr(), 1171879464);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_object != nullptr ? &p_object->_owner : nullptr), &p_configuration);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_object != nullptr ? &p_object->_owner : nullptr), &p_configuration);
 }
 
 PackedInt32Array MultiplayerAPI::get_peers() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("get_peers")._native_ptr(), 969006518);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("get_peers")._native_ptr(), 969006518);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedInt32Array()));
-	return internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
 }
 
 void MultiplayerAPI::set_default_interface(const StringName &p_interface_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("set_default_interface")._native_ptr(), 3304788590);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("set_default_interface")._native_ptr(), 3304788590);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, nullptr, &p_interface_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, nullptr, &p_interface_name);
 }
 
 StringName MultiplayerAPI::get_default_interface() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("get_default_interface")._native_ptr(), 2737447660);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("get_default_interface")._native_ptr(), 2737447660);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
-	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, nullptr);
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, nullptr);
 }
 
 Ref<MultiplayerAPI> MultiplayerAPI::create_default_interface() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("create_default_interface")._native_ptr(), 3294156723);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MultiplayerAPI::get_class_static()._native_ptr(), StringName("create_default_interface")._native_ptr(), 3294156723);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<MultiplayerAPI>()));
-	return Ref<MultiplayerAPI>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<MultiplayerAPI>(_gde_method_bind, nullptr));
+	return Ref<MultiplayerAPI>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<MultiplayerAPI>(_gde_method_bind, nullptr));
 }
 
 } // namespace godot

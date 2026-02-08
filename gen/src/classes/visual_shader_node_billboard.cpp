@@ -39,31 +39,31 @@
 namespace godot {
 
 void VisualShaderNodeBillboard::set_billboard_type(VisualShaderNodeBillboard::BillboardType p_billboard_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeBillboard::get_class_static()._native_ptr(), StringName("set_billboard_type")._native_ptr(), 1227463289);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeBillboard::get_class_static()._native_ptr(), StringName("set_billboard_type")._native_ptr(), 1227463289);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_billboard_type_encoded;
 	PtrToArg<int64_t>::encode(p_billboard_type, &p_billboard_type_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_billboard_type_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_billboard_type_encoded);
 }
 
 VisualShaderNodeBillboard::BillboardType VisualShaderNodeBillboard::get_billboard_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeBillboard::get_class_static()._native_ptr(), StringName("get_billboard_type")._native_ptr(), 3724188517);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeBillboard::get_class_static()._native_ptr(), StringName("get_billboard_type")._native_ptr(), 3724188517);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeBillboard::BillboardType(0)));
-	return (VisualShaderNodeBillboard::BillboardType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeBillboard::BillboardType)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeBillboard::set_keep_scale_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeBillboard::get_class_static()._native_ptr(), StringName("set_keep_scale_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeBillboard::get_class_static()._native_ptr(), StringName("set_keep_scale_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool VisualShaderNodeBillboard::is_keep_scale_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeBillboard::get_class_static()._native_ptr(), StringName("is_keep_scale_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeBillboard::get_class_static()._native_ptr(), StringName("is_keep_scale_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

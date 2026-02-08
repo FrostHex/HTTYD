@@ -42,15 +42,15 @@
 namespace godot {
 
 Ref<OpenXRBindingModifier> OpenXRBindingModifierEditor::get_binding_modifier() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRBindingModifierEditor::get_class_static()._native_ptr(), StringName("get_binding_modifier")._native_ptr(), 2930765082);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRBindingModifierEditor::get_class_static()._native_ptr(), StringName("get_binding_modifier")._native_ptr(), 2930765082);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRBindingModifier>()));
-	return Ref<OpenXRBindingModifier>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<OpenXRBindingModifier>(_gde_method_bind, _owner));
+	return Ref<OpenXRBindingModifier>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OpenXRBindingModifier>(_gde_method_bind, _owner));
 }
 
 void OpenXRBindingModifierEditor::setup(const Ref<OpenXRActionMap> &p_action_map, const Ref<OpenXRBindingModifier> &p_binding_modifier) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRBindingModifierEditor::get_class_static()._native_ptr(), StringName("setup")._native_ptr(), 1284787389);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRBindingModifierEditor::get_class_static()._native_ptr(), StringName("setup")._native_ptr(), 1284787389);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_action_map != nullptr ? &p_action_map->_owner : nullptr), (p_binding_modifier != nullptr ? &p_binding_modifier->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_action_map != nullptr ? &p_action_map->_owner : nullptr), (p_binding_modifier != nullptr ? &p_binding_modifier->_owner : nullptr));
 }
 
 } // namespace godot

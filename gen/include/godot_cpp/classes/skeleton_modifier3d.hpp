@@ -55,6 +55,35 @@ public:
 		BONE_AXIS_MINUS_Z = 5,
 	};
 
+	enum BoneDirection {
+		BONE_DIRECTION_PLUS_X = 0,
+		BONE_DIRECTION_MINUS_X = 1,
+		BONE_DIRECTION_PLUS_Y = 2,
+		BONE_DIRECTION_MINUS_Y = 3,
+		BONE_DIRECTION_PLUS_Z = 4,
+		BONE_DIRECTION_MINUS_Z = 5,
+		BONE_DIRECTION_FROM_PARENT = 6,
+	};
+
+	enum SecondaryDirection {
+		SECONDARY_DIRECTION_NONE = 0,
+		SECONDARY_DIRECTION_PLUS_X = 1,
+		SECONDARY_DIRECTION_MINUS_X = 2,
+		SECONDARY_DIRECTION_PLUS_Y = 3,
+		SECONDARY_DIRECTION_MINUS_Y = 4,
+		SECONDARY_DIRECTION_PLUS_Z = 5,
+		SECONDARY_DIRECTION_MINUS_Z = 6,
+		SECONDARY_DIRECTION_CUSTOM = 7,
+	};
+
+	enum RotationAxis {
+		ROTATION_AXIS_X = 0,
+		ROTATION_AXIS_Y = 1,
+		ROTATION_AXIS_Z = 2,
+		ROTATION_AXIS_ALL = 3,
+		ROTATION_AXIS_CUSTOM = 4,
+	};
+
 	Skeleton3D *get_skeleton() const;
 	void set_active(bool p_active);
 	bool is_active() const;
@@ -89,4 +118,7 @@ public:
 } // namespace godot
 
 VARIANT_ENUM_CAST(SkeletonModifier3D::BoneAxis);
+VARIANT_ENUM_CAST(SkeletonModifier3D::BoneDirection);
+VARIANT_ENUM_CAST(SkeletonModifier3D::SecondaryDirection);
+VARIANT_ENUM_CAST(SkeletonModifier3D::RotationAxis);
 

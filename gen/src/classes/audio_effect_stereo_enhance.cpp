@@ -39,45 +39,45 @@
 namespace godot {
 
 void AudioEffectStereoEnhance::set_pan_pullout(float p_amount) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("set_pan_pullout")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("set_pan_pullout")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_amount_encoded;
 	PtrToArg<double>::encode(p_amount, &p_amount_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
 }
 
 float AudioEffectStereoEnhance::get_pan_pullout() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("get_pan_pullout")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("get_pan_pullout")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AudioEffectStereoEnhance::set_time_pullout(float p_amount) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("set_time_pullout")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("set_time_pullout")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_amount_encoded;
 	PtrToArg<double>::encode(p_amount, &p_amount_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
 }
 
 float AudioEffectStereoEnhance::get_time_pullout() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("get_time_pullout")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("get_time_pullout")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AudioEffectStereoEnhance::set_surround(float p_amount) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("set_surround")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("set_surround")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_amount_encoded;
 	PtrToArg<double>::encode(p_amount, &p_amount_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
 }
 
 float AudioEffectStereoEnhance::get_surround() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("get_surround")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectStereoEnhance::get_class_static()._native_ptr(), StringName("get_surround")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

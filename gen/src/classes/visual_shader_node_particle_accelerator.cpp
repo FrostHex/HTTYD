@@ -39,17 +39,17 @@
 namespace godot {
 
 void VisualShaderNodeParticleAccelerator::set_mode(VisualShaderNodeParticleAccelerator::Mode p_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeParticleAccelerator::get_class_static()._native_ptr(), StringName("set_mode")._native_ptr(), 3457585749);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeParticleAccelerator::get_class_static()._native_ptr(), StringName("set_mode")._native_ptr(), 3457585749);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
 }
 
 VisualShaderNodeParticleAccelerator::Mode VisualShaderNodeParticleAccelerator::get_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeParticleAccelerator::get_class_static()._native_ptr(), StringName("get_mode")._native_ptr(), 2660365633);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeParticleAccelerator::get_class_static()._native_ptr(), StringName("get_mode")._native_ptr(), 2660365633);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeParticleAccelerator::Mode(0)));
-	return (VisualShaderNodeParticleAccelerator::Mode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeParticleAccelerator::Mode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

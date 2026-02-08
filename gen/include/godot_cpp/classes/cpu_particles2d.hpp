@@ -89,7 +89,8 @@ public:
 		EMISSION_SHAPE_RECTANGLE = 3,
 		EMISSION_SHAPE_POINTS = 4,
 		EMISSION_SHAPE_DIRECTED_POINTS = 5,
-		EMISSION_SHAPE_MAX = 6,
+		EMISSION_SHAPE_RING = 6,
+		EMISSION_SHAPE_MAX = 7,
 	};
 
 	void set_emitting(bool p_emitting);
@@ -156,6 +157,10 @@ public:
 	PackedVector2Array get_emission_normals() const;
 	void set_emission_colors(const PackedColorArray &p_array);
 	PackedColorArray get_emission_colors() const;
+	void set_emission_ring_inner_radius(float p_inner_radius);
+	float get_emission_ring_inner_radius() const;
+	void set_emission_ring_radius(float p_radius);
+	float get_emission_ring_radius() const;
 	Vector2 get_gravity() const;
 	void set_gravity(const Vector2 &p_accel_vec);
 	bool get_split_scale();

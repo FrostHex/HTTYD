@@ -39,31 +39,31 @@
 namespace godot {
 
 void GrooveJoint2D::set_length(float p_length) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GrooveJoint2D::get_class_static()._native_ptr(), StringName("set_length")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GrooveJoint2D::get_class_static()._native_ptr(), StringName("set_length")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_length_encoded;
 	PtrToArg<double>::encode(p_length, &p_length_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_length_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_length_encoded);
 }
 
 float GrooveJoint2D::get_length() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GrooveJoint2D::get_class_static()._native_ptr(), StringName("get_length")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GrooveJoint2D::get_class_static()._native_ptr(), StringName("get_length")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void GrooveJoint2D::set_initial_offset(float p_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GrooveJoint2D::get_class_static()._native_ptr(), StringName("set_initial_offset")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GrooveJoint2D::get_class_static()._native_ptr(), StringName("set_initial_offset")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_offset_encoded;
 	PtrToArg<double>::encode(p_offset, &p_offset_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset_encoded);
 }
 
 float GrooveJoint2D::get_initial_offset() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(GrooveJoint2D::get_class_static()._native_ptr(), StringName("get_initial_offset")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GrooveJoint2D::get_class_static()._native_ptr(), StringName("get_initial_offset")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -42,25 +42,25 @@
 namespace godot {
 
 void PhysicsServer3DRenderingServerHandler::set_vertex(int32_t p_vertex_id, const Vector3 &p_vertex) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer3DRenderingServerHandler::get_class_static()._native_ptr(), StringName("set_vertex")._native_ptr(), 1530502735);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsServer3DRenderingServerHandler::get_class_static()._native_ptr(), StringName("set_vertex")._native_ptr(), 1530502735);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_vertex_id_encoded;
 	PtrToArg<int64_t>::encode(p_vertex_id, &p_vertex_id_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_vertex_id_encoded, &p_vertex);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_vertex_id_encoded, &p_vertex);
 }
 
 void PhysicsServer3DRenderingServerHandler::set_normal(int32_t p_vertex_id, const Vector3 &p_normal) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer3DRenderingServerHandler::get_class_static()._native_ptr(), StringName("set_normal")._native_ptr(), 1530502735);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsServer3DRenderingServerHandler::get_class_static()._native_ptr(), StringName("set_normal")._native_ptr(), 1530502735);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_vertex_id_encoded;
 	PtrToArg<int64_t>::encode(p_vertex_id, &p_vertex_id_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_vertex_id_encoded, &p_normal);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_vertex_id_encoded, &p_normal);
 }
 
 void PhysicsServer3DRenderingServerHandler::set_aabb(const AABB &p_aabb) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer3DRenderingServerHandler::get_class_static()._native_ptr(), StringName("set_aabb")._native_ptr(), 259215842);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsServer3DRenderingServerHandler::get_class_static()._native_ptr(), StringName("set_aabb")._native_ptr(), 259215842);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_aabb);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_aabb);
 }
 
 void PhysicsServer3DRenderingServerHandler::_set_vertex(int32_t p_vertex_id, const Vector3 &p_vertex) {}

@@ -56,6 +56,10 @@ public:
 
 	void set_text(const String &p_text);
 	String get_text() const;
+	void set_text_overrun_behavior(TextServer::OverrunBehavior p_overrun_behavior);
+	TextServer::OverrunBehavior get_text_overrun_behavior() const;
+	void set_ellipsis_char(const String &p_char);
+	String get_ellipsis_char() const;
 	void set_text_direction(Control::TextDirection p_direction);
 	Control::TextDirection get_text_direction() const;
 	void set_language(const String &p_language);

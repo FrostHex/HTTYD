@@ -39,27 +39,27 @@
 namespace godot {
 
 Error X509Certificate::save(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(X509Certificate::get_class_static()._native_ptr(), StringName("save")._native_ptr(), 166001499);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(X509Certificate::get_class_static()._native_ptr(), StringName("save")._native_ptr(), 166001499);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path);
 }
 
 Error X509Certificate::load(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(X509Certificate::get_class_static()._native_ptr(), StringName("load")._native_ptr(), 166001499);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(X509Certificate::get_class_static()._native_ptr(), StringName("load")._native_ptr(), 166001499);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path);
 }
 
 String X509Certificate::save_to_string() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(X509Certificate::get_class_static()._native_ptr(), StringName("save_to_string")._native_ptr(), 2841200299);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(X509Certificate::get_class_static()._native_ptr(), StringName("save_to_string")._native_ptr(), 2841200299);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 Error X509Certificate::load_from_string(const String &p_string) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(X509Certificate::get_class_static()._native_ptr(), StringName("load_from_string")._native_ptr(), 166001499);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(X509Certificate::get_class_static()._native_ptr(), StringName("load_from_string")._native_ptr(), 166001499);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_string);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_string);
 }
 
 } // namespace godot

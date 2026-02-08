@@ -41,175 +41,175 @@
 namespace godot {
 
 void Sprite2D::set_texture(const Ref<Texture2D> &p_texture) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_texture")._native_ptr(), 4051416890);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_texture")._native_ptr(), 4051416890);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_texture != nullptr ? &p_texture->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_texture != nullptr ? &p_texture->_owner : nullptr));
 }
 
 Ref<Texture2D> Sprite2D::get_texture() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_texture")._native_ptr(), 3635182373);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_texture")._native_ptr(), 3635182373);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Texture2D>()));
-	return Ref<Texture2D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Texture2D>(_gde_method_bind, _owner));
+	return Ref<Texture2D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Texture2D>(_gde_method_bind, _owner));
 }
 
 void Sprite2D::set_centered(bool p_centered) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_centered")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_centered")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_centered_encoded;
 	PtrToArg<bool>::encode(p_centered, &p_centered_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_centered_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_centered_encoded);
 }
 
 bool Sprite2D::is_centered() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_centered")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_centered")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void Sprite2D::set_offset(const Vector2 &p_offset) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_offset")._native_ptr(), 743155724);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_offset")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
 }
 
 Vector2 Sprite2D::get_offset() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_offset")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_offset")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 void Sprite2D::set_flip_h(bool p_flip_h) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_flip_h")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_flip_h")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_flip_h_encoded;
 	PtrToArg<bool>::encode(p_flip_h, &p_flip_h_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flip_h_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flip_h_encoded);
 }
 
 bool Sprite2D::is_flipped_h() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_flipped_h")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_flipped_h")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void Sprite2D::set_flip_v(bool p_flip_v) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_flip_v")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_flip_v")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_flip_v_encoded;
 	PtrToArg<bool>::encode(p_flip_v, &p_flip_v_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flip_v_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_flip_v_encoded);
 }
 
 bool Sprite2D::is_flipped_v() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_flipped_v")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_flipped_v")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void Sprite2D::set_region_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_region_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_region_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool Sprite2D::is_region_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_region_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_region_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 bool Sprite2D::is_pixel_opaque(const Vector2 &p_pos) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_pixel_opaque")._native_ptr(), 556197845);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_pixel_opaque")._native_ptr(), 556197845);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_pos);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_pos);
 }
 
 void Sprite2D::set_region_rect(const Rect2 &p_rect) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_region_rect")._native_ptr(), 2046264180);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_region_rect")._native_ptr(), 2046264180);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rect);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rect);
 }
 
 Rect2 Sprite2D::get_region_rect() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_region_rect")._native_ptr(), 1639390495);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_region_rect")._native_ptr(), 1639390495);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Rect2()));
-	return internal::_call_native_mb_ret<Rect2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Rect2>(_gde_method_bind, _owner);
 }
 
 void Sprite2D::set_region_filter_clip_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_region_filter_clip_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_region_filter_clip_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool Sprite2D::is_region_filter_clip_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_region_filter_clip_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("is_region_filter_clip_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void Sprite2D::set_frame(int32_t p_frame) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_frame")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_frame")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_frame_encoded;
 	PtrToArg<int64_t>::encode(p_frame, &p_frame_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_frame_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_frame_encoded);
 }
 
 int32_t Sprite2D::get_frame() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_frame")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_frame")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void Sprite2D::set_frame_coords(const Vector2i &p_coords) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_frame_coords")._native_ptr(), 1130785943);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_frame_coords")._native_ptr(), 1130785943);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_coords);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_coords);
 }
 
 Vector2i Sprite2D::get_frame_coords() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_frame_coords")._native_ptr(), 3690982128);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_frame_coords")._native_ptr(), 3690982128);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2i()));
-	return internal::_call_native_mb_ret<Vector2i>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2i>(_gde_method_bind, _owner);
 }
 
 void Sprite2D::set_vframes(int32_t p_vframes) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_vframes")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_vframes")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_vframes_encoded;
 	PtrToArg<int64_t>::encode(p_vframes, &p_vframes_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_vframes_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_vframes_encoded);
 }
 
 int32_t Sprite2D::get_vframes() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_vframes")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_vframes")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void Sprite2D::set_hframes(int32_t p_hframes) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_hframes")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("set_hframes")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_hframes_encoded;
 	PtrToArg<int64_t>::encode(p_hframes, &p_hframes_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_hframes_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_hframes_encoded);
 }
 
 int32_t Sprite2D::get_hframes() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_hframes")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_hframes")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Rect2 Sprite2D::get_rect() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_rect")._native_ptr(), 1639390495);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Sprite2D::get_class_static()._native_ptr(), StringName("get_rect")._native_ptr(), 1639390495);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Rect2()));
-	return internal::_call_native_mb_ret<Rect2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Rect2>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

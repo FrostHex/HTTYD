@@ -47,6 +47,7 @@
 
 namespace godot {
 
+struct Color;
 class InputEvent;
 class Resource;
 class StringName;
@@ -125,6 +126,8 @@ public:
 	void set_accelerometer(const Vector3 &p_value);
 	void set_magnetometer(const Vector3 &p_value);
 	void set_gyroscope(const Vector3 &p_value);
+	void set_joy_light(int32_t p_device, const Color &p_color);
+	bool has_joy_light(int32_t p_device) const;
 	Vector2 get_last_mouse_velocity();
 	Vector2 get_last_mouse_screen_velocity();
 	BitField<MouseButtonMask> get_mouse_button_mask() const;

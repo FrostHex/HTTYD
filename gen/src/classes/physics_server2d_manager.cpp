@@ -45,11 +45,11 @@ PhysicsServer2DManager *PhysicsServer2DManager::singleton = nullptr;
 
 PhysicsServer2DManager *PhysicsServer2DManager::get_singleton() {
 	if (unlikely(singleton == nullptr)) {
-		GDExtensionObjectPtr singleton_obj = internal::gdextension_interface_global_get_singleton(PhysicsServer2DManager::get_class_static()._native_ptr());
+		GDExtensionObjectPtr singleton_obj = ::godot::gdextension_interface::global_get_singleton(PhysicsServer2DManager::get_class_static()._native_ptr());
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton_obj, nullptr);
 #endif // DEBUG_ENABLED
-		singleton = reinterpret_cast<PhysicsServer2DManager *>(internal::gdextension_interface_object_get_instance_binding(singleton_obj, internal::token, &PhysicsServer2DManager::_gde_binding_callbacks));
+		singleton = reinterpret_cast<PhysicsServer2DManager *>(::godot::gdextension_interface::object_get_instance_binding(singleton_obj, ::godot::gdextension_interface::token, &PhysicsServer2DManager::_gde_binding_callbacks));
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton, nullptr);
 #endif // DEBUG_ENABLED
@@ -68,17 +68,17 @@ PhysicsServer2DManager::~PhysicsServer2DManager() {
 }
 
 void PhysicsServer2DManager::register_server(const String &p_name, const Callable &p_create_callback) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer2DManager::get_class_static()._native_ptr(), StringName("register_server")._native_ptr(), 2137474292);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsServer2DManager::get_class_static()._native_ptr(), StringName("register_server")._native_ptr(), 2137474292);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_create_callback);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_create_callback);
 }
 
 void PhysicsServer2DManager::set_default_server(const String &p_name, int32_t p_priority) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsServer2DManager::get_class_static()._native_ptr(), StringName("set_default_server")._native_ptr(), 2956805083);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsServer2DManager::get_class_static()._native_ptr(), StringName("set_default_server")._native_ptr(), 2956805083);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_priority_encoded;
 	PtrToArg<int64_t>::encode(p_priority, &p_priority_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_priority_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_priority_encoded);
 }
 
 } // namespace godot

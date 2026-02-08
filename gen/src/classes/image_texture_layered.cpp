@@ -41,17 +41,17 @@
 namespace godot {
 
 Error ImageTextureLayered::create_from_images(const TypedArray<Ref<Image>> &p_images) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImageTextureLayered::get_class_static()._native_ptr(), StringName("create_from_images")._native_ptr(), 2785773503);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImageTextureLayered::get_class_static()._native_ptr(), StringName("create_from_images")._native_ptr(), 2785773503);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_images);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_images);
 }
 
 void ImageTextureLayered::update_layer(const Ref<Image> &p_image, int32_t p_layer) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ImageTextureLayered::get_class_static()._native_ptr(), StringName("update_layer")._native_ptr(), 3331733361);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImageTextureLayered::get_class_static()._native_ptr(), StringName("update_layer")._native_ptr(), 3331733361);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_layer_encoded;
 	PtrToArg<int64_t>::encode(p_layer, &p_layer_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_image != nullptr ? &p_image->_owner : nullptr), &p_layer_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_image != nullptr ? &p_image->_owner : nullptr), &p_layer_encoded);
 }
 
 } // namespace godot

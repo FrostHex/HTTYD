@@ -46,11 +46,11 @@ JavaClassWrapper *JavaClassWrapper::singleton = nullptr;
 
 JavaClassWrapper *JavaClassWrapper::get_singleton() {
 	if (unlikely(singleton == nullptr)) {
-		GDExtensionObjectPtr singleton_obj = internal::gdextension_interface_global_get_singleton(JavaClassWrapper::get_class_static()._native_ptr());
+		GDExtensionObjectPtr singleton_obj = ::godot::gdextension_interface::global_get_singleton(JavaClassWrapper::get_class_static()._native_ptr());
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton_obj, nullptr);
 #endif // DEBUG_ENABLED
-		singleton = reinterpret_cast<JavaClassWrapper *>(internal::gdextension_interface_object_get_instance_binding(singleton_obj, internal::token, &JavaClassWrapper::_gde_binding_callbacks));
+		singleton = reinterpret_cast<JavaClassWrapper *>(::godot::gdextension_interface::object_get_instance_binding(singleton_obj, ::godot::gdextension_interface::token, &JavaClassWrapper::_gde_binding_callbacks));
 #ifdef DEBUG_ENABLED
 		ERR_FAIL_NULL_V(singleton, nullptr);
 #endif // DEBUG_ENABLED
@@ -69,15 +69,15 @@ JavaClassWrapper::~JavaClassWrapper() {
 }
 
 Ref<JavaClass> JavaClassWrapper::wrap(const String &p_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(JavaClassWrapper::get_class_static()._native_ptr(), StringName("wrap")._native_ptr(), 1124367868);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(JavaClassWrapper::get_class_static()._native_ptr(), StringName("wrap")._native_ptr(), 1124367868);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<JavaClass>()));
-	return Ref<JavaClass>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<JavaClass>(_gde_method_bind, _owner, &p_name));
+	return Ref<JavaClass>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<JavaClass>(_gde_method_bind, _owner, &p_name));
 }
 
 Ref<JavaObject> JavaClassWrapper::get_exception() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(JavaClassWrapper::get_class_static()._native_ptr(), StringName("get_exception")._native_ptr(), 3277089691);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(JavaClassWrapper::get_class_static()._native_ptr(), StringName("get_exception")._native_ptr(), 3277089691);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<JavaObject>()));
-	return Ref<JavaObject>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<JavaObject>(_gde_method_bind, _owner));
+	return Ref<JavaObject>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<JavaObject>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

@@ -39,45 +39,45 @@
 namespace godot {
 
 void AudioEffectPitchShift::set_pitch_scale(float p_rate) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("set_pitch_scale")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("set_pitch_scale")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_rate_encoded;
 	PtrToArg<double>::encode(p_rate, &p_rate_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rate_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rate_encoded);
 }
 
 float AudioEffectPitchShift::get_pitch_scale() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("get_pitch_scale")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("get_pitch_scale")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AudioEffectPitchShift::set_oversampling(int32_t p_amount) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("set_oversampling")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("set_oversampling")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_amount_encoded;
 	PtrToArg<int64_t>::encode(p_amount, &p_amount_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
 }
 
 int32_t AudioEffectPitchShift::get_oversampling() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("get_oversampling")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("get_oversampling")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void AudioEffectPitchShift::set_fft_size(AudioEffectPitchShift::FFTSize p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("set_fft_size")._native_ptr(), 2323518741);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("set_fft_size")._native_ptr(), 2323518741);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_size_encoded;
 	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
 }
 
 AudioEffectPitchShift::FFTSize AudioEffectPitchShift::get_fft_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("get_fft_size")._native_ptr(), 2361246789);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectPitchShift::get_class_static()._native_ptr(), StringName("get_fft_size")._native_ptr(), 2361246789);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AudioEffectPitchShift::FFTSize(0)));
-	return (AudioEffectPitchShift::FFTSize)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AudioEffectPitchShift::FFTSize)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

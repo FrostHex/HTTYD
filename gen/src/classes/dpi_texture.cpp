@@ -41,77 +41,77 @@
 namespace godot {
 
 Ref<DPITexture> DPITexture::create_from_string(const String &p_source, float p_scale, float p_saturation, const Dictionary &p_color_map) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("create_from_string")._native_ptr(), 755140520);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("create_from_string")._native_ptr(), 755140520);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<DPITexture>()));
 	double p_scale_encoded;
 	PtrToArg<double>::encode(p_scale, &p_scale_encoded);
 	double p_saturation_encoded;
 	PtrToArg<double>::encode(p_saturation, &p_saturation_encoded);
-	return Ref<DPITexture>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<DPITexture>(_gde_method_bind, nullptr, &p_source, &p_scale_encoded, &p_saturation_encoded, &p_color_map));
+	return Ref<DPITexture>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<DPITexture>(_gde_method_bind, nullptr, &p_source, &p_scale_encoded, &p_saturation_encoded, &p_color_map));
 }
 
 void DPITexture::set_source(const String &p_source) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_source")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_source")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_source);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_source);
 }
 
 String DPITexture::get_source() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_source")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_source")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void DPITexture::set_base_scale(float p_base_scale) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_base_scale")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_base_scale")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_base_scale_encoded;
 	PtrToArg<double>::encode(p_base_scale, &p_base_scale_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_base_scale_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_base_scale_encoded);
 }
 
 float DPITexture::get_base_scale() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_base_scale")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_base_scale")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void DPITexture::set_saturation(float p_saturation) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_saturation")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_saturation")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_saturation_encoded;
 	PtrToArg<double>::encode(p_saturation, &p_saturation_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_saturation_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_saturation_encoded);
 }
 
 float DPITexture::get_saturation() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_saturation")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_saturation")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void DPITexture::set_color_map(const Dictionary &p_color_map) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_color_map")._native_ptr(), 4155329257);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_color_map")._native_ptr(), 4155329257);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color_map);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color_map);
 }
 
 Dictionary DPITexture::get_color_map() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_color_map")._native_ptr(), 3102165223);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_color_map")._native_ptr(), 3102165223);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
 }
 
 void DPITexture::set_size_override(const Vector2i &p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_size_override")._native_ptr(), 1130785943);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_size_override")._native_ptr(), 1130785943);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
 }
 
 RID DPITexture::get_scaled_rid() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_scaled_rid")._native_ptr(), 2944877500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_scaled_rid")._native_ptr(), 2944877500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

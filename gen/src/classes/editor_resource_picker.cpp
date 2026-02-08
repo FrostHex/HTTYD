@@ -42,69 +42,69 @@
 namespace godot {
 
 void EditorResourcePicker::set_base_type(const String &p_base_type) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("set_base_type")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("set_base_type")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_base_type);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_base_type);
 }
 
 String EditorResourcePicker::get_base_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("get_base_type")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("get_base_type")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 PackedStringArray EditorResourcePicker::get_allowed_types() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("get_allowed_types")._native_ptr(), 1139954409);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("get_allowed_types")._native_ptr(), 1139954409);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));
-	return internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner);
 }
 
 void EditorResourcePicker::set_edited_resource(const Ref<Resource> &p_resource) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("set_edited_resource")._native_ptr(), 968641751);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("set_edited_resource")._native_ptr(), 968641751);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_resource != nullptr ? &p_resource->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_resource != nullptr ? &p_resource->_owner : nullptr));
 }
 
 Ref<Resource> EditorResourcePicker::get_edited_resource() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("get_edited_resource")._native_ptr(), 2674603643);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("get_edited_resource")._native_ptr(), 2674603643);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Resource>()));
-	return Ref<Resource>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner));
+	return Ref<Resource>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner));
 }
 
 void EditorResourcePicker::set_toggle_mode(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("set_toggle_mode")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("set_toggle_mode")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool EditorResourcePicker::is_toggle_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("is_toggle_mode")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("is_toggle_mode")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void EditorResourcePicker::set_toggle_pressed(bool p_pressed) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("set_toggle_pressed")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("set_toggle_pressed")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_pressed_encoded;
 	PtrToArg<bool>::encode(p_pressed, &p_pressed_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pressed_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pressed_encoded);
 }
 
 void EditorResourcePicker::set_editable(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("set_editable")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("set_editable")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool EditorResourcePicker::is_editable() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("is_editable")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePicker::get_class_static()._native_ptr(), StringName("is_editable")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void EditorResourcePicker::_set_create_options(Object *p_menu_node) {}

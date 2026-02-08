@@ -46,6 +46,8 @@ class RDVertexAttribute : public RefCounted {
 	GDEXTENSION_CLASS(RDVertexAttribute, RefCounted)
 
 public:
+	void set_binding(uint32_t p_member);
+	uint32_t get_binding() const;
 	void set_location(uint32_t p_member);
 	uint32_t get_location() const;
 	void set_offset(uint32_t p_member);

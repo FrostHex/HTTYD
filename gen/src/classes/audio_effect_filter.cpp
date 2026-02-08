@@ -39,59 +39,59 @@
 namespace godot {
 
 void AudioEffectFilter::set_cutoff(float p_freq) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("set_cutoff")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("set_cutoff")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_freq_encoded;
 	PtrToArg<double>::encode(p_freq, &p_freq_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_freq_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_freq_encoded);
 }
 
 float AudioEffectFilter::get_cutoff() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("get_cutoff")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("get_cutoff")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AudioEffectFilter::set_resonance(float p_amount) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("set_resonance")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("set_resonance")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_amount_encoded;
 	PtrToArg<double>::encode(p_amount, &p_amount_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
 }
 
 float AudioEffectFilter::get_resonance() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("get_resonance")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("get_resonance")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AudioEffectFilter::set_gain(float p_amount) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("set_gain")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("set_gain")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_amount_encoded;
 	PtrToArg<double>::encode(p_amount, &p_amount_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
 }
 
 float AudioEffectFilter::get_gain() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("get_gain")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("get_gain")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void AudioEffectFilter::set_db(AudioEffectFilter::FilterDB p_amount) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("set_db")._native_ptr(), 771740901);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("set_db")._native_ptr(), 771740901);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_amount_encoded;
 	PtrToArg<int64_t>::encode(p_amount, &p_amount_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
 }
 
 AudioEffectFilter::FilterDB AudioEffectFilter::get_db() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("get_db")._native_ptr(), 3981721890);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AudioEffectFilter::get_class_static()._native_ptr(), StringName("get_db")._native_ptr(), 3981721890);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AudioEffectFilter::FilterDB(0)));
-	return (AudioEffectFilter::FilterDB)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AudioEffectFilter::FilterDB)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

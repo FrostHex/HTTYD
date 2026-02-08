@@ -41,43 +41,43 @@
 namespace godot {
 
 void PacketPeerStream::set_stream_peer(const Ref<StreamPeer> &p_peer) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("set_stream_peer")._native_ptr(), 3281897016);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("set_stream_peer")._native_ptr(), 3281897016);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_peer != nullptr ? &p_peer->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_peer != nullptr ? &p_peer->_owner : nullptr));
 }
 
 Ref<StreamPeer> PacketPeerStream::get_stream_peer() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("get_stream_peer")._native_ptr(), 2741655269);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("get_stream_peer")._native_ptr(), 2741655269);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<StreamPeer>()));
-	return Ref<StreamPeer>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<StreamPeer>(_gde_method_bind, _owner));
+	return Ref<StreamPeer>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<StreamPeer>(_gde_method_bind, _owner));
 }
 
 void PacketPeerStream::set_input_buffer_max_size(int32_t p_max_size_bytes) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("set_input_buffer_max_size")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("set_input_buffer_max_size")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_max_size_bytes_encoded;
 	PtrToArg<int64_t>::encode(p_max_size_bytes, &p_max_size_bytes_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_max_size_bytes_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_max_size_bytes_encoded);
 }
 
 void PacketPeerStream::set_output_buffer_max_size(int32_t p_max_size_bytes) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("set_output_buffer_max_size")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("set_output_buffer_max_size")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_max_size_bytes_encoded;
 	PtrToArg<int64_t>::encode(p_max_size_bytes, &p_max_size_bytes_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_max_size_bytes_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_max_size_bytes_encoded);
 }
 
 int32_t PacketPeerStream::get_input_buffer_max_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("get_input_buffer_max_size")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("get_input_buffer_max_size")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 int32_t PacketPeerStream::get_output_buffer_max_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("get_output_buffer_max_size")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PacketPeerStream::get_class_static()._native_ptr(), StringName("get_output_buffer_max_size")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -42,27 +42,27 @@
 namespace godot {
 
 void ShaderMaterial::set_shader(const Ref<Shader> &p_shader) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ShaderMaterial::get_class_static()._native_ptr(), StringName("set_shader")._native_ptr(), 3341921675);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ShaderMaterial::get_class_static()._native_ptr(), StringName("set_shader")._native_ptr(), 3341921675);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_shader != nullptr ? &p_shader->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_shader != nullptr ? &p_shader->_owner : nullptr));
 }
 
 Ref<Shader> ShaderMaterial::get_shader() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ShaderMaterial::get_class_static()._native_ptr(), StringName("get_shader")._native_ptr(), 2078273437);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ShaderMaterial::get_class_static()._native_ptr(), StringName("get_shader")._native_ptr(), 2078273437);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Shader>()));
-	return Ref<Shader>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Shader>(_gde_method_bind, _owner));
+	return Ref<Shader>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Shader>(_gde_method_bind, _owner));
 }
 
 void ShaderMaterial::set_shader_parameter(const StringName &p_param, const Variant &p_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ShaderMaterial::get_class_static()._native_ptr(), StringName("set_shader_parameter")._native_ptr(), 3776071444);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ShaderMaterial::get_class_static()._native_ptr(), StringName("set_shader_parameter")._native_ptr(), 3776071444);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param, &p_value);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_param, &p_value);
 }
 
 Variant ShaderMaterial::get_shader_parameter(const StringName &p_param) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ShaderMaterial::get_class_static()._native_ptr(), StringName("get_shader_parameter")._native_ptr(), 2760726917);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ShaderMaterial::get_class_static()._native_ptr(), StringName("get_shader_parameter")._native_ptr(), 2760726917);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
-	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_param);
+	return ::godot::internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_param);
 }
 
 } // namespace godot

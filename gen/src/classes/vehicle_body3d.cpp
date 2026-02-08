@@ -39,45 +39,45 @@
 namespace godot {
 
 void VehicleBody3D::set_engine_force(float p_engine_force) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("set_engine_force")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("set_engine_force")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_engine_force_encoded;
 	PtrToArg<double>::encode(p_engine_force, &p_engine_force_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_engine_force_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_engine_force_encoded);
 }
 
 float VehicleBody3D::get_engine_force() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("get_engine_force")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("get_engine_force")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void VehicleBody3D::set_brake(float p_brake) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("set_brake")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("set_brake")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_brake_encoded;
 	PtrToArg<double>::encode(p_brake, &p_brake_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_brake_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_brake_encoded);
 }
 
 float VehicleBody3D::get_brake() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("get_brake")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("get_brake")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void VehicleBody3D::set_steering(float p_steering) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("set_steering")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("set_steering")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_steering_encoded;
 	PtrToArg<double>::encode(p_steering, &p_steering_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_steering_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_steering_encoded);
 }
 
 float VehicleBody3D::get_steering() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("get_steering")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VehicleBody3D::get_class_static()._native_ptr(), StringName("get_steering")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

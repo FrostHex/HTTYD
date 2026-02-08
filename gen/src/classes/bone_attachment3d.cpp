@@ -41,81 +41,81 @@
 namespace godot {
 
 Skeleton3D *BoneAttachment3D::get_skeleton() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_skeleton")._native_ptr(), 1814733083);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_skeleton")._native_ptr(), 1814733083);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return internal::_call_native_mb_ret_obj<Skeleton3D>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret_obj<Skeleton3D>(_gde_method_bind, _owner);
 }
 
 void BoneAttachment3D::set_bone_name(const String &p_bone_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("set_bone_name")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("set_bone_name")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone_name);
 }
 
 String BoneAttachment3D::get_bone_name() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_bone_name")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_bone_name")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void BoneAttachment3D::set_bone_idx(int32_t p_bone_idx) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("set_bone_idx")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("set_bone_idx")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_bone_idx_encoded;
 	PtrToArg<int64_t>::encode(p_bone_idx, &p_bone_idx_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone_idx_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_bone_idx_encoded);
 }
 
 int32_t BoneAttachment3D::get_bone_idx() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_bone_idx")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_bone_idx")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void BoneAttachment3D::on_skeleton_update() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("on_skeleton_update")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("on_skeleton_update")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void BoneAttachment3D::set_override_pose(bool p_override_pose) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("set_override_pose")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("set_override_pose")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_override_pose_encoded;
 	PtrToArg<bool>::encode(p_override_pose, &p_override_pose_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_override_pose_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_override_pose_encoded);
 }
 
 bool BoneAttachment3D::get_override_pose() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_override_pose")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_override_pose")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void BoneAttachment3D::set_use_external_skeleton(bool p_use_external_skeleton) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("set_use_external_skeleton")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("set_use_external_skeleton")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_use_external_skeleton_encoded;
 	PtrToArg<bool>::encode(p_use_external_skeleton, &p_use_external_skeleton_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_use_external_skeleton_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_use_external_skeleton_encoded);
 }
 
 bool BoneAttachment3D::get_use_external_skeleton() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_use_external_skeleton")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_use_external_skeleton")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void BoneAttachment3D::set_external_skeleton(const NodePath &p_external_skeleton) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("set_external_skeleton")._native_ptr(), 1348162250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("set_external_skeleton")._native_ptr(), 1348162250);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_external_skeleton);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_external_skeleton);
 }
 
 NodePath BoneAttachment3D::get_external_skeleton() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_external_skeleton")._native_ptr(), 4075236667);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(BoneAttachment3D::get_class_static()._native_ptr(), StringName("get_external_skeleton")._native_ptr(), 4075236667);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

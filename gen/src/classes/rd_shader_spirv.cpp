@@ -39,35 +39,35 @@
 namespace godot {
 
 void RDShaderSPIRV::set_stage_bytecode(RenderingDevice::ShaderStage p_stage, const PackedByteArray &p_bytecode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderSPIRV::get_class_static()._native_ptr(), StringName("set_stage_bytecode")._native_ptr(), 3514097977);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderSPIRV::get_class_static()._native_ptr(), StringName("set_stage_bytecode")._native_ptr(), 3514097977);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_stage_encoded;
 	PtrToArg<int64_t>::encode(p_stage, &p_stage_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stage_encoded, &p_bytecode);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stage_encoded, &p_bytecode);
 }
 
 PackedByteArray RDShaderSPIRV::get_stage_bytecode(RenderingDevice::ShaderStage p_stage) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderSPIRV::get_class_static()._native_ptr(), StringName("get_stage_bytecode")._native_ptr(), 3816765404);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderSPIRV::get_class_static()._native_ptr(), StringName("get_stage_bytecode")._native_ptr(), 3816765404);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedByteArray()));
 	int64_t p_stage_encoded;
 	PtrToArg<int64_t>::encode(p_stage, &p_stage_encoded);
-	return internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner, &p_stage_encoded);
+	return ::godot::internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner, &p_stage_encoded);
 }
 
 void RDShaderSPIRV::set_stage_compile_error(RenderingDevice::ShaderStage p_stage, const String &p_compile_error) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderSPIRV::get_class_static()._native_ptr(), StringName("set_stage_compile_error")._native_ptr(), 620821314);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderSPIRV::get_class_static()._native_ptr(), StringName("set_stage_compile_error")._native_ptr(), 620821314);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_stage_encoded;
 	PtrToArg<int64_t>::encode(p_stage, &p_stage_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stage_encoded, &p_compile_error);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stage_encoded, &p_compile_error);
 }
 
 String RDShaderSPIRV::get_stage_compile_error(RenderingDevice::ShaderStage p_stage) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RDShaderSPIRV::get_class_static()._native_ptr(), StringName("get_stage_compile_error")._native_ptr(), 3354920045);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RDShaderSPIRV::get_class_static()._native_ptr(), StringName("get_stage_compile_error")._native_ptr(), 3354920045);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
 	int64_t p_stage_encoded;
 	PtrToArg<int64_t>::encode(p_stage, &p_stage_encoded);
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_stage_encoded);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_stage_encoded);
 }
 
 } // namespace godot

@@ -38,6 +38,7 @@
 #include <godot_cpp/classes/texture2d.hpp>
 #include <godot_cpp/variant/color.hpp>
 #include <godot_cpp/variant/string.hpp>
+#include <godot_cpp/variant/variant.hpp>
 #include <godot_cpp/variant/vector2.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
@@ -67,6 +68,8 @@ public:
 	Color get_slot_color_left(int32_t p_slot_index) const;
 	void set_slot_custom_icon_left(int32_t p_slot_index, const Ref<Texture2D> &p_custom_icon);
 	Ref<Texture2D> get_slot_custom_icon_left(int32_t p_slot_index) const;
+	void set_slot_metadata_left(int32_t p_slot_index, const Variant &p_value);
+	Variant get_slot_metadata_left(int32_t p_slot_index) const;
 	bool is_slot_enabled_right(int32_t p_slot_index) const;
 	void set_slot_enabled_right(int32_t p_slot_index, bool p_enable);
 	void set_slot_type_right(int32_t p_slot_index, int32_t p_type);
@@ -75,6 +78,8 @@ public:
 	Color get_slot_color_right(int32_t p_slot_index) const;
 	void set_slot_custom_icon_right(int32_t p_slot_index, const Ref<Texture2D> &p_custom_icon);
 	Ref<Texture2D> get_slot_custom_icon_right(int32_t p_slot_index) const;
+	void set_slot_metadata_right(int32_t p_slot_index, const Variant &p_value);
+	Variant get_slot_metadata_right(int32_t p_slot_index) const;
 	bool is_slot_draw_stylebox(int32_t p_slot_index) const;
 	void set_slot_draw_stylebox(int32_t p_slot_index, bool p_enable);
 	void set_ignore_invalid_connection_type(bool p_ignore);

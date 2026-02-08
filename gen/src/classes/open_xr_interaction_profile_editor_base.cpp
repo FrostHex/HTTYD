@@ -42,9 +42,9 @@
 namespace godot {
 
 void OpenXRInteractionProfileEditorBase::setup(const Ref<OpenXRActionMap> &p_action_map, const Ref<OpenXRInteractionProfile> &p_interaction_profile) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(OpenXRInteractionProfileEditorBase::get_class_static()._native_ptr(), StringName("setup")._native_ptr(), 421962938);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRInteractionProfileEditorBase::get_class_static()._native_ptr(), StringName("setup")._native_ptr(), 421962938);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_action_map != nullptr ? &p_action_map->_owner : nullptr), (p_interaction_profile != nullptr ? &p_interaction_profile->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_action_map != nullptr ? &p_action_map->_owner : nullptr), (p_interaction_profile != nullptr ? &p_interaction_profile->_owner : nullptr));
 }
 
 } // namespace godot

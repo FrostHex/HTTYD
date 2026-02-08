@@ -39,27 +39,27 @@
 namespace godot {
 
 void XRFaceModifier3D::set_face_tracker(const StringName &p_tracker_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRFaceModifier3D::get_class_static()._native_ptr(), StringName("set_face_tracker")._native_ptr(), 3304788590);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRFaceModifier3D::get_class_static()._native_ptr(), StringName("set_face_tracker")._native_ptr(), 3304788590);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_tracker_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_tracker_name);
 }
 
 StringName XRFaceModifier3D::get_face_tracker() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRFaceModifier3D::get_class_static()._native_ptr(), StringName("get_face_tracker")._native_ptr(), 2002593661);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRFaceModifier3D::get_class_static()._native_ptr(), StringName("get_face_tracker")._native_ptr(), 2002593661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
-	return internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
 }
 
 void XRFaceModifier3D::set_target(const NodePath &p_target) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRFaceModifier3D::get_class_static()._native_ptr(), StringName("set_target")._native_ptr(), 1348162250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRFaceModifier3D::get_class_static()._native_ptr(), StringName("set_target")._native_ptr(), 1348162250);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_target);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_target);
 }
 
 NodePath XRFaceModifier3D::get_target() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(XRFaceModifier3D::get_class_static()._native_ptr(), StringName("get_target")._native_ptr(), 4075236667);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(XRFaceModifier3D::get_class_static()._native_ptr(), StringName("get_target")._native_ptr(), 4075236667);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

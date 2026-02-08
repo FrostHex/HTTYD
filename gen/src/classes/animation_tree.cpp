@@ -41,53 +41,53 @@
 namespace godot {
 
 void AnimationTree::set_tree_root(const Ref<AnimationRootNode> &p_animation_node) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("set_tree_root")._native_ptr(), 2581683800);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("set_tree_root")._native_ptr(), 2581683800);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_animation_node != nullptr ? &p_animation_node->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_animation_node != nullptr ? &p_animation_node->_owner : nullptr));
 }
 
 Ref<AnimationRootNode> AnimationTree::get_tree_root() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("get_tree_root")._native_ptr(), 4110384712);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("get_tree_root")._native_ptr(), 4110384712);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<AnimationRootNode>()));
-	return Ref<AnimationRootNode>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<AnimationRootNode>(_gde_method_bind, _owner));
+	return Ref<AnimationRootNode>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<AnimationRootNode>(_gde_method_bind, _owner));
 }
 
 void AnimationTree::set_advance_expression_base_node(const NodePath &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("set_advance_expression_base_node")._native_ptr(), 1348162250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("set_advance_expression_base_node")._native_ptr(), 1348162250);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
 }
 
 NodePath AnimationTree::get_advance_expression_base_node() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("get_advance_expression_base_node")._native_ptr(), 4075236667);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("get_advance_expression_base_node")._native_ptr(), 4075236667);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
 }
 
 void AnimationTree::set_animation_player(const NodePath &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("set_animation_player")._native_ptr(), 1348162250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("set_animation_player")._native_ptr(), 1348162250);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
 }
 
 NodePath AnimationTree::get_animation_player() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("get_animation_player")._native_ptr(), 4075236667);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("get_animation_player")._native_ptr(), 4075236667);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
 }
 
 void AnimationTree::set_process_callback(AnimationTree::AnimationProcessCallback p_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("set_process_callback")._native_ptr(), 1723352826);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("set_process_callback")._native_ptr(), 1723352826);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
 }
 
 AnimationTree::AnimationProcessCallback AnimationTree::get_process_callback() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("get_process_callback")._native_ptr(), 891317132);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationTree::get_class_static()._native_ptr(), StringName("get_process_callback")._native_ptr(), 891317132);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (AnimationTree::AnimationProcessCallback(0)));
-	return (AnimationTree::AnimationProcessCallback)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (AnimationTree::AnimationProcessCallback)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

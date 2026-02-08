@@ -42,27 +42,27 @@
 namespace godot {
 
 void PacketPeerDTLS::poll() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PacketPeerDTLS::get_class_static()._native_ptr(), StringName("poll")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PacketPeerDTLS::get_class_static()._native_ptr(), StringName("poll")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 Error PacketPeerDTLS::connect_to_peer(const Ref<PacketPeerUDP> &p_packet_peer, const String &p_hostname, const Ref<TLSOptions> &p_client_options) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PacketPeerDTLS::get_class_static()._native_ptr(), StringName("connect_to_peer")._native_ptr(), 2880188099);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PacketPeerDTLS::get_class_static()._native_ptr(), StringName("connect_to_peer")._native_ptr(), 2880188099);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_packet_peer != nullptr ? &p_packet_peer->_owner : nullptr), &p_hostname, (p_client_options != nullptr ? &p_client_options->_owner : nullptr));
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_packet_peer != nullptr ? &p_packet_peer->_owner : nullptr), &p_hostname, (p_client_options != nullptr ? &p_client_options->_owner : nullptr));
 }
 
 PacketPeerDTLS::Status PacketPeerDTLS::get_status() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PacketPeerDTLS::get_class_static()._native_ptr(), StringName("get_status")._native_ptr(), 3248654679);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PacketPeerDTLS::get_class_static()._native_ptr(), StringName("get_status")._native_ptr(), 3248654679);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PacketPeerDTLS::Status(0)));
-	return (PacketPeerDTLS::Status)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (PacketPeerDTLS::Status)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void PacketPeerDTLS::disconnect_from_peer() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PacketPeerDTLS::get_class_static()._native_ptr(), StringName("disconnect_from_peer")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PacketPeerDTLS::get_class_static()._native_ptr(), StringName("disconnect_from_peer")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 } // namespace godot

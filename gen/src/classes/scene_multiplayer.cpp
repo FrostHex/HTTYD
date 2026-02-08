@@ -41,123 +41,123 @@
 namespace godot {
 
 void SceneMultiplayer::set_root_path(const NodePath &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_root_path")._native_ptr(), 1348162250);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_root_path")._native_ptr(), 1348162250);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
 }
 
 NodePath SceneMultiplayer::get_root_path() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_root_path")._native_ptr(), 4075236667);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_root_path")._native_ptr(), 4075236667);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NodePath()));
-	return internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<NodePath>(_gde_method_bind, _owner);
 }
 
 void SceneMultiplayer::clear() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("clear")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("clear")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void SceneMultiplayer::disconnect_peer(int32_t p_id) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("disconnect_peer")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("disconnect_peer")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_id_encoded);
 }
 
 PackedInt32Array SceneMultiplayer::get_authenticating_peers() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_authenticating_peers")._native_ptr(), 969006518);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_authenticating_peers")._native_ptr(), 969006518);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedInt32Array()));
-	return internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
 }
 
 Error SceneMultiplayer::send_auth(int32_t p_id, const PackedByteArray &p_data) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("send_auth")._native_ptr(), 506032537);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("send_auth")._native_ptr(), 506032537);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_id_encoded, &p_data);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_id_encoded, &p_data);
 }
 
 Error SceneMultiplayer::complete_auth(int32_t p_id) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("complete_auth")._native_ptr(), 844576869);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("complete_auth")._native_ptr(), 844576869);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_id_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_id_encoded);
 }
 
 void SceneMultiplayer::set_auth_callback(const Callable &p_callback) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_auth_callback")._native_ptr(), 1611583062);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_auth_callback")._native_ptr(), 1611583062);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_callback);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_callback);
 }
 
 Callable SceneMultiplayer::get_auth_callback() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_auth_callback")._native_ptr(), 1307783378);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_auth_callback")._native_ptr(), 1307783378);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Callable()));
-	return internal::_call_native_mb_ret<Callable>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Callable>(_gde_method_bind, _owner);
 }
 
 void SceneMultiplayer::set_auth_timeout(double p_timeout) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_auth_timeout")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_auth_timeout")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_timeout_encoded;
 	PtrToArg<double>::encode(p_timeout, &p_timeout_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_timeout_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_timeout_encoded);
 }
 
 double SceneMultiplayer::get_auth_timeout() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_auth_timeout")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_auth_timeout")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void SceneMultiplayer::set_refuse_new_connections(bool p_refuse) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_refuse_new_connections")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_refuse_new_connections")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_refuse_encoded;
 	PtrToArg<bool>::encode(p_refuse, &p_refuse_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_refuse_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_refuse_encoded);
 }
 
 bool SceneMultiplayer::is_refusing_new_connections() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("is_refusing_new_connections")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("is_refusing_new_connections")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void SceneMultiplayer::set_allow_object_decoding(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_allow_object_decoding")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_allow_object_decoding")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool SceneMultiplayer::is_object_decoding_allowed() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("is_object_decoding_allowed")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("is_object_decoding_allowed")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void SceneMultiplayer::set_server_relay_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_server_relay_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_server_relay_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool SceneMultiplayer::is_server_relay_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("is_server_relay_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("is_server_relay_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 Error SceneMultiplayer::send_bytes(const PackedByteArray &p_bytes, int32_t p_id, MultiplayerPeer::TransferMode p_mode, int32_t p_channel) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("send_bytes")._native_ptr(), 1307428718);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("send_bytes")._native_ptr(), 1307428718);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
@@ -165,35 +165,35 @@ Error SceneMultiplayer::send_bytes(const PackedByteArray &p_bytes, int32_t p_id,
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
 	int64_t p_channel_encoded;
 	PtrToArg<int64_t>::encode(p_channel, &p_channel_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_bytes, &p_id_encoded, &p_mode_encoded, &p_channel_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_bytes, &p_id_encoded, &p_mode_encoded, &p_channel_encoded);
 }
 
 int32_t SceneMultiplayer::get_max_sync_packet_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_max_sync_packet_size")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_max_sync_packet_size")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void SceneMultiplayer::set_max_sync_packet_size(int32_t p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_max_sync_packet_size")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_max_sync_packet_size")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_size_encoded;
 	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
 }
 
 int32_t SceneMultiplayer::get_max_delta_packet_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_max_delta_packet_size")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("get_max_delta_packet_size")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void SceneMultiplayer::set_max_delta_packet_size(int32_t p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_max_delta_packet_size")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SceneMultiplayer::get_class_static()._native_ptr(), StringName("set_max_delta_packet_size")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_size_encoded;
 	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
 }
 
 } // namespace godot

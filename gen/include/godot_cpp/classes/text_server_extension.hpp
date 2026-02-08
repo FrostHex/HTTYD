@@ -77,6 +77,7 @@ public:
 	virtual String _get_support_data_info() const;
 	virtual bool _save_support_data(const String &p_filename) const;
 	virtual PackedByteArray _get_support_data() const;
+	virtual bool _is_locale_using_support_data(const String &p_locale) const;
 	virtual bool _is_locale_right_to_left(const String &p_locale) const;
 	virtual int64_t _name_to_tag(const String &p_name) const;
 	virtual String _tag_to_name(int64_t p_tag) const;
@@ -212,6 +213,7 @@ public:
 	virtual void _draw_hex_code_box(const RID &p_canvas, int64_t p_size, const Vector2 &p_pos, int64_t p_index, const Color &p_color) const;
 	virtual RID _create_shaped_text(TextServer::Direction p_direction, TextServer::Orientation p_orientation);
 	virtual void _shaped_text_clear(const RID &p_shaped);
+	virtual RID _shaped_text_duplicate(const RID &p_shaped);
 	virtual void _shaped_text_set_direction(const RID &p_shaped, TextServer::Direction p_direction);
 	virtual TextServer::Direction _shaped_text_get_direction(const RID &p_shaped) const;
 	virtual TextServer::Direction _shaped_text_get_inferred_direction(const RID &p_shaped) const;
@@ -231,6 +233,7 @@ public:
 	virtual bool _shaped_text_add_string(const RID &p_shaped, const String &p_text, const TypedArray<RID> &p_fonts, int64_t p_size, const Dictionary &p_opentype_features, const String &p_language, const Variant &p_meta);
 	virtual bool _shaped_text_add_object(const RID &p_shaped, const Variant &p_key, const Vector2 &p_size, InlineAlignment p_inline_align, int64_t p_length, double p_baseline);
 	virtual bool _shaped_text_resize_object(const RID &p_shaped, const Variant &p_key, const Vector2 &p_size, InlineAlignment p_inline_align, double p_baseline);
+	virtual bool _shaped_text_has_object(const RID &p_shaped, const Variant &p_key) const;
 	virtual String _shaped_get_text(const RID &p_shaped) const;
 	virtual int64_t _shaped_get_span_count(const RID &p_shaped) const;
 	virtual Variant _shaped_get_span_meta(const RID &p_shaped, int64_t p_index) const;
@@ -339,6 +342,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_support_data), decltype(&T::_get_support_data)>) {
 			BIND_VIRTUAL_METHOD(T, _get_support_data, 2362200018);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_is_locale_using_support_data), decltype(&T::_is_locale_using_support_data)>) {
+			BIND_VIRTUAL_METHOD(T, _is_locale_using_support_data, 3927539163);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_is_locale_right_to_left), decltype(&T::_is_locale_right_to_left)>) {
 			BIND_VIRTUAL_METHOD(T, _is_locale_right_to_left, 3927539163);
@@ -745,6 +751,9 @@ protected:
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_text_clear), decltype(&T::_shaped_text_clear)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_text_clear, 2722037293);
 		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_text_duplicate), decltype(&T::_shaped_text_duplicate)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_text_duplicate, 41030802);
+		}
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_text_set_direction), decltype(&T::_shaped_text_set_direction)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_text_set_direction, 4276135416);
 		}
@@ -801,6 +810,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_text_resize_object), decltype(&T::_shaped_text_resize_object)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_text_resize_object, 2747466775);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_text_has_object), decltype(&T::_shaped_text_has_object)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_text_has_object, 2360964694);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_text), decltype(&T::_shaped_get_text)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_get_text, 642473191);

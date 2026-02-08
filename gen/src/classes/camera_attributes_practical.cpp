@@ -39,129 +39,129 @@
 namespace godot {
 
 void CameraAttributesPractical::set_dof_blur_far_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_far_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_far_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool CameraAttributesPractical::is_dof_blur_far_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("is_dof_blur_far_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("is_dof_blur_far_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void CameraAttributesPractical::set_dof_blur_far_distance(float p_distance) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_far_distance")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_far_distance")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_distance_encoded;
 	PtrToArg<double>::encode(p_distance, &p_distance_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_distance_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_distance_encoded);
 }
 
 float CameraAttributesPractical::get_dof_blur_far_distance() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_dof_blur_far_distance")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_dof_blur_far_distance")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CameraAttributesPractical::set_dof_blur_far_transition(float p_distance) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_far_transition")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_far_transition")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_distance_encoded;
 	PtrToArg<double>::encode(p_distance, &p_distance_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_distance_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_distance_encoded);
 }
 
 float CameraAttributesPractical::get_dof_blur_far_transition() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_dof_blur_far_transition")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_dof_blur_far_transition")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CameraAttributesPractical::set_dof_blur_near_enabled(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_near_enabled")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_near_enabled")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool CameraAttributesPractical::is_dof_blur_near_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("is_dof_blur_near_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("is_dof_blur_near_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void CameraAttributesPractical::set_dof_blur_near_distance(float p_distance) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_near_distance")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_near_distance")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_distance_encoded;
 	PtrToArg<double>::encode(p_distance, &p_distance_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_distance_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_distance_encoded);
 }
 
 float CameraAttributesPractical::get_dof_blur_near_distance() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_dof_blur_near_distance")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_dof_blur_near_distance")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CameraAttributesPractical::set_dof_blur_near_transition(float p_distance) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_near_transition")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_near_transition")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_distance_encoded;
 	PtrToArg<double>::encode(p_distance, &p_distance_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_distance_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_distance_encoded);
 }
 
 float CameraAttributesPractical::get_dof_blur_near_transition() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_dof_blur_near_transition")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_dof_blur_near_transition")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CameraAttributesPractical::set_dof_blur_amount(float p_amount) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_amount")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_dof_blur_amount")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_amount_encoded;
 	PtrToArg<double>::encode(p_amount, &p_amount_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_amount_encoded);
 }
 
 float CameraAttributesPractical::get_dof_blur_amount() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_dof_blur_amount")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_dof_blur_amount")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CameraAttributesPractical::set_auto_exposure_max_sensitivity(float p_max_sensitivity) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_auto_exposure_max_sensitivity")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_auto_exposure_max_sensitivity")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_max_sensitivity_encoded;
 	PtrToArg<double>::encode(p_max_sensitivity, &p_max_sensitivity_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_max_sensitivity_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_max_sensitivity_encoded);
 }
 
 float CameraAttributesPractical::get_auto_exposure_max_sensitivity() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_auto_exposure_max_sensitivity")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_auto_exposure_max_sensitivity")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 void CameraAttributesPractical::set_auto_exposure_min_sensitivity(float p_min_sensitivity) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_auto_exposure_min_sensitivity")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("set_auto_exposure_min_sensitivity")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_min_sensitivity_encoded;
 	PtrToArg<double>::encode(p_min_sensitivity, &p_min_sensitivity_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_min_sensitivity_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_min_sensitivity_encoded);
 }
 
 float CameraAttributesPractical::get_auto_exposure_min_sensitivity() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_auto_exposure_min_sensitivity")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CameraAttributesPractical::get_class_static()._native_ptr(), StringName("get_auto_exposure_min_sensitivity")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

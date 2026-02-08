@@ -39,45 +39,45 @@
 namespace godot {
 
 String RegExMatch::get_subject() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_subject")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_subject")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 int32_t RegExMatch::get_group_count() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_group_count")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_group_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Dictionary RegExMatch::get_names() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_names")._native_ptr(), 3102165223);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_names")._native_ptr(), 3102165223);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
 }
 
 PackedStringArray RegExMatch::get_strings() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_strings")._native_ptr(), 1139954409);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_strings")._native_ptr(), 1139954409);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));
-	return internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner);
 }
 
 String RegExMatch::get_string(const Variant &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_string")._native_ptr(), 687115856);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_string")._native_ptr(), 687115856);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_name);
 }
 
 int32_t RegExMatch::get_start(const Variant &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_start")._native_ptr(), 490464691);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_start")._native_ptr(), 490464691);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_name);
 }
 
 int32_t RegExMatch::get_end(const Variant &p_name) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_end")._native_ptr(), 490464691);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RegExMatch::get_class_static()._native_ptr(), StringName("get_end")._native_ptr(), 490464691);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_name);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_name);
 }
 
 } // namespace godot

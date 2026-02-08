@@ -39,29 +39,43 @@
 namespace godot {
 
 void VisualShaderNodeParameter::set_parameter_name(const String &p_name) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeParameter::get_class_static()._native_ptr(), StringName("set_parameter_name")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeParameter::get_class_static()._native_ptr(), StringName("set_parameter_name")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name);
 }
 
 String VisualShaderNodeParameter::get_parameter_name() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeParameter::get_class_static()._native_ptr(), StringName("get_parameter_name")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeParameter::get_class_static()._native_ptr(), StringName("get_parameter_name")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNodeParameter::set_qualifier(VisualShaderNodeParameter::Qualifier p_qualifier) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeParameter::get_class_static()._native_ptr(), StringName("set_qualifier")._native_ptr(), 1276489447);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeParameter::get_class_static()._native_ptr(), StringName("set_qualifier")._native_ptr(), 1276489447);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_qualifier_encoded;
 	PtrToArg<int64_t>::encode(p_qualifier, &p_qualifier_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_qualifier_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_qualifier_encoded);
 }
 
 VisualShaderNodeParameter::Qualifier VisualShaderNodeParameter::get_qualifier() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNodeParameter::get_class_static()._native_ptr(), StringName("get_qualifier")._native_ptr(), 3558406205);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeParameter::get_class_static()._native_ptr(), StringName("get_qualifier")._native_ptr(), 3558406205);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (VisualShaderNodeParameter::Qualifier(0)));
-	return (VisualShaderNodeParameter::Qualifier)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (VisualShaderNodeParameter::Qualifier)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void VisualShaderNodeParameter::set_instance_index(int32_t p_instance_index) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeParameter::get_class_static()._native_ptr(), StringName("set_instance_index")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_instance_index_encoded;
+	PtrToArg<int64_t>::encode(p_instance_index, &p_instance_index_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_instance_index_encoded);
+}
+
+int32_t VisualShaderNodeParameter::get_instance_index() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNodeParameter::get_class_static()._native_ptr(), StringName("get_instance_index")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

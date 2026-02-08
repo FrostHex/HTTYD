@@ -41,39 +41,39 @@
 namespace godot {
 
 void StreamPeerTLS::poll() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("poll")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("poll")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 Error StreamPeerTLS::accept_stream(const Ref<StreamPeer> &p_stream, const Ref<TLSOptions> &p_server_options) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("accept_stream")._native_ptr(), 4292689651);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("accept_stream")._native_ptr(), 4292689651);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_stream != nullptr ? &p_stream->_owner : nullptr), (p_server_options != nullptr ? &p_server_options->_owner : nullptr));
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_stream != nullptr ? &p_stream->_owner : nullptr), (p_server_options != nullptr ? &p_server_options->_owner : nullptr));
 }
 
 Error StreamPeerTLS::connect_to_stream(const Ref<StreamPeer> &p_stream, const String &p_common_name, const Ref<TLSOptions> &p_client_options) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("connect_to_stream")._native_ptr(), 57169517);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("connect_to_stream")._native_ptr(), 57169517);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_stream != nullptr ? &p_stream->_owner : nullptr), &p_common_name, (p_client_options != nullptr ? &p_client_options->_owner : nullptr));
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_stream != nullptr ? &p_stream->_owner : nullptr), &p_common_name, (p_client_options != nullptr ? &p_client_options->_owner : nullptr));
 }
 
 StreamPeerTLS::Status StreamPeerTLS::get_status() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("get_status")._native_ptr(), 1128380576);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("get_status")._native_ptr(), 1128380576);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StreamPeerTLS::Status(0)));
-	return (StreamPeerTLS::Status)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (StreamPeerTLS::Status)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Ref<StreamPeer> StreamPeerTLS::get_stream() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("get_stream")._native_ptr(), 2741655269);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("get_stream")._native_ptr(), 2741655269);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<StreamPeer>()));
-	return Ref<StreamPeer>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<StreamPeer>(_gde_method_bind, _owner));
+	return Ref<StreamPeer>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<StreamPeer>(_gde_method_bind, _owner));
 }
 
 void StreamPeerTLS::disconnect_from_stream() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("disconnect_from_stream")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerTLS::get_class_static()._native_ptr(), StringName("disconnect_from_stream")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 } // namespace godot

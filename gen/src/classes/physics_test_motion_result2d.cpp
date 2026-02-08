@@ -41,81 +41,81 @@
 namespace godot {
 
 Vector2 PhysicsTestMotionResult2D::get_travel() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_travel")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_travel")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 Vector2 PhysicsTestMotionResult2D::get_remainder() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_remainder")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_remainder")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 Vector2 PhysicsTestMotionResult2D::get_collision_point() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_point")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_point")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 Vector2 PhysicsTestMotionResult2D::get_collision_normal() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_normal")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_normal")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 Vector2 PhysicsTestMotionResult2D::get_collider_velocity() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collider_velocity")._native_ptr(), 3341600327);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collider_velocity")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
-	return internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
 
 uint64_t PhysicsTestMotionResult2D::get_collider_id() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collider_id")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collider_id")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<uint64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<uint64_t>(_gde_method_bind, _owner);
 }
 
 RID PhysicsTestMotionResult2D::get_collider_rid() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collider_rid")._native_ptr(), 2944877500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collider_rid")._native_ptr(), 2944877500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
-	return internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 Object *PhysicsTestMotionResult2D::get_collider() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collider")._native_ptr(), 1981248198);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collider")._native_ptr(), 1981248198);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return internal::_call_native_mb_ret_obj<Object>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret_obj<Object>(_gde_method_bind, _owner);
 }
 
 int32_t PhysicsTestMotionResult2D::get_collider_shape() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collider_shape")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collider_shape")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 int32_t PhysicsTestMotionResult2D::get_collision_local_shape() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_local_shape")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_local_shape")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 float PhysicsTestMotionResult2D::get_collision_depth() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_depth")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_depth")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 float PhysicsTestMotionResult2D::get_collision_safe_fraction() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_safe_fraction")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_safe_fraction")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 float PhysicsTestMotionResult2D::get_collision_unsafe_fraction() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_unsafe_fraction")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsTestMotionResult2D::get_class_static()._native_ptr(), StringName("get_collision_unsafe_fraction")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

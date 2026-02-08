@@ -39,27 +39,27 @@
 namespace godot {
 
 Ref<MethodTweener> MethodTweener::set_delay(double p_delay) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MethodTweener::get_class_static()._native_ptr(), StringName("set_delay")._native_ptr(), 266477812);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MethodTweener::get_class_static()._native_ptr(), StringName("set_delay")._native_ptr(), 266477812);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<MethodTweener>()));
 	double p_delay_encoded;
 	PtrToArg<double>::encode(p_delay, &p_delay_encoded);
-	return Ref<MethodTweener>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<MethodTweener>(_gde_method_bind, _owner, &p_delay_encoded));
+	return Ref<MethodTweener>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<MethodTweener>(_gde_method_bind, _owner, &p_delay_encoded));
 }
 
 Ref<MethodTweener> MethodTweener::set_trans(Tween::TransitionType p_trans) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MethodTweener::get_class_static()._native_ptr(), StringName("set_trans")._native_ptr(), 3740975367);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MethodTweener::get_class_static()._native_ptr(), StringName("set_trans")._native_ptr(), 3740975367);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<MethodTweener>()));
 	int64_t p_trans_encoded;
 	PtrToArg<int64_t>::encode(p_trans, &p_trans_encoded);
-	return Ref<MethodTweener>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<MethodTweener>(_gde_method_bind, _owner, &p_trans_encoded));
+	return Ref<MethodTweener>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<MethodTweener>(_gde_method_bind, _owner, &p_trans_encoded));
 }
 
 Ref<MethodTweener> MethodTweener::set_ease(Tween::EaseType p_ease) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(MethodTweener::get_class_static()._native_ptr(), StringName("set_ease")._native_ptr(), 315540545);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MethodTweener::get_class_static()._native_ptr(), StringName("set_ease")._native_ptr(), 315540545);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<MethodTweener>()));
 	int64_t p_ease_encoded;
 	PtrToArg<int64_t>::encode(p_ease, &p_ease_encoded);
-	return Ref<MethodTweener>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<MethodTweener>(_gde_method_bind, _owner, &p_ease_encoded));
+	return Ref<MethodTweener>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<MethodTweener>(_gde_method_bind, _owner, &p_ease_encoded));
 }
 
 } // namespace godot

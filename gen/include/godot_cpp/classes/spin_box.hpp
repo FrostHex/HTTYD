@@ -57,6 +57,8 @@ public:
 	void set_editable(bool p_enabled);
 	void set_custom_arrow_step(double p_arrow_step);
 	double get_custom_arrow_step() const;
+	void set_custom_arrow_round(bool p_round);
+	bool is_custom_arrow_rounding() const;
 	bool is_editable() const;
 	void set_update_on_text_changed(bool p_enabled);
 	bool get_update_on_text_changed() const;

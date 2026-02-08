@@ -46,33 +46,33 @@
 namespace godot {
 
 void EditorResourcePreview::queue_resource_preview(const String &p_path, Object *p_receiver, const StringName &p_receiver_func, const Variant &p_userdata) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePreview::get_class_static()._native_ptr(), StringName("queue_resource_preview")._native_ptr(), 233177534);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePreview::get_class_static()._native_ptr(), StringName("queue_resource_preview")._native_ptr(), 233177534);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path, (p_receiver != nullptr ? &p_receiver->_owner : nullptr), &p_receiver_func, &p_userdata);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path, (p_receiver != nullptr ? &p_receiver->_owner : nullptr), &p_receiver_func, &p_userdata);
 }
 
 void EditorResourcePreview::queue_edited_resource_preview(const Ref<Resource> &p_resource, Object *p_receiver, const StringName &p_receiver_func, const Variant &p_userdata) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePreview::get_class_static()._native_ptr(), StringName("queue_edited_resource_preview")._native_ptr(), 1608376650);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePreview::get_class_static()._native_ptr(), StringName("queue_edited_resource_preview")._native_ptr(), 1608376650);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_resource != nullptr ? &p_resource->_owner : nullptr), (p_receiver != nullptr ? &p_receiver->_owner : nullptr), &p_receiver_func, &p_userdata);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_resource != nullptr ? &p_resource->_owner : nullptr), (p_receiver != nullptr ? &p_receiver->_owner : nullptr), &p_receiver_func, &p_userdata);
 }
 
 void EditorResourcePreview::add_preview_generator(const Ref<EditorResourcePreviewGenerator> &p_generator) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePreview::get_class_static()._native_ptr(), StringName("add_preview_generator")._native_ptr(), 332288124);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePreview::get_class_static()._native_ptr(), StringName("add_preview_generator")._native_ptr(), 332288124);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_generator != nullptr ? &p_generator->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_generator != nullptr ? &p_generator->_owner : nullptr));
 }
 
 void EditorResourcePreview::remove_preview_generator(const Ref<EditorResourcePreviewGenerator> &p_generator) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePreview::get_class_static()._native_ptr(), StringName("remove_preview_generator")._native_ptr(), 332288124);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePreview::get_class_static()._native_ptr(), StringName("remove_preview_generator")._native_ptr(), 332288124);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_generator != nullptr ? &p_generator->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_generator != nullptr ? &p_generator->_owner : nullptr));
 }
 
 void EditorResourcePreview::check_for_invalidation(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(EditorResourcePreview::get_class_static()._native_ptr(), StringName("check_for_invalidation")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorResourcePreview::get_class_static()._native_ptr(), StringName("check_for_invalidation")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_path);
 }
 
 } // namespace godot

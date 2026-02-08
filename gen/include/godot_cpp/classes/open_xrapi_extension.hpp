@@ -60,6 +60,7 @@ public:
 		OPENXR_ALPHA_BLEND_MODE_SUPPORT_EMULATING = 2,
 	};
 
+	uint64_t get_openxr_version();
 	uint64_t get_instance();
 	uint64_t get_system_id();
 	uint64_t get_session();
@@ -105,6 +106,7 @@ public:
 	void set_render_region(const Rect2i &p_render_region);
 	void set_emulate_environment_blend_mode_alpha_blend(bool p_enabled);
 	OpenXRAPIExtension::OpenXRAlphaBlendModeSupport is_environment_blend_mode_alpha_supported();
+	void update_main_swapchain_size();
 
 protected:
 	template <typename T, typename B>

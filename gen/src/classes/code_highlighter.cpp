@@ -41,173 +41,173 @@
 namespace godot {
 
 void CodeHighlighter::add_keyword_color(const String &p_keyword, const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("add_keyword_color")._native_ptr(), 1636512886);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("add_keyword_color")._native_ptr(), 1636512886);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_keyword, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_keyword, &p_color);
 }
 
 void CodeHighlighter::remove_keyword_color(const String &p_keyword) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("remove_keyword_color")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("remove_keyword_color")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_keyword);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_keyword);
 }
 
 bool CodeHighlighter::has_keyword_color(const String &p_keyword) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("has_keyword_color")._native_ptr(), 3927539163);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("has_keyword_color")._native_ptr(), 3927539163);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_keyword);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_keyword);
 }
 
 Color CodeHighlighter::get_keyword_color(const String &p_keyword) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_keyword_color")._native_ptr(), 3855908743);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_keyword_color")._native_ptr(), 3855908743);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
-	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner, &p_keyword);
+	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner, &p_keyword);
 }
 
 void CodeHighlighter::set_keyword_colors(const Dictionary &p_keywords) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_keyword_colors")._native_ptr(), 4155329257);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_keyword_colors")._native_ptr(), 4155329257);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_keywords);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_keywords);
 }
 
 void CodeHighlighter::clear_keyword_colors() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("clear_keyword_colors")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("clear_keyword_colors")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 Dictionary CodeHighlighter::get_keyword_colors() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_keyword_colors")._native_ptr(), 3102165223);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_keyword_colors")._native_ptr(), 3102165223);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
 }
 
 void CodeHighlighter::add_member_keyword_color(const String &p_member_keyword, const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("add_member_keyword_color")._native_ptr(), 1636512886);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("add_member_keyword_color")._native_ptr(), 1636512886);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_keyword, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_keyword, &p_color);
 }
 
 void CodeHighlighter::remove_member_keyword_color(const String &p_member_keyword) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("remove_member_keyword_color")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("remove_member_keyword_color")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_keyword);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_keyword);
 }
 
 bool CodeHighlighter::has_member_keyword_color(const String &p_member_keyword) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("has_member_keyword_color")._native_ptr(), 3927539163);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("has_member_keyword_color")._native_ptr(), 3927539163);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_member_keyword);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_member_keyword);
 }
 
 Color CodeHighlighter::get_member_keyword_color(const String &p_member_keyword) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_member_keyword_color")._native_ptr(), 3855908743);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_member_keyword_color")._native_ptr(), 3855908743);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
-	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner, &p_member_keyword);
+	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner, &p_member_keyword);
 }
 
 void CodeHighlighter::set_member_keyword_colors(const Dictionary &p_member_keyword) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_member_keyword_colors")._native_ptr(), 4155329257);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_member_keyword_colors")._native_ptr(), 4155329257);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_keyword);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_member_keyword);
 }
 
 void CodeHighlighter::clear_member_keyword_colors() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("clear_member_keyword_colors")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("clear_member_keyword_colors")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 Dictionary CodeHighlighter::get_member_keyword_colors() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_member_keyword_colors")._native_ptr(), 3102165223);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_member_keyword_colors")._native_ptr(), 3102165223);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
 }
 
 void CodeHighlighter::add_color_region(const String &p_start_key, const String &p_end_key, const Color &p_color, bool p_line_only) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("add_color_region")._native_ptr(), 2924977451);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("add_color_region")._native_ptr(), 2924977451);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_line_only_encoded;
 	PtrToArg<bool>::encode(p_line_only, &p_line_only_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_start_key, &p_end_key, &p_color, &p_line_only_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_start_key, &p_end_key, &p_color, &p_line_only_encoded);
 }
 
 void CodeHighlighter::remove_color_region(const String &p_start_key) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("remove_color_region")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("remove_color_region")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_start_key);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_start_key);
 }
 
 bool CodeHighlighter::has_color_region(const String &p_start_key) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("has_color_region")._native_ptr(), 3927539163);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("has_color_region")._native_ptr(), 3927539163);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_start_key);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_start_key);
 }
 
 void CodeHighlighter::set_color_regions(const Dictionary &p_color_regions) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_color_regions")._native_ptr(), 4155329257);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_color_regions")._native_ptr(), 4155329257);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color_regions);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color_regions);
 }
 
 void CodeHighlighter::clear_color_regions() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("clear_color_regions")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("clear_color_regions")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 Dictionary CodeHighlighter::get_color_regions() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_color_regions")._native_ptr(), 3102165223);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_color_regions")._native_ptr(), 3102165223);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
-	return internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner);
 }
 
 void CodeHighlighter::set_function_color(const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_function_color")._native_ptr(), 2920490490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_function_color")._native_ptr(), 2920490490);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
 }
 
 Color CodeHighlighter::get_function_color() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_function_color")._native_ptr(), 3444240500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_function_color")._native_ptr(), 3444240500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
-	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
 }
 
 void CodeHighlighter::set_number_color(const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_number_color")._native_ptr(), 2920490490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_number_color")._native_ptr(), 2920490490);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
 }
 
 Color CodeHighlighter::get_number_color() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_number_color")._native_ptr(), 3444240500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_number_color")._native_ptr(), 3444240500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
-	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
 }
 
 void CodeHighlighter::set_symbol_color(const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_symbol_color")._native_ptr(), 2920490490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_symbol_color")._native_ptr(), 2920490490);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
 }
 
 Color CodeHighlighter::get_symbol_color() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_symbol_color")._native_ptr(), 3444240500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_symbol_color")._native_ptr(), 3444240500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
-	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
 }
 
 void CodeHighlighter::set_member_variable_color(const Color &p_color) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_member_variable_color")._native_ptr(), 2920490490);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("set_member_variable_color")._native_ptr(), 2920490490);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_color);
 }
 
 Color CodeHighlighter::get_member_variable_color() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_member_variable_color")._native_ptr(), 3444240500);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeHighlighter::get_class_static()._native_ptr(), StringName("get_member_variable_color")._native_ptr(), 3444240500);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Color()));
-	return internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

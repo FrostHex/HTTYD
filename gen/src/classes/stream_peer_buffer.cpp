@@ -39,55 +39,55 @@
 namespace godot {
 
 void StreamPeerBuffer::seek(int32_t p_position) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("seek")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("seek")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_position_encoded;
 	PtrToArg<int64_t>::encode(p_position, &p_position_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_position_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_position_encoded);
 }
 
 int32_t StreamPeerBuffer::get_size() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("get_size")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("get_size")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 int32_t StreamPeerBuffer::get_position() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("get_position")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("get_position")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void StreamPeerBuffer::resize(int32_t p_size) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("resize")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("resize")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_size_encoded;
 	PtrToArg<int64_t>::encode(p_size, &p_size_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size_encoded);
 }
 
 void StreamPeerBuffer::set_data_array(const PackedByteArray &p_data) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("set_data_array")._native_ptr(), 2971499966);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("set_data_array")._native_ptr(), 2971499966);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_data);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_data);
 }
 
 PackedByteArray StreamPeerBuffer::get_data_array() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("get_data_array")._native_ptr(), 2362200018);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("get_data_array")._native_ptr(), 2362200018);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedByteArray()));
-	return internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner);
 }
 
 void StreamPeerBuffer::clear() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("clear")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("clear")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 Ref<StreamPeerBuffer> StreamPeerBuffer::duplicate() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("duplicate")._native_ptr(), 2474064677);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(StreamPeerBuffer::get_class_static()._native_ptr(), StringName("duplicate")._native_ptr(), 2474064677);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<StreamPeerBuffer>()));
-	return Ref<StreamPeerBuffer>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<StreamPeerBuffer>(_gde_method_bind, _owner));
+	return Ref<StreamPeerBuffer>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<StreamPeerBuffer>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

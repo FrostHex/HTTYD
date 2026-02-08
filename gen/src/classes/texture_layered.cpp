@@ -39,47 +39,47 @@
 namespace godot {
 
 Image::Format TextureLayered::get_format() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_format")._native_ptr(), 3847873762);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_format")._native_ptr(), 3847873762);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Image::Format(0)));
-	return (Image::Format)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (Image::Format)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 TextureLayered::LayeredType TextureLayered::get_layered_type() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_layered_type")._native_ptr(), 518123893);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_layered_type")._native_ptr(), 518123893);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TextureLayered::LayeredType(0)));
-	return (TextureLayered::LayeredType)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (TextureLayered::LayeredType)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 int32_t TextureLayered::get_width() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_width")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_width")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 int32_t TextureLayered::get_height() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_height")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_height")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 int32_t TextureLayered::get_layers() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_layers")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_layers")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 bool TextureLayered::has_mipmaps() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("has_mipmaps")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("has_mipmaps")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 Ref<Image> TextureLayered::get_layer_data(int32_t p_layer) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_layer_data")._native_ptr(), 3655284255);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureLayered::get_class_static()._native_ptr(), StringName("get_layer_data")._native_ptr(), 3655284255);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Image>()));
 	int64_t p_layer_encoded;
 	PtrToArg<int64_t>::encode(p_layer, &p_layer_encoded);
-	return Ref<Image>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Image>(_gde_method_bind, _owner, &p_layer_encoded));
+	return Ref<Image>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Image>(_gde_method_bind, _owner, &p_layer_encoded));
 }
 
 Image::Format TextureLayered::_get_format() const {

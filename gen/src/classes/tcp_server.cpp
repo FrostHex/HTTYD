@@ -41,41 +41,23 @@
 namespace godot {
 
 Error TCPServer::listen(uint16_t p_port, const String &p_bind_address) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TCPServer::get_class_static()._native_ptr(), StringName("listen")._native_ptr(), 3167955072);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TCPServer::get_class_static()._native_ptr(), StringName("listen")._native_ptr(), 3167955072);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int64_t p_port_encoded;
 	PtrToArg<int64_t>::encode(p_port, &p_port_encoded);
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_port_encoded, &p_bind_address);
-}
-
-bool TCPServer::is_connection_available() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TCPServer::get_class_static()._native_ptr(), StringName("is_connection_available")._native_ptr(), 36873697);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
-}
-
-bool TCPServer::is_listening() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TCPServer::get_class_static()._native_ptr(), StringName("is_listening")._native_ptr(), 36873697);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_port_encoded, &p_bind_address);
 }
 
 int32_t TCPServer::get_local_port() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TCPServer::get_class_static()._native_ptr(), StringName("get_local_port")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TCPServer::get_class_static()._native_ptr(), StringName("get_local_port")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 Ref<StreamPeerTCP> TCPServer::take_connection() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TCPServer::get_class_static()._native_ptr(), StringName("take_connection")._native_ptr(), 30545006);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TCPServer::get_class_static()._native_ptr(), StringName("take_connection")._native_ptr(), 30545006);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<StreamPeerTCP>()));
-	return Ref<StreamPeerTCP>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<StreamPeerTCP>(_gde_method_bind, _owner));
-}
-
-void TCPServer::stop() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TCPServer::get_class_static()._native_ptr(), StringName("stop")._native_ptr(), 3218959716);
-	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	return Ref<StreamPeerTCP>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<StreamPeerTCP>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

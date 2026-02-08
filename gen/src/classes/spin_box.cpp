@@ -41,109 +41,123 @@
 namespace godot {
 
 void SpinBox::set_horizontal_alignment(HorizontalAlignment p_alignment) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_horizontal_alignment")._native_ptr(), 2312603777);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_horizontal_alignment")._native_ptr(), 2312603777);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_alignment_encoded;
 	PtrToArg<int64_t>::encode(p_alignment, &p_alignment_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_alignment_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_alignment_encoded);
 }
 
 HorizontalAlignment SpinBox::get_horizontal_alignment() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_horizontal_alignment")._native_ptr(), 341400642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_horizontal_alignment")._native_ptr(), 341400642);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (HorizontalAlignment(0)));
-	return (HorizontalAlignment)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (HorizontalAlignment)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void SpinBox::set_suffix(const String &p_suffix) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_suffix")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_suffix")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_suffix);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_suffix);
 }
 
 String SpinBox::get_suffix() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_suffix")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_suffix")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void SpinBox::set_prefix(const String &p_prefix) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_prefix")._native_ptr(), 83702148);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_prefix")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_prefix);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_prefix);
 }
 
 String SpinBox::get_prefix() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_prefix")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_prefix")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 void SpinBox::set_editable(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_editable")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_editable")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 void SpinBox::set_custom_arrow_step(double p_arrow_step) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_custom_arrow_step")._native_ptr(), 373806689);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_custom_arrow_step")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_arrow_step_encoded;
 	PtrToArg<double>::encode(p_arrow_step, &p_arrow_step_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_arrow_step_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_arrow_step_encoded);
 }
 
 double SpinBox::get_custom_arrow_step() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_custom_arrow_step")._native_ptr(), 1740695150);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_custom_arrow_step")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
-	return internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+void SpinBox::set_custom_arrow_round(bool p_round) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_custom_arrow_round")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_round_encoded;
+	PtrToArg<bool>::encode(p_round, &p_round_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_round_encoded);
+}
+
+bool SpinBox::is_custom_arrow_rounding() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("is_custom_arrow_rounding")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 bool SpinBox::is_editable() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("is_editable")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("is_editable")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void SpinBox::set_update_on_text_changed(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_update_on_text_changed")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_update_on_text_changed")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool SpinBox::get_update_on_text_changed() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_update_on_text_changed")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_update_on_text_changed")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void SpinBox::set_select_all_on_focus(bool p_enabled) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_select_all_on_focus")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("set_select_all_on_focus")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enabled_encoded;
 	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool SpinBox::is_select_all_on_focus() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("is_select_all_on_focus")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("is_select_all_on_focus")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void SpinBox::apply() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("apply")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("apply")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 LineEdit *SpinBox::get_line_edit() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_line_edit")._native_ptr(), 4071694264);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpinBox::get_class_static()._native_ptr(), StringName("get_line_edit")._native_ptr(), 4071694264);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return internal::_call_native_mb_ret_obj<LineEdit>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret_obj<LineEdit>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

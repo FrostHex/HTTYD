@@ -39,81 +39,81 @@
 namespace godot {
 
 int32_t VisualShaderNode::get_default_input_port(VisualShaderNode::PortType p_type) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("get_default_input_port")._native_ptr(), 1894493699);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("get_default_input_port")._native_ptr(), 1894493699);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	int64_t p_type_encoded;
 	PtrToArg<int64_t>::encode(p_type, &p_type_encoded);
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_type_encoded);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_type_encoded);
 }
 
 void VisualShaderNode::set_output_port_for_preview(int32_t p_port) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("set_output_port_for_preview")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("set_output_port_for_preview")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_port_encoded;
 	PtrToArg<int64_t>::encode(p_port, &p_port_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_port_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_port_encoded);
 }
 
 int32_t VisualShaderNode::get_output_port_for_preview() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("get_output_port_for_preview")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("get_output_port_for_preview")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNode::set_input_port_default_value(int32_t p_port, const Variant &p_value, const Variant &p_prev_value) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("set_input_port_default_value")._native_ptr(), 150923387);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("set_input_port_default_value")._native_ptr(), 150923387);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_port_encoded;
 	PtrToArg<int64_t>::encode(p_port, &p_port_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_port_encoded, &p_value, &p_prev_value);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_port_encoded, &p_value, &p_prev_value);
 }
 
 Variant VisualShaderNode::get_input_port_default_value(int32_t p_port) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("get_input_port_default_value")._native_ptr(), 4227898402);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("get_input_port_default_value")._native_ptr(), 4227898402);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
 	int64_t p_port_encoded;
 	PtrToArg<int64_t>::encode(p_port, &p_port_encoded);
-	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_port_encoded);
+	return ::godot::internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_port_encoded);
 }
 
 void VisualShaderNode::remove_input_port_default_value(int32_t p_port) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("remove_input_port_default_value")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("remove_input_port_default_value")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_port_encoded;
 	PtrToArg<int64_t>::encode(p_port, &p_port_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_port_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_port_encoded);
 }
 
 void VisualShaderNode::clear_default_input_values() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("clear_default_input_values")._native_ptr(), 3218959716);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("clear_default_input_values")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
 void VisualShaderNode::set_default_input_values(const Array &p_values) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("set_default_input_values")._native_ptr(), 381264803);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("set_default_input_values")._native_ptr(), 381264803);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_values);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_values);
 }
 
 Array VisualShaderNode::get_default_input_values() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("get_default_input_values")._native_ptr(), 3995934104);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("get_default_input_values")._native_ptr(), 3995934104);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Array()));
-	return internal::_call_native_mb_ret<Array>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Array>(_gde_method_bind, _owner);
 }
 
 void VisualShaderNode::set_frame(int32_t p_frame) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("set_frame")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("set_frame")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_frame_encoded;
 	PtrToArg<int64_t>::encode(p_frame, &p_frame_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_frame_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_frame_encoded);
 }
 
 int32_t VisualShaderNode::get_frame() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("get_frame")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(VisualShaderNode::get_class_static()._native_ptr(), StringName("get_frame")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

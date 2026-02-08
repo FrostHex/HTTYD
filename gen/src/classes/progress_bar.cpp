@@ -39,59 +39,59 @@
 namespace godot {
 
 void ProgressBar::set_fill_mode(int32_t p_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("set_fill_mode")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("set_fill_mode")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
 }
 
 int32_t ProgressBar::get_fill_mode() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("get_fill_mode")._native_ptr(), 2455072627);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("get_fill_mode")._native_ptr(), 2455072627);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void ProgressBar::set_show_percentage(bool p_visible) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("set_show_percentage")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("set_show_percentage")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_visible_encoded;
 	PtrToArg<bool>::encode(p_visible, &p_visible_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_visible_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_visible_encoded);
 }
 
 bool ProgressBar::is_percentage_shown() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("is_percentage_shown")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("is_percentage_shown")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void ProgressBar::set_indeterminate(bool p_indeterminate) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("set_indeterminate")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("set_indeterminate")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_indeterminate_encoded;
 	PtrToArg<bool>::encode(p_indeterminate, &p_indeterminate_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_indeterminate_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_indeterminate_encoded);
 }
 
 bool ProgressBar::is_indeterminate() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("is_indeterminate")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("is_indeterminate")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void ProgressBar::set_editor_preview_indeterminate(bool p_preview_indeterminate) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("set_editor_preview_indeterminate")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("set_editor_preview_indeterminate")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_preview_indeterminate_encoded;
 	PtrToArg<bool>::encode(p_preview_indeterminate, &p_preview_indeterminate_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_preview_indeterminate_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_preview_indeterminate_encoded);
 }
 
 bool ProgressBar::is_editor_preview_indeterminate_enabled() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("is_editor_preview_indeterminate_enabled")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ProgressBar::get_class_static()._native_ptr(), StringName("is_editor_preview_indeterminate_enabled")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

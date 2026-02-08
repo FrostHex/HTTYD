@@ -37,6 +37,7 @@
 #include <godot_cpp/variant/packed_string_array.hpp>
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/string_name.hpp>
+#include <godot_cpp/variant/typed_array.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -67,16 +68,24 @@ public:
 	PackedStringArray get_all_countries() const;
 	String get_country_name(const String &p_country) const;
 	String get_locale_name(const String &p_locale) const;
+	String get_plural_rules(const String &p_locale) const;
 	StringName translate(const StringName &p_message, const StringName &p_context = StringName()) const;
 	StringName translate_plural(const StringName &p_message, const StringName &p_plural_message, int32_t p_n, const StringName &p_context = StringName()) const;
 	void add_translation(const Ref<Translation> &p_translation);
 	void remove_translation(const Ref<Translation> &p_translation);
 	Ref<Translation> get_translation_object(const String &p_locale);
+	TypedArray<Ref<Translation>> get_translations() const;
+	TypedArray<Ref<Translation>> find_translations(const String &p_locale, bool p_exact) const;
+	bool has_translation_for_locale(const String &p_locale, bool p_exact) const;
+	bool has_translation(const Ref<Translation> &p_translation) const;
 	bool has_domain(const StringName &p_domain) const;
 	Ref<TranslationDomain> get_or_add_domain(const StringName &p_domain);
 	void remove_domain(const StringName &p_domain);
 	void clear();
 	PackedStringArray get_loaded_locales() const;
+	String format_number(const String &p_number, const String &p_locale) const;
+	String get_percent_sign(const String &p_locale) const;
+	String parse_number(const String &p_number, const String &p_locale) const;
 	bool is_pseudolocalization_enabled() const;
 	void set_pseudolocalization_enabled(bool p_enabled);
 	void reload_pseudolocalization();

@@ -39,53 +39,53 @@
 namespace godot {
 
 void AtlasTexture::set_atlas(const Ref<Texture2D> &p_atlas) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("set_atlas")._native_ptr(), 4051416890);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("set_atlas")._native_ptr(), 4051416890);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_atlas != nullptr ? &p_atlas->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_atlas != nullptr ? &p_atlas->_owner : nullptr));
 }
 
 Ref<Texture2D> AtlasTexture::get_atlas() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("get_atlas")._native_ptr(), 3635182373);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("get_atlas")._native_ptr(), 3635182373);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Texture2D>()));
-	return Ref<Texture2D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Texture2D>(_gde_method_bind, _owner));
+	return Ref<Texture2D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Texture2D>(_gde_method_bind, _owner));
 }
 
 void AtlasTexture::set_region(const Rect2 &p_region) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("set_region")._native_ptr(), 2046264180);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("set_region")._native_ptr(), 2046264180);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_region);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_region);
 }
 
 Rect2 AtlasTexture::get_region() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("get_region")._native_ptr(), 1639390495);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("get_region")._native_ptr(), 1639390495);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Rect2()));
-	return internal::_call_native_mb_ret<Rect2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Rect2>(_gde_method_bind, _owner);
 }
 
 void AtlasTexture::set_margin(const Rect2 &p_margin) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("set_margin")._native_ptr(), 2046264180);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("set_margin")._native_ptr(), 2046264180);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_margin);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_margin);
 }
 
 Rect2 AtlasTexture::get_margin() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("get_margin")._native_ptr(), 1639390495);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("get_margin")._native_ptr(), 1639390495);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Rect2()));
-	return internal::_call_native_mb_ret<Rect2>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<Rect2>(_gde_method_bind, _owner);
 }
 
 void AtlasTexture::set_filter_clip(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("set_filter_clip")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("set_filter_clip")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool AtlasTexture::has_filter_clip() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("has_filter_clip")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AtlasTexture::get_class_static()._native_ptr(), StringName("has_filter_clip")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

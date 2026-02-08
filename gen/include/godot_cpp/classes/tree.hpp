@@ -61,6 +61,13 @@ public:
 		DROP_MODE_INBETWEEN = 2,
 	};
 
+	enum ScrollHintMode {
+		SCROLL_HINT_MODE_DISABLED = 0,
+		SCROLL_HINT_MODE_BOTH = 1,
+		SCROLL_HINT_MODE_TOP = 2,
+		SCROLL_HINT_MODE_BOTTOM = 3,
+	};
+
 	void clear();
 	TreeItem *create_item(TreeItem *p_parent = nullptr, int32_t p_index = -1);
 	TreeItem *get_root() const;
@@ -98,6 +105,8 @@ public:
 	bool are_column_titles_visible() const;
 	void set_column_title(int32_t p_column, const String &p_title);
 	String get_column_title(int32_t p_column) const;
+	void set_column_title_tooltip_text(int32_t p_column, const String &p_tooltip_text);
+	String get_column_title_tooltip_text(int32_t p_column) const;
 	void set_column_title_alignment(int32_t p_column, HorizontalAlignment p_title_alignment);
 	HorizontalAlignment get_column_title_alignment(int32_t p_column) const;
 	void set_column_title_direction(int32_t p_column, Control::TextDirection p_direction);
@@ -110,10 +119,16 @@ public:
 	bool is_h_scroll_enabled() const;
 	void set_v_scroll_enabled(bool p_h_scroll);
 	bool is_v_scroll_enabled() const;
+	void set_scroll_hint_mode(Tree::ScrollHintMode p_scroll_hint_mode);
+	Tree::ScrollHintMode get_scroll_hint_mode() const;
+	void set_tile_scroll_hint(bool p_tile_scroll_hint);
+	bool is_scroll_hint_tiled();
 	void set_hide_folding(bool p_hide);
 	bool is_folding_hidden() const;
 	void set_enable_recursive_folding(bool p_enable);
 	bool is_recursive_folding_enabled() const;
+	void set_enable_drag_unfolding(bool p_enable);
+	bool is_drag_unfolding_enabled() const;
 	void set_drop_mode_flags(int32_t p_flags);
 	int32_t get_drop_mode_flags() const;
 	void set_allow_rmb_select(bool p_allow);
@@ -138,4 +153,5 @@ public:
 
 VARIANT_ENUM_CAST(Tree::SelectMode);
 VARIANT_ENUM_CAST(Tree::DropModeFlags);
+VARIANT_ENUM_CAST(Tree::ScrollHintMode);
 

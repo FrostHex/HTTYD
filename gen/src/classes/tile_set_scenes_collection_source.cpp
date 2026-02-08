@@ -41,91 +41,91 @@
 namespace godot {
 
 int32_t TileSetScenesCollectionSource::get_scene_tiles_count() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("get_scene_tiles_count")._native_ptr(), 2455072627);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("get_scene_tiles_count")._native_ptr(), 2455072627);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 int32_t TileSetScenesCollectionSource::get_scene_tile_id(int32_t p_index) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("get_scene_tile_id")._native_ptr(), 3744713108);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("get_scene_tile_id")._native_ptr(), 3744713108);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_index_encoded);
 }
 
 bool TileSetScenesCollectionSource::has_scene_tile_id(int32_t p_id) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("has_scene_tile_id")._native_ptr(), 3067735520);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("has_scene_tile_id")._native_ptr(), 3067735520);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_id_encoded);
 }
 
 int32_t TileSetScenesCollectionSource::create_scene_tile(const Ref<PackedScene> &p_packed_scene, int32_t p_id_override) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("create_scene_tile")._native_ptr(), 1117465415);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("create_scene_tile")._native_ptr(), 1117465415);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	int64_t p_id_override_encoded;
 	PtrToArg<int64_t>::encode(p_id_override, &p_id_override_encoded);
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_packed_scene != nullptr ? &p_packed_scene->_owner : nullptr), &p_id_override_encoded);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_packed_scene != nullptr ? &p_packed_scene->_owner : nullptr), &p_id_override_encoded);
 }
 
 void TileSetScenesCollectionSource::set_scene_tile_id(int32_t p_id, int32_t p_new_id) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("set_scene_tile_id")._native_ptr(), 3937882851);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("set_scene_tile_id")._native_ptr(), 3937882851);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
 	int64_t p_new_id_encoded;
 	PtrToArg<int64_t>::encode(p_new_id, &p_new_id_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_id_encoded, &p_new_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_id_encoded, &p_new_id_encoded);
 }
 
 void TileSetScenesCollectionSource::set_scene_tile_scene(int32_t p_id, const Ref<PackedScene> &p_packed_scene) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("set_scene_tile_scene")._native_ptr(), 3435852839);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("set_scene_tile_scene")._native_ptr(), 3435852839);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_id_encoded, (p_packed_scene != nullptr ? &p_packed_scene->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_id_encoded, (p_packed_scene != nullptr ? &p_packed_scene->_owner : nullptr));
 }
 
 Ref<PackedScene> TileSetScenesCollectionSource::get_scene_tile_scene(int32_t p_id) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("get_scene_tile_scene")._native_ptr(), 511017218);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("get_scene_tile_scene")._native_ptr(), 511017218);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<PackedScene>()));
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
-	return Ref<PackedScene>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<PackedScene>(_gde_method_bind, _owner, &p_id_encoded));
+	return Ref<PackedScene>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<PackedScene>(_gde_method_bind, _owner, &p_id_encoded));
 }
 
 void TileSetScenesCollectionSource::set_scene_tile_display_placeholder(int32_t p_id, bool p_display_placeholder) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("set_scene_tile_display_placeholder")._native_ptr(), 300928843);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("set_scene_tile_display_placeholder")._native_ptr(), 300928843);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
 	int8_t p_display_placeholder_encoded;
 	PtrToArg<bool>::encode(p_display_placeholder, &p_display_placeholder_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_id_encoded, &p_display_placeholder_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_id_encoded, &p_display_placeholder_encoded);
 }
 
 bool TileSetScenesCollectionSource::get_scene_tile_display_placeholder(int32_t p_id) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("get_scene_tile_display_placeholder")._native_ptr(), 1116898809);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("get_scene_tile_display_placeholder")._native_ptr(), 1116898809);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_id_encoded);
 }
 
 void TileSetScenesCollectionSource::remove_scene_tile(int32_t p_id) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("remove_scene_tile")._native_ptr(), 1286410249);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("remove_scene_tile")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_id_encoded;
 	PtrToArg<int64_t>::encode(p_id, &p_id_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_id_encoded);
 }
 
 int32_t TileSetScenesCollectionSource::get_next_scene_tile_id() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("get_next_scene_tile_id")._native_ptr(), 3905245786);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSetScenesCollectionSource::get_class_static()._native_ptr(), StringName("get_next_scene_tile_id")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
-	return internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

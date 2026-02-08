@@ -39,31 +39,31 @@
 namespace godot {
 
 Error Expression::parse(const String &p_expression, const PackedStringArray &p_input_names) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Expression::get_class_static()._native_ptr(), StringName("parse")._native_ptr(), 3069722906);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Expression::get_class_static()._native_ptr(), StringName("parse")._native_ptr(), 3069722906);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_expression, &p_input_names);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_expression, &p_input_names);
 }
 
 Variant Expression::execute(const Array &p_inputs, Object *p_base_instance, bool p_show_error, bool p_const_calls_only) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Expression::get_class_static()._native_ptr(), StringName("execute")._native_ptr(), 3712471238);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Expression::get_class_static()._native_ptr(), StringName("execute")._native_ptr(), 3712471238);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
 	int8_t p_show_error_encoded;
 	PtrToArg<bool>::encode(p_show_error, &p_show_error_encoded);
 	int8_t p_const_calls_only_encoded;
 	PtrToArg<bool>::encode(p_const_calls_only, &p_const_calls_only_encoded);
-	return internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_inputs, (p_base_instance != nullptr ? &p_base_instance->_owner : nullptr), &p_show_error_encoded, &p_const_calls_only_encoded);
+	return ::godot::internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner, &p_inputs, (p_base_instance != nullptr ? &p_base_instance->_owner : nullptr), &p_show_error_encoded, &p_const_calls_only_encoded);
 }
 
 bool Expression::has_execute_failed() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Expression::get_class_static()._native_ptr(), StringName("has_execute_failed")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Expression::get_class_static()._native_ptr(), StringName("has_execute_failed")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 String Expression::get_error_text() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(Expression::get_class_static()._native_ptr(), StringName("get_error_text")._native_ptr(), 201670096);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Expression::get_class_static()._native_ptr(), StringName("get_error_text")._native_ptr(), 201670096);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
-	return internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

@@ -35,9 +35,8 @@
 #include <godot_cpp/classes/animation_mixer.hpp>
 #include <godot_cpp/classes/tween.hpp>
 #include <godot_cpp/variant/node_path.hpp>
-#include <godot_cpp/variant/packed_string_array.hpp>
-#include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/string_name.hpp>
+#include <godot_cpp/variant/typed_array.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -84,18 +83,19 @@ public:
 	void pause();
 	void stop(bool p_keep_state = false);
 	bool is_playing() const;
-	void set_current_animation(const String &p_animation);
-	String get_current_animation() const;
-	void set_assigned_animation(const String &p_animation);
-	String get_assigned_animation() const;
+	bool is_animation_active() const;
+	void set_current_animation(const StringName &p_animation);
+	StringName get_current_animation() const;
+	void set_assigned_animation(const StringName &p_animation);
+	StringName get_assigned_animation() const;
 	void queue(const StringName &p_name);
-	PackedStringArray get_queue();
+	TypedArray<StringName> get_queue();
 	void clear_queue();
 	void set_speed_scale(float p_speed);
 	float get_speed_scale() const;
 	float get_playing_speed() const;
-	void set_autoplay(const String &p_name);
-	String get_autoplay() const;
+	void set_autoplay(const StringName &p_name);
+	StringName get_autoplay() const;
 	void set_movie_quit_on_finish_enabled(bool p_enabled);
 	bool is_movie_quit_on_finish_enabled() const;
 	double get_current_animation_position() const;

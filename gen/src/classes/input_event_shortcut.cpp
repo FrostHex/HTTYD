@@ -41,15 +41,15 @@
 namespace godot {
 
 void InputEventShortcut::set_shortcut(const Ref<Shortcut> &p_shortcut) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventShortcut::get_class_static()._native_ptr(), StringName("set_shortcut")._native_ptr(), 857163497);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventShortcut::get_class_static()._native_ptr(), StringName("set_shortcut")._native_ptr(), 857163497);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_shortcut != nullptr ? &p_shortcut->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_shortcut != nullptr ? &p_shortcut->_owner : nullptr));
 }
 
 Ref<Shortcut> InputEventShortcut::get_shortcut() {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(InputEventShortcut::get_class_static()._native_ptr(), StringName("get_shortcut")._native_ptr(), 3766804753);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(InputEventShortcut::get_class_static()._native_ptr(), StringName("get_shortcut")._native_ptr(), 3766804753);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Shortcut>()));
-	return Ref<Shortcut>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Shortcut>(_gde_method_bind, _owner));
+	return Ref<Shortcut>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Shortcut>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

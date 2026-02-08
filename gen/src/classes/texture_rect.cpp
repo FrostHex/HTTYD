@@ -41,71 +41,71 @@
 namespace godot {
 
 void TextureRect::set_texture(const Ref<Texture2D> &p_texture) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("set_texture")._native_ptr(), 4051416890);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("set_texture")._native_ptr(), 4051416890);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_texture != nullptr ? &p_texture->_owner : nullptr));
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_texture != nullptr ? &p_texture->_owner : nullptr));
 }
 
 Ref<Texture2D> TextureRect::get_texture() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("get_texture")._native_ptr(), 3635182373);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("get_texture")._native_ptr(), 3635182373);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Texture2D>()));
-	return Ref<Texture2D>::_gde_internal_constructor(internal::_call_native_mb_ret_obj<Texture2D>(_gde_method_bind, _owner));
+	return Ref<Texture2D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Texture2D>(_gde_method_bind, _owner));
 }
 
 void TextureRect::set_expand_mode(TextureRect::ExpandMode p_expand_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("set_expand_mode")._native_ptr(), 1870766882);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("set_expand_mode")._native_ptr(), 1870766882);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_expand_mode_encoded;
 	PtrToArg<int64_t>::encode(p_expand_mode, &p_expand_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_expand_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_expand_mode_encoded);
 }
 
 TextureRect::ExpandMode TextureRect::get_expand_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("get_expand_mode")._native_ptr(), 3863824733);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("get_expand_mode")._native_ptr(), 3863824733);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TextureRect::ExpandMode(0)));
-	return (TextureRect::ExpandMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (TextureRect::ExpandMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void TextureRect::set_flip_h(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("set_flip_h")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("set_flip_h")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool TextureRect::is_flipped_h() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("is_flipped_h")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("is_flipped_h")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void TextureRect::set_flip_v(bool p_enable) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("set_flip_v")._native_ptr(), 2586408642);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("set_flip_v")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int8_t p_enable_encoded;
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
 }
 
 bool TextureRect::is_flipped_v() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("is_flipped_v")._native_ptr(), 36873697);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("is_flipped_v")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void TextureRect::set_stretch_mode(TextureRect::StretchMode p_stretch_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("set_stretch_mode")._native_ptr(), 58788729);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("set_stretch_mode")._native_ptr(), 58788729);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_stretch_mode_encoded;
 	PtrToArg<int64_t>::encode(p_stretch_mode, &p_stretch_mode_encoded);
-	internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stretch_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_stretch_mode_encoded);
 }
 
 TextureRect::StretchMode TextureRect::get_stretch_mode() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = internal::gdextension_interface_classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("get_stretch_mode")._native_ptr(), 346396079);
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextureRect::get_class_static()._native_ptr(), StringName("get_stretch_mode")._native_ptr(), 346396079);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TextureRect::StretchMode(0)));
-	return (TextureRect::StretchMode)internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+	return (TextureRect::StretchMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 } // namespace godot
