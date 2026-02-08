@@ -712,7 +712,7 @@ func _update_body_under_camera(delta : float):
 		_head_shape_cast.collision_mask = collision_mask
 		_head_shape_cast.target_position = (camera_local_position - _head_shape_cast.transform.origin) * Vector3(1.0, 0.0, 1.0)
 
-		var target_move_distance : float = _head_shape_cast.target_position.length()
+		var target_move_distance = _head_shape_cast.target_position.length()
 
 		# Cast shape
 		_head_shape_cast.force_shapecast_update()
@@ -762,7 +762,7 @@ func _exit_tree():
 # This method updates the information about the ground under the players feet
 func _update_ground_information(delta: float):
 	# Test how close we are to the ground
-	var ground_collision : KinematicCollision3D = move_and_collide(
+	var ground_collision := move_and_collide(
 			up_gravity * -NEAR_GROUND_DISTANCE, true)
 
 	# Handle no collision (or too far away to care about)
@@ -786,7 +786,7 @@ func _update_ground_information(delta: float):
 	ground_node = ground_collision.get_collider()
 
 	# Select the ground physics
-	var physics_node : XRToolsGroundPhysics = ground_node.get_node_or_null("GroundPhysics") as XRToolsGroundPhysics
+	var physics_node := ground_node.get_node_or_null("GroundPhysics") as XRToolsGroundPhysics
 	ground_physics = XRToolsGroundPhysics.get_physics(physics_node, default_physics)
 
 	# Detect if we're sliding on a wall
@@ -796,8 +796,8 @@ func _update_ground_information(delta: float):
 
 	# Detect ground velocity under players feet
 	if _previous_ground_node == ground_node:
-		var pos_old : Vector3 = _previous_ground_global
-		var pos_new : Vector3 = ground_node.to_global(_previous_ground_local)
+		var pos_old := _previous_ground_global
+		var pos_new := ground_node.to_global(_previous_ground_local)
 		ground_velocity = (pos_new - pos_old) / delta
 
 	# Update ground velocity information
@@ -809,11 +809,11 @@ func _update_ground_information(delta: float):
 # This method applies the player velocity and ground-control velocity to the physical body
 func _apply_velocity_and_control(delta: float):
 	# Calculate local velocity
-	var local_velocity : Vector3 = velocity - ground_velocity
+	var local_velocity := velocity - ground_velocity
 
 	# Split the velocity into horizontal and vertical components
-	var horizontal_velocity : Vector3 = local_velocity.slide(up_gravity)
-	var vertical_velocity : Vector3 = local_velocity - horizontal_velocity
+	var horizontal_velocity := local_velocity.slide(up_gravity)
+	var vertical_velocity := local_velocity - horizontal_velocity
 
 	# If the player is on the ground then give them control
 	if _can_apply_ground_control() and ground_control_velocity.length() >= 0.1:

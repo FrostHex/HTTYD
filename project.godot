@@ -8,16 +8,20 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="HTTYD"
 run/main_scene="uid://clo2gf4m2p2an"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
-XRToolsUserSettings="*res://Addons/godot-xr-tools/addons/godot-xr-tools/user_settings/user_settings.gd"
-XRToolsRumbleManager="*res://Addons/godot-xr-tools/addons/godot-xr-tools/rumble/rumble_manager.gd"
+XRToolsUserSettings="*uid://bqgb8i74tm0t"
+XRToolsRumbleManager="*uid://by853dk86g1qw"
 
 [debug]
 
@@ -29,7 +33,7 @@ gdscript/warnings/integer_division=0
 [display]
 
 window/stretch/mode="canvas_items"
-window/vsync/vsync_mode=3
+window/vsync/vsync_mode=0
 window/quality/msaa_2d=0
 window/quality/msaa_3d=1
 window/show_image=false
@@ -40,7 +44,7 @@ project/assembly_name="HTTYD"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://Addons/godot-xr-tools/addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://Addons/godot-xr-tools/addons/godot-xr-tools/plugin.cfg", "res://addons/godot-xr-tools/addons/godot-xr-tools/plugin.cfg")
 
 [filesystem]
 
@@ -105,6 +109,9 @@ num_cascades={
 
 [xr]
 
+openxr/enabled=true
 openxr/default_action_map="res://Addons/godot-xr-tools/addons/godot-xr-tools/openxr_action_map.tres"
+openxr/foveation_level=3
+openxr/foveation_dynamic=true
 openxr/extensions/hand_tracking=true
 shaders/enabled=true
