@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://5ne0avqtilnu"]
+[gd_scene format=3 uid="uid://5ne0avqtilnu"]
 
 [ext_resource type="Texture2D" uid="uid://nxqdv1m6j7pw" path="res://Environment/Ocean/assets/skybox.png" id="1_pkuwg"]
 [ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="3_evq41"]
 [ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="4_8pkyu"]
-[ext_resource type="PackedScene" uid="uid://by1mu77fg2ay1" path="res://Scenes/Dragons/Dragon_Temp.tscn" id="4_wq5c6"]
+[ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragons/Dragon.tscn" id="4_wq5c6"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5kfbp"]
 panorama = ExtResource("1_pkuwg")
@@ -27,7 +27,6 @@ sdfgi_bounce_feedback = 1.0
 sdfgi_cascades = 5
 glow_enabled = true
 glow_intensity = 0.1
-glow_blend_mode = 1
 glow_hdr_threshold = 2.0
 fog_mode = 1
 fog_light_color = Color(0.272954, 0.419272, 0.484632, 1)
@@ -45,12 +44,12 @@ adjustment_brightness = 0.85
 adjustment_contrast = 1.07
 adjustment_saturation = 1.5
 
-[node name="Scene_Tutorial" type="Node3D"]
+[node name="Scene_Tutorial" type="Node3D" unique_id=271040705]
 
-[node name="Environment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=331809095]
 environment = SubResource("Environment_7iq0u")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=2056595450]
 transform = Transform3D(-0.6102881, 0.72855395, 0.31105894, 0.52890104, 0.08240829, 0.8446731, 0.5897561, 0.6800133, -0.4356257, 250, 1003.33, -2800)
 light_indirect_energy = 8.0
 shadow_enabled = true
@@ -63,7 +62,7 @@ directional_shadow_blend_splits = true
 directional_shadow_fade_start = 0.9
 directional_shadow_max_distance = 400.0
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=1665297292]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,7 +70,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button_Back" type="Button" parent="UI"]
+[node name="Button_Back" type="Button" parent="UI" unique_id=984588424]
 layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -82,10 +81,12 @@ offset_bottom = -20.0
 grow_vertical = 0
 text = "Back"
 
-[node name="Ground" type="MeshInstance3D" parent="."]
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=1857231349]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.65, 9.5, 0)
 material_override = ExtResource("3_evq41")
 mesh = ExtResource("4_8pkyu")
 
-[node name="Dragon_Temp" parent="." instance=ExtResource("4_wq5c6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.262113, 0)
+[node name="Dragon" parent="." unique_id=446298809 instance=ExtResource("4_wq5c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="DragonControl_Dodge" type="DragonControl_Dodge" parent="Dragon" unique_id=134742874]

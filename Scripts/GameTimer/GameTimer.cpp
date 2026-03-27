@@ -29,6 +29,12 @@ GameTimer::~GameTimer()
 }
 
 
+void GameTimer::_ready() 
+{
+    set_physics_process(false); // disable physics process until there are events to process
+}
+
+
 /**
  * @brief bind methods to Godot
  */
@@ -41,14 +47,16 @@ void GameTimer::_bind_methods()
     ClassDB::bind_method(D_METHOD("Timer_Pause"), &GameTimer::Timer_Pause);
     ClassDB::bind_method(D_METHOD("Timer_Resume"), &GameTimer::Timer_Resume);
     ClassDB::bind_method(D_METHOD("Timer_GetTimeElapsed"), &GameTimer::Timer_GetTimeElapsed);
+    ClassDB::bind_method(D_METHOD("Initialize", "ctrl_camera"), &GameTimer::Initialize);
 }
 
 
 /**
  * @brief reset the timer
  */
-void GameTimer::_ready() 
+void GameTimer::Initialize(Control_Camera* ctrl_camera) 
 {
+    this->ctrl_camera = ctrl_camera;
     if (Engine::get_singleton()->is_editor_hint()) // only proceed when the game is running
     {
         return;
@@ -94,9 +102,9 @@ int GameTimer::Timer_AddEventSinceNow(float seconds, Callable callback)
  * @brief frame update function
  * @param delta time since last frame (seconds)
  */
-void GameTimer::_physics_process(double delta) 
+void GameTimer::_physics_process(double delta)
 {
-    if (timer_paused) 
+    if (timer_paused)
     {
         return;
     }

@@ -153,6 +153,9 @@ void Control_Scene_Home::_ready()
         debug_checkbox->call("set_pressed_no_signal", control_main->GetValDebug());
         debug_checkbox->connect("toggled", Callable(this, "_on_debug_toggled"));
     }
+
+    // Test Dorectly
+    // control_main->Switch_Scene("Scene_TD");
 }
 
 Control_Scene_Home::~Control_Scene_Home()
@@ -362,7 +365,7 @@ void Control_Scene_Home::_update_badge_display()
         {
             texture_rect->set_texture(texture);
             texture_rect->set_visible(true);
-            UtilityFunctions::print("Badge updated to: ", badge_value, " using texture: ", texture_path);
+            // UtilityFunctions::print("Badge updated to: ", badge_value, " using texture: ", texture_path);
         } 
         else 
         {

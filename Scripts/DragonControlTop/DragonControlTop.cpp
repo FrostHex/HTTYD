@@ -10,6 +10,8 @@
 #include <godot_cpp/classes/static_body3d.hpp> // StaticBody3D for static collision bodies
 #include <godot_cpp/variant/vector3.hpp> // Vector3 for velocity and position
 #include <godot_cpp/classes/input_event_action.hpp> // InputEventAction class
+#include <godot_cpp/classes/scene_tree.hpp> // SceneTree for get_tree()
+#include <godot_cpp/classes/window.hpp> // Window class for get_root()
 #include <cmath> // std::copysign, std::sqrt
 
 using namespace godot;
@@ -85,18 +87,30 @@ void DragonControlTop::_ready()
         return;
     }
 
-    // timer = get_parent()->get_parent()->get_node<GameTimer>("MainControl/GameTimer");
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
-    pivot_toothless = dragon_rb->get_node<Node3D>("Toothless");
-    camera_main = dragon_rb->get_node<Node3D>("Camera_Main");
+    pivot_toothless = dragon_rb->get_node<Node3D>("SpeciesSlot");
+    camera_main = dragon_rb->get_node<Node3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back/Camera_Main");
     dragon_animator = get_parent()->get_node<DragonAnimator>("DragonAnimator");
     dragon_rb->set_gravity_scale(0); // disable gravity
     height_init = dragon_rb->get_global_transform().origin.y;
     dragon_rb->set_contact_monitor(true); // enable contact monitoring and reporting
     dragon_rb->set_max_contacts_reported(1); // set the maximum number of contacts reported to 1
     dragon_rb->connect("body_entered", Callable(this, "_on_body_entered")); // connect the signal to the function
-    ctrl_camera = get_parent()->get_node<Control_Camera>("Control_Camera");
+    ctrl_camera = get_tree()->get_root()->get_node<Control_Camera>("Main/Control_Main/Control_Camera");
     dragon_rb->set_linear_velocity(Vector3(0, 0, 0)); // set initial linear velocity to zero
+
+    // reparent all nodes under dragon_rb/SpeciesSlot/ToothlessRoot/CollisionShapes to dragon_rb
+    Node3D* collision_shapes = dragon_rb->get_node<Node3D>("SpeciesSlot/ToothlessRoot/CollisionShapes");
+    if (collision_shapes)
+    {
+        int child_count = collision_shapes->get_child_count();
+        for (int i = child_count - 1; i >= 0; --i)
+        {
+            Node* child = collision_shapes->get_child(i);
+            child->call_deferred("reparent", dragon_rb); // defer reparenting until the scene tree finishes current setup.
+        }
+    }
+    
     pillar_hit_1 = Object::cast_to<Node3D>(get_parent()->get_parent()->get_node_or_null("Rocks/Area_Beginning/Rock_Pillar_B_15"));
     pillar_hit_2 = Object::cast_to<Node3D>(get_parent()->get_parent()->get_node_or_null("Rocks/Area_Beginning/Rock_Pillar_B_18"));
     if (pillar_hit_1 && pillar_hit_2) 

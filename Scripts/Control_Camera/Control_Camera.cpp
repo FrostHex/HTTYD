@@ -47,11 +47,37 @@ void Control_Camera::SetDragonControl(DragonControlTop* dragon_control)
 }
 
 
+void Control_Camera::_ready()
+{
+    set_process_input(false);
+}
+
 /**
  * @brief initialize the sub camera if the "Sub View" property is enabled
  */
-void Control_Camera::_ready()
+void Control_Camera::Initialize()
 {
+    // Find the node starting with "Scene_" and not "Scene_Home"
+    Node* scene_node = nullptr;
+    Node* main_node = get_tree()->get_root()->get_node_or_null(NodePath("Main"));
+    if (main_node)
+    {
+        for (int i = 0; i < main_node->get_child_count(); ++i)
+        {
+            Node* child = main_node->get_child(i);
+            if (child && String(child->get_name()).begins_with("Scene_") && child->get_name() != String("Scene_Home"))
+            {
+                scene_node = child;
+                break;
+            }
+        }
+    }
+    if (!scene_node)
+    {
+        UtilityFunctions::printerr("Control_Camera: Could not find Scene_ node");
+        return;
+    }
+
     // Get reference to Control_Main
     SceneTree *tree = get_tree();
     if (tree) 
@@ -65,14 +91,14 @@ void Control_Camera::_ready()
                 UtilityFunctions::printerr("Control_Camera: Could not find Control_Main at Main/Control_Main");
                 return;
             }
+
+            dragon_rb = scene_node->get_node<RigidBody3D>("Dragon");
+            camera_main = dragon_rb->get_node<Node3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back/Camera_Main");
+            xr_node = camera_main->get_node<Node3D>("XR");
+            xr_origin = xr_node->get_node<Node3D>("XROrigin");
+            xr_camera = xr_origin->get_node<Node3D>("XRCamera");
         }
     }
-
-    dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
-    xr_node = get_parent()->get_node<Node>("Camera_Main")->get_node<Node3D>("XR");
-    xr_origin = xr_node->get_node<Node3D>("XROrigin");
-    xr_camera = xr_origin->get_node<Node3D>("XRCamera");
-    camera_main = dragon_rb->get_node<Node3D>("Camera_Main");
 
     if (!Engine::get_singleton()->is_editor_hint()) // only proceed when the game is running
     {
@@ -87,7 +113,7 @@ void Control_Camera::_ready()
 
         if (control_main->GetValSubView())
         {
-            Node* sub_container = get_parent()->get_node<Node>("SubViewportContainer");
+            Node* sub_container = scene_node->get_node<Node>("Dragon/SubViewportContainer");
             Node* sub_viewport = sub_container->get_node<Node>("SubViewport");
             camera_sub = sub_viewport->get_node<Camera3D>("Camera_Sub");
             camera_sub->set_rotation(Vector3(0, - Math_PI / 2, 0));
@@ -130,16 +156,37 @@ void Control_Camera::_ready()
             return;
         }
     }
+
+    set_process_input(true);
 }
 
 
 /**
  * @brief let the sub camera follow the dragon
  */
-void Control_Camera::_physics_process(double delta) 
+void Control_Camera::_physics_process(double delta)
 {
+    // Skip in editor mode or if not initialized
+    if (Engine::get_singleton()->is_editor_hint() || !control_main)
+    {
+        return;
+    }
+
+    // Scene switching can temporarily leave cached nodes detached from tree.
+    if (!camera_main || !dragon_rb || !camera_main->is_inside_tree() || !dragon_rb->is_inside_tree())
+    {
+        set_physics_process(false);
+        return;
+    }
+
     if (control_main->GetValEnableHeadset()) 
     {
+        if (!xr_node || !xr_origin || !xr_camera || !xr_node->is_inside_tree() || !xr_origin->is_inside_tree() || !xr_camera->is_inside_tree())
+        {
+            set_physics_process(false);
+            return;
+        }
+
         // wait until we get a valid camera position (not 0,0,0)
         if (!xr_position_initialized)
         {            
@@ -164,6 +211,12 @@ void Control_Camera::_physics_process(double delta)
 
     if (control_main->GetValSubView())
     {
+        if (!camera_sub || !camera_sub->is_inside_tree())
+        {
+            set_physics_process(false);
+            return;
+        }
+
         camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
         if (control_main->GetValDebug() && label_info)
         {
@@ -236,13 +289,17 @@ void Control_Camera::_physics_process(double delta)
 
 Vector3 Control_Camera::GetPostureHeadset()
 {
+    if (!xr_camera || !xr_camera->is_inside_tree())
+    {
+        return Vector3();
+    }
     return xr_camera->get_global_rotation();
 }
 
 
 void Control_Camera::Print_Collision(Node* body, float velocity)
 {
-    if (control_main->GetValDebug() && label_info)
+    if (control_main && control_main->GetValDebug() && label_info)
     {
         String collision_info = "Collision with " + body->get_name() + " at velocity: " + String::num(velocity, 1);
         info_debug = collision_info;
@@ -253,8 +310,14 @@ void Control_Camera::Print_Collision(Node* body, float velocity)
  * @brief called when an input event occurs
  * @param event the input event
  */
-void Control_Camera::_input(const Ref<InputEvent> &event) 
+void Control_Camera::_input(const Ref<InputEvent> &event)
 {
+    // Skip in editor mode or if not initialized
+    if (Engine::get_singleton()->is_editor_hint() || !control_main)
+    {
+        return;
+    }
+
     if (event->is_action_pressed("save_state")) 
     {
         info_debug = "State Saved";
@@ -279,12 +342,16 @@ void Control_Camera::_input(const Ref<InputEvent> &event)
 }
 
 
-void Control_Camera::SetCameraOffsetFactor(float factor) 
+void Control_Camera::SetCameraOffsetFactor(float factor)
 {
+    if (!camera_main || !dragon_rb)
+    {
+        return;
+    }
     if (camera_offset_factor == 0.0f)
     {
         camera_main->reparent(dragon_rb->get_parent());
-    }   
+    }
     camera_offset_factor = factor;
 }
 
@@ -306,6 +373,10 @@ void Control_Camera::TriggerApproachingPosition(Vector3 target_position_offset)
 
 void Control_Camera::GrabSaddle()
 {
+    if (!camera_main || !dragon_rb)
+    {
+        return;
+    }
     approaching_angle = false;
     approaching_position = false;
     camera_offset_factor = 0.0f; // reset camera offset factor
@@ -323,4 +394,5 @@ void Control_Camera::_bind_methods()
     ClassDB::bind_method(D_METHOD("TriggerApproachingPosition", "target_position_offset"), &Control_Camera::TriggerApproachingPosition);
     ClassDB::bind_method(D_METHOD("GrabSaddle"), &Control_Camera::GrabSaddle);
     ClassDB::bind_method(D_METHOD("SetCameraStabilized", "stabilized"), &Control_Camera::SetCameraStabilized);
+    ClassDB::bind_method(D_METHOD("Initialize"), &Control_Camera::Initialize);
 }

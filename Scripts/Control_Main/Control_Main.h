@@ -16,9 +16,9 @@ namespace godot
 
     class SaveManager; // Forward declaration
 
-    class Control_Main : public Node3D // Change made here
+    class Control_Main : public Node // Change made here
     {
-        GDCLASS(Control_Main, Node3D); // Change made here
+        GDCLASS(Control_Main, Node); // Change made here
 
         public:
             Control_Main();

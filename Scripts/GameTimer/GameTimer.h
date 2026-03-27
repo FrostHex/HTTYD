@@ -51,6 +51,7 @@ namespace godot
             void _ready() override;
             void _physics_process(double delta) override;
 
+            void Initialize(Control_Camera* ctrl_camera);
             int Timer_AddEvent(float seconds, Callable callback);
             int Timer_AddEventSinceNow(float seconds, Callable callback);
             void Timer_Reset();
@@ -73,7 +74,7 @@ namespace godot
             std::priority_queue<TimerEvent, std::vector<TimerEvent>, std::greater<TimerEvent>> event_queue;
             
             Control_Camera* ctrl_camera; // pointer to the camera control, can be used to access camera properties
-            AudioStreamPlayer* audio_player;
+            AudioStreamPlayer* audio_player = nullptr;
             float time_elapsed; // Elapsed time (seconds)
             bool timer_paused; // Whether paused
             int id_event_next; // ID for the next event

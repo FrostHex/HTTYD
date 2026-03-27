@@ -41,10 +41,10 @@ namespace godot
             int current_index = 0;
             PackedStringArray lines;
             Control_Main* control_main = nullptr;
-            DragonControlTop* dragon_control;
-            DragonAnimator* dragon_animator;
-            Control_Camera* ctrl_camera;
-            Node* camera_main;
+            DragonControlTop* dragon_control = nullptr;
+            DragonAnimator* dragon_animator = nullptr;
+            Control_Camera* ctrl_camera = nullptr;
+            Node3D* camera_main = nullptr;
             void _on_back_button_pressed();
             String _process_tutorial_text(const String &text);
             // VR A/B 翻页支持

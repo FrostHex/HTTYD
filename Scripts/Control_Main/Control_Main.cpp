@@ -4,13 +4,12 @@
 #include "Control_Scene_Practice.h"
 #include "Control_Scene_Tutorial.h"
 #include "DragonAnimator.h"
-#include "DragonAnimator_Temp.h"
 #include "CheatSheet.h"
 #include "GameTimer.h"
 #include "SaveManager.h"
 #include "DragonControlKeyboard.h"
 #include "DragonControlJoystick.h"
-#include "DragonControl_Temp.h"
+#include "DragonControl_Dodge.h"
 #include "Control_Camera.h"
 
 #include <godot_cpp/godot.hpp>
@@ -41,11 +40,7 @@ void Control_Main::_ready()
     // ProjectSettings::get_singleton()->set_setting("xr/openxr/enabled", false);
 
     // Initialize SaveManager for both editor and runtime
-    if (!save_manager) {
-        save_manager = memnew(SaveManager);
-        add_child(save_manager);
-        UtilityFunctions::print("SaveManager initialized in _ready()");
-    }
+    save_manager = get_node<SaveManager>("SaveManager");
     LoadSettings();
 
     if (Engine::get_singleton()->is_editor_hint()) // only proceed when the game is running
@@ -131,27 +126,25 @@ void Control_Main::Switch_Scene(const String &scene_name)
         get_parent()->call_deferred("add_child", new_scene);
         new_scene->set_name(scene_name);
 
+        if (scene_name != "Scene_Home" && scene_name != "Scene_Dodge")
+        {
+            camera_main->reparent(new_scene->get_node<Node>("Dragon/SpeciesSlot/ToothlessRoot/Sockets/Socket_Back"));
+            camera_main->set_position(Vector3(0, 0, 0));
+        }
+
         if (scene_name == "Scene_TD")
         {
-            camera_main->reparent(new_scene->get_node<Node>("Dragon"));
-            camera_main->set_position(Vector3(0, 0, 0));
             Node *node_cheat_sheet = memnew(CheatSheet);
             new_scene->get_node<Node>("Dragon")->add_child(node_cheat_sheet);
             node_cheat_sheet->set_name("CheatSheet");
-            new_scene->add_child(memnew(Control_Scene_TD()));
         }
 
         if (scene_name == "Scene_Dodge")
         {
-            camera_main->reparent(new_scene->get_node<Node>("Dragon_Temp"));
-            camera_main->set_position(Vector3(-0.2f, 0.8f, 0.0f));
-            camera_main->get_node<Node3D>("Camera_Main_NonXR")->set_position(Vector3(0, 0, 0));
         }
             
         if (scene_name == "Scene_Home")
         {
-            Control_Scene_Home* control_home = memnew(Control_Scene_Home());
-            new_scene->add_child(control_home);
         }
     }
     else
@@ -168,7 +161,7 @@ void Control_Main::Switch_Scene(const String &scene_name)
 void Control_Main::SetValEnableHeadset(bool val)
 {
     enable_headset = val;
-    UtilityFunctions::print("SetValEnableHeadset called with value: ", val);
+    // UtilityFunctions::print("SetValEnableHeadset called with value: ", val);
 
     bool current_xr_enabled = ProjectSettings::get_singleton()->get_setting("xr/openxr/enabled");
 
@@ -366,9 +359,8 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
             godot::ClassDB::register_abstract_class<DragonControlTop>();
             godot::ClassDB::register_class<DragonControlKeyboard>();
             godot::ClassDB::register_class<DragonControlJoystick>();
-            godot::ClassDB::register_class<DragonControl_Temp>();
+            godot::ClassDB::register_class<DragonControl_Dodge>();
             godot::ClassDB::register_class<DragonAnimator>();
-            godot::ClassDB::register_class<DragonAnimator_Temp>();
             godot::ClassDB::register_class<Control_Camera>();
             godot::ClassDB::register_class<GameTimer>();
             godot::ClassDB::register_class<CheatSheet>();

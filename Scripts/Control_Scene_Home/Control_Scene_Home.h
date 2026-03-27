@@ -17,9 +17,9 @@ namespace godot
 {
     class Control_Main;
 
-    class Control_Scene_Home : public Node3D
+    class Control_Scene_Home : public Node
     {
-        GDCLASS(Control_Scene_Home, Node3D);
+        GDCLASS(Control_Scene_Home, Node);
 
         public:
             Control_Scene_Home();

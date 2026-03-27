@@ -38,10 +38,10 @@ namespace godot
             int current_index = 0;
             PackedStringArray lines;
             Control_Main* control_main = nullptr;
-            DragonControlTop* dragon_control;
-            DragonAnimator* dragon_animator;
-            Control_Camera* ctrl_camera;
-            Node* camera_main;
+            DragonControlTop* dragon_control = nullptr;
+            DragonAnimator* dragon_animator = nullptr;
+            Control_Camera* ctrl_camera = nullptr;
+            Node3D* camera_main = nullptr;
             // Practice文字显示支持
             Node3D* practice_paper = nullptr;
             Label3D* practice_label = nullptr;

@@ -44,7 +44,7 @@ void Control_Scene_Practice::_ready()
             control_main = Object::cast_to<Control_Main>(root->get_node_or_null(NodePath("Main/Control_Main")));
             if (!control_main) 
             {
-                UtilityFunctions::printerr("Control_Camera: Could not find Control_Main at Main/Control_Main");
+                UtilityFunctions::printerr("Could not find Control_Main at Main/Control_Main");
                 return;
             }
         }
@@ -119,22 +119,25 @@ void Control_Scene_Practice::_ready()
 	// Set the connection with dragon
 	Node *dragon_node = get_parent()->get_node<Node>("Dragon");
     dragon_animator = get_parent()->get_node<Node>("Dragon")->get_node<DragonAnimator>("DragonAnimator");
-    camera_main = tree->get_root()->get_node<Node>("Main/Camera_Main");
-	camera_main->reparent(dragon_node);
-	camera_main->call_deferred("set_position", Vector3(0.0f, 0.0f, 0.0f));
+	camera_main = get_parent()->get_node<Node3D>("Dragon/SpeciesSlot/ToothlessRoot/Sockets/Socket_Back/Camera_Main");
+	if (!camera_main)
+	{
+		UtilityFunctions::printerr("Control_Scene_Practice: Could not find Dragon camera_main");
+	}
 	practice_paper = get_parent()->get_node<Node3D>("Dragon/PracticePaper");
-	ctrl_camera = memnew(Control_Camera());
-    ctrl_camera->set_name("Control_Camera"); // set the name of the camera control node
-    dragon_node->add_child(ctrl_camera); // add the camera control to the dragon node
+	ctrl_camera = tree->get_root()->get_node<Control_Camera>("Main/Control_Main/Control_Camera");
+	ctrl_camera->call_deferred("Initialize");
     if (control_main->GetValEnableHeadset()) 
     {
         dragon_control = memnew(DragonControlJoystick);
         dragon_node->add_child(dynamic_cast<Node*>(dragon_control)); // add the dragon control to the dragon node
-    }
+		dragon_control->set_name("DragonControlJoystick"); // set the name of the dragon control node
+	}
     else
     {
         dragon_control = memnew(DragonControlKeyboard);
         dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
+		dragon_control->set_name("DragonControlKeyboard"); // set the name of the dragon control node
     }
     ctrl_camera->SetDragonControl(dragon_control); // set the dragon control to the camera control
 	dragon_node->call_deferred("set_rotation", Vector3(0.0f, 0.0f, 0.05f));
@@ -142,27 +145,12 @@ void Control_Scene_Practice::_ready()
 	// 记录右手控制器（用于B键切换状态）。参考Tutorial.cpp的实现
 	hand_right = nullptr;
 	Node *xr_origin = nullptr;
-	// 尝试从场景树根定位
-	if (tree && tree->get_root()) {
-		Node *main_node = tree->get_root()->get_node_or_null(NodePath("Main"));
-		if (main_node) {
-			Node *cam_main = main_node->get_node_or_null(NodePath("Camera_Main"));
-			if (cam_main) {
-				Node *xr_node = cam_main->get_node_or_null(NodePath("XR"));
-				if (xr_node) {
-					xr_origin = xr_node->get_node_or_null(NodePath("XROrigin"));
-				}
-			}
-		}
-	}
-	// 如果上述未找到，尝试从 Dragon 节点的相对路径查找
-	if (!xr_origin && dragon_node) {
-		Node *cam_main_rel = dragon_node->get_node_or_null(NodePath("Camera_Main"));
-		if (cam_main_rel) {
-			Node *xr_rel = cam_main_rel->get_node_or_null(NodePath("XR"));
-			if (xr_rel) {
-				xr_origin = xr_rel->get_node_or_null(NodePath("XROrigin"));
-			}
+	if (camera_main)
+	{
+		Node *xr_node = camera_main->get_node_or_null(NodePath("XR"));
+		if (xr_node)
+		{
+			xr_origin = xr_node->get_node_or_null(NodePath("XROrigin"));
 		}
 	}
 	if (xr_origin) {
@@ -267,14 +255,26 @@ void Control_Scene_Practice::_on_back_button_pressed()
 		return;
 	}
 
+	// 在切场景前先停止相关物理处理，避免访问已离树节点。
+	set_physics_process(false);
+	if (dragon_control && dragon_control->is_inside_tree())
+	{
+		dragon_control->set_physics_process(false);
+	}
+	if (ctrl_camera && ctrl_camera->is_inside_tree())
+	{
+		ctrl_camera->set_physics_process(false);
+		ctrl_camera->set_process_input(false);
+	}
+
 	// 将camera_main恢复到原位
-	if (camera_main && root) 
+	if (camera_main && camera_main->is_inside_tree() && root) 
 	{
 		Node *main_node = root->get_node_or_null(NodePath("Main"));
 		if (main_node) {
 			camera_main->reparent(main_node);
 			camera_main->call_deferred("set_transform", Transform3D(Basis(), Vector3(0.0f, 10.0f, 0.0f)));
-			Node* xr_origin = main_node->get_node_or_null(NodePath("Camera_Main/XR/XROrigin"));
+			Node* xr_origin = camera_main->get_node_or_null(NodePath("XR/XROrigin"));
 			if (xr_origin) 
 			{
 				xr_origin->call_deferred("set_position", Vector3(0.0f, 0.0f, 0.0f));
@@ -288,6 +288,14 @@ void Control_Scene_Practice::_on_back_button_pressed()
 		} else {
 			UtilityFunctions::printerr("Could not find Main node to restore camera");
 		}
+	}
+	else if (camera_main && !camera_main->is_inside_tree())
+	{
+		UtilityFunctions::printerr("camera_main is not in scene tree");
+	}
+	else
+	{
+		UtilityFunctions::printerr("camera_main not found when returning to Scene_Home");
 	}
 
 	// 优先使用已有缓存引用

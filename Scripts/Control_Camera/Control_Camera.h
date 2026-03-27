@@ -28,6 +28,7 @@ namespace godot
             void _ready();
             void _physics_process(double delta) override;
             void _input(const Ref<InputEvent> &event) override;
+            void Initialize();
             Vector3 GetPostureHeadset();
             void SetDragonControl(DragonControlTop* dragon_control);
             void GrabSaddle();

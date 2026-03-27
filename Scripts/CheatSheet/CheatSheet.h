@@ -20,9 +20,9 @@ namespace godot
         STATE_COUNT1
     };
 
-    class CheatSheet : public Node3D 
+    class CheatSheet : public Node 
     {
-        GDCLASS(CheatSheet, Node3D);
+        GDCLASS(CheatSheet, Node);
 
         public:
             CheatSheet();

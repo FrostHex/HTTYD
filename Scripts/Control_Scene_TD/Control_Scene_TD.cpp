@@ -69,12 +69,10 @@ void Control_Scene_TD::_ready()
     Node *dragon_node = get_parent()->get_node<Node>("Dragon");
     cheat_sheet = dragon_node->get_node<CheatSheet>("CheatSheet");
     dragon_animator = get_parent()->get_node<Node>("Dragon")->get_node<DragonAnimator>("DragonAnimator");
-    ctrl_camera = memnew(Control_Camera());
-    ctrl_camera->set_name("Control_Camera"); // set the name of the camera control node
-    dragon_node->add_child(ctrl_camera); // add the camera control to the dragon node
-    timer = memnew(GameTimer(ctrl_camera));
-    timer->set_name("GameTimer");
-    add_child(timer);
+	ctrl_camera = tree->get_root()->get_node<Control_Camera>("Main/Control_Main/Control_Camera");
+	ctrl_camera->call_deferred("Initialize");
+    timer = get_node<GameTimer>("GameTimer");
+    timer->Initialize(ctrl_camera);
 
     if (control_main->GetValEnableHeadset()) 
     {
@@ -82,11 +80,13 @@ void Control_Scene_TD::_ready()
         // memnew() creates an instance of DragonControlJoystick and returns a pointer to it
         dragon_control = memnew(DragonControlJoystick);
         dragon_node->add_child(dynamic_cast<Node*>(dragon_control)); // add the dragon control to the dragon node
+        dragon_control->set_name("DragonControlJoystick"); // set the name of the dragon control node
     }
     else
     {
         dragon_control = memnew(DragonControlKeyboard);
         dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
+        dragon_control->set_name("DragonControlKeyboard"); // set the name of the dragon control node
     }
     if (control_main->GetValSubView() && control_main->GetValDebug()) 
     {
@@ -94,8 +94,7 @@ void Control_Scene_TD::_ready()
     }
 
     ctrl_camera->SetDragonControl(dragon_control); // set the dragon control to the camera control
-    save_manager = memnew(SaveManager());
-    add_child(save_manager);
+    save_manager = get_node<SaveManager>("SaveManager");
     audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
 
     // 连接成就区域信号（若存在）
@@ -114,6 +113,9 @@ void Control_Scene_TD::_ready()
 
     Initialize_TimerList();
     call_deferred("Start_Timer"); // postpone for one frame to ensure the scene is fully initialized and rendered
+
+    // Test Directly
+    // dragon_control->SetState(DragonState::STATE_CRISIS); // start in crisis state to trigger the first cutscene
 }
 
 
@@ -227,7 +229,7 @@ void Control_Scene_TD::TakeRest()
     Node3D* rocks = get_parent()->get_node<Node3D>("Rocks");
     Node3D* fog = get_parent()->get_node<Node3D>("Fog_Volume");
     Node3D* dragon_node = get_parent()->get_node<Node3D>("Dragon");
-    Node3D* toothless_node = get_parent()->get_node<Node3D>("Dragon/Toothless");
+    Node3D* toothless_node = get_parent()->get_node<Node3D>("Dragon/SpeciesSlot");
     Node3D* sun_node = get_parent()->get_node<Node3D>("Sun");
     if (rocks && fog && dragon_node && toothless_node && sun_node)
     {
@@ -361,7 +363,8 @@ void Control_Scene_TD::_on_td_area_1_body_entered(Node* body)
 {
     if (!body) return;
     // 只在主龙体进入时计数：名称为 "Dragon" 的 RigidBody3D
-    if (Object::cast_to<RigidBody3D>(body) && body->get_name() == StringName("Dragon")) {
+    if (Object::cast_to<RigidBody3D>(body) && body->get_name() == StringName("Dragon")) 
+    {
         visited_area_1 = true;
         UtilityFunctions::print("[TD] Area1 triggered by ", body->get_name());
     }
@@ -370,7 +373,8 @@ void Control_Scene_TD::_on_td_area_1_body_entered(Node* body)
 void Control_Scene_TD::_on_td_area_2_body_entered(Node* body)
 {
     if (!body) return;
-    if (Object::cast_to<RigidBody3D>(body) && body->get_name() == StringName("Dragon")) {
+    if (Object::cast_to<RigidBody3D>(body) && body->get_name() == StringName("Dragon")) 
+    {
         visited_area_2 = true;
         UtilityFunctions::print("[TD] Area2 triggered by ", body->get_name());
     }
@@ -382,18 +386,22 @@ void Control_Scene_TD::_update_badge_on_completion()
     if (!control_main) return;
     int current_badge = control_main->GetValBadge();
     int target_badge = current_badge;
-    if (current_badge < 1) {
+    if (current_badge < 1) 
+    {
         target_badge = 1;
     }
-    if (visited_area_1 && visited_area_2 && current_badge < 2) {
+    if (visited_area_1 && visited_area_2 && current_badge < 2) 
+    {
         target_badge = 2;
     }
     // 额外：未用过 load_state 且两个区域都触发 → 设为 3
-    if (!used_load_state && visited_area_1 && visited_area_2 && current_badge < 3) {
+    if (!used_load_state && visited_area_1 && visited_area_2 && current_badge < 3) 
+    {
         target_badge = 3;
     }
-    if (target_badge != current_badge) {
+    if (target_badge != current_badge) 
+    {
         control_main->SetValBadge(target_badge);
-        UtilityFunctions::print("Badge updated to ", target_badge);
+        // UtilityFunctions::print("Badge updated to ", target_badge);
     }
 }

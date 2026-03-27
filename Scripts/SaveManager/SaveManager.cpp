@@ -50,7 +50,7 @@ void SaveManager::_ready()
  */
 void SaveManager::State_Save(const Dictionary& game_data)
 {
-    UtilityFunctions::print("Saving game state...");
+    // UtilityFunctions::print("Saving game state...");
 
     // path validation
     String exe_dir = get_executable_directory();
@@ -128,7 +128,7 @@ void SaveManager::State_Save(const Dictionary& game_data)
             {
                 backup_file->store_string(content);
                 backup_file->close();
-                UtilityFunctions::print("Backup created: " + backup_name);
+                // UtilityFunctions::print("Backup created: " + backup_name);
             } 
             else 
             {
@@ -175,7 +175,7 @@ void SaveManager::State_Save(const Dictionary& game_data)
     {
         save_file->store_string(json_content);
         save_file->close();
-        UtilityFunctions::print("Game state saved successfully.");
+        // UtilityFunctions::print("Game state saved successfully.");
     } 
     else 
     {
@@ -216,7 +216,7 @@ Dictionary SaveManager::State_Load()
         return Dictionary();
     }
     Dictionary game_data = json->get_data();
-    UtilityFunctions::print("Game state loaded successfully.");
+    // UtilityFunctions::print("Game state loaded successfully.");
     return game_data;
 }
 
@@ -301,7 +301,7 @@ void SaveManager::Settings_Save(const Dictionary& settings_data)
  */
 Dictionary SaveManager::Settings_Load()
 {
-    UtilityFunctions::print("Loading settings...");
+    // UtilityFunctions::print("Loading settings...");
     String exe_dir = get_executable_directory();
     String saves_dir_path = exe_dir + "/Saves";
     String settings_file_path = saves_dir_path + "/Settings.json";
@@ -357,7 +357,7 @@ Dictionary SaveManager::Settings_Load()
     }
     
     Dictionary settings_data = json->get_data();
-    UtilityFunctions::print("Settings loaded successfully.");
+    // UtilityFunctions::print("Settings loaded successfully.");
     return settings_data;
 }
 

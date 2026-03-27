@@ -28,6 +28,7 @@ DragonAnimator::~DragonAnimator()
 
 void DragonAnimator::_bind_methods() 
 {
+    ClassDB::bind_method(D_METHOD("RefreshBindings"), &DragonAnimator::RefreshBindings);
     ClassDB::bind_method(D_METHOD("SetAnimation", "layer", "animation", "freeze"), &DragonAnimator::SetAnimation, DEFVAL(false));
     ClassDB::bind_method(D_METHOD("Unfreeze"), &DragonAnimator::Unfreeze);
     ClassDB::bind_method(D_METHOD("SetAnimation_Mouth", "step", "thresh"), &DragonAnimator::SetAnimation_Mouth);
@@ -40,23 +41,89 @@ void DragonAnimator::_bind_methods()
  */
 void DragonAnimator::_ready() 
 {
-    // retrieve the AnimationTree node and the AnimationPlayer node from the scene tree
-    anim_tree = get_node<AnimationTree>("AnimationTree");
-    anim_player = get_parent()->get_node<Node>("Toothless")->get_node<AnimationPlayer>("AnimationPlayer");
-    anim_tree->set_animation_player(anim_player->get_path()); // Assign the animation player to our AnimationTree member via its NodePath
+    RefreshBindings();
+}
 
-    // get the AnimationNodeStateMachinePlayback nodes from the AnimationTree
-    layer_map["layer_wing_main"]  = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_wing_main/playback"));
-    layer_map["layer_wing_tail"]  = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_wing_tail/playback"));
-    layer_map["layer_mouth"]      = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_mouth/playback"));
-    layer_map["layer_eye_shape"]  = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_eye_shape/playback"));
-    layer_map["layer_shake"]      = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_shake/playback"));
+
+void DragonAnimator::RefreshBindings()
+{
+    Node *species_slot = get_parent()->get_node_or_null("SpeciesSlot");
+    if (!species_slot)
+    {
+        UtilityFunctions::printerr("DragonAnimator: SpeciesSlot not found.");
+        return;
+    }
+
+    // Prefer explicit names to avoid queue_free/deferred add timing issues.
+    Node *dragon_root = Object::cast_to<Node>(species_slot->get_node_or_null("GronckleRoot"));
+    if (!dragon_root)
+    {
+        dragon_root = Object::cast_to<Node>(species_slot->get_node_or_null("ToothlessRoot"));
+    }
+    if (!dragon_root && species_slot->get_child_count() > 0)
+    {
+        dragon_root = Object::cast_to<Node>(species_slot->get_child(0));
+    }
+    if (!dragon_root)
+    {
+        UtilityFunctions::printerr("DragonAnimator: No dragon root found under SpeciesSlot.");
+        return;
+    }
+
+    anim_tree = dragon_root->get_node<AnimationTree>("AnimationTree");
+    if (!anim_tree)
+    {
+        UtilityFunctions::printerr("DragonAnimator: AnimationTree not found on dragon root.");
+        return;
+    }
+    anim_tree->set_active(true);
+
+    Node *model_root = dragon_root->get_node_or_null("Model");
+    if (!model_root || model_root->get_child_count() == 0)
+    {
+        UtilityFunctions::printerr("DragonAnimator: Model node missing or empty.");
+        return;
+    }
+
+    anim_player = model_root->get_child(0)->get_node<AnimationPlayer>("AnimationPlayer");
+    if (!anim_player)
+    {
+        UtilityFunctions::printerr("DragonAnimator: AnimationPlayer not found.");
+        return;
+    }
+
+    layer_map.clear();
+
+    if (dragon_root->get_name().begins_with("Toothless"))
+    {
+        dragon_species = SPECIES_TOOTHLESS;
+        layer_map["layer_wing_main"]  = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_wing_main/playback"));
+        layer_map["layer_wing_tail"]  = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_wing_tail/playback"));
+        layer_map["layer_mouth"]      = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_mouth/playback"));
+        layer_map["layer_eye_shape"]  = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_eye_shape/playback"));
+        layer_map["layer_shake"]      = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/layer_shake/playback"));
+    }
+    else if (dragon_root->get_name().begins_with("Gronckle"))
+    {
+        dragon_species = SPECIES_GRONCKLE;
+        layer_map["add_wing_main"] = Object::cast_to<AnimationNodeStateMachinePlayback>(anim_tree->get("parameters/add_wing_main/playback"));
+    }
 
     if (!Engine::get_singleton()->is_editor_hint()) // when the game is running
     {
-        SetAnimation("layer_shake", "lo_shake");
         set_physics_process(false);
+        switch (dragon_species)
+        {
+            case SPECIES_TOOTHLESS:
+                SetAnimation("layer_shake", "lo_shake");
+                break;
+            case SPECIES_GRONCKLE:
+                // anim_tree->set("parameters/add_wing_main/add_amount", 1.0);
+                break;
+        }
     }
+
+    set_physics_process(false); // disable physics processing by default
 }
 
 
@@ -152,5 +219,10 @@ void DragonAnimator::_physics_process(float delta)
 
 void DragonAnimator::SetAnimation_Weight(const String &layer, float weight)
 {
+    if (!anim_tree)
+    {
+        UtilityFunctions::printerr("DragonAnimator: anim_tree is null when setting weight.");
+        return;
+    }
     anim_tree->set("parameters/" + layer + "/add_amount", weight);
 }
