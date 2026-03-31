@@ -44,7 +44,7 @@ namespace godot
         private:
             bool enable_headset = false;
             bool sub_view = true;
-            bool debug = false; // debug mode
+            bool debug = true; // debug mode
             Language language = LANGUAGE_ENGLISH; // default language
             int badge = 0; // 徽章状态：0-透明，1-3对应不同徽章图片
             Node3D* camera_main = nullptr;

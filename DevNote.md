@@ -115,3 +115,4 @@
     └── project.godot
     ```
 ## 
+TODO: Update this note with the latest hierarchy and descriptions of the project structure

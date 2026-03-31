@@ -330,7 +330,7 @@ Dictionary SaveManager::Settings_Load()
         default_settings["language"] = 0; // English
         default_settings["enable_headset"] = false;
         default_settings["sub_view"] = true;
-        default_settings["debug"] = false;
+        default_settings["debug"] = true;
         default_settings["badge"] = 0; // 初始徽章为0（透明）
         
         Settings_Save(default_settings);
