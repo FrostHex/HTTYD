@@ -87,6 +87,9 @@ cd Addons/godot-cpp
 scons platform=windows use_mingw=yes custom_api_file="extension_api.json"
 ```
 
+## Update the Plugins
+Plugins others than Godot-cpp are not imported as submodules, so they need to be copied and overwritten manually while keeping the structure unchanged. Then run `Scripts/Utils/SuitPlugins.py` to substitute the paths, which suits the plugins to the project structure.
+
 ## Recommended VR Settings for Oculus Debug Tool
 **Remember to click `Service -> Restart Oculus Service` after changing the settings!** \
 ![Oculus Debug Tool Settings]
@@ -99,8 +102,12 @@ All content in this repository that is not mentioned in this section is covered 
   Contains the compressed blender project and exported models, which are licensed under **GNU GPL v3.0** by Frost Hex
 
 Third-party assets for development used in this project are as follows:
-- `./Addons/` \
-  Plugins: Godot Cpp and XR Tools
+- `./Addons/godot-cpp/` \
+  https://github.com/godotengine/godot-cpp
+- `./Addons/godot-xr-tools/` \
+  https://github.com/GodotVR/godot-xr-tools
+- `./Addons/sky_3d/` \
+  https://github.com/TokisanGames/Sky3D
 - `./Dragons/Gronckle/` \
   Gronckle model from https://models.spriters-resource.com/pc_computer/schoolofdragons/asset/330251/
 - `./Environment/Ocean/` \

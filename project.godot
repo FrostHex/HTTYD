@@ -44,7 +44,7 @@ project/assembly_name="HTTYD"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://Addons/godot-xr-tools/addons/godot-xr-tools/plugin.cfg", "res://addons/godot-xr-tools/addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://Addons/sky_3d/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg", "res://addons/sky_3d/plugin.cfg")
 
 [filesystem]
 

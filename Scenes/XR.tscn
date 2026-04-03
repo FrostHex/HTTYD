@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_fea57"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_erwv8"]
-[ext_resource type="Script" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/functions/function_pickup.gd" id="2_tn2gp"]
+[ext_resource type="Script" path="res://Addons/godot-xr-tools/functions/function_pickup.gd" id="2_tn2gp"]
 [ext_resource type="PackedScene" uid="uid://q1l3fknstir2" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/model/Hand_Nails_L.gltf" id="3_epyno"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/functions/function_pointer.tscn" id="3_mchfj"]
 [ext_resource type="Material" uid="uid://dy6nhifvvmm73" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/materials/caucasian_hand.tres" id="4_tn2gp"]
