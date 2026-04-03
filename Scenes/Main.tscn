@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://clo2gf4m2p2an"]
 
 [ext_resource type="PackedScene" uid="uid://d1pgf1tf0t857" path="res://Scenes/XR.tscn" id="1_kln2b"]
-[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/pickable.gd" id="2_rgh2o"]
-[ext_resource type="Script" uid="uid://dx3swqg2owe4p" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="3_pbw6q"]
+[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://Addons/godot-xr-tools/objects/pickable.gd" id="2_rgh2o"]
+[ext_resource type="Script" uid="uid://dx3swqg2owe4p" path="res://Addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="3_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://dx4r13gqfh13" path="res://Scenes/Ocean.tscn" id="4_rgh2o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1gob"]
@@ -21,15 +21,15 @@ Badge = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 
 [node name="Camera_Main_NonXR" type="Camera3D" parent="Camera_Main" unique_id=2037018143]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.45, 0.65, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 current = true
 far = 50000.0
 
 [node name="XR" parent="Camera_Main" unique_id=1912923838 instance=ExtResource("1_kln2b")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.45, 0.65, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="XRToolsPickable" type="RigidBody3D" parent="Camera_Main" unique_id=2041379490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934, 0.315, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.484, -0.335, 0)
 collision_layer = 8
 collision_mask = 0
 mass = 0.001

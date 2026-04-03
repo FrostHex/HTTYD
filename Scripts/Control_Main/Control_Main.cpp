@@ -10,7 +10,6 @@
 #include "DragonControlKeyboard.h"
 #include "DragonControlJoystick.h"
 #include "DragonControl_Dodge.h"
-#include "Control_Camera.h"
 
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -49,6 +48,8 @@ void Control_Main::_ready()
     }
 
     Switch_Scene("Scene_Home");
+    ctrl_camera = get_node<Control_Camera>("Control_Camera");
+    camera_main = get_parent()->get_node<Node3D>("Camera_Main");
 
     if (enable_headset) 
     {
@@ -73,7 +74,11 @@ void Control_Main::_ready()
                 {
                     main_viewport->set_use_xr(true);
                 }
-            } else {
+
+                ctrl_camera->ResetVRTransform();
+            }
+            else
+            {
                 UtilityFunctions::printerr("[OpenXR] Initialize FAILED. Make sure an OpenXR runtime (SteamVR/Meta/WMR) is installed and set as active, and start it before launching the game.");
             }
         }
@@ -89,7 +94,7 @@ void Control_Main::_ready()
         xr_node->set_visible(false);
     }
 
-    camera_main = get_parent()->get_node<Node3D>("Camera_Main");
+    
 }
 
 

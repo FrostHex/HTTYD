@@ -29,6 +29,7 @@ namespace godot
             void _physics_process(double delta) override;
             void _input(const Ref<InputEvent> &event) override;
             void Initialize();
+            void ResetVRTransform();
             Vector3 GetPostureHeadset();
             void SetDragonControl(DragonControlTop* dragon_control);
             void GrabSaddle();
@@ -43,10 +44,6 @@ namespace godot
         private:
             void Print_Collision(Node* body, float velocity);
             Control_Main* control_main = nullptr; // reference to Control_Main for accessing shared variables
-            bool xr_position_initialized = false; // whether XR position has been initialized
-            Vector3 initial_origin_position; // initial XR origin position
-            Quaternion initial_origin_rotation; // initial XR origin rotation
-            Quaternion initial_camera_rotation; // initial XR camera rotation
             Camera3D *camera_sub = nullptr;
             Label* label_info = nullptr;
             DragonControlTop* dragon_control = nullptr;
@@ -64,6 +61,7 @@ namespace godot
             Vector3 target_position_offset;
             bool approaching_position = false;
             bool camera_stabilized = false;
+            bool vr_recenter_pending = false;
 
     };
 }

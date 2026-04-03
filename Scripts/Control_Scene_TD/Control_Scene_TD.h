@@ -47,7 +47,7 @@ namespace godot
             DragonAnimator *dragon_animator;
             CheatSheet *cheat_sheet;
             GameTimer* timer;
-            Control_Camera *ctrl_camera;
+            Control_Camera* ctrl_camera;
             SaveManager* save_manager;
             AudioStreamPlayer* audio_player;
             VideoStreamPlayer* video_player;

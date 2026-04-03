@@ -249,7 +249,7 @@ void DragonControlTop::ProcessHitCliff(double delta)
             float rotation_factor = (cliff_distance_threshold - target_distance) / cliff_distance_threshold;
             Vector3 pivot_rotation = Vector3(0, 0, rotation_factor * Math_PI / 5.0f);
             pivot_toothless->set_rotation(pivot_rotation);
-            camera_main->set_position(Vector3(-rotation_factor, rotation_factor / 2, 0));
+            // camera_main->set_position(Vector3(-rotation_factor, rotation_factor / 2, 0));
         }
         ApproachTarget(true, true, &time_to_target, delta, &target_position, 60);
         if (time_to_target <= 0.0f) 

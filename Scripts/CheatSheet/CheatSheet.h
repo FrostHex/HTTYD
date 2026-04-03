@@ -44,7 +44,7 @@ namespace godot
             float flutter_speed = 0.03f;
             // XRToolsPickable to set its local position every frame to keep it at the same global position
             // the setting of detatch_position is used to counteract this behavior
-            Vector3 detatch_position = Vector3(0.934f, 0.315f, 0);
+            Vector3 detatch_position = Vector3(0.934f - 0.45f, 0.315f - 0.65f, 0);
             Vector3 detatch_rotation = Vector3(0, 0, 0);
             Vector3 detatch_direction = Vector3(0, 0, 0);
             using StateProcessFunc = void (CheatSheet::*)(double);

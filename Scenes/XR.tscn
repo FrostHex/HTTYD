@@ -1,55 +1,57 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1pgf1tf0t857"]
+[gd_scene format=3 uid="uid://d1pgf1tf0t857"]
 
-[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_fea57"]
-[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_erwv8"]
-[ext_resource type="Script" path="res://Addons/godot-xr-tools/functions/function_pickup.gd" id="2_tn2gp"]
-[ext_resource type="PackedScene" uid="uid://q1l3fknstir2" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/model/Hand_Nails_L.gltf" id="3_epyno"]
-[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/functions/function_pointer.tscn" id="3_mchfj"]
-[ext_resource type="Material" uid="uid://dy6nhifvvmm73" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/materials/caucasian_hand.tres" id="4_tn2gp"]
-[ext_resource type="PackedScene" uid="uid://c6s5nvekg0isa" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/hands/model/Hand_Nails_R.gltf" id="5_mchfj"]
-[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://Addons/godot-xr-tools/addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="8_cache"]
+[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://Addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_fea57"]
+[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://Addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_erwv8"]
+[ext_resource type="Script" uid="uid://b18kkstg643yw" path="res://Addons/godot-xr-tools/functions/function_pickup.gd" id="2_tn2gp"]
+[ext_resource type="PackedScene" uid="uid://q1l3fknstir2" path="res://Addons/godot-xr-tools/hands/model/Hand_Nails_L.gltf" id="3_epyno"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://Addons/godot-xr-tools/functions/function_pointer.tscn" id="3_mchfj"]
+[ext_resource type="Material" uid="uid://dy6nhifvvmm73" path="res://Addons/godot-xr-tools/hands/materials/caucasian_hand.tres" id="4_tn2gp"]
+[ext_resource type="PackedScene" uid="uid://c6s5nvekg0isa" path="res://Addons/godot-xr-tools/hands/model/Hand_Nails_R.gltf" id="5_mchfj"]
+[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://Addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="8_cache"]
 
-[node name="XR" type="Node3D"]
+[node name="XR" type="Node3D" unique_id=724768443]
 
-[node name="XROrigin" type="XROrigin3D" parent="."]
+[node name="XROrigin" type="XROrigin3D" parent="." unique_id=2061317057]
 
-[node name="XRCamera" type="XRCamera3D" parent="XROrigin"]
+[node name="XRCamera" type="XRCamera3D" parent="XROrigin" unique_id=1156998681]
 
-[node name="VRCommonShaderCache" parent="XROrigin/XRCamera" instance=ExtResource("8_cache")]
+[node name="VRCommonShaderCache" parent="XROrigin/XRCamera" unique_id=1081243859 instance=ExtResource("8_cache")]
 
-[node name="LeftHand" type="XRController3D" parent="XROrigin"]
+[node name="LeftHand" type="XRController3D" parent="XROrigin" unique_id=1975241501]
 tracker = &"left_hand"
 
-[node name="LeftHand" parent="XROrigin/LeftHand" instance=ExtResource("1_fea57")]
+[node name="LeftHand" parent="XROrigin/LeftHand" unique_id=1944961847 instance=ExtResource("1_fea57")]
 
-[node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin/LeftHand"]
+[node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin/LeftHand" unique_id=38511360]
 script = ExtResource("2_tn2gp")
 grab_distance = 0.1
 grab_collision_mask = 8
 ranged_collision_mask = 8
 
-[node name="FunctionPointer" parent="XROrigin/LeftHand" instance=ExtResource("3_mchfj")]
+[node name="FunctionPointer" parent="XROrigin/LeftHand" unique_id=1647988437 instance=ExtResource("3_mchfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.05, -0.1)
 show_laser = 2
 laser_length = 1
 
-[node name="RightHand" type="XRController3D" parent="XROrigin"]
+[node name="RightHand" type="XRController3D" parent="XROrigin" unique_id=1656119199]
 tracker = &"right_hand"
 
-[node name="RightHand" parent="XROrigin/RightHand" instance=ExtResource("2_erwv8")]
+[node name="RightHand" parent="XROrigin/RightHand" unique_id=192831011 instance=ExtResource("2_erwv8")]
 
-[node name="FunctionPointer" parent="XROrigin/RightHand" instance=ExtResource("3_mchfj")]
+[node name="FunctionPointer" parent="XROrigin/RightHand" unique_id=284680526 instance=ExtResource("3_mchfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.05, -0.1)
 show_laser = 2
 laser_length = 1
 
-[node name="OpenXRHandLeft" type="OpenXRHand" parent="XROrigin"]
+[node name="OpenXRHandLeft" type="OpenXRHand" parent="XROrigin" unique_id=1250766703]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.687643)
 visible = false
 hand_skeleton = NodePath("Hand_Nails_L/Armature/Skeleton3D")
 
-[node name="Hand_Nails_L" parent="XROrigin/OpenXRHandLeft" instance=ExtResource("3_epyno")]
+[node name="Hand_Nails_L" parent="XROrigin/OpenXRHandLeft" unique_id=360766038 instance=ExtResource("3_epyno")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, -0.05, 0.15)
 
-[node name="Skeleton3D" parent="XROrigin/OpenXRHandLeft/Hand_Nails_L/Armature" index="0"]
+[node name="Skeleton3D" parent="XROrigin/OpenXRHandLeft/Hand_Nails_L/Armature" parent_id_path=PackedInt32Array(360766038, 229925895) index="0" unique_id=381412994]
 bones/1/rotation = Quaternion(0.192491, 0.247746, -0.357457, 0.879656)
 bones/2/rotation = Quaternion(-0.100284, 0.102142, -0.176452, 0.973845)
 bones/3/rotation = Quaternion(-0.137954, 0.0303333, 0.00695325, 0.98995)
@@ -70,19 +72,19 @@ bones/21/rotation = Quaternion(0.0540152, -0.0194287, -0.042997, 0.997425)
 bones/22/rotation = Quaternion(0.0702765, 0.0116272, -0.343224, 0.936549)
 bones/23/rotation = Quaternion(0.0293516, -0.0171316, -0.304623, 0.951866)
 
-[node name="mesh_Hand_Nails_L" parent="XROrigin/OpenXRHandLeft/Hand_Nails_L/Armature/Skeleton3D" index="0"]
+[node name="mesh_Hand_Nails_L" parent="XROrigin/OpenXRHandLeft/Hand_Nails_L/Armature/Skeleton3D" index="0" unique_id=1804389109]
 surface_material_override/0 = ExtResource("4_tn2gp")
 
-[node name="OpenXRHandRight" type="OpenXRHand" parent="XROrigin"]
+[node name="OpenXRHandRight" type="OpenXRHand" parent="XROrigin" unique_id=514485777]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.687643)
 visible = false
 hand = 1
 hand_skeleton = NodePath("Hand_Nails_R/Armature/Skeleton3D")
 
-[node name="Hand_Nails_R" parent="XROrigin/OpenXRHandRight" instance=ExtResource("5_mchfj")]
+[node name="Hand_Nails_R" parent="XROrigin/OpenXRHandRight" unique_id=2106685048 instance=ExtResource("5_mchfj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, -0.05, 0.15)
 
-[node name="Skeleton3D" parent="XROrigin/OpenXRHandRight/Hand_Nails_R/Armature" index="0"]
+[node name="Skeleton3D" parent="XROrigin/OpenXRHandRight/Hand_Nails_R/Armature" parent_id_path=PackedInt32Array(2106685048, 1388873805) index="0" unique_id=480191886]
 bones/1/rotation = Quaternion(0.192491, -0.247746, 0.357457, 0.879656)
 bones/2/rotation = Quaternion(-0.100284, -0.102142, 0.176452, 0.973845)
 bones/3/rotation = Quaternion(-0.137954, -0.0303333, -0.00695327, 0.98995)
@@ -103,7 +105,7 @@ bones/21/rotation = Quaternion(0.0540152, 0.0194287, 0.042997, 0.997425)
 bones/22/rotation = Quaternion(0.0702765, -0.0116272, 0.343224, 0.936549)
 bones/23/rotation = Quaternion(0.0293516, 0.0171316, 0.304623, 0.951866)
 
-[node name="mesh_Hand_Nails_R" parent="XROrigin/OpenXRHandRight/Hand_Nails_R/Armature/Skeleton3D" index="0"]
+[node name="mesh_Hand_Nails_R" parent="XROrigin/OpenXRHandRight/Hand_Nails_R/Armature/Skeleton3D" index="0" unique_id=476595009]
 surface_material_override/0 = ExtResource("4_tn2gp")
 
 [editable path="XROrigin/OpenXRHandLeft/Hand_Nails_L"]

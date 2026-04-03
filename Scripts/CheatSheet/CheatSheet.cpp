@@ -123,7 +123,7 @@ void CheatSheet::Detatch()
     pickable->call_deferred("add_child", mesh);
     pickable->set_position(detatch_position);
     pickable->set_rotation(Vector3(0, 0, 0));
-    mesh->set_position(Vector3(-0.33f, -1.3f, 0.0f) - pickable->get_position());
+    mesh->set_position(Vector3(-0.33f - 0.45f, -1.3f - 0.65f, 0.0f) - pickable->get_position());
     state_current = STATE_DETATCHED;
 }
 

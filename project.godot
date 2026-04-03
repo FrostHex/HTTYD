@@ -42,6 +42,11 @@ window/show_image=false
 
 project/assembly_name="HTTYD"
 
+[editor]
+
+naming/scene_name_casing=1
+naming/script_name_casing=1
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://Addons/sky_3d/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg", "res://addons/sky_3d/plugin.cfg")
@@ -110,8 +115,7 @@ num_cascades={
 [xr]
 
 openxr/target_api_version="1.1.53"
-openxr/default_action_map="res://Addons/godot-xr-tools/addons/godot-xr-tools/openxr_action_map.tres"
+openxr/default_action_map="res://Addons/godot-xr-tools/openxr_action_map.tres"
 openxr/foveation_level=3
 openxr/foveation_dynamic=true
-openxr/extensions/hand_tracking=true
 shaders/enabled=true

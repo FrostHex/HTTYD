@@ -17,6 +17,7 @@
 #include <godot_cpp/classes/display_server.hpp>
 #include <godot_cpp/classes/xr_server.hpp>
 #include <godot_cpp/classes/xr_interface.hpp>
+#include <godot_cpp/classes/scene_tree_timer.hpp>
 
 using namespace godot;
 
@@ -106,8 +107,6 @@ void Control_Camera::Initialize()
 
         if (control_main->GetValEnableHeadset())
         {
-            initial_origin_position = xr_origin->get_position();
-            xr_position_initialized = false;
             set_physics_process(true);
         }
 
@@ -161,6 +160,57 @@ void Control_Camera::Initialize()
 }
 
 
+void Control_Camera::ResetVRTransform()
+{
+    if (get_parent()->get_parent()->has_node(NodePath("Camera_Main")))
+    {
+        if (!xr_camera)
+        {
+            xr_origin = get_parent()->get_parent()->get_node<Node3D>("Camera_Main/XR/XROrigin");
+            xr_camera = xr_origin->get_node<Node3D>("XRCamera");
+        }
+
+        if (vr_recenter_pending)
+        {
+            // Phase 2: run on next frame after center_on_hmd updates camera pose.
+            vr_recenter_pending = false;
+            xr_origin->set_position(xr_origin->get_position() - xr_camera->get_position()); // compensate for the height of the headset
+            return;
+        }
+
+        Vector3 camera_position = xr_camera->get_position();
+                    
+        // check if camera position is not zero vector
+        if (camera_position.length_squared() > 0.001f) // Use a small epsilon for floating-point comparison
+        {
+            XRServer *xr_server = XRServer::get_singleton();
+            if (!xr_server)
+            {
+                return;
+            }
+
+            Ref<XRInterface> xr_interface = xr_server->get_primary_interface();
+            if (xr_interface.is_null() || !xr_interface->is_initialized())
+            {
+                UtilityFunctions::printerr("Control_Camera: primary XR interface is not available/initialized");
+                return;
+            }
+
+            // recenter through XRServer so XROrigin/XRCamera are updated in Godot space.
+            xr_server->center_on_hmd(XRServer::RESET_FULL_ROTATION, true);
+            vr_recenter_pending = true;
+            Ref<SceneTreeTimer> timer = get_tree()->create_timer(0.0);
+            timer->connect("timeout", Callable(this, "ResetVRTransform"));
+        }
+        else
+        {
+            Ref<SceneTreeTimer> timer = get_tree()->create_timer(0.1);
+            timer->connect("timeout", Callable(this, "ResetVRTransform"));
+        }
+    }
+}
+
+
 /**
  * @brief let the sub camera follow the dragon
  */
@@ -186,23 +236,6 @@ void Control_Camera::_physics_process(double delta)
             set_physics_process(false);
             return;
         }
-
-        // wait until we get a valid camera position (not 0,0,0)
-        if (!xr_position_initialized)
-        {            
-            Vector3 camera_position = xr_camera->get_position();
-            
-            // check if camera position is not zero vector
-            if (camera_position.length_squared() > 0.001f) // Use a small epsilon for floating-point comparison
-            {
-                Quaternion camera_rotation = xr_camera->get_quaternion();
-                initial_camera_rotation = camera_rotation;
-                // apply adjustment based on camera position/rotation to the initial origin transform
-                xr_origin->set_position(initial_origin_position - camera_position);
-                xr_position_initialized = true;
-            }        
-        }
-
         if (camera_stabilized)
         {
             xr_node->set_global_rotation(Vector3(0, -Math_PI, 0)); // set the rotation of the XR origin to match the camera
@@ -380,7 +413,7 @@ void Control_Camera::GrabSaddle()
     approaching_angle = false;
     approaching_position = false;
     camera_offset_factor = 0.0f; // reset camera offset factor
-    camera_main->reparent(dragon_rb);
+    camera_main->reparent(dragon_rb->get_node<Node>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back"));
     camera_main->call_deferred("set_position", Vector3(0, 0, 0));
     camera_main->call_deferred("set_rotation", Vector3(0, 0, 0));
 }
@@ -395,4 +428,5 @@ void Control_Camera::_bind_methods()
     ClassDB::bind_method(D_METHOD("GrabSaddle"), &Control_Camera::GrabSaddle);
     ClassDB::bind_method(D_METHOD("SetCameraStabilized", "stabilized"), &Control_Camera::SetCameraStabilized);
     ClassDB::bind_method(D_METHOD("Initialize"), &Control_Camera::Initialize);
+    ClassDB::bind_method(D_METHOD("ResetVRTransform"), &Control_Camera::ResetVRTransform);
 }

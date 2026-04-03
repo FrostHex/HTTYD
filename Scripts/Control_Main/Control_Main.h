@@ -1,6 +1,7 @@
 # ifndef CONTROL_MAIN_H
 # define CONTROL_MAIN_H
 
+#include "Control_Camera.h"
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/classes/node3d.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -47,6 +48,7 @@ namespace godot
             bool debug = true; // debug mode
             Language language = LANGUAGE_ENGLISH; // default language
             int badge = 0; // 徽章状态：0-透明，1-3对应不同徽章图片
+            Control_Camera* ctrl_camera;
             Node3D* camera_main = nullptr;
             SaveManager* save_manager = nullptr;
             bool is_loading_settings = false; // flag to prevent saving during loading
