@@ -93,8 +93,6 @@ void Control_Main::_ready()
         Node3D* xr_node = get_parent()->get_node<Node3D>("Camera_Main/XR");
         xr_node->set_visible(false);
     }
-
-    
 }
 
 

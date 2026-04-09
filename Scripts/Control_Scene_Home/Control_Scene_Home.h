@@ -31,6 +31,7 @@ namespace godot
 
         private:
             Control_Main* control_main = nullptr;
+            Node* time_of_day = nullptr;
             void _on_button_pressed(const String& scene_name);
             void _on_settings_button_pressed();
             void _on_close_button_pressed();
@@ -38,6 +39,9 @@ namespace godot
             void _on_enable_headset_toggled(bool pressed);
             void _on_sub_view_toggled(bool pressed);
             void _on_debug_toggled(bool pressed);
+            void _on_sky_time_changed(double value);
+            void _connect_sky_signals();
+            void SyncSkyTime();
             void _update_button_texts(); // Helper function to update button texts
             void _update_badge_display(); // Helper function to update badge display
             String _get_json_text(const String& key, const String& fallback = ""); // Helper function to get text from JSON

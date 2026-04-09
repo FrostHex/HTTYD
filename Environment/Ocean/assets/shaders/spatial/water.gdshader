@@ -112,11 +112,11 @@ void light() {
 	float dot_nv = max(dot(NORMAL, VIEW), 2e-5);
 
 	// --- SPECULAR ---
-	float light_mask = smith_masking_shadowing(roughness, dot_nv);
-	float view_mask = smith_masking_shadowing(roughness, dot_nl);
+	float light_mask = smith_masking_shadowing(dot_nv, roughness);
+	float view_mask = smith_masking_shadowing(dot_nl, roughness);
 	float microfacet_distribution = ggx_distribution(dot(NORMAL, halfway), roughness);
 	float geometric_attenuation = 1.0 / (1.0 + light_mask + view_mask);
-	SPECULAR_LIGHT += fresnel * microfacet_distribution * geometric_attenuation / (4.0 * dot_nv + 0.1) * ATTENUATION;
+	SPECULAR_LIGHT += fresnel * microfacet_distribution * geometric_attenuation * dot_nl / (4.0 * dot_nv + 0.1) * ATTENUATION * LIGHT_COLOR;
 
 	// --- DIFFUSE ---
 	const vec3 sss_modifier = vec3(0.9,1.15,0.85); // Subsurface scattering produces a 'greener' color.
