@@ -51,7 +51,7 @@ hand_skeleton = NodePath("Hand_Nails_L/Armature/Skeleton3D")
 [node name="Hand_Nails_L" parent="XROrigin/OpenXRHandLeft" unique_id=360766038 instance=ExtResource("3_epyno")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, -0.05, 0.15)
 
-[node name="Skeleton3D" parent="XROrigin/OpenXRHandLeft/Hand_Nails_L/Armature" parent_id_path=PackedInt32Array(360766038, 229925895) index="0" unique_id=381412994]
+[node name="Skeleton3D" parent="XROrigin/OpenXRHandLeft/Hand_Nails_L/Armature" parent_id_path=PackedInt32Array(360766038, 1359405163) index="0" unique_id=226540496]
 bones/1/rotation = Quaternion(0.192491, 0.247746, -0.357457, 0.879656)
 bones/2/rotation = Quaternion(-0.100284, 0.102142, -0.176452, 0.973845)
 bones/3/rotation = Quaternion(-0.137954, 0.0303333, 0.00695325, 0.98995)
@@ -72,7 +72,7 @@ bones/21/rotation = Quaternion(0.0540152, -0.0194287, -0.042997, 0.997425)
 bones/22/rotation = Quaternion(0.0702765, 0.0116272, -0.343224, 0.936549)
 bones/23/rotation = Quaternion(0.0293516, -0.0171316, -0.304623, 0.951866)
 
-[node name="mesh_Hand_Nails_L" parent="XROrigin/OpenXRHandLeft/Hand_Nails_L/Armature/Skeleton3D" index="0" unique_id=1804389109]
+[node name="mesh_Hand_Nails_L" parent="XROrigin/OpenXRHandLeft/Hand_Nails_L/Armature/Skeleton3D" index="0" unique_id=1003569389]
 surface_material_override/0 = ExtResource("4_tn2gp")
 
 [node name="OpenXRHandRight" type="OpenXRHand" parent="XROrigin" unique_id=514485777]
@@ -84,7 +84,7 @@ hand_skeleton = NodePath("Hand_Nails_R/Armature/Skeleton3D")
 [node name="Hand_Nails_R" parent="XROrigin/OpenXRHandRight" unique_id=2106685048 instance=ExtResource("5_mchfj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, -0.05, 0.15)
 
-[node name="Skeleton3D" parent="XROrigin/OpenXRHandRight/Hand_Nails_R/Armature" parent_id_path=PackedInt32Array(2106685048, 1388873805) index="0" unique_id=480191886]
+[node name="Skeleton3D" parent="XROrigin/OpenXRHandRight/Hand_Nails_R/Armature" parent_id_path=PackedInt32Array(2106685048, 1691481505) index="0" unique_id=51132252]
 bones/1/rotation = Quaternion(0.192491, -0.247746, 0.357457, 0.879656)
 bones/2/rotation = Quaternion(-0.100284, -0.102142, 0.176452, 0.973845)
 bones/3/rotation = Quaternion(-0.137954, -0.0303333, -0.00695327, 0.98995)
@@ -105,7 +105,7 @@ bones/21/rotation = Quaternion(0.0540152, 0.0194287, 0.042997, 0.997425)
 bones/22/rotation = Quaternion(0.0702765, -0.0116272, 0.343224, 0.936549)
 bones/23/rotation = Quaternion(0.0293516, 0.0171316, 0.304623, 0.951866)
 
-[node name="mesh_Hand_Nails_R" parent="XROrigin/OpenXRHandRight/Hand_Nails_R/Armature/Skeleton3D" index="0" unique_id=476595009]
+[node name="mesh_Hand_Nails_R" parent="XROrigin/OpenXRHandRight/Hand_Nails_R/Armature/Skeleton3D" index="0" unique_id=437527186]
 surface_material_override/0 = ExtResource("4_tn2gp")
 
 [editable path="XROrigin/OpenXRHandLeft/Hand_Nails_L"]

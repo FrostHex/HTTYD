@@ -90,6 +90,17 @@ scons platform=windows use_mingw=yes custom_api_file="extension_api.json"
 ## Update the Plugins
 Plugins others than Godot-cpp are not imported as submodules, so they need to be copied and overwritten manually while keeping the structure unchanged. Then run `Scripts/Utils/SuitPlugins.py` to substitute the paths, which suits the plugins to the project structure.
 
+## Verbose Running for Debugging
+```bash
+"D:\Godot\Godot_v4.6.1-rc1_win64.exe" --path "E:\Projects\HTTYD" --verbose # modify the path
+```
+
+## Running in VR Mode
+- **Quest 2 with default OpenXR**: \
+  in project.godot, set `openxr/target_api_version="1.1.53"` under `[xr]` section
+- **Pimax with SteamVR**: \
+  in project.godot, remove or leave `openxr/target_api_version` empty under `[xr]` section
+
 ## Recommended VR Settings for Oculus Debug Tool
 **Remember to click `Service -> Restart Oculus Service` after changing the settings!** \
 ![Oculus Debug Tool Settings]

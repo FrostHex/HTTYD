@@ -114,7 +114,7 @@ num_cascades={
 
 [xr]
 
-openxr/target_api_version="1.1.53"
+openxr/enabled=true
 openxr/default_action_map="res://Addons/godot-xr-tools/openxr_action_map.tres"
 openxr/foveation_level=3
 openxr/foveation_dynamic=true
