@@ -39,7 +39,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19192982, -1.0540903, 0)
 
 [node name="Sockets" type="Node3D" parent="." unique_id=1818966802]
 
-[node name="Socket_Back" type="Node3D" parent="Sockets" unique_id=1727745090]
+[node name="Socket_Back_Mount" type="Node3D" parent="Sockets" unique_id=594208270]
+
+[node name="Socket_Back" type="Marker3D" parent="Sockets/Socket_Back_Mount" unique_id=402699313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.8, 0)
 
 [node name="CollisionShapes" type="Node3D" parent="." unique_id=672085980]
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bqr0q0kq72smn"]
 
 [ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Scenes/Dragons/Toothless.tscn" id="1_7i38g"]
+[ext_resource type="Script" uid="uid://4s802gafdj1e" path="res://Scripts/Utils/Print_Hierarchy.gd" id="1_cu6cf"]
 [ext_resource type="Script" uid="uid://dktqp1fhj7s1" path="res://Scripts/Utils/SetAnimationPlayer.gd" id="2_acvhs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_acvhs"]
@@ -403,6 +404,7 @@ nodes/add_mouth/position = Vector2(-226.66667, -80)
 node_connections = [&"output", 0, &"add_ear", &"add_ear", 0, &"add_shake", &"add_ear", 1, &"po_ear_back", &"add_eyelid", 0, &"add_mouth", &"add_eyelid", 1, &"add_eyelid_down", &"add_eyelid_down", 0, &"add_eyelid_up", &"add_eyelid_down", 1, &"po_eyelid_close_down", &"add_eyelid_up", 0, &"po_default", &"add_eyelid_up", 1, &"po_eyelid_close_up", &"add_shake", 0, &"add_eyelid", &"add_shake", 1, &"layer_shake", &"add_wing_main", 0, &"layer_eye_shape", &"add_wing_main", 1, &"layer_wing_main", &"add_wing_tail", 0, &"add_wing_main", &"add_wing_tail", 1, &"layer_wing_tail", &"add_mouth", 0, &"add_wing_tail", &"add_mouth", 1, &"layer_mouth"]
 
 [node name="ToothlessRoot" type="Node3D" unique_id=1390210266]
+script = ExtResource("1_cu6cf")
 
 [node name="Model" type="Node3D" parent="." unique_id=1731741476]
 
@@ -411,8 +413,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33, -1.3, 0)
 
 [node name="Sockets" type="Node3D" parent="." unique_id=1818966802]
 
-[node name="Socket_Back" type="Marker3D" parent="Sockets" unique_id=21453988]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.65, 0)
+[node name="Socket_Back_Mount" type="BoneAttachment3D" parent="Sockets" unique_id=935605801]
+transform = Transform3D(-8.7447045e-09, 0.9999034, 0.013896998, -6.2918957e-07, -0.013896998, 0.9999033, 1, 1.2434498e-14, 6.292502e-07, 0.5919001, 0.029872417, 5.446848e-14)
+bone_name = "neck"
+bone_idx = 62
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Toothless/rig/Skeleton3D")
+
+[node name="Socket_Back" type="Marker3D" parent="Sockets/Socket_Back_Mount" unique_id=816357536]
+transform = Transform3D(-6.1030403e-10, 4.370713e-08, 1, 0.99990255, 0.013962129, 0, -0.013962129, 0.99990255, -4.371139e-08, 0, -0.142, 0.62)
 
 [node name="CollisionShapes" type="Node3D" parent="." unique_id=672085980]
 

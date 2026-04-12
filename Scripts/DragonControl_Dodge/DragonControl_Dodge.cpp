@@ -1,9 +1,13 @@
 #include "DragonControl_Dodge.h"
 
 #include "DragonAnimator.h"
+#include "Control_Main.h"
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/classes/engine.hpp>
+#include <godot_cpp/classes/button.hpp>
+#include <godot_cpp/classes/window.hpp>
+#include <godot_cpp/classes/scene_tree.hpp>
 #include <godot_cpp/variant/vector3.hpp>
 #include <godot_cpp/variant/quaternion.hpp>
 #include <godot_cpp/classes/input_event.hpp>
@@ -39,66 +43,7 @@ DragonControl_Dodge::~DragonControl_Dodge()
  */
 void DragonControl_Dodge::_bind_methods() 
 {
-    ClassDB::bind_method(D_METHOD("_deferred_attach_camera_to_socket_back"), &DragonControl_Dodge::_deferred_attach_camera_to_socket_back);
-}
-
-
-void DragonControl_Dodge::_deferred_attach_camera_to_socket_back()
-{
-    if (!camera_main || !dragon_rb)
-    {
-        return;
-    }
-
-    Node *species_slot = Object::cast_to<Node>(dragon_rb->get_node_or_null("SpeciesSlot"));
-    Node *socket_back = nullptr;
-    if (species_slot)
-    {
-        Node *dragon_root = Object::cast_to<Node>(species_slot->get_node_or_null("GronckleRoot"));
-        if (dragon_root)
-        {
-            socket_back = Object::cast_to<Node>(dragon_root->get_node_or_null("Sockets/Socket_Back"));
-        }
-    }
-
-    if (!socket_back)
-    {
-        if (camera_attach_retry_count < 30)
-        {
-            camera_attach_retry_count++;
-            call_deferred("_deferred_attach_camera_to_socket_back");
-        }
-        else
-        {
-            UtilityFunctions::printerr("DragonControl_Dodge: Failed to attach camera, path 'SpeciesSlot/GronckleRoot/Sockets/Socket_Back' not found.");
-        }
-        return;
-    }
-
-    camera_main->reparent(socket_back);
-    camera_main->set_position(Vector3(-0.2f, 0.8f, 0.0f));
-
-    Node3D *camera_non_xr = Object::cast_to<Node3D>(camera_main->get_node_or_null("Camera_Main_NonXR"));
-    if (camera_non_xr)
-    {
-        camera_non_xr->set_position(Vector3(0, 0, 0));
-    }
-
-    Vector3 euler = camera_main->get_basis().get_euler();
-    cam_yaw = euler.y;
-    cam_pitch = euler.z;
-    camera_attach_retry_count = 0;
-
-    DragonAnimator *dragon_animator = Object::cast_to<DragonAnimator>(get_parent()->get_node_or_null("DragonAnimator"));
-    if (dragon_animator)
-    {
-        dragon_animator->call_deferred("RefreshBindings");
-        dragon_animator->call_deferred("SetAnimation_Weight", "add_wing_main", 1.0f);
-    }
-    else
-    {
-        UtilityFunctions::printerr("DragonControl_Dodge: DragonAnimator not found.");
-    }
+    ClassDB::bind_method(D_METHOD("_on_back_button_pressed"), &DragonControl_Dodge::_on_back_button_pressed);
 }
 
 
@@ -135,7 +80,8 @@ void DragonControl_Dodge::_ready()
                 {
                     gronckle_root->set_name("GronckleRoot");
                     // Defer add_child to avoid tree-setup timing issues in _ready.
-                    species_slot->call_deferred("add_child", gronckle_root);
+                    // species_slot->call_deferred("add_child", gronckle_root);
+                    species_slot->add_child(gronckle_root);
                 }
                 else
                 {
@@ -151,19 +97,19 @@ void DragonControl_Dodge::_ready()
         {
             UtilityFunctions::printerr("DragonControl_Dodge: SpeciesSlot not found.");
         }
+    }
 
+    Node *scene_root = get_parent() ? get_parent()->get_parent() : nullptr;
+    if (scene_root)
+    {
+        Node *back_node = scene_root->get_node_or_null(NodePath("UI/Button_Back"));
+        if (Button *back_button = Object::cast_to<Button>(back_node))
+        {
+            back_button->connect("pressed", callable_mp(this, &DragonControl_Dodge::_on_back_button_pressed));
+        }
     }
     
     camera_main = Object::cast_to<Node3D>(get_parent()->get_parent()->get_parent()->get_node_or_null("Camera_Main"));
-    if (camera_main)
-    {
-        camera_attach_retry_count = 0;
-        call_deferred("_deferred_attach_camera_to_socket_back");
-    }
-    else
-    {
-        UtilityFunctions::printerr("DragonControl_Dodge: Camera_Main not found.");
-    }
 }
 
 
@@ -282,5 +228,73 @@ void DragonControl_Dodge::_input(const Ref<InputEvent> &event)
                 input_singleton->set_mouse_mode(Input::MOUSE_MODE_CAPTURED);
             }
         }
+    }
+}
+
+void DragonControl_Dodge::_on_back_button_pressed()
+{
+    UtilityFunctions::print("Back button pressed, returning to Scene_Home");
+
+    SceneTree *tree = get_tree();
+    if (!tree)
+    {
+        UtilityFunctions::printerr("SceneTree not available");
+        return;
+    }
+
+    Window *root = tree->get_root();
+    if (!root)
+    {
+        UtilityFunctions::printerr("Root window not available");
+        return;
+    }
+
+    set_physics_process(false);
+    set_process_input(false);
+    if (dragon_rb && dragon_rb->is_inside_tree())
+    {
+        dragon_rb->set_linear_velocity(Vector3(0.0f, 0.0f, 0.0f));
+        dragon_rb->set_angular_velocity(Vector3(0.0f, 0.0f, 0.0f));
+    }
+    if (input_singleton)
+    {
+        input_singleton->set_mouse_mode(Input::MOUSE_MODE_VISIBLE);
+    }
+
+    if (camera_main && camera_main->is_inside_tree())
+    {
+        Node *main_node = root->get_node_or_null(NodePath("Main"));
+        if (main_node)
+        {
+            camera_main->reparent(main_node);
+            camera_main->call_deferred("set_transform", Transform3D(Basis(), Vector3(0.0f, 10.0f, 0.0f)));
+
+            Node *xr_origin = camera_main->get_node_or_null(NodePath("XR/XROrigin"));
+            if (xr_origin)
+            {
+                xr_origin->call_deferred("set_position", Vector3(0.0f, 0.0f, 0.0f));
+                Node *sub_viewport_mesh = xr_origin->get_node_or_null(NodePath("XRCamera/SubViewportMesh"));
+                if (sub_viewport_mesh)
+                {
+                    sub_viewport_mesh->queue_free();
+                }
+            }
+        }
+    }
+
+    Control_Main *control_main = Object::cast_to<Control_Main>(root->get_node_or_null(NodePath("Main/Control_Main")));
+    if (!control_main)
+    {
+        Node *cm = root->find_child("Control_Main", true, false);
+        control_main = Object::cast_to<Control_Main>(cm);
+    }
+
+    if (control_main)
+    {
+        control_main->call("Switch_Scene", "Scene_Home");
+    }
+    else
+    {
+        UtilityFunctions::printerr("DragonControl_Dodge: Control_Main not available to switch scene.");
     }
 }

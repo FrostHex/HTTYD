@@ -55,8 +55,8 @@ void DragonControlJoystick::_ready()
     }
 
     // get the XR controllers
-    hand_left = get_parent()->get_node<XRController3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back/Camera_Main/XR/XROrigin/LeftHand");
-    hand_right = get_parent()->get_node<XRController3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back/Camera_Main/XR/XROrigin/RightHand");
+    hand_left = get_parent()->get_node<XRController3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back_Mount/Socket_Back/Camera_Main/XR/XROrigin/LeftHand");
+    hand_right = get_parent()->get_node<XRController3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back_Mount/Socket_Back/Camera_Main/XR/XROrigin/RightHand");
 }
 
 void DragonControlJoystick::_physics_process(double delta)

@@ -43,6 +43,7 @@ namespace godot
             static void _bind_methods();
 
         private:
+            void AttachCamera(const String &scene_name);
             bool enable_headset = false;
             bool sub_view = true;
             bool debug = true; // debug mode

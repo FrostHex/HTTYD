@@ -119,7 +119,7 @@ void Control_Scene_Practice::_ready()
 	// Set the connection with dragon
 	Node *dragon_node = get_parent()->get_node<Node>("Dragon");
     dragon_animator = get_parent()->get_node<Node>("Dragon")->get_node<DragonAnimator>("DragonAnimator");
-	camera_main = get_parent()->get_node<Node3D>("Dragon/SpeciesSlot/ToothlessRoot/Sockets/Socket_Back/Camera_Main");
+	camera_main = get_tree()->get_root()->get_node<Node3D>("Main/Camera_Main");
 	if (!camera_main)
 	{
 		UtilityFunctions::printerr("Control_Scene_Practice: Could not find Dragon camera_main");

@@ -94,7 +94,7 @@ void Control_Camera::Initialize()
             }
 
             dragon_rb = scene_node->get_node<RigidBody3D>("Dragon");
-            camera_main = dragon_rb->get_node<Node3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back/Camera_Main");
+            camera_main = dragon_rb->get_node<Node3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back_Mount/Socket_Back/Camera_Main");
             xr_node = camera_main->get_node<Node3D>("XR");
             xr_origin = xr_node->get_node<Node3D>("XROrigin");
             xr_camera = xr_origin->get_node<Node3D>("XRCamera");
@@ -413,7 +413,7 @@ void Control_Camera::GrabSaddle()
     approaching_angle = false;
     approaching_position = false;
     camera_offset_factor = 0.0f; // reset camera offset factor
-    camera_main->reparent(dragon_rb->get_node<Node>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back"));
+    camera_main->reparent(dragon_rb->get_node<Node>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back_Mount/Socket_Back"));
     camera_main->call_deferred("set_position", Vector3(0, 0, 0));
     camera_main->call_deferred("set_rotation", Vector3(0, 0, 0));
 }

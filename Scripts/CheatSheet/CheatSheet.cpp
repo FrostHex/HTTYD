@@ -40,9 +40,8 @@ void CheatSheet::_ready()
 
     mesh = get_parent()->get_node<MeshInstance3D>("SpeciesSlot/ToothlessRoot/Model/Toothless/rig/Skeleton3D/cheat_sheet");
     dragon = get_parent()->get_parent()->get_node<RigidBody3D>("Dragon");
-    pickable = get_parent()->get_node<RigidBody3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back/Camera_Main/XRToolsPickable");
-    pickable->connect("picked_up", Callable(this, "_on_pickable_picked_up"));
-    pickable->connect("dropped", Callable(this, "_on_pickable_dropped"));
+    pickable = nullptr;
+    call_deferred("SetupPickable");
 
     // get the override material first, otherwise get the surface material
     Ref<Material> base_material = mesh->get_surface_override_material(0);
@@ -253,10 +252,32 @@ void CheatSheet::_on_pickable_dropped(Node* pickable)
     }
 }
 
+void CheatSheet::SetupPickable()
+{
+    pickable = Object::cast_to<RigidBody3D>(get_parent()->get_node_or_null("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back_Mount/Socket_Back/Camera_Main/XRToolsPickable"));
+    if (!pickable)
+    {
+        UtilityFunctions::printerr("CheatSheet: XRToolsPickable not found after deferred setup.");
+        return;
+    }
+
+    Callable on_picked = Callable(this, "_on_pickable_picked_up");
+    Callable on_dropped = Callable(this, "_on_pickable_dropped");
+    if (!pickable->is_connected("picked_up", on_picked))
+    {
+        pickable->connect("picked_up", on_picked);
+    }
+    if (!pickable->is_connected("dropped", on_dropped))
+    {
+        pickable->connect("dropped", on_dropped);
+    }
+}
+
 
 void CheatSheet::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("Detatch"), &CheatSheet::Detatch);
+    ClassDB::bind_method(D_METHOD("SetupPickable"), &CheatSheet::SetupPickable);
     ClassDB::bind_method(D_METHOD("_on_pickable_picked_up", "pickable"), &CheatSheet::_on_pickable_picked_up);
     ClassDB::bind_method(D_METHOD("_on_pickable_dropped", "pickable"), &CheatSheet::_on_pickable_dropped);
 

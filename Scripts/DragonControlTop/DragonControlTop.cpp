@@ -89,7 +89,7 @@ void DragonControlTop::_ready()
 
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
     pivot_toothless = dragon_rb->get_node<Node3D>("SpeciesSlot");
-    camera_main = dragon_rb->get_node<Node3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back/Camera_Main");
+    camera_main = get_tree()->get_root()->get_node<Node3D>("Main/Camera_Main");
     dragon_animator = get_parent()->get_node<DragonAnimator>("DragonAnimator");
     dragon_rb->set_gravity_scale(0); // disable gravity
     height_init = dragon_rb->get_global_transform().origin.y;

@@ -103,14 +103,14 @@ void Control_Main::Switch_Scene(const String &scene_name)
     Ref<PackedScene> scene = ResourceLoader::get_singleton()->load("res://Scenes/" + scene_name + ".tscn");
     if (scene.is_valid()) 
     {
-        // Clean up current scene before loading new one
+        // clean up current scene before loading new one
         Node *parent = get_parent();
         PackedStringArray scene_names = PackedStringArray();
         scene_names.push_back("Scene_Home");
         scene_names.push_back("Scene_Tutorial");
         scene_names.push_back("Scene_Practice");
         scene_names.push_back("Scene_TD");
-
+        scene_names.push_back("Scene_Dodge");
         
         for (int i = 0; i < scene_names.size(); i++) 
         {
@@ -129,12 +129,6 @@ void Control_Main::Switch_Scene(const String &scene_name)
         get_parent()->call_deferred("add_child", new_scene);
         new_scene->set_name(scene_name);
 
-        if (scene_name != "Scene_Home" && scene_name != "Scene_Dodge")
-        {
-            camera_main->reparent(new_scene->get_node<Node>("Dragon/SpeciesSlot/ToothlessRoot/Sockets/Socket_Back"));
-            camera_main->set_position(Vector3(0, 0, 0));
-        }
-
         if (scene_name == "Scene_TD")
         {
             Node *node_cheat_sheet = memnew(CheatSheet);
@@ -149,11 +143,42 @@ void Control_Main::Switch_Scene(const String &scene_name)
         if (scene_name == "Scene_Home")
         {
         }
+
+        if (scene_name != "Scene_Home")
+        {
+            // Resolve target species at deferred execution time to avoid binding to stale Toothless node.
+            call_deferred("AttachCamera", scene_name);
+            // camera_main->reparent(new_scene->get_node<Node>("Dragon/SpeciesSlot")->get_child(0)->get_node<Node>("Sockets/Socket_Back_Mount/Socket_Back"));
+            // camera_main->set_position(Vector3(0, 0, 0));
+        }
     }
     else
     {
         UtilityFunctions::printerr("Failed to load", scene_name, ".tscn");
     }
+}
+
+void Control_Main::AttachCamera(const String &scene_name)
+{
+    Node *target_scene = get_parent()->get_node_or_null(NodePath(scene_name));
+    Node *species_slot = target_scene->get_node_or_null(NodePath("Dragon/SpeciesSlot"));
+    if (!species_slot || species_slot->get_child_count() <= 0)
+    {
+        return;
+    }
+    Node *latest_species = species_slot->get_child(species_slot->get_child_count() - 1);
+    if (!latest_species)
+    {
+        return;
+    }
+    Node *socket_back = latest_species->get_node_or_null(NodePath("Sockets/Socket_Back_Mount/Socket_Back"));
+    if (!camera_main)
+    {
+        return;
+    }
+    camera_main->reparent(socket_back);
+    camera_main->set_position(Vector3(0, 0, 0));
+    camera_main->set_rotation(Vector3(0, 0, 0));
 }
 
 
@@ -260,6 +285,7 @@ void Control_Main::_bind_methods()
 {
     // Expose Switch_Scene so it can be called via Node.call
     ClassDB::bind_method(D_METHOD("Switch_Scene", "scene_name"), &Control_Main::Switch_Scene);
+    ClassDB::bind_method(D_METHOD("AttachCamera", "scene_name"), &Control_Main::AttachCamera);
     
     ClassDB::bind_method(D_METHOD("language_setter", "value"), &Control_Main::SetValLanguage);
     ClassDB::bind_method(D_METHOD("language_getter"), &Control_Main::GetValLanguage);

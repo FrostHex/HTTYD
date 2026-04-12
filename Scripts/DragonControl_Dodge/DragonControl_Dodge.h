@@ -12,6 +12,7 @@
 #include <godot_cpp/classes/input.hpp>
 #include <godot_cpp/classes/node3d.hpp>
 #include <godot_cpp/classes/packed_scene.hpp>
+#include <godot_cpp/classes/control.hpp>
 
 namespace godot 
 {
@@ -25,12 +26,12 @@ namespace godot
             void _ready() override;
             void _physics_process(double delta) override;
             void _input(const Ref<InputEvent> &event) override;
+            void _on_back_button_pressed();
 
         protected:
             static void _bind_methods();
 
         private:
-            void _deferred_attach_camera_to_socket_back();
             RigidBody3D* dragon_rb = nullptr;
             Input* input_singleton = nullptr;
             Node3D* camera_main = nullptr;

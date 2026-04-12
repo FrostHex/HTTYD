@@ -146,7 +146,7 @@ void Control_Scene_Tutorial::_ready()
 
 	hand_right = nullptr;
 	Node *xr_origin = nullptr;
-	camera_main = get_parent()->get_node<Node3D>("Dragon/SpeciesSlot/ToothlessRoot/Sockets/Socket_Back/Camera_Main");
+	camera_main = get_tree()->get_root()->get_node<Node3D>("Main/Camera_Main");
 	if (camera_main) 
 	{
 		Node *xr_node = camera_main->get_node_or_null(NodePath("XR"));
@@ -300,7 +300,6 @@ void Control_Scene_Tutorial::_on_back_button_pressed()
 		return;
 	}
 
-	// 在切场景前先停止相关物理处理，避免访问已离树节点。
 	set_physics_process(false);
 	if (dragon_control && dragon_control->is_inside_tree())
 	{
@@ -312,7 +311,7 @@ void Control_Scene_Tutorial::_on_back_button_pressed()
 		ctrl_camera->set_process_input(false);
 	}
 
-	// 将camera_main恢复到原位
+	// reset camera_main
 	if (camera_main && camera_main->is_inside_tree() && root) 
 	{
 		Node *main_node = root->get_node_or_null(NodePath("Main"));
@@ -344,10 +343,10 @@ void Control_Scene_Tutorial::_on_back_button_pressed()
 		UtilityFunctions::printerr("camera_main not found when returning to Scene_Home");
 	}
 
-	// 优先使用已有缓存引用
+	// prioritize using existing cached reference
 	if (!control_main) 
 	{
-		// 再次尝试定位（支持直接运行子场景的情况）
+		// attempt to locate it again
 		Node *cm = root->get_node_or_null(NodePath("Main/Control_Main"));
 		if (!cm) 
 		{

@@ -37,6 +37,7 @@ namespace godot
             static void _bind_methods();
 
         private:
+            void SetupPickable();
             Ref<ShaderMaterial> material;
             MeshInstance3D* mesh = nullptr;
             RigidBody3D* pickable = nullptr;
