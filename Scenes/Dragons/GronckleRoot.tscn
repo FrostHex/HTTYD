@@ -20,7 +20,7 @@ animation = &"lo_flap"
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_tiuy3"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_j43y3"]
-graph_offset = Vector2(-202.68669, 18.648825)
+graph_offset = Vector2(-237.11348, 27.688446)
 nodes/output/position = Vector2(240, 160)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_de3cf")
 nodes/Animation/position = Vector2(-120, 213.33333)

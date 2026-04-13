@@ -1,30 +1,30 @@
 @tool
 extends Path3D
 
-# 在编辑器中按指定间距沿路径放置标记（使用自定义 Node3D 模板）。
-# 用法：将此脚本挂到 Path3D 上，在检查器中设置 template_path，调整参数或点击“立即重建”。
+# place markers along the path at a specified spacing in the editor (using a custom Node3D template).
+# usage: attach this script to Path3D, set template_path in the inspector, adjust parameters, or click "regenerate now".
 
 @export var spacing: float = 2.0: set = set_spacing
 @export var marker_color: Color = Color(0.2, 0.8, 1.0, 0.4): set = set_marker_color
 @export var emission_energy: float = 1.5: set = set_emission_energy
 
-# 自定义模板（可放在场景任意位置），支持任意 Node3D（含 CSG、Mesh 等）
+# custom template (can be placed anywhere in the scene), supports any Node3D (including CSG and Mesh).
 @export var template_path: NodePath = NodePath(""): set = set_template_path
 @export var align_to_path: bool = true
 
-# 修改参数时是否自动重建
+# whether to rebuild automatically when parameters change.
 @export var auto_update: bool = true 
 
-# 勾选后立即重建，操作完成后会自动复位为 false
+# rebuild immediately when checked, then auto-reset to false after completion.
 @export var regenerate_now: bool = false: set = _set_regenerate_now
 
-# 生成物容器节点名称
+# generated container node name.
 @export var container_name: StringName = StringName("__PathMarkers")
 
-# 容器节点放置位置：false=Path3D子节点，true=Path3D同级（推荐，便于后续移除脚本）
+# container placement: false = child of Path3D, true = sibling of Path3D (recommended for easy cleanup).
 @export var place_as_sibling: bool = true
 
-# 是否在游戏运行时也显示（默认显示，便于在运行中可见）
+# whether to show in runtime as well (enabled by default so it is visible during play).
 @export var visible_in_game: bool = true: set = set_visible_in_game
 
 func _ready() -> void:
@@ -86,11 +86,11 @@ func _ensure_container() -> Node3D:
 		container = Node3D.new()
 		container.name = container_name
 		
-		# 根据 place_as_sibling 决定放置位置
+		# choose placement based on place_as_sibling.
 		var parent_node: Node = get_parent() if place_as_sibling and get_parent() != null else self
 		parent_node.add_child(container)
 		
-		# 设置 owner 以便保存到场景
+		# set owner so it can be saved with the scene.
 		if Engine.is_editor_hint():
 			var scene_owner: Node = owner if owner != null else get_tree().edited_scene_root
 			container.owner = scene_owner
@@ -106,10 +106,10 @@ func _set_owner_recursive(n: Node, o: Node) -> void:
 		_set_owner_recursive(ch, o)
 
 func _disable_collision_recursive(n: Node) -> void:
-	# 关闭 CSG 碰撞
+	# disable CSG collision.
 	if n is CSGPolygon3D:
 		(n as CSGPolygon3D).use_collision = false
-	# 关闭物理碰撞（若是碰撞对象）
+	# disable physics collision (for collision objects).
 	if n is CollisionObject3D:
 		var co: CollisionObject3D = n as CollisionObject3D
 		co.collision_layer = 0
@@ -122,16 +122,16 @@ func _disable_collision_recursive(n: Node) -> void:
 
 func _make_material() -> StandardMaterial3D:
 	var mat: StandardMaterial3D = StandardMaterial3D.new()
-	# 半透明
+	# semi-transparent.
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	mat.albedo_color = marker_color
-	# 非光照着色，进一步减轻开销
+	# unshaded rendering to further reduce cost.
 	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	# 发光（需要环境启用 Bloom 才能看到泛光）
+	# emission (Bloom must be enabled in the environment to see glow).
 	mat.emission_enabled = true
 	mat.emission = Color(marker_color.r, marker_color.g, marker_color.b, 1.0)
 	mat.emission_energy_multiplier = emission_energy
-	# 可根据需要关闭阴影等（非必须）
+	# optionally disable shadows and similar effects (not required).
 	mat.disable_receive_shadows = true
 	return mat
 
@@ -144,25 +144,25 @@ func _apply_marker_material_recursive(n: Node, mat: Material) -> void:
 		_apply_marker_material_recursive(ch, mat)
 
 func _basis_from_x(x_axis: Vector3, up_hint: Vector3 = Vector3.UP) -> Basis:
-	# 输入向量长度检查
+	# validate input vector length.
 	if x_axis.length() < 1e-6:
 		return Basis.IDENTITY
 	
 	var x: Vector3 = x_axis.normalized()
 	
-	# 选择一个与 x 不平行的上方向
+	# choose an up direction that is not parallel to x.
 	var up: Vector3 = up_hint
 	if abs(x.dot(up)) > 0.95:
 		up = Vector3.FORWARD if abs(x.dot(Vector3.FORWARD)) < 0.95 else Vector3.RIGHT
 	
-	# 使用 up 派生 y，再派生 z，保证正交、右手系
+	# derive y from up, then derive z to keep an orthonormal right-handed basis.
 	var y: Vector3 = up.cross(x)
 	if y.length() < 1e-6:
-		# 再次兜底挑一个不同的向上
+		# fallback again with a different up direction.
 		up = Vector3.RIGHT if abs(x.dot(Vector3.RIGHT)) < 0.95 else Vector3.FORWARD
 		y = up.cross(x)
 		if y.length() < 1e-6:
-			# 最终兜底：返回单位矩阵
+			# final fallback: return identity basis.
 			return Basis.IDENTITY
 	
 	y = y.normalized()
@@ -195,7 +195,7 @@ func _rebuild_markers() -> void:
 		var dir: Vector3 = Vector3.ZERO
 		var align_ok: bool = false
 		if align_to_path:
-			# 计算该点的切线方向（前向采样，若末端则后向）
+			# compute tangent direction at this point (forward sample, fallback to backward at the end).
 			var delta: float = max(0.001, min(0.1, spacing * 0.5))
 			var d2: float = min(dist + delta, length)
 			var p2: Vector3 = c.sample_baked(d2)
@@ -211,14 +211,14 @@ func _rebuild_markers() -> void:
 			var inst: Node = template_node.duplicate()
 			if inst and inst is Node3D:
 				var n3d: Node3D = inst as Node3D
-				# 保持原始缩放；设置位置与朝向
+				# keep original scale; set position and orientation.
 				var original_scale: Vector3 = n3d.scale
 				n3d.transform.origin = p
 				if align_to_path and align_ok:
-					# 使局部 +X 轴沿路径切线
+					# align local +X axis to the path tangent.
 					n3d.basis = _basis_from_x(dir.normalized(), Vector3.UP)
 					n3d.scale = original_scale
-				# 保持原始大小，不修改 scale
+				# keep original size without modifying scale.
 				container.add_child(n3d)
 				if Engine.is_editor_hint():
 					var scene_owner: Node = owner if owner != null else get_tree().edited_scene_root

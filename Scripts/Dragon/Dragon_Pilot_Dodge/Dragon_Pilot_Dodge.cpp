@@ -27,6 +27,12 @@ Dragon_Pilot_Dodge::Dragon_Pilot_Dodge()
     input_singleton = Input::get_singleton();
     species_gronckle = ResourceLoader::get_singleton()->load("res://Scenes/Dragons/GronckleRoot.tscn");
     set_physics_process(true);
+    // Dragon_Animator* animator = get_parent()->get_node<Dragon_Animator>("Dragon_Animator");
+    // if (animator) 
+    // {
+    //     // animator->RefreshBindings();
+    //     UtilityFunctions::print("D!!!!!!!!!!!!!!!");
+    // }
 }
 
 

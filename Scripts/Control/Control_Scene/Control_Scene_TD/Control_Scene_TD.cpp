@@ -97,7 +97,7 @@ void Control_Scene_TD::_ready()
     save_manager = get_node<SaveManager>("SaveManager");
     audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
 
-    // 连接成就区域信号（若存在）
+    // connect achievement area signals (if present).
     td_area_1 = get_parent()->get_node_or_null(NodePath("TD_Area_1"));
     td_area_2 = get_parent()->get_node_or_null(NodePath("TD_Area_2"));
     if (td_area_1) {
@@ -245,7 +245,7 @@ void Control_Scene_TD::TakeRest()
     ctrl_camera->camera_main->set_position(Vector3(-0.55f, -0.405f, -2.135f));
     ctrl_camera->camera_main->set_rotation(Vector3(Math::deg_to_rad(0.0f), Math::deg_to_rad(-20.1f), Math::deg_to_rad(0.0f)));
 
-    // 完成本次 Test Drive，更新徽章
+    // complete this Test Drive and update badge.
     _update_badge_on_completion();
 }
 
@@ -327,7 +327,7 @@ void Control_Scene_TD::_input(const Ref<InputEvent> &event)
         dragon_control->time_to_target = 0.1f;
         ctrl_camera->SetCameraStabilized(false);
         used_load_state = true;
-        // 加载存档后只清除 Area2 的触发记录
+        // after loading a save, clear only Area2 trigger state.
         if (visited_area_2) 
         {
             UtilityFunctions::print("[TD] load_state: clearing Area2 visited flag");
@@ -358,11 +358,11 @@ void Control_Scene_TD::_bind_methods()
     ClassDB::bind_method(D_METHOD("_on_td_area_2_body_entered", "body"), &Control_Scene_TD::_on_td_area_2_body_entered);
 }
 
-// 区域信号回调：当 Toothless（RigidBody3D 在 Dragon.tscn 中）进入区域时标记
+// area signal callback: mark when Toothless (RigidBody3D in Dragon.tscn) enters the area.
 void Control_Scene_TD::_on_td_area_1_body_entered(Node* body)
 {
     if (!body) return;
-    // 只在主龙体进入时计数：名称为 "Dragon" 的 RigidBody3D
+    // count only when the main dragon body enters: RigidBody3D named "Dragon".
     if (Object::cast_to<RigidBody3D>(body) && body->get_name() == StringName("Dragon")) 
     {
         visited_area_1 = true;
@@ -380,7 +380,7 @@ void Control_Scene_TD::_on_td_area_2_body_entered(Node* body)
     }
 }
 
-// 完成后更新徽章：若 badge < 1 则设为 1；若两个区域都进过且 badge < 2 则设为 2
+// update badge on completion: set to 1 if badge < 1; set to 2 if both areas were visited and badge < 2.
 void Control_Scene_TD::_update_badge_on_completion()
 {
     if (!control_main) return;
@@ -394,7 +394,7 @@ void Control_Scene_TD::_update_badge_on_completion()
     {
         target_badge = 2;
     }
-    // 额外：未用过 load_state 且两个区域都触发 → 设为 3
+    // extra rule: if load_state was never used and both areas were triggered, set to 3.
     if (!used_load_state && visited_area_1 && visited_area_2 && current_badge < 3) 
     {
         target_badge = 3;

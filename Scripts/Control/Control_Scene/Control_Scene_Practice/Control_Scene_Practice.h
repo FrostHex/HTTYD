@@ -42,14 +42,14 @@ namespace godot
             Dragon_Animator* dragon_animator = nullptr;
             Control_Camera* ctrl_camera = nullptr;
             Node3D* camera_main = nullptr;
-            // Practice文字显示支持
+            // Practice text display support.
             Node3D* practice_paper = nullptr;
             Label3D* practice_label = nullptr;
-            // VR B 切换状态支持
+            // VR B state toggle support.
             XRController3D* hand_right = nullptr;
             bool b_button_prev = false;
             bool a_button_prev = false;
-            // 当前龙状态（true=crisis, false=default）
+            // current dragon state (true = crisis, false = default).
             bool is_crisis_state = false;
             void _on_back_button_pressed();
             void _toggle_dragon_state();

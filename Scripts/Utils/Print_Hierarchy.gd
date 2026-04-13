@@ -1,9 +1,9 @@
 @tool
 extends Node3D
 
-## 在编辑器中使用：
-## - 挂载后递归遍历当前节点和它的所有子节点
-## - 打印各节点的名称和层级关系
+## usage in editor:
+## - after attaching, recursively traverse the current node and all of its child nodes
+## - print each node name with hierarchy structure
 
 
 func _ready() -> void:

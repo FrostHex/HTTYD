@@ -12,7 +12,7 @@
 #include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/classes/input_event_key.hpp>
 #include <godot_cpp/core/class_db.hpp>
-// 字体相关
+// font-related headers
 #include <godot_cpp/classes/system_font.hpp>
 #include <godot_cpp/variant/packed_string_array.hpp>
 #include <godot_cpp/classes/xr_controller3d.hpp>
@@ -50,7 +50,7 @@ void Control_Scene_Tutorial::_ready()
         }
     }
 
-	// 获取3D文字标签引用
+	// get the 3D text label reference.
 	Node *parent_node = get_parent();
 	if (parent_node) {
 		tutorial_label = Object::cast_to<Label3D>(parent_node->get_node_or_null(NodePath("TutorialPaper/TutorialText")));
@@ -69,23 +69,23 @@ void Control_Scene_Tutorial::_ready()
 		}
 	}
 
-	// 如果当前语言为中文，则将教程文本字体设置为系统黑体（含常见中文字体回退）
+	// if the current language is Chinese, set tutorial text font to a system sans-serif Chinese fallback stack.
 	if (control_main && tutorial_label) {
 		if (control_main->GetValLanguage() == 1) 
 		{
 			Ref<SystemFont> zh_font;
 			zh_font.instantiate();
 			PackedStringArray font_names;
-			// Windows 常见中文黑体/中文字体优先级
+			// common Chinese font priority on Windows.
 			font_names.push_back("SimHei");
 			font_names.push_back("Microsoft YaHei");
 			zh_font->set_font_names(font_names);
-			// 应用到 3D 标签
+			// apply to the 3D label.
 			tutorial_label->set_font(zh_font);
 		}
 	}
 
-	// 使用JSON格式加载tutorial数组
+	// load the tutorial array using JSON.
 	Ref<FileAccess> f = FileAccess::open(json_file, FileAccess::READ);
 	if (f.is_valid()) 
 	{
@@ -161,7 +161,7 @@ void Control_Scene_Tutorial::_ready()
 		hand_right = Object::cast_to<XRController3D>(xr_origin->get_node_or_null(NodePath("RightHand")));
 	}
 
-	// 立即显示第一句话（current_index 表示当前显示的索引，保持为 0）
+	// display the first sentence immediately (current_index remains 0).
 	if (tutorial_label && lines.size() > 0) {
 		current_index = 0;
 		String processed_text = _process_tutorial_text(lines[0]);
@@ -187,7 +187,7 @@ void Control_Scene_Tutorial::_goto_prev_line() {
 
 String Control_Scene_Tutorial::_process_tutorial_text(const String &text) 
 {
-	// 检查是否以"/!"开头
+	// check whether it starts with "/!".
 	if (text.length() >= 3 && text.substr(0, 2) == "/!") 
 	{
 		tutorial_paper->set_position(Vector3(0.85f, 0.48f, 0.4f));
@@ -195,17 +195,17 @@ String Control_Scene_Tutorial::_process_tutorial_text(const String &text)
 		char state_char = text[2];
 		if (state_char == '1') 
 		{
-			// 设置龙状态为默认
+			// set dragon state to default.
 			if (dragon_control) 
 			{
 				dragon_control->SetState(DragonState::STATE_DEFAULT);
 				dragon_control->set_physics_process(true);
 			}
-			return text.substr(3); // 返回去掉前三个字符后的文本
+			return text.substr(3); // return text after removing the first three characters.
 		}
 		else if (state_char == '2') 
 		{
-			// 设置龙状态为危机模式
+			// set dragon state to crisis mode.
 			if (dragon_control) 
 			{
 				dragon_control->SetState(DragonState::STATE_CRISIS);
@@ -214,7 +214,7 @@ String Control_Scene_Tutorial::_process_tutorial_text(const String &text)
 			return text.substr(3);
 		}
 	}
-	if (dragon_control) 	// 匹配失败，设置为禁用状态
+	if (dragon_control) 	// fallback on mismatch: set disabled state.
 	{
 		if (Math::abs(dragon_control->GetLinearVelocity()) > 0.01f) 
 		{
@@ -236,13 +236,13 @@ void Control_Scene_Tutorial::_input(const Ref<InputEvent> &event)
 	if (key_event.is_null()) return;
 	if (!key_event->is_pressed() || key_event->is_echo()) return; // 只处理按下的首次事件
 
-	// Enter 或小键盘回车：下一页
+	// Enter or keypad Enter: next page.
 	if (key_event->get_keycode() == Key::KEY_ENTER || key_event->get_keycode() == Key::KEY_KP_ENTER) {
 		_goto_next_line();
 		return;
 	}
 
-	// Backspace：上一页
+	// Backspace: previous page.
 	if (key_event->get_keycode() == Key::KEY_BACKSPACE) {
 		_goto_prev_line();
 		return;
@@ -251,20 +251,20 @@ void Control_Scene_Tutorial::_input(const Ref<InputEvent> &event)
 
 void Control_Scene_Tutorial::_physics_process(double delta)
 {
-	// 保持教程页逻辑每帧轮询 VR 手柄，且不影响键盘输入
-	// 仅当存在右手控制器并且龙控制为 VR 模式时才启用
+	// keep tutorial-page logic polling the VR controller every frame without affecting keyboard input.
+	// enable only when the right controller exists and dragon control is in VR mode.
 	if (hand_right && control_main && control_main->GetValEnableHeadset()) 
 	{
-		// A/B 为右手按钮。参考 Dragon_Pilot_Joystick：按钮名使用 "ax_button" / "by_button"
+		// A/B are right-hand buttons; Dragon_Pilot_Joystick uses "ax_button" / "by_button".
 		float a_val = hand_right->get_float("ax_button");
 		float b_val = hand_right->get_float("by_button");
 		bool a_now = a_val > 0.5f;
 		bool b_now = b_val > 0.5f;
 
-		// 边沿触发：A 上一页，B 下一页
+		// edge-triggered: A previous page, B next page.
 		if (b_now && !b_button_prev) 
 		{
-			// VR 模式下：若已在最后一页，再次按 B 触发返回主页
+			// in VR mode: if already on the last page, pressing B again returns to home.
 			if (tutorial_label && lines.size() > 0 && current_index >= lines.size() - 1) 
 			{
 				call_deferred("_on_back_button_pressed");

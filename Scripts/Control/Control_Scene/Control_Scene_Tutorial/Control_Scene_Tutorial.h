@@ -47,8 +47,8 @@ namespace godot
             Node3D* camera_main = nullptr;
             void _on_back_button_pressed();
             String _process_tutorial_text(const String &text);
-            // VR A/B 翻页支持
-            XRController3D* hand_right = nullptr; // 只需右手：A/B 在右手上
+            // VR A/B page-turn support.
+            XRController3D* hand_right = nullptr; // only the right hand is needed: A/B are on the right controller.
             bool a_button_prev = false;
             bool b_button_prev = false;
             void _goto_next_line();

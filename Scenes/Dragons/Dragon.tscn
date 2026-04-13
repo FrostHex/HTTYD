@@ -43,4 +43,4 @@ scale = Vector2(0.75, 0.75)
 stream = ExtResource("2_5sd71")
 volume_db = -80.0
 
-[node name="Dragon_Animator" type="Dragon_Animator" parent="." unique_id=264884504]
+[node name="Dragon_Animator" type="Dragon_Animator" parent="." unique_id=1808680310]

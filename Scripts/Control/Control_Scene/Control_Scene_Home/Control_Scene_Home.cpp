@@ -406,7 +406,7 @@ void Control_Scene_Home::_update_badge_display()
     switch (badge_value) 
     {
         case 0:
-            // 透明/无徽章 - 设置为null或透明纹理
+            // transparent/no badge - set to null or a transparent texture.
             texture_rect->set_texture(Ref<Texture2D>());
             texture_rect->set_visible(false);
             break;

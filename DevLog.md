@@ -160,8 +160,10 @@
 ### v1.0.1
 - 重构，提高复用性
 - 使用Sky3D插件，这效果太好了，神完了
+- VR模式已用Meta Quest2和Pimax Crystal完成测试。Quest2需要设置openxr/target_api_version="1.1.53"解决画面闪烁问题，无需SteamVR；Crystal需要给 target_api_version这项留空并启用SteamVR
+
 TODO:
-- 测一下用pimax的vr模式test drive
+- 试试设置下启动页场景
 - 试试ik
 - 牙的牙穿模怎么回事
 - 试试新的体积云

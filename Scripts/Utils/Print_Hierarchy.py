@@ -7,32 +7,33 @@ try:
 except ImportError:
     pyperclip = None
 
-# 定义要排除的名称元组（适用于文件夹和文件，部分匹配）
+# define the tuple of names to exclude (applies to both folders and files, partial match).
 EXCLUDE_NAMES = (
                     'Addons', 'build', '.import', '.uid', '.git', '.editorconfig',
-                    'Print_Hierarchy', '.o'
+                    'Print_Hierarchy'
                 )
 
-# 定义只排除文件夹的名称元组（部分匹配，仅对文件夹生效）
+# define the tuple of folder-only exclusions (partial match, folders only).
 EXCLUDE_FOLDERS = (
                     'Ocean', 'Cloud', 'Fog', 'Rocks', 'Mountain', 'Metal', 'Tree',
                     'Demo'
                   )
 
-# 当为True时，排除列表中的文件夹仍会显示名称但不递归；当为False时，文件夹完全隐藏
+# when True, excluded folders are shown by name but not recursed into; when False, excluded folders are hidden entirely.
 SHOW_EXCLUDED_FOLDER_NAMES = True 
+ADD_SLASH_TO_FOLDERS = True  # whether to append a slash to folder names to distinguish folders from files.
 
 def is_excluded(name):
-    """检查名称是否包含排除列表中的任意字符串（适用于文件和文件夹）"""
+    """check whether the name contains any excluded string (for files and folders)."""
     return any(exclude in name for exclude in EXCLUDE_NAMES)
 
 def is_folder_excluded(name):
-    """检查文件夹名称是否包含排除列表中的任意字符串（仅适用于文件夹）"""
+    """check whether a folder name contains any folder-only excluded string."""
     return any(exclude in name for exclude in EXCLUDE_FOLDERS)
 
 
 def tree(dir_path='./../../', prefix='', ignore_dot_folders=False):
-    # 获取目录下所有条目并按字母排序
+    # get all entries in the directory and sort them alphabetically.
     entries = sorted(os.listdir(dir_path))
     if ignore_dot_folders:
         filtered_entries = []
@@ -40,22 +41,22 @@ def tree(dir_path='./../../', prefix='', ignore_dot_folders=False):
             path = os.path.join(dir_path, name)
             is_dir = os.path.isdir(path)
             
-            # 排除以.开头的文件夹
+            # exclude folders starting with a dot.
             if is_dir and name.startswith('.'):
                 continue
             
-            # 对于排除列表中的条目（部分匹配）
+            # process entries in the shared exclusion list (partial match).
             if is_excluded(name):
-                # 文件一律隐藏
+                # always hide files.
                 if not is_dir:
                     continue
-                # 文件夹：根据 SHOW_EXCLUDED_FOLDER_NAMES 决定是否显示
+                # for folders, decide visibility using SHOW_EXCLUDED_FOLDER_NAMES.
                 if not SHOW_EXCLUDED_FOLDER_NAMES:
                     continue
             
-            # 对于仅文件夹排除列表中的条目（部分匹配）
+            # process entries in the folder-only exclusion list (partial match).
             if is_dir and is_folder_excluded(name):
-                # 根据 SHOW_EXCLUDED_FOLDER_NAMES 决定是否显示
+                # decide visibility using SHOW_EXCLUDED_FOLDER_NAMES.
                 if not SHOW_EXCLUDED_FOLDER_NAMES:
                     continue
             
@@ -64,17 +65,19 @@ def tree(dir_path='./../../', prefix='', ignore_dot_folders=False):
     count = len(entries)
     for index, name in enumerate(entries):
         path = os.path.join(dir_path, name)
+        is_dir = os.path.isdir(path)
+        display_name = name + '/' if (is_dir and ADD_SLASH_TO_FOLDERS) else name
         connector = '└── ' if index == count - 1 else '├── '
-        print(prefix + connector + name)
-        if os.path.isdir(path):
+        print(prefix + connector + display_name)
+        if is_dir:
             extension = '    ' if index == count - 1 else '│   '
-            # 如果是排除文件夹且设置了显示名称，则不递归进入
+            # if this is an excluded folder and names are shown, do not recurse into it.
             if SHOW_EXCLUDED_FOLDER_NAMES and (is_excluded(name) or is_folder_excluded(name)):
                 continue
             tree(path, prefix + extension, ignore_dot_folders)
 
 def output(text):
-    """将生成的文本输出到 Documentation.md 的 Project Hierarchy 代码块中"""
+    """write the generated text into the Project Hierarchy code block in Documentation.md."""
     devnote_path = os.path.join(os.path.dirname(__file__), './../../Documentation.md')
     devnote_path = os.path.normpath(devnote_path)
     
@@ -85,7 +88,7 @@ def output(text):
         print(f"未找到文件: {devnote_path}")
         return
     
-    # 查找 "Project Hierarchy" 行
+    # find the "Project Hierarchy" line.
     hierarchy_index = -1
     for i, line in enumerate(lines):
         if 'Project Hierarchy' in line:
@@ -96,7 +99,7 @@ def output(text):
         print("未找到 'Project Hierarchy'")
         return
     
-    # 查找下一行的 ``` 开始标记
+    # find the next code block start marker ```.
     start_index = -1
     indent = ''
     for i in range(hierarchy_index + 1, len(lines)):
@@ -104,7 +107,7 @@ def output(text):
         stripped = line.lstrip(' \t')
         if stripped.startswith('```'):
             start_index = i
-            # 计算缩进（空格和tab）
+            # capture indentation (spaces and tabs).
             indent = line[:len(line) - len(stripped)]
             break
     
@@ -112,7 +115,7 @@ def output(text):
         print("未找到代码块开始标记 ```")
         return
     
-    # 查找对应的结束 ```
+    # find the matching code block end marker ```.
     end_index = -1
     for i in range(start_index + 1, len(lines)):
         line = lines[i]
@@ -125,19 +128,19 @@ def output(text):
         print("未找到代码块结束标记 ```")
         return
     
-    # 构建新的内容，每行添加相同的缩进
+    # build new content and apply the same indentation per line.
     new_content_lines = []
     for line in text.split('\n'):
-        if line:  # 非空行添加缩进
+        if line:  # add indentation for non-empty lines.
             new_content_lines.append(indent + line + '\n')
-        else:  # 空行保持为空（或只有缩进）
+        else:  # keep empty lines as empty (or indentation-only).
             new_content_lines.append('\n')
     
-    # 移除最后一个多余的空行（如果有）
+    # remove the trailing extra empty line (if any).
     if new_content_lines and new_content_lines[-1] == '\n':
         new_content_lines.pop()
     
-    # 重建文件内容
+    # rebuild final file content.
     new_lines = lines[:start_index + 1] + new_content_lines + lines[end_index:]
     
     with open(devnote_path, 'w', encoding='utf-8') as f:
@@ -146,7 +149,7 @@ def output(text):
     print(f"已更新 {devnote_path} 中的 Project Hierarchy")
 
 if __name__ == '__main__':
-    # 捕获打印输出
+    # capture printed output.
     buffer = io.StringIO()
     with contextlib.redirect_stdout(buffer):
         tree('.', ignore_dot_folders=True)

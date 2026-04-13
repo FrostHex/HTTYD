@@ -41,7 +41,15 @@ void Dragon_Animator::_bind_methods()
  */
 void Dragon_Animator::_ready() 
 {
-    RefreshBindings();
+    if (Engine::get_singleton()->is_editor_hint())
+    {
+        set_physics_process(false);
+        return;
+    }
+    else
+    {
+        call_deferred("RefreshBindings"); // defer to avoid timing issues with node setup in the scene tree
+    }
 }
 
 
@@ -118,7 +126,7 @@ void Dragon_Animator::RefreshBindings()
                 SetAnimation("layer_shake", "lo_shake");
                 break;
             case SPECIES_GRONCKLE:
-                // anim_tree->set("parameters/add_wing_main/add_amount", 1.0);
+                SetAnimation_Weight("add_wing_main", 1.0);
                 break;
         }
     }
