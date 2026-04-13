@@ -3,17 +3,27 @@ extends Node3D
 
 var clipmap_tile_size := 1.0 # Not the smallest tile size, but one that reduces the amount of vertex jitter.
 var previous_tile := Vector3i.MAX
+var can_manage_native_window := true
 
 @onready var viewport : Variant = Engine.get_singleton(&'EditorInterface').get_editor_viewport_3d(0) if Engine.is_editor_hint() else get_viewport()
 @onready var camera : Variant = viewport.get_camera_3d()
 @onready var water := $Water
 
-func _init() -> void:
-	if Engine.is_editor_hint(): return
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+
 	if DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_ENABLED:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-	DisplayServer.window_set_size(DisplayServer.screen_get_size() * 0.75)
-	DisplayServer.window_set_position(DisplayServer.screen_get_size() * 0.25 / 2.0)
+
+	var current_window := get_window()
+	can_manage_native_window = not Engine.is_embedded_in_editor() and current_window != null and not current_window.is_embedded()
+
+	if can_manage_native_window:
+		DisplayServer.window_set_size(DisplayServer.screen_get_size() * 0.75)
+		DisplayServer.window_set_position(DisplayServer.screen_get_size() * 0.25 / 2.0)
+	elif current_window:
+		current_window.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
 
 func _physics_process(delta: float) -> void:
 	if not camera or not is_instance_valid(camera) or not camera.is_inside_tree():
@@ -34,6 +44,9 @@ func _physics_process(delta: float) -> void:
 	$WindAudioPlayer.volume_db = lerpf(5.0, -30.0, minf(total_wind_speed/15.0, 1.0))
 
 func _input(event: InputEvent) -> void:
+	if Engine.is_embedded_in_editor() or not can_manage_native_window:
+		return
+
 	if event.is_action_pressed(&'toggle_fullscreen'):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED else DisplayServer.WINDOW_MODE_WINDOWED)
 	elif event.is_action_pressed(&'ui_cancel'):

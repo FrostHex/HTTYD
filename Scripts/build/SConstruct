@@ -1,12 +1,17 @@
 import os
-from SCons.Script import DefaultEnvironment, Glob  # type: ignore
+from SCons.Script import DefaultEnvironment  # type: ignore
 
-# dynamically include all subdirectories in the Scripts directory to CPPPATH
-subdirs = [
-    d for d in os.listdir("..")
-    if os.path.isdir(os.path.join("..", d)) and d != "build" # exclude the build directory
-]
-dynamic_includes = [f"#../{d}" for d in subdirs]  # "#../DragonControlKeyboard", "#../DragonControlTop", etc
+# Recursively include all subdirectories in Scripts to keep flat include style,
+# e.g. #include "GameTimer.h" even after folder restructuring.
+dynamic_includes = []
+for root, dirs, _files in os.walk(".."):
+    # Skip the build directory and its descendants.
+    if "build" in dirs:
+        dirs.remove("build")
+    dynamic_includes.append(f"#{root}")
+
+# Keep order stable and remove duplicates.
+dynamic_includes = list(dict.fromkeys(dynamic_includes))
 
 # set up the environment
 env = DefaultEnvironment(
@@ -25,15 +30,26 @@ env.Append(
     LINKFLAGS=["-flto"],
 )
 
-# collect all .cpp files in Scripts directory and its subdirectories
-sources = []
+# Compile all objects directly under build/obj (flat, no nested folders).
+variant_root = "obj"
+
+# collect all .cpp files in Scripts directory and build flattened object targets
+objects = []
 for root, dirs, files in os.walk(".."):
+    if "build" in dirs:
+        dirs.remove("build")
+    rel_root = os.path.relpath(root, "..")
     for f in files:
         if f.endswith(".cpp"):
-            sources.append(env.File(os.path.join(root, f)))
+            rel_path = f if rel_root == "." else os.path.join(rel_root, f)
+            src_file = env.File(os.path.join("..", rel_path))
+            # Place object files directly under obj/ by source basename.
+            obj_stem = os.path.splitext(f)[0]
+            obj_target = os.path.join(variant_root, obj_stem)
+            objects.append(env.Object(target=obj_target, source=src_file))
 
 # the target name
 target = "httyd_cpp"
 
 # build the shared library
-env.SharedLibrary(target=target, source=sources)
+env.SharedLibrary(target=target, source=objects)

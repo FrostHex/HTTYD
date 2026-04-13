@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dlolbj7a40xmc" path="res://Scenes/Rocks/Basic/Rock_CA.tscn" id="11_r6yhq"]
 [ext_resource type="PackedScene" uid="uid://b48qubstjctb5" path="res://Scenes/Rocks/Basic/Rock_BA.tscn" id="12_kt7wv"]
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragons/Dragon.tscn" id="13_4puyq"]
-[ext_resource type="AudioStream" uid="uid://lqe1phtle7us" path="res://Environment/Media/Test Drive.wav" id="14_lvt7o"]
+[ext_resource type="AudioStream" uid="uid://lqe1phtle7us" path="res://Media/Audio/Test Drive.wav" id="14_lvt7o"]
 [ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="15_f234u"]
 [ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="16_bo2qs"]
 

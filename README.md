@@ -1,17 +1,17 @@
 # How to Train Your Dragon
 
 ## Demo Video 演示视频
-Demo Video: [Environment/Media/Demo.mp4](Environment/Media/Demo.mp4) \
-Bilibili Link: [https://www.bilibili.com/video/BV1h5gxzNE4X/](https://www.bilibili.com/video/BV1h5gxzNE4X/)
+Demo Video: [Demo.mp4](Media/Demo/Demo.mp4) \
+Bilibili Link: [https://www.bilibili.com/video/BV1h5gxzNE4X](https://www.bilibili.com/video/BV1h5gxzNE4X/)
 
 ## Snapshots 游玩截图
-![Demo Image0](Environment/Media/Demo/Demo0.png)
-![Demo Image1](Environment/Media/Demo/Demo1.png)
-![Demo Image2](Environment/Media/Demo/Demo2.png)
-![Demo Image3](Environment/Media/Demo/Demo3.png)
-![Demo Image4](Environment/Media/Demo/Demo4.png)
-![Demo Image5](Environment/Media/Demo/Demo5.png)
-![Demo Image6](Environment/Media/Demo/Demo6.png)
+![Demo Image0](Media/Demo/Demo0.png)
+![Demo Image1](Media/Demo/Demo1.png)
+![Demo Image2](Media/Demo/Demo2.png)
+![Demo Image3](Media/Demo/Demo3.png)
+![Demo Image4](Media/Demo/Demo4.png)
+![Demo Image5](Media/Demo/Demo5.png)
+![Demo Image6](Media/Demo/Demo6.png)
 
 ## Project Introduction 项目介绍
 The player is Hiccup, the protagonist of the movie How to Train Your Dragon, and the story takes place a few days before he and his dragon partner Toothless test fly. Players need to memorize the control methods on their flight notes, familiarize themselves with the flight route, and do their best during the test flight, while also dealing with unexpected changes such as high-altitude stalling and falling, strong winds blowing the cheat sheet away that players need to catch in mid-air with their controllers, unexpected fog obscuring vision, etc. The VR device enhances the immersion and sense of presence for this journey, and all OpenXR-compatible VR headsets can play it normally. The game also has both Chinese and English languages. Due to many errors that I couldn't solve when switching from Forward+ to compatibility mode, I had to give up many effects, so I highly recommend playing on Windows. Due to poor iteration, the game play and the controls are far less than ideal, but there is a mid-term save mechanism that can increase fault tolerance. For the upper limit of operation, a small achievement system is set up: complete Test Drive to get a level 1 silver badge; remain calm in the face of changes and still complete Test Drive according to the predetermined route to get a level 2 gold badge; complete Test Drive according to the predetermined route without crashing or loading at all to get a level 3 purple badge. \
@@ -121,11 +121,11 @@ Third-party assets for development used in this project are as follows:
   https://github.com/TokisanGames/Sky3D
 - `./Dragons/Gronckle/` \
   Gronckle model from https://models.spriters-resource.com/pc_computer/schoolofdragons/asset/330251/
-- `./Environment/Ocean/` \
+- `./Ocean/` \
   Skybox and ocean surface from https://github.com/2Retr0/GodotOceanWaves
-- `./Environment/Trees/` \
+- `./Trees/` \
   Trees from https://www.fab.com/listings/295bd6bb-7955-40c7-b344-17e289db73ea
-- `./Environment/Rocks/`   \
+- `./Rocks/`   \
   Rock textures and original models from Unity HDRP WaterScenes Demo sample project https://github.com/Unity-Technologies/WaterScenes, licensed under **Unity Package Distribution License v2.1**  
 - `./Image/paper.png` \
   Parchment image from Huaban https://huaban.com/pins/4028637372/

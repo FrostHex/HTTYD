@@ -1,0 +1,715 @@
+#include "Dragon_Pilot_Top.h"
+#include "Control_Camera.h"
+
+#include <godot_cpp/godot.hpp> // a wrapper for the Godot C++ API
+#include <godot_cpp/core/class_db.hpp> // class registration
+#include <godot_cpp/classes/input.hpp> // the input device
+#include <godot_cpp/classes/engine.hpp> // Engine class for checking editor hint
+#include <godot_cpp/variant/utility_functions.hpp> // used for printing info
+#include <godot_cpp/classes/rigid_body3d.hpp> // RigidBody3D for physics control
+#include <godot_cpp/classes/static_body3d.hpp> // StaticBody3D for static collision bodies
+#include <godot_cpp/variant/vector3.hpp> // Vector3 for velocity and position
+#include <godot_cpp/classes/input_event_action.hpp> // InputEventAction class
+#include <godot_cpp/classes/scene_tree.hpp> // SceneTree for get_tree()
+#include <godot_cpp/classes/window.hpp> // Window class for get_root()
+#include <cmath> // std::copysign, std::sqrt
+
+using namespace godot;
+
+
+/**
+ * @brief constructor
+ * @note use initialization list to initialize member variable state_current to STATE_DEFAULT
+ */
+Dragon_Pilot_Top::Dragon_Pilot_Top() : state_current(STATE_DEFAULT)
+{
+    set_physics_process(true);
+    
+    // initialize the state process function pointers in the array
+    state_process_funcs[STATE_DEFAULT] = &Dragon_Pilot_Top::ProcessDefault;
+    state_process_funcs[STATE_NOT_ANIMATED] = &Dragon_Pilot_Top::ProcessNotAnimated;
+    state_process_funcs[STATE_APPROACHING] = &Dragon_Pilot_Top::ProcessApproaching;
+    state_process_funcs[STATE_HIT_CLIFF] = &Dragon_Pilot_Top::ProcessHitCliff;
+    state_process_funcs[STATE_FALLING] = &Dragon_Pilot_Top::ProcessFalling;
+    state_process_funcs[STATE_CRISIS] = &Dragon_Pilot_Top::ProcessCrisis;
+    state_process_funcs[STATE_ROLLING] = &Dragon_Pilot_Top::ProcessRolling;
+    state_process_funcs[STATE_DISABLED] = &Dragon_Pilot_Top::ProcessDisabled;
+}
+
+
+/**
+ * @brief destructor
+ */
+Dragon_Pilot_Top::~Dragon_Pilot_Top() 
+{
+}
+
+
+/**
+ * @brief bind methods and properties to the Godot engine
+ * @note in order to use in GDScript or other scripts
+ * @note usually call register_method() and register_property() in this function to bind methods and properties
+ */
+void Dragon_Pilot_Top::_bind_methods()
+{
+    ClassDB::bind_method(D_METHOD("_on_body_entered", "body"), &Dragon_Pilot_Top::_on_body_entered);
+    ClassDB::bind_method(D_METHOD("GetState"), &Dragon_Pilot_Top::GetState);
+    ClassDB::bind_method(D_METHOD("SetState", "state_new"), &Dragon_Pilot_Top::SetState);
+    ClassDB::bind_method(D_METHOD("SetStatus_Deferred", "dragon_transform", "linear_velocity_input"), &Dragon_Pilot_Top::SetStatus_Deferred);
+    ClassDB::bind_method(D_METHOD("TriggerApproaching", "setting_angular", "target_position", "time_to_target"), &Dragon_Pilot_Top::TriggerApproaching);
+    ClassDB::bind_method(D_METHOD("SetClearToothlessRotation", "value"), &Dragon_Pilot_Top::SetClearToothlessRotation);
+    ClassDB::bind_method(D_METHOD("SetTargetRotation", "target_rotation"), &Dragon_Pilot_Top::SetTargetRotation);
+    ClassDB::bind_method(D_METHOD("SetVelocityAngular", "angular_velocity"), &Dragon_Pilot_Top::SetVelocityAngular);
+
+    // signal declaration
+    ADD_SIGNAL(MethodInfo("dragon_collision", PropertyInfo(Variant::OBJECT, "body"), PropertyInfo(Variant::FLOAT, "velocity")));
+    
+    // use godot macro (BIND_ENUM_CONSTANT) to bind enum values to the engine
+    BIND_ENUM_CONSTANT(STATE_DEFAULT);
+    BIND_ENUM_CONSTANT(STATE_NOT_ANIMATED);
+    BIND_ENUM_CONSTANT(STATE_APPROACHING);
+    BIND_ENUM_CONSTANT(STATE_HIT_CLIFF);
+    BIND_ENUM_CONSTANT(STATE_FALLING);
+    BIND_ENUM_CONSTANT(STATE_CRISIS);
+    BIND_ENUM_CONSTANT(STATE_ROLLING);
+    BIND_ENUM_CONSTANT(STATE_DISABLED); 
+}
+
+
+/**
+ * @brief get rigid body and animator node, set up initial properties, and enable contact monitoring
+ * @note called when the node and its children are initialized
+ */
+void Dragon_Pilot_Top::_ready() 
+{
+    if (Engine::get_singleton()->is_editor_hint()) // only proceed when the game is running
+    {
+        return;
+    }
+
+    dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
+    pivot_toothless = dragon_rb->get_node<Node3D>("SpeciesSlot");
+    camera_main = get_tree()->get_root()->get_node<Node3D>("Main/Camera_Main");
+    dragon_animator = get_parent()->get_node<Dragon_Animator>("Dragon_Animator");
+    dragon_rb->set_gravity_scale(0); // disable gravity
+    height_init = dragon_rb->get_global_transform().origin.y;
+    dragon_rb->set_contact_monitor(true); // enable contact monitoring and reporting
+    dragon_rb->set_max_contacts_reported(1); // set the maximum number of contacts reported to 1
+    dragon_rb->connect("body_entered", Callable(this, "_on_body_entered")); // connect the signal to the function
+    ctrl_camera = get_tree()->get_root()->get_node<Control_Camera>("Main/Control_Main/Control_Camera");
+    dragon_rb->set_linear_velocity(Vector3(0, 0, 0)); // set initial linear velocity to zero
+
+    // reparent all nodes under dragon_rb/SpeciesSlot/ToothlessRoot/CollisionShapes to dragon_rb
+    Node3D* collision_shapes = dragon_rb->get_node<Node3D>("SpeciesSlot/ToothlessRoot/CollisionShapes");
+    if (collision_shapes)
+    {
+        int child_count = collision_shapes->get_child_count();
+        for (int i = child_count - 1; i >= 0; --i)
+        {
+            Node* child = collision_shapes->get_child(i);
+            child->call_deferred("reparent", dragon_rb); // defer reparenting until the scene tree finishes current setup.
+        }
+    }
+    
+    pillar_hit_1 = Object::cast_to<Node3D>(get_parent()->get_parent()->get_node_or_null("Rocks/Area_Beginning/Rock_Pillar_B_15"));
+    pillar_hit_2 = Object::cast_to<Node3D>(get_parent()->get_parent()->get_node_or_null("Rocks/Area_Beginning/Rock_Pillar_B_18"));
+    if (pillar_hit_1 && pillar_hit_2) 
+    {
+        StaticBody3D* static_body_1 = pillar_hit_1->get_node<StaticBody3D>("StaticBody3D");
+        StaticBody3D* static_body_2 = pillar_hit_2->get_node<StaticBody3D>("StaticBody3D");
+        static_body_1->set_collision_layer(0);
+        static_body_2->set_collision_layer(0);
+        static_body_1->set_collision_mask(0);
+        static_body_2->set_collision_mask(0);
+    }
+}
+
+
+/**
+ * @brief called every physics frame
+ * @param delta time since last frame
+ * @note call the state processing function from the pointer array (state_process_funcs)
+ */
+void Dragon_Pilot_Top::_physics_process(double delta) 
+{
+    (this->*state_process_funcs[state_current])(delta);
+}
+
+
+/**
+ * @brief the default state processing function
+ * @param delta time since last frame
+ */
+void Dragon_Pilot_Top::ProcessDefault(double delta)
+{
+    GetInput(this->input_keys);
+    SetMotionLinear(delta);
+    SetMotionAngular(delta);
+    SetAnimation();
+}
+
+
+/**
+ * @brief the process function with default animation disabled
+ * @param delta time since last frame
+ */
+void Dragon_Pilot_Top::ProcessNotAnimated(double delta)
+{
+    GetInput(this->input_keys);
+    SetMotionLinear(delta);
+    SetMotionAngular(delta);
+}
+
+
+void Dragon_Pilot_Top::ProcessApproaching(double delta)
+{
+    ApproachTarget(setting_angular, true, &time_to_target, delta, &target_position, 0);
+    if (time_to_target <= 0.0f)
+    {
+        target_position = Vector3();
+    }
+    if (!setting_angular)
+    {
+        GetInput(this->input_keys);
+        SetMotionAngular(delta);
+    }
+    if (clear_pivot_rotation) 
+    {
+        Vector3 current_rotation = pivot_toothless->get_rotation();
+        if (current_rotation.x + current_rotation.y + current_rotation.z < 0.01f) 
+        {
+            pivot_toothless->set_rotation(Vector3(0, 0, 0));
+        }
+        else
+        {
+            pivot_toothless->set_rotation(current_rotation * 0.98f);
+        }
+        if (camera_main->get_position().x < 0.01f && camera_main->get_position().y < 0.01f)
+        {
+            camera_main->set_position(Vector3(0, 0, 0));
+            clear_pivot_rotation = false;
+        }
+        else 
+        {
+            clear_pivot_rotation = true;
+        }
+        camera_main->set_position(Vector3(camera_main->get_position().x * 0.98f, camera_main->get_position().y * 0.98f, 0));
+    }
+    if (approach_target_rotation)
+    {
+        Vector3 current_rotation = dragon_rb->get_rotation();
+        Vector3 delta_rotation = target_rotation - current_rotation;
+        for (int i = 0; i < 3; ++i) // wrap angles to [-PI, PI] for smooth interpolation
+        {
+            while (delta_rotation[i] > Math_PI) delta_rotation[i] -= 2 * Math_PI;
+            while (delta_rotation[i] < -Math_PI) delta_rotation[i] += 2 * Math_PI;
+        }
+        Vector3 new_rotation = current_rotation + delta_rotation * 2 * delta;
+        dragon_rb->set_rotation(new_rotation);
+        
+        if (delta_rotation.length() < 0.01f) // stop approaching if close enough
+        {
+            dragon_rb->set_rotation(target_rotation);
+            approach_target_rotation = false;
+        }
+    }
+}
+
+
+void Dragon_Pilot_Top::TriggerApproaching(bool setting_angular, Vector3 target_position, float time_to_target)
+{
+    this->setting_angular = setting_angular;
+    this->target_position = target_position;
+    this->time_to_target = time_to_target;
+    SetState(DragonState::STATE_APPROACHING);
+    if (setting_angular) 
+    {
+        p_gain = 0.0f;    
+    }
+    if (target_position.y > 1000.0f) 
+    {
+        velocity_clamp = 10000.0f;
+        p_gain = 0.5f;
+    }
+}
+
+
+/**
+ * @brief the cliff hit state processing function
+ * @param delta time since last frame
+ */
+void Dragon_Pilot_Top::ProcessHitCliff(double delta)
+{
+    if (target_position != Vector3())
+    {
+        // Handle pivot rotation based on distance
+        float target_distance = (target_position - dragon_rb->get_global_transform().origin).length() - 60;
+        if (target_distance <= cliff_distance_threshold)
+        {
+            float rotation_factor = (cliff_distance_threshold - target_distance) / cliff_distance_threshold;
+            Vector3 pivot_rotation = Vector3(0, 0, rotation_factor * Math_PI / 5.0f);
+            pivot_toothless->set_rotation(pivot_rotation);
+            // camera_main->set_position(Vector3(-rotation_factor, rotation_factor / 2, 0));
+        }
+        ApproachTarget(true, true, &time_to_target, delta, &target_position, 60);
+        if (time_to_target <= 0.0f) 
+        {
+            dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+            target_position = Vector3();
+            cliff_distance_threshold = -1000.0f;
+        }
+    }
+}
+
+
+/**
+ * @brief the falling state processing function
+ * @param delta time since last frame
+ */
+void Dragon_Pilot_Top::ProcessFalling(double delta)
+{
+    if (approach_target_rotation)
+    {
+        if (target_rotation == Vector3(-1, -1, -1)) 
+        {
+            Vector3 dragon_up = dragon_rb->get_global_transform().basis.get_column(1);
+            Vector3 error = dragon_up.cross(Vector3(0, -1, 0));
+            p_gain += delta * p_gain;
+            p_gain = p_gain > 5.0f ? 5.0f : p_gain;
+            Vector3 recovery_angular_velocity = error * p_gain;
+            dragon_rb->set_angular_velocity(recovery_angular_velocity);
+        }
+        else
+        {
+            Vector3 current_rotation = dragon_rb->get_rotation();
+            Vector3 delta_rotation = target_rotation - current_rotation;
+            for (int i = 0; i < 3; ++i) // wrap angles to [-PI, PI] for smooth interpolation
+            {
+                while (delta_rotation[i] > Math_PI) delta_rotation[i] -= 2 * Math_PI;
+                while (delta_rotation[i] < -Math_PI) delta_rotation[i] += 2 * Math_PI;
+            }
+            Vector3 new_rotation = current_rotation + delta_rotation * 2 * delta;
+            dragon_rb->set_rotation(new_rotation);
+            
+            if (delta_rotation.length() < 0.01f) // stop approaching if close enough
+            {
+                dragon_rb->set_rotation(target_rotation);
+                approach_target_rotation = false;
+            }
+        }
+    }
+
+
+    // GetInput(this->input_keys);
+    // SetMotionAngular(delta);
+
+    Vector3 linear_velocity_vector = dragon_rb->get_linear_velocity();
+    linear_velocity_vector -= Vector3(linear_velocity_vector.x * delta, 
+                                      3.0f * 9.8f * delta + linear_velocity_vector.y * 0.003f,
+                                      linear_velocity_vector.z * delta);
+    dragon_rb->set_linear_velocity(linear_velocity_vector);
+    linear_velocity = linear_velocity_vector.y;
+}
+
+
+/**
+ * @brief the crisis state processing function using PID control (proportional term only)
+ * @param delta time since last frame
+ */
+void Dragon_Pilot_Top::ProcessCrisis(double delta)
+{   
+    GetInput(this->input_keys);
+    SetMotionLinear(delta);
+    SetMotionAngularCrisis(delta);
+    SetAnimationCrisis();
+}
+
+
+void Dragon_Pilot_Top::ProcessRolling(double delta)
+{
+    dragon_animator->SetAnimation("layer_wing_tail", "po_right");
+    dragon_animator->SetAnimation("layer_wing_main", "po_dive");
+
+    if (rolled_angle < Math_TAU)
+    {
+        int rotation_speed = 7; 
+        Vector3 linear_velocity_vector = dragon_rb->get_linear_velocity();
+        // UtilityFunctions::print(dragon_rb->get_global_transform().basis.get_column(1).dot(Vector3(0, 1, 0))); // [-1, 1]
+        linear_velocity_vector += Vector3(0, 4, 0) * (dragon_rb->get_global_transform().basis.get_column(1).dot(Vector3(0, 1, 0)) - 1);
+        dragon_rb->set_linear_velocity(linear_velocity_vector);
+        dragon_rb->set_angular_velocity(dragon_rb->get_global_transform().basis.get_column(0) * rotation_speed);
+        rolled_angle += std::abs(rotation_speed * delta);
+    } 
+    else 
+    {
+        dragon_rb->set_angular_velocity(Vector3(0, 0, 0));
+        dragon_animator->SetAnimation("layer_wing_main", "po_glide");
+        SetState(DragonState::STATE_CRISIS);
+    }
+}
+
+
+/**
+ * @brief the disabled state processing function
+ * @param delta time since last frame
+ */
+void Dragon_Pilot_Top::ProcessDisabled(double delta)
+{
+    if (pivot_toothless->get_rotation()!= Vector3(0, 0, 0)) 
+    {
+        pivot_toothless->set_rotation(pivot_toothless->get_rotation() * 0.965f);
+    }
+}
+
+
+/**
+ * @brief control the dragon to approach a target position in given time
+ * @param setting_angular whether to make it face the target direction gradually
+ * @param setting_linear whether to make it able to reach the target position in given time (needs mannual direction adjustment if setting_angular is false)
+ * @param time_to_target pointer to the time left to reach the target position
+ * @param time_delta time since last frame
+ * @param target_position the target position to approach
+ * @param distance_offset the offset distance to the target position (positive means not actually reaching the target position)
+ */
+void Dragon_Pilot_Top::ApproachTarget(bool setting_angular, bool setting_linear, float* time_to_target, float time_delta, Vector3* target_position, int distance_offset)
+{
+    if (*target_position == Vector3())
+    {
+        return; 
+    }
+    Vector3 dragon_position = dragon_rb->get_global_transform().origin;
+    Vector3 target_direction = (*target_position - dragon_position).normalized();
+    if (setting_angular) 
+    {
+        Vector3 current_direction = dragon_rb->get_global_transform().basis.get_column(0);
+        Vector3 error = current_direction.cross(target_direction);
+        p_gain += time_delta * (p_gain + 0.2f);
+        p_gain = p_gain > 5.0f ? 5.0f : p_gain;
+        Vector3 angular_velocity = error * p_gain;
+        dragon_rb->set_angular_velocity(angular_velocity);
+    }
+    if (setting_linear) 
+    {
+        // if (!setting_angular) 
+        // {
+        //     target_direction = dragon_rb->get_global_transform().basis.get_column(0); 
+        // }
+        float target_distance = (*target_position - dragon_position).length() - distance_offset;
+        if (target_distance > 10.0f) 
+        {
+            float required_velocity = Math::clamp(target_distance / (*time_to_target), -velocity_clamp, velocity_clamp);
+            dragon_rb->set_linear_velocity(target_direction * required_velocity);
+        }
+        *time_to_target -= time_delta;
+    }
+}
+
+
+/**
+ * @brief setter for the dragon state
+ * @param state_new 
+ */
+void Dragon_Pilot_Top::SetState(DragonState state_new)
+{
+    switch (state_new) 
+    {
+        // case STATE_APPROACHING:
+        //     p_gain = 0.0f;
+        case STATE_HIT_CLIFF:
+            if (state_current == DragonState::STATE_APPROACHING) 
+            {
+                pivot_toothless->set_rotation(Vector3(0, 0, 0));
+                target_position = pillar_hit_1->get_global_transform().origin + DRAGON_HIT_CLIFF_HEIGHT * Vector3(0, 1, 0);
+                p_gain = 0.0f;
+                time_to_target = 6.4f;
+                cliff_distance_threshold = 400.0f;
+            }
+            else
+            {
+                target_position = pillar_hit_2->get_global_transform().origin + DRAGON_HIT_CLIFF_HEIGHT * Vector3(0, 1, 0);
+                p_gain = 0.0f; 
+                time_to_target = 3.4f;
+            }
+            break;
+        case STATE_DISABLED:
+            if (state_current == DragonState::STATE_CRISIS)
+            {
+                Vector3 vel = dragon_rb->get_linear_velocity();
+                dragon_rb->set_linear_velocity(Vector3(vel.x, 0, vel.z));
+                dragon_rb->set_angular_velocity(Vector3(0, 0, 0));
+            }
+            else
+            {
+                dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+                if (state_current == DragonState::STATE_DISABLED) 
+                {
+                    set_physics_process(false); 
+                }
+            }
+            break;
+        case STATE_FALLING:
+            p_gain = 0.015f; 
+            dragon_rb->set_linear_velocity(Vector3(0, dragon_rb->get_linear_velocity().y, 0));
+            approach_target_rotation = true;
+            target_rotation = Vector3(-1, -1, -1);
+            break;
+        case STATE_ROLLING:
+            rolled_angle = 0.0f; 
+            break;
+    }
+    state_current = state_new;
+    UtilityFunctions::print("Dragon state changed to: ", state_current);
+}
+
+/**
+ * @brief getter for the dragon state
+ * @return current state of the dragon
+ */
+DragonState Dragon_Pilot_Top::GetState() const
+{
+    return state_current;
+}
+
+
+/**
+ * @brief set linear velocity based on input keys and height difference
+ * @param delta time since last frame
+ * @note the minimum linear velocity is 3.0f
+ */
+void Dragon_Pilot_Top::SetMotionLinear(double delta) 
+{
+    linear_velocity_input += this->input_keys[0] * DRAGON_FACTOR_LINEAR * delta;
+    height_delta = height_init - dragon_rb->get_global_transform().origin.y;
+    linear_velocity = linear_velocity_input + std::copysign(1.0f, height_delta) * std::sqrt(19.6f * std::abs(height_delta));
+    if (linear_velocity < 3.0f) 
+    {
+        linear_velocity_input += 3.0f - linear_velocity;
+        linear_velocity = 3.0f;
+    }
+    Vector3 fwd = dragon_rb->get_global_transform().basis.get_column(0);
+    dragon_rb->set_linear_velocity(fwd * linear_velocity);
+}
+
+
+/**
+ * @brief set angular velocity based on input keys and dragon posture
+ * @param delta time since last frame
+ * @note roll and yaw are coupled
+ * @note when flying upside down, the dragon will tend to point its head towards the ground
+ */
+void Dragon_Pilot_Top::SetMotionAngular(double delta) 
+{
+    Basis basis = dragon_rb->get_global_transform().basis;
+    angular_velocity_buildup += basis.get_column(2) * this->input_keys[1] * DRAGON_FACTOR_PITCH * delta
+                              + basis.get_column(0) * this->input_keys[2] * DRAGON_FACTOR_ROLL * delta;
+    angular_velocity_buildup *= DRAGON_FACTOR_DAMPING;
+    float tilt = basis.get_column(2).dot(Vector3(0,1,0)); // local right vector dot global up vector
+    tilt = Math::clamp(tilt, -1.0f, 1.0f); // clamp tilt to [-1, 1]
+    Vector3 angular_velocity_posture = Vector3(0,1,0) * std::asin(tilt) * DRAGON_FACTOR_YAW * delta; // std::asin(tilt) is roll angle
+    tilt = basis.get_column(1).dot(Vector3(0,1,0)); // local up vector dot global up vector
+    if (tilt < 0.0f) 
+    {
+        Vector3 axis = basis.get_column(2); // local right vector
+        axis.y = 0.0f; // project to xz plane
+        if (axis.length() > 0.0f) 
+        {
+            axis = axis.normalized();
+        }
+        angular_velocity_posture -= axis * std::asin(tilt) * DRAGON_FACTOR_UPSIDE_DOWN;
+    }
+    dragon_rb->set_angular_velocity(angular_velocity_buildup + angular_velocity_posture);
+}
+
+
+/**
+ * @brief set animation based on dragon posture and input keys
+ */
+void Dragon_Pilot_Top::SetAnimation() 
+{
+    Basis basis = dragon_rb->get_global_transform().basis;
+    float tilt = basis.get_column(0).dot(Vector3(0,1,0)); // local forward vector dot global up vector
+    
+    if (tilt > DRAGON_FACTOR_GLIDE)    
+    {
+        dragon_animator->SetAnimation("layer_wing_main", "lo_up");
+    }
+    else if (tilt < -2 * DRAGON_FACTOR_GLIDE)
+    {
+        dragon_animator->SetAnimation("layer_wing_main", "po_dive");
+    }
+    else
+    {
+        if (input_keys[2] > 0.0f)
+        {
+            dragon_animator->SetAnimation("layer_wing_main", "po_right");
+        }
+        else if (input_keys[2] < 0.0f)
+        {
+            dragon_animator->SetAnimation("layer_wing_main", "po_left");
+        }
+        else
+        {
+            dragon_animator->SetAnimation("layer_wing_main", "po_glide");
+        }
+    }
+
+    if (input_keys[2] > 0.0f)
+    {
+        dragon_animator->SetAnimation("layer_wing_tail", "po_right");
+    }
+    else if (input_keys[2] < 0.0f)
+    {
+        dragon_animator->SetAnimation("layer_wing_tail", "po_left");
+    }
+    else
+    {
+        dragon_animator->SetAnimation("layer_wing_tail", "po_glide");
+    }
+}
+
+
+void Dragon_Pilot_Top::SetAnimationCrisis()
+{
+    Basis basis = dragon_rb->get_global_transform().basis;
+    float tilt_pitch = basis.get_column(0).dot(Vector3(0,1,0)); // local forward vector dot global up vector
+    float tilt_roll = basis.get_column(2).dot(Vector3(0,1,0)); // local right vector dot global up vector
+    if (tilt_pitch > DRAGON_FACTOR_GLIDE)    
+    {
+        dragon_animator->SetAnimation("layer_wing_main", "lo_up");
+    }
+    else if (tilt_pitch < - DRAGON_FACTOR_GLIDE)
+    {
+        dragon_animator->SetAnimation("layer_wing_main", "po_dive");
+    }
+    else
+    {
+        if (tilt_roll < - DRAGON_FACTOR_GLIDE / 3)
+        {
+            dragon_animator->SetAnimation("layer_wing_main", "po_right");
+        }
+        else if (tilt_roll > DRAGON_FACTOR_GLIDE / 3)
+        {
+            dragon_animator->SetAnimation("layer_wing_main", "po_left");
+        }
+        else
+        {
+            dragon_animator->SetAnimation("layer_wing_main", "po_glide");
+        }
+    }
+
+    if (tilt_roll < - DRAGON_FACTOR_GLIDE / 3)
+    {
+        dragon_animator->SetAnimation("layer_wing_tail", "po_right");
+    }
+    else if (tilt_roll > DRAGON_FACTOR_GLIDE / 3)
+    {
+        dragon_animator->SetAnimation("layer_wing_tail", "po_left");
+    }
+    else
+    {
+        dragon_animator->SetAnimation("layer_wing_tail", "po_glide");
+    }
+}
+
+
+void Dragon_Pilot_Top::SetTargetRotation(Vector3 target_rotation)
+{
+    this->target_rotation = target_rotation;
+    approach_target_rotation = true;
+}
+
+
+void Dragon_Pilot_Top::SetVelocityAngular(Vector3 angular_velocity)
+{
+    dragon_rb->set_angular_velocity(angular_velocity);
+    approach_target_rotation = false; // stop approaching the target rotation
+}
+
+
+/**
+ * @brief the getter for linear velocity
+ * @return the linear velocity of the dragon
+ */
+float Dragon_Pilot_Top::GetLinearVelocity()
+{
+    return linear_velocity;
+}
+
+
+/**
+ * @brief get the information for save file
+ * @return a dictionary containing different properties of the dragon
+ */
+Dictionary Dragon_Pilot_Top::GetStatus()
+{
+    Dictionary status_info;
+    status_info["dragon_state"] = state_current;
+    status_info["dragon_velocity_linear"] = linear_velocity;
+    Transform3D transform = dragon_rb->get_global_transform();
+    Vector3 euler = transform.basis.get_euler();
+    Array dragon_transform;
+    dragon_transform.push_back(transform.origin.x);
+    dragon_transform.push_back(transform.origin.y);
+    dragon_transform.push_back(transform.origin.z);
+    dragon_transform.push_back(euler.x);
+    dragon_transform.push_back(euler.y);
+    dragon_transform.push_back(euler.z);
+    status_info["dragon_transform"] = dragon_transform;
+    return status_info;
+}
+
+
+void Dragon_Pilot_Top::SetStatus(const Dictionary& status)
+{
+    if (status.has("dragon_state")) 
+    {
+        SetState(static_cast<DragonState>(static_cast<int>(status["dragon_state"])));
+    }
+    if (status.has("dragon_transform") && status.has("dragon_velocity_linear"))
+    {
+        call_deferred("SetStatus_Deferred", status["dragon_transform"], status["dragon_velocity_linear"]);
+    }
+}
+
+void Dragon_Pilot_Top::SetStatus_Deferred(const Array& dragon_transform, float linear_velocity_input)
+{
+    if (dragon_transform.size() >= 6)
+    {
+        Vector3 position = Vector3(static_cast<float>(dragon_transform[0]),static_cast<float>(dragon_transform[1]),static_cast<float>(dragon_transform[2]));
+        Vector3 rotation = Vector3(static_cast<float>(dragon_transform[3]),static_cast<float>(dragon_transform[4]),static_cast<float>(dragon_transform[5]));
+        dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+        dragon_rb->set_angular_velocity(Vector3(0, 0, 0));
+        Transform3D new_transform;
+        new_transform.basis = Basis::from_euler(rotation);
+        new_transform.origin = position;
+        dragon_rb->set_global_transform(new_transform);
+    }
+
+    dragon_rb->set_linear_velocity(Vector3(0, 0, 0));
+    this->linear_velocity_input = linear_velocity_input;
+    height_init = dragon_rb->get_global_transform().origin.y;
+    SetMotionLinear(0.0);
+}
+
+
+/**
+ * @brief the function to be called when a body enters the dragon's collision shape
+ * @param body the body that entered the collision shape
+ * @note this function is connected to the signal "body_entered" of the RigidBody3D node
+ */
+void Dragon_Pilot_Top::_on_body_entered(Node* body)
+{
+    UtilityFunctions::print("COLLISION DETECTED with: ", body->get_name(), " at velocity: ", linear_velocity);
+    emit_signal("dragon_collision", body, linear_velocity); // emit a signal to broadcast the collision event
+    Ref<InputEventAction> event;
+    event.instantiate();
+    event->set_action("load_state");
+    event->set_pressed(true);
+    Input::get_singleton()->parse_input_event(event);
+}
+
+
+void Dragon_Pilot_Top::SetClearToothlessRotation(bool value)
+{
+    clear_pivot_rotation = value;
+}

@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmp4elrtjke2y"]
+[gd_scene format=3 uid="uid://dmp4elrtjke2y"]
 
 [ext_resource type="Texture2D" uid="uid://nxqdv1m6j7pw" path="res://Environment/Ocean/assets/skybox.png" id="1_unsya"]
-[ext_resource type="Texture2D" uid="uid://dbk3xtf5w0l6k" path="res://Image/paper.png" id="2_paper"]
+[ext_resource type="Texture2D" uid="uid://dbk3xtf5w0l6k" path="res://Media/Image/paper.png" id="2_paper"]
 [ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="3_037q7"]
 [ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="4_exo1t"]
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragons/Dragon.tscn" id="5_exo1t"]

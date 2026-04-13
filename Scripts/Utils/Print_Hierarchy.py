@@ -15,7 +15,8 @@ EXCLUDE_NAMES = (
 
 # 定义只排除文件夹的名称元组（部分匹配，仅对文件夹生效）
 EXCLUDE_FOLDERS = (
-                    'Ocean', 'Cloud', 'Fog', 'Rocks', 'Mountain', 'Metal', 'Tree'
+                    'Ocean', 'Cloud', 'Fog', 'Rocks', 'Mountain', 'Metal', 'Tree',
+                    'Demo'
                   )
 
 # 当为True时，排除列表中的文件夹仍会显示名称但不递归；当为False时，文件夹完全隐藏
@@ -73,8 +74,8 @@ def tree(dir_path='./../../', prefix='', ignore_dot_folders=False):
             tree(path, prefix + extension, ignore_dot_folders)
 
 def output(text):
-    """将生成的文本输出到 DevNote.md 的 Project Hierarchy 代码块中"""
-    devnote_path = os.path.join(os.path.dirname(__file__), './../../DevNote.md')
+    """将生成的文本输出到 Documentation.md 的 Project Hierarchy 代码块中"""
+    devnote_path = os.path.join(os.path.dirname(__file__), './../../Documentation.md')
     devnote_path = os.path.normpath(devnote_path)
     
     try:

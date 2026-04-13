@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://co0lfw1xc5ds2"]
+[gd_scene format=3 uid="uid://co0lfw1xc5ds2"]
 
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragons/Dragon.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://dx4r13gqfh13" path="res://Scenes/Ocean.tscn" id="2_idj7w"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Rocks/Rocks_Imported.tscn" id="4_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://8fvlc7181mcm" path="res://Scenes/Mountain.tscn" id="4_rgh2o"]
 [ext_resource type="Material" uid="uid://bcw5plagb6daq" path="res://Environment/Fog/volumetric_fog.tres" id="5_v1gob"]
-[ext_resource type="AudioStream" uid="uid://lqe1phtle7us" path="res://Environment/Media/Test Drive.wav" id="7_jw32o"]
+[ext_resource type="AudioStream" uid="uid://lqe1phtle7us" path="res://Media/Audio/Test Drive.wav" id="7_jw32o"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rgh2o"]
 panorama = ExtResource("3_kln2b")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drg1ol84t4ys1"]
 
-[ext_resource type="VideoStream" uid="uid://buidgmw8u3jfg" path="res://Environment/Media/Test Drive.ogv" id="2_5sd71"]
+[ext_resource type="VideoStream" uid="uid://crihxuc2sps28" path="res://Media/Video/Test Drive.ogv" id="2_5sd71"]
 [ext_resource type="PackedScene" uid="uid://bqr0q0kq72smn" path="res://Scenes/Dragons/ToothlessRoot.tscn" id="2_ksog6"]
 
 [node name="Dragon" type="RigidBody3D" unique_id=446298809]
@@ -43,4 +43,4 @@ scale = Vector2(0.75, 0.75)
 stream = ExtResource("2_5sd71")
 volume_db = -80.0
 
-[node name="DragonAnimator" type="DragonAnimator" parent="." unique_id=685445812]
+[node name="Dragon_Animator" type="Dragon_Animator" parent="." unique_id=264884504]

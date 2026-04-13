@@ -1,0 +1,35 @@
+{
+  "configurations": [
+    {
+      "name": "windows-gcc-x64",
+      "includePath": [
+        "${workspaceFolder}/Scripts/**",
+        "${workspaceFolder}/Addons/godot-cpp/include",
+        "${workspaceFolder}/Addons/godot-cpp/gen/include",
+        "${workspaceFolder}/Addons/godot-cpp/gdextension"
+      ],
+      "compilerPath": "D:/Background_Programs/MinGW/bin/g++.exe",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-gcc-x64",
+      "defines": [
+        "WINDOWS_ENABLED",
+        "WIN32",
+        "_WIN32",
+        "TYPED_METHOD_BIND",
+        "DEBUG_ENABLED",
+        "DEBUG_METHODS_ENABLED"
+      ],
+      "browse": {
+        "path": [
+          "${workspaceFolder}/Scripts",
+          "${workspaceFolder}/Addons/godot-cpp/include",
+          "${workspaceFolder}/Addons/godot-cpp/gen/include",
+          "${workspaceFolder}/Addons/godot-cpp/gdextension"
+        ],
+        "limitSymbolsToIncludedHeaders": false
+      }
+    }
+  ],
+  "version": 4
+}
