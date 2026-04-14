@@ -32,13 +32,16 @@ The player is Hiccup, the protagonist of the movie How to Train Your Dragon, and
 - Godot v4.6.1-rc1
 - Godot-cpp
 
-## Quick Start
+## Quick Start for Development
 ```bash
 git clone https://github.com/FrostHex/HTTYD
 cd HTTYD
 git submodule update --init
 git clone -b godot-cpp-compiled --depth 1  https://github.com/FrostHex/HTTYD temp && mv temp/bin  temp/gen ./Addons/godot-cpp/ && rm -rf temp
 ```
+
+## Documentation
+[Documentation for the overall project structure](Documentation.md)
 
 ## Build Godot Cpp
 Reference: [Godot Cpp Docs](https://docs.godotengine.org/en/latest/tutorials/scripting/cpp/gdextension_cpp_example.html) \

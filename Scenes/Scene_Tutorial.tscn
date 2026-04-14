@@ -28,7 +28,6 @@ sdfgi_bounce_feedback = 1.0
 sdfgi_cascades = 5
 glow_enabled = true
 glow_intensity = 0.1
-glow_blend_mode = 1
 glow_hdr_threshold = 2.0
 fog_mode = 1
 fog_light_color = Color(0.272954, 0.419272, 0.484632, 1)
@@ -51,20 +50,20 @@ size = Vector2(4, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paper"]
 transparency = 1
+cull_mode = 2
 no_depth_test = true
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.9)
 albedo_texture = ExtResource("2_paper")
-cull_mode = 2
 
-[node name="Scene_Tutorial" type="Node3D"]
+[node name="Scene_Tutorial" type="Node3D" unique_id=531475763]
 
-[node name="Control_Scene_Tutorial" type="Control_Scene_Tutorial" parent="."]
+[node name="Control_Scene_Tutorial" type="Control_Scene_Tutorial" parent="." unique_id=1403988247]
 
-[node name="Environment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=388022254]
 environment = SubResource("Environment_7iq0u")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=202163140]
 transform = Transform3D(-0.6102881, 0.72855395, 0.31105894, 0.52890104, 0.08240829, 0.8446731, 0.5897561, 0.6800133, -0.4356257, 250, 1003.33, -2800)
 light_indirect_energy = 8.0
 shadow_enabled = true
@@ -77,12 +76,12 @@ directional_shadow_blend_splits = true
 directional_shadow_fade_start = 0.9
 directional_shadow_max_distance = 400.0
 
-[node name="TutorialPaper" type="MeshInstance3D" parent="."]
+[node name="TutorialPaper" type="MeshInstance3D" parent="." unique_id=1406181536]
 transform = Transform3D(-4.371139e-09, 0.025881905, -0.09659258, 0, 0.09659258, 0.025881905, 0.1, 1.131334e-09, -4.222196e-09, 0.8, 10.65, 0)
 mesh = SubResource("QuadMesh_paper")
 surface_material_override/0 = SubResource("StandardMaterial3D_paper")
 
-[node name="TutorialText" type="Label3D" parent="TutorialPaper"]
+[node name="TutorialText" type="Label3D" parent="TutorialPaper" unique_id=878382275]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
 pixel_size = 0.0065
 modulate = Color(0.2, 0.2, 0.2, 1)
@@ -92,7 +91,7 @@ outline_size = 2
 autowrap_mode = 3
 width = 380.0
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=1909049662]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,7 +99,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button_Back" type="Button" parent="UI"]
+[node name="Button_Back" type="Button" parent="UI" unique_id=60459288]
 layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -111,10 +110,10 @@ offset_bottom = -20.0
 grow_vertical = 0
 text = "Back"
 
-[node name="Ground" type="MeshInstance3D" parent="."]
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=1915843551]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.65, 9.5, 0)
 material_override = ExtResource("3_037q7")
 mesh = ExtResource("4_exo1t")
 
-[node name="Dragon" parent="." instance=ExtResource("5_exo1t")]
+[node name="Dragon" parent="." unique_id=1086856855 instance=ExtResource("5_exo1t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)

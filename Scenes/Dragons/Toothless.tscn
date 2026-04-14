@@ -21,31 +21,27 @@ shader_parameter/albedo_color = Vector3(1, 1, 1)
 shader_parameter/brightness = 0.18
 shader_parameter/saturation = 1.3
 
-[node name="Toothless" unique_id=66123730 instance=ExtResource("1_p38ud")]
+[node name="Toothless" unique_id=432467584 instance=ExtResource("1_p38ud")]
 
-[node name="Skeleton3D" parent="rig" parent_id_path=PackedInt32Array(1376484341) index="0" unique_id=1005535370]
-bones/61/rotation = Quaternion(0.118383, 0, 0, 0.99991)
-bones/62/rotation = Quaternion(0.367178, -0.395, 0.25, 0.99974)
-
-[node name="cheat_sheet" parent="rig/Skeleton3D" index="1" unique_id=1949712988]
+[node name="cheat_sheet" parent="rig/Skeleton3D" parent_id_path=PackedInt32Array(1456195688) index="1" unique_id=681794358]
 material_override = SubResource("ShaderMaterial_om2xn")
 
-[node name="eye_L" parent="rig/Skeleton3D" index="3" unique_id=646746251]
+[node name="eye_L" parent="rig/Skeleton3D" parent_id_path=PackedInt32Array(1456195688) index="3" unique_id=860789365]
 material_override = ExtResource("4_v1amr")
 lod_bias = 100.0
 
-[node name="eye_R" parent="rig/Skeleton3D" index="4" unique_id=1521018594]
+[node name="eye_R" parent="rig/Skeleton3D" parent_id_path=PackedInt32Array(1456195688) index="4" unique_id=1471297224]
 material_override = ExtResource("4_v1amr")
 lod_bias = 100.0
 
-[node name="eyelid" parent="rig/Skeleton3D" index="5" unique_id=1728744816]
+[node name="eyelid" parent="rig/Skeleton3D" parent_id_path=PackedInt32Array(1456195688) index="5" unique_id=497857981]
 lod_bias = 100.0
 
-[node name="metal" parent="rig/Skeleton3D" index="9" unique_id=239700090]
+[node name="metal" parent="rig/Skeleton3D" parent_id_path=PackedInt32Array(1456195688) index="9" unique_id=1909759279]
 surface_material_override/0 = ExtResource("2_ihx0x")
 
-[node name="pedal" parent="rig/Skeleton3D" index="12" unique_id=239374461]
+[node name="pedal" parent="rig/Skeleton3D" parent_id_path=PackedInt32Array(1456195688) index="12" unique_id=250676421]
 surface_material_override/0 = ExtResource("2_ihx0x")
 
-[node name="tail_wing_stick" parent="rig/Skeleton3D" index="19" unique_id=860342054]
+[node name="tail_wing_stick" parent="rig/Skeleton3D" parent_id_path=PackedInt32Array(1456195688) index="19" unique_id=1643839697]
 surface_material_override/0 = ExtResource("2_ihx0x")

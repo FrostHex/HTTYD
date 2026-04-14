@@ -167,4 +167,3 @@ TODO:
 - 试试ik
 - 牙的牙穿模怎么回事
 - 试试新的体积云
-- 切换到ToothlessRoot报错  ERROR: Can't add animation library twice with name: 

@@ -406,7 +406,7 @@ node_connections = [&"output", 0, &"add_ear", &"add_ear", 0, &"add_shake", &"add
 
 [node name="Model" type="Node3D" parent="." unique_id=1731741476]
 
-[node name="Toothless" parent="Model" unique_id=1962640867 instance=ExtResource("1_7i38g")]
+[node name="Toothless" parent="Model" unique_id=66123730 instance=ExtResource("1_7i38g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33, -1.3, 0)
 
 [node name="Sockets" type="Node3D" parent="." unique_id=1818966802]
