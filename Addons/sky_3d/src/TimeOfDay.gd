@@ -23,6 +23,7 @@ var _previous_hour: int = -1
 const HOURS_PER_DAY: int = 24
 const RADIANS_PER_HOUR: float = PI / 12.0
 const HALFPI: float = PI / 2.0
+const CUSTOMIZED_PATCH: Script = preload("res://Addons/sky_3d/src/CustomizedPatch.gd")
 
 
 func _init() -> void:
@@ -311,21 +312,21 @@ enum CelestialMode { SIMPLE, REALISTIC }
 
 
 ## The observer's position on Earth, north or south of the equator (0°=equator, +90°=North Pole, -90°=South Pole). 
-@export_range(-90, 90, 0.00001, "radians_as_degrees") var latitude: float = deg_to_rad(16.) :
+@export_range(-90, 90, 0.00001, "radians_as_degrees") var latitude: float = deg_to_rad(39.8333333333) :
 	set(value):
 		latitude = value
 		_update_celestial_coords()
 
 
 ## The observer's position on Earth, east or west of the prime meridian (0°=Greenwich, +180°=International Date Line). 
-@export_range(-180, 180, 0.00001, "radians_as_degrees") var longitude: float = deg_to_rad(108.) :
+@export_range(-180, 180, 0.00001, "radians_as_degrees") var longitude: float = deg_to_rad(116.) :
 	set(value):
 		longitude = value
 		_update_celestial_coords()
 
 
 ## Specifies the time zone offset from UTC in hours to adjust local time calculations.
-@export_range(-12,14,.25) var utc: float = 7.0 :
+@export_range(-12,14,.25) var utc: float = 8.0 :
 	set(value):
 		utc = value
 		_update_celestial_coords()
@@ -380,11 +381,14 @@ func _update_celestial_coords() -> void:
 	if not _sky_dome:
 		return
 
+	var sun_altitude: float = _sky_dome.sun_altitude
+	var sun_azimuth: float = _sky_dome.sun_azimuth
+
 	match celestials_calculations:
 		CelestialMode.SIMPLE:
 			_compute_simple_sun_coords()
-			_sky_dome.sun_altitude = _sun_coords.y
-			_sky_dome.sun_azimuth = _sun_coords.x
+			sun_altitude = _sun_coords.y
+			sun_azimuth = _sun_coords.x
 			if compute_moon_coords:
 				_compute_simple_moon_coords()
 				_sky_dome.moon_altitude = _moon_coords.y
@@ -396,8 +400,8 @@ func _update_celestial_coords() -> void:
 		
 		CelestialMode.REALISTIC:
 			_compute_realistic_sun_coords()
-			_sky_dome.sun_altitude = -_sun_coords.y
-			_sky_dome.sun_azimuth = -_sun_coords.x
+			sun_altitude = -_sun_coords.y
+			sun_azimuth = -_sun_coords.x
 			if compute_moon_coords:
 				_compute_realistic_moon_coords()
 				_sky_dome.moon_altitude = -_moon_coords.y
@@ -407,6 +411,19 @@ func _update_celestial_coords() -> void:
 				if _sky_dome.is_scene_built:
 					_sky_dome.sky_material.set_shader_parameter("star_tilt", latitude - HALFPI)
 					_sky_dome.sky_material.set_shader_parameter("star_rotation", -_local_sideral_time)
+
+	sun_altitude = CUSTOMIZED_PATCH.compute_sun_altitude_from_sunrise_sunset(
+		current_time,
+		year,
+		month,
+		day,
+		rad_to_deg(latitude),
+		rad_to_deg(longitude),
+		utc,
+		sun_altitude
+	)
+	_sky_dome.sun_altitude = sun_altitude
+	_sky_dome.sun_azimuth = sun_azimuth
 	_sky_dome.update_moon_coords()
 
 

@@ -175,6 +175,47 @@ var game_time: String = "" :
 		return tod.update_interval if tod else update_interval
 
 
+var _location_sync_guard: bool = false
+const LOCATION_DEFAULT_LATITUDE: float = 39.8333333333
+const LOCATION_DEFAULT_LONGITUDE: float = 116.0
+const LOCATION_DEFAULT_TIMEZONE: float = 8.0
+var _latitude_value: float = LOCATION_DEFAULT_LATITUDE
+var _longitude_value: float = LOCATION_DEFAULT_LONGITUDE
+var _timezone_value: float = LOCATION_DEFAULT_TIMEZONE
+
+@export_group("Location")
+
+
+## The observer's latitude in degrees. Positive is north, negative is south.
+@export_range(-90.0, 90.0, 0.00001) var latitude: float = LOCATION_DEFAULT_LATITUDE :
+	set(value):
+		_latitude_value = clampf(value, -90.0, 90.0)
+		if tod and not _location_sync_guard:
+			tod.latitude = deg_to_rad(_latitude_value)
+	get:
+		return _latitude_value
+
+
+## The observer's longitude in degrees. Positive is east, negative is west.
+@export_range(-180.0, 180.0, 0.00001) var longitude: float = LOCATION_DEFAULT_LONGITUDE :
+	set(value):
+		_longitude_value = clampf(value, -180.0, 180.0)
+		if tod and not _location_sync_guard:
+			tod.longitude = deg_to_rad(_longitude_value)
+	get:
+		return _longitude_value
+
+
+## The timezone offset from UTC in hours.
+@export_range(-12.0, 14.0, 0.25) var timezone: float = LOCATION_DEFAULT_TIMEZONE :
+	set(value):
+		_timezone_value = clampf(value, -12.0, 14.0)
+		if tod and not _location_sync_guard:
+			tod.utc = _timezone_value
+	get:
+		return _timezone_value
+
+
 ## Returns true if the sun is above the horizon.
 func is_day() -> bool:
 	return sky and sky.is_day()
@@ -456,6 +497,47 @@ func _start_sky_contrib_tween(daytime: bool = is_day()) -> void:
 #####################
 
 
+func _apply_location_to_tod() -> void:
+	if not tod:
+		return
+	tod.latitude = deg_to_rad(latitude)
+	tod.longitude = deg_to_rad(longitude)
+	tod.utc = timezone
+
+
+func _sync_location_from_tod() -> void:
+	if not tod:
+		return
+	_location_sync_guard = true
+	latitude = rad_to_deg(tod.latitude)
+	longitude = rad_to_deg(tod.longitude)
+	timezone = tod.utc
+	_location_sync_guard = false
+
+
+func _is_location_default_on_sky3d() -> bool:
+	return is_equal_approx(latitude, LOCATION_DEFAULT_LATITUDE) and \
+		is_equal_approx(longitude, LOCATION_DEFAULT_LONGITUDE) and \
+		is_equal_approx(timezone, LOCATION_DEFAULT_TIMEZONE)
+
+
+func _should_import_location_from_tod() -> bool:
+	if not tod:
+		return false
+	if not _is_location_default_on_sky3d():
+		return false
+
+	var tod_latitude_deg: float = rad_to_deg(tod.latitude)
+	var tod_longitude_deg: float = rad_to_deg(tod.longitude)
+	var tod_timezone: float = tod.utc
+
+	return not (
+		is_equal_approx(tod_latitude_deg, LOCATION_DEFAULT_LATITUDE) and
+		is_equal_approx(tod_longitude_deg, LOCATION_DEFAULT_LONGITUDE) and
+		is_equal_approx(tod_timezone, LOCATION_DEFAULT_TIMEZONE)
+	)
+
+
 func _notification(what: int) -> void:
 	# Must be after _init and before _enter_tree to properly set vars like 'sky' for setters
 	if what in [ NOTIFICATION_SCENE_INSTANTIATED, NOTIFICATION_ENTER_TREE ]:
@@ -523,7 +605,8 @@ func _initialize() -> void:
 		sky.moon_light_path = "../MoonLight"
 		sky.environment = environment
 
-	if has_node("TimeOfDay"):
+	var had_tod_node: bool = has_node("TimeOfDay")
+	if had_tod_node:
 		tod = $TimeOfDay
 	elif is_inside_tree():
 		tod = TimeOfDay.new()
@@ -531,6 +614,12 @@ func _initialize() -> void:
 		add_child(tod, true)
 		tod.owner = get_tree().edited_scene_root
 		tod.dome_path = "../SkyDome"
+
+	if tod:
+		if had_tod_node and _should_import_location_from_tod():
+			_sync_location_from_tod()
+		_apply_location_to_tod()
+
 	if sky and not sky.day_night_changed.is_connected(_start_sky_contrib_tween):
 		sky.day_night_changed.connect(_start_sky_contrib_tween)
 

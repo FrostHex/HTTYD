@@ -128,6 +128,8 @@ Third-party assets for development used in this project are as follows:
   Skybox and ocean surface from https://github.com/2Retr0/GodotOceanWaves
 - `./Trees/` \
   Trees from https://www.fab.com/listings/295bd6bb-7955-40c7-b344-17e289db73ea
+- `./Scripts/Utils/sunset-1.1.7/` \
+  Sunset and sunrise time calculation library from https://github.com/buelowp/sunset
 - `./Rocks/`   \
   Rock textures and original models from Unity HDRP WaterScenes Demo sample project https://github.com/Unity-Technologies/WaterScenes, licensed under **Unity Package Distribution License v2.1**  
 - `./Image/paper.png` \

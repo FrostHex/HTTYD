@@ -5,9 +5,8 @@ from SCons.Script import DefaultEnvironment  # type: ignore
 # e.g. #include "GameTimer.h" even after folder restructuring.
 dynamic_includes = []
 for root, dirs, _files in os.walk(".."):
-    # Skip the build directory and its descendants.
-    if "build" in dirs:
-        dirs.remove("build")
+    # Skip build and test directories and their descendants.
+    dirs[:] = [d for d in dirs if d != "build" and d.lower() != "test"]
     dynamic_includes.append(f"#{root}")
 
 # Keep order stable and remove duplicates.
@@ -36,8 +35,7 @@ variant_root = "obj"
 # collect all .cpp files in Scripts directory and build flattened object targets
 objects = []
 for root, dirs, files in os.walk(".."):
-    if "build" in dirs:
-        dirs.remove("build")
+    dirs[:] = [d for d in dirs if d != "build" and d.lower() != "test"]
     rel_root = os.path.relpath(root, "..")
     for f in files:
         if f.endswith(".cpp"):

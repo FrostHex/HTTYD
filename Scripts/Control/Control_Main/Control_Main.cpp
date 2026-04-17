@@ -7,6 +7,7 @@
 #include "CheatSheet.h"
 #include "GameTimer.h"
 #include "SaveManager.h"
+#include "SunsetBridge.h"
 #include "Dragon_Pilot_Keyboard.h"
 #include "Dragon_Pilot_Joystick.h"
 #include "Dragon_Pilot_Dodge.h"
@@ -391,6 +392,7 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
             godot::ClassDB::register_class<GameTimer>();
             godot::ClassDB::register_class<CheatSheet>();
             godot::ClassDB::register_class<SaveManager>();
+            godot::ClassDB::register_class<SunsetBridge>();
         }
     });
     obj.set_minimum_library_initialization_level(godot::MODULE_INITIALIZATION_LEVEL_SCENE);
