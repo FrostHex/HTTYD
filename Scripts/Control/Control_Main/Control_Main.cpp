@@ -3,6 +3,7 @@
 #include "Control_Scene_TD.h"
 #include "Control_Scene_Practice.h"
 #include "Control_Scene_Tutorial.h"
+#include "Control_Scene_Dodge.h"
 #include "Dragon_Animator.h"
 #include "CheatSheet.h"
 #include "GameTimer.h"
@@ -383,6 +384,7 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
             godot::ClassDB::register_class<Control_Scene_Practice>();
             godot::ClassDB::register_class<Control_Scene_Tutorial>();
             godot::ClassDB::register_class<Control_Scene_Home>();
+            godot::ClassDB::register_class<Control_Scene_Dodge>();
             godot::ClassDB::register_abstract_class<Dragon_Pilot_Top>();
             godot::ClassDB::register_class<Dragon_Pilot_Keyboard>();
             godot::ClassDB::register_class<Dragon_Pilot_Joystick>();

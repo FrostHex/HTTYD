@@ -424,7 +424,8 @@ func _update_celestial_coords() -> void:
 	)
 	_sky_dome.sun_altitude = sun_altitude
 	_sky_dome.sun_azimuth = sun_azimuth
-	_sky_dome.update_moon_coords()
+	if _sky_dome.is_inside_tree():
+		_sky_dome.update_moon_coords()
 
 
 func _compute_simple_sun_coords() -> void:

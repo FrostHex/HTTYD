@@ -101,6 +101,10 @@ limits/debugger/max_chars_per_second=2147483647
 3d/default_linear_damp=0.0
 3d/default_angular_damp=0.0
 
+[rendering]
+
+lights_and_shadows/use_physical_light_units=true
+
 [shader_globals]
 
 displacements={

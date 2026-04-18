@@ -13,7 +13,6 @@
 #include <godot_cpp/classes/texture_rect.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
 #include <godot_cpp/classes/texture2d.hpp>
-#include <godot_cpp/classes/time.hpp>
 
 using namespace godot;
 
@@ -24,23 +23,6 @@ Control_Scene_Home::Control_Scene_Home()
 
 void Control_Scene_Home::_ready()
 {
-    // Hook into Sky3D TimeOfDay so home scene can track and initialize sky time.
-    Node *scene_root = get_parent();
-    if (scene_root)
-    {
-        time_of_day = scene_root->get_node_or_null(NodePath("Sky3D/TimeOfDay"));
-        if (time_of_day)
-        {
-            SyncSkyTime();
-            _connect_sky_signals();
-        }
-        else
-        {
-            UtilityFunctions::printerr("Control_Scene_Home: Could not find Sky3D/TimeOfDay");
-        }
-    }
-
-
     if (Engine::get_singleton()->is_editor_hint()) // only proceed when the game is running
     {
         return;
@@ -180,50 +162,6 @@ Control_Scene_Home::~Control_Scene_Home()
 {
 }
 
-void Control_Scene_Home::_connect_sky_signals()
-{
-    if (!time_of_day)
-    {
-        return;
-    }
-
-    Callable on_time_changed = Callable(this, "_on_sky_time_changed");
-    if (!time_of_day->is_connected("time_changed", on_time_changed))
-    {
-        time_of_day->connect("time_changed", on_time_changed);
-    }
-}
-
-void Control_Scene_Home::SyncSkyTime()
-{
-    if (!time_of_day)
-    {
-        return;
-    }
-
-    Time *time_singleton = Time::get_singleton();
-    if (!time_singleton)
-    {
-        UtilityFunctions::printerr("Control_Scene_Home: Time singleton is unavailable");
-        return;
-    }
-
-    Dictionary datetime_dict = time_singleton->get_datetime_dict_from_system(false);
-    if (time_of_day->has_method("set_from_datetime_dict"))
-    {
-        time_of_day->call("set_from_datetime_dict", datetime_dict);
-    }
-    else
-    {
-        time_of_day->set("year", datetime_dict["year"]);
-        time_of_day->set("month", datetime_dict["month"]);
-        time_of_day->set("day", datetime_dict["day"]);
-        if (time_of_day->has_method("set_time"))
-        {
-            time_of_day->call("set_time", datetime_dict["hour"], datetime_dict["minute"], datetime_dict["second"]);
-        }
-    }
-}
 
 void Control_Scene_Home::_on_sky_time_changed(double value)
 {

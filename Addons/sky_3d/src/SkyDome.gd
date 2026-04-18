@@ -412,7 +412,7 @@ var moon_light_enabled: bool = true:
 
 ## Updates moon position and lighting calculations
 func update_moon_coords() -> void:
-	if !is_scene_built:
+	if !is_scene_built or !is_inside_tree():
 		return
 	
 	if _moon_light_node:
@@ -421,9 +421,10 @@ func update_moon_coords() -> void:
 	_moon_transform.origin = TOD_Math.spherical_to_cartesian(moon_altitude, moon_azimuth)
 	# Transform with Vector3.Left which puts the slight gimbal lock on the horizon. Up puts it at the zenith.
 	_moon_transform = _moon_transform.looking_at(Vector3.ZERO, Vector3.LEFT)
-	
-	var moon_basis: Basis = get_parent().moon.get_global_transform().basis.inverse()
-	sky_material.set_shader_parameter("moon_matrix", moon_basis)
+
+	if _moon_light_node and _moon_light_node.is_inside_tree():
+		var moon_basis: Basis = _moon_light_node.get_global_transform().basis.inverse()
+		sky_material.set_shader_parameter("moon_matrix", moon_basis)
 	fog_material.set_shader_parameter("moon_direction", _moon_transform.origin)
 	if _moon_light_node:
 		_moon_light_node.transform = _moon_transform

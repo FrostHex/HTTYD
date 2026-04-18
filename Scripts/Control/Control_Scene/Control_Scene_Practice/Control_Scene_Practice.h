@@ -11,6 +11,7 @@
 #include <godot_cpp/classes/input_event.hpp>
 #include "Dragon_Animator.h"
 #include "Control_Camera.h"
+#include "Control_Top.h"
 #include "Dragon_Pilot_Joystick.h"
 #include "Dragon_Pilot_Keyboard.h"
 
@@ -20,7 +21,7 @@ namespace godot
 
     class Control_Main;
 
-    class Control_Scene_Practice : public Node 
+    class Control_Scene_Practice : public Control_Top 
     {
         GDCLASS(Control_Scene_Practice, Node)
 

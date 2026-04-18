@@ -12,19 +12,20 @@
 #include <godot_cpp/classes/viewport_texture.hpp>
 #include <godot_cpp/classes/sub_viewport.hpp>
 #include <godot_cpp/classes/sub_viewport_container.hpp>
+#include "Control_Top.h"
 
 namespace godot
 {
     class Control_Main;
 
-    class Control_Scene_Home : public Node
+    class Control_Scene_Home : public Control_Top
     {
         GDCLASS(Control_Scene_Home, Node);
 
         public:
             Control_Scene_Home();
             ~Control_Scene_Home();
-            void _ready();
+            void _ready() override;
 
         protected:
             static void _bind_methods();
@@ -40,8 +41,6 @@ namespace godot
             void _on_sub_view_toggled(bool pressed);
             void _on_debug_toggled(bool pressed);
             void _on_sky_time_changed(double value);
-            void _connect_sky_signals();
-            void SyncSkyTime();
             void _update_button_texts(); // Helper function to update button texts
             void _update_badge_display(); // Helper function to update badge display
             String _get_json_text(const String& key, const String& fallback = ""); // Helper function to get text from JSON

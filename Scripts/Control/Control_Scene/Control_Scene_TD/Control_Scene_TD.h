@@ -6,6 +6,7 @@
 #include <godot_cpp/core/binder_common.hpp>
 #include <godot_cpp/classes/audio_stream_player.hpp>
 #include <godot_cpp/classes/video_stream_player.hpp>
+#include "Control_Top.h"
 #include "Dragon_Animator.h"
 #include "CheatSheet.h"
 #include "GameTimer.h"
@@ -15,7 +16,7 @@ namespace godot
 {
     class Control_Main; // Forward declaration
 
-    class Control_Scene_TD : public Node 
+    class Control_Scene_TD : public Control_Top 
     {
         GDCLASS(Control_Scene_TD, Node);
 
