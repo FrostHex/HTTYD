@@ -158,8 +158,8 @@ func process_tick(delta: float) -> void:
 @export var horizon_offset: float = 0.0 :
 	set(value):
 		horizon_offset = value
-		if is_scene_built:
-			sky_material.set_shader_parameter("horizon_offset", horizon_offset)
+		# if is_scene_built:
+		# 	sky_material.set_shader_parameter("horizon_offset", horizon_offset)
 
 
 func _update_color_correction() -> void:
@@ -364,8 +364,8 @@ func _update_sun_light_energy() -> void:
 @export_range(0., .999) var moon_size: float = 0.07 :
 	set(value):
 		moon_size = value
-		if is_scene_built:
-			sky_material.set_shader_parameter("moon_size", moon_size)
+		# if is_scene_built:
+		# 	sky_material.set_shader_parameter("moon_size", moon_size)
 
 
 ## The moon's surface texture

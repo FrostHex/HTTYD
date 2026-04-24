@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dx4r13gqfh13"]
+[gd_scene format=3 uid="uid://dx4r13gqfh13"]
 
 [ext_resource type="Script" uid="uid://bap0ysmcgyau1" path="res://Environment/Ocean/main.gd" id="1_skarq"]
 [ext_resource type="Script" uid="uid://6xfm4e44ag2c" path="res://Environment/Ocean/assets/water/wave_cascade_parameters.gd" id="2_pw5n6"]
@@ -55,11 +55,11 @@ shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_tsx6q")
 
 [sub_resource type="QuadMesh" id="QuadMesh_06d3e"]
 
-[node name="Ocean" type="Node3D"]
+[node name="Ocean" type="Node3D" unique_id=1785487420]
 script = ExtResource("1_skarq")
 
-[node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 15, 0, -23)
+[node name="Water" type="MeshInstance3D" parent="." unique_id=1182466937]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 7841, 0, -775)
 sorting_offset = 999.0
 material_override = ExtResource("5_lt75t")
 cast_shadow = 0
@@ -71,7 +71,7 @@ water_color = Color(0.140394, 0.202932, 0.240471, 1)
 parameters = Array[ExtResource("2_pw5n6")]([SubResource("Resource_adqv5"), SubResource("Resource_luhq0"), SubResource("Resource_83u3u")])
 updates_per_second = 30.0
 
-[node name="WaterSprayEmitter" type="GPUParticles3D" parent="Water"]
+[node name="WaterSprayEmitter" type="GPUParticles3D" parent="Water" unique_id=1450573165]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_ds3o1")
 cast_shadow = 0
@@ -80,15 +80,15 @@ lifetime = 6.0
 process_material = ExtResource("9_skbf4")
 draw_pass_1 = SubResource("QuadMesh_06d3e")
 
-[node name="OceanAudioPlayer" type="AudioStreamPlayer" parent="."]
+[node name="OceanAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=684955919]
 stream = ExtResource("6_jpklm")
 volume_db = 15.0
 
-[node name="WindAudioPlayer" type="AudioStreamPlayer" parent="."]
+[node name="WindAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1027451691]
 stream = ExtResource("8_6r5si")
 volume_db = -30.0
 
-[node name="Water_Background" type="MeshInstance3D" parent="."]
+[node name="Water_Background" type="MeshInstance3D" parent="." unique_id=803456864]
 transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, -11, 0)
 material_override = ExtResource("11_8j5el")
 mesh = ExtResource("5_n61pp")

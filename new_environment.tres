@@ -1,0 +1,43 @@
+[gd_resource type="Environment" format=3 uid="uid://coamklw6dmb7u"]
+
+[ext_resource type="Texture2D" uid="uid://nxqdv1m6j7pw" path="res://Environment/Ocean/assets/skybox.png" id="1_40vc6"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rgh2o"]
+panorama = ExtResource("1_40vc6")
+
+[sub_resource type="Sky" id="Sky_urilc"]
+sky_material = SubResource("PanoramaSkyMaterial_rgh2o")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_urilc")
+ambient_light_color = Color(1, 1, 1, 1)
+tonemap_mode = 3
+tonemap_exposure = 0.8
+tonemap_white = 6.0
+ssao_enabled = true
+ssao_power = 3.0
+ssao_sharpness = 1.0
+ssao_light_affect = 1.0
+ssao_ao_channel_affect = 1.0
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.0
+sdfgi_cascades = 5
+glow_enabled = true
+glow_intensity = 0.1
+glow_hdr_threshold = 2.0
+fog_mode = 1
+fog_light_color = Color(0.272954, 0.419272, 0.484632, 1)
+fog_sun_scatter = 0.05
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_curve = 0.25
+fog_depth_begin = 200.0
+fog_depth_end = 350.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 20000.0
+adjustment_enabled = true
+adjustment_brightness = 0.85
+adjustment_contrast = 1.07
+adjustment_saturation = 1.5
