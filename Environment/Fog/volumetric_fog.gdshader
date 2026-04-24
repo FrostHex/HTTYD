@@ -5,6 +5,7 @@ uniform float base_density: hint_range(0, 1) = 0.8;
 uniform vec3 base_color: source_color;
 uniform float fade_out_height = 2.0;
 uniform float fade_out_distance = 1.5;
+uniform float emission_strength: hint_range(0.0, 2.0) = 0.0;
 
 /* gradient_noise_3d.gdshaderinc */
 // The MIT License
@@ -20,4 +21,5 @@ void fog() {
 	DENSITY = base_density;
 	DENSITY *= 1.0 - smoothstep(fade_out_height, fade_out_height + fade_out_distance, WORLD_POSITION.y);
 	ALBEDO = base_color;
+	EMISSION = base_color * emission_strength;
 }
