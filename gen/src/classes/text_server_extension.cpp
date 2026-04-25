@@ -220,6 +220,30 @@ bool TextServerExtension::_font_is_modulate_color_glyphs(const RID &p_font_rid) 
 	return false;
 }
 
+int64_t TextServerExtension::_font_get_palette_count(const RID &p_font_rid) const {
+	return 0;
+}
+
+String TextServerExtension::_font_get_palette_name(const RID &p_font_rid, int64_t p_index) const {
+	return String();
+}
+
+PackedColorArray TextServerExtension::_font_get_palette_colors(const RID &p_font_rid, int64_t p_index) const {
+	return PackedColorArray();
+}
+
+void TextServerExtension::_font_set_palette_custom_colors(const RID &p_font_rid, const PackedColorArray &p_colors) {}
+
+PackedColorArray TextServerExtension::_font_get_palette_custom_colors(const RID &p_font_rid) const {
+	return PackedColorArray();
+}
+
+int64_t TextServerExtension::_font_get_used_palette(const RID &p_font_rid) const {
+	return 0;
+}
+
+void TextServerExtension::_font_set_used_palette(const RID &p_font_rid, int64_t p_index) {}
+
 void TextServerExtension::_font_set_hinting(const RID &p_font_rid, TextServer::Hinting p_hinting) {}
 
 TextServer::Hinting TextServerExtension::_font_get_hinting(const RID &p_font_rid) const {
@@ -602,6 +626,10 @@ Vector2i TextServerExtension::_shaped_get_run_range(const RID &p_shaped, int64_t
 	return Vector2i();
 }
 
+Vector2i TextServerExtension::_shaped_get_run_glyph_range(const RID &p_shaped, int64_t p_index) const {
+	return Vector2i();
+}
+
 RID TextServerExtension::_shaped_get_run_font_rid(const RID &p_shaped, int64_t p_index) const {
 	return RID();
 }
@@ -744,7 +772,7 @@ int64_t TextServerExtension::_shaped_text_get_dominant_direction_in_range(const 
 	return 0;
 }
 
-void TextServerExtension::_shaped_text_get_carets(const RID &p_shaped, int64_t p_position, CaretInfo *p_caret) const {}
+void TextServerExtension::_shaped_text_get_carets(const RID &p_shaped, int64_t p_position, CaretInfo *r_caret) const {}
 
 PackedVector2Array TextServerExtension::_shaped_text_get_selection(const RID &p_shaped, int64_t p_start, int64_t p_end) const {
 	return PackedVector2Array();

@@ -32,6 +32,7 @@
 
 #pragma once
 
+#include <godot_cpp/classes/image.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/texture.hpp>
 #include <godot_cpp/variant/color.hpp>
@@ -43,7 +44,6 @@
 
 namespace godot {
 
-class Image;
 class RID;
 struct Rect2;
 class Resource;
@@ -52,19 +52,26 @@ class Texture2D : public Texture {
 	GDEXTENSION_CLASS(Texture2D, Texture)
 
 public:
+	Image::Format get_format() const;
+	int32_t get_mipmap_count() const;
 	int32_t get_width() const;
 	int32_t get_height() const;
 	Vector2 get_size() const;
 	bool has_alpha() const;
+	bool has_mipmaps() const;
 	void draw(const RID &p_canvas_item, const Vector2 &p_position, const Color &p_modulate = Color(1, 1, 1, 1), bool p_transpose = false) const;
 	void draw_rect(const RID &p_canvas_item, const Rect2 &p_rect, bool p_tile, const Color &p_modulate = Color(1, 1, 1, 1), bool p_transpose = false) const;
 	void draw_rect_region(const RID &p_canvas_item, const Rect2 &p_rect, const Rect2 &p_src_rect, const Color &p_modulate = Color(1, 1, 1, 1), bool p_transpose = false, bool p_clip_uv = true) const;
 	Ref<Image> get_image() const;
 	Ref<Resource> create_placeholder() const;
+	virtual Ref<Image> _get_image() const;
+	virtual Image::Format _get_format() const;
+	virtual int32_t _get_mipmap_count() const;
 	virtual int32_t _get_width() const;
 	virtual int32_t _get_height() const;
 	virtual bool _is_pixel_opaque(int32_t p_x, int32_t p_y) const;
 	virtual bool _has_alpha() const;
+	virtual bool _has_mipmaps() const;
 	virtual void _draw(const RID &p_to_canvas_item, const Vector2 &p_pos, const Color &p_modulate, bool p_transpose) const;
 	virtual void _draw_rect(const RID &p_to_canvas_item, const Rect2 &p_rect, bool p_tile, const Color &p_modulate, bool p_transpose) const;
 	virtual void _draw_rect_region(const RID &p_to_canvas_item, const Rect2 &p_rect, const Rect2 &p_src_rect, const Color &p_modulate, bool p_transpose, bool p_clip_uv) const;
@@ -73,6 +80,15 @@ protected:
 	template <typename T, typename B>
 	static void register_virtuals() {
 		Texture::register_virtuals<T, B>();
+		if constexpr (!std::is_same_v<decltype(&B::_get_image), decltype(&T::_get_image)>) {
+			BIND_VIRTUAL_METHOD(T, _get_image, 4190603485);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_get_format), decltype(&T::_get_format)>) {
+			BIND_VIRTUAL_METHOD(T, _get_format, 3847873762);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_get_mipmap_count), decltype(&T::_get_mipmap_count)>) {
+			BIND_VIRTUAL_METHOD(T, _get_mipmap_count, 3905245786);
+		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_width), decltype(&T::_get_width)>) {
 			BIND_VIRTUAL_METHOD(T, _get_width, 3905245786);
 		}
@@ -84,6 +100,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_has_alpha), decltype(&T::_has_alpha)>) {
 			BIND_VIRTUAL_METHOD(T, _has_alpha, 36873697);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_has_mipmaps), decltype(&T::_has_mipmaps)>) {
+			BIND_VIRTUAL_METHOD(T, _has_mipmaps, 36873697);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_draw), decltype(&T::_draw)>) {
 			BIND_VIRTUAL_METHOD(T, _draw, 1384643611);

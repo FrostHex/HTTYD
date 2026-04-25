@@ -381,7 +381,7 @@ void PhysicsServer3DExtension::_body_set_force_integration_callback(const RID &p
 
 void PhysicsServer3DExtension::_body_set_ray_pickable(const RID &p_body, bool p_enable) {}
 
-bool PhysicsServer3DExtension::_body_test_motion(const RID &p_body, const Transform3D &p_from, const Vector3 &p_motion, float p_margin, int32_t p_max_collisions, bool p_collide_separation_ray, bool p_recovery_as_collision, PhysicsServer3DExtensionMotionResult *p_result) const {
+bool PhysicsServer3DExtension::_body_test_motion(const RID &p_body, const Transform3D &p_from, const Vector3 &p_motion, float p_margin, int32_t p_max_collisions, bool p_collide_separation_ray, bool p_recovery_as_collision, PhysicsServer3DExtensionMotionResult *r_result) const {
 	return false;
 }
 

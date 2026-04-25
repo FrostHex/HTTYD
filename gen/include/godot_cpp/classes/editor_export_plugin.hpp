@@ -81,6 +81,7 @@ public:
 	virtual void _export_file(const String &p_path, const String &p_type, const PackedStringArray &p_features);
 	virtual void _export_begin(const PackedStringArray &p_features, bool p_is_debug, const String &p_path, uint32_t p_flags);
 	virtual void _export_end();
+	virtual void _end_generate_apple_embedded_project(const String &p_path, bool p_will_build_archive);
 	virtual bool _begin_customize_resources(const Ref<EditorExportPlatform> &p_platform, const PackedStringArray &p_features) const;
 	virtual Ref<Resource> _customize_resource(const Ref<Resource> &p_resource, const String &p_path);
 	virtual bool _begin_customize_scenes(const Ref<EditorExportPlatform> &p_platform, const PackedStringArray &p_features) const;
@@ -116,6 +117,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_export_end), decltype(&T::_export_end)>) {
 			BIND_VIRTUAL_METHOD(T, _export_end, 3218959716);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_end_generate_apple_embedded_project), decltype(&T::_end_generate_apple_embedded_project)>) {
+			BIND_VIRTUAL_METHOD(T, _end_generate_apple_embedded_project, 2678287736);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_begin_customize_resources), decltype(&T::_begin_customize_resources)>) {
 			BIND_VIRTUAL_METHOD(T, _begin_customize_resources, 1312023292);

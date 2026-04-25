@@ -54,7 +54,6 @@ class Script : public Resource {
 
 public:
 	bool can_instantiate() const;
-	bool instance_has(Object *p_base_object) const;
 	bool has_source_code() const;
 	String get_source_code() const;
 	void set_source_code(const String &p_source);
@@ -62,6 +61,7 @@ public:
 	Ref<Script> get_base_script() const;
 	StringName get_instance_base_type() const;
 	StringName get_global_name() const;
+	bool has_script_method(const StringName &p_method_name) const;
 	bool has_script_signal(const StringName &p_signal_name) const;
 	TypedArray<Dictionary> get_script_property_list();
 	TypedArray<Dictionary> get_script_method_list();
@@ -71,6 +71,7 @@ public:
 	bool is_tool() const;
 	bool is_abstract() const;
 	Variant get_rpc_config() const;
+	bool instance_has(Object *p_base_object) const;
 
 protected:
 	template <typename T, typename B>

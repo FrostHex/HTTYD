@@ -76,7 +76,8 @@ public:
 	virtual void _stage_file(const String &p_file_path);
 	virtual void _unstage_file(const String &p_file_path);
 	virtual void _discard_file(const String &p_file_path);
-	virtual void _commit(const String &p_msg);
+	virtual void _commit(const String &p_msg, bool p_amend);
+	virtual bool _allow_amends();
 	virtual TypedArray<Dictionary> _get_diff(const String &p_identifier, int32_t p_area);
 	virtual bool _shut_down();
 	virtual String _get_vcs_name();
@@ -117,7 +118,10 @@ protected:
 			BIND_VIRTUAL_METHOD(T, _discard_file, 83702148);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_commit), decltype(&T::_commit)>) {
-			BIND_VIRTUAL_METHOD(T, _commit, 83702148);
+			BIND_VIRTUAL_METHOD(T, _commit, 2678287736);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_allow_amends), decltype(&T::_allow_amends)>) {
+			BIND_VIRTUAL_METHOD(T, _allow_amends, 2240911060);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_diff), decltype(&T::_get_diff)>) {
 			BIND_VIRTUAL_METHOD(T, _get_diff, 1366379175);

@@ -119,6 +119,14 @@ void OptionButton::set_item_auto_translate_mode(int32_t p_idx, Node::AutoTransla
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_idx_encoded, &p_mode_encoded);
 }
 
+void OptionButton::set_search_bar_enabled_on_item_count(int32_t p_counts) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OptionButton::get_class_static()._native_ptr(), StringName("set_search_bar_enabled_on_item_count")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_counts_encoded;
+	PtrToArg<int64_t>::encode(p_counts, &p_counts_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_counts_encoded);
+}
+
 String OptionButton::get_item_text(int32_t p_idx) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OptionButton::get_class_static()._native_ptr(), StringName("get_item_text")._native_ptr(), 844755477);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
@@ -189,6 +197,18 @@ bool OptionButton::is_item_separator(int32_t p_idx) const {
 	int64_t p_idx_encoded;
 	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_idx_encoded);
+}
+
+bool OptionButton::is_search_bar_enabled() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OptionButton::get_class_static()._native_ptr(), StringName("is_search_bar_enabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+int32_t OptionButton::get_search_bar_enabled_on_item_count() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OptionButton::get_class_static()._native_ptr(), StringName("get_search_bar_enabled_on_item_count")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void OptionButton::add_separator(const String &p_text) {

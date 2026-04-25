@@ -141,6 +141,8 @@ public:
 	};
 
 	OpenXRInterface::SessionState get_session_state();
+	bool is_user_presence_supported() const;
+	bool is_user_present() const;
 	float get_display_refresh_rate() const;
 	void set_display_refresh_rate(float p_refresh_rate);
 	double get_render_target_size_multiplier() const;
@@ -150,6 +152,8 @@ public:
 	void set_foveation_level(int32_t p_foveation_level);
 	bool get_foveation_dynamic() const;
 	void set_foveation_dynamic(bool p_foveation_dynamic);
+	bool get_foveation_with_subsampled_images() const;
+	void set_foveation_with_subsampled_images(bool p_enabled);
 	bool is_action_set_active(const String &p_name) const;
 	void set_action_set_active(const String &p_name, bool p_active);
 	Array get_action_sets() const;

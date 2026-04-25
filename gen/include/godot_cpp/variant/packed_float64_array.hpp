@@ -48,7 +48,7 @@ class Variant;
 
 class PackedFloat64Array {
 	static constexpr size_t PACKED_FLOAT64_ARRAY_SIZE = 16;
-	uint8_t opaque[PACKED_FLOAT64_ARRAY_SIZE] = {};
+	alignas(8) uint8_t opaque[PACKED_FLOAT64_ARRAY_SIZE] = {};
 
 	friend class Variant;
 

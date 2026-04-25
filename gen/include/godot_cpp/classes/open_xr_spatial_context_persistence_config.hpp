@@ -34,6 +34,7 @@
 
 #include <godot_cpp/classes/open_xr_structure_base.hpp>
 #include <godot_cpp/classes/ref.hpp>
+#include <godot_cpp/variant/array.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -49,6 +50,7 @@ class OpenXRSpatialContextPersistenceConfig : public OpenXRStructureBase {
 public:
 	void add_persistence_context(const RID &p_persistence_context);
 	void remove_persistence_context(const RID &p_persistence_context);
+	Array get_persistence_contexts() const;
 
 protected:
 	template <typename T, typename B>

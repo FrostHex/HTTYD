@@ -38,12 +38,12 @@
 
 namespace godot {
 
-void AnimationNodeBlendSpace2D::add_blend_point(const Ref<AnimationRootNode> &p_node, const Vector2 &p_pos, int32_t p_at_index) {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("add_blend_point")._native_ptr(), 402261981);
+void AnimationNodeBlendSpace2D::add_blend_point(const Ref<AnimationRootNode> &p_node, const Vector2 &p_pos, int32_t p_at_index, const StringName &p_name) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("add_blend_point")._native_ptr(), 768750458);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_at_index_encoded;
 	PtrToArg<int64_t>::encode(p_at_index, &p_at_index_encoded);
-	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_node != nullptr ? &p_node->_owner : nullptr), &p_pos, &p_at_index_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_node != nullptr ? &p_node->_owner : nullptr), &p_pos, &p_at_index_encoded, &p_name);
 }
 
 void AnimationNodeBlendSpace2D::set_blend_point_position(int32_t p_point, const Vector2 &p_pos) {
@@ -78,6 +78,28 @@ Ref<AnimationRootNode> AnimationNodeBlendSpace2D::get_blend_point_node(int32_t p
 	return Ref<AnimationRootNode>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<AnimationRootNode>(_gde_method_bind, _owner, &p_point_encoded));
 }
 
+void AnimationNodeBlendSpace2D::set_blend_point_name(int32_t p_point, const StringName &p_name) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("set_blend_point_name")._native_ptr(), 3780747571);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_point_encoded;
+	PtrToArg<int64_t>::encode(p_point, &p_point_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_point_encoded, &p_name);
+}
+
+StringName AnimationNodeBlendSpace2D::get_blend_point_name(int32_t p_point) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("get_blend_point_name")._native_ptr(), 659327637);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
+	int64_t p_point_encoded;
+	PtrToArg<int64_t>::encode(p_point, &p_point_encoded);
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner, &p_point_encoded);
+}
+
+int32_t AnimationNodeBlendSpace2D::find_blend_point_by_name(const StringName &p_name) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("find_blend_point_by_name")._native_ptr(), 2458036349);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_name);
+}
+
 void AnimationNodeBlendSpace2D::remove_blend_point(int32_t p_point) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("remove_blend_point")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -90,6 +112,16 @@ int32_t AnimationNodeBlendSpace2D::get_blend_point_count() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("get_blend_point_count")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void AnimationNodeBlendSpace2D::reorder_blend_point(int32_t p_from_index, int32_t p_to_index) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("reorder_blend_point")._native_ptr(), 3937882851);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_from_index_encoded;
+	PtrToArg<int64_t>::encode(p_from_index, &p_from_index_encoded);
+	int64_t p_to_index_encoded;
+	PtrToArg<int64_t>::encode(p_to_index, &p_to_index_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_from_index_encoded, &p_to_index_encoded);
 }
 
 void AnimationNodeBlendSpace2D::add_triangle(int32_t p_x, int32_t p_y, int32_t p_z, int32_t p_at_index) {
@@ -230,6 +262,34 @@ bool AnimationNodeBlendSpace2D::is_using_sync() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("is_using_sync")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void AnimationNodeBlendSpace2D::set_sync_mode(AnimationNodeBlendSpace2D::SyncMode p_sync_mode) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("set_sync_mode")._native_ptr(), 2615784488);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_sync_mode_encoded;
+	PtrToArg<int64_t>::encode(p_sync_mode, &p_sync_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_sync_mode_encoded);
+}
+
+AnimationNodeBlendSpace2D::SyncMode AnimationNodeBlendSpace2D::get_sync_mode() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("get_sync_mode")._native_ptr(), 242032665);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (AnimationNodeBlendSpace2D::SyncMode(0)));
+	return (AnimationNodeBlendSpace2D::SyncMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void AnimationNodeBlendSpace2D::set_cyclic_length(double p_length) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("set_cyclic_length")._native_ptr(), 373806689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_length_encoded;
+	PtrToArg<double>::encode(p_length, &p_length_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_length_encoded);
+}
+
+double AnimationNodeBlendSpace2D::get_cyclic_length() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(AnimationNodeBlendSpace2D::get_class_static()._native_ptr(), StringName("get_cyclic_length")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

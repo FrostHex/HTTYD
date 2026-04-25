@@ -91,15 +91,21 @@ public:
 		UPDATE_REGION = 16,
 		UPDATE_PAD = 32,
 		UPDATE_TOOLTIP = 64,
-		UPDATE_WIDTH_IN_PERCENT = 128,
+		UPDATE_WIDTH_UNIT = 128,
+	};
+
+	enum ImageUnit {
+		IMAGE_UNIT_PIXEL = 0,
+		IMAGE_UNIT_PERCENT = 1,
+		IMAGE_UNIT_EM = 2,
 	};
 
 	String get_parsed_text() const;
 	void add_text(const String &p_text);
 	void set_text(const String &p_text);
 	void add_hr(int32_t p_width = 90, int32_t p_height = 2, const Color &p_color = Color(1, 1, 1, 1), HorizontalAlignment p_alignment = (HorizontalAlignment)1, bool p_width_in_percent = true, bool p_height_in_percent = false);
-	void add_image(const Ref<Texture2D> &p_image, int32_t p_width = 0, int32_t p_height = 0, const Color &p_color = Color(1, 1, 1, 1), InlineAlignment p_inline_align = (InlineAlignment)5, const Rect2 &p_region = Rect2(0, 0, 0, 0), const Variant &p_key = nullptr, bool p_pad = false, const String &p_tooltip = String(), bool p_width_in_percent = false, bool p_height_in_percent = false, const String &p_alt_text = String());
-	void update_image(const Variant &p_key, BitField<RichTextLabel::ImageUpdateMask> p_mask, const Ref<Texture2D> &p_image, int32_t p_width = 0, int32_t p_height = 0, const Color &p_color = Color(1, 1, 1, 1), InlineAlignment p_inline_align = (InlineAlignment)5, const Rect2 &p_region = Rect2(0, 0, 0, 0), bool p_pad = false, const String &p_tooltip = String(), bool p_width_in_percent = false, bool p_height_in_percent = false);
+	void add_image(const Ref<Texture2D> &p_image, float p_width = 0, float p_height = 0, const Color &p_color = Color(1, 1, 1, 1), InlineAlignment p_inline_align = (InlineAlignment)5, const Rect2 &p_region = Rect2(0, 0, 0, 0), const Variant &p_key = nullptr, bool p_pad = false, const String &p_tooltip = String(), RichTextLabel::ImageUnit p_width_unit = (RichTextLabel::ImageUnit)0, RichTextLabel::ImageUnit p_height_unit = (RichTextLabel::ImageUnit)0, const String &p_alt_text = String());
+	void update_image(const Variant &p_key, BitField<RichTextLabel::ImageUpdateMask> p_mask, const Ref<Texture2D> &p_image, float p_width = 0, float p_height = 0, const Color &p_color = Color(1, 1, 1, 1), InlineAlignment p_inline_align = (InlineAlignment)5, const Rect2 &p_region = Rect2(0, 0, 0, 0), bool p_pad = false, const String &p_tooltip = String(), RichTextLabel::ImageUnit p_width_unit = (RichTextLabel::ImageUnit)0, RichTextLabel::ImageUnit p_height_unit = (RichTextLabel::ImageUnit)0);
 	void newline();
 	bool remove_paragraph(int32_t p_paragraph, bool p_no_invalidate = false);
 	bool invalidate_paragraph(int32_t p_paragraph);
@@ -248,4 +254,5 @@ VARIANT_ENUM_CAST(RichTextLabel::ListType);
 VARIANT_ENUM_CAST(RichTextLabel::MenuItems);
 VARIANT_ENUM_CAST(RichTextLabel::MetaUnderline);
 VARIANT_BITFIELD_CAST(RichTextLabel::ImageUpdateMask);
+VARIANT_ENUM_CAST(RichTextLabel::ImageUnit);
 

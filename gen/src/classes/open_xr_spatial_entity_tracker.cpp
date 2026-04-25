@@ -36,7 +36,21 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/classes/open_xr_structure_base.hpp>
+
 namespace godot {
+
+void OpenXRSpatialEntityTracker::set_spatial_context(const RID &p_spatial_context) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialEntityTracker::get_class_static()._native_ptr(), StringName("set_spatial_context")._native_ptr(), 2722037293);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_spatial_context);
+}
+
+RID OpenXRSpatialEntityTracker::get_spatial_context() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialEntityTracker::get_class_static()._native_ptr(), StringName("get_spatial_context")._native_ptr(), 2944877500);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+}
 
 void OpenXRSpatialEntityTracker::set_entity(const RID &p_entity) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialEntityTracker::get_class_static()._native_ptr(), StringName("set_entity")._native_ptr(), 2722037293);
@@ -62,6 +76,24 @@ OpenXRSpatialEntityTracker::EntityTrackingState OpenXRSpatialEntityTracker::get_
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialEntityTracker::get_class_static()._native_ptr(), StringName("get_spatial_tracking_state")._native_ptr(), 3351876560);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (OpenXRSpatialEntityTracker::EntityTrackingState(0)));
 	return (OpenXRSpatialEntityTracker::EntityTrackingState)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+Ref<OpenXRStructureBase> OpenXRSpatialEntityTracker::get_next() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialEntityTracker::get_class_static()._native_ptr(), StringName("get_next")._native_ptr(), 2798796760);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRStructureBase>()));
+	return Ref<OpenXRStructureBase>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OpenXRStructureBase>(_gde_method_bind, _owner));
+}
+
+void OpenXRSpatialEntityTracker::add_next(const Ref<OpenXRStructureBase> &p_next) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialEntityTracker::get_class_static()._native_ptr(), StringName("add_next")._native_ptr(), 334698771);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_next != nullptr ? &p_next->_owner : nullptr));
+}
+
+void OpenXRSpatialEntityTracker::remove_next(const Ref<OpenXRStructureBase> &p_next) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialEntityTracker::get_class_static()._native_ptr(), StringName("remove_next")._native_ptr(), 334698771);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_next != nullptr ? &p_next->_owner : nullptr));
 }
 
 } // namespace godot

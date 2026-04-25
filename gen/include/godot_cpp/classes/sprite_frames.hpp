@@ -49,6 +49,12 @@ class SpriteFrames : public Resource {
 	GDEXTENSION_CLASS(SpriteFrames, Resource)
 
 public:
+	enum LoopMode {
+		LOOP_NONE = 0,
+		LOOP_LINEAR = 1,
+		LOOP_PINGPONG = 2,
+	};
+
 	void add_animation(const StringName &p_anim);
 	bool has_animation(const StringName &p_anim) const;
 	void duplicate_animation(const StringName &p_anim_from, const StringName &p_anim_to);
@@ -59,6 +65,8 @@ public:
 	double get_animation_speed(const StringName &p_anim) const;
 	void set_animation_loop(const StringName &p_anim, bool p_loop);
 	bool get_animation_loop(const StringName &p_anim) const;
+	void set_animation_loop_mode(const StringName &p_anim, SpriteFrames::LoopMode p_loop_mode);
+	SpriteFrames::LoopMode get_animation_loop_mode(const StringName &p_anim) const;
 	void add_frame(const StringName &p_anim, const Ref<Texture2D> &p_texture, float p_duration = 1.0, int32_t p_at_position = -1);
 	void set_frame(const StringName &p_anim, int32_t p_idx, const Ref<Texture2D> &p_texture, float p_duration = 1.0);
 	void remove_frame(const StringName &p_anim, int32_t p_idx);
@@ -78,4 +86,6 @@ public:
 };
 
 } // namespace godot
+
+VARIANT_ENUM_CAST(SpriteFrames::LoopMode);
 

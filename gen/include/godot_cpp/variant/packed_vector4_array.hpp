@@ -51,7 +51,7 @@ struct Vector4;
 
 class PackedVector4Array {
 	static constexpr size_t PACKED_VECTOR4_ARRAY_SIZE = 16;
-	uint8_t opaque[PACKED_VECTOR4_ARRAY_SIZE] = {};
+	alignas(8) uint8_t opaque[PACKED_VECTOR4_ARRAY_SIZE] = {};
 
 	friend class Variant;
 

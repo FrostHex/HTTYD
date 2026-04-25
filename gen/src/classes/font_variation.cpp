@@ -132,4 +132,30 @@ float FontVariation::get_baseline_offset() const {
 	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
+int64_t FontVariation::get_palette_index() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FontVariation::get_class_static()._native_ptr(), StringName("get_palette_index")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void FontVariation::set_palette_index(int64_t p_palette_index) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FontVariation::get_class_static()._native_ptr(), StringName("set_palette_index")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_palette_index_encoded;
+	PtrToArg<int64_t>::encode(p_palette_index, &p_palette_index_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_palette_index_encoded);
+}
+
+PackedColorArray FontVariation::get_palette_custom_colors() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FontVariation::get_class_static()._native_ptr(), StringName("get_palette_custom_colors")._native_ptr(), 1392750486);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedColorArray()));
+	return ::godot::internal::_call_native_mb_ret<PackedColorArray>(_gde_method_bind, _owner);
+}
+
+void FontVariation::set_palette_custom_colors(const PackedColorArray &p_colors) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(FontVariation::get_class_static()._native_ptr(), StringName("set_palette_custom_colors")._native_ptr(), 3546319833);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_colors);
+}
+
 } // namespace godot

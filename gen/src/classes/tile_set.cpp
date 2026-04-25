@@ -432,6 +432,14 @@ void TileSet::remove_terrain(int32_t p_terrain_set, int32_t p_terrain_index) {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_terrain_set_encoded, &p_terrain_index_encoded);
 }
 
+void TileSet::clear_terrains(int32_t p_terrain_set) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSet::get_class_static()._native_ptr(), StringName("clear_terrains")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_terrain_set_encoded;
+	PtrToArg<int64_t>::encode(p_terrain_set, &p_terrain_set_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_terrain_set_encoded);
+}
+
 void TileSet::set_terrain_name(int32_t p_terrain_set, int32_t p_terrain_index, const String &p_name) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TileSet::get_class_static()._native_ptr(), StringName("set_terrain_name")._native_ptr(), 2285447957);
 	CHECK_METHOD_BIND(_gde_method_bind);

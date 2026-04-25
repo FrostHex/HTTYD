@@ -436,6 +436,12 @@ PackedStringArray EditorInterface::get_open_scenes() const {
 	return ::godot::internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner);
 }
 
+PackedStringArray EditorInterface::get_unsaved_scenes() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorInterface::get_class_static()._native_ptr(), StringName("get_unsaved_scenes")._native_ptr(), 1139954409);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));
+	return ::godot::internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner);
+}
+
 TypedArray<Node> EditorInterface::get_open_scene_roots() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorInterface::get_class_static()._native_ptr(), StringName("get_open_scene_roots")._native_ptr(), 3995934104);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Node>()));

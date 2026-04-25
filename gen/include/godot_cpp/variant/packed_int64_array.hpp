@@ -48,7 +48,7 @@ class Variant;
 
 class PackedInt64Array {
 	static constexpr size_t PACKED_INT64_ARRAY_SIZE = 16;
-	uint8_t opaque[PACKED_INT64_ARRAY_SIZE] = {};
+	alignas(8) uint8_t opaque[PACKED_INT64_ARRAY_SIZE] = {};
 
 	friend class Variant;
 

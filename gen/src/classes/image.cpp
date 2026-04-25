@@ -270,20 +270,28 @@ PackedByteArray Image::save_jpg_to_buffer(float p_quality) const {
 	return ::godot::internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner, &p_quality_encoded);
 }
 
-Error Image::save_exr(const String &p_path, bool p_grayscale) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Image::get_class_static()._native_ptr(), StringName("save_exr")._native_ptr(), 3108122999);
+Error Image::save_exr(const String &p_path, bool p_grayscale, bool p_color_image, float p_max_linear_value) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Image::get_class_static()._native_ptr(), StringName("save_exr")._native_ptr(), 2018602448);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
 	int8_t p_grayscale_encoded;
 	PtrToArg<bool>::encode(p_grayscale, &p_grayscale_encoded);
-	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_grayscale_encoded);
+	int8_t p_color_image_encoded;
+	PtrToArg<bool>::encode(p_color_image, &p_color_image_encoded);
+	double p_max_linear_value_encoded;
+	PtrToArg<double>::encode(p_max_linear_value, &p_max_linear_value_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_grayscale_encoded, &p_color_image_encoded, &p_max_linear_value_encoded);
 }
 
-PackedByteArray Image::save_exr_to_buffer(bool p_grayscale) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Image::get_class_static()._native_ptr(), StringName("save_exr_to_buffer")._native_ptr(), 3178917920);
+PackedByteArray Image::save_exr_to_buffer(bool p_grayscale, bool p_color_image, float p_max_linear_value) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Image::get_class_static()._native_ptr(), StringName("save_exr_to_buffer")._native_ptr(), 1477518536);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedByteArray()));
 	int8_t p_grayscale_encoded;
 	PtrToArg<bool>::encode(p_grayscale, &p_grayscale_encoded);
-	return ::godot::internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner, &p_grayscale_encoded);
+	int8_t p_color_image_encoded;
+	PtrToArg<bool>::encode(p_color_image, &p_color_image_encoded);
+	double p_max_linear_value_encoded;
+	PtrToArg<double>::encode(p_max_linear_value, &p_max_linear_value_encoded);
+	return ::godot::internal::_call_native_mb_ret<PackedByteArray>(_gde_method_bind, _owner, &p_grayscale_encoded, &p_color_image_encoded, &p_max_linear_value_encoded);
 }
 
 Error Image::save_dds(const String &p_path) const {

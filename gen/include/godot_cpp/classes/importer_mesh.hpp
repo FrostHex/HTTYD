@@ -50,10 +50,13 @@
 
 namespace godot {
 
+struct Transform3D;
+
 class ImporterMesh : public Resource {
 	GDEXTENSION_CLASS(ImporterMesh, Resource)
 
 public:
+	static Ref<ImporterMesh> merge_importer_meshes(const TypedArray<Ref<ImporterMesh>> &p_importer_meshes, const TypedArray<Transform3D> &p_relative_transforms, bool p_deduplicate_surfaces = true);
 	void add_blend_shape(const String &p_name);
 	int32_t get_blend_shape_count() const;
 	String get_blend_shape_name(int32_t p_blend_shape_idx) const;

@@ -130,6 +130,12 @@ int32_t Tree::get_column_width(int32_t p_column) const {
 	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_column_encoded);
 }
 
+RID Tree::get_custom_drawing_canvas_item() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Tree::get_class_static()._native_ptr(), StringName("get_custom_drawing_canvas_item")._native_ptr(), 2944877500);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+}
+
 void Tree::set_hide_root(bool p_enable) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Tree::get_class_static()._native_ptr(), StringName("set_hide_root")._native_ptr(), 2586408642);
 	CHECK_METHOD_BIND(_gde_method_bind);

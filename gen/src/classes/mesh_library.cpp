@@ -224,6 +224,12 @@ PackedInt32Array MeshLibrary::get_item_list() const {
 	return ::godot::internal::_call_native_mb_ret<PackedInt32Array>(_gde_method_bind, _owner);
 }
 
+int32_t MeshLibrary::get_item_count() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MeshLibrary::get_class_static()._native_ptr(), StringName("get_item_count")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 int32_t MeshLibrary::get_last_unused_item_id() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(MeshLibrary::get_class_static()._native_ptr(), StringName("get_last_unused_item_id")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));

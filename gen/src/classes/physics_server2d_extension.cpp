@@ -104,7 +104,7 @@ float PhysicsServer2DExtension::_shape_get_custom_solver_bias(const RID &p_shape
 	return 0.0;
 }
 
-bool PhysicsServer2DExtension::_shape_collide(const RID &p_shape_A, const Transform2D &p_xform_A, const Vector2 &p_motion_A, const RID &p_shape_B, const Transform2D &p_xform_B, const Vector2 &p_motion_B, void *p_results, int32_t p_result_max, int32_t *p_result_count) {
+bool PhysicsServer2DExtension::_shape_collide(const RID &p_shape_A, const Transform2D &p_xform_A, const Vector2 &p_motion_A, const RID &p_shape_B, const Transform2D &p_xform_B, const Vector2 &p_motion_B, void *r_results, int32_t p_result_max, int32_t *r_result_count) {
 	return false;
 }
 
@@ -252,7 +252,7 @@ Transform2D PhysicsServer2DExtension::_body_get_shape_transform(const RID &p_bod
 
 void PhysicsServer2DExtension::_body_set_shape_disabled(const RID &p_body, int32_t p_shape_idx, bool p_disabled) {}
 
-void PhysicsServer2DExtension::_body_set_shape_as_one_way_collision(const RID &p_body, int32_t p_shape_idx, bool p_enable, float p_margin) {}
+void PhysicsServer2DExtension::_body_set_shape_as_one_way_collision(const RID &p_body, int32_t p_shape_idx, bool p_enable, float p_margin, const Vector2 &p_direction) {}
 
 void PhysicsServer2DExtension::_body_remove_shape(const RID &p_body, int32_t p_shape_idx) {}
 
@@ -370,7 +370,7 @@ void PhysicsServer2DExtension::_body_set_state_sync_callback(const RID &p_body, 
 
 void PhysicsServer2DExtension::_body_set_force_integration_callback(const RID &p_body, const Callable &p_callable, const Variant &p_userdata) {}
 
-bool PhysicsServer2DExtension::_body_collide_shape(const RID &p_body, int32_t p_body_shape, const RID &p_shape, const Transform2D &p_shape_xform, const Vector2 &p_motion, void *p_results, int32_t p_result_max, int32_t *p_result_count) {
+bool PhysicsServer2DExtension::_body_collide_shape(const RID &p_body, int32_t p_body_shape, const RID &p_shape, const Transform2D &p_shape_xform, const Vector2 &p_motion, void *r_results, int32_t p_result_max, int32_t *r_result_count) {
 	return false;
 }
 
@@ -380,7 +380,7 @@ PhysicsDirectBodyState2D *PhysicsServer2DExtension::_body_get_direct_state(const
 	return nullptr;
 }
 
-bool PhysicsServer2DExtension::_body_test_motion(const RID &p_body, const Transform2D &p_from, const Vector2 &p_motion, float p_margin, bool p_collide_separation_ray, bool p_recovery_as_collision, PhysicsServer2DExtensionMotionResult *p_result) const {
+bool PhysicsServer2DExtension::_body_test_motion(const RID &p_body, const Transform2D &p_from, const Vector2 &p_motion, float p_margin, bool p_collide_separation_ray, bool p_recovery_as_collision, PhysicsServer2DExtensionMotionResult *r_result) const {
 	return false;
 }
 

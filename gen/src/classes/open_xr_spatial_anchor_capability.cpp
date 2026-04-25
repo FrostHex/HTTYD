@@ -38,6 +38,7 @@
 
 #include <godot_cpp/classes/open_xr_anchor_tracker.hpp>
 #include <godot_cpp/classes/open_xr_future_result.hpp>
+#include <godot_cpp/classes/open_xr_spatial_component_data.hpp>
 #include <godot_cpp/variant/transform3d.hpp>
 
 namespace godot {
@@ -62,6 +63,12 @@ bool OpenXRSpatialAnchorCapability::is_persistence_scope_supported(OpenXRSpatial
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_scope_encoded);
 }
 
+Ref<OpenXRFutureResult> OpenXRSpatialAnchorCapability::create_default_persistence_context(const Callable &p_user_callback) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialAnchorCapability::get_class_static()._native_ptr(), StringName("create_default_persistence_context")._native_ptr(), 1401033661);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRFutureResult>()));
+	return Ref<OpenXRFutureResult>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OpenXRFutureResult>(_gde_method_bind, _owner, &p_user_callback));
+}
+
 Ref<OpenXRFutureResult> OpenXRSpatialAnchorCapability::create_persistence_context(OpenXRSpatialAnchorCapability::PersistenceScope p_scope, const Callable &p_user_callback) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialAnchorCapability::get_class_static()._native_ptr(), StringName("create_persistence_context")._native_ptr(), 856276630);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRFutureResult>()));
@@ -82,10 +89,10 @@ void OpenXRSpatialAnchorCapability::free_persistence_context(const RID &p_persis
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_persistence_context);
 }
 
-Ref<OpenXRAnchorTracker> OpenXRSpatialAnchorCapability::create_new_anchor(const Transform3D &p_transform, const RID &p_spatial_context) {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialAnchorCapability::get_class_static()._native_ptr(), StringName("create_new_anchor")._native_ptr(), 607100373);
+Ref<OpenXRAnchorTracker> OpenXRSpatialAnchorCapability::create_new_anchor(const Transform3D &p_transform, const RID &p_spatial_context, const Ref<OpenXRStructureBase> &p_next) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialAnchorCapability::get_class_static()._native_ptr(), StringName("create_new_anchor")._native_ptr(), 4088043487);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRAnchorTracker>()));
-	return Ref<OpenXRAnchorTracker>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OpenXRAnchorTracker>(_gde_method_bind, _owner, &p_transform, &p_spatial_context));
+	return Ref<OpenXRAnchorTracker>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OpenXRAnchorTracker>(_gde_method_bind, _owner, &p_transform, &p_spatial_context, (p_next != nullptr ? &p_next->_owner : nullptr)));
 }
 
 void OpenXRSpatialAnchorCapability::remove_anchor(const Ref<OpenXRAnchorTracker> &p_anchor_tracker) {
@@ -104,6 +111,18 @@ Ref<OpenXRFutureResult> OpenXRSpatialAnchorCapability::unpersist_anchor(const Re
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialAnchorCapability::get_class_static()._native_ptr(), StringName("unpersist_anchor")._native_ptr(), 4244202513);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRFutureResult>()));
 	return Ref<OpenXRFutureResult>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OpenXRFutureResult>(_gde_method_bind, _owner, (p_anchor_tracker != nullptr ? &p_anchor_tracker->_owner : nullptr), &p_persistence_context, &p_user_callback));
+}
+
+Ref<OpenXRFutureResult> OpenXRSpatialAnchorCapability::start_entity_discovery(const RID &p_spatial_context, const TypedArray<Ref<OpenXRSpatialComponentData>> &p_component_data, const Ref<OpenXRStructureBase> &p_next_snapshot_create, const Ref<OpenXRStructureBase> &p_next_snapshot_query, const Callable &p_user_callback) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialAnchorCapability::get_class_static()._native_ptr(), StringName("start_entity_discovery")._native_ptr(), 3452714169);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRFutureResult>()));
+	return Ref<OpenXRFutureResult>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OpenXRFutureResult>(_gde_method_bind, _owner, &p_spatial_context, &p_component_data, (p_next_snapshot_create != nullptr ? &p_next_snapshot_create->_owner : nullptr), (p_next_snapshot_query != nullptr ? &p_next_snapshot_query->_owner : nullptr), &p_user_callback));
+}
+
+void OpenXRSpatialAnchorCapability::do_entity_update(const RID &p_spatial_context, const TypedArray<Ref<OpenXRSpatialComponentData>> &p_component_data, const Ref<OpenXRStructureBase> &p_next_snapshot_create, const Ref<OpenXRStructureBase> &p_next_snapshot_query) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialAnchorCapability::get_class_static()._native_ptr(), StringName("do_entity_update")._native_ptr(), 3138044275);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_spatial_context, &p_component_data, (p_next_snapshot_create != nullptr ? &p_next_snapshot_create->_owner : nullptr), (p_next_snapshot_query != nullptr ? &p_next_snapshot_query->_owner : nullptr));
 }
 
 } // namespace godot

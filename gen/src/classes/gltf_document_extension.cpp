@@ -44,7 +44,6 @@
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/classes/node3d.hpp>
 #include <godot_cpp/core/object.hpp>
-#include <godot_cpp/variant/dictionary.hpp>
 #include <godot_cpp/variant/node_path.hpp>
 
 namespace godot {
@@ -95,6 +94,10 @@ Error GLTFDocumentExtension::_import_node(const Ref<GLTFState> &p_state, const R
 
 Error GLTFDocumentExtension::_import_post(const Ref<GLTFState> &p_state, Node *p_root) {
 	return Error(0);
+}
+
+TypedArray<Dictionary> GLTFDocumentExtension::_export_get_property_list(Node *p_root_node) {
+	return TypedArray<Dictionary>();
 }
 
 Error GLTFDocumentExtension::_export_preflight(const Ref<GLTFState> &p_state, Node *p_root) {

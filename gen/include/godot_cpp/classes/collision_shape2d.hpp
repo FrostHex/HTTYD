@@ -35,6 +35,7 @@
 #include <godot_cpp/classes/node2d.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/variant/color.hpp>
+#include <godot_cpp/variant/vector2.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -56,6 +57,8 @@ public:
 	bool is_one_way_collision_enabled() const;
 	void set_one_way_collision_margin(float p_margin);
 	float get_one_way_collision_margin() const;
+	void set_one_way_collision_direction(const Vector2 &p_direction);
+	Vector2 get_one_way_collision_direction() const;
 	void set_debug_color(const Color &p_color);
 	Color get_debug_color() const;
 

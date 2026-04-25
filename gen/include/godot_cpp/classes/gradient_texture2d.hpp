@@ -52,6 +52,7 @@ public:
 		FILL_LINEAR = 0,
 		FILL_RADIAL = 1,
 		FILL_SQUARE = 2,
+		FILL_CONIC = 3,
 	};
 
 	enum Repeat {

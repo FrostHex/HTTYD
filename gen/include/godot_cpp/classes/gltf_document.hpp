@@ -61,10 +61,22 @@ public:
 		ROOT_NODE_MODE_MULTI_ROOT = 2,
 	};
 
+	enum TextureMapMode {
+		TEXTURE_MAP_MODE_DO_NOT_REMAP = 0,
+		TEXTURE_MAP_MODE_REMAP_TO_STANDARD_MATERIAL = 1,
+	};
+
 	enum VisibilityMode {
 		VISIBILITY_MODE_INCLUDE_REQUIRED = 0,
 		VISIBILITY_MODE_INCLUDE_OPTIONAL = 1,
 		VISIBILITY_MODE_EXCLUDE = 2,
+	};
+
+	enum ImportFlags : uint64_t {
+		IMPORT_FLAG_GENERATE_TANGENT_ARRAYS = 8,
+		IMPORT_FLAG_USE_NAMED_SKIN_BINDS = 16,
+		IMPORT_FLAG_DISCARD_MESHES_AND_MATERIALS = 32,
+		IMPORT_FLAG_FORCE_DISABLE_MESH_COMPRESSION = 64,
 	};
 
 	void set_image_format(const String &p_image_format);
@@ -77,6 +89,8 @@ public:
 	float get_fallback_image_quality() const;
 	void set_root_node_mode(GLTFDocument::RootNodeMode p_root_node_mode);
 	GLTFDocument::RootNodeMode get_root_node_mode() const;
+	void set_texture_map_mode(GLTFDocument::TextureMapMode p_texture_map_mode);
+	GLTFDocument::TextureMapMode get_texture_map_mode() const;
 	void set_visibility_mode(GLTFDocument::VisibilityMode p_visibility_mode);
 	GLTFDocument::VisibilityMode get_visibility_mode() const;
 	Error append_from_file(const String &p_path, const Ref<GLTFState> &p_state, uint32_t p_flags = 0, const String &p_base_path = String());
@@ -103,5 +117,7 @@ public:
 } // namespace godot
 
 VARIANT_ENUM_CAST(GLTFDocument::RootNodeMode);
+VARIANT_ENUM_CAST(GLTFDocument::TextureMapMode);
 VARIANT_ENUM_CAST(GLTFDocument::VisibilityMode);
+VARIANT_BITFIELD_CAST(GLTFDocument::ImportFlags);
 

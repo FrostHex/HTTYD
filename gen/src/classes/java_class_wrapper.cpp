@@ -38,6 +38,8 @@
 
 #include <godot_cpp/classes/java_class.hpp>
 #include <godot_cpp/classes/java_object.hpp>
+#include <godot_cpp/variant/callable.hpp>
+#include <godot_cpp/variant/packed_string_array.hpp>
 #include <godot_cpp/variant/string.hpp>
 
 namespace godot {
@@ -78,6 +80,18 @@ Ref<JavaObject> JavaClassWrapper::get_exception() {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(JavaClassWrapper::get_class_static()._native_ptr(), StringName("get_exception")._native_ptr(), 3277089691);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<JavaObject>()));
 	return Ref<JavaObject>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<JavaObject>(_gde_method_bind, _owner));
+}
+
+Ref<JavaObject> JavaClassWrapper::create_sam_callback(const String &p_sam_interface, const Callable &p_callable) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(JavaClassWrapper::get_class_static()._native_ptr(), StringName("create_sam_callback")._native_ptr(), 2479014754);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<JavaObject>()));
+	return Ref<JavaObject>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<JavaObject>(_gde_method_bind, _owner, &p_sam_interface, &p_callable));
+}
+
+Ref<JavaObject> JavaClassWrapper::create_proxy(Object *p_object, const PackedStringArray &p_interfaces) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(JavaClassWrapper::get_class_static()._native_ptr(), StringName("create_proxy")._native_ptr(), 2694931752);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<JavaObject>()));
+	return Ref<JavaObject>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<JavaObject>(_gde_method_bind, _owner, (p_object != nullptr ? &p_object->_owner : nullptr), &p_interfaces));
 }
 
 } // namespace godot

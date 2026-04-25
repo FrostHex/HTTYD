@@ -36,6 +36,7 @@
 #include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/core/object.hpp>
+#include <godot_cpp/variant/packed_string_array.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -55,6 +56,7 @@ public:
 	virtual uint32_t _get_audio_mix_rate() const;
 	virtual AudioServer::SpeakerMode _get_audio_speaker_mode() const;
 	virtual bool _handles_file(const String &p_path) const;
+	virtual PackedStringArray _get_supported_extensions() const;
 	virtual Error _write_begin(const Vector2i &p_movie_size, uint32_t p_fps, const String &p_base_path);
 	virtual Error _write_frame(const Ref<Image> &p_frame_image, const void *p_audio_frame_block);
 	virtual void _write_end();
@@ -71,6 +73,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_handles_file), decltype(&T::_handles_file)>) {
 			BIND_VIRTUAL_METHOD(T, _handles_file, 3927539163);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_get_supported_extensions), decltype(&T::_get_supported_extensions)>) {
+			BIND_VIRTUAL_METHOD(T, _get_supported_extensions, 1139954409);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_write_begin), decltype(&T::_write_begin)>) {
 			BIND_VIRTUAL_METHOD(T, _write_begin, 1866453460);

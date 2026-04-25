@@ -42,6 +42,7 @@
 
 namespace godot {
 
+class AwaitTweener;
 class Callable;
 class CallbackTweener;
 class IntervalTweener;
@@ -50,6 +51,7 @@ class Node;
 class NodePath;
 class Object;
 class PropertyTweener;
+class Signal;
 class SubtweenTweener;
 
 class Tween : public RefCounted {
@@ -94,12 +96,14 @@ public:
 	Ref<CallbackTweener> tween_callback(const Callable &p_callback);
 	Ref<MethodTweener> tween_method(const Callable &p_method, const Variant &p_from, const Variant &p_to, double p_duration);
 	Ref<SubtweenTweener> tween_subtween(const Ref<Tween> &p_subtween);
+	Ref<AwaitTweener> tween_await(const Signal &p_signal);
 	bool custom_step(double p_delta);
 	void stop();
 	void pause();
 	void play();
 	void kill();
 	double get_total_elapsed_time() const;
+	bool has_tweeners() const;
 	bool is_running();
 	bool is_valid();
 	Ref<Tween> bind_node(Node *p_node);

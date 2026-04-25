@@ -77,6 +77,7 @@ public:
 	int32_t find_item_by_name(const String &p_name) const;
 	void clear();
 	PackedInt32Array get_item_list() const;
+	int32_t get_item_count() const;
 	int32_t get_last_unused_item_id() const;
 
 protected:

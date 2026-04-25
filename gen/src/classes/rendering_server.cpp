@@ -39,6 +39,7 @@
 #include <godot_cpp/variant/basis.hpp>
 #include <godot_cpp/variant/callable.hpp>
 #include <godot_cpp/variant/plane.hpp>
+#include <godot_cpp/variant/rect2i.hpp>
 #include <godot_cpp/variant/vector2.hpp>
 #include <godot_cpp/variant/vector2i.hpp>
 #include <godot_cpp/variant/vector3.hpp>
@@ -129,6 +130,20 @@ RID RenderingServer::texture_create_from_native_handle(RenderingServer::TextureT
 	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_type_encoded, &p_format_encoded, &p_native_handle_encoded, &p_width_encoded, &p_height_encoded, &p_depth_encoded, &p_layers_encoded, &p_layered_type_encoded);
 }
 
+RID RenderingServer::texture_drawable_create(int32_t p_width, int32_t p_height, RenderingServer::TextureDrawableFormat p_format, const Color &p_color, bool p_with_mipmaps) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("texture_drawable_create")._native_ptr(), 1993613667);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
+	int64_t p_width_encoded;
+	PtrToArg<int64_t>::encode(p_width, &p_width_encoded);
+	int64_t p_height_encoded;
+	PtrToArg<int64_t>::encode(p_height, &p_height_encoded);
+	int64_t p_format_encoded;
+	PtrToArg<int64_t>::encode(p_format, &p_format_encoded);
+	int8_t p_with_mipmaps_encoded;
+	PtrToArg<bool>::encode(p_with_mipmaps, &p_with_mipmaps_encoded);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_width_encoded, &p_height_encoded, &p_format_encoded, &p_color, &p_with_mipmaps_encoded);
+}
+
 void RenderingServer::texture_2d_update(const RID &p_texture, const Ref<Image> &p_image, int32_t p_layer) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("texture_2d_update")._native_ptr(), 999539803);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -147,6 +162,14 @@ void RenderingServer::texture_proxy_update(const RID &p_texture, const RID &p_pr
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("texture_proxy_update")._native_ptr(), 395945892);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_texture, &p_proxy_to);
+}
+
+void RenderingServer::texture_drawable_blit_rect(const TypedArray<RID> &p_textures, const Rect2i &p_rect, const RID &p_material, const Color &p_modulate, const TypedArray<RID> &p_source_textures, int32_t p_to_mipmap) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("texture_drawable_blit_rect")._native_ptr(), 4077763890);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_to_mipmap_encoded;
+	PtrToArg<int64_t>::encode(p_to_mipmap, &p_to_mipmap_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_textures, &p_rect, &p_material, &p_modulate, &p_source_textures, &p_to_mipmap_encoded);
 }
 
 RID RenderingServer::texture_2d_placeholder_create() {
@@ -187,6 +210,18 @@ TypedArray<Ref<Image>> RenderingServer::texture_3d_get(const RID &p_texture) con
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("texture_3d_get")._native_ptr(), 2684255073);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Ref<Image>>()));
 	return ::godot::internal::_call_native_mb_ret<TypedArray<Ref<Image>>>(_gde_method_bind, _owner, &p_texture);
+}
+
+void RenderingServer::texture_drawable_generate_mipmaps(const RID &p_texture) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("texture_drawable_generate_mipmaps")._native_ptr(), 2722037293);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_texture);
+}
+
+RID RenderingServer::texture_drawable_get_default_material() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("texture_drawable_get_default_material")._native_ptr(), 2944877500);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
 void RenderingServer::texture_replace(const RID &p_texture, const RID &p_by_texture) {
@@ -843,6 +878,12 @@ RID RenderingServer::spot_light_create() {
 	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
 }
 
+RID RenderingServer::area_light_create() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("area_light_create")._native_ptr(), 529393457);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner);
+}
+
 void RenderingServer::light_set_color(const RID &p_light, const Color &p_color) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("light_set_color")._native_ptr(), 2948539648);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -965,6 +1006,20 @@ void RenderingServer::light_directional_set_sky_mode(const RID &p_light, Renderi
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_light, &p_mode_encoded);
+}
+
+void RenderingServer::light_area_set_size(const RID &p_light, const Vector2 &p_size) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("light_area_set_size")._native_ptr(), 3201125042);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_light, &p_size);
+}
+
+void RenderingServer::light_area_set_normalize_energy(const RID &p_light, bool p_enable) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("light_area_set_normalize_energy")._native_ptr(), 1265174801);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enable_encoded;
+	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_light, &p_enable_encoded);
 }
 
 void RenderingServer::light_projectors_set_filter(RenderingServer::LightProjectorFilter p_filter) {
@@ -1495,12 +1550,14 @@ void RenderingServer::particles_set_pre_process_time(const RID &p_particles, dou
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_particles, &p_time_encoded);
 }
 
-void RenderingServer::particles_request_process_time(const RID &p_particles, float p_time) {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("particles_request_process_time")._native_ptr(), 1794382983);
+void RenderingServer::particles_request_process_time(const RID &p_particles, float p_process_time, float p_process_time_residual) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("particles_request_process_time")._native_ptr(), 1515254041);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	double p_time_encoded;
-	PtrToArg<double>::encode(p_time, &p_time_encoded);
-	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_particles, &p_time_encoded);
+	double p_process_time_encoded;
+	PtrToArg<double>::encode(p_process_time, &p_process_time_encoded);
+	double p_process_time_residual_encoded;
+	PtrToArg<double>::encode(p_process_time_residual, &p_process_time_residual_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_particles, &p_process_time_encoded, &p_process_time_residual_encoded);
 }
 
 void RenderingServer::particles_set_explosiveness_ratio(const RID &p_particles, float p_ratio) {
@@ -1599,6 +1656,22 @@ void RenderingServer::particles_set_transform_align(const RID &p_particles, Rend
 	int64_t p_align_encoded;
 	PtrToArg<int64_t>::encode(p_align, &p_align_encoded);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_particles, &p_align_encoded);
+}
+
+void RenderingServer::particles_set_transform_align_channel_filter(const RID &p_particles, RenderingServer::ParticlesTransformAlignCustomSrc p_channel_filter) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("particles_set_transform_align_channel_filter")._native_ptr(), 1303285813);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_channel_filter_encoded;
+	PtrToArg<int64_t>::encode(p_channel_filter, &p_channel_filter_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_particles, &p_channel_filter_encoded);
+}
+
+void RenderingServer::particles_set_transform_align_axis(const RID &p_particles, RenderingServer::ParticlesTransformAlignAxis p_rotation_axis) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("particles_set_transform_align_axis")._native_ptr(), 3065310065);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_rotation_axis_encoded;
+	PtrToArg<int64_t>::encode(p_rotation_axis, &p_rotation_axis_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_particles, &p_rotation_axis_encoded);
 }
 
 void RenderingServer::particles_set_trails(const RID &p_particles, bool p_enable, float p_length_sec) {
@@ -1925,14 +1998,16 @@ void RenderingServer::viewport_set_use_xr(const RID &p_viewport, bool p_use_xr) 
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_viewport, &p_use_xr_encoded);
 }
 
-void RenderingServer::viewport_set_size(const RID &p_viewport, int32_t p_width, int32_t p_height) {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("viewport_set_size")._native_ptr(), 4288446313);
+void RenderingServer::viewport_set_size(const RID &p_viewport, int32_t p_width, int32_t p_height, int32_t p_view_count) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingServer::get_class_static()._native_ptr(), StringName("viewport_set_size")._native_ptr(), 3313592705);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_width_encoded;
 	PtrToArg<int64_t>::encode(p_width, &p_width_encoded);
 	int64_t p_height_encoded;
 	PtrToArg<int64_t>::encode(p_height, &p_height_encoded);
-	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_viewport, &p_width_encoded, &p_height_encoded);
+	int64_t p_view_count_encoded;
+	PtrToArg<int64_t>::encode(p_view_count, &p_view_count_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_viewport, &p_width_encoded, &p_height_encoded, &p_view_count_encoded);
 }
 
 void RenderingServer::viewport_set_active(const RID &p_viewport, bool p_active) {

@@ -47,7 +47,7 @@ class Variant;
 
 class Signal {
 	static constexpr size_t SIGNAL_SIZE = 16;
-	uint8_t opaque[SIGNAL_SIZE] = {};
+	alignas(8) uint8_t opaque[SIGNAL_SIZE] = {};
 
 	friend class Variant;
 

@@ -188,6 +188,26 @@ bool Window::get_flag(Window::Flags p_flag) const {
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_flag_encoded);
 }
 
+void Window::set_hdr_output_requested(bool p_requested) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("set_hdr_output_requested")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_requested_encoded;
+	PtrToArg<bool>::encode(p_requested, &p_requested_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_requested_encoded);
+}
+
+bool Window::is_hdr_output_requested() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("is_hdr_output_requested")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+float Window::get_output_max_linear_value() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("get_output_max_linear_value")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
 bool Window::is_maximize_allowed() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("is_maximize_allowed")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
@@ -198,6 +218,22 @@ void Window::request_attention() {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("request_attention")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
+void Window::set_taskbar_progress_value(float p_value) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("set_taskbar_progress_value")._native_ptr(), 373806689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_value_encoded;
+	PtrToArg<double>::encode(p_value, &p_value_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded);
+}
+
+void Window::set_taskbar_progress_state(DisplayServer::ProgressState p_state) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Window::get_class_static()._native_ptr(), StringName("set_taskbar_progress_state")._native_ptr(), 824071031);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_state_encoded;
+	PtrToArg<int64_t>::encode(p_state, &p_state_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_state_encoded);
 }
 
 void Window::move_to_foreground() {

@@ -76,6 +76,8 @@ public:
 	TypedArray<Control> get_drag_area_controls();
 	void set_touch_dragger_enabled(bool p_enabled);
 	bool is_touch_dragger_enabled() const;
+	void set_drag_nested_intersections(bool p_enabled);
+	bool is_dragging_nested_intersections() const;
 	Control *get_drag_area_control();
 	void set_split_offset(int32_t p_offset);
 	int32_t get_split_offset() const;

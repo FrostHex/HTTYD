@@ -36,12 +36,22 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/classes/open_xr_future_result.hpp>
+#include <godot_cpp/classes/open_xr_spatial_component_data.hpp>
+#include <godot_cpp/variant/rid.hpp>
+
 namespace godot {
 
 bool OpenXRSpatialPlaneTrackingCapability::is_supported() {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialPlaneTrackingCapability::get_class_static()._native_ptr(), StringName("is_supported")._native_ptr(), 2240911060);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+Ref<OpenXRFutureResult> OpenXRSpatialPlaneTrackingCapability::start_entity_discovery(const RID &p_spatial_context, const TypedArray<Ref<OpenXRSpatialComponentData>> &p_component_data, const Ref<OpenXRStructureBase> &p_next_snapshot_create, const Ref<OpenXRStructureBase> &p_next_snapshot_query, const Callable &p_user_callback) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialPlaneTrackingCapability::get_class_static()._native_ptr(), StringName("start_entity_discovery")._native_ptr(), 3452714169);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRFutureResult>()));
+	return Ref<OpenXRFutureResult>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OpenXRFutureResult>(_gde_method_bind, _owner, &p_spatial_context, &p_component_data, (p_next_snapshot_create != nullptr ? &p_next_snapshot_create->_owner : nullptr), (p_next_snapshot_query != nullptr ? &p_next_snapshot_query->_owner : nullptr), &p_user_callback));
 }
 
 } // namespace godot

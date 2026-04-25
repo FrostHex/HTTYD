@@ -35,6 +35,7 @@
 #include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/resource.hpp>
+#include <godot_cpp/variant/dictionary.hpp>
 #include <godot_cpp/variant/packed_byte_array.hpp>
 #include <godot_cpp/variant/packed_string_array.hpp>
 #include <godot_cpp/variant/string.hpp>
@@ -46,7 +47,6 @@
 
 namespace godot {
 
-class Dictionary;
 class GLTFNode;
 class GLTFObjectModelProperty;
 class GLTFState;
@@ -73,6 +73,7 @@ public:
 	virtual Node3D *_generate_scene_node(const Ref<GLTFState> &p_state, const Ref<GLTFNode> &p_gltf_node, Node *p_scene_parent);
 	virtual Error _import_node(const Ref<GLTFState> &p_state, const Ref<GLTFNode> &p_gltf_node, const Dictionary &p_json, Node *p_node);
 	virtual Error _import_post(const Ref<GLTFState> &p_state, Node *p_root);
+	virtual TypedArray<Dictionary> _export_get_property_list(Node *p_root_node);
 	virtual Error _export_preflight(const Ref<GLTFState> &p_state, Node *p_root);
 	virtual void _convert_scene_node(const Ref<GLTFState> &p_state, const Ref<GLTFNode> &p_gltf_node, Node *p_scene_node);
 	virtual Error _export_post_convert(const Ref<GLTFState> &p_state, Node *p_root);
@@ -124,6 +125,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_import_post), decltype(&T::_import_post)>) {
 			BIND_VIRTUAL_METHOD(T, _import_post, 295478427);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_export_get_property_list), decltype(&T::_export_get_property_list)>) {
+			BIND_VIRTUAL_METHOD(T, _export_get_property_list, 186716585);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_export_preflight), decltype(&T::_export_preflight)>) {
 			BIND_VIRTUAL_METHOD(T, _export_preflight, 295478427);

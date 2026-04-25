@@ -98,6 +98,7 @@ public:
 	void set_item_multistate(int32_t p_index, int32_t p_state);
 	void set_item_multistate_max(int32_t p_index, int32_t p_max_states);
 	void set_item_shortcut_disabled(int32_t p_index, bool p_disabled);
+	void set_item_index(int32_t p_index, int32_t p_target_index);
 	void toggle_item_checked(int32_t p_index);
 	void toggle_item_multistate(int32_t p_index);
 	String get_item_text(int32_t p_index) const;
@@ -145,6 +146,9 @@ public:
 	bool is_system_menu() const;
 	void set_system_menu(NativeMenu::SystemMenus p_system_menu_id);
 	NativeMenu::SystemMenus get_system_menu() const;
+	bool is_search_bar_enabled() const;
+	void set_search_bar_enabled_on_item_count(int32_t p_count);
+	int32_t get_search_bar_enabled_on_item_count() const;
 	void set_shrink_height(bool p_shrink);
 	bool get_shrink_height() const;
 	void set_shrink_width(bool p_shrink);

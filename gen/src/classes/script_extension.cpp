@@ -75,10 +75,6 @@ void *ScriptExtension::_placeholder_instance_create(Object *p_for_object) const 
 	return nullptr;
 }
 
-bool ScriptExtension::_instance_has(Object *p_object) const {
-	return false;
-}
-
 bool ScriptExtension::_has_source_code() const {
 	return false;
 }
@@ -181,6 +177,10 @@ bool ScriptExtension::_is_placeholder_fallback_enabled() const {
 
 Variant ScriptExtension::_get_rpc_config() const {
 	return Variant();
+}
+
+bool ScriptExtension::_instance_has(Object *p_object) const {
+	return false;
 }
 
 } // namespace godot

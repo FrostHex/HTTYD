@@ -61,6 +61,7 @@ public:
 	static PackedStringArray get_directories_at(const String &p_path);
 	static int32_t get_drive_count();
 	static String get_drive_name(int32_t p_idx);
+	static String get_drive_label(int32_t p_idx);
 	int32_t get_current_drive();
 	Error change_dir(const String &p_to_dir);
 	String get_current_dir(bool p_include_drive = true) const;

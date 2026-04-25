@@ -212,6 +212,22 @@ TextServer::AutowrapMode TreeItem::get_autowrap_mode(int32_t p_column) const {
 	return (TextServer::AutowrapMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_column_encoded);
 }
 
+void TreeItem::set_autowrap_trim_flags(int32_t p_column, BitField<TextServer::LineBreakFlag> p_flags) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("set_autowrap_trim_flags")._native_ptr(), 2186029660);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_column_encoded;
+	PtrToArg<int64_t>::encode(p_column, &p_column_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_column_encoded, &p_flags);
+}
+
+BitField<TextServer::LineBreakFlag> TreeItem::get_autowrap_trim_flags(int32_t p_column) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("get_autowrap_trim_flags")._native_ptr(), 3513056523);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (BitField<TextServer::LineBreakFlag>(0)));
+	int64_t p_column_encoded;
+	PtrToArg<int64_t>::encode(p_column, &p_column_encoded);
+	return (int64_t)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_column_encoded);
+}
+
 void TreeItem::set_text_overrun_behavior(int32_t p_column, TextServer::OverrunBehavior p_overrun_behavior) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("set_text_overrun_behavior")._native_ptr(), 1940772195);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -918,6 +934,20 @@ void TreeItem::set_disable_folding(bool p_disable) {
 
 bool TreeItem::is_folding_disabled() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("is_folding_disabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void TreeItem::set_accept_children(bool p_allowed) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("set_accept_children")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_allowed_encoded;
+	PtrToArg<bool>::encode(p_allowed, &p_allowed_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_allowed_encoded);
+}
+
+bool TreeItem::is_accepting_children() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TreeItem::get_class_static()._native_ptr(), StringName("is_accepting_children")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }

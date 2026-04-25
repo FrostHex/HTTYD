@@ -52,12 +52,17 @@
 namespace godot {
 
 class Callable;
+class PackedInt32Array;
+class RDAccelerationStructureGeometry;
+class RDAccelerationStructureInstance;
 class RDAttachmentFormat;
 class RDFramebufferPass;
+class RDHitGroup;
 class RDPipelineColorBlendState;
 class RDPipelineDepthStencilState;
 class RDPipelineMultisampleState;
 class RDPipelineRasterizationState;
+class RDPipelineShader;
 class RDSamplerState;
 class RDShaderSPIRV;
 class RDShaderSource;
@@ -450,6 +455,27 @@ public:
 	enum BufferCreationBits : uint64_t {
 		BUFFER_CREATION_DEVICE_ADDRESS_BIT = 1,
 		BUFFER_CREATION_AS_STORAGE_BIT = 2,
+		BUFFER_CREATION_ACCELERATION_STRUCTURE_BUILD_INPUT_READ_ONLY_BIT = 8,
+	};
+
+	enum AccelerationStructureFlagBits : uint64_t {
+		ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT = 1,
+		ACCELERATION_STRUCTURE_ALLOW_COMPACTION_BIT = 2,
+		ACCELERATION_STRUCTURE_PREFER_FAST_TRACE_BIT = 4,
+		ACCELERATION_STRUCTURE_PREFER_FAST_BUILD_BIT = 8,
+		ACCELERATION_STRUCTURE_LOW_MEMORY_BIT = 16,
+	};
+
+	enum AccelerationStructureGeometryFlagBits : uint64_t {
+		ACCELERATION_STRUCTURE_GEOMETRY_OPAQUE_BIT = 1,
+		ACCELERATION_STRUCTURE_GEOMETRY_NO_DUPLICATE_ANY_HIT_INVOCATION_BIT = 2,
+	};
+
+	enum AccelerationStructureInstanceFlagBits : uint64_t {
+		ACCELERATION_STRUCTURE_INSTANCE_TRIANGLE_FACING_CULL_DISABLE_BIT = 1,
+		ACCELERATION_STRUCTURE_INSTANCE_TRIANGLE_FLIP_FACING_BIT = 2,
+		ACCELERATION_STRUCTURE_INSTANCE_FORCE_OPAQUE_BIT = 4,
+		ACCELERATION_STRUCTURE_INSTANCE_FORCE_NO_OPAQUE_BIT = 8,
 	};
 
 	enum UniformType {
@@ -465,7 +491,8 @@ public:
 		UNIFORM_TYPE_INPUT_ATTACHMENT = 9,
 		UNIFORM_TYPE_UNIFORM_BUFFER_DYNAMIC = 10,
 		UNIFORM_TYPE_STORAGE_BUFFER_DYNAMIC = 11,
-		UNIFORM_TYPE_MAX = 12,
+		UNIFORM_TYPE_ACCELERATION_STRUCTURE = 12,
+		UNIFORM_TYPE_MAX = 13,
 	};
 
 	enum RenderPrimitive {
@@ -606,12 +633,22 @@ public:
 		SHADER_STAGE_TESSELATION_CONTROL = 2,
 		SHADER_STAGE_TESSELATION_EVALUATION = 3,
 		SHADER_STAGE_COMPUTE = 4,
-		SHADER_STAGE_MAX = 5,
+		SHADER_STAGE_RAYGEN = 5,
+		SHADER_STAGE_ANY_HIT = 6,
+		SHADER_STAGE_CLOSEST_HIT = 7,
+		SHADER_STAGE_MISS = 8,
+		SHADER_STAGE_INTERSECTION = 9,
+		SHADER_STAGE_MAX = 10,
 		SHADER_STAGE_VERTEX_BIT = 1,
 		SHADER_STAGE_FRAGMENT_BIT = 2,
 		SHADER_STAGE_TESSELATION_CONTROL_BIT = 4,
 		SHADER_STAGE_TESSELATION_EVALUATION_BIT = 8,
 		SHADER_STAGE_COMPUTE_BIT = 16,
+		SHADER_STAGE_RAYGEN_BIT = 32,
+		SHADER_STAGE_ANY_HIT_BIT = 64,
+		SHADER_STAGE_CLOSEST_HIT_BIT = 128,
+		SHADER_STAGE_MISS_BIT = 256,
+		SHADER_STAGE_INTERSECTION_BIT = 512,
 	};
 
 	enum ShaderLanguage {
@@ -630,6 +667,9 @@ public:
 		SUPPORTS_METALFX_TEMPORAL = 4,
 		SUPPORTS_BUFFER_DEVICE_ADDRESS = 6,
 		SUPPORTS_IMAGE_ATOMIC_32_BIT = 7,
+		SUPPORTS_RAY_QUERY = 11,
+		SUPPORTS_RAYTRACING_PIPELINE = 12,
+		SUPPORTS_HDR_OUTPUT = 13,
 	};
 
 	enum Limit {
@@ -783,6 +823,17 @@ public:
 	bool render_pipeline_is_valid(const RID &p_render_pipeline);
 	RID compute_pipeline_create(const RID &p_shader, const TypedArray<Ref<RDPipelineSpecializationConstant>> &p_specialization_constants = {});
 	bool compute_pipeline_is_valid(const RID &p_compute_pipeline);
+	RID raytracing_pipeline_create(const TypedArray<Ref<RDPipelineShader>> &p_raygen_shaders, const TypedArray<Ref<RDPipelineShader>> &p_miss_shaders, const TypedArray<Ref<RDHitGroup>> &p_hit_groups, uint32_t p_max_trace_recursion_depth);
+	bool raytracing_pipeline_is_valid(const RID &p_raytracing_pipeline);
+	RID blas_create(const TypedArray<Ref<RDAccelerationStructureGeometry>> &p_geometries, BitField<RenderingDevice::AccelerationStructureFlagBits> p_flags);
+	RID tlas_create(uint32_t p_max_instance_count, BitField<RenderingDevice::AccelerationStructureFlagBits> p_flags);
+	Error blas_build(const RID &p_blas);
+	Error tlas_build(const RID &p_tlas, const TypedArray<Ref<RDAccelerationStructureInstance>> &p_instances);
+	RID hit_sbt_create(const RID &p_raytracing_pipeline, uint32_t p_initial_hit_group_capacity);
+	Error hit_sbt_set_pipeline(const RID &p_hit_sbt, const RID &p_raytracing_pipeline);
+	int64_t hit_sbt_range_alloc(const RID &p_hit_sbt, uint32_t p_hit_group_count);
+	Error hit_sbt_range_free(const RID &p_hit_sbt, int64_t p_range);
+	Error hit_sbt_range_update(const RID &p_hit_sbt, int64_t p_range, uint32_t p_offset, const PackedInt32Array &p_hit_group_indices);
 	int32_t screen_get_width(int32_t p_screen = 0) const;
 	int32_t screen_get_height(int32_t p_screen = 0) const;
 	int64_t screen_get_framebuffer_format(int32_t p_screen = 0) const;
@@ -811,6 +862,12 @@ public:
 	void compute_list_dispatch_indirect(int64_t p_compute_list, const RID &p_buffer, uint32_t p_offset);
 	void compute_list_add_barrier(int64_t p_compute_list);
 	void compute_list_end();
+	int64_t raytracing_list_begin();
+	void raytracing_list_bind_raytracing_pipeline(int64_t p_raytracing_list, const RID &p_raytracing_pipeline);
+	void raytracing_list_set_push_constant(int64_t p_raytracing_list, const PackedByteArray &p_buffer, uint32_t p_size_bytes);
+	void raytracing_list_bind_uniform_set(int64_t p_raytracing_list, const RID &p_uniform_set, uint32_t p_set_index);
+	void raytracing_list_trace_rays(int64_t p_raytracing_list, uint32_t p_raygen_shader_index, const RID &p_hit_sbt, uint32_t p_width, uint32_t p_height, uint32_t p_depth);
+	void raytracing_list_end();
 	void free_rid(const RID &p_rid);
 	void capture_timestamp(const String &p_name);
 	uint32_t get_captured_timestamps_count() const;
@@ -875,6 +932,9 @@ VARIANT_ENUM_CAST(RenderingDevice::VertexFrequency);
 VARIANT_ENUM_CAST(RenderingDevice::IndexBufferFormat);
 VARIANT_BITFIELD_CAST(RenderingDevice::StorageBufferUsage);
 VARIANT_BITFIELD_CAST(RenderingDevice::BufferCreationBits);
+VARIANT_BITFIELD_CAST(RenderingDevice::AccelerationStructureFlagBits);
+VARIANT_BITFIELD_CAST(RenderingDevice::AccelerationStructureGeometryFlagBits);
+VARIANT_BITFIELD_CAST(RenderingDevice::AccelerationStructureInstanceFlagBits);
 VARIANT_ENUM_CAST(RenderingDevice::UniformType);
 VARIANT_ENUM_CAST(RenderingDevice::RenderPrimitive);
 VARIANT_ENUM_CAST(RenderingDevice::PolygonCullMode);

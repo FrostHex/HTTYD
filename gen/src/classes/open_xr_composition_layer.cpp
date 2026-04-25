@@ -300,6 +300,20 @@ Color OpenXRCompositionLayer::get_border_color() const {
 	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
 }
 
+void OpenXRCompositionLayer::set_eye_visibility(OpenXRCompositionLayer::EyeVisibility p_eye_visibility) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRCompositionLayer::get_class_static()._native_ptr(), StringName("set_eye_visibility")._native_ptr(), 156391336);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_eye_visibility_encoded;
+	PtrToArg<int64_t>::encode(p_eye_visibility, &p_eye_visibility_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_eye_visibility_encoded);
+}
+
+OpenXRCompositionLayer::EyeVisibility OpenXRCompositionLayer::get_eye_visibility() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRCompositionLayer::get_class_static()._native_ptr(), StringName("get_eye_visibility")._native_ptr(), 467669000);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (OpenXRCompositionLayer::EyeVisibility(0)));
+	return (OpenXRCompositionLayer::EyeVisibility)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 Vector2 OpenXRCompositionLayer::intersects_ray(const Vector3 &p_origin, const Vector3 &p_direction) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRCompositionLayer::get_class_static()._native_ptr(), StringName("intersects_ray")._native_ptr(), 1091262597);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));

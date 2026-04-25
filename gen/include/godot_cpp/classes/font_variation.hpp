@@ -36,6 +36,7 @@
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/text_server.hpp>
 #include <godot_cpp/variant/dictionary.hpp>
+#include <godot_cpp/variant/packed_color_array.hpp>
 #include <godot_cpp/variant/transform2d.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
@@ -62,6 +63,10 @@ public:
 	void set_spacing(TextServer::SpacingType p_spacing, int32_t p_value);
 	void set_baseline_offset(float p_baseline_offset);
 	float get_baseline_offset() const;
+	int64_t get_palette_index() const;
+	void set_palette_index(int64_t p_palette_index);
+	PackedColorArray get_palette_custom_colors() const;
+	void set_palette_custom_colors(const PackedColorArray &p_colors);
 
 protected:
 	template <typename T, typename B>

@@ -50,7 +50,7 @@ class Object : public Wrapped {
 	GDEXTENSION_CLASS(Object, Wrapped)
 
 public:
-	enum ConnectFlags {
+	enum ConnectFlags : uint64_t {
 		CONNECT_DEFERRED = 1,
 		CONNECT_PERSIST = 2,
 		CONNECT_ONE_SHOT = 4,
@@ -63,7 +63,7 @@ public:
 	static const int NOTIFICATION_EXTENSION_RELOADED = 2;
 
 	String get_class() const;
-	bool is_class(const String &p_class) const;
+	bool is_class(const StringName &p_class) const;
 	void set(const StringName &p_property, const Variant &p_value);
 	Variant get(const StringName &p_property) const;
 	void set_indexed(const NodePath &p_property_path, const Variant &p_value);

@@ -60,7 +60,7 @@ class Variant;
 
 class Array {
 	static constexpr size_t ARRAY_SIZE = 8;
-	uint8_t opaque[ARRAY_SIZE] = {};
+	alignas(8) uint8_t opaque[ARRAY_SIZE] = {};
 
 	friend class Variant;
 

@@ -32,6 +32,7 @@
 
 #pragma once
 
+#include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/ref_counted.hpp>
 #include <godot_cpp/variant/rid.hpp>
@@ -76,6 +77,7 @@ public:
 	void emit_changed();
 	Ref<Resource> duplicate(bool p_deep = false) const;
 	Ref<Resource> duplicate_deep(Resource::DeepDuplicateMode p_deep_subresources_mode = (Resource::DeepDuplicateMode)1) const;
+	Error copy_from_resource(const Ref<Resource> &p_resource);
 	virtual void _setup_local_to_scene();
 	virtual RID _get_rid() const;
 	virtual void _reset_state();

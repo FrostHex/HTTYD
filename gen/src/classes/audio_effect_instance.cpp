@@ -38,7 +38,7 @@
 
 namespace godot {
 
-void AudioEffectInstance::_process(const void *p_src_buffer, AudioFrame *p_dst_buffer, int32_t p_frame_count) {}
+void AudioEffectInstance::_process(const void *p_src_buffer, AudioFrame *r_dst_buffer, int32_t p_frame_count) {}
 
 bool AudioEffectInstance::_process_silence() const {
 	return false;

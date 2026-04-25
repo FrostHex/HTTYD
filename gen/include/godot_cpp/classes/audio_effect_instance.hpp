@@ -46,7 +46,7 @@ class AudioEffectInstance : public RefCounted {
 	GDEXTENSION_CLASS(AudioEffectInstance, RefCounted)
 
 public:
-	virtual void _process(const void *p_src_buffer, AudioFrame *p_dst_buffer, int32_t p_frame_count);
+	virtual void _process(const void *p_src_buffer, AudioFrame *r_dst_buffer, int32_t p_frame_count);
 	virtual bool _process_silence() const;
 
 protected:

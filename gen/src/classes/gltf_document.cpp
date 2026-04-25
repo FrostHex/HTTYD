@@ -110,6 +110,20 @@ GLTFDocument::RootNodeMode GLTFDocument::get_root_node_mode() const {
 	return (GLTFDocument::RootNodeMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+void GLTFDocument::set_texture_map_mode(GLTFDocument::TextureMapMode p_texture_map_mode) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFDocument::get_class_static()._native_ptr(), StringName("set_texture_map_mode")._native_ptr(), 3144426102);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_texture_map_mode_encoded;
+	PtrToArg<int64_t>::encode(p_texture_map_mode, &p_texture_map_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_texture_map_mode_encoded);
+}
+
+GLTFDocument::TextureMapMode GLTFDocument::get_texture_map_mode() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFDocument::get_class_static()._native_ptr(), StringName("get_texture_map_mode")._native_ptr(), 2113256994);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (GLTFDocument::TextureMapMode(0)));
+	return (GLTFDocument::TextureMapMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 void GLTFDocument::set_visibility_mode(GLTFDocument::VisibilityMode p_visibility_mode) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GLTFDocument::get_class_static()._native_ptr(), StringName("set_visibility_mode")._native_ptr(), 2803579218);
 	CHECK_METHOD_BIND(_gde_method_bind);

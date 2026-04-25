@@ -160,6 +160,12 @@ int32_t SkeletonModification2DJiggle::get_collision_mask() const {
 	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+void SkeletonModification2DJiggle::reset() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DJiggle::get_class_static()._native_ptr(), StringName("reset")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
 void SkeletonModification2DJiggle::set_jiggle_joint_bone2d_node(int32_t p_joint_idx, const NodePath &p_bone2d_node) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SkeletonModification2DJiggle::get_class_static()._native_ptr(), StringName("set_jiggle_joint_bone2d_node")._native_ptr(), 2761262315);
 	CHECK_METHOD_BIND(_gde_method_bind);

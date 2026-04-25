@@ -33,7 +33,7 @@
 #pragma once
 
 #define GODOT_VERSION_MAJOR 4
-#define GODOT_VERSION_MINOR 6
-#define GODOT_VERSION_PATCH 1
-#define GODOT_VERSION_STATUS "rc1"
+#define GODOT_VERSION_MINOR 7
+#define GODOT_VERSION_PATCH 0
+#define GODOT_VERSION_STATUS "beta1"
 #define GODOT_VERSION_BUILD "official"

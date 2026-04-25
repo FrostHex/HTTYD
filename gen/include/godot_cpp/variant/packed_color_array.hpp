@@ -51,7 +51,7 @@ class Variant;
 
 class PackedColorArray {
 	static constexpr size_t PACKED_COLOR_ARRAY_SIZE = 16;
-	uint8_t opaque[PACKED_COLOR_ARRAY_SIZE] = {};
+	alignas(8) uint8_t opaque[PACKED_COLOR_ARRAY_SIZE] = {};
 
 	friend class Variant;
 

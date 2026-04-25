@@ -120,6 +120,14 @@ String DirAccess::get_drive_name(int32_t p_idx) {
 	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, nullptr, &p_idx_encoded);
 }
 
+String DirAccess::get_drive_label(int32_t p_idx) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DirAccess::get_class_static()._native_ptr(), StringName("get_drive_label")._native_ptr(), 990163283);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	int64_t p_idx_encoded;
+	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, nullptr, &p_idx_encoded);
+}
+
 int32_t DirAccess::get_current_drive() {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DirAccess::get_class_static()._native_ptr(), StringName("get_current_drive")._native_ptr(), 2455072627);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));

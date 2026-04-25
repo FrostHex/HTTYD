@@ -85,6 +85,12 @@ uint64_t OpenXRSpatialEntityExtension::get_spatial_context_handle(const RID &p_s
 	return ::godot::internal::_call_native_mb_ret<uint64_t>(_gde_method_bind, _owner, &p_spatial_context);
 }
 
+Ref<OpenXRFutureResult> OpenXRSpatialEntityExtension::discover_spatial_entities_with_component_data(const RID &p_spatial_context, const TypedArray<Ref<OpenXRSpatialComponentData>> &p_component_data, const Ref<OpenXRStructureBase> &p_next, const Callable &p_user_callback) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialEntityExtension::get_class_static()._native_ptr(), StringName("discover_spatial_entities_with_component_data")._native_ptr(), 1830928590);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRFutureResult>()));
+	return Ref<OpenXRFutureResult>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<OpenXRFutureResult>(_gde_method_bind, _owner, &p_spatial_context, &p_component_data, (p_next != nullptr ? &p_next->_owner : nullptr), &p_user_callback));
+}
+
 Ref<OpenXRFutureResult> OpenXRSpatialEntityExtension::discover_spatial_entities(const RID &p_spatial_context, const PackedInt64Array &p_component_types, const Ref<OpenXRStructureBase> &p_next, const Callable &p_user_callback) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialEntityExtension::get_class_static()._native_ptr(), StringName("discover_spatial_entities")._native_ptr(), 2252833536);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<OpenXRFutureResult>()));

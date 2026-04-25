@@ -35,6 +35,7 @@
 #include <godot_cpp/classes/animation_root_node.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/variant/string.hpp>
+#include <godot_cpp/variant/string_name.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -52,13 +53,24 @@ public:
 		BLEND_MODE_DISCRETE_CARRY = 2,
 	};
 
-	void add_blend_point(const Ref<AnimationRootNode> &p_node, float p_pos, int32_t p_at_index = -1);
+	enum SyncMode {
+		SYNC_MODE_NONE = 0,
+		SYNC_MODE_INDEPENDENT = 1,
+		SYNC_MODE_CYCLIC_MUTABLE = 2,
+		SYNC_MODE_CYCLIC_CONSTANT = 3,
+	};
+
+	void add_blend_point(const Ref<AnimationRootNode> &p_node, float p_pos, int32_t p_at_index = -1, const StringName &p_name = StringName());
 	void set_blend_point_position(int32_t p_point, float p_pos);
 	float get_blend_point_position(int32_t p_point) const;
 	void set_blend_point_node(int32_t p_point, const Ref<AnimationRootNode> &p_node);
 	Ref<AnimationRootNode> get_blend_point_node(int32_t p_point) const;
+	void set_blend_point_name(int32_t p_point, const StringName &p_name);
+	StringName get_blend_point_name(int32_t p_point) const;
+	int32_t find_blend_point_by_name(const StringName &p_name) const;
 	void remove_blend_point(int32_t p_point);
 	int32_t get_blend_point_count() const;
+	void reorder_blend_point(int32_t p_from_index, int32_t p_to_index);
 	void set_min_space(float p_min_space);
 	float get_min_space() const;
 	void set_max_space(float p_max_space);
@@ -71,6 +83,10 @@ public:
 	AnimationNodeBlendSpace1D::BlendMode get_blend_mode() const;
 	void set_use_sync(bool p_enable);
 	bool is_using_sync() const;
+	void set_sync_mode(AnimationNodeBlendSpace1D::SyncMode p_sync_mode);
+	AnimationNodeBlendSpace1D::SyncMode get_sync_mode() const;
+	void set_cyclic_length(double p_length);
+	double get_cyclic_length() const;
 
 protected:
 	template <typename T, typename B>
@@ -84,4 +100,5 @@ public:
 } // namespace godot
 
 VARIANT_ENUM_CAST(AnimationNodeBlendSpace1D::BlendMode);
+VARIANT_ENUM_CAST(AnimationNodeBlendSpace1D::SyncMode);
 

@@ -60,6 +60,7 @@ public:
 	void set_item_metadata(int32_t p_idx, const Variant &p_metadata);
 	void set_item_tooltip(int32_t p_idx, const String &p_tooltip);
 	void set_item_auto_translate_mode(int32_t p_idx, Node::AutoTranslateMode p_mode);
+	void set_search_bar_enabled_on_item_count(int32_t p_counts);
 	String get_item_text(int32_t p_idx) const;
 	Ref<Texture2D> get_item_icon(int32_t p_idx) const;
 	int32_t get_item_id(int32_t p_idx) const;
@@ -69,6 +70,8 @@ public:
 	Node::AutoTranslateMode get_item_auto_translate_mode(int32_t p_idx) const;
 	bool is_item_disabled(int32_t p_idx) const;
 	bool is_item_separator(int32_t p_idx) const;
+	bool is_search_bar_enabled() const;
+	int32_t get_search_bar_enabled_on_item_count() const;
 	void add_separator(const String &p_text = String());
 	void clear();
 	void select(int32_t p_idx);

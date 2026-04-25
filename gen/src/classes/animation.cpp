@@ -752,7 +752,7 @@ void Animation::set_marker_color(const StringName &p_name, const Color &p_color)
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_name, &p_color);
 }
 
-void Animation::set_length(float p_time_sec) {
+void Animation::set_length(double p_time_sec) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Animation::get_class_static()._native_ptr(), StringName("set_length")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_time_sec_encoded;
@@ -760,7 +760,7 @@ void Animation::set_length(float p_time_sec) {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_time_sec_encoded);
 }
 
-float Animation::get_length() const {
+double Animation::get_length() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Animation::get_class_static()._native_ptr(), StringName("get_length")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);

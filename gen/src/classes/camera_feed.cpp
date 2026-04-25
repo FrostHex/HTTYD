@@ -161,4 +161,12 @@ bool CameraFeed::_activate_feed() {
 
 void CameraFeed::_deactivate_feed() {}
 
+bool CameraFeed::_set_format(int32_t p_index, const Dictionary &p_parameters) {
+	return false;
+}
+
+Array CameraFeed::_get_formats() const {
+	return Array();
+}
+
 } // namespace godot

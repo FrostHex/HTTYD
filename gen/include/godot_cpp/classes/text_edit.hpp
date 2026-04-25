@@ -320,6 +320,7 @@ public:
 	double get_scroll_pos_for_line(int32_t p_line, int32_t p_wrap_index = 0) const;
 	void set_line_as_first_visible(int32_t p_line, int32_t p_wrap_index = 0);
 	int32_t get_first_visible_line() const;
+	bool is_line_in_viewport(int32_t p_line) const;
 	void set_line_as_center_visible(int32_t p_line, int32_t p_wrap_index = 0);
 	void set_line_as_last_visible(int32_t p_line, int32_t p_wrap_index = 0);
 	int32_t get_last_full_visible_line() const;

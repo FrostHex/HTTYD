@@ -53,6 +53,18 @@ void Control::accept_event() {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
+Vector2 Control::get_maximum_size() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_maximum_size")._native_ptr(), 3341600327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+}
+
+Vector2 Control::get_combined_maximum_size() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_combined_maximum_size")._native_ptr(), 3341600327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+}
+
 Vector2 Control::get_minimum_size() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_minimum_size")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
@@ -61,6 +73,26 @@ Vector2 Control::get_minimum_size() const {
 
 Vector2 Control::get_combined_minimum_size() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_combined_minimum_size")._native_ptr(), 3341600327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+}
+
+void Control::set_propagate_maximum_size(bool p_enable) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_propagate_maximum_size")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enable_encoded;
+	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+}
+
+bool Control::is_propagating_maximum_size() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("is_propagating_maximum_size")._native_ptr(), 2240911060);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+Vector2 Control::get_bound_minimum_size() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_bound_minimum_size")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
 	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
@@ -187,6 +219,12 @@ void Control::reset_size() {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
+void Control::set_custom_maximum_size(const Vector2 &p_size) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_custom_maximum_size")._native_ptr(), 743155724);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_size);
+}
+
 void Control::set_custom_minimum_size(const Vector2 &p_size) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_custom_minimum_size")._native_ptr(), 743155724);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -291,6 +329,12 @@ Vector2 Control::get_pivot_offset_ratio() const {
 
 Vector2 Control::get_combined_pivot_offset() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_combined_pivot_offset")._native_ptr(), 3341600327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+}
+
+Vector2 Control::get_custom_maximum_size() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_custom_maximum_size")._native_ptr(), 3341600327);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
 	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
 }
@@ -443,6 +487,108 @@ BitField<Control::SizeFlags> Control::get_v_size_flags() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_v_size_flags")._native_ptr(), 3781367401);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (BitField<Control::SizeFlags>(0)));
 	return (int64_t)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void Control::set_offset_transform_enabled(bool p_enabled) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_offset_transform_enabled")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+}
+
+bool Control::is_offset_transform_enabled() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("is_offset_transform_enabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void Control::set_offset_transform_position(const Vector2 &p_offset) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_offset_transform_position")._native_ptr(), 743155724);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
+}
+
+Vector2 Control::get_offset_transform_position() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_offset_transform_position")._native_ptr(), 3341600327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+}
+
+void Control::set_offset_transform_position_ratio(const Vector2 &p_offset) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_offset_transform_position_ratio")._native_ptr(), 743155724);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_offset);
+}
+
+Vector2 Control::get_offset_transform_position_ratio() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_offset_transform_position_ratio")._native_ptr(), 3341600327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+}
+
+void Control::set_offset_transform_scale(const Vector2 &p_scale) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_offset_transform_scale")._native_ptr(), 743155724);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_scale);
+}
+
+Vector2 Control::get_offset_transform_scale() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_offset_transform_scale")._native_ptr(), 3341600327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+}
+
+void Control::set_offset_transform_rotation(float p_rotation) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_offset_transform_rotation")._native_ptr(), 373806689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_rotation_encoded;
+	PtrToArg<double>::encode(p_rotation, &p_rotation_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rotation_encoded);
+}
+
+float Control::get_offset_transform_rotation() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_offset_transform_rotation")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+void Control::set_offset_transform_pivot(const Vector2 &p_pivot) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_offset_transform_pivot")._native_ptr(), 743155724);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pivot);
+}
+
+Vector2 Control::get_offset_transform_pivot() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_offset_transform_pivot")._native_ptr(), 3341600327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+}
+
+void Control::set_offset_transform_pivot_ratio(const Vector2 &p_pivot) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_offset_transform_pivot_ratio")._native_ptr(), 743155724);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_pivot);
+}
+
+Vector2 Control::get_offset_transform_pivot_ratio() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_offset_transform_pivot_ratio")._native_ptr(), 3341600327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+}
+
+void Control::set_offset_transform_visual_only(bool p_enabled) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_offset_transform_visual_only")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+}
+
+bool Control::is_offset_transform_visual_only() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("is_offset_transform_visual_only")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 void Control::set_theme(const Ref<Theme> &p_theme) {
@@ -749,6 +895,18 @@ String Control::get_tooltip(const Vector2 &p_at_position) const {
 	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_at_position);
 }
 
+void Control::set_translation_context(const StringName &p_context) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_translation_context")._native_ptr(), 3304788590);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_context);
+}
+
+StringName Control::get_translation_context() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_translation_context")._native_ptr(), 2002593661);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
+	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
+}
+
 void Control::set_default_cursor_shape(Control::CursorShape p_shape) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_default_cursor_shape")._native_ptr(), 217062046);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -763,10 +921,10 @@ Control::CursorShape Control::get_default_cursor_shape() const {
 	return (Control::CursorShape)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-Control::CursorShape Control::get_cursor_shape(const Vector2 &p_position) const {
+Control::CursorShape Control::get_cursor_shape(const Vector2 &p_at_position) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_cursor_shape")._native_ptr(), 1395773853);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Control::CursorShape(0)));
-	return (Control::CursorShape)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_position);
+	return (Control::CursorShape)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_at_position);
 }
 
 void Control::set_focus_neighbor(Side p_side, const NodePath &p_neighbor) {
@@ -851,18 +1009,18 @@ String Control::get_accessibility_description() const {
 	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
-void Control::set_accessibility_live(DisplayServer::AccessibilityLiveMode p_mode) {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_accessibility_live")._native_ptr(), 1720261470);
+void Control::set_accessibility_live(AccessibilityServer::AccessibilityLiveMode p_mode) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("set_accessibility_live")._native_ptr(), 353443434);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_mode_encoded;
 	PtrToArg<int64_t>::encode(p_mode, &p_mode_encoded);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_mode_encoded);
 }
 
-DisplayServer::AccessibilityLiveMode Control::get_accessibility_live() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_accessibility_live")._native_ptr(), 3311037003);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (DisplayServer::AccessibilityLiveMode(0)));
-	return (DisplayServer::AccessibilityLiveMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+AccessibilityServer::AccessibilityLiveMode Control::get_accessibility_live() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("get_accessibility_live")._native_ptr(), 2858591811);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (AccessibilityServer::AccessibilityLiveMode(0)));
+	return (AccessibilityServer::AccessibilityLiveMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void Control::set_accessibility_controls_nodes(const TypedArray<NodePath> &p_node_path) {
@@ -1017,6 +1175,12 @@ Node *Control::get_shortcut_context() const {
 	return ::godot::internal::_call_native_mb_ret_obj<Node>(_gde_method_bind, _owner);
 }
 
+void Control::update_maximum_size() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("update_maximum_size")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
 void Control::update_minimum_size() {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Control::get_class_static()._native_ptr(), StringName("update_minimum_size")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -1079,12 +1243,20 @@ TypedArray<Vector3i> Control::_structured_text_parser(const Array &p_args, const
 	return TypedArray<Vector3i>();
 }
 
+Vector2 Control::_get_maximum_size() const {
+	return Vector2();
+}
+
 Vector2 Control::_get_minimum_size() const {
 	return Vector2();
 }
 
 String Control::_get_tooltip(const Vector2 &p_at_position) const {
 	return String();
+}
+
+Node::AutoTranslateMode Control::_get_tooltip_auto_translate_mode_at(const Vector2 &p_at_position) const {
+	return Node::AutoTranslateMode(0);
 }
 
 Variant Control::_get_drag_data(const Vector2 &p_at_position) {
@@ -1099,6 +1271,10 @@ void Control::_drop_data(const Vector2 &p_at_position, const Variant &p_data) {}
 
 Object *Control::_make_custom_tooltip(const String &p_for_text) const {
 	return nullptr;
+}
+
+int32_t Control::_get_cursor_shape(const Vector2 &p_at_position) const {
+	return 0;
 }
 
 String Control::_accessibility_get_contextual_info() const {

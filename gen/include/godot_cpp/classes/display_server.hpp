@@ -103,6 +103,8 @@ public:
 		FEATURE_NATIVE_COLOR_PICKER = 32,
 		FEATURE_SELF_FITTING_WINDOWS = 33,
 		FEATURE_ACCESSIBILITY_SCREEN_READER = 34,
+		FEATURE_HDR_OUTPUT = 35,
+		FEATURE_PIP_MODE = 36,
 	};
 
 	enum AccessibilityRole {
@@ -152,6 +154,8 @@ public:
 		ROLE_TITLE_BAR = 43,
 		ROLE_DIALOG = 44,
 		ROLE_TOOLTIP = 45,
+		ROLE_REGION = 46,
+		ROLE_TEXT_RUN = 47,
 	};
 
 	enum AccessibilityPopupType {
@@ -287,6 +291,14 @@ public:
 		WINDOW_MODE_EXCLUSIVE_FULLSCREEN = 4,
 	};
 
+	enum ProgressState {
+		PROGRESS_STATE_NOPROGRESS = 0,
+		PROGRESS_STATE_INDETERMINATE = 1,
+		PROGRESS_STATE_NORMAL = 2,
+		PROGRESS_STATE_ERROR = 3,
+		PROGRESS_STATE_PAUSED = 4,
+	};
+
 	enum WindowFlags {
 		WINDOW_FLAG_RESIZE_DISABLED = 0,
 		WINDOW_FLAG_BORDERLESS = 1,
@@ -314,6 +326,7 @@ public:
 		WINDOW_EVENT_DPI_CHANGE = 6,
 		WINDOW_EVENT_TITLEBAR_CHANGE = 7,
 		WINDOW_EVENT_FORCE_CLOSE = 8,
+		WINDOW_EVENT_OUTPUT_MAX_LINEAR_VALUE_CHANGED = 9,
 	};
 
 	enum WindowResizeEdge {
@@ -342,6 +355,8 @@ public:
 		OPENGL_CONTEXT = 3,
 		EGL_DISPLAY = 4,
 		EGL_CONFIG = 5,
+		GLX_VISUALID = 6,
+		GLX_FBCONFIG = 7,
 	};
 
 	enum TTSUtteranceEvent {
@@ -492,9 +507,12 @@ public:
 	void window_set_mode(DisplayServer::WindowMode p_mode, int32_t p_window_id = 0);
 	void window_set_flag(DisplayServer::WindowFlags p_flag, bool p_enabled, int32_t p_window_id = 0);
 	bool window_get_flag(DisplayServer::WindowFlags p_flag, int32_t p_window_id = 0) const;
+	void window_set_icon(const Ref<Image> &p_icon, int32_t p_window_id = 0);
 	void window_set_window_buttons_offset(const Vector2i &p_offset, int32_t p_window_id = 0);
 	Vector3i window_get_safe_title_margins(int32_t p_window_id = 0) const;
 	void window_request_attention(int32_t p_window_id = 0);
+	void window_set_taskbar_progress_value(float p_value, int32_t p_window_id = 0);
+	void window_set_taskbar_progress_state(DisplayServer::ProgressState p_state, int32_t p_window_id = 0);
 	void window_move_to_foreground(int32_t p_window_id = 0);
 	bool window_is_focused(int32_t p_window_id = 0) const;
 	bool window_can_draw(int32_t p_window_id = 0) const;
@@ -504,6 +522,17 @@ public:
 	void window_set_ime_position(const Vector2i &p_position, int32_t p_window_id = 0);
 	void window_set_vsync_mode(DisplayServer::VSyncMode p_vsync_mode, int32_t p_window_id = 0);
 	DisplayServer::VSyncMode window_get_vsync_mode(int32_t p_window_id = 0) const;
+	bool window_is_hdr_output_supported(int32_t p_window_id = 0) const;
+	void window_request_hdr_output(bool p_enable, int32_t p_window_id = 0);
+	bool window_is_hdr_output_requested(int32_t p_window_id = 0) const;
+	bool window_is_hdr_output_enabled(int32_t p_window_id = 0) const;
+	void window_set_hdr_output_reference_luminance(float p_reference_luminance, int32_t p_window_id = 0);
+	float window_get_hdr_output_reference_luminance(int32_t p_window_id = 0) const;
+	float window_get_hdr_output_current_reference_luminance(int32_t p_window_id = 0) const;
+	void window_set_hdr_output_max_luminance(float p_max_luminance, int32_t p_window_id = 0);
+	float window_get_hdr_output_max_luminance(int32_t p_window_id = 0) const;
+	float window_get_hdr_output_current_max_luminance(int32_t p_window_id = 0) const;
+	float window_get_output_max_linear_value(int32_t p_window_id = 0) const;
 	bool window_is_maximize_allowed(int32_t p_window_id = 0) const;
 	bool window_maximize_on_title_dbl_click() const;
 	bool window_minimize_on_title_dbl_click() const;
@@ -631,6 +660,10 @@ public:
 	void register_additional_output(Object *p_object);
 	void unregister_additional_output(Object *p_object);
 	bool has_additional_outputs() const;
+	bool is_in_pip_mode(int32_t p_window_id = 0);
+	void pip_mode_enter(int32_t p_window_id = 0);
+	void pip_mode_set_aspect_ratio(int32_t p_numerator, int32_t p_denominator, int32_t p_window_id = 0);
+	void pip_mode_set_auto_enter_on_background(bool p_auto_enter_on_background, int32_t p_window_id = 0);
 
 protected:
 	template <typename T, typename B>
@@ -659,6 +692,7 @@ VARIANT_ENUM_CAST(DisplayServer::VirtualKeyboardType);
 VARIANT_ENUM_CAST(DisplayServer::CursorShape);
 VARIANT_ENUM_CAST(DisplayServer::FileDialogMode);
 VARIANT_ENUM_CAST(DisplayServer::WindowMode);
+VARIANT_ENUM_CAST(DisplayServer::ProgressState);
 VARIANT_ENUM_CAST(DisplayServer::WindowFlags);
 VARIANT_ENUM_CAST(DisplayServer::WindowEvent);
 VARIANT_ENUM_CAST(DisplayServer::WindowResizeEdge);

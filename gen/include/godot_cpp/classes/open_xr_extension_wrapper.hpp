@@ -45,6 +45,7 @@
 namespace godot {
 
 class OpenXRAPIExtension;
+class OpenXRInteractionProfileMetadata;
 class RID;
 
 class OpenXRExtensionWrapper : public Object {
@@ -62,6 +63,7 @@ public:
 	virtual uint64_t _set_projection_views_and_get_next_pointer(int32_t p_view_index, void *p_next_pointer);
 	virtual uint64_t _set_frame_wait_info_and_get_next_pointer(void *p_next_pointer);
 	virtual uint64_t _set_frame_end_info_and_get_next_pointer(void *p_next_pointer);
+	virtual uint64_t _set_projection_layer_and_get_next_pointer(void *p_next_pointer);
 	virtual uint64_t _set_view_locate_info_and_get_next_pointer(void *p_next_pointer);
 	virtual uint64_t _set_reference_space_create_info_and_get_next_pointer(int32_t p_reference_space_type, void *p_next_pointer);
 	virtual void _prepare_view_configuration(int32_t p_view_count);
@@ -71,7 +73,7 @@ public:
 	virtual uint64_t _get_composition_layer(int32_t p_index);
 	virtual int32_t _get_composition_layer_order(int32_t p_index);
 	virtual PackedStringArray _get_suggested_tracker_names();
-	virtual void _on_register_metadata();
+	virtual void _on_register_metadata(OpenXRInteractionProfileMetadata *p_interaction_profile_metadata);
 	virtual void _on_before_instance_created();
 	virtual void _on_instance_created(uint64_t p_instance);
 	virtual void _on_instance_destroyed();
@@ -129,6 +131,9 @@ protected:
 		if constexpr (!std::is_same_v<decltype(&B::_set_frame_end_info_and_get_next_pointer), decltype(&T::_set_frame_end_info_and_get_next_pointer)>) {
 			BIND_VIRTUAL_METHOD(T, _set_frame_end_info_and_get_next_pointer, 3744713108);
 		}
+		if constexpr (!std::is_same_v<decltype(&B::_set_projection_layer_and_get_next_pointer), decltype(&T::_set_projection_layer_and_get_next_pointer)>) {
+			BIND_VIRTUAL_METHOD(T, _set_projection_layer_and_get_next_pointer, 3744713108);
+		}
 		if constexpr (!std::is_same_v<decltype(&B::_set_view_locate_info_and_get_next_pointer), decltype(&T::_set_view_locate_info_and_get_next_pointer)>) {
 			BIND_VIRTUAL_METHOD(T, _set_view_locate_info_and_get_next_pointer, 3744713108);
 		}
@@ -157,7 +162,7 @@ protected:
 			BIND_VIRTUAL_METHOD(T, _get_suggested_tracker_names, 2981934095);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_on_register_metadata), decltype(&T::_on_register_metadata)>) {
-			BIND_VIRTUAL_METHOD(T, _on_register_metadata, 3218959716);
+			BIND_VIRTUAL_METHOD(T, _on_register_metadata, 309044627);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_on_before_instance_created), decltype(&T::_on_before_instance_created)>) {
 			BIND_VIRTUAL_METHOD(T, _on_before_instance_created, 3218959716);

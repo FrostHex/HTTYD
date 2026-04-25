@@ -52,6 +52,20 @@ void Container::fit_child_in_rect(Control *p_child, const Rect2 &p_rect) {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_child != nullptr ? &p_child->_owner : nullptr), &p_rect);
 }
 
+void Container::set_accessibility_region(bool p_region) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Container::get_class_static()._native_ptr(), StringName("set_accessibility_region")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_region_encoded;
+	PtrToArg<bool>::encode(p_region, &p_region_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_region_encoded);
+}
+
+bool Container::is_accessibility_region() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Container::get_class_static()._native_ptr(), StringName("is_accessibility_region")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 PackedInt32Array Container::_get_allowed_size_flags_horizontal() const {
 	return PackedInt32Array();
 }

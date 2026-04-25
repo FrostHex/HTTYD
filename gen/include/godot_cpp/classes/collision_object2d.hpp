@@ -37,6 +37,7 @@
 #include <godot_cpp/variant/packed_int32_array.hpp>
 #include <godot_cpp/variant/rid.hpp>
 #include <godot_cpp/variant/transform2d.hpp>
+#include <godot_cpp/variant/vector2.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -86,6 +87,8 @@ public:
 	bool is_shape_owner_one_way_collision_enabled(uint32_t p_owner_id) const;
 	void shape_owner_set_one_way_collision_margin(uint32_t p_owner_id, float p_margin);
 	float get_shape_owner_one_way_collision_margin(uint32_t p_owner_id) const;
+	Vector2 get_shape_owner_one_way_collision_direction(uint32_t p_owner_id) const;
+	void shape_owner_set_one_way_collision_direction(uint32_t p_owner_id, const Vector2 &p_direction);
 	void shape_owner_add_shape(uint32_t p_owner_id, const Ref<Shape2D> &p_shape);
 	int32_t shape_owner_get_shape_count(uint32_t p_owner_id) const;
 	Ref<Shape2D> shape_owner_get_shape(uint32_t p_owner_id, int32_t p_shape_id) const;

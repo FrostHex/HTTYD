@@ -77,6 +77,10 @@ public:
 	bool is_calculating_tangents() const;
 	Array get_meshes() const;
 	Ref<ArrayMesh> bake_static_mesh();
+	void set_autosmooth(bool p_autosmooth);
+	bool is_autosmooth() const;
+	void set_smoothing_angle(float p_smoothing_angle);
+	float get_smoothing_angle() const;
 
 protected:
 	template <typename T, typename B>

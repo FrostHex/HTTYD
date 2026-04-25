@@ -139,6 +139,18 @@ void OpenXRAPIExtension::insert_debug_label(const String &p_label_name) {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_label_name);
 }
 
+uint32_t OpenXRAPIExtension::get_view_count() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAPIExtension::get_class_static()._native_ptr(), StringName("get_view_count")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+uint64_t OpenXRAPIExtension::get_view_configuration() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAPIExtension::get_class_static()._native_ptr(), StringName("get_view_configuration")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<uint64_t>(_gde_method_bind, _owner);
+}
+
 bool OpenXRAPIExtension::is_initialized() {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAPIExtension::get_class_static()._native_ptr(), StringName("is_initialized")._native_ptr(), 2240911060);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
@@ -233,6 +245,18 @@ void OpenXRAPIExtension::register_frame_info_extension(OpenXRExtensionWrapper *p
 
 void OpenXRAPIExtension::unregister_frame_info_extension(OpenXRExtensionWrapper *p_extension) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAPIExtension::get_class_static()._native_ptr(), StringName("unregister_frame_info_extension")._native_ptr(), 1477360496);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_extension != nullptr ? &p_extension->_owner : nullptr));
+}
+
+void OpenXRAPIExtension::register_projection_layer_extension(OpenXRExtensionWrapper *p_extension) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAPIExtension::get_class_static()._native_ptr(), StringName("register_projection_layer_extension")._native_ptr(), 1477360496);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_extension != nullptr ? &p_extension->_owner : nullptr));
+}
+
+void OpenXRAPIExtension::unregister_projection_layer_extension(OpenXRExtensionWrapper *p_extension) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRAPIExtension::get_class_static()._native_ptr(), StringName("unregister_projection_layer_extension")._native_ptr(), 1477360496);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_extension != nullptr ? &p_extension->_owner : nullptr));
 }

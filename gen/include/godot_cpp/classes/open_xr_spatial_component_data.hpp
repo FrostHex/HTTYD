@@ -46,9 +46,10 @@ class OpenXRSpatialComponentData : public RefCounted {
 
 public:
 	void set_capacity(uint32_t p_capacity);
+	int64_t get_component_type() const;
 	virtual void _set_capacity(uint32_t p_capacity);
 	virtual uint64_t _get_component_type() const;
-	virtual uint64_t _get_structure_data(uint64_t p_next) const;
+	virtual uint64_t _get_structure_data(uint64_t p_next);
 
 protected:
 	template <typename T, typename B>
@@ -61,7 +62,7 @@ protected:
 			BIND_VIRTUAL_METHOD(T, _get_component_type, 3905245786);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_structure_data), decltype(&T::_get_structure_data)>) {
-			BIND_VIRTUAL_METHOD(T, _get_structure_data, 923996154);
+			BIND_VIRTUAL_METHOD(T, _get_structure_data, 3744713108);
 		}
 	}
 

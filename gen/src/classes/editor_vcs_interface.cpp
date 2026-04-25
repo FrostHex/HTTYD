@@ -122,7 +122,11 @@ void EditorVCSInterface::_unstage_file(const String &p_file_path) {}
 
 void EditorVCSInterface::_discard_file(const String &p_file_path) {}
 
-void EditorVCSInterface::_commit(const String &p_msg) {}
+void EditorVCSInterface::_commit(const String &p_msg, bool p_amend) {}
+
+bool EditorVCSInterface::_allow_amends() {
+	return false;
+}
 
 TypedArray<Dictionary> EditorVCSInterface::_get_diff(const String &p_identifier, int32_t p_area) {
 	return TypedArray<Dictionary>();

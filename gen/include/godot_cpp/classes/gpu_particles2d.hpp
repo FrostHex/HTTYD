@@ -84,7 +84,7 @@ public:
 	void set_speed_scale(double p_scale);
 	void set_collision_base_size(float p_size);
 	void set_interp_to_end(float p_interp);
-	void request_particles_process(float p_process_time);
+	void request_particles_process(float p_process_time, float p_process_time_residual = 0);
 	bool is_emitting() const;
 	int32_t get_amount() const;
 	double get_lifetime() const;

@@ -63,10 +63,20 @@ int32_t ZIPPacker::get_compression_level() const {
 	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
-Error ZIPPacker::start_file(const String &p_path) {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("start_file")._native_ptr(), 166001499);
+Error ZIPPacker::add_directory(const String &p_path, BitField<FileAccess::UnixPermissionFlags> p_permissions, uint64_t p_modified_time) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("add_directory")._native_ptr(), 934773537);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
-	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path);
+	int64_t p_modified_time_encoded;
+	PtrToArg<int64_t>::encode(p_modified_time, &p_modified_time_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_permissions, &p_modified_time_encoded);
+}
+
+Error ZIPPacker::start_file(const String &p_path, BitField<FileAccess::UnixPermissionFlags> p_permissions, uint64_t p_modified_time) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ZIPPacker::get_class_static()._native_ptr(), StringName("start_file")._native_ptr(), 4260848715);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	int64_t p_modified_time_encoded;
+	PtrToArg<int64_t>::encode(p_modified_time, &p_modified_time_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path, &p_permissions, &p_modified_time_encoded);
 }
 
 Error ZIPPacker::write_file(const PackedByteArray &p_data) {

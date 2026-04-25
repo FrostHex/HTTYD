@@ -174,6 +174,82 @@ Color ParticleProcessMaterial::get_color() const {
 	return ::godot::internal::_call_native_mb_ret<Color>(_gde_method_bind, _owner);
 }
 
+void ParticleProcessMaterial::set_use_scale_3d(bool p_using_scale_3d) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("set_use_scale_3d")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_using_scale_3d_encoded;
+	PtrToArg<bool>::encode(p_using_scale_3d, &p_using_scale_3d_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_using_scale_3d_encoded);
+}
+
+bool ParticleProcessMaterial::is_using_scale_3d() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("is_using_scale_3d")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void ParticleProcessMaterial::set_scale_3d_min(const Vector3 &p_scale_3d_min) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("set_scale_3d_min")._native_ptr(), 3460891852);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_scale_3d_min);
+}
+
+Vector3 ParticleProcessMaterial::get_scale_3d_min() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("get_scale_3d_min")._native_ptr(), 3360562783);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
+}
+
+void ParticleProcessMaterial::set_scale_3d_max(const Vector3 &p_scale_3d_max) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("set_scale_3d_max")._native_ptr(), 3460891852);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_scale_3d_max);
+}
+
+Vector3 ParticleProcessMaterial::get_scale_3d_max() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("get_scale_3d_max")._native_ptr(), 3360562783);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
+}
+
+void ParticleProcessMaterial::set_use_rotation_3d(bool p_using_rotation_3d) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("set_use_rotation_3d")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_using_rotation_3d_encoded;
+	PtrToArg<bool>::encode(p_using_rotation_3d, &p_using_rotation_3d_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_using_rotation_3d_encoded);
+}
+
+bool ParticleProcessMaterial::is_using_rotation_3d() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("is_using_rotation_3d")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void ParticleProcessMaterial::set_rotation_3d_min(const Vector3 &p_rotation_3d_min) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("set_rotation_3d_min")._native_ptr(), 3460891852);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rotation_3d_min);
+}
+
+Vector3 ParticleProcessMaterial::get_rotation_3d_min() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("get_rotation_3d_min")._native_ptr(), 3360562783);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
+}
+
+void ParticleProcessMaterial::set_rotation_3d_max(const Vector3 &p_rotation_3d_max) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("set_rotation_3d_max")._native_ptr(), 3460891852);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rotation_3d_max);
+}
+
+Vector3 ParticleProcessMaterial::get_rotation_3d_max() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("get_rotation_3d_max")._native_ptr(), 3360562783);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
+}
+
 void ParticleProcessMaterial::set_color_ramp(const Ref<Texture2D> &p_ramp) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("set_color_ramp")._native_ptr(), 4051416890);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -692,6 +768,56 @@ float ParticleProcessMaterial::get_collision_bounce() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("get_collision_bounce")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+void ParticleProcessMaterial::set_using_rotation_velocity_3d(bool p_use_rotation_velocity_3d) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("set_using_rotation_velocity_3d")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_use_rotation_velocity_3d_encoded;
+	PtrToArg<bool>::encode(p_use_rotation_velocity_3d, &p_use_rotation_velocity_3d_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_use_rotation_velocity_3d_encoded);
+}
+
+bool ParticleProcessMaterial::is_using_rotation_velocity_3d() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("is_using_rotation_velocity_3d")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void ParticleProcessMaterial::set_rotation_velocity_3d_max(const Vector3 &p_rotation_velocity_3d_max) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("set_rotation_velocity_3d_max")._native_ptr(), 3460891852);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rotation_velocity_3d_max);
+}
+
+Vector3 ParticleProcessMaterial::get_rotation_velocity_3d_max() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("get_rotation_velocity_3d_max")._native_ptr(), 3360562783);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
+}
+
+void ParticleProcessMaterial::set_rotation_velocity_3d_min(const Vector3 &p_rotation_velocity_3d_min) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("set_rotation_velocity_3d_min")._native_ptr(), 3460891852);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rotation_velocity_3d_min);
+}
+
+Vector3 ParticleProcessMaterial::get_rotation_velocity_3d_min() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("get_rotation_velocity_3d_min")._native_ptr(), 3360562783);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
+}
+
+void ParticleProcessMaterial::set_rotation_velocity_3d_curve(const Ref<Texture2D> &p_rotation_velocity_3d_curve) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("set_rotation_velocity_3d_curve")._native_ptr(), 4051416890);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_rotation_velocity_3d_curve != nullptr ? &p_rotation_velocity_3d_curve->_owner : nullptr));
+}
+
+Ref<Texture2D> ParticleProcessMaterial::get_rotation_velocity_3d_curve() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ParticleProcessMaterial::get_class_static()._native_ptr(), StringName("get_rotation_velocity_3d_curve")._native_ptr(), 3635182373);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<Texture2D>()));
+	return Ref<Texture2D>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Texture2D>(_gde_method_bind, _owner));
 }
 
 } // namespace godot

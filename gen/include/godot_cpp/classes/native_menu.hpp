@@ -139,6 +139,7 @@ public:
 	void set_item_max_states(const RID &p_rid, int32_t p_idx, int32_t p_max_states);
 	void set_item_icon(const RID &p_rid, int32_t p_idx, const Ref<Texture2D> &p_icon);
 	void set_item_indentation_level(const RID &p_rid, int32_t p_idx, int32_t p_level);
+	int32_t set_item_index(const RID &p_rid, int32_t p_idx, int32_t p_target_idx);
 	int32_t get_item_count(const RID &p_rid) const;
 	bool is_system_menu(const RID &p_rid) const;
 	void remove_item(const RID &p_rid, int32_t p_idx);

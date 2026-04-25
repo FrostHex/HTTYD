@@ -36,6 +36,7 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/classes/open_xr_interaction_profile_metadata.hpp>
 #include <godot_cpp/classes/open_xrapi_extension.hpp>
 #include <godot_cpp/variant/rid.hpp>
 
@@ -89,6 +90,10 @@ uint64_t OpenXRExtensionWrapper::_set_frame_end_info_and_get_next_pointer(void *
 	return 0;
 }
 
+uint64_t OpenXRExtensionWrapper::_set_projection_layer_and_get_next_pointer(void *p_next_pointer) {
+	return 0;
+}
+
 uint64_t OpenXRExtensionWrapper::_set_view_locate_info_and_get_next_pointer(void *p_next_pointer) {
 	return 0;
 }
@@ -121,7 +126,7 @@ PackedStringArray OpenXRExtensionWrapper::_get_suggested_tracker_names() {
 	return PackedStringArray();
 }
 
-void OpenXRExtensionWrapper::_on_register_metadata() {}
+void OpenXRExtensionWrapper::_on_register_metadata(OpenXRInteractionProfileMetadata *p_interaction_profile_metadata) {}
 
 void OpenXRExtensionWrapper::_on_before_instance_created() {}
 

@@ -48,4 +48,8 @@ PackedStringArray EditorTranslationParserPlugin::_get_recognized_extensions() co
 	return PackedStringArray();
 }
 
+TypedArray<PackedStringArray> EditorTranslationParserPlugin::_customize_strings(const TypedArray<PackedStringArray> &p_strings) const {
+	return TypedArray<PackedStringArray>();
+}
+
 } // namespace godot

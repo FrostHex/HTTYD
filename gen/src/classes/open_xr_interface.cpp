@@ -46,6 +46,18 @@ OpenXRInterface::SessionState OpenXRInterface::get_session_state() {
 	return (OpenXRInterface::SessionState)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+bool OpenXRInterface::is_user_presence_supported() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRInterface::get_class_static()._native_ptr(), StringName("is_user_presence_supported")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+bool OpenXRInterface::is_user_present() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRInterface::get_class_static()._native_ptr(), StringName("is_user_present")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 float OpenXRInterface::get_display_refresh_rate() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRInterface::get_class_static()._native_ptr(), StringName("get_display_refresh_rate")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
@@ -106,6 +118,20 @@ void OpenXRInterface::set_foveation_dynamic(bool p_foveation_dynamic) {
 	int8_t p_foveation_dynamic_encoded;
 	PtrToArg<bool>::encode(p_foveation_dynamic, &p_foveation_dynamic_encoded);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_foveation_dynamic_encoded);
+}
+
+bool OpenXRInterface::get_foveation_with_subsampled_images() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRInterface::get_class_static()._native_ptr(), StringName("get_foveation_with_subsampled_images")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void OpenXRInterface::set_foveation_with_subsampled_images(bool p_enabled) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRInterface::get_class_static()._native_ptr(), StringName("set_foveation_with_subsampled_images")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
 }
 
 bool OpenXRInterface::is_action_set_active(const String &p_name) const {

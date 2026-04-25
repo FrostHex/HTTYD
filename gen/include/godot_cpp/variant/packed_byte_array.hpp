@@ -57,7 +57,7 @@ class Variant;
 
 class PackedByteArray {
 	static constexpr size_t PACKED_BYTE_ARRAY_SIZE = 16;
-	uint8_t opaque[PACKED_BYTE_ARRAY_SIZE] = {};
+	alignas(8) uint8_t opaque[PACKED_BYTE_ARRAY_SIZE] = {};
 
 	friend class Variant;
 

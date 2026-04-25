@@ -50,6 +50,7 @@ class EditorFileSystem : public Node {
 public:
 	EditorFileSystemDirectory *get_filesystem();
 	bool is_scanning() const;
+	bool is_importing() const;
 	float get_scanning_progress() const;
 	void scan();
 	void scan_sources();

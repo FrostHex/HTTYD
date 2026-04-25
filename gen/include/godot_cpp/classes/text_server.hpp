@@ -39,6 +39,7 @@
 #include <godot_cpp/variant/color.hpp>
 #include <godot_cpp/variant/dictionary.hpp>
 #include <godot_cpp/variant/packed_byte_array.hpp>
+#include <godot_cpp/variant/packed_color_array.hpp>
 #include <godot_cpp/variant/packed_int32_array.hpp>
 #include <godot_cpp/variant/packed_string_array.hpp>
 #include <godot_cpp/variant/packed_vector2_array.hpp>
@@ -289,8 +290,15 @@ public:
 	void font_clear_system_fallback_cache();
 	void font_set_force_autohinter(const RID &p_font_rid, bool p_force_autohinter);
 	bool font_is_force_autohinter(const RID &p_font_rid) const;
-	void font_set_modulate_color_glyphs(const RID &p_font_rid, bool p_force_autohinter);
+	void font_set_modulate_color_glyphs(const RID &p_font_rid, bool p_modulate);
 	bool font_is_modulate_color_glyphs(const RID &p_font_rid) const;
+	int64_t font_get_palette_count(const RID &p_font_rid) const;
+	String font_get_palette_name(const RID &p_font_rid, int64_t p_index) const;
+	PackedColorArray font_get_palette_colors(const RID &p_font_rid, int64_t p_index) const;
+	void font_set_palette_custom_colors(const RID &p_font_rid, const PackedColorArray &p_colors);
+	PackedColorArray font_get_palette_custom_colors(const RID &p_font_rid) const;
+	int64_t font_get_used_palette(const RID &p_font_rid) const;
+	void font_set_used_palette(const RID &p_font_rid, int64_t p_index);
 	void font_set_hinting(const RID &p_font_rid, TextServer::Hinting p_hinting);
 	TextServer::Hinting font_get_hinting(const RID &p_font_rid) const;
 	void font_set_subpixel_positioning(const RID &p_font_rid, TextServer::SubpixelPositioning p_subpixel_positioning);
@@ -411,6 +419,7 @@ public:
 	int64_t shaped_get_run_count(const RID &p_shaped) const;
 	String shaped_get_run_text(const RID &p_shaped, int64_t p_index) const;
 	Vector2i shaped_get_run_range(const RID &p_shaped, int64_t p_index) const;
+	Vector2i shaped_get_run_glyph_range(const RID &p_shaped, int64_t p_index) const;
 	RID shaped_get_run_font_rid(const RID &p_shaped, int64_t p_index) const;
 	int32_t shaped_get_run_font_size(const RID &p_shaped, int64_t p_index) const;
 	String shaped_get_run_language(const RID &p_shaped, int64_t p_index) const;

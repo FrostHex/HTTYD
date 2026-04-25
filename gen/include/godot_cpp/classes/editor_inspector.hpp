@@ -33,6 +33,7 @@
 #pragma once
 
 #include <godot_cpp/classes/global_constants.hpp>
+#include <godot_cpp/classes/line_edit.hpp>
 #include <godot_cpp/classes/scroll_container.hpp>
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/variant.hpp>
@@ -53,7 +54,11 @@ public:
 	void edit(Object *p_object);
 	String get_selected_path() const;
 	Object *get_edited_object();
+	void collapse_all_folding();
+	void expand_all_folding();
+	void expand_revertable();
 	static EditorProperty *instantiate_property_editor(Object *p_object, Variant::Type p_type, const String &p_path, PropertyHint p_hint, const String &p_hint_text, uint32_t p_usage, bool p_wide = false);
+	static EditorInspector *create_default_inspector(LineEdit *p_filter_line_edit = nullptr);
 
 protected:
 	template <typename T, typename B>

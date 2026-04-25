@@ -34,6 +34,7 @@
 
 #include <godot_cpp/classes/geometry_instance3d.hpp>
 #include <godot_cpp/classes/ref.hpp>
+#include <godot_cpp/classes/rendering_server.hpp>
 #include <godot_cpp/variant/aabb.hpp>
 #include <godot_cpp/variant/node_path.hpp>
 
@@ -75,6 +76,7 @@ public:
 		TRANSFORM_ALIGN_Z_BILLBOARD = 1,
 		TRANSFORM_ALIGN_Y_TO_VELOCITY = 2,
 		TRANSFORM_ALIGN_Z_BILLBOARD_Y_TO_VELOCITY = 3,
+		TRANSFORM_ALIGN_LOCAL_BILLBOARD = 4,
 	};
 
 	static const int MAX_DRAW_PASSES = 4;
@@ -134,10 +136,14 @@ public:
 	double get_trail_lifetime() const;
 	void set_transform_align(GPUParticles3D::TransformAlign p_align);
 	GPUParticles3D::TransformAlign get_transform_align() const;
+	void set_transform_align_channel_filter(RenderingServer::ParticlesTransformAlignCustomSrc p_channel_filter);
+	RenderingServer::ParticlesTransformAlignCustomSrc get_transform_align_channel_filter() const;
+	void set_transform_align_axis(RenderingServer::ParticlesTransformAlignAxis p_align);
+	RenderingServer::ParticlesTransformAlignAxis get_transform_align_axis() const;
 	void convert_from_particles(Node *p_particles);
 	void set_amount_ratio(float p_ratio);
 	float get_amount_ratio() const;
-	void request_particles_process(float p_process_time);
+	void request_particles_process(float p_process_time, float p_process_time_residual = 0.0);
 
 protected:
 	template <typename T, typename B>

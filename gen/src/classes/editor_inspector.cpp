@@ -59,6 +59,24 @@ Object *EditorInspector::get_edited_object() {
 	return ::godot::internal::_call_native_mb_ret_obj<Object>(_gde_method_bind, _owner);
 }
 
+void EditorInspector::collapse_all_folding() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorInspector::get_class_static()._native_ptr(), StringName("collapse_all_folding")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
+void EditorInspector::expand_all_folding() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorInspector::get_class_static()._native_ptr(), StringName("expand_all_folding")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
+void EditorInspector::expand_revertable() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorInspector::get_class_static()._native_ptr(), StringName("expand_revertable")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
 EditorProperty *EditorInspector::instantiate_property_editor(Object *p_object, Variant::Type p_type, const String &p_path, PropertyHint p_hint, const String &p_hint_text, uint32_t p_usage, bool p_wide) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorInspector::get_class_static()._native_ptr(), StringName("instantiate_property_editor")._native_ptr(), 1429914152);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
@@ -71,6 +89,12 @@ EditorProperty *EditorInspector::instantiate_property_editor(Object *p_object, V
 	int8_t p_wide_encoded;
 	PtrToArg<bool>::encode(p_wide, &p_wide_encoded);
 	return ::godot::internal::_call_native_mb_ret_obj<EditorProperty>(_gde_method_bind, nullptr, (p_object != nullptr ? &p_object->_owner : nullptr), &p_type_encoded, &p_path, &p_hint_encoded, &p_hint_text, &p_usage_encoded, &p_wide_encoded);
+}
+
+EditorInspector *EditorInspector::create_default_inspector(LineEdit *p_filter_line_edit) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorInspector::get_class_static()._native_ptr(), StringName("create_default_inspector")._native_ptr(), 2419746798);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
+	return ::godot::internal::_call_native_mb_ret_obj<EditorInspector>(_gde_method_bind, nullptr, (p_filter_line_edit != nullptr ? &p_filter_line_edit->_owner : nullptr));
 }
 
 } // namespace godot

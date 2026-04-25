@@ -41,8 +41,10 @@
 
 namespace godot {
 
+class Callable;
 class JavaClass;
 class JavaObject;
+class PackedStringArray;
 class String;
 
 class JavaClassWrapper : public Object {
@@ -55,6 +57,8 @@ public:
 
 	Ref<JavaClass> wrap(const String &p_name);
 	Ref<JavaObject> get_exception();
+	Ref<JavaObject> create_sam_callback(const String &p_sam_interface, const Callable &p_callable);
+	Ref<JavaObject> create_proxy(Object *p_object, const PackedStringArray &p_interfaces);
 
 protected:
 	template <typename T, typename B>

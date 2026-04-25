@@ -62,6 +62,34 @@ String DPITexture::get_source() const {
 	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
+void DPITexture::set_fix_alpha_border(bool p_fix_alpha_border) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_fix_alpha_border")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_fix_alpha_border_encoded;
+	PtrToArg<bool>::encode(p_fix_alpha_border, &p_fix_alpha_border_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_fix_alpha_border_encoded);
+}
+
+bool DPITexture::get_fix_alpha_border() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_fix_alpha_border")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void DPITexture::set_premult_alpha(bool p_premult_alpha) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_premult_alpha")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_premult_alpha_encoded;
+	PtrToArg<bool>::encode(p_premult_alpha, &p_premult_alpha_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_premult_alpha_encoded);
+}
+
+bool DPITexture::get_premult_alpha() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("get_premult_alpha")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 void DPITexture::set_base_scale(float p_base_scale) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DPITexture::get_class_static()._native_ptr(), StringName("set_base_scale")._native_ptr(), 373806689);
 	CHECK_METHOD_BIND(_gde_method_bind);

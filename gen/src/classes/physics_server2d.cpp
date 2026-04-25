@@ -473,8 +473,8 @@ void PhysicsServer2D::body_set_shape_disabled(const RID &p_body, int32_t p_shape
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_body, &p_shape_idx_encoded, &p_disabled_encoded);
 }
 
-void PhysicsServer2D::body_set_shape_as_one_way_collision(const RID &p_body, int32_t p_shape_idx, bool p_enable, float p_margin) {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsServer2D::get_class_static()._native_ptr(), StringName("body_set_shape_as_one_way_collision")._native_ptr(), 2556489974);
+void PhysicsServer2D::body_set_shape_as_one_way_collision(const RID &p_body, int32_t p_shape_idx, bool p_enable, float p_margin, const Vector2 &p_direction) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PhysicsServer2D::get_class_static()._native_ptr(), StringName("body_set_shape_as_one_way_collision")._native_ptr(), 2389283141);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	int64_t p_shape_idx_encoded;
 	PtrToArg<int64_t>::encode(p_shape_idx, &p_shape_idx_encoded);
@@ -482,7 +482,7 @@ void PhysicsServer2D::body_set_shape_as_one_way_collision(const RID &p_body, int
 	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
 	double p_margin_encoded;
 	PtrToArg<double>::encode(p_margin, &p_margin_encoded);
-	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_body, &p_shape_idx_encoded, &p_enable_encoded, &p_margin_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_body, &p_shape_idx_encoded, &p_enable_encoded, &p_margin_encoded, &p_direction);
 }
 
 void PhysicsServer2D::body_attach_object_instance_id(const RID &p_body, uint64_t p_id) {

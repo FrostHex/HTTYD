@@ -81,7 +81,8 @@ public:
 		SCALING_3D_MODE_FSR2 = 2,
 		SCALING_3D_MODE_METALFX_SPATIAL = 3,
 		SCALING_3D_MODE_METALFX_TEMPORAL = 4,
-		SCALING_3D_MODE_MAX = 5,
+		SCALING_3D_MODE_NEAREST = 5,
+		SCALING_3D_MODE_MAX = 6,
 	};
 
 	enum MSAA {
@@ -150,6 +151,8 @@ public:
 		DEBUG_DRAW_OCCLUDERS = 24,
 		DEBUG_DRAW_MOTION_VECTORS = 25,
 		DEBUG_DRAW_INTERNAL_BUFFER = 26,
+		DEBUG_DRAW_CLUSTER_AREA_LIGHTS = 27,
+		DEBUG_DRAW_AREA_LIGHT_ATLAS = 28,
 	};
 
 	enum DefaultCanvasItemTextureFilter {
@@ -157,14 +160,16 @@ public:
 		DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR = 1,
 		DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR_WITH_MIPMAPS = 2,
 		DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST_WITH_MIPMAPS = 3,
-		DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_MAX = 4,
+		DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_PARENT_NODE = 4,
+		DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_MAX = 5,
 	};
 
 	enum DefaultCanvasItemTextureRepeat {
 		DEFAULT_CANVAS_ITEM_TEXTURE_REPEAT_DISABLED = 0,
 		DEFAULT_CANVAS_ITEM_TEXTURE_REPEAT_ENABLED = 1,
 		DEFAULT_CANVAS_ITEM_TEXTURE_REPEAT_MIRROR = 2,
-		DEFAULT_CANVAS_ITEM_TEXTURE_REPEAT_MAX = 3,
+		DEFAULT_CANVAS_ITEM_TEXTURE_REPEAT_PARENT_NODE = 3,
+		DEFAULT_CANVAS_ITEM_TEXTURE_REPEAT_MAX = 4,
 	};
 
 	enum SDFOversize {
@@ -309,7 +314,7 @@ public:
 	void set_disable_3d(bool p_disable);
 	bool is_3d_disabled() const;
 	void set_use_xr(bool p_use);
-	bool is_using_xr();
+	bool is_using_xr() const;
 	void set_scaling_3d_mode(Viewport::Scaling3DMode p_scaling_3d_mode);
 	Viewport::Scaling3DMode get_scaling_3d_mode() const;
 	void set_scaling_3d_scale(float p_scale);

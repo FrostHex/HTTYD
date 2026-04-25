@@ -169,12 +169,14 @@ void GPUParticles2D::set_interp_to_end(float p_interp) {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_interp_encoded);
 }
 
-void GPUParticles2D::request_particles_process(float p_process_time) {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticles2D::get_class_static()._native_ptr(), StringName("request_particles_process")._native_ptr(), 373806689);
+void GPUParticles2D::request_particles_process(float p_process_time, float p_process_time_residual) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticles2D::get_class_static()._native_ptr(), StringName("request_particles_process")._native_ptr(), 2019720106);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_process_time_encoded;
 	PtrToArg<double>::encode(p_process_time, &p_process_time_encoded);
-	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_process_time_encoded);
+	double p_process_time_residual_encoded;
+	PtrToArg<double>::encode(p_process_time_residual, &p_process_time_residual_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_process_time_encoded, &p_process_time_residual_encoded);
 }
 
 bool GPUParticles2D::is_emitting() const {

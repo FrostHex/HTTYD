@@ -32,7 +32,6 @@
 
 #pragma once
 
-#include <godot_cpp/classes/image.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/texture2d.hpp>
 
@@ -42,6 +41,7 @@
 
 namespace godot {
 
+class Image;
 struct Vector2i;
 
 class ImageTexture : public Texture2D {
@@ -49,7 +49,6 @@ class ImageTexture : public Texture2D {
 
 public:
 	static Ref<ImageTexture> create_from_image(const Ref<Image> &p_image);
-	Image::Format get_format() const;
 	void set_image(const Ref<Image> &p_image);
 	void update(const Ref<Image> &p_image);
 	void set_size_override(const Vector2i &p_size);

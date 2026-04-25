@@ -52,13 +52,15 @@ class EditorSceneFormatImporter : public RefCounted {
 	GDEXTENSION_CLASS(EditorSceneFormatImporter, RefCounted)
 
 public:
-	static const int IMPORT_SCENE = 1;
-	static const int IMPORT_ANIMATION = 2;
-	static const int IMPORT_FAIL_ON_MISSING_DEPENDENCIES = 4;
-	static const int IMPORT_GENERATE_TANGENT_ARRAYS = 8;
-	static const int IMPORT_USE_NAMED_SKIN_BINDS = 16;
-	static const int IMPORT_DISCARD_MESHES_AND_MATERIALS = 32;
-	static const int IMPORT_FORCE_DISABLE_MESH_COMPRESSION = 64;
+	enum ImportFlags : uint64_t {
+		IMPORT_SCENE = 1,
+		IMPORT_ANIMATION = 2,
+		IMPORT_FAIL_ON_MISSING_DEPENDENCIES = 4,
+		IMPORT_GENERATE_TANGENT_ARRAYS = 8,
+		IMPORT_USE_NAMED_SKIN_BINDS = 16,
+		IMPORT_DISCARD_MESHES_AND_MATERIALS = 32,
+		IMPORT_FORCE_DISABLE_MESH_COMPRESSION = 64,
+	};
 
 	void add_import_option(const String &p_name, const Variant &p_value);
 	void add_import_option_advanced(Variant::Type p_type, const String &p_name, const Variant &p_default_value, PropertyHint p_hint = (PropertyHint)0, const String &p_hint_string = String(), int32_t p_usage_flags = 6);
@@ -89,4 +91,6 @@ public:
 };
 
 } // namespace godot
+
+VARIANT_BITFIELD_CAST(EditorSceneFormatImporter::ImportFlags);
 

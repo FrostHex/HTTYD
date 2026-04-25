@@ -33,6 +33,10 @@
 #pragma once
 
 #include <godot_cpp/classes/open_xr_extension_wrapper.hpp>
+#include <godot_cpp/classes/open_xr_structure_base.hpp>
+#include <godot_cpp/classes/ref.hpp>
+#include <godot_cpp/variant/callable.hpp>
+#include <godot_cpp/variant/typed_array.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -40,11 +44,16 @@
 
 namespace godot {
 
+class OpenXRFutureResult;
+class OpenXRSpatialComponentData;
+class RID;
+
 class OpenXRSpatialPlaneTrackingCapability : public OpenXRExtensionWrapper {
 	GDEXTENSION_CLASS(OpenXRSpatialPlaneTrackingCapability, OpenXRExtensionWrapper)
 
 public:
 	bool is_supported();
+	Ref<OpenXRFutureResult> start_entity_discovery(const RID &p_spatial_context, const TypedArray<Ref<OpenXRSpatialComponentData>> &p_component_data, const Ref<OpenXRStructureBase> &p_next_snapshot_create = nullptr, const Ref<OpenXRStructureBase> &p_next_snapshot_query = nullptr, const Callable &p_user_callback = Callable());
 
 protected:
 	template <typename T, typename B>

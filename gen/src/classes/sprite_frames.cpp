@@ -105,6 +105,20 @@ bool SpriteFrames::get_animation_loop(const StringName &p_anim) const {
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_anim);
 }
 
+void SpriteFrames::set_animation_loop_mode(const StringName &p_anim, SpriteFrames::LoopMode p_loop_mode) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpriteFrames::get_class_static()._native_ptr(), StringName("set_animation_loop_mode")._native_ptr(), 918068248);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_loop_mode_encoded;
+	PtrToArg<int64_t>::encode(p_loop_mode, &p_loop_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_anim, &p_loop_mode_encoded);
+}
+
+SpriteFrames::LoopMode SpriteFrames::get_animation_loop_mode(const StringName &p_anim) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpriteFrames::get_class_static()._native_ptr(), StringName("get_animation_loop_mode")._native_ptr(), 3606360228);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (SpriteFrames::LoopMode(0)));
+	return (SpriteFrames::LoopMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_anim);
+}
+
 void SpriteFrames::add_frame(const StringName &p_anim, const Ref<Texture2D> &p_texture, float p_duration, int32_t p_at_position) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SpriteFrames::get_class_static()._native_ptr(), StringName("add_frame")._native_ptr(), 1351332740);
 	CHECK_METHOD_BIND(_gde_method_bind);

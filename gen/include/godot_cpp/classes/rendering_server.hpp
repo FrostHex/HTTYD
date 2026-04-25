@@ -66,6 +66,7 @@ namespace godot {
 struct Basis;
 class Callable;
 struct Plane;
+struct Rect2i;
 struct Vector2;
 struct Vector2i;
 struct Vector3;
@@ -97,13 +98,21 @@ public:
 		CUBEMAP_LAYER_BACK = 5,
 	};
 
+	enum TextureDrawableFormat {
+		TEXTURE_DRAWABLE_FORMAT_RGBA8 = 0,
+		TEXTURE_DRAWABLE_FORMAT_RGBA8_SRGB = 1,
+		TEXTURE_DRAWABLE_FORMAT_RGBAH = 2,
+		TEXTURE_DRAWABLE_FORMAT_RGBAF = 3,
+	};
+
 	enum ShaderMode {
 		SHADER_SPATIAL = 0,
 		SHADER_CANVAS_ITEM = 1,
 		SHADER_PARTICLES = 2,
 		SHADER_SKY = 3,
 		SHADER_FOG = 4,
-		SHADER_MAX = 5,
+		SHADER_TEXTURE_BLIT = 5,
+		SHADER_MAX = 6,
 	};
 
 	enum ArrayType {
@@ -208,6 +217,7 @@ public:
 		LIGHT_DIRECTIONAL = 0,
 		LIGHT_OMNI = 1,
 		LIGHT_SPOT = 2,
+		LIGHT_AREA = 3,
 	};
 
 	enum LightParam {
@@ -311,6 +321,20 @@ public:
 		PARTICLES_TRANSFORM_ALIGN_Z_BILLBOARD = 1,
 		PARTICLES_TRANSFORM_ALIGN_Y_TO_VELOCITY = 2,
 		PARTICLES_TRANSFORM_ALIGN_Z_BILLBOARD_Y_TO_VELOCITY = 3,
+		PARTICLES_TRANSFORM_ALIGN_LOCAL_BILLBOARD = 4,
+	};
+
+	enum ParticlesTransformAlignCustomSrc {
+		PARTICLES_ALIGN_CHANNEL_FILTER_DISABLED = 0,
+		PARTICLES_ALIGN_CHANNEL_FILTER_X = 1,
+		PARTICLES_ALIGN_CHANNEL_FILTER_Y = 2,
+		PARTICLES_ALIGN_CHANNEL_FILTER_Z = 3,
+		PARTICLES_ALIGN_CHANNEL_FILTER_W = 4,
+	};
+
+	enum ParticlesTransformAlignAxis {
+		PARTICLES_ALIGN_AXIS_X = 0,
+		PARTICLES_ALIGN_AXIS_Y = 1,
 	};
 
 	enum ParticlesDrawOrder {
@@ -355,7 +379,8 @@ public:
 		VIEWPORT_SCALING_3D_MODE_FSR2 = 2,
 		VIEWPORT_SCALING_3D_MODE_METALFX_SPATIAL = 3,
 		VIEWPORT_SCALING_3D_MODE_METALFX_TEMPORAL = 4,
-		VIEWPORT_SCALING_3D_MODE_MAX = 5,
+		VIEWPORT_SCALING_3D_MODE_NEAREST = 5,
+		VIEWPORT_SCALING_3D_MODE_MAX = 6,
 	};
 
 	enum ViewportUpdateMode {
@@ -811,7 +836,7 @@ public:
 	static const int ARRAY_WEIGHTS_SIZE = 4;
 	static const int CANVAS_ITEM_Z_MIN = -4096;
 	static const int CANVAS_ITEM_Z_MAX = 4096;
-	static const int CANVAS_LAYER_MIN = -2147483648;
+	static const int CANVAS_LAYER_MIN = -2147483647 - 1;
 	static const int CANVAS_LAYER_MAX = 2147483647;
 	static const int MAX_GLOW_LEVELS = 7;
 	static const int MAX_CURSORS = 8;
@@ -833,15 +858,19 @@ public:
 	RID texture_3d_create(Image::Format p_format, int32_t p_width, int32_t p_height, int32_t p_depth, bool p_mipmaps, const TypedArray<Ref<Image>> &p_data);
 	RID texture_proxy_create(const RID &p_base);
 	RID texture_create_from_native_handle(RenderingServer::TextureType p_type, Image::Format p_format, uint64_t p_native_handle, int32_t p_width, int32_t p_height, int32_t p_depth, int32_t p_layers = 1, RenderingServer::TextureLayeredType p_layered_type = (RenderingServer::TextureLayeredType)0);
+	RID texture_drawable_create(int32_t p_width, int32_t p_height, RenderingServer::TextureDrawableFormat p_format, const Color &p_color = Color(1, 1, 1, 1), bool p_with_mipmaps = false);
 	void texture_2d_update(const RID &p_texture, const Ref<Image> &p_image, int32_t p_layer);
 	void texture_3d_update(const RID &p_texture, const TypedArray<Ref<Image>> &p_data);
 	void texture_proxy_update(const RID &p_texture, const RID &p_proxy_to);
+	void texture_drawable_blit_rect(const TypedArray<RID> &p_textures, const Rect2i &p_rect, const RID &p_material, const Color &p_modulate, const TypedArray<RID> &p_source_textures, int32_t p_to_mipmap = 0);
 	RID texture_2d_placeholder_create();
 	RID texture_2d_layered_placeholder_create(RenderingServer::TextureLayeredType p_layered_type);
 	RID texture_3d_placeholder_create();
 	Ref<Image> texture_2d_get(const RID &p_texture) const;
 	Ref<Image> texture_2d_layer_get(const RID &p_texture, int32_t p_layer) const;
 	TypedArray<Ref<Image>> texture_3d_get(const RID &p_texture) const;
+	void texture_drawable_generate_mipmaps(const RID &p_texture);
+	RID texture_drawable_get_default_material() const;
 	void texture_replace(const RID &p_texture, const RID &p_by_texture);
 	void texture_set_size_override(const RID &p_texture, int32_t p_width, int32_t p_height);
 	void texture_set_path(const RID &p_texture, const String &p_path);
@@ -932,6 +961,7 @@ public:
 	RID directional_light_create();
 	RID omni_light_create();
 	RID spot_light_create();
+	RID area_light_create();
 	void light_set_color(const RID &p_light, const Color &p_color);
 	void light_set_param(const RID &p_light, RenderingServer::LightParam p_param, float p_value);
 	void light_set_shadow(const RID &p_light, bool p_enabled);
@@ -947,6 +977,8 @@ public:
 	void light_directional_set_shadow_mode(const RID &p_light, RenderingServer::LightDirectionalShadowMode p_mode);
 	void light_directional_set_blend_splits(const RID &p_light, bool p_enable);
 	void light_directional_set_sky_mode(const RID &p_light, RenderingServer::LightDirectionalSkyMode p_mode);
+	void light_area_set_size(const RID &p_light, const Vector2 &p_size);
+	void light_area_set_normalize_energy(const RID &p_light, bool p_enable);
 	void light_projectors_set_filter(RenderingServer::LightProjectorFilter p_filter);
 	void lightmaps_set_bicubic_filter(bool p_enable);
 	void positional_soft_shadow_filter_set_quality(RenderingServer::ShadowQuality p_quality);
@@ -1018,7 +1050,7 @@ public:
 	void particles_set_lifetime(const RID &p_particles, double p_lifetime);
 	void particles_set_one_shot(const RID &p_particles, bool p_one_shot);
 	void particles_set_pre_process_time(const RID &p_particles, double p_time);
-	void particles_request_process_time(const RID &p_particles, float p_time);
+	void particles_request_process_time(const RID &p_particles, float p_process_time, float p_process_time_residual = 0.0);
 	void particles_set_explosiveness_ratio(const RID &p_particles, float p_ratio);
 	void particles_set_randomness_ratio(const RID &p_particles, float p_ratio);
 	void particles_set_interp_to_end(const RID &p_particles, float p_factor);
@@ -1032,6 +1064,8 @@ public:
 	void particles_set_fractional_delta(const RID &p_particles, bool p_enable);
 	void particles_set_collision_base_size(const RID &p_particles, float p_size);
 	void particles_set_transform_align(const RID &p_particles, RenderingServer::ParticlesTransformAlign p_align);
+	void particles_set_transform_align_channel_filter(const RID &p_particles, RenderingServer::ParticlesTransformAlignCustomSrc p_channel_filter);
+	void particles_set_transform_align_axis(const RID &p_particles, RenderingServer::ParticlesTransformAlignAxis p_rotation_axis);
 	void particles_set_trails(const RID &p_particles, bool p_enable, float p_length_sec);
 	void particles_set_trail_bind_poses(const RID &p_particles, const TypedArray<Transform3D> &p_bind_poses);
 	bool particles_is_inactive(const RID &p_particles);
@@ -1077,7 +1111,7 @@ public:
 	void camera_set_use_vertical_aspect(const RID &p_camera, bool p_enable);
 	RID viewport_create();
 	void viewport_set_use_xr(const RID &p_viewport, bool p_use_xr);
-	void viewport_set_size(const RID &p_viewport, int32_t p_width, int32_t p_height);
+	void viewport_set_size(const RID &p_viewport, int32_t p_width, int32_t p_height, int32_t p_view_count = 1);
 	void viewport_set_active(const RID &p_viewport, bool p_active);
 	void viewport_set_parent_viewport(const RID &p_viewport, const RID &p_parent_viewport);
 	void viewport_attach_to_screen(const RID &p_viewport, const Rect2 &p_rect = Rect2(0, 0, 0, 0), int32_t p_screen = 0);
@@ -1371,6 +1405,7 @@ public:
 VARIANT_ENUM_CAST(RenderingServer::TextureType);
 VARIANT_ENUM_CAST(RenderingServer::TextureLayeredType);
 VARIANT_ENUM_CAST(RenderingServer::CubeMapLayer);
+VARIANT_ENUM_CAST(RenderingServer::TextureDrawableFormat);
 VARIANT_ENUM_CAST(RenderingServer::ShaderMode);
 VARIANT_ENUM_CAST(RenderingServer::ArrayType);
 VARIANT_ENUM_CAST(RenderingServer::ArrayCustomFormat);
@@ -1394,6 +1429,8 @@ VARIANT_ENUM_CAST(RenderingServer::DecalFilter);
 VARIANT_ENUM_CAST(RenderingServer::VoxelGIQuality);
 VARIANT_ENUM_CAST(RenderingServer::ParticlesMode);
 VARIANT_ENUM_CAST(RenderingServer::ParticlesTransformAlign);
+VARIANT_ENUM_CAST(RenderingServer::ParticlesTransformAlignCustomSrc);
+VARIANT_ENUM_CAST(RenderingServer::ParticlesTransformAlignAxis);
 VARIANT_ENUM_CAST(RenderingServer::ParticlesDrawOrder);
 VARIANT_ENUM_CAST(RenderingServer::ParticlesCollisionType);
 VARIANT_ENUM_CAST(RenderingServer::ParticlesCollisionHeightfieldResolution);

@@ -51,6 +51,8 @@ class InputEvent : public Resource {
 
 public:
 	static const int DEVICE_ID_EMULATION = -1;
+	static const int DEVICE_ID_KEYBOARD = 16;
+	static const int DEVICE_ID_MOUSE = 32;
 
 	void set_device(int32_t p_device);
 	int32_t get_device() const;

@@ -65,6 +65,7 @@ public:
 	bool get_use_colliders() const;
 	void set_collision_mask(int32_t p_collision_mask);
 	int32_t get_collision_mask() const;
+	void reset();
 	void set_jiggle_joint_bone2d_node(int32_t p_joint_idx, const NodePath &p_bone2d_node);
 	NodePath get_jiggle_joint_bone2d_node(int32_t p_joint_idx) const;
 	void set_jiggle_joint_bone_index(int32_t p_joint_idx, int32_t p_bone_idx);

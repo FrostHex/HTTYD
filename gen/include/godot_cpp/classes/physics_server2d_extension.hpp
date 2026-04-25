@@ -70,7 +70,7 @@ public:
 	virtual PhysicsServer2D::ShapeType _shape_get_type(const RID &p_shape) const;
 	virtual Variant _shape_get_data(const RID &p_shape) const;
 	virtual float _shape_get_custom_solver_bias(const RID &p_shape) const;
-	virtual bool _shape_collide(const RID &p_shape_A, const Transform2D &p_xform_A, const Vector2 &p_motion_A, const RID &p_shape_B, const Transform2D &p_xform_B, const Vector2 &p_motion_B, void *p_results, int32_t p_result_max, int32_t *p_result_count);
+	virtual bool _shape_collide(const RID &p_shape_A, const Transform2D &p_xform_A, const Vector2 &p_motion_A, const RID &p_shape_B, const Transform2D &p_xform_B, const Vector2 &p_motion_B, void *r_results, int32_t p_result_max, int32_t *r_result_count);
 	virtual RID _space_create();
 	virtual void _space_set_active(const RID &p_space, bool p_active);
 	virtual bool _space_is_active(const RID &p_space) const;
@@ -120,7 +120,7 @@ public:
 	virtual RID _body_get_shape(const RID &p_body, int32_t p_shape_idx) const;
 	virtual Transform2D _body_get_shape_transform(const RID &p_body, int32_t p_shape_idx) const;
 	virtual void _body_set_shape_disabled(const RID &p_body, int32_t p_shape_idx, bool p_disabled);
-	virtual void _body_set_shape_as_one_way_collision(const RID &p_body, int32_t p_shape_idx, bool p_enable, float p_margin);
+	virtual void _body_set_shape_as_one_way_collision(const RID &p_body, int32_t p_shape_idx, bool p_enable, float p_margin, const Vector2 &p_direction);
 	virtual void _body_remove_shape(const RID &p_body, int32_t p_shape_idx);
 	virtual void _body_clear_shapes(const RID &p_body);
 	virtual void _body_attach_object_instance_id(const RID &p_body, uint64_t p_id);
@@ -165,10 +165,10 @@ public:
 	virtual bool _body_is_omitting_force_integration(const RID &p_body) const;
 	virtual void _body_set_state_sync_callback(const RID &p_body, const Callable &p_callable);
 	virtual void _body_set_force_integration_callback(const RID &p_body, const Callable &p_callable, const Variant &p_userdata);
-	virtual bool _body_collide_shape(const RID &p_body, int32_t p_body_shape, const RID &p_shape, const Transform2D &p_shape_xform, const Vector2 &p_motion, void *p_results, int32_t p_result_max, int32_t *p_result_count);
+	virtual bool _body_collide_shape(const RID &p_body, int32_t p_body_shape, const RID &p_shape, const Transform2D &p_shape_xform, const Vector2 &p_motion, void *r_results, int32_t p_result_max, int32_t *r_result_count);
 	virtual void _body_set_pickable(const RID &p_body, bool p_pickable);
 	virtual PhysicsDirectBodyState2D *_body_get_direct_state(const RID &p_body);
-	virtual bool _body_test_motion(const RID &p_body, const Transform2D &p_from, const Vector2 &p_motion, float p_margin, bool p_collide_separation_ray, bool p_recovery_as_collision, PhysicsServer2DExtensionMotionResult *p_result) const;
+	virtual bool _body_test_motion(const RID &p_body, const Transform2D &p_from, const Vector2 &p_motion, float p_margin, bool p_collide_separation_ray, bool p_recovery_as_collision, PhysicsServer2DExtensionMotionResult *r_result) const;
 	virtual RID _joint_create();
 	virtual void _joint_clear(const RID &p_joint);
 	virtual void _joint_set_param(const RID &p_joint, PhysicsServer2D::JointParam p_param, float p_value);
@@ -390,7 +390,7 @@ protected:
 			BIND_VIRTUAL_METHOD(T, _body_set_shape_disabled, 2658558584);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_body_set_shape_as_one_way_collision), decltype(&T::_body_set_shape_as_one_way_collision)>) {
-			BIND_VIRTUAL_METHOD(T, _body_set_shape_as_one_way_collision, 2556489974);
+			BIND_VIRTUAL_METHOD(T, _body_set_shape_as_one_way_collision, 2042146392);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_body_remove_shape), decltype(&T::_body_remove_shape)>) {
 			BIND_VIRTUAL_METHOD(T, _body_remove_shape, 3411492887);

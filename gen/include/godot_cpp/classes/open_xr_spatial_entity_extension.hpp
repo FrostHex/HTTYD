@@ -89,6 +89,7 @@ public:
 	bool get_spatial_context_ready(const RID &p_spatial_context) const;
 	void free_spatial_context(const RID &p_spatial_context);
 	uint64_t get_spatial_context_handle(const RID &p_spatial_context) const;
+	Ref<OpenXRFutureResult> discover_spatial_entities_with_component_data(const RID &p_spatial_context, const TypedArray<Ref<OpenXRSpatialComponentData>> &p_component_data, const Ref<OpenXRStructureBase> &p_next = nullptr, const Callable &p_user_callback = Callable());
 	Ref<OpenXRFutureResult> discover_spatial_entities(const RID &p_spatial_context, const PackedInt64Array &p_component_types, const Ref<OpenXRStructureBase> &p_next = nullptr, const Callable &p_user_callback = Callable());
 	RID update_spatial_entities(const RID &p_spatial_context, const TypedArray<RID> &p_entities, const PackedInt64Array &p_component_types, const Ref<OpenXRStructureBase> &p_next = nullptr);
 	void free_spatial_snapshot(const RID &p_spatial_snapshot);

@@ -383,18 +383,66 @@ bool TextServer::font_is_force_autohinter(const RID &p_font_rid) const {
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_font_rid);
 }
 
-void TextServer::font_set_modulate_color_glyphs(const RID &p_font_rid, bool p_force_autohinter) {
+void TextServer::font_set_modulate_color_glyphs(const RID &p_font_rid, bool p_modulate) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_set_modulate_color_glyphs")._native_ptr(), 1265174801);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	int8_t p_force_autohinter_encoded;
-	PtrToArg<bool>::encode(p_force_autohinter, &p_force_autohinter_encoded);
-	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_font_rid, &p_force_autohinter_encoded);
+	int8_t p_modulate_encoded;
+	PtrToArg<bool>::encode(p_modulate, &p_modulate_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_font_rid, &p_modulate_encoded);
 }
 
 bool TextServer::font_is_modulate_color_glyphs(const RID &p_font_rid) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_is_modulate_color_glyphs")._native_ptr(), 4155700596);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_font_rid);
+}
+
+int64_t TextServer::font_get_palette_count(const RID &p_font_rid) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_get_palette_count")._native_ptr(), 2198884583);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_font_rid);
+}
+
+String TextServer::font_get_palette_name(const RID &p_font_rid, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_get_palette_name")._native_ptr(), 1464764419);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_font_rid, &p_index_encoded);
+}
+
+PackedColorArray TextServer::font_get_palette_colors(const RID &p_font_rid, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_get_palette_colors")._native_ptr(), 1595517857);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedColorArray()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<PackedColorArray>(_gde_method_bind, _owner, &p_font_rid, &p_index_encoded);
+}
+
+void TextServer::font_set_palette_custom_colors(const RID &p_font_rid, const PackedColorArray &p_colors) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_set_palette_custom_colors")._native_ptr(), 4037098590);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_font_rid, &p_colors);
+}
+
+PackedColorArray TextServer::font_get_palette_custom_colors(const RID &p_font_rid) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_get_palette_custom_colors")._native_ptr(), 1569415609);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedColorArray()));
+	return ::godot::internal::_call_native_mb_ret<PackedColorArray>(_gde_method_bind, _owner, &p_font_rid);
+}
+
+int64_t TextServer::font_get_used_palette(const RID &p_font_rid) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_get_used_palette")._native_ptr(), 2198884583);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_font_rid);
+}
+
+void TextServer::font_set_used_palette(const RID &p_font_rid, int64_t p_index) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("font_set_used_palette")._native_ptr(), 3411492887);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_font_rid, &p_index_encoded);
 }
 
 void TextServer::font_set_hinting(const RID &p_font_rid, TextServer::Hinting p_hinting) {
@@ -1309,6 +1357,14 @@ String TextServer::shaped_get_run_text(const RID &p_shaped, int64_t p_index) con
 
 Vector2i TextServer::shaped_get_run_range(const RID &p_shaped, int64_t p_index) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_run_range")._native_ptr(), 4069534484);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2i()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<Vector2i>(_gde_method_bind, _owner, &p_shaped, &p_index_encoded);
+}
+
+Vector2i TextServer::shaped_get_run_glyph_range(const RID &p_shaped, int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextServer::get_class_static()._native_ptr(), StringName("shaped_get_run_glyph_range")._native_ptr(), 4069534484);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2i()));
 	int64_t p_index_encoded;
 	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);

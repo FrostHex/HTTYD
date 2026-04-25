@@ -85,6 +85,8 @@ public:
 	bool set_format(int32_t p_index, const Dictionary &p_parameters);
 	virtual bool _activate_feed();
 	virtual void _deactivate_feed();
+	virtual bool _set_format(int32_t p_index, const Dictionary &p_parameters);
+	virtual Array _get_formats() const;
 
 protected:
 	template <typename T, typename B>
@@ -95,6 +97,12 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_deactivate_feed), decltype(&T::_deactivate_feed)>) {
 			BIND_VIRTUAL_METHOD(T, _deactivate_feed, 3218959716);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_set_format), decltype(&T::_set_format)>) {
+			BIND_VIRTUAL_METHOD(T, _set_format, 31872775);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_get_formats), decltype(&T::_get_formats)>) {
+			BIND_VIRTUAL_METHOD(T, _get_formats, 3995934104);
 		}
 	}
 

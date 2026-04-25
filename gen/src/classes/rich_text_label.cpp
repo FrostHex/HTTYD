@@ -80,40 +80,40 @@ void RichTextLabel::add_hr(int32_t p_width, int32_t p_height, const Color &p_col
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_width_encoded, &p_height_encoded, &p_color, &p_alignment_encoded, &p_width_in_percent_encoded, &p_height_in_percent_encoded);
 }
 
-void RichTextLabel::add_image(const Ref<Texture2D> &p_image, int32_t p_width, int32_t p_height, const Color &p_color, InlineAlignment p_inline_align, const Rect2 &p_region, const Variant &p_key, bool p_pad, const String &p_tooltip, bool p_width_in_percent, bool p_height_in_percent, const String &p_alt_text) {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("add_image")._native_ptr(), 1390915033);
+void RichTextLabel::add_image(const Ref<Texture2D> &p_image, float p_width, float p_height, const Color &p_color, InlineAlignment p_inline_align, const Rect2 &p_region, const Variant &p_key, bool p_pad, const String &p_tooltip, RichTextLabel::ImageUnit p_width_unit, RichTextLabel::ImageUnit p_height_unit, const String &p_alt_text) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("add_image")._native_ptr(), 1980227702);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	int64_t p_width_encoded;
-	PtrToArg<int64_t>::encode(p_width, &p_width_encoded);
-	int64_t p_height_encoded;
-	PtrToArg<int64_t>::encode(p_height, &p_height_encoded);
+	double p_width_encoded;
+	PtrToArg<double>::encode(p_width, &p_width_encoded);
+	double p_height_encoded;
+	PtrToArg<double>::encode(p_height, &p_height_encoded);
 	int64_t p_inline_align_encoded;
 	PtrToArg<int64_t>::encode(p_inline_align, &p_inline_align_encoded);
 	int8_t p_pad_encoded;
 	PtrToArg<bool>::encode(p_pad, &p_pad_encoded);
-	int8_t p_width_in_percent_encoded;
-	PtrToArg<bool>::encode(p_width_in_percent, &p_width_in_percent_encoded);
-	int8_t p_height_in_percent_encoded;
-	PtrToArg<bool>::encode(p_height_in_percent, &p_height_in_percent_encoded);
-	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_image != nullptr ? &p_image->_owner : nullptr), &p_width_encoded, &p_height_encoded, &p_color, &p_inline_align_encoded, &p_region, &p_key, &p_pad_encoded, &p_tooltip, &p_width_in_percent_encoded, &p_height_in_percent_encoded, &p_alt_text);
+	int64_t p_width_unit_encoded;
+	PtrToArg<int64_t>::encode(p_width_unit, &p_width_unit_encoded);
+	int64_t p_height_unit_encoded;
+	PtrToArg<int64_t>::encode(p_height_unit, &p_height_unit_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_image != nullptr ? &p_image->_owner : nullptr), &p_width_encoded, &p_height_encoded, &p_color, &p_inline_align_encoded, &p_region, &p_key, &p_pad_encoded, &p_tooltip, &p_width_unit_encoded, &p_height_unit_encoded, &p_alt_text);
 }
 
-void RichTextLabel::update_image(const Variant &p_key, BitField<RichTextLabel::ImageUpdateMask> p_mask, const Ref<Texture2D> &p_image, int32_t p_width, int32_t p_height, const Color &p_color, InlineAlignment p_inline_align, const Rect2 &p_region, bool p_pad, const String &p_tooltip, bool p_width_in_percent, bool p_height_in_percent) {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("update_image")._native_ptr(), 6389170);
+void RichTextLabel::update_image(const Variant &p_key, BitField<RichTextLabel::ImageUpdateMask> p_mask, const Ref<Texture2D> &p_image, float p_width, float p_height, const Color &p_color, InlineAlignment p_inline_align, const Rect2 &p_region, bool p_pad, const String &p_tooltip, RichTextLabel::ImageUnit p_width_unit, RichTextLabel::ImageUnit p_height_unit) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RichTextLabel::get_class_static()._native_ptr(), StringName("update_image")._native_ptr(), 202998225);
 	CHECK_METHOD_BIND(_gde_method_bind);
-	int64_t p_width_encoded;
-	PtrToArg<int64_t>::encode(p_width, &p_width_encoded);
-	int64_t p_height_encoded;
-	PtrToArg<int64_t>::encode(p_height, &p_height_encoded);
+	double p_width_encoded;
+	PtrToArg<double>::encode(p_width, &p_width_encoded);
+	double p_height_encoded;
+	PtrToArg<double>::encode(p_height, &p_height_encoded);
 	int64_t p_inline_align_encoded;
 	PtrToArg<int64_t>::encode(p_inline_align, &p_inline_align_encoded);
 	int8_t p_pad_encoded;
 	PtrToArg<bool>::encode(p_pad, &p_pad_encoded);
-	int8_t p_width_in_percent_encoded;
-	PtrToArg<bool>::encode(p_width_in_percent, &p_width_in_percent_encoded);
-	int8_t p_height_in_percent_encoded;
-	PtrToArg<bool>::encode(p_height_in_percent, &p_height_in_percent_encoded);
-	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_key, &p_mask, (p_image != nullptr ? &p_image->_owner : nullptr), &p_width_encoded, &p_height_encoded, &p_color, &p_inline_align_encoded, &p_region, &p_pad_encoded, &p_tooltip, &p_width_in_percent_encoded, &p_height_in_percent_encoded);
+	int64_t p_width_unit_encoded;
+	PtrToArg<int64_t>::encode(p_width_unit, &p_width_unit_encoded);
+	int64_t p_height_unit_encoded;
+	PtrToArg<int64_t>::encode(p_height_unit, &p_height_unit_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_key, &p_mask, (p_image != nullptr ? &p_image->_owner : nullptr), &p_width_encoded, &p_height_encoded, &p_color, &p_inline_align_encoded, &p_region, &p_pad_encoded, &p_tooltip, &p_width_unit_encoded, &p_height_unit_encoded);
 }
 
 void RichTextLabel::newline() {

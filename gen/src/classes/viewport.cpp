@@ -816,8 +816,8 @@ void Viewport::set_use_xr(bool p_use) {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_use_encoded);
 }
 
-bool Viewport::is_using_xr() {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Viewport::get_class_static()._native_ptr(), StringName("is_using_xr")._native_ptr(), 2240911060);
+bool Viewport::is_using_xr() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Viewport::get_class_static()._native_ptr(), StringName("is_using_xr")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }

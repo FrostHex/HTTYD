@@ -80,7 +80,7 @@ struct Vector4i;
 
 class String {
 	static constexpr size_t STRING_SIZE = 8;
-	uint8_t opaque[STRING_SIZE] = {};
+	alignas(8) uint8_t opaque[STRING_SIZE] = {};
 
 	friend class Variant;
 	friend class StringName;

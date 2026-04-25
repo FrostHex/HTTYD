@@ -587,6 +587,16 @@ void NativeMenu::set_item_indentation_level(const RID &p_rid, int32_t p_idx, int
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_rid, &p_idx_encoded, &p_level_encoded);
 }
 
+int32_t NativeMenu::set_item_index(const RID &p_rid, int32_t p_idx, int32_t p_target_idx) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(NativeMenu::get_class_static()._native_ptr(), StringName("set_item_index")._native_ptr(), 23951185);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_idx_encoded;
+	PtrToArg<int64_t>::encode(p_idx, &p_idx_encoded);
+	int64_t p_target_idx_encoded;
+	PtrToArg<int64_t>::encode(p_target_idx, &p_target_idx_encoded);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_rid, &p_idx_encoded, &p_target_idx_encoded);
+}
+
 int32_t NativeMenu::get_item_count(const RID &p_rid) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(NativeMenu::get_class_static()._native_ptr(), StringName("get_item_count")._native_ptr(), 2198884583);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));

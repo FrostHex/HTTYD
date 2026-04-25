@@ -54,6 +54,8 @@ public:
 	static const int NOTIFICATION_APPLICATION_FOCUS_IN = 2016;
 	static const int NOTIFICATION_APPLICATION_FOCUS_OUT = 2017;
 	static const int NOTIFICATION_TEXT_SERVER_CHANGED = 2018;
+	static const int NOTIFICATION_APPLICATION_PIP_MODE_ENTERED = 2019;
+	static const int NOTIFICATION_APPLICATION_PIP_MODE_EXITED = 2020;
 
 	virtual void _initialize();
 	virtual bool _physics_process(double p_delta);

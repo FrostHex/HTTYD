@@ -76,6 +76,20 @@ bool SubViewport::is_size_2d_override_stretch_enabled() const {
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+void SubViewport::set_view_count(int32_t p_view_count) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SubViewport::get_class_static()._native_ptr(), StringName("set_view_count")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_view_count_encoded;
+	PtrToArg<int64_t>::encode(p_view_count, &p_view_count_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_view_count_encoded);
+}
+
+int32_t SubViewport::get_view_count() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SubViewport::get_class_static()._native_ptr(), StringName("get_view_count")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 void SubViewport::set_update_mode(SubViewport::UpdateMode p_mode) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SubViewport::get_class_static()._native_ptr(), StringName("set_update_mode")._native_ptr(), 1295690030);
 	CHECK_METHOD_BIND(_gde_method_bind);

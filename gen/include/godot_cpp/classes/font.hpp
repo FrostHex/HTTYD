@@ -38,6 +38,7 @@
 #include <godot_cpp/classes/text_server.hpp>
 #include <godot_cpp/variant/color.hpp>
 #include <godot_cpp/variant/dictionary.hpp>
+#include <godot_cpp/variant/packed_color_array.hpp>
 #include <godot_cpp/variant/rid.hpp>
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/transform2d.hpp>
@@ -56,7 +57,7 @@ class Font : public Resource {
 public:
 	void set_fallbacks(const TypedArray<Ref<Font>> &p_fallbacks);
 	TypedArray<Ref<Font>> get_fallbacks() const;
-	RID find_variation(const Dictionary &p_variation_coordinates, int32_t p_face_index = 0, float p_strength = 0.0, const Transform2D &p_transform = Transform2D(), int32_t p_spacing_top = 0, int32_t p_spacing_bottom = 0, int32_t p_spacing_space = 0, int32_t p_spacing_glyph = 0, float p_baseline_offset = 0.0) const;
+	RID find_variation(const Dictionary &p_variation_coordinates, int32_t p_face_index = 0, float p_strength = 0.0, const Transform2D &p_transform = Transform2D(), int32_t p_spacing_top = 0, int32_t p_spacing_bottom = 0, int32_t p_spacing_space = 0, int32_t p_spacing_glyph = 0, float p_baseline_offset = 0.0, int64_t p_palette_index = 0, const PackedColorArray &p_custom_colors = PackedColorArray()) const;
 	TypedArray<RID> get_rids() const;
 	float get_height(int32_t p_font_size = 16) const;
 	float get_ascent(int32_t p_font_size = 16) const;
@@ -69,6 +70,9 @@ public:
 	BitField<TextServer::FontStyle> get_font_style() const;
 	int32_t get_font_weight() const;
 	int32_t get_font_stretch() const;
+	int64_t get_palette_count() const;
+	String get_palette_name(int64_t p_index) const;
+	PackedColorArray get_palette_colors(int64_t p_index) const;
 	int32_t get_spacing(TextServer::SpacingType p_spacing) const;
 	Dictionary get_opentype_features() const;
 	void set_cache_capacity(int32_t p_single_line, int32_t p_multi_line);

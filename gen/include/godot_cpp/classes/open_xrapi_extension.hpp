@@ -74,6 +74,8 @@ public:
 	void begin_debug_label_region(const String &p_label_name);
 	void end_debug_label_region();
 	void insert_debug_label(const String &p_label_name);
+	uint32_t get_view_count() const;
+	uint64_t get_view_configuration() const;
 	bool is_initialized();
 	bool is_running();
 	void set_custom_play_space(const void *p_space);
@@ -90,6 +92,8 @@ public:
 	void unregister_projection_views_extension(OpenXRExtensionWrapper *p_extension);
 	void register_frame_info_extension(OpenXRExtensionWrapper *p_extension);
 	void unregister_frame_info_extension(OpenXRExtensionWrapper *p_extension);
+	void register_projection_layer_extension(OpenXRExtensionWrapper *p_extension);
+	void unregister_projection_layer_extension(OpenXRExtensionWrapper *p_extension);
 	double get_render_state_z_near();
 	double get_render_state_z_far();
 	void set_velocity_texture(const RID &p_render_target);

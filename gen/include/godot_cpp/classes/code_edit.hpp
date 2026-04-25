@@ -64,6 +64,7 @@ public:
 		KIND_NODE_PATH = 7,
 		KIND_FILE_PATH = 8,
 		KIND_PLAIN_TEXT = 9,
+		KIND_KEYWORD = 10,
 	};
 
 	enum CodeCompletionLocation {
@@ -184,6 +185,7 @@ public:
 	void move_lines_up();
 	void move_lines_down();
 	void delete_lines();
+	void join_lines(const String &p_line_ending = " ");
 	void duplicate_selection();
 	void duplicate_lines();
 	virtual void _confirm_code_completion(bool p_replace);

@@ -46,6 +46,7 @@ class OpenXRSpatialCapabilityConfigurationBaseHeader : public RefCounted {
 
 public:
 	bool has_valid_configuration() const;
+	uint64_t get_configuration();
 	virtual bool _has_valid_configuration() const;
 	virtual uint64_t _get_configuration();
 

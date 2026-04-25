@@ -32,6 +32,7 @@
 
 #pragma once
 
+#include <godot_cpp/classes/file_access.hpp>
 #include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/ref_counted.hpp>
@@ -65,7 +66,8 @@ public:
 	Error open(const String &p_path, ZIPPacker::ZipAppend p_append = (ZIPPacker::ZipAppend)0);
 	void set_compression_level(int32_t p_compression_level);
 	int32_t get_compression_level() const;
-	Error start_file(const String &p_path);
+	Error add_directory(const String &p_path, BitField<FileAccess::UnixPermissionFlags> p_permissions = (BitField<FileAccess::UnixPermissionFlags>)493, uint64_t p_modified_time = 0);
+	Error start_file(const String &p_path, BitField<FileAccess::UnixPermissionFlags> p_permissions = (BitField<FileAccess::UnixPermissionFlags>)420, uint64_t p_modified_time = 0);
 	Error write_file(const PackedByteArray &p_data);
 	Error close_file();
 	Error close();

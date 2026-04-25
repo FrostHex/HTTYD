@@ -1078,6 +1078,14 @@ bool DisplayServer::window_get_flag(DisplayServer::WindowFlags p_flag, int32_t p
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_flag_encoded, &p_window_id_encoded);
 }
 
+void DisplayServer::window_set_icon(const Ref<Image> &p_icon, int32_t p_window_id) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_set_icon")._native_ptr(), 2457502155);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_icon != nullptr ? &p_icon->_owner : nullptr), &p_window_id_encoded);
+}
+
 void DisplayServer::window_set_window_buttons_offset(const Vector2i &p_offset, int32_t p_window_id) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_set_window_buttons_offset")._native_ptr(), 2019273902);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -1100,6 +1108,26 @@ void DisplayServer::window_request_attention(int32_t p_window_id) {
 	int64_t p_window_id_encoded;
 	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_window_id_encoded);
+}
+
+void DisplayServer::window_set_taskbar_progress_value(float p_value, int32_t p_window_id) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_set_taskbar_progress_value")._native_ptr(), 3506631519);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_value_encoded;
+	PtrToArg<double>::encode(p_value, &p_value_encoded);
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_value_encoded, &p_window_id_encoded);
+}
+
+void DisplayServer::window_set_taskbar_progress_state(DisplayServer::ProgressState p_state, int32_t p_window_id) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_set_taskbar_progress_state")._native_ptr(), 4119882768);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_state_encoded;
+	PtrToArg<int64_t>::encode(p_state, &p_state_encoded);
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_state_encoded, &p_window_id_encoded);
 }
 
 void DisplayServer::window_move_to_foreground(int32_t p_window_id) {
@@ -1180,6 +1208,100 @@ DisplayServer::VSyncMode DisplayServer::window_get_vsync_mode(int32_t p_window_i
 	int64_t p_window_id_encoded;
 	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
 	return (DisplayServer::VSyncMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_window_id_encoded);
+}
+
+bool DisplayServer::window_is_hdr_output_supported(int32_t p_window_id) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_is_hdr_output_supported")._native_ptr(), 1051549951);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_window_id_encoded);
+}
+
+void DisplayServer::window_request_hdr_output(bool p_enable, int32_t p_window_id) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_request_hdr_output")._native_ptr(), 1661950165);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enable_encoded;
+	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded, &p_window_id_encoded);
+}
+
+bool DisplayServer::window_is_hdr_output_requested(int32_t p_window_id) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_is_hdr_output_requested")._native_ptr(), 1051549951);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_window_id_encoded);
+}
+
+bool DisplayServer::window_is_hdr_output_enabled(int32_t p_window_id) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_is_hdr_output_enabled")._native_ptr(), 1051549951);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_window_id_encoded);
+}
+
+void DisplayServer::window_set_hdr_output_reference_luminance(float p_reference_luminance, int32_t p_window_id) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_set_hdr_output_reference_luminance")._native_ptr(), 3506631519);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_reference_luminance_encoded;
+	PtrToArg<double>::encode(p_reference_luminance, &p_reference_luminance_encoded);
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_reference_luminance_encoded, &p_window_id_encoded);
+}
+
+float DisplayServer::window_get_hdr_output_reference_luminance(int32_t p_window_id) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_get_hdr_output_reference_luminance")._native_ptr(), 218038398);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_window_id_encoded);
+}
+
+float DisplayServer::window_get_hdr_output_current_reference_luminance(int32_t p_window_id) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_get_hdr_output_current_reference_luminance")._native_ptr(), 218038398);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_window_id_encoded);
+}
+
+void DisplayServer::window_set_hdr_output_max_luminance(float p_max_luminance, int32_t p_window_id) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_set_hdr_output_max_luminance")._native_ptr(), 3506631519);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_max_luminance_encoded;
+	PtrToArg<double>::encode(p_max_luminance, &p_max_luminance_encoded);
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_max_luminance_encoded, &p_window_id_encoded);
+}
+
+float DisplayServer::window_get_hdr_output_max_luminance(int32_t p_window_id) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_get_hdr_output_max_luminance")._native_ptr(), 218038398);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_window_id_encoded);
+}
+
+float DisplayServer::window_get_hdr_output_current_max_luminance(int32_t p_window_id) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_get_hdr_output_current_max_luminance")._native_ptr(), 218038398);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_window_id_encoded);
+}
+
+float DisplayServer::window_get_output_max_linear_value(int32_t p_window_id) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("window_get_output_max_linear_value")._native_ptr(), 218038398);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_window_id_encoded);
 }
 
 bool DisplayServer::window_is_maximize_allowed(int32_t p_window_id) const {
@@ -2102,6 +2224,44 @@ bool DisplayServer::has_additional_outputs() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("has_additional_outputs")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+bool DisplayServer::is_in_pip_mode(int32_t p_window_id) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("is_in_pip_mode")._native_ptr(), 1885608816);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_window_id_encoded);
+}
+
+void DisplayServer::pip_mode_enter(int32_t p_window_id) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("pip_mode_enter")._native_ptr(), 1995695955);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_window_id_encoded);
+}
+
+void DisplayServer::pip_mode_set_aspect_ratio(int32_t p_numerator, int32_t p_denominator, int32_t p_window_id) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("pip_mode_set_aspect_ratio")._native_ptr(), 3471927553);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_numerator_encoded;
+	PtrToArg<int64_t>::encode(p_numerator, &p_numerator_encoded);
+	int64_t p_denominator_encoded;
+	PtrToArg<int64_t>::encode(p_denominator, &p_denominator_encoded);
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_numerator_encoded, &p_denominator_encoded, &p_window_id_encoded);
+}
+
+void DisplayServer::pip_mode_set_auto_enter_on_background(bool p_auto_enter_on_background, int32_t p_window_id) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(DisplayServer::get_class_static()._native_ptr(), StringName("pip_mode_set_auto_enter_on_background")._native_ptr(), 1661950165);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_auto_enter_on_background_encoded;
+	PtrToArg<bool>::encode(p_auto_enter_on_background, &p_auto_enter_on_background_encoded);
+	int64_t p_window_id_encoded;
+	PtrToArg<int64_t>::encode(p_window_id, &p_window_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_auto_enter_on_background_encoded, &p_window_id_encoded);
 }
 
 } // namespace godot

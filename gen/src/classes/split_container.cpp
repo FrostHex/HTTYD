@@ -192,6 +192,20 @@ bool SplitContainer::is_touch_dragger_enabled() const {
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+void SplitContainer::set_drag_nested_intersections(bool p_enabled) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SplitContainer::get_class_static()._native_ptr(), StringName("set_drag_nested_intersections")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+}
+
+bool SplitContainer::is_dragging_nested_intersections() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SplitContainer::get_class_static()._native_ptr(), StringName("is_dragging_nested_intersections")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 Control *SplitContainer::get_drag_area_control() {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(SplitContainer::get_class_static()._native_ptr(), StringName("get_drag_area_control")._native_ptr(), 829782337);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));

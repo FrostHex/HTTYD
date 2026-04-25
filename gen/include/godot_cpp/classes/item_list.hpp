@@ -149,6 +149,7 @@ public:
 	bool is_anything_selected();
 	int32_t get_item_at_position(const Vector2 &p_position, bool p_exact = false) const;
 	void ensure_current_is_visible();
+	void center_on_current(bool p_center_verically = true, bool p_center_horizontally = true);
 	VScrollBar *get_v_scroll_bar();
 	HScrollBar *get_h_scroll_bar();
 	void set_scroll_hint_mode(ItemList::ScrollHintMode p_scroll_hint_mode);

@@ -36,6 +36,7 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/classes/await_tweener.hpp>
 #include <godot_cpp/classes/callback_tweener.hpp>
 #include <godot_cpp/classes/interval_tweener.hpp>
 #include <godot_cpp/classes/method_tweener.hpp>
@@ -45,6 +46,7 @@
 #include <godot_cpp/core/object.hpp>
 #include <godot_cpp/variant/callable.hpp>
 #include <godot_cpp/variant/node_path.hpp>
+#include <godot_cpp/variant/signal.hpp>
 
 namespace godot {
 
@@ -84,6 +86,12 @@ Ref<SubtweenTweener> Tween::tween_subtween(const Ref<Tween> &p_subtween) {
 	return Ref<SubtweenTweener>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<SubtweenTweener>(_gde_method_bind, _owner, (p_subtween != nullptr ? &p_subtween->_owner : nullptr)));
 }
 
+Ref<AwaitTweener> Tween::tween_await(const Signal &p_signal) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Tween::get_class_static()._native_ptr(), StringName("tween_await")._native_ptr(), 2242837462);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<AwaitTweener>()));
+	return Ref<AwaitTweener>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<AwaitTweener>(_gde_method_bind, _owner, &p_signal));
+}
+
 bool Tween::custom_step(double p_delta) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Tween::get_class_static()._native_ptr(), StringName("custom_step")._native_ptr(), 330693286);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
@@ -120,6 +128,12 @@ double Tween::get_total_elapsed_time() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Tween::get_class_static()._native_ptr(), StringName("get_total_elapsed_time")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+bool Tween::has_tweeners() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Tween::get_class_static()._native_ptr(), StringName("has_tweeners")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
 bool Tween::is_running() {

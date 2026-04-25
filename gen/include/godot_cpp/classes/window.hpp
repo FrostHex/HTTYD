@@ -147,8 +147,13 @@ public:
 	Window::Mode get_mode() const;
 	void set_flag(Window::Flags p_flag, bool p_enabled);
 	bool get_flag(Window::Flags p_flag) const;
+	void set_hdr_output_requested(bool p_requested);
+	bool is_hdr_output_requested() const;
+	float get_output_max_linear_value() const;
 	bool is_maximize_allowed() const;
 	void request_attention();
+	void set_taskbar_progress_value(float p_value);
+	void set_taskbar_progress_state(DisplayServer::ProgressState p_state);
 	void move_to_foreground();
 	void set_visible(bool p_visible);
 	bool is_visible() const;

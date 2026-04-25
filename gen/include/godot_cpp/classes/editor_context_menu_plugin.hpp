@@ -60,6 +60,7 @@ public:
 		CONTEXT_SLOT_SCRIPT_EDITOR_CODE = 4,
 		CONTEXT_SLOT_SCENE_TABS = 5,
 		CONTEXT_SLOT_2D_EDITOR = 6,
+		CONTEXT_SLOT_INSPECTOR_PROPERTY = 7,
 	};
 
 	void add_menu_shortcut(const Ref<Shortcut> &p_shortcut, const Callable &p_callback);

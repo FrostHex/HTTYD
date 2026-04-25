@@ -32,7 +32,6 @@
 
 #pragma once
 
-#include <godot_cpp/classes/image.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/texture2d.hpp>
 #include <godot_cpp/variant/vector2.hpp>
@@ -42,6 +41,8 @@
 #include <type_traits>
 
 namespace godot {
+
+class Image;
 
 class PortableCompressedTexture2D : public Texture2D {
 	GDEXTENSION_CLASS(PortableCompressedTexture2D, Texture2D)
@@ -58,7 +59,6 @@ public:
 	};
 
 	void create_from_image(const Ref<Image> &p_image, PortableCompressedTexture2D::CompressionMode p_compression_mode, bool p_normal_map = false, float p_lossy_quality = 0.8);
-	Image::Format get_format() const;
 	PortableCompressedTexture2D::CompressionMode get_compression_mode() const;
 	void set_size_override(const Vector2 &p_size);
 	Vector2 get_size_override() const;

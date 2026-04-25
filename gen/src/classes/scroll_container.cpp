@@ -126,6 +126,20 @@ ScrollContainer::ScrollMode ScrollContainer::get_vertical_scroll_mode() const {
 	return (ScrollContainer::ScrollMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+void ScrollContainer::set_scroll_horizontal_by_default(bool p_enable) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScrollContainer::get_class_static()._native_ptr(), StringName("set_scroll_horizontal_by_default")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enable_encoded;
+	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+}
+
+bool ScrollContainer::is_scroll_horizontal_by_default() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScrollContainer::get_class_static()._native_ptr(), StringName("is_scroll_horizontal_by_default")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 void ScrollContainer::set_deadzone(int32_t p_deadzone) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScrollContainer::get_class_static()._native_ptr(), StringName("set_deadzone")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);

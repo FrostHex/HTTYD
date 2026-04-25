@@ -35,6 +35,7 @@
 #include <godot_cpp/classes/animation_root_node.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/variant/string.hpp>
+#include <godot_cpp/variant/string_name.hpp>
 #include <godot_cpp/variant/vector2.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
@@ -53,13 +54,24 @@ public:
 		BLEND_MODE_DISCRETE_CARRY = 2,
 	};
 
-	void add_blend_point(const Ref<AnimationRootNode> &p_node, const Vector2 &p_pos, int32_t p_at_index = -1);
+	enum SyncMode {
+		SYNC_MODE_NONE = 0,
+		SYNC_MODE_INDEPENDENT = 1,
+		SYNC_MODE_CYCLIC_MUTABLE = 2,
+		SYNC_MODE_CYCLIC_CONSTANT = 3,
+	};
+
+	void add_blend_point(const Ref<AnimationRootNode> &p_node, const Vector2 &p_pos, int32_t p_at_index = -1, const StringName &p_name = StringName());
 	void set_blend_point_position(int32_t p_point, const Vector2 &p_pos);
 	Vector2 get_blend_point_position(int32_t p_point) const;
 	void set_blend_point_node(int32_t p_point, const Ref<AnimationRootNode> &p_node);
 	Ref<AnimationRootNode> get_blend_point_node(int32_t p_point) const;
+	void set_blend_point_name(int32_t p_point, const StringName &p_name);
+	StringName get_blend_point_name(int32_t p_point) const;
+	int32_t find_blend_point_by_name(const StringName &p_name) const;
 	void remove_blend_point(int32_t p_point);
 	int32_t get_blend_point_count() const;
+	void reorder_blend_point(int32_t p_from_index, int32_t p_to_index);
 	void add_triangle(int32_t p_x, int32_t p_y, int32_t p_z, int32_t p_at_index = -1);
 	int32_t get_triangle_point(int32_t p_triangle, int32_t p_point);
 	void remove_triangle(int32_t p_triangle);
@@ -80,6 +92,10 @@ public:
 	AnimationNodeBlendSpace2D::BlendMode get_blend_mode() const;
 	void set_use_sync(bool p_enable);
 	bool is_using_sync() const;
+	void set_sync_mode(AnimationNodeBlendSpace2D::SyncMode p_sync_mode);
+	AnimationNodeBlendSpace2D::SyncMode get_sync_mode() const;
+	void set_cyclic_length(double p_length);
+	double get_cyclic_length() const;
 
 protected:
 	template <typename T, typename B>
@@ -93,4 +109,5 @@ public:
 } // namespace godot
 
 VARIANT_ENUM_CAST(AnimationNodeBlendSpace2D::BlendMode);
+VARIANT_ENUM_CAST(AnimationNodeBlendSpace2D::SyncMode);
 

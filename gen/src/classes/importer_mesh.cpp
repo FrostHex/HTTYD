@@ -36,7 +36,17 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/variant/transform3d.hpp>
+
 namespace godot {
+
+Ref<ImporterMesh> ImporterMesh::merge_importer_meshes(const TypedArray<Ref<ImporterMesh>> &p_importer_meshes, const TypedArray<Transform3D> &p_relative_transforms, bool p_deduplicate_surfaces) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImporterMesh::get_class_static()._native_ptr(), StringName("merge_importer_meshes")._native_ptr(), 1030647649);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Ref<ImporterMesh>()));
+	int8_t p_deduplicate_surfaces_encoded;
+	PtrToArg<bool>::encode(p_deduplicate_surfaces, &p_deduplicate_surfaces_encoded);
+	return Ref<ImporterMesh>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<ImporterMesh>(_gde_method_bind, nullptr, &p_importer_meshes, &p_relative_transforms, &p_deduplicate_surfaces_encoded));
+}
 
 void ImporterMesh::add_blend_shape(const String &p_name) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ImporterMesh::get_class_static()._native_ptr(), StringName("add_blend_shape")._native_ptr(), 83702148);

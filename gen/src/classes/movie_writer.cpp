@@ -60,6 +60,10 @@ bool MovieWriter::_handles_file(const String &p_path) const {
 	return false;
 }
 
+PackedStringArray MovieWriter::_get_supported_extensions() const {
+	return PackedStringArray();
+}
+
 Error MovieWriter::_write_begin(const Vector2i &p_movie_size, uint32_t p_fps, const String &p_base_path) {
 	return Error(0);
 }

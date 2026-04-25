@@ -65,7 +65,8 @@ public:
 		TYPE_PROCESS_CUSTOM = 7,
 		TYPE_SKY = 8,
 		TYPE_FOG = 9,
-		TYPE_MAX = 10,
+		TYPE_TEXTURE_BLIT = 10,
+		TYPE_MAX = 11,
 	};
 
 	enum VaryingMode {

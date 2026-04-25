@@ -77,7 +77,8 @@ public:
 		PARTICLE_FLAG_ROTATE_Y = 1,
 		PARTICLE_FLAG_DISABLE_Z = 2,
 		PARTICLE_FLAG_DAMPING_AS_FRICTION = 3,
-		PARTICLE_FLAG_MAX = 4,
+		PARTICLE_FLAG_INHERIT_EMITTER_SCALE = 4,
+		PARTICLE_FLAG_MAX = 5,
 	};
 
 	enum EmissionShape {
@@ -125,6 +126,18 @@ public:
 	Ref<Texture2D> get_param_texture(ParticleProcessMaterial::Parameter p_param) const;
 	void set_color(const Color &p_color);
 	Color get_color() const;
+	void set_use_scale_3d(bool p_using_scale_3d);
+	bool is_using_scale_3d() const;
+	void set_scale_3d_min(const Vector3 &p_scale_3d_min);
+	Vector3 get_scale_3d_min() const;
+	void set_scale_3d_max(const Vector3 &p_scale_3d_max);
+	Vector3 get_scale_3d_max() const;
+	void set_use_rotation_3d(bool p_using_rotation_3d);
+	bool is_using_rotation_3d() const;
+	void set_rotation_3d_min(const Vector3 &p_rotation_3d_min);
+	Vector3 get_rotation_3d_min() const;
+	void set_rotation_3d_max(const Vector3 &p_rotation_3d_max);
+	Vector3 get_rotation_3d_max() const;
 	void set_color_ramp(const Ref<Texture2D> &p_ramp);
 	Ref<Texture2D> get_color_ramp() const;
 	void set_alpha_curve(const Ref<Texture2D> &p_curve);
@@ -203,6 +216,14 @@ public:
 	float get_collision_friction() const;
 	void set_collision_bounce(float p_bounce);
 	float get_collision_bounce() const;
+	void set_using_rotation_velocity_3d(bool p_use_rotation_velocity_3d);
+	bool is_using_rotation_velocity_3d() const;
+	void set_rotation_velocity_3d_max(const Vector3 &p_rotation_velocity_3d_max);
+	Vector3 get_rotation_velocity_3d_max() const;
+	void set_rotation_velocity_3d_min(const Vector3 &p_rotation_velocity_3d_min);
+	Vector3 get_rotation_velocity_3d_min() const;
+	void set_rotation_velocity_3d_curve(const Ref<Texture2D> &p_rotation_velocity_3d_curve);
+	Ref<Texture2D> get_rotation_velocity_3d_curve() const;
 
 protected:
 	template <typename T, typename B>

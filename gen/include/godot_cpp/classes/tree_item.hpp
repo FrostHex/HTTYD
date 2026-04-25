@@ -90,6 +90,8 @@ public:
 	Control::TextDirection get_text_direction(int32_t p_column) const;
 	void set_autowrap_mode(int32_t p_column, TextServer::AutowrapMode p_autowrap_mode);
 	TextServer::AutowrapMode get_autowrap_mode(int32_t p_column) const;
+	void set_autowrap_trim_flags(int32_t p_column, BitField<TextServer::LineBreakFlag> p_flags);
+	BitField<TextServer::LineBreakFlag> get_autowrap_trim_flags(int32_t p_column) const;
 	void set_text_overrun_behavior(int32_t p_column, TextServer::OverrunBehavior p_overrun_behavior);
 	TextServer::OverrunBehavior get_text_overrun_behavior(int32_t p_column) const;
 	void set_structured_text_bidi_override(int32_t p_column, TextServer::StructuredTextParser p_parser);
@@ -173,6 +175,8 @@ public:
 	bool get_expand_right(int32_t p_column) const;
 	void set_disable_folding(bool p_disable);
 	bool is_folding_disabled() const;
+	void set_accept_children(bool p_allowed);
+	bool is_accepting_children() const;
 	TreeItem *create_child(int32_t p_index = -1);
 	void add_child(TreeItem *p_child);
 	void remove_child(TreeItem *p_child);

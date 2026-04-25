@@ -81,6 +81,12 @@ public:
 		SWIZZLE_ONE = 5,
 	};
 
+	enum EyeVisibility {
+		EYE_VISIBILITY_BOTH = 0,
+		EYE_VISIBILITY_LEFT = 1,
+		EYE_VISIBILITY_RIGHT = 2,
+	};
+
 	void set_layer_viewport(SubViewport *p_viewport);
 	SubViewport *get_layer_viewport() const;
 	void set_use_android_surface(bool p_enable);
@@ -119,6 +125,8 @@ public:
 	float get_max_anisotropy() const;
 	void set_border_color(const Color &p_color);
 	Color get_border_color() const;
+	void set_eye_visibility(OpenXRCompositionLayer::EyeVisibility p_eye_visibility);
+	OpenXRCompositionLayer::EyeVisibility get_eye_visibility() const;
 	Vector2 intersects_ray(const Vector3 &p_origin, const Vector3 &p_direction) const;
 
 protected:
@@ -136,4 +144,5 @@ VARIANT_ENUM_CAST(OpenXRCompositionLayer::Filter);
 VARIANT_ENUM_CAST(OpenXRCompositionLayer::MipmapMode);
 VARIANT_ENUM_CAST(OpenXRCompositionLayer::Wrap);
 VARIANT_ENUM_CAST(OpenXRCompositionLayer::Swizzle);
+VARIANT_ENUM_CAST(OpenXRCompositionLayer::EyeVisibility);
 

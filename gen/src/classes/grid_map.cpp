@@ -39,6 +39,7 @@
 #include <godot_cpp/classes/mesh_library.hpp>
 #include <godot_cpp/classes/physics_material.hpp>
 #include <godot_cpp/classes/resource.hpp>
+#include <godot_cpp/variant/aabb.hpp>
 
 namespace godot {
 
@@ -118,6 +119,20 @@ float GridMap::get_collision_priority() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMap::get_class_static()._native_ptr(), StringName("get_collision_priority")._native_ptr(), 1740695150);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
 	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
+void GridMap::set_collision_visibility_mode(GridMap::DebugVisibilityMode p_visibility_mode) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMap::get_class_static()._native_ptr(), StringName("set_collision_visibility_mode")._native_ptr(), 4160694578);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_visibility_mode_encoded;
+	PtrToArg<int64_t>::encode(p_visibility_mode, &p_visibility_mode_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_visibility_mode_encoded);
+}
+
+GridMap::DebugVisibilityMode GridMap::get_collision_visibility_mode() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMap::get_class_static()._native_ptr(), StringName("get_collision_visibility_mode")._native_ptr(), 3729798365);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (GridMap::DebugVisibilityMode(0)));
+	return (GridMap::DebugVisibilityMode)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void GridMap::set_physics_material(const Ref<PhysicsMaterial> &p_material) {
@@ -330,6 +345,52 @@ TypedArray<Vector3i> GridMap::get_used_cells_by_item(int32_t p_item) const {
 	int64_t p_item_encoded;
 	PtrToArg<int64_t>::encode(p_item, &p_item_encoded);
 	return ::godot::internal::_call_native_mb_ret<TypedArray<Vector3i>>(_gde_method_bind, _owner, &p_item_encoded);
+}
+
+TypedArray<Vector3i> GridMap::get_used_octants() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMap::get_class_static()._native_ptr(), StringName("get_used_octants")._native_ptr(), 3995934104);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Vector3i>()));
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Vector3i>>(_gde_method_bind, _owner);
+}
+
+TypedArray<Vector3i> GridMap::get_used_octants_by_item(int32_t p_item) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMap::get_class_static()._native_ptr(), StringName("get_used_octants_by_item")._native_ptr(), 663333327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Vector3i>()));
+	int64_t p_item_encoded;
+	PtrToArg<int64_t>::encode(p_item, &p_item_encoded);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Vector3i>>(_gde_method_bind, _owner, &p_item_encoded);
+}
+
+TypedArray<Vector3i> GridMap::get_used_cells_in_octant(const Vector3i &p_octant_coords) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMap::get_class_static()._native_ptr(), StringName("get_used_cells_in_octant")._native_ptr(), 2658725580);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Vector3i>()));
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Vector3i>>(_gde_method_bind, _owner, &p_octant_coords);
+}
+
+TypedArray<Vector3i> GridMap::get_used_cells_in_octant_by_item(const Vector3i &p_octant_coords, int32_t p_item) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMap::get_class_static()._native_ptr(), StringName("get_used_cells_in_octant_by_item")._native_ptr(), 2384667821);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Vector3i>()));
+	int64_t p_item_encoded;
+	PtrToArg<int64_t>::encode(p_item, &p_item_encoded);
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Vector3i>>(_gde_method_bind, _owner, &p_octant_coords, &p_item_encoded);
+}
+
+TypedArray<Vector3i> GridMap::get_octants_in_bounds(const AABB &p_bounds) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMap::get_class_static()._native_ptr(), StringName("get_octants_in_bounds")._native_ptr(), 2489849902);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Vector3i>()));
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Vector3i>>(_gde_method_bind, _owner, &p_bounds);
+}
+
+TypedArray<Vector3i> GridMap::get_used_octants_in_bounds(const AABB &p_bounds) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMap::get_class_static()._native_ptr(), StringName("get_used_octants_in_bounds")._native_ptr(), 2489849902);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (TypedArray<Vector3i>()));
+	return ::godot::internal::_call_native_mb_ret<TypedArray<Vector3i>>(_gde_method_bind, _owner, &p_bounds);
+}
+
+Vector3i GridMap::get_octant_coords_from_cell_coords(const Vector3i &p_cell_coords) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GridMap::get_class_static()._native_ptr(), StringName("get_octant_coords_from_cell_coords")._native_ptr(), 2075501597);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3i()));
+	return ::godot::internal::_call_native_mb_ret<Vector3i>(_gde_method_bind, _owner, &p_cell_coords);
 }
 
 Array GridMap::get_meshes() const {

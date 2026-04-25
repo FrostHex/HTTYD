@@ -48,8 +48,8 @@ class ScriptEditorBase : public VBoxContainer {
 	GDEXTENSION_CLASS(ScriptEditorBase, VBoxContainer)
 
 public:
-	Control *get_base_editor() const;
 	void add_syntax_highlighter(const Ref<EditorSyntaxHighlighter> &p_highlighter);
+	Control *get_base_editor() const;
 
 protected:
 	template <typename T, typename B>

@@ -438,6 +438,16 @@ void PopupMenu::set_item_shortcut_disabled(int32_t p_index, bool p_disabled) {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_disabled_encoded);
 }
 
+void PopupMenu::set_item_index(int32_t p_index, int32_t p_target_index) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PopupMenu::get_class_static()._native_ptr(), StringName("set_item_index")._native_ptr(), 3937882851);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	int64_t p_target_index_encoded;
+	PtrToArg<int64_t>::encode(p_target_index, &p_target_index_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_index_encoded, &p_target_index_encoded);
+}
+
 void PopupMenu::toggle_item_checked(int32_t p_index) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PopupMenu::get_class_static()._native_ptr(), StringName("toggle_item_checked")._native_ptr(), 1286410249);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -794,6 +804,26 @@ NativeMenu::SystemMenus PopupMenu::get_system_menu() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PopupMenu::get_class_static()._native_ptr(), StringName("get_system_menu")._native_ptr(), 1222557358);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (NativeMenu::SystemMenus(0)));
 	return (NativeMenu::SystemMenus)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+bool PopupMenu::is_search_bar_enabled() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PopupMenu::get_class_static()._native_ptr(), StringName("is_search_bar_enabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void PopupMenu::set_search_bar_enabled_on_item_count(int32_t p_count) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PopupMenu::get_class_static()._native_ptr(), StringName("set_search_bar_enabled_on_item_count")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_count_encoded;
+	PtrToArg<int64_t>::encode(p_count, &p_count_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_count_encoded);
+}
+
+int32_t PopupMenu::get_search_bar_enabled_on_item_count() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PopupMenu::get_class_static()._native_ptr(), StringName("get_search_bar_enabled_on_item_count")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 void PopupMenu::set_shrink_height(bool p_shrink) {

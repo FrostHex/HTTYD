@@ -818,6 +818,12 @@ void CodeEdit::delete_lines() {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
+void CodeEdit::join_lines(const String &p_line_ending) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeEdit::get_class_static()._native_ptr(), StringName("join_lines")._native_ptr(), 4063782979);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_line_ending);
+}
+
 void CodeEdit::duplicate_selection() {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CodeEdit::get_class_static()._native_ptr(), StringName("duplicate_selection")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);

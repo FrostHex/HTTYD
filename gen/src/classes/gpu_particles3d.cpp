@@ -426,6 +426,34 @@ GPUParticles3D::TransformAlign GPUParticles3D::get_transform_align() const {
 	return (GPUParticles3D::TransformAlign)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+void GPUParticles3D::set_transform_align_channel_filter(RenderingServer::ParticlesTransformAlignCustomSrc p_channel_filter) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticles3D::get_class_static()._native_ptr(), StringName("set_transform_align_channel_filter")._native_ptr(), 540833286);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_channel_filter_encoded;
+	PtrToArg<int64_t>::encode(p_channel_filter, &p_channel_filter_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_channel_filter_encoded);
+}
+
+RenderingServer::ParticlesTransformAlignCustomSrc GPUParticles3D::get_transform_align_channel_filter() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticles3D::get_class_static()._native_ptr(), StringName("get_transform_align_channel_filter")._native_ptr(), 1664431231);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingServer::ParticlesTransformAlignCustomSrc(0)));
+	return (RenderingServer::ParticlesTransformAlignCustomSrc)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void GPUParticles3D::set_transform_align_axis(RenderingServer::ParticlesTransformAlignAxis p_align) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticles3D::get_class_static()._native_ptr(), StringName("set_transform_align_axis")._native_ptr(), 3781785913);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_align_encoded;
+	PtrToArg<int64_t>::encode(p_align, &p_align_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_align_encoded);
+}
+
+RenderingServer::ParticlesTransformAlignAxis GPUParticles3D::get_transform_align_axis() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticles3D::get_class_static()._native_ptr(), StringName("get_transform_align_axis")._native_ptr(), 2427180841);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RenderingServer::ParticlesTransformAlignAxis(0)));
+	return (RenderingServer::ParticlesTransformAlignAxis)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 void GPUParticles3D::convert_from_particles(Node *p_particles) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticles3D::get_class_static()._native_ptr(), StringName("convert_from_particles")._native_ptr(), 1078189570);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -446,12 +474,14 @@ float GPUParticles3D::get_amount_ratio() const {
 	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
-void GPUParticles3D::request_particles_process(float p_process_time) {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticles3D::get_class_static()._native_ptr(), StringName("request_particles_process")._native_ptr(), 373806689);
+void GPUParticles3D::request_particles_process(float p_process_time, float p_process_time_residual) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(GPUParticles3D::get_class_static()._native_ptr(), StringName("request_particles_process")._native_ptr(), 66938510);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	double p_process_time_encoded;
 	PtrToArg<double>::encode(p_process_time, &p_process_time_encoded);
-	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_process_time_encoded);
+	double p_process_time_residual_encoded;
+	PtrToArg<double>::encode(p_process_time_residual, &p_process_time_residual_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_process_time_encoded, &p_process_time_residual_encoded);
 }
 
 } // namespace godot

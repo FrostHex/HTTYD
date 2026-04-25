@@ -51,6 +51,7 @@ class EditorTranslationParserPlugin : public RefCounted {
 public:
 	virtual TypedArray<PackedStringArray> _parse_file(const String &p_path);
 	virtual PackedStringArray _get_recognized_extensions() const;
+	virtual TypedArray<PackedStringArray> _customize_strings(const TypedArray<PackedStringArray> &p_strings) const;
 
 protected:
 	template <typename T, typename B>
@@ -61,6 +62,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_recognized_extensions), decltype(&T::_get_recognized_extensions)>) {
 			BIND_VIRTUAL_METHOD(T, _get_recognized_extensions, 1139954409);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_customize_strings), decltype(&T::_customize_strings)>) {
+			BIND_VIRTUAL_METHOD(T, _customize_strings, 2560709669);
 		}
 	}
 

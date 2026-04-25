@@ -43,12 +43,15 @@
 
 namespace godot {
 
+class PackedByteArray;
+
 class PCKPacker : public RefCounted {
 	GDEXTENSION_CLASS(PCKPacker, RefCounted)
 
 public:
 	Error pck_start(const String &p_pck_path, int32_t p_alignment = 32, const String &p_key = "0000000000000000000000000000000000000000000000000000000000000000", bool p_encrypt_directory = false);
 	Error add_file(const String &p_target_path, const String &p_source_path, bool p_encrypt = false);
+	Error add_file_from_buffer(const String &p_target_path, const PackedByteArray &p_data, bool p_encrypt = false);
 	Error add_file_removal(const String &p_target_path);
 	Error flush(bool p_verbose = false);
 

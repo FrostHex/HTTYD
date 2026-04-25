@@ -50,8 +50,8 @@ TypedArray<Ref<Font>> Font::get_fallbacks() const {
 	return ::godot::internal::_call_native_mb_ret<TypedArray<Ref<Font>>>(_gde_method_bind, _owner);
 }
 
-RID Font::find_variation(const Dictionary &p_variation_coordinates, int32_t p_face_index, float p_strength, const Transform2D &p_transform, int32_t p_spacing_top, int32_t p_spacing_bottom, int32_t p_spacing_space, int32_t p_spacing_glyph, float p_baseline_offset) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("find_variation")._native_ptr(), 2553855095);
+RID Font::find_variation(const Dictionary &p_variation_coordinates, int32_t p_face_index, float p_strength, const Transform2D &p_transform, int32_t p_spacing_top, int32_t p_spacing_bottom, int32_t p_spacing_space, int32_t p_spacing_glyph, float p_baseline_offset, int64_t p_palette_index, const PackedColorArray &p_custom_colors) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("find_variation")._native_ptr(), 3275867622);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
 	int64_t p_face_index_encoded;
 	PtrToArg<int64_t>::encode(p_face_index, &p_face_index_encoded);
@@ -67,7 +67,9 @@ RID Font::find_variation(const Dictionary &p_variation_coordinates, int32_t p_fa
 	PtrToArg<int64_t>::encode(p_spacing_glyph, &p_spacing_glyph_encoded);
 	double p_baseline_offset_encoded;
 	PtrToArg<double>::encode(p_baseline_offset, &p_baseline_offset_encoded);
-	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_variation_coordinates, &p_face_index_encoded, &p_strength_encoded, &p_transform, &p_spacing_top_encoded, &p_spacing_bottom_encoded, &p_spacing_space_encoded, &p_spacing_glyph_encoded, &p_baseline_offset_encoded);
+	int64_t p_palette_index_encoded;
+	PtrToArg<int64_t>::encode(p_palette_index, &p_palette_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_variation_coordinates, &p_face_index_encoded, &p_strength_encoded, &p_transform, &p_spacing_top_encoded, &p_spacing_bottom_encoded, &p_spacing_space_encoded, &p_spacing_glyph_encoded, &p_baseline_offset_encoded, &p_palette_index_encoded, &p_custom_colors);
 }
 
 TypedArray<RID> Font::get_rids() const {
@@ -150,6 +152,28 @@ int32_t Font::get_font_stretch() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("get_font_stretch")._native_ptr(), 3905245786);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
 	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+int64_t Font::get_palette_count() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("get_palette_count")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+String Font::get_palette_name(int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("get_palette_name")._native_ptr(), 844755477);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (String()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner, &p_index_encoded);
+}
+
+PackedColorArray Font::get_palette_colors(int64_t p_index) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Font::get_class_static()._native_ptr(), StringName("get_palette_colors")._native_ptr(), 2552048864);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedColorArray()));
+	int64_t p_index_encoded;
+	PtrToArg<int64_t>::encode(p_index, &p_index_encoded);
+	return ::godot::internal::_call_native_mb_ret<PackedColorArray>(_gde_method_bind, _owner, &p_index_encoded);
 }
 
 int32_t Font::get_spacing(TextServer::SpacingType p_spacing) const {

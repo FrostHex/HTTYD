@@ -36,12 +36,16 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/classes/rd_acceleration_structure_geometry.hpp>
+#include <godot_cpp/classes/rd_acceleration_structure_instance.hpp>
 #include <godot_cpp/classes/rd_attachment_format.hpp>
 #include <godot_cpp/classes/rd_framebuffer_pass.hpp>
+#include <godot_cpp/classes/rd_hit_group.hpp>
 #include <godot_cpp/classes/rd_pipeline_color_blend_state.hpp>
 #include <godot_cpp/classes/rd_pipeline_depth_stencil_state.hpp>
 #include <godot_cpp/classes/rd_pipeline_multisample_state.hpp>
 #include <godot_cpp/classes/rd_pipeline_rasterization_state.hpp>
+#include <godot_cpp/classes/rd_pipeline_shader.hpp>
 #include <godot_cpp/classes/rd_sampler_state.hpp>
 #include <godot_cpp/classes/rd_shader_source.hpp>
 #include <godot_cpp/classes/rd_shader_spirv.hpp>
@@ -50,6 +54,7 @@
 #include <godot_cpp/classes/rd_uniform.hpp>
 #include <godot_cpp/classes/rd_vertex_attribute.hpp>
 #include <godot_cpp/variant/callable.hpp>
+#include <godot_cpp/variant/packed_int32_array.hpp>
 #include <godot_cpp/variant/vector2i.hpp>
 #include <godot_cpp/variant/vector3.hpp>
 
@@ -515,6 +520,86 @@ bool RenderingDevice::compute_pipeline_is_valid(const RID &p_compute_pipeline) {
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_compute_pipeline);
 }
 
+RID RenderingDevice::raytracing_pipeline_create(const TypedArray<Ref<RDPipelineShader>> &p_raygen_shaders, const TypedArray<Ref<RDPipelineShader>> &p_miss_shaders, const TypedArray<Ref<RDHitGroup>> &p_hit_groups, uint32_t p_max_trace_recursion_depth) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("raytracing_pipeline_create")._native_ptr(), 1489129684);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
+	int64_t p_max_trace_recursion_depth_encoded;
+	PtrToArg<int64_t>::encode(p_max_trace_recursion_depth, &p_max_trace_recursion_depth_encoded);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_raygen_shaders, &p_miss_shaders, &p_hit_groups, &p_max_trace_recursion_depth_encoded);
+}
+
+bool RenderingDevice::raytracing_pipeline_is_valid(const RID &p_raytracing_pipeline) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("raytracing_pipeline_is_valid")._native_ptr(), 3521089500);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_raytracing_pipeline);
+}
+
+RID RenderingDevice::blas_create(const TypedArray<Ref<RDAccelerationStructureGeometry>> &p_geometries, BitField<RenderingDevice::AccelerationStructureFlagBits> p_flags) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("blas_create")._native_ptr(), 1010940044);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_geometries, &p_flags);
+}
+
+RID RenderingDevice::tlas_create(uint32_t p_max_instance_count, BitField<RenderingDevice::AccelerationStructureFlagBits> p_flags) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("tlas_create")._native_ptr(), 592780330);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
+	int64_t p_max_instance_count_encoded;
+	PtrToArg<int64_t>::encode(p_max_instance_count, &p_max_instance_count_encoded);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_max_instance_count_encoded, &p_flags);
+}
+
+Error RenderingDevice::blas_build(const RID &p_blas) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("blas_build")._native_ptr(), 813180755);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_blas);
+}
+
+Error RenderingDevice::tlas_build(const RID &p_tlas, const TypedArray<Ref<RDAccelerationStructureInstance>> &p_instances) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("tlas_build")._native_ptr(), 261981775);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_tlas, &p_instances);
+}
+
+RID RenderingDevice::hit_sbt_create(const RID &p_raytracing_pipeline, uint32_t p_initial_hit_group_capacity) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("hit_sbt_create")._native_ptr(), 2233757277);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (RID()));
+	int64_t p_initial_hit_group_capacity_encoded;
+	PtrToArg<int64_t>::encode(p_initial_hit_group_capacity, &p_initial_hit_group_capacity_encoded);
+	return ::godot::internal::_call_native_mb_ret<RID>(_gde_method_bind, _owner, &p_raytracing_pipeline, &p_initial_hit_group_capacity_encoded);
+}
+
+Error RenderingDevice::hit_sbt_set_pipeline(const RID &p_hit_sbt, const RID &p_raytracing_pipeline) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("hit_sbt_set_pipeline")._native_ptr(), 3181288260);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_hit_sbt, &p_raytracing_pipeline);
+}
+
+int64_t RenderingDevice::hit_sbt_range_alloc(const RID &p_hit_sbt, uint32_t p_hit_group_count) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("hit_sbt_range_alloc")._native_ptr(), 2722015314);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	int64_t p_hit_group_count_encoded;
+	PtrToArg<int64_t>::encode(p_hit_group_count, &p_hit_group_count_encoded);
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_hit_sbt, &p_hit_group_count_encoded);
+}
+
+Error RenderingDevice::hit_sbt_range_free(const RID &p_hit_sbt, int64_t p_range) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("hit_sbt_range_free")._native_ptr(), 3804025326);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	int64_t p_range_encoded;
+	PtrToArg<int64_t>::encode(p_range, &p_range_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_hit_sbt, &p_range_encoded);
+}
+
+Error RenderingDevice::hit_sbt_range_update(const RID &p_hit_sbt, int64_t p_range, uint32_t p_offset, const PackedInt32Array &p_hit_group_indices) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("hit_sbt_range_update")._native_ptr(), 1332346675);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	int64_t p_range_encoded;
+	PtrToArg<int64_t>::encode(p_range, &p_range_encoded);
+	int64_t p_offset_encoded;
+	PtrToArg<int64_t>::encode(p_offset, &p_offset_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_hit_sbt, &p_range_encoded, &p_offset_encoded, &p_hit_group_indices);
+}
+
 int32_t RenderingDevice::screen_get_width(int32_t p_screen) const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("screen_get_width")._native_ptr(), 1591665591);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
@@ -777,6 +862,62 @@ void RenderingDevice::compute_list_add_barrier(int64_t p_compute_list) {
 
 void RenderingDevice::compute_list_end() {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("compute_list_end")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
+int64_t RenderingDevice::raytracing_list_begin() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("raytracing_list_begin")._native_ptr(), 2455072627);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+void RenderingDevice::raytracing_list_bind_raytracing_pipeline(int64_t p_raytracing_list, const RID &p_raytracing_pipeline) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("raytracing_list_bind_raytracing_pipeline")._native_ptr(), 4040184819);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_raytracing_list_encoded;
+	PtrToArg<int64_t>::encode(p_raytracing_list, &p_raytracing_list_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_raytracing_list_encoded, &p_raytracing_pipeline);
+}
+
+void RenderingDevice::raytracing_list_set_push_constant(int64_t p_raytracing_list, const PackedByteArray &p_buffer, uint32_t p_size_bytes) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("raytracing_list_set_push_constant")._native_ptr(), 2772371345);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_raytracing_list_encoded;
+	PtrToArg<int64_t>::encode(p_raytracing_list, &p_raytracing_list_encoded);
+	int64_t p_size_bytes_encoded;
+	PtrToArg<int64_t>::encode(p_size_bytes, &p_size_bytes_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_raytracing_list_encoded, &p_buffer, &p_size_bytes_encoded);
+}
+
+void RenderingDevice::raytracing_list_bind_uniform_set(int64_t p_raytracing_list, const RID &p_uniform_set, uint32_t p_set_index) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("raytracing_list_bind_uniform_set")._native_ptr(), 749655778);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_raytracing_list_encoded;
+	PtrToArg<int64_t>::encode(p_raytracing_list, &p_raytracing_list_encoded);
+	int64_t p_set_index_encoded;
+	PtrToArg<int64_t>::encode(p_set_index, &p_set_index_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_raytracing_list_encoded, &p_uniform_set, &p_set_index_encoded);
+}
+
+void RenderingDevice::raytracing_list_trace_rays(int64_t p_raytracing_list, uint32_t p_raygen_shader_index, const RID &p_hit_sbt, uint32_t p_width, uint32_t p_height, uint32_t p_depth) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("raytracing_list_trace_rays")._native_ptr(), 2559472681);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_raytracing_list_encoded;
+	PtrToArg<int64_t>::encode(p_raytracing_list, &p_raytracing_list_encoded);
+	int64_t p_raygen_shader_index_encoded;
+	PtrToArg<int64_t>::encode(p_raygen_shader_index, &p_raygen_shader_index_encoded);
+	int64_t p_width_encoded;
+	PtrToArg<int64_t>::encode(p_width, &p_width_encoded);
+	int64_t p_height_encoded;
+	PtrToArg<int64_t>::encode(p_height, &p_height_encoded);
+	int64_t p_depth_encoded;
+	PtrToArg<int64_t>::encode(p_depth, &p_depth_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_raytracing_list_encoded, &p_raygen_shader_index_encoded, &p_hit_sbt, &p_width_encoded, &p_height_encoded, &p_depth_encoded);
+}
+
+void RenderingDevice::raytracing_list_end() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(RenderingDevice::get_class_static()._native_ptr(), StringName("raytracing_list_end")._native_ptr(), 3218959716);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }

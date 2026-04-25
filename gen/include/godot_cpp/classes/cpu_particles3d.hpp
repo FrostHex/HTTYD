@@ -130,7 +130,7 @@ public:
 	void set_seed(uint32_t p_seed);
 	uint32_t get_seed() const;
 	void restart(bool p_keep_seed = false);
-	void request_particles_process(float p_process_time);
+	void request_particles_process(float p_process_time, float p_process_time_residual = 0.0);
 	AABB capture_aabb() const;
 	void set_direction(const Vector3 &p_direction);
 	Vector3 get_direction() const;

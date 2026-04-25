@@ -172,6 +172,12 @@ Ref<Resource> Resource::duplicate_deep(Resource::DeepDuplicateMode p_deep_subres
 	return Ref<Resource>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner, &p_deep_subresources_mode_encoded));
 }
 
+Error Resource::copy_from_resource(const Ref<Resource> &p_resource) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Resource::get_class_static()._native_ptr(), StringName("copy_from_resource")._native_ptr(), 3338311164);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, (p_resource != nullptr ? &p_resource->_owner : nullptr));
+}
+
 void Resource::_setup_local_to_scene() {}
 
 RID Resource::_get_rid() const {

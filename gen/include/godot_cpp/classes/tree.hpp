@@ -36,6 +36,7 @@
 #include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/tree_item.hpp>
 #include <godot_cpp/variant/rect2.hpp>
+#include <godot_cpp/variant/rid.hpp>
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/variant/vector2.hpp>
 
@@ -79,6 +80,7 @@ public:
 	bool is_column_clipping_content(int32_t p_column) const;
 	int32_t get_column_expand_ratio(int32_t p_column) const;
 	int32_t get_column_width(int32_t p_column) const;
+	RID get_custom_drawing_canvas_item() const;
 	void set_hide_root(bool p_enable);
 	bool is_root_hidden() const;
 	TreeItem *get_next_selected(TreeItem *p_from);

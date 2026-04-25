@@ -52,6 +52,8 @@ public:
 
 	void queue_sort();
 	void fit_child_in_rect(Control *p_child, const Rect2 &p_rect);
+	void set_accessibility_region(bool p_region);
+	bool is_accessibility_region() const;
 	virtual PackedInt32Array _get_allowed_size_flags_horizontal() const;
 	virtual PackedInt32Array _get_allowed_size_flags_vertical() const;
 

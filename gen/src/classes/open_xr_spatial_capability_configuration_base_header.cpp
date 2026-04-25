@@ -44,6 +44,12 @@ bool OpenXRSpatialCapabilityConfigurationBaseHeader::has_valid_configuration() c
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+uint64_t OpenXRSpatialCapabilityConfigurationBaseHeader::get_configuration() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialCapabilityConfigurationBaseHeader::get_class_static()._native_ptr(), StringName("get_configuration")._native_ptr(), 2455072627);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<uint64_t>(_gde_method_bind, _owner);
+}
+
 bool OpenXRSpatialCapabilityConfigurationBaseHeader::_has_valid_configuration() const {
 	return false;
 }

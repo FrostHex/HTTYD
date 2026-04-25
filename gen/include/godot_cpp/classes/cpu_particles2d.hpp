@@ -105,7 +105,7 @@ public:
 	void set_fixed_fps(int32_t p_fps);
 	void set_fractional_delta(bool p_enable);
 	void set_speed_scale(double p_scale);
-	void request_particles_process(float p_process_time);
+	void request_particles_process(float p_process_time, float p_process_time_residual = 0.0);
 	bool is_emitting() const;
 	int32_t get_amount() const;
 	double get_lifetime() const;

@@ -36,6 +36,8 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/variant/packed_byte_array.hpp>
+
 namespace godot {
 
 Error PCKPacker::pck_start(const String &p_pck_path, int32_t p_alignment, const String &p_key, bool p_encrypt_directory) {
@@ -54,6 +56,14 @@ Error PCKPacker::add_file(const String &p_target_path, const String &p_source_pa
 	int8_t p_encrypt_encoded;
 	PtrToArg<bool>::encode(p_encrypt, &p_encrypt_encoded);
 	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_target_path, &p_source_path, &p_encrypt_encoded);
+}
+
+Error PCKPacker::add_file_from_buffer(const String &p_target_path, const PackedByteArray &p_data, bool p_encrypt) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PCKPacker::get_class_static()._native_ptr(), StringName("add_file_from_buffer")._native_ptr(), 1131482346);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	int8_t p_encrypt_encoded;
+	PtrToArg<bool>::encode(p_encrypt, &p_encrypt_encoded);
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_target_path, &p_data, &p_encrypt_encoded);
 }
 
 Error PCKPacker::add_file_removal(const String &p_target_path) {

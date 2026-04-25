@@ -33,12 +33,20 @@
 #pragma once
 
 #include <godot_cpp/classes/open_xr_extension_wrapper.hpp>
+#include <godot_cpp/classes/open_xr_structure_base.hpp>
+#include <godot_cpp/classes/ref.hpp>
+#include <godot_cpp/variant/callable.hpp>
+#include <godot_cpp/variant/typed_array.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
 #include <type_traits>
 
 namespace godot {
+
+class OpenXRFutureResult;
+class OpenXRSpatialComponentData;
+class RID;
 
 class OpenXRSpatialMarkerTrackingCapability : public OpenXRExtensionWrapper {
 	GDEXTENSION_CLASS(OpenXRSpatialMarkerTrackingCapability, OpenXRExtensionWrapper)
@@ -48,6 +56,8 @@ public:
 	bool is_micro_qrcode_supported();
 	bool is_aruco_supported();
 	bool is_april_tag_supported();
+	Ref<OpenXRFutureResult> start_entity_discovery(const RID &p_spatial_context, const TypedArray<Ref<OpenXRSpatialComponentData>> &p_component_data, const Ref<OpenXRStructureBase> &p_next_snapshot_create = nullptr, const Ref<OpenXRStructureBase> &p_next_snapshot_query = nullptr, const Callable &p_user_callback = Callable());
+	void do_entity_update(const RID &p_spatial_context, const TypedArray<Ref<OpenXRSpatialComponentData>> &p_component_data, const Ref<OpenXRStructureBase> &p_next_snapshot_create = nullptr, const Ref<OpenXRStructureBase> &p_next_snapshot_query = nullptr);
 
 protected:
 	template <typename T, typename B>

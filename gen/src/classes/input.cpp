@@ -275,6 +275,30 @@ float Input::get_joy_vibration_duration(int32_t p_device) {
 	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_device_encoded);
 }
 
+float Input::get_joy_vibration_remaining_duration(int32_t p_device) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("get_joy_vibration_remaining_duration")._native_ptr(), 4025615559);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+bool Input::is_joy_vibrating(int32_t p_device) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("is_joy_vibrating")._native_ptr(), 3067735520);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+bool Input::has_joy_vibration(int32_t p_device) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("has_joy_vibration")._native_ptr(), 1116898809);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_device_encoded);
+}
+
 void Input::start_joy_vibration(int32_t p_device, float p_weak_magnitude, float p_strong_magnitude, float p_duration) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("start_joy_vibration")._native_ptr(), 2576575033);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -307,6 +331,20 @@ void Input::vibrate_handheld(int32_t p_duration_ms, float p_amplitude) {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_duration_ms_encoded, &p_amplitude_encoded);
 }
 
+void Input::set_ignore_joypad_on_unfocused_application(bool p_enable) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("set_ignore_joypad_on_unfocused_application")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enable_encoded;
+	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enable_encoded);
+}
+
+bool Input::is_ignoring_joypad_on_unfocused_application() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("is_ignoring_joypad_on_unfocused_application")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 Vector3 Input::get_gravity() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("get_gravity")._native_ptr(), 3360562783);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
@@ -329,6 +367,120 @@ Vector3 Input::get_gyroscope() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("get_gyroscope")._native_ptr(), 3360562783);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
 	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner);
+}
+
+Vector3 Input::get_joy_accelerometer(int32_t p_device) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("get_joy_accelerometer")._native_ptr(), 711720468);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+Vector3 Input::get_joy_gravity(int32_t p_device) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("get_joy_gravity")._native_ptr(), 711720468);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+Vector3 Input::get_joy_gyroscope(int32_t p_device) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("get_joy_gyroscope")._native_ptr(), 711720468);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector3()));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<Vector3>(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+float Input::get_joy_motion_sensors_rate(int32_t p_device) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("get_joy_motion_sensors_rate")._native_ptr(), 2339986948);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+bool Input::is_joy_motion_sensors_enabled(int32_t p_device) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("is_joy_motion_sensors_enabled")._native_ptr(), 1116898809);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+void Input::set_joy_motion_sensors_enabled(int32_t p_device, bool p_enable) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("set_joy_motion_sensors_enabled")._native_ptr(), 300928843);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	int8_t p_enable_encoded;
+	PtrToArg<bool>::encode(p_enable, &p_enable_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_device_encoded, &p_enable_encoded);
+}
+
+bool Input::has_joy_motion_sensors(int32_t p_device) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("has_joy_motion_sensors")._native_ptr(), 1116898809);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+void Input::start_joy_motion_sensors_calibration(int32_t p_device) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("start_joy_motion_sensors_calibration")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+void Input::stop_joy_motion_sensors_calibration(int32_t p_device) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("stop_joy_motion_sensors_calibration")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+void Input::clear_joy_motion_sensors_calibration(int32_t p_device) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("clear_joy_motion_sensors_calibration")._native_ptr(), 1286410249);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+Dictionary Input::get_joy_motion_sensors_calibration(int32_t p_device) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("get_joy_motion_sensors_calibration")._native_ptr(), 3485342025);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Dictionary()));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<Dictionary>(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+void Input::set_joy_motion_sensors_calibration(int32_t p_device, const Dictionary &p_calibration_info) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("set_joy_motion_sensors_calibration")._native_ptr(), 64545446);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_device_encoded, &p_calibration_info);
+}
+
+bool Input::is_joy_motion_sensors_calibrated(int32_t p_device) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("is_joy_motion_sensors_calibrated")._native_ptr(), 1116898809);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_device_encoded);
+}
+
+bool Input::is_joy_motion_sensors_calibrating(int32_t p_device) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Input::get_class_static()._native_ptr(), StringName("is_joy_motion_sensors_calibrating")._native_ptr(), 1116898809);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_device_encoded;
+	PtrToArg<int64_t>::encode(p_device, &p_device_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_device_encoded);
 }
 
 void Input::set_gravity(const Vector3 &p_value) {

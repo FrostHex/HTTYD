@@ -41,16 +41,16 @@
 
 namespace godot {
 
-Control *ScriptEditorBase::get_base_editor() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScriptEditorBase::get_class_static()._native_ptr(), StringName("get_base_editor")._native_ptr(), 2783021301);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
-	return ::godot::internal::_call_native_mb_ret_obj<Control>(_gde_method_bind, _owner);
-}
-
 void ScriptEditorBase::add_syntax_highlighter(const Ref<EditorSyntaxHighlighter> &p_highlighter) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScriptEditorBase::get_class_static()._native_ptr(), StringName("add_syntax_highlighter")._native_ptr(), 1092774468);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_highlighter != nullptr ? &p_highlighter->_owner : nullptr));
+}
+
+Control *ScriptEditorBase::get_base_editor() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScriptEditorBase::get_class_static()._native_ptr(), StringName("get_base_editor")._native_ptr(), 2783021301);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));
+	return ::godot::internal::_call_native_mb_ret_obj<Control>(_gde_method_bind, _owner);
 }
 
 } // namespace godot

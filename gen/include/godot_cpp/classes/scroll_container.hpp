@@ -54,6 +54,7 @@ public:
 		SCROLL_MODE_SHOW_ALWAYS = 2,
 		SCROLL_MODE_SHOW_NEVER = 3,
 		SCROLL_MODE_RESERVE = 4,
+		SCROLL_MODE_MAXIMIZE_FIRST = 5,
 	};
 
 	enum ScrollHintMode {
@@ -75,6 +76,8 @@ public:
 	ScrollContainer::ScrollMode get_horizontal_scroll_mode() const;
 	void set_vertical_scroll_mode(ScrollContainer::ScrollMode p_enable);
 	ScrollContainer::ScrollMode get_vertical_scroll_mode() const;
+	void set_scroll_horizontal_by_default(bool p_enable);
+	bool is_scroll_horizontal_by_default() const;
 	void set_deadzone(int32_t p_deadzone);
 	int32_t get_deadzone() const;
 	void set_scroll_hint_mode(ScrollContainer::ScrollHintMode p_scroll_hint_mode);

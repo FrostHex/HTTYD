@@ -36,6 +36,8 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
+#include <godot_cpp/classes/image.hpp>
+
 namespace godot {
 
 void PortableCompressedTexture2D::create_from_image(const Ref<Image> &p_image, PortableCompressedTexture2D::CompressionMode p_compression_mode, bool p_normal_map, float p_lossy_quality) {
@@ -48,12 +50,6 @@ void PortableCompressedTexture2D::create_from_image(const Ref<Image> &p_image, P
 	double p_lossy_quality_encoded;
 	PtrToArg<double>::encode(p_lossy_quality, &p_lossy_quality_encoded);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_image != nullptr ? &p_image->_owner : nullptr), &p_compression_mode_encoded, &p_normal_map_encoded, &p_lossy_quality_encoded);
-}
-
-Image::Format PortableCompressedTexture2D::get_format() const {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(PortableCompressedTexture2D::get_class_static()._native_ptr(), StringName("get_format")._native_ptr(), 3847873762);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (Image::Format(0)));
-	return (Image::Format)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
 PortableCompressedTexture2D::CompressionMode PortableCompressedTexture2D::get_compression_mode() const {

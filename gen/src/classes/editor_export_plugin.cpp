@@ -178,6 +178,8 @@ void EditorExportPlugin::_export_begin(const PackedStringArray &p_features, bool
 
 void EditorExportPlugin::_export_end() {}
 
+void EditorExportPlugin::_end_generate_apple_embedded_project(const String &p_path, bool p_will_build_archive) {}
+
 bool EditorExportPlugin::_begin_customize_resources(const Ref<EditorExportPlatform> &p_platform, const PackedStringArray &p_features) const {
 	return false;
 }

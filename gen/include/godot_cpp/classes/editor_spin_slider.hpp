@@ -65,6 +65,8 @@ public:
 	bool is_hiding_slider() const;
 	void set_editing_integer(bool p_editing_integer);
 	bool is_editing_integer() const;
+	void set_deferred_drag_mode_enabled(bool p_enabled = true);
+	bool is_deferred_drag_mode_enabled() const;
 
 protected:
 	template <typename T, typename B>

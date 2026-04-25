@@ -47,6 +47,7 @@
 
 namespace godot {
 
+struct AABB;
 class MeshLibrary;
 class PhysicsMaterial;
 class Resource;
@@ -55,6 +56,12 @@ class GridMap : public Node3D {
 	GDEXTENSION_CLASS(GridMap, Node3D)
 
 public:
+	enum DebugVisibilityMode {
+		DEBUG_VISIBILITY_MODE_DEFAULT = 0,
+		DEBUG_VISIBILITY_MODE_FORCE_SHOW = 1,
+		DEBUG_VISIBILITY_MODE_FORCE_HIDE = 2,
+	};
+
 	static const int INVALID_CELL_ITEM = -1;
 
 	void set_collision_layer(uint32_t p_layer);
@@ -67,6 +74,8 @@ public:
 	bool get_collision_layer_value(int32_t p_layer_number) const;
 	void set_collision_priority(float p_priority);
 	float get_collision_priority() const;
+	void set_collision_visibility_mode(GridMap::DebugVisibilityMode p_visibility_mode);
+	GridMap::DebugVisibilityMode get_collision_visibility_mode() const;
 	void set_physics_material(const Ref<PhysicsMaterial> &p_material);
 	Ref<PhysicsMaterial> get_physics_material() const;
 	void set_bake_navigation(bool p_bake_navigation);
@@ -99,6 +108,13 @@ public:
 	void clear();
 	TypedArray<Vector3i> get_used_cells() const;
 	TypedArray<Vector3i> get_used_cells_by_item(int32_t p_item) const;
+	TypedArray<Vector3i> get_used_octants() const;
+	TypedArray<Vector3i> get_used_octants_by_item(int32_t p_item) const;
+	TypedArray<Vector3i> get_used_cells_in_octant(const Vector3i &p_octant_coords) const;
+	TypedArray<Vector3i> get_used_cells_in_octant_by_item(const Vector3i &p_octant_coords, int32_t p_item) const;
+	TypedArray<Vector3i> get_octants_in_bounds(const AABB &p_bounds) const;
+	TypedArray<Vector3i> get_used_octants_in_bounds(const AABB &p_bounds) const;
+	Vector3i get_octant_coords_from_cell_coords(const Vector3i &p_cell_coords) const;
 	Array get_meshes() const;
 	Array get_bake_meshes();
 	RID get_bake_mesh_instance(int32_t p_idx);
@@ -115,4 +131,6 @@ public:
 };
 
 } // namespace godot
+
+VARIANT_ENUM_CAST(GridMap::DebugVisibilityMode);
 

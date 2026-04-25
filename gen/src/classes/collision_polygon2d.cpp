@@ -106,4 +106,16 @@ float CollisionPolygon2D::get_one_way_collision_margin() const {
 	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
 }
 
+void CollisionPolygon2D::set_one_way_collision_direction(const Vector2 &p_direction) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionPolygon2D::get_class_static()._native_ptr(), StringName("set_one_way_collision_direction")._native_ptr(), 743155724);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_direction);
+}
+
+Vector2 CollisionPolygon2D::get_one_way_collision_direction() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionPolygon2D::get_class_static()._native_ptr(), StringName("get_one_way_collision_direction")._native_ptr(), 3341600327);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner);
+}
+
 } // namespace godot

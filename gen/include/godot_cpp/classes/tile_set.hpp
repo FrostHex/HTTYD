@@ -148,6 +148,7 @@ public:
 	void add_terrain(int32_t p_terrain_set, int32_t p_to_position = -1);
 	void move_terrain(int32_t p_terrain_set, int32_t p_terrain_index, int32_t p_to_position);
 	void remove_terrain(int32_t p_terrain_set, int32_t p_terrain_index);
+	void clear_terrains(int32_t p_terrain_set);
 	void set_terrain_name(int32_t p_terrain_set, int32_t p_terrain_index, const String &p_name);
 	String get_terrain_name(int32_t p_terrain_set, int32_t p_terrain_index) const;
 	void set_terrain_color(int32_t p_terrain_set, int32_t p_terrain_index, const Color &p_color);

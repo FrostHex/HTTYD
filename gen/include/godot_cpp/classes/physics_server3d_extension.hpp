@@ -170,7 +170,7 @@ public:
 	virtual void _body_set_state_sync_callback(const RID &p_body, const Callable &p_callable);
 	virtual void _body_set_force_integration_callback(const RID &p_body, const Callable &p_callable, const Variant &p_userdata);
 	virtual void _body_set_ray_pickable(const RID &p_body, bool p_enable);
-	virtual bool _body_test_motion(const RID &p_body, const Transform3D &p_from, const Vector3 &p_motion, float p_margin, int32_t p_max_collisions, bool p_collide_separation_ray, bool p_recovery_as_collision, PhysicsServer3DExtensionMotionResult *p_result) const;
+	virtual bool _body_test_motion(const RID &p_body, const Transform3D &p_from, const Vector3 &p_motion, float p_margin, int32_t p_max_collisions, bool p_collide_separation_ray, bool p_recovery_as_collision, PhysicsServer3DExtensionMotionResult *r_result) const;
 	virtual PhysicsDirectBodyState3D *_body_get_direct_state(const RID &p_body);
 	virtual RID _soft_body_create();
 	virtual void _soft_body_update_rendering_server(const RID &p_body, PhysicsServer3DRenderingServerHandler *p_rendering_server_handler);

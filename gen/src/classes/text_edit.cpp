@@ -1451,6 +1451,14 @@ int32_t TextEdit::get_first_visible_line() const {
 	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
 }
 
+bool TextEdit::is_line_in_viewport(int32_t p_line) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("is_line_in_viewport")._native_ptr(), 1116898809);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	int64_t p_line_encoded;
+	PtrToArg<int64_t>::encode(p_line, &p_line_encoded);
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_line_encoded);
+}
+
 void TextEdit::set_line_as_center_visible(int32_t p_line, int32_t p_wrap_index) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(TextEdit::get_class_static()._native_ptr(), StringName("set_line_as_center_visible")._native_ptr(), 2230941749);
 	CHECK_METHOD_BIND(_gde_method_bind);

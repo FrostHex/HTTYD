@@ -253,6 +253,22 @@ float CollisionObject2D::get_shape_owner_one_way_collision_margin(uint32_t p_own
 	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner, &p_owner_id_encoded);
 }
 
+Vector2 CollisionObject2D::get_shape_owner_one_way_collision_direction(uint32_t p_owner_id) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionObject2D::get_class_static()._native_ptr(), StringName("get_shape_owner_one_way_collision_direction")._native_ptr(), 2299179447);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Vector2()));
+	int64_t p_owner_id_encoded;
+	PtrToArg<int64_t>::encode(p_owner_id, &p_owner_id_encoded);
+	return ::godot::internal::_call_native_mb_ret<Vector2>(_gde_method_bind, _owner, &p_owner_id_encoded);
+}
+
+void CollisionObject2D::shape_owner_set_one_way_collision_direction(uint32_t p_owner_id, const Vector2 &p_direction) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionObject2D::get_class_static()._native_ptr(), StringName("shape_owner_set_one_way_collision_direction")._native_ptr(), 163021252);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int64_t p_owner_id_encoded;
+	PtrToArg<int64_t>::encode(p_owner_id, &p_owner_id_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_owner_id_encoded, &p_direction);
+}
+
 void CollisionObject2D::shape_owner_add_shape(uint32_t p_owner_id, const Ref<Shape2D> &p_shape) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CollisionObject2D::get_class_static()._native_ptr(), StringName("shape_owner_add_shape")._native_ptr(), 2077425081);
 	CHECK_METHOD_BIND(_gde_method_bind);

@@ -199,4 +199,32 @@ Ref<ArrayMesh> CSGShape3D::bake_static_mesh() {
 	return Ref<ArrayMesh>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<ArrayMesh>(_gde_method_bind, _owner));
 }
 
+void CSGShape3D::set_autosmooth(bool p_autosmooth) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_autosmooth")._native_ptr(), 2586408642);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_autosmooth_encoded;
+	PtrToArg<bool>::encode(p_autosmooth, &p_autosmooth_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_autosmooth_encoded);
+}
+
+bool CSGShape3D::is_autosmooth() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("is_autosmooth")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+void CSGShape3D::set_smoothing_angle(float p_smoothing_angle) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("set_smoothing_angle")._native_ptr(), 373806689);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	double p_smoothing_angle_encoded;
+	PtrToArg<double>::encode(p_smoothing_angle, &p_smoothing_angle_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_smoothing_angle_encoded);
+}
+
+float CSGShape3D::get_smoothing_angle() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(CSGShape3D::get_class_static()._native_ptr(), StringName("get_smoothing_angle")._native_ptr(), 1740695150);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0.0));
+	return ::godot::internal::_call_native_mb_ret<double>(_gde_method_bind, _owner);
+}
+
 } // namespace godot

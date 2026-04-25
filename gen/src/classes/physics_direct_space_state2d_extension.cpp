@@ -48,27 +48,27 @@ bool PhysicsDirectSpaceState2DExtension::is_body_excluded_from_query(const RID &
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_body);
 }
 
-bool PhysicsDirectSpaceState2DExtension::_intersect_ray(const Vector2 &p_from, const Vector2 &p_to, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, bool p_hit_from_inside, PhysicsServer2DExtensionRayResult *p_result) {
+bool PhysicsDirectSpaceState2DExtension::_intersect_ray(const Vector2 &p_from, const Vector2 &p_to, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, bool p_hit_from_inside, PhysicsServer2DExtensionRayResult *r_result) {
 	return false;
 }
 
-int32_t PhysicsDirectSpaceState2DExtension::_intersect_point(const Vector2 &p_position, uint64_t p_canvas_instance_id, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, PhysicsServer2DExtensionShapeResult *p_results, int32_t p_max_results) {
+int32_t PhysicsDirectSpaceState2DExtension::_intersect_point(const Vector2 &p_position, uint64_t p_canvas_instance_id, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, PhysicsServer2DExtensionShapeResult *r_results, int32_t p_max_results) {
 	return 0;
 }
 
-int32_t PhysicsDirectSpaceState2DExtension::_intersect_shape(const RID &p_shape_rid, const Transform2D &p_transform, const Vector2 &p_motion, float p_margin, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, PhysicsServer2DExtensionShapeResult *p_result, int32_t p_max_results) {
+int32_t PhysicsDirectSpaceState2DExtension::_intersect_shape(const RID &p_shape_rid, const Transform2D &p_transform, const Vector2 &p_motion, float p_margin, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, PhysicsServer2DExtensionShapeResult *r_result, int32_t p_max_results) {
 	return 0;
 }
 
-bool PhysicsDirectSpaceState2DExtension::_cast_motion(const RID &p_shape_rid, const Transform2D &p_transform, const Vector2 &p_motion, float p_margin, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, float *p_closest_safe, float *p_closest_unsafe) {
+bool PhysicsDirectSpaceState2DExtension::_cast_motion(const RID &p_shape_rid, const Transform2D &p_transform, const Vector2 &p_motion, float p_margin, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, float *r_closest_safe, float *r_closest_unsafe) {
 	return false;
 }
 
-bool PhysicsDirectSpaceState2DExtension::_collide_shape(const RID &p_shape_rid, const Transform2D &p_transform, const Vector2 &p_motion, float p_margin, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, void *p_results, int32_t p_max_results, int32_t *p_result_count) {
+bool PhysicsDirectSpaceState2DExtension::_collide_shape(const RID &p_shape_rid, const Transform2D &p_transform, const Vector2 &p_motion, float p_margin, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, void *r_results, int32_t p_max_results, int32_t *r_result_count) {
 	return false;
 }
 
-bool PhysicsDirectSpaceState2DExtension::_rest_info(const RID &p_shape_rid, const Transform2D &p_transform, const Vector2 &p_motion, float p_margin, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, PhysicsServer2DExtensionShapeRestInfo *p_rest_info) {
+bool PhysicsDirectSpaceState2DExtension::_rest_info(const RID &p_shape_rid, const Transform2D &p_transform, const Vector2 &p_motion, float p_margin, uint32_t p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas, PhysicsServer2DExtensionShapeRestInfo *r_rest_info) {
 	return false;
 }
 

@@ -99,6 +99,12 @@ void ScriptEditor::open_script_create_dialog(const String &p_base_name, const St
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_base_name, &p_base_path);
 }
 
+void ScriptEditor::reload_open_files() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScriptEditor::get_class_static()._native_ptr(), StringName("reload_open_files")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
 void ScriptEditor::goto_help(const String &p_topic) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScriptEditor::get_class_static()._native_ptr(), StringName("goto_help")._native_ptr(), 83702148);
 	CHECK_METHOD_BIND(_gde_method_bind);
@@ -115,6 +121,24 @@ void ScriptEditor::clear_docs_from_script(const Ref<Script> &p_script) {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScriptEditor::get_class_static()._native_ptr(), StringName("clear_docs_from_script")._native_ptr(), 3657522847);
 	CHECK_METHOD_BIND(_gde_method_bind);
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, (p_script != nullptr ? &p_script->_owner : nullptr));
+}
+
+PackedStringArray ScriptEditor::get_unsaved_files() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScriptEditor::get_class_static()._native_ptr(), StringName("get_unsaved_files")._native_ptr(), 1139954409);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (PackedStringArray()));
+	return ::godot::internal::_call_native_mb_ret<PackedStringArray>(_gde_method_bind, _owner);
+}
+
+void ScriptEditor::save_all_scripts() {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScriptEditor::get_class_static()._native_ptr(), StringName("save_all_scripts")._native_ptr(), 3218959716);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
+}
+
+Error ScriptEditor::close_file(const String &p_path) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ScriptEditor::get_class_static()._native_ptr(), StringName("close_file")._native_ptr(), 166001499);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Error(0)));
+	return (Error)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner, &p_path);
 }
 
 } // namespace godot

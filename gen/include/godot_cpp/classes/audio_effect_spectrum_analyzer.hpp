@@ -56,8 +56,6 @@ public:
 
 	void set_buffer_length(float p_seconds);
 	float get_buffer_length() const;
-	void set_tap_back_pos(float p_seconds);
-	float get_tap_back_pos() const;
 	void set_fft_size(AudioEffectSpectrumAnalyzer::FFTSize p_size);
 	AudioEffectSpectrumAnalyzer::FFTSize get_fft_size() const;
 

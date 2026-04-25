@@ -46,12 +46,6 @@ bool Script::can_instantiate() const {
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
-bool Script::instance_has(Object *p_base_object) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Script::get_class_static()._native_ptr(), StringName("instance_has")._native_ptr(), 397768994);
-	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
-	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, (p_base_object != nullptr ? &p_base_object->_owner : nullptr));
-}
-
 bool Script::has_source_code() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Script::get_class_static()._native_ptr(), StringName("has_source_code")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
@@ -94,6 +88,12 @@ StringName Script::get_global_name() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Script::get_class_static()._native_ptr(), StringName("get_global_name")._native_ptr(), 2002593661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (StringName()));
 	return ::godot::internal::_call_native_mb_ret<StringName>(_gde_method_bind, _owner);
+}
+
+bool Script::has_script_method(const StringName &p_method_name) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Script::get_class_static()._native_ptr(), StringName("has_script_method")._native_ptr(), 2619796661);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_method_name);
 }
 
 bool Script::has_script_signal(const StringName &p_signal_name) const {
@@ -148,6 +148,12 @@ Variant Script::get_rpc_config() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Script::get_class_static()._native_ptr(), StringName("get_rpc_config")._native_ptr(), 1214101251);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (Variant()));
 	return ::godot::internal::_call_native_mb_ret<Variant>(_gde_method_bind, _owner);
+}
+
+bool Script::instance_has(Object *p_base_object) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Script::get_class_static()._native_ptr(), StringName("instance_has")._native_ptr(), 397768994);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, (p_base_object != nullptr ? &p_base_object->_owner : nullptr));
 }
 
 } // namespace godot

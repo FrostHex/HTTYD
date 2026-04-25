@@ -32,6 +32,7 @@
 
 #pragma once
 
+#include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/panel_container.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/variant/packed_string_array.hpp>
@@ -61,9 +62,13 @@ public:
 	Ref<Script> get_current_script();
 	TypedArray<Ref<Script>> get_open_scripts() const;
 	void open_script_create_dialog(const String &p_base_name, const String &p_base_path);
+	void reload_open_files();
 	void goto_help(const String &p_topic);
 	void update_docs_from_script(const Ref<Script> &p_script);
 	void clear_docs_from_script(const Ref<Script> &p_script);
+	PackedStringArray get_unsaved_files() const;
+	void save_all_scripts();
+	Error close_file(const String &p_path);
 
 protected:
 	template <typename T, typename B>

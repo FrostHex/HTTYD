@@ -52,7 +52,7 @@ struct Vector3;
 
 class PackedVector3Array {
 	static constexpr size_t PACKED_VECTOR3_ARRAY_SIZE = 16;
-	uint8_t opaque[PACKED_VECTOR3_ARRAY_SIZE] = {};
+	alignas(8) uint8_t opaque[PACKED_VECTOR3_ARRAY_SIZE] = {};
 
 	friend class Variant;
 

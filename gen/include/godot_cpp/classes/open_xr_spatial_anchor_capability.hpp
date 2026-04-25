@@ -33,9 +33,11 @@
 #pragma once
 
 #include <godot_cpp/classes/open_xr_extension_wrapper.hpp>
+#include <godot_cpp/classes/open_xr_structure_base.hpp>
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/variant/callable.hpp>
 #include <godot_cpp/variant/rid.hpp>
+#include <godot_cpp/variant/typed_array.hpp>
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -45,6 +47,7 @@ namespace godot {
 
 class OpenXRAnchorTracker;
 class OpenXRFutureResult;
+class OpenXRSpatialComponentData;
 struct Transform3D;
 
 class OpenXRSpatialAnchorCapability : public OpenXRExtensionWrapper {
@@ -59,13 +62,16 @@ public:
 	bool is_spatial_anchor_supported();
 	bool is_spatial_persistence_supported();
 	bool is_persistence_scope_supported(OpenXRSpatialAnchorCapability::PersistenceScope p_scope);
+	Ref<OpenXRFutureResult> create_default_persistence_context(const Callable &p_user_callback = Callable());
 	Ref<OpenXRFutureResult> create_persistence_context(OpenXRSpatialAnchorCapability::PersistenceScope p_scope, const Callable &p_user_callback = Callable());
 	uint64_t get_persistence_context_handle(const RID &p_persistence_context) const;
 	void free_persistence_context(const RID &p_persistence_context);
-	Ref<OpenXRAnchorTracker> create_new_anchor(const Transform3D &p_transform, const RID &p_spatial_context = RID());
+	Ref<OpenXRAnchorTracker> create_new_anchor(const Transform3D &p_transform, const RID &p_spatial_context = RID(), const Ref<OpenXRStructureBase> &p_next = nullptr);
 	void remove_anchor(const Ref<OpenXRAnchorTracker> &p_anchor_tracker);
 	Ref<OpenXRFutureResult> persist_anchor(const Ref<OpenXRAnchorTracker> &p_anchor_tracker, const RID &p_persistence_context = RID(), const Callable &p_user_callback = Callable());
 	Ref<OpenXRFutureResult> unpersist_anchor(const Ref<OpenXRAnchorTracker> &p_anchor_tracker, const RID &p_persistence_context = RID(), const Callable &p_user_callback = Callable());
+	Ref<OpenXRFutureResult> start_entity_discovery(const RID &p_spatial_context, const TypedArray<Ref<OpenXRSpatialComponentData>> &p_component_data, const Ref<OpenXRStructureBase> &p_next_snapshot_create = nullptr, const Ref<OpenXRStructureBase> &p_next_snapshot_query = nullptr, const Callable &p_user_callback = Callable());
+	void do_entity_update(const RID &p_spatial_context, const TypedArray<Ref<OpenXRSpatialComponentData>> &p_component_data, const Ref<OpenXRStructureBase> &p_next_snapshot_create = nullptr, const Ref<OpenXRStructureBase> &p_next_snapshot_query = nullptr);
 
 protected:
 	template <typename T, typename B>

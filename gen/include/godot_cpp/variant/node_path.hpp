@@ -46,7 +46,7 @@ class Variant;
 
 class NodePath {
 	static constexpr size_t NODE_PATH_SIZE = 8;
-	uint8_t opaque[NODE_PATH_SIZE] = {};
+	alignas(8) uint8_t opaque[NODE_PATH_SIZE] = {};
 
 	friend class Variant;
 

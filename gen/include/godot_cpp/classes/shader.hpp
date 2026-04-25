@@ -56,6 +56,7 @@ public:
 		MODE_PARTICLES = 2,
 		MODE_SKY = 3,
 		MODE_FOG = 4,
+		MODE_TEXTURE_BLIT = 5,
 	};
 
 	Shader::Mode get_mode() const;

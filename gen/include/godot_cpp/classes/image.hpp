@@ -179,8 +179,8 @@ public:
 	PackedByteArray save_png_to_buffer() const;
 	Error save_jpg(const String &p_path, float p_quality = 0.75) const;
 	PackedByteArray save_jpg_to_buffer(float p_quality = 0.75) const;
-	Error save_exr(const String &p_path, bool p_grayscale = false) const;
-	PackedByteArray save_exr_to_buffer(bool p_grayscale = false) const;
+	Error save_exr(const String &p_path, bool p_grayscale = false, bool p_color_image = false, float p_max_linear_value = -1.0) const;
+	PackedByteArray save_exr_to_buffer(bool p_grayscale = false, bool p_color_image = false, float p_max_linear_value = -1.0) const;
 	Error save_dds(const String &p_path) const;
 	PackedByteArray save_dds_to_buffer() const;
 	Error save_webp(const String &p_path, bool p_lossy = false, float p_quality = 0.75) const;

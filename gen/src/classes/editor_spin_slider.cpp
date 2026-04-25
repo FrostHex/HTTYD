@@ -132,4 +132,18 @@ bool EditorSpinSlider::is_editing_integer() const {
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
 
+void EditorSpinSlider::set_deferred_drag_mode_enabled(bool p_enabled) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorSpinSlider::get_class_static()._native_ptr(), StringName("set_deferred_drag_mode_enabled")._native_ptr(), 3216645846);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_enabled_encoded;
+	PtrToArg<bool>::encode(p_enabled, &p_enabled_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_enabled_encoded);
+}
+
+bool EditorSpinSlider::is_deferred_drag_mode_enabled() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(EditorSpinSlider::get_class_static()._native_ptr(), StringName("is_deferred_drag_mode_enabled")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
 } // namespace godot

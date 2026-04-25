@@ -40,6 +40,7 @@
 #include <godot_cpp/variant/array.hpp>
 #include <godot_cpp/variant/dictionary.hpp>
 #include <godot_cpp/variant/packed_byte_array.hpp>
+#include <godot_cpp/variant/packed_color_array.hpp>
 #include <godot_cpp/variant/packed_int32_array.hpp>
 #include <godot_cpp/variant/packed_string_array.hpp>
 #include <godot_cpp/variant/packed_vector2_array.hpp>
@@ -122,6 +123,13 @@ public:
 	virtual bool _font_is_force_autohinter(const RID &p_font_rid) const;
 	virtual void _font_set_modulate_color_glyphs(const RID &p_font_rid, bool p_modulate);
 	virtual bool _font_is_modulate_color_glyphs(const RID &p_font_rid) const;
+	virtual int64_t _font_get_palette_count(const RID &p_font_rid) const;
+	virtual String _font_get_palette_name(const RID &p_font_rid, int64_t p_index) const;
+	virtual PackedColorArray _font_get_palette_colors(const RID &p_font_rid, int64_t p_index) const;
+	virtual void _font_set_palette_custom_colors(const RID &p_font_rid, const PackedColorArray &p_colors);
+	virtual PackedColorArray _font_get_palette_custom_colors(const RID &p_font_rid) const;
+	virtual int64_t _font_get_used_palette(const RID &p_font_rid) const;
+	virtual void _font_set_used_palette(const RID &p_font_rid, int64_t p_index);
 	virtual void _font_set_hinting(const RID &p_font_rid, TextServer::Hinting p_hinting);
 	virtual TextServer::Hinting _font_get_hinting(const RID &p_font_rid) const;
 	virtual void _font_set_subpixel_positioning(const RID &p_font_rid, TextServer::SubpixelPositioning p_subpixel_positioning);
@@ -244,6 +252,7 @@ public:
 	virtual int64_t _shaped_get_run_count(const RID &p_shaped) const;
 	virtual String _shaped_get_run_text(const RID &p_shaped, int64_t p_index) const;
 	virtual Vector2i _shaped_get_run_range(const RID &p_shaped, int64_t p_index) const;
+	virtual Vector2i _shaped_get_run_glyph_range(const RID &p_shaped, int64_t p_index) const;
 	virtual RID _shaped_get_run_font_rid(const RID &p_shaped, int64_t p_index) const;
 	virtual int32_t _shaped_get_run_font_size(const RID &p_shaped, int64_t p_index) const;
 	virtual String _shaped_get_run_language(const RID &p_shaped, int64_t p_index) const;
@@ -280,7 +289,7 @@ public:
 	virtual double _shaped_text_get_underline_position(const RID &p_shaped) const;
 	virtual double _shaped_text_get_underline_thickness(const RID &p_shaped) const;
 	virtual int64_t _shaped_text_get_dominant_direction_in_range(const RID &p_shaped, int64_t p_start, int64_t p_end) const;
-	virtual void _shaped_text_get_carets(const RID &p_shaped, int64_t p_position, CaretInfo *p_caret) const;
+	virtual void _shaped_text_get_carets(const RID &p_shaped, int64_t p_position, CaretInfo *r_caret) const;
 	virtual PackedVector2Array _shaped_text_get_selection(const RID &p_shaped, int64_t p_start, int64_t p_end) const;
 	virtual int64_t _shaped_text_hit_test_grapheme(const RID &p_shaped, double p_coord) const;
 	virtual int64_t _shaped_text_hit_test_position(const RID &p_shaped, double p_coord) const;
@@ -477,6 +486,27 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_font_is_modulate_color_glyphs), decltype(&T::_font_is_modulate_color_glyphs)>) {
 			BIND_VIRTUAL_METHOD(T, _font_is_modulate_color_glyphs, 4155700596);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_font_get_palette_count), decltype(&T::_font_get_palette_count)>) {
+			BIND_VIRTUAL_METHOD(T, _font_get_palette_count, 2198884583);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_font_get_palette_name), decltype(&T::_font_get_palette_name)>) {
+			BIND_VIRTUAL_METHOD(T, _font_get_palette_name, 1464764419);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_font_get_palette_colors), decltype(&T::_font_get_palette_colors)>) {
+			BIND_VIRTUAL_METHOD(T, _font_get_palette_colors, 1595517857);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_font_set_palette_custom_colors), decltype(&T::_font_set_palette_custom_colors)>) {
+			BIND_VIRTUAL_METHOD(T, _font_set_palette_custom_colors, 4037098590);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_font_get_palette_custom_colors), decltype(&T::_font_get_palette_custom_colors)>) {
+			BIND_VIRTUAL_METHOD(T, _font_get_palette_custom_colors, 1569415609);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_font_get_used_palette), decltype(&T::_font_get_used_palette)>) {
+			BIND_VIRTUAL_METHOD(T, _font_get_used_palette, 2198884583);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_font_set_used_palette), decltype(&T::_font_set_used_palette)>) {
+			BIND_VIRTUAL_METHOD(T, _font_set_used_palette, 3411492887);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_font_set_hinting), decltype(&T::_font_set_hinting)>) {
 			BIND_VIRTUAL_METHOD(T, _font_set_hinting, 1520010864);
@@ -843,6 +873,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_run_range), decltype(&T::_shaped_get_run_range)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_get_run_range, 4069534484);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_run_glyph_range), decltype(&T::_shaped_get_run_glyph_range)>) {
+			BIND_VIRTUAL_METHOD(T, _shaped_get_run_glyph_range, 4069534484);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_shaped_get_run_font_rid), decltype(&T::_shaped_get_run_font_rid)>) {
 			BIND_VIRTUAL_METHOD(T, _shaped_get_run_font_rid, 1066463050);

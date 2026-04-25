@@ -172,8 +172,8 @@ public:
 	PackedStringArray get_marker_names() const;
 	Color get_marker_color(const StringName &p_name) const;
 	void set_marker_color(const StringName &p_name, const Color &p_color);
-	void set_length(float p_time_sec);
-	float get_length() const;
+	void set_length(double p_time_sec);
+	double get_length() const;
 	void set_loop_mode(Animation::LoopMode p_loop_mode);
 	Animation::LoopMode get_loop_mode() const;
 	void set_step(float p_size_sec);

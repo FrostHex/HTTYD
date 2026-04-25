@@ -70,7 +70,9 @@ public:
 		DOCK_SLOT_RIGHT_UR = 6,
 		DOCK_SLOT_RIGHT_BR = 7,
 		DOCK_SLOT_BOTTOM = 8,
-		DOCK_SLOT_MAX = 9,
+		DOCK_SLOT_BOTTOM_L = 9,
+		DOCK_SLOT_BOTTOM_R = 10,
+		DOCK_SLOT_MAX = 11,
 	};
 
 	void open();

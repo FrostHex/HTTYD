@@ -63,7 +63,6 @@ public:
 	virtual StringName _get_instance_base_type() const;
 	virtual void *_instance_create(Object *p_for_object) const;
 	virtual void *_placeholder_instance_create(Object *p_for_object) const;
-	virtual bool _instance_has(Object *p_object) const;
 	virtual bool _has_source_code() const;
 	virtual String _get_source_code() const;
 	virtual void _set_source_code(const String &p_code);
@@ -91,6 +90,7 @@ public:
 	virtual TypedArray<StringName> _get_members() const;
 	virtual bool _is_placeholder_fallback_enabled() const;
 	virtual Variant _get_rpc_config() const;
+	virtual bool _instance_has(Object *p_object) const;
 
 protected:
 	template <typename T, typename B>
@@ -122,9 +122,6 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_placeholder_instance_create), decltype(&T::_placeholder_instance_create)>) {
 			BIND_VIRTUAL_METHOD(T, _placeholder_instance_create, 1107568780);
-		}
-		if constexpr (!std::is_same_v<decltype(&B::_instance_has), decltype(&T::_instance_has)>) {
-			BIND_VIRTUAL_METHOD(T, _instance_has, 397768994);
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_has_source_code), decltype(&T::_has_source_code)>) {
 			BIND_VIRTUAL_METHOD(T, _has_source_code, 36873697);
@@ -206,6 +203,9 @@ protected:
 		}
 		if constexpr (!std::is_same_v<decltype(&B::_get_rpc_config), decltype(&T::_get_rpc_config)>) {
 			BIND_VIRTUAL_METHOD(T, _get_rpc_config, 1214101251);
+		}
+		if constexpr (!std::is_same_v<decltype(&B::_instance_has), decltype(&T::_instance_has)>) {
+			BIND_VIRTUAL_METHOD(T, _instance_has, 397768994);
 		}
 	}
 

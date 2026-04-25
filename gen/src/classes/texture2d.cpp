@@ -36,12 +36,23 @@
 #include <godot_cpp/core/engine_ptrcall.hpp>
 #include <godot_cpp/core/error_macros.hpp>
 
-#include <godot_cpp/classes/image.hpp>
 #include <godot_cpp/classes/resource.hpp>
 #include <godot_cpp/variant/rect2.hpp>
 #include <godot_cpp/variant/rid.hpp>
 
 namespace godot {
+
+Image::Format Texture2D::get_format() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Texture2D::get_class_static()._native_ptr(), StringName("get_format")._native_ptr(), 3847873762);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Image::Format(0)));
+	return (Image::Format)::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
+int32_t Texture2D::get_mipmap_count() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Texture2D::get_class_static()._native_ptr(), StringName("get_mipmap_count")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
 
 int32_t Texture2D::get_width() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Texture2D::get_class_static()._native_ptr(), StringName("get_width")._native_ptr(), 3905245786);
@@ -63,6 +74,12 @@ Vector2 Texture2D::get_size() const {
 
 bool Texture2D::has_alpha() const {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Texture2D::get_class_static()._native_ptr(), StringName("has_alpha")._native_ptr(), 36873697);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
+	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
+}
+
+bool Texture2D::has_mipmaps() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Texture2D::get_class_static()._native_ptr(), StringName("has_mipmaps")._native_ptr(), 36873697);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner);
 }
@@ -107,6 +124,18 @@ Ref<Resource> Texture2D::create_placeholder() const {
 	return Ref<Resource>::_gde_internal_constructor(::godot::internal::_call_native_mb_ret_obj<Resource>(_gde_method_bind, _owner));
 }
 
+Ref<Image> Texture2D::_get_image() const {
+	return Ref<Image>();
+}
+
+Image::Format Texture2D::_get_format() const {
+	return Image::Format(0);
+}
+
+int32_t Texture2D::_get_mipmap_count() const {
+	return 0;
+}
+
 int32_t Texture2D::_get_width() const {
 	return 0;
 }
@@ -120,6 +149,10 @@ bool Texture2D::_is_pixel_opaque(int32_t p_x, int32_t p_y) const {
 }
 
 bool Texture2D::_has_alpha() const {
+	return false;
+}
+
+bool Texture2D::_has_mipmaps() const {
 	return false;
 }
 

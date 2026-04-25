@@ -47,8 +47,8 @@ String Object::get_class() const {
 	return ::godot::internal::_call_native_mb_ret<String>(_gde_method_bind, _owner);
 }
 
-bool Object::is_class(const String &p_class) const {
-	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Object::get_class_static()._native_ptr(), StringName("is_class")._native_ptr(), 3927539163);
+bool Object::is_class(const StringName &p_class) const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(Object::get_class_static()._native_ptr(), StringName("is_class")._native_ptr(), 2619796661);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (false));
 	return ::godot::internal::_call_native_mb_ret<int8_t>(_gde_method_bind, _owner, &p_class);
 }

@@ -46,13 +46,19 @@ void OpenXRSpatialComponentData::set_capacity(uint32_t p_capacity) {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_capacity_encoded);
 }
 
+int64_t OpenXRSpatialComponentData::get_component_type() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialComponentData::get_class_static()._native_ptr(), StringName("get_component_type")._native_ptr(), 3905245786);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (0));
+	return ::godot::internal::_call_native_mb_ret<int64_t>(_gde_method_bind, _owner);
+}
+
 void OpenXRSpatialComponentData::_set_capacity(uint32_t p_capacity) {}
 
 uint64_t OpenXRSpatialComponentData::_get_component_type() const {
 	return 0;
 }
 
-uint64_t OpenXRSpatialComponentData::_get_structure_data(uint64_t p_next) const {
+uint64_t OpenXRSpatialComponentData::_get_structure_data(uint64_t p_next) {
 	return 0;
 }
 

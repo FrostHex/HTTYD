@@ -65,6 +65,8 @@ public:
 	Vector2i get_size_2d_override() const;
 	void set_size_2d_override_stretch(bool p_enable);
 	bool is_size_2d_override_stretch_enabled() const;
+	void set_view_count(int32_t p_view_count);
+	int32_t get_view_count() const;
 	void set_update_mode(SubViewport::UpdateMode p_mode);
 	SubViewport::UpdateMode get_update_mode() const;
 	void set_clear_mode(SubViewport::ClearMode p_mode);

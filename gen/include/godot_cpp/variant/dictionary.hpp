@@ -44,7 +44,7 @@ class Variant;
 
 class Dictionary {
 	static constexpr size_t DICTIONARY_SIZE = 8;
-	uint8_t opaque[DICTIONARY_SIZE] = {};
+	alignas(8) uint8_t opaque[DICTIONARY_SIZE] = {};
 
 	friend class Variant;
 

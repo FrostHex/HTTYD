@@ -53,6 +53,10 @@ public:
 	static Ref<DPITexture> create_from_string(const String &p_source, float p_scale = 1.0, float p_saturation = 1.0, const Dictionary &p_color_map = Dictionary());
 	void set_source(const String &p_source);
 	String get_source() const;
+	void set_fix_alpha_border(bool p_fix_alpha_border);
+	bool get_fix_alpha_border() const;
+	void set_premult_alpha(bool p_premult_alpha);
+	bool get_premult_alpha() const;
 	void set_base_scale(float p_base_scale);
 	float get_base_scale() const;
 	void set_saturation(float p_saturation);

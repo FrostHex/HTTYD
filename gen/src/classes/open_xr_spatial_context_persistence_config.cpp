@@ -52,4 +52,10 @@ void OpenXRSpatialContextPersistenceConfig::remove_persistence_context(const RID
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_persistence_context);
 }
 
+Array OpenXRSpatialContextPersistenceConfig::get_persistence_contexts() const {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(OpenXRSpatialContextPersistenceConfig::get_class_static()._native_ptr(), StringName("get_persistence_contexts")._native_ptr(), 3995934104);
+	CHECK_METHOD_BIND_RET(_gde_method_bind, (Array()));
+	return ::godot::internal::_call_native_mb_ret<Array>(_gde_method_bind, _owner);
+}
+
 } // namespace godot

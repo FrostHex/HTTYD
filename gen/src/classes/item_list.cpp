@@ -602,6 +602,16 @@ void ItemList::ensure_current_is_visible() {
 	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner);
 }
 
+void ItemList::center_on_current(bool p_center_verically, bool p_center_horizontally) {
+	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ItemList::get_class_static()._native_ptr(), StringName("center_on_current")._native_ptr(), 3058350285);
+	CHECK_METHOD_BIND(_gde_method_bind);
+	int8_t p_center_verically_encoded;
+	PtrToArg<bool>::encode(p_center_verically, &p_center_verically_encoded);
+	int8_t p_center_horizontally_encoded;
+	PtrToArg<bool>::encode(p_center_horizontally, &p_center_horizontally_encoded);
+	::godot::internal::_call_native_mb_no_ret(_gde_method_bind, _owner, &p_center_verically_encoded, &p_center_horizontally_encoded);
+}
+
 VScrollBar *ItemList::get_v_scroll_bar() {
 	static GDExtensionMethodBindPtr _gde_method_bind = ::godot::gdextension_interface::classdb_get_method_bind(ItemList::get_class_static()._native_ptr(), StringName("get_v_scroll_bar")._native_ptr(), 2630340773);
 	CHECK_METHOD_BIND_RET(_gde_method_bind, (nullptr));

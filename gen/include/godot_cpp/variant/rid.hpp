@@ -44,7 +44,7 @@ class Variant;
 
 class RID {
 	static constexpr size_t RID_SIZE = 8;
-	uint8_t opaque[RID_SIZE] = {};
+	alignas(8) uint8_t opaque[RID_SIZE] = {};
 
 	friend class Variant;
 

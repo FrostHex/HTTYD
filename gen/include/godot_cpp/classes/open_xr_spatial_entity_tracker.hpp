@@ -42,6 +42,8 @@
 
 namespace godot {
 
+class OpenXRStructureBase;
+
 class OpenXRSpatialEntityTracker : public XRPositionalTracker {
 	GDEXTENSION_CLASS(OpenXRSpatialEntityTracker, XRPositionalTracker)
 
@@ -52,10 +54,15 @@ public:
 		ENTITY_TRACKING_STATE_TRACKING = 3,
 	};
 
+	void set_spatial_context(const RID &p_spatial_context);
+	RID get_spatial_context() const;
 	void set_entity(const RID &p_entity);
 	RID get_entity() const;
 	void set_spatial_tracking_state(OpenXRSpatialEntityTracker::EntityTrackingState p_spatial_tracking_state);
 	OpenXRSpatialEntityTracker::EntityTrackingState get_spatial_tracking_state() const;
+	Ref<OpenXRStructureBase> get_next() const;
+	void add_next(const Ref<OpenXRStructureBase> &p_next);
+	void remove_next(const Ref<OpenXRStructureBase> &p_next);
 
 protected:
 	template <typename T, typename B>
