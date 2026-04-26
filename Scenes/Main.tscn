@@ -23,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 [node name="Camera_Main_NonXR" type="Camera3D" parent="Camera_Main" unique_id=2037018143]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 current = true
-far = 100000.0
+far = 200000.0
 
 [node name="XR" parent="Camera_Main" unique_id=1912923838 instance=ExtResource("1_kln2b")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)

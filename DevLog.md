@@ -164,7 +164,8 @@
 - VR模式已用Meta Quest2和Pimax Crystal完成测试。Quest2需要设置openxr/target_api_version="1.1.53"解决画面闪烁问题，无需SteamVR；Crystal需要给 target_api_version这项留空并启用SteamVR
 
 ### v1.0.2
-- 
+- Fix several problems of Test Drive in Non-VR mode
+- A circle shape of the background ocean, and slightly blend the ocean with the skyline
 
 ----------
 TODO:
@@ -173,5 +174,6 @@ TODO:
 - 试试新的体积云
 - 试试shader整个火和电浆炮
 ### 旧细节优化
-- 牙的牙穿模怎么回事
+- 海逐渐透明
 - 测一下VR模式尾杀相机和龙的角度
+- 牙的牙穿模怎么回事
