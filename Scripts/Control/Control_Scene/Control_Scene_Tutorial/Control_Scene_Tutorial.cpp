@@ -133,15 +133,15 @@ void Control_Scene_Tutorial::_ready()
 	ctrl_camera->call_deferred("Initialize");
     if (control_main->GetValEnableHeadset()) 
     {
-        dragon_control = memnew(Dragon_Pilot_Joystick);
-        dragon_node->add_child(dynamic_cast<Node*>(dragon_control)); // add the dragon control to the dragon node
+        dragon_pilot = memnew(Dragon_Pilot_Joystick);
+        dragon_node->add_child(dynamic_cast<Node*>(dragon_pilot)); // add the dragon control to the dragon node
     }
     else
     {
-        dragon_control = memnew(Dragon_Pilot_Keyboard);
-        dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
+        dragon_pilot = memnew(Dragon_Pilot_Keyboard);
+        dragon_node->add_child(dynamic_cast<Node*>(dragon_pilot));
     }
-    ctrl_camera->SetDragon_Pilot_(dragon_control); // set the dragon control to the camera control
+    ctrl_camera->SetDragon_Pilot_(dragon_pilot); // set the dragon control to the camera control
 	dragon_node->call_deferred("set_rotation", Vector3(0.0f, 0.0f, 0.05f));
 
 	hand_right = nullptr;
@@ -191,39 +191,42 @@ String Control_Scene_Tutorial::_process_tutorial_text(const String &text)
 	if (text.length() >= 3 && text.substr(0, 2) == "/!") 
 	{
 		tutorial_paper->set_position(Vector3(0.85f, 0.48f, 0.4f));
-		dragon_animator->SetAnimation_Weight("add_shake", 1.0f);
+		if (dragon_animator)
+		{
+			dragon_animator->call_deferred("SetAnimation_Weight", "add_shake", 1.0f);
+		}
 		char state_char = text[2];
 		if (state_char == '1') 
 		{
 			// set dragon state to default.
-			if (dragon_control) 
+			if (dragon_pilot) 
 			{
-				dragon_control->SetState(DragonState::STATE_DEFAULT);
-				dragon_control->set_physics_process(true);
+				dragon_pilot->SetState(DragonState::STATE_DEFAULT);
+				dragon_pilot->set_physics_process(true);
 			}
 			return text.substr(3); // return text after removing the first three characters.
 		}
 		else if (state_char == '2') 
 		{
 			// set dragon state to crisis mode.
-			if (dragon_control) 
+			if (dragon_pilot) 
 			{
-				dragon_control->SetState(DragonState::STATE_CRISIS);
-				dragon_control->set_physics_process(true);
+				dragon_pilot->SetState(DragonState::STATE_CRISIS);
+				dragon_pilot->set_physics_process(true);
 			}
 			return text.substr(3);
 		}
 	}
-	if (dragon_control) 	// fallback on mismatch: set disabled state.
+	if (dragon_pilot) 	// fallback on mismatch: set disabled state.
 	{
-		if (Math::abs(dragon_control->GetLinearVelocity()) > 0.01f) 
+		if (Math::abs(dragon_pilot->GetLinearVelocity()) > 0.01f) 
 		{
 			dragon_animator->call_deferred("SetAnimation", "layer_wing_main", "lo_up");
 		}
 		dragon_animator->call_deferred("SetAnimation_Weight", "add_shake", 0.0f);
-		dragon_control->call_deferred("SetState", DragonState::STATE_DISABLED);
-		dragon_control->call_deferred("SetState", DragonState::STATE_DISABLED);
-		dragon_control->call_deferred("SetVelocityAngular", Vector3(0.0f, 0.0f, 0.0f));
+		dragon_pilot->call_deferred("SetState", DragonState::STATE_DISABLED);
+		dragon_pilot->call_deferred("SetState", DragonState::STATE_DISABLED);
+		dragon_pilot->call_deferred("SetVelocityAngular", Vector3(0.0f, 0.0f, 0.0f));
 		tutorial_paper->call_deferred("set_position", Vector3(0.8f, 0.65f, 0.0f));
 	}
 	return text;
@@ -301,9 +304,9 @@ void Control_Scene_Tutorial::_on_back_button_pressed()
 	}
 
 	set_physics_process(false);
-	if (dragon_control && dragon_control->is_inside_tree())
+	if (dragon_pilot && dragon_pilot->is_inside_tree())
 	{
-		dragon_control->set_physics_process(false);
+		dragon_pilot->set_physics_process(false);
 	}
 	if (ctrl_camera && ctrl_camera->is_inside_tree())
 	{

@@ -37,13 +37,13 @@ Control_Camera::~Control_Camera()
 {
 }
 
-void Control_Camera::SetDragon_Pilot_(Dragon_Pilot_Top* dragon_control) 
+void Control_Camera::SetDragon_Pilot_(Dragon_Pilot_Top* dragon_pilot) 
 {
-    if (dragon_control)
+    if (dragon_pilot)
     {
-        this->dragon_control = dragon_control;
+        this->dragon_pilot = dragon_pilot;
         // connect the "dragon_collision" signal emitted by Dragon_Pilot_Top
-        this->dragon_control->connect("dragon_collision", Callable(this, "Print_Collision"));
+        this->dragon_pilot->connect("dragon_collision", Callable(this, "Print_Collision"));
     }
 }
 
@@ -253,7 +253,7 @@ void Control_Camera::_physics_process(double delta)
         camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
         if (control_main->GetValDebug() && label_info)
         {
-            String velocity_text = "Linear Velocity: " + String::num(dragon_control->GetLinearVelocity(), 1) + "\n" + info_debug + "\n" + time_elapsed;
+            String velocity_text = "Linear Velocity: " + String::num(dragon_pilot->GetLinearVelocity(), 1) + "\n" + info_debug + "\n" + time_elapsed;
             label_info->set_text(velocity_text);
         }
     }
@@ -262,7 +262,7 @@ void Control_Camera::_physics_process(double delta)
     {
         // UtilityFunctions::print("Camera offset factor: " + String::num(camera_offset_factor));
         // camera_main->set_position(dragon_rb->get_global_position());
-        camera_main->set_position(camera_main->get_position() + Vector3(0, dragon_control->GetLinearVelocity() * camera_offset_factor * delta, 0));
+        camera_main->set_position(camera_main->get_position() + Vector3(0, dragon_pilot->GetLinearVelocity() * camera_offset_factor * delta, 0));
         
     }
 
@@ -316,6 +316,26 @@ void Control_Camera::_physics_process(double delta)
         //     camera_main->set_position(dragon_rb->get_position() + target_position_offset);
         //     approaching_position = false;
         // }
+    }
+
+    if (resetting_transform_time > 0.0f)
+    {
+        timer -= delta;
+        // UtilityFunctions::print("Resetting camera transform, time left: " + String::num(timer));
+        if (timer > 0.0f)
+        {
+            float ratio = timer / resetting_transform_time;
+            camera_main->set_position(target_position_offset * ratio);
+            camera_main->set_rotation(target_rotation * ratio);
+        }
+        else 
+        {
+            camera_main->set_position(Vector3(0, 0, 0));
+            camera_main->set_rotation(Vector3(0, 0, 0));
+            resetting_transform_time = -1.0f;
+            timer = 0.0f;
+            set_physics_process(false);
+        }
     }
 }
 
@@ -414,8 +434,30 @@ void Control_Camera::GrabSaddle()
     approaching_position = false;
     camera_offset_factor = 0.0f; // reset camera offset factor
     camera_main->reparent(dragon_rb->get_node<Node>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back_Mount/Socket_Back"));
-    camera_main->call_deferred("set_position", Vector3(0, 0, 0));
-    camera_main->call_deferred("set_rotation", Vector3(0, 0, 0));
+    resetting_transform_time = timer = 1.5f;
+    target_position_offset = camera_main->get_position();
+    target_rotation = camera_main->get_rotation();
+    UtilityFunctions::print(target_position_offset);
+    set_physics_process(true);
+    // camera_main->call_deferred("set_position", Vector3(0, 0, 0));
+    // camera_main->call_deferred("set_rotation", Vector3(0, 0, 0));
+}
+
+
+void Control_Camera::ReparentCamera(const NodePath &target_path)
+{
+    if (!camera_main || !dragon_rb)
+    {
+        UtilityFunctions::printerr("Control_Camera: camera_main or dragon_rb not ready for reparent.");
+        return;
+    }
+    Node *target = dragon_rb->get_node_or_null(target_path);
+    if (!target)
+    {
+        UtilityFunctions::printerr("Control_Camera: reparent target not found: " + String(target_path));
+        return;
+    }
+    camera_main->reparent(target);
 }
 
 
@@ -429,4 +471,5 @@ void Control_Camera::_bind_methods()
     ClassDB::bind_method(D_METHOD("SetCameraStabilized", "stabilized"), &Control_Camera::SetCameraStabilized);
     ClassDB::bind_method(D_METHOD("Initialize"), &Control_Camera::Initialize);
     ClassDB::bind_method(D_METHOD("ResetVRTransform"), &Control_Camera::ResetVRTransform);
+    ClassDB::bind_method(D_METHOD("ReparentCamera", "target_path"), &Control_Camera::ReparentCamera);
 }

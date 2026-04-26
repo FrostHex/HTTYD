@@ -129,17 +129,17 @@ void Control_Scene_Practice::_ready()
 	ctrl_camera->call_deferred("Initialize");
     if (control_main->GetValEnableHeadset()) 
     {
-        dragon_control = memnew(Dragon_Pilot_Joystick);
-        dragon_node->add_child(dynamic_cast<Node*>(dragon_control)); // add the dragon control to the dragon node
-		dragon_control->set_name("Dragon_Pilot_Joystick"); // set the name of the dragon control node
+        dragon_pilot = memnew(Dragon_Pilot_Joystick);
+        dragon_node->add_child(dynamic_cast<Node*>(dragon_pilot)); // add the dragon control to the dragon node
+		dragon_pilot->set_name("Dragon_Pilot_Joystick"); // set the name of the dragon control node
 	}
     else
     {
-        dragon_control = memnew(Dragon_Pilot_Keyboard);
-        dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
-		dragon_control->set_name("Dragon_Pilot_Keyboard"); // set the name of the dragon control node
+        dragon_pilot = memnew(Dragon_Pilot_Keyboard);
+        dragon_node->add_child(dynamic_cast<Node*>(dragon_pilot));
+		dragon_pilot->set_name("Dragon_Pilot_Keyboard"); // set the name of the dragon control node
     }
-    ctrl_camera->SetDragon_Pilot_(dragon_control); // set the dragon control to the camera control
+    ctrl_camera->SetDragon_Pilot_(dragon_pilot); // set the dragon control to the camera control
 	dragon_node->call_deferred("set_rotation", Vector3(0.0f, 0.0f, 0.05f));
 
 	// cache the right controller (used for B-button state toggle), following Tutorial.cpp behavior.
@@ -159,8 +159,8 @@ void Control_Scene_Practice::_ready()
 
 	// initialize dragon state to default.
 	is_crisis_state = false;
-	if (dragon_control) {
-		dragon_control->SetState(DragonState::STATE_DEFAULT);
+	if (dragon_pilot) {
+		dragon_pilot->SetState(DragonState::STATE_DEFAULT);
 	}
 
 	// show Practice text (display only the first sentence).
@@ -219,7 +219,7 @@ void Control_Scene_Practice::_physics_process(double delta)
 
 void Control_Scene_Practice::_toggle_dragon_state()
 {
-	if (!dragon_control) return;
+	if (!dragon_pilot) return;
 
 	// toggle state.
 	is_crisis_state = !is_crisis_state;
@@ -227,13 +227,13 @@ void Control_Scene_Practice::_toggle_dragon_state()
 	if (is_crisis_state) 
 	{
 		// set to crisis state.
-		dragon_control->SetState(DragonState::STATE_CRISIS);
+		dragon_pilot->SetState(DragonState::STATE_CRISIS);
 		UtilityFunctions::print("Dragon state switched to CRISIS");
 	} 
 	else 
 	{
 		// set to default state.
-		dragon_control->SetState(DragonState::STATE_DEFAULT);
+		dragon_pilot->SetState(DragonState::STATE_DEFAULT);
 		UtilityFunctions::print("Dragon state switched to DEFAULT");
 	}
 }
@@ -257,9 +257,9 @@ void Control_Scene_Practice::_on_back_button_pressed()
 
 	// stop related physics processing before scene switch to avoid accessing detached nodes.
 	set_physics_process(false);
-	if (dragon_control && dragon_control->is_inside_tree())
+	if (dragon_pilot && dragon_pilot->is_inside_tree())
 	{
-		dragon_control->set_physics_process(false);
+		dragon_pilot->set_physics_process(false);
 	}
 	if (ctrl_camera && ctrl_camera->is_inside_tree())
 	{

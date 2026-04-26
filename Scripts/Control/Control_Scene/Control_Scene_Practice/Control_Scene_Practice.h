@@ -39,7 +39,7 @@ namespace godot
             int current_index = 0;
             PackedStringArray lines;
             Control_Main* control_main = nullptr;
-            Dragon_Pilot_Top* dragon_control = nullptr;
+            Dragon_Pilot_Top* dragon_pilot = nullptr;
             Dragon_Animator* dragon_animator = nullptr;
             Control_Camera* ctrl_camera = nullptr;
             Node3D* camera_main = nullptr;

@@ -176,9 +176,11 @@ void Dragon_Pilot_Top::ProcessApproaching(double delta)
     if (clear_pivot_rotation) 
     {
         Vector3 current_rotation = pivot_toothless->get_rotation();
+        bool complete_pivot_reset = false;
         if (current_rotation.x + current_rotation.y + current_rotation.z < 0.01f) 
         {
             pivot_toothless->set_rotation(Vector3(0, 0, 0));
+            complete_pivot_reset = true;
         }
         else
         {
@@ -187,13 +189,15 @@ void Dragon_Pilot_Top::ProcessApproaching(double delta)
         if (camera_main->get_position().x < 0.01f && camera_main->get_position().y < 0.01f)
         {
             camera_main->set_position(Vector3(0, 0, 0));
-            clear_pivot_rotation = false;
+            if (complete_pivot_reset) 
+            {
+                clear_pivot_rotation = false;
+            }
         }
         else 
         {
-            clear_pivot_rotation = true;
+            camera_main->set_position(Vector3(camera_main->get_position().x * 0.98f, camera_main->get_position().y * 0.98f, 0));
         }
-        camera_main->set_position(Vector3(camera_main->get_position().x * 0.98f, camera_main->get_position().y * 0.98f, 0));
     }
     if (approach_target_rotation)
     {
@@ -298,10 +302,6 @@ void Dragon_Pilot_Top::ProcessFalling(double delta)
             }
         }
     }
-
-
-    // GetInput(this->input_keys);
-    // SetMotionAngular(delta);
 
     Vector3 linear_velocity_vector = dragon_rb->get_linear_velocity();
     linear_velocity_vector -= Vector3(linear_velocity_vector.x * delta, 

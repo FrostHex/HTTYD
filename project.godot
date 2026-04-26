@@ -58,6 +58,7 @@ folder_colors={
 "res://Dragons/": "teal",
 "res://Environment/": "green",
 "res://Media/": "orange",
+"res://Saves/": "gray",
 "res://Scenes/": "red",
 "res://Scripts/": "purple",
 "res://Scripts/build/": "gray"

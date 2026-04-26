@@ -11,6 +11,7 @@
 #include <godot_cpp/classes/label.hpp>
 #include <godot_cpp/classes/video_stream_player.hpp>
 #include <godot_cpp/classes/input_event.hpp>
+#include <godot_cpp/variant/node_path.hpp>
 #include "Dragon_Pilot_Keyboard.h"
 #include "GameTimer.h"
 
@@ -31,8 +32,9 @@ namespace godot
             void Initialize();
             void ResetVRTransform();
             Vector3 GetPostureHeadset();
-            void SetDragon_Pilot_(Dragon_Pilot_Top* dragon_control);
+            void SetDragon_Pilot_(Dragon_Pilot_Top* dragon_pilot);
             void GrabSaddle();
+            void ReparentCamera(const NodePath &target_path);
             String info_debug;
             String time_elapsed;
             void SetCameraStabilized(bool stabilized) {camera_stabilized = stabilized;}
@@ -46,7 +48,7 @@ namespace godot
             Control_Main* control_main = nullptr; // reference to Control_Main for accessing shared variables
             Camera3D *camera_sub = nullptr;
             Label* label_info = nullptr;
-            Dragon_Pilot_Top* dragon_control = nullptr;
+            Dragon_Pilot_Top* dragon_pilot = nullptr;
             RigidBody3D *dragon_rb = nullptr;
             Node3D *xr_node = nullptr;
             Node3D *xr_origin = nullptr;
@@ -60,6 +62,8 @@ namespace godot
             void TriggerApproachingPosition(Vector3 target_position_offset);
             Vector3 target_position_offset;
             bool approaching_position = false;
+            float resetting_transform_time = -1.0f;
+            float timer = 0.0f;
             bool camera_stabilized = false;
             bool vr_recenter_pending = false;
 

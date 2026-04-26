@@ -229,8 +229,12 @@ void Dragon_Animator::SetAnimation_Weight(const String &layer, float weight)
 {
     if (!anim_tree)
     {
-        UtilityFunctions::printerr("Dragon_Animator: anim_tree is null when setting weight.");
-        return;
+        RefreshBindings();
+        if (!anim_tree)
+        {
+            UtilityFunctions::printerr("Dragon_Animator: anim_tree is null when setting weight.");
+            return;
+        }
     }
     anim_tree->set("parameters/" + layer + "/add_amount", weight);
 }

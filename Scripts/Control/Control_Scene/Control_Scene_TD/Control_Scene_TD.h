@@ -44,7 +44,7 @@ namespace godot
             Node* td_area_1 = nullptr;
             Node* td_area_2 = nullptr;
             Control_Main* control_main = nullptr; // reference to Control_Main for accessing shared variables
-            Dragon_Pilot_Top* dragon_control;
+            Dragon_Pilot_Top* dragon_pilot;
             Dragon_Animator *dragon_animator;
             CheatSheet *cheat_sheet;
             GameTimer* timer;

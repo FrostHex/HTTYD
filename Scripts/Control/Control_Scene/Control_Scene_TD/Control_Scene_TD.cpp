@@ -78,22 +78,22 @@ void Control_Scene_TD::_ready()
     {
         // memnew is "new" in Godot C++, which dynamically allocates memory for the object
         // memnew() creates an instance of Dragon_Pilot_Joystick and returns a pointer to it
-        dragon_control = memnew(Dragon_Pilot_Joystick);
-        dragon_node->add_child(dynamic_cast<Node*>(dragon_control)); // add the dragon control to the dragon node
-        dragon_control->set_name("Dragon_Pilot_Joystick"); // set the name of the dragon control node
+        dragon_pilot = memnew(Dragon_Pilot_Joystick);
+        dragon_node->add_child(dynamic_cast<Node*>(dragon_pilot)); // add the dragon control to the dragon node
+        dragon_pilot->set_name("Dragon_Pilot_Joystick"); // set the name of the dragon control node
     }
     else
     {
-        dragon_control = memnew(Dragon_Pilot_Keyboard);
-        dragon_node->add_child(dynamic_cast<Node*>(dragon_control));
-        dragon_control->set_name("Dragon_Pilot_Keyboard"); // set the name of the dragon control node
+        dragon_pilot = memnew(Dragon_Pilot_Keyboard);
+        dragon_node->add_child(dynamic_cast<Node*>(dragon_pilot));
+        dragon_pilot->set_name("Dragon_Pilot_Keyboard"); // set the name of the dragon control node
     }
     if (control_main->GetValSubView() && control_main->GetValDebug()) 
     {
         video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
     }
 
-    ctrl_camera->SetDragon_Pilot_(dragon_control); // set the dragon control to the camera control
+    ctrl_camera->SetDragon_Pilot_(dragon_pilot); // set the dragon control to the camera control
     save_manager = get_node<SaveManager>("SaveManager");
     audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
 
@@ -115,7 +115,7 @@ void Control_Scene_TD::_ready()
     call_deferred("Start_Timer"); // postpone for one frame to ensure the scene is fully initialized and rendered
 
     // Test Directly
-    // dragon_control->SetState(DragonState::STATE_CRISIS); // start in crisis state to trigger the first cutscene
+    // dragon_pilot->SetState(DragonState::STATE_CRISIS); // start in crisis state to trigger the first cutscene
 }
 
 
@@ -129,96 +129,106 @@ void Control_Scene_TD::Initialize_TimerList()
         timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
     }
     timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
-    // timer->Timer_AddEvent(3.0f, Callable(this, "AutoSave"));
-    timer->Timer_AddEvent(16.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // disable the default animations
+    if (!control_main->GetValDebug()) 
+    {
+        timer->Timer_AddEvent(3.0f, Callable(this, "AutoSave"));
+    }
+    timer->Timer_AddEvent(16.0f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // disable the default animations
     timer->Timer_AddEvent(16.8f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close")); // the tail wing folds
     timer->Timer_AddEvent(17.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide")); // the tail wing is now fully extended
     timer->Timer_AddEvent(18.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_check_tail_glide", true)); // the starting position of tr_check_tail_glide
     timer->Timer_AddEvent(19.1f, Callable(dragon_animator, "Unfreeze")); // change the animation to tr_check_tail_glide
-    timer->Timer_AddEvent(20.8f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DEFAULT)); // enable the default animations
-    timer->Timer_AddEvent(47.0f, Callable(dragon_control, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_A_01")->get_global_transform().origin + Vector3(0, 60, 0), 5.0f)); 
+    timer->Timer_AddEvent(20.8f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_DEFAULT)); // enable the default animations
+    timer->Timer_AddEvent(47.0f, Callable(dragon_pilot, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_A_01")->get_global_transform().origin + Vector3(0, 60, 0), 5.0f)); 
     timer->Timer_AddEvent(47.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_glide")); 
     timer->Timer_AddEvent(47.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide"));
-    timer->Timer_AddEvent(53.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_HIT_CLIFF)); // the code takes control, unavoidable to fly towards the pillar
+    timer->Timer_AddEvent(53.0f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_HIT_CLIFF)); // the code takes control, unavoidable to fly towards the pillar
     timer->Timer_AddEvent(53.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_glide")); 
     timer->Timer_AddEvent(58.2f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_hit_glide", true)); // ready to hit the pillar, setting the animation to hit_cliff
     timer->Timer_AddEvent(59.3f, Callable(dragon_animator, "Unfreeze")); // hit the pillar for the first time
-    timer->Timer_AddEvent(59.7f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED));
-    timer->Timer_AddEvent(59.9f, Callable(dragon_control, "SetState").bind(DragonState::STATE_HIT_CLIFF)); // unavoidable to fly towards the pillar
+    timer->Timer_AddEvent(59.7f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_DISABLED));
+    timer->Timer_AddEvent(59.9f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_HIT_CLIFF)); // unavoidable to fly towards the pillar
     timer->Timer_AddEvent(59.9f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up")); // Toothless flap his wings
     timer->Timer_AddEvent(62.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_hit_glide", true));
     timer->Timer_AddEvent(63.2f, Callable(dragon_animator, "Unfreeze")); // hit the pillar for the second time
-    timer->Timer_AddEvent(63.5f, Callable(dragon_control, "TriggerApproaching").bind(true, get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_C_10")->get_global_transform().origin + Vector3(0, 200, 0), 10.0f)); // Toothless turns around and keep flying
+    timer->Timer_AddEvent(63.5f, Callable(dragon_pilot, "TriggerApproaching").bind(true, get_parent()->get_node<Node3D>("Rocks/Area_Beginning/Rock_Pillar_C_10")->get_global_transform().origin + Vector3(0, 200, 0), 10.0f)); // Toothless turns around and keep flying
     timer->Timer_AddEvent(63.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up"));
-    timer->Timer_AddEvent(63.5f, Callable(dragon_control, "SetClearToothlessRotation").bind(true)); // set clear_pivot_rotation to true
+    timer->Timer_AddEvent(63.5f, Callable(dragon_pilot, "SetClearToothlessRotation").bind(true)); // set clear_pivot_rotation to true
+    timer->Timer_AddEvent(65.2f, Callable(dragon_pilot, "SetClearToothlessRotation").bind(false));
+    timer->Timer_AddEvent(65.3f, Callable(ctrl_camera, "ReparentCamera").bind(NodePath("SpeciesSlot/ToothlessRoot/Sockets"))); 
     timer->Timer_AddEvent(65.3f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_slap_glide")); // Toothless flap my face with his ear
-    timer->Timer_AddEvent(70.0f, Callable(dragon_control, "TriggerApproaching").bind(true, Vector3(-1000, 3150, -500), 10.5f)); // fly up to the sky
+    timer->Timer_AddEvent(69.5f, Callable(ctrl_camera, "ReparentCamera").bind(NodePath("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back_Mount/Socket_Back"))); 
+    timer->Timer_AddEvent(70.0f, Callable(dragon_pilot, "TriggerApproaching").bind(true, Vector3(-1000, 3150, -500), 10.5f)); // fly up to the sky
     timer->Timer_AddEvent(70.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "lo_up"));
+    timer->Timer_AddEvent(70.1f, Callable(dragon_pilot, "SetClearToothlessRotation").bind(true));
     timer->Timer_AddEvent(80.5f, Callable(cheat_sheet, "Detatch")); // detatch the cheat sheet
-    timer->Timer_AddEvent(82.5f, Callable(dragon_control, "SetState").bind(DragonState::STATE_FALLING)); // start to decelerate due to the stall
+    timer->Timer_AddEvent(82.5f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_FALLING)); // start to decelerate due to the stall
     timer->Timer_AddEvent(84.0f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(0, 0, -Math_PI/2), 0.5f)); // the camera starts to face downwards
-    timer->Timer_AddEvent(84.0f, Callable(ctrl_camera, "SetCameraOffsetFactor").bind(1.055f));
+    timer->Timer_AddEvent(84.0f, Callable(ctrl_camera, "SetCameraOffsetFactor").bind(1.035f)); //TODO ??????????????????
     timer->Timer_AddEvent(85.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_fall")); // change the animation to tr_glide_fall
     timer->Timer_AddEvent(86.0f, Callable(dragon_animator, "SetAnimation").bind("layer_eye_shape", "po_eye_small"));
-    timer->Timer_AddEvent(86.0f, Callable(ctrl_camera, "SetCameraOffsetFactor").bind(0.98f));
+    timer->Timer_AddEvent(86.0f, Callable(ctrl_camera, "SetCameraOffsetFactor").bind(0.99f));
     timer->Timer_AddEvent(86.4f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-1, 0.0f)); // Toothless opens his mouth to roar
-    timer->Timer_AddEvent(86.5f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(0, Math_PI/2, Math_PI/2), 0.1f)); // start to change the camera to upwards
+    timer->Timer_AddEvent(86.5f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(0, Math_PI/3, Math_PI/2), 0.1f)); // start to change the camera to upwards
     timer->Timer_AddEvent(87.4f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
     timer->Timer_AddEvent(88.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.0f)); // Toothless opens his mouth to roar
     timer->Timer_AddEvent(88.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
     timer->Timer_AddEvent(89.4f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.0f)); // Toothless opens his mouth to roar
     timer->Timer_AddEvent(89.9f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
-    timer->Timer_AddEvent(91.0f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(Math_PI/10, Math_PI/2, Math_PI/2), 5.0f)); // change the camera to downwards
+    timer->Timer_AddEvent(91.0f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(Math_PI/10, Math_PI/3, Math_PI/2), 5.0f)); // change the camera to downwards
     timer->Timer_AddEvent(91.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.0f)); // Toothless opens his mouth to roar
-    timer->Timer_AddEvent(91.3f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(-Math_PI/5, Math_PI/2, Math_PI/2), 5.0f)); // change the camera to downwards
-    timer->Timer_AddEvent(91.4f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(Math_PI, Math_PI/2, Math_PI/2), 2.5f)); // change the camera to downwards
+    timer->Timer_AddEvent(91.3f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(-Math_PI/5, Math_PI/3, Math_PI/2), 5.0f)); // change the camera to downwards
+    timer->Timer_AddEvent(91.4f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(Math_PI, Math_PI/3, Math_PI/2), 2.5f)); // change the camera to downwards
     timer->Timer_AddEvent(91.7f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
-    timer->Timer_AddEvent(91.7f, Callable(ctrl_camera, "SetCameraOffsetFactor").bind(1.25f));
+    timer->Timer_AddEvent(91.7f, Callable(ctrl_camera, "SetCameraOffsetFactor").bind(1.205f));
     timer->Timer_AddEvent(92.3f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(0, Math_PI/2, 0), -3.8f)); // hit Toothless's wing, and then start to rotate the camera for two rounds
     timer->Timer_AddEvent(92.5f, Callable(ctrl_camera, "SetCameraOffsetFactor").bind(1.01f));
     timer->Timer_AddEvent(93.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.0f)); // Toothless opens his mouth to roar
-    timer->Timer_AddEvent(93.5f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(Math_PI, 0, -Math_PI), 1.0f));
-    timer->Timer_AddEvent(92.3f, Callable(dragon_control, "SetTargetRotation").bind(Vector3(-Math_PI/2, -Math_PI/2, Math_PI)));
-    timer->Timer_AddEvent(93.5f, Callable(dragon_control, "SetVelocityAngular").bind(Vector3(0.0f, 6.3f, 0.0f))); // Toothless starts to rotate unwillingly
-    timer->Timer_AddEvent(93.0f, Callable(ctrl_camera, "TriggerApproachingPosition").bind(Vector3(7, 0.65, -7+0.45))); // the camera starts to approach Toothless
-    timer->Timer_AddEvent(99.0f, Callable(ctrl_camera, "TriggerApproachingPosition").bind(Vector3(3, 0.65, -3+0.45)));
-    timer->Timer_AddEvent(99.8f, Callable(ctrl_camera, "TriggerApproachingPosition").bind(Vector3(10, 8.65, -10+0.45))); // Toothless hit me with his tail
+    timer->Timer_AddEvent(93.5f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(Math_PI, Math_PI/4, -Math_PI), 1.0f));
+    timer->Timer_AddEvent(92.3f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(-Math_PI/2, -Math_PI/2, Math_PI)));
+    timer->Timer_AddEvent(93.5f, Callable(dragon_pilot, "SetVelocityAngular").bind(Vector3(0.0f, 6.3f, 0.0f))); // Toothless starts to rotate unwillingly
+    timer->Timer_AddEvent(93.0f, Callable(ctrl_camera, "TriggerApproachingPosition").bind(Vector3(7.0f, 0.65f, -7.0f))); // the camera starts to approach Toothless
+    timer->Timer_AddEvent(99.0f, Callable(ctrl_camera, "TriggerApproachingPosition").bind(Vector3(3.0f, 0.65f, -2.5f))); 
+    timer->Timer_AddEvent(99.8f, Callable(ctrl_camera, "TriggerApproachingPosition").bind(Vector3(10, 8, -10))); // Toothless hit me with his tail
     timer->Timer_AddEvent(99.8f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(0, Math_PI, -Math_PI), 2.0f)); // the camera is spinning for one round
-    timer->Timer_AddEvent(100.0f, Callable(dragon_control, "SetVelocityAngular").bind(Vector3(0, 3, 0))); // Toothless's spinning is alleviated
+    timer->Timer_AddEvent(100.0f, Callable(dragon_pilot, "SetVelocityAngular").bind(Vector3(0, 3, 0))); // Toothless's spinning is alleviated
     timer->Timer_AddEvent(101.0f, Callable(dragon_animator, "SetAnimation_Mouth").bind(2, 1.0f)); // Toothless closes his mouth
-    timer->Timer_AddEvent(101.4f, Callable(dragon_control, "SetVelocityAngular").bind(Vector3(0, 0, 0)));
-    timer->Timer_AddEvent(101.5f, Callable(ctrl_camera, "TriggerApproachingPosition").bind(Vector3(-2, 8.65, 6+0.45))); // Toothless hit me with his tail
+    timer->Timer_AddEvent(101.4f, Callable(dragon_pilot, "SetVelocityAngular").bind(Vector3(0, 0, 0)));
+    timer->Timer_AddEvent(101.5f, Callable(ctrl_camera, "TriggerApproachingPosition").bind(Vector3(-2, 8, 6)));
     timer->Timer_AddEvent(101.5f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(0, -Math_PI/2, -Math_PI/2), 1.0f)); // the camera is now facing downwards
-    timer->Timer_AddEvent(101.5f, Callable(dragon_control, "SetTargetRotation").bind(Vector3(0,-Math_PI/2, -Math_PI/2))); // straightly dive downwards
+    timer->Timer_AddEvent(101.5f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(0,-Math_PI/2, -Math_PI/2))); // straightly dive downwards
     timer->Timer_AddEvent(101.5f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.0f)); // Toothless opens his mouth to roar
     timer->Timer_AddEvent(102.0f, Callable(dragon_animator, "SetAnimation_Mouth").bind(2, 1.0f)); // Toothless closes his mouth
-    timer->Timer_AddEvent(103.0f, Callable(ctrl_camera, "TriggerApproachingPosition").bind(Vector3(0, -0.8, 0.8)));
+    timer->Timer_AddEvent(103.0f, Callable(ctrl_camera, "TriggerApproachingPosition").bind(Vector3(0.0f, 0.0f, 0.8f)));
     timer->Timer_AddEvent(103.0f, Callable(ctrl_camera, "SetCameraOffsetFactor").bind(1.0f));
-    timer->Timer_AddEvent(106.5f, Callable(ctrl_camera, "GrabSaddle")); // grab the saddle
+    timer->Timer_AddEvent(105.0f, Callable(ctrl_camera, "GrabSaddle")); // grab the saddle
     timer->Timer_AddEvent(106.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.5f)); // Toothless opens his mouth
     timer->Timer_AddEvent(108.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_dive")); // change the animation to po_dive
-    timer->Timer_AddEvent(112.5f, Callable(this, "AutoSave"));
+    if (!control_main->GetValDebug()) 
+    {
+        timer->Timer_AddEvent(112.5f, Callable(this, "AutoSave"));
+    }
     timer->Timer_AddEvent(113.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_crisis"));
-    timer->Timer_AddEvent(113.8f, Callable(dragon_control, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Final/Rock_Pillar_E_01")->get_global_transform().origin + Vector3(0, 15, 0), 9.5f)); // glide diagonal downwards
+    timer->Timer_AddEvent(113.8f, Callable(dragon_pilot, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Final/Rock_Pillar_E_01")->get_global_transform().origin + Vector3(0, 15, 0), 9.5f)); // glide diagonal downwards
     timer->Timer_AddEvent(113.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
-    timer->Timer_AddEvent(113.7f, Callable(dragon_control, "SetTargetRotation").bind(Vector3(-0.3f, -Math_PI/2 + 0.3f, -Math_PI/2 -0.3f)));
-    timer->Timer_AddEvent(113.8f, Callable(dragon_control, "SetTargetRotation").bind(Vector3(0.6f, -Math_PI/2 - 0.6f, -Math_PI/2 + 0.6f)));
-    timer->Timer_AddEvent(113.9f, Callable(dragon_control, "SetTargetRotation").bind(Vector3(0, -Math_PI/2, Math_PI/8))); // glide diagonal downwards
+    timer->Timer_AddEvent(113.7f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(-0.3f, -Math_PI/2 + 0.3f, -Math_PI/2 -0.3f)));
+    timer->Timer_AddEvent(113.8f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(0.6f, -Math_PI/2 - 0.6f, -Math_PI/2 + 0.6f)));
+    timer->Timer_AddEvent(113.9f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(0, -Math_PI/2, Math_PI/8))); // glide diagonal downwards
     timer->Timer_AddEvent(116.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-1, 0.33f)); // Toothless opens his mouth
     timer->Timer_AddEvent(120.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close"));
-    timer->Timer_AddEvent(120.1f, Callable(dragon_control, "SetTargetRotation").bind(Vector3(0,-Math_PI/2, 0))); // glide diagonal downwards
-    timer->Timer_AddEvent(121.7f, Callable(dragon_control, "SetState").bind(DragonState::STATE_CRISIS)); // fully retrieve the control and the tail wing is fully extended
+    timer->Timer_AddEvent(120.1f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(0,-Math_PI/2, 0))); // glide diagonal downwards
+    timer->Timer_AddEvent(121.7f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_CRISIS)); // fully retrieve the control and the tail wing is fully extended
     timer->Timer_AddEvent(121.7f, Callable(dragon_animator, "SetAnimation_Mouth").bind(4, 1.0f)); // Toothless closes his mouth
-    timer->Timer_AddEvent(121.7f, Callable(dragon_control, "SetStatus_Deferred").bind(Array{0}, 300.0f));
+    timer->Timer_AddEvent(121.7f, Callable(dragon_pilot, "SetStatus_Deferred").bind(Array{0}, 300.0f));
     timer->Timer_AddEvent(113.8f, Callable(ctrl_camera, "SetCameraStabilized").bind(true)); 
-    timer->Timer_AddEvent(129.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_ROLLING)); // automatically start getting to the position of upside down
-    timer->Timer_AddEvent(137.0f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED)); // successfully traversed the crisis and set the velocity to horizontal
+    timer->Timer_AddEvent(129.0f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_ROLLING)); // automatically start getting to the position of upside down
+    timer->Timer_AddEvent(137.0f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_DISABLED)); // successfully traversed the crisis and set the velocity to horizontal
     timer->Timer_AddEvent(137.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_glide")); 
     timer->Timer_AddEvent(137.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide"));
     timer->Timer_AddEvent(142.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "tr_glide_celebrate")); // change the animation to celebrate
     timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_eye_shape", "po_eye_big"));
     timer->Timer_AddEvent(143.5f, Callable(dragon_animator, "SetAnimation").bind("layer_mouth", "tr_glide_celebrate"));
-    timer->Timer_AddEvent(147.5f, Callable(dragon_control, "SetState").bind(DragonState::STATE_DISABLED));
+    timer->Timer_AddEvent(147.5f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_DISABLED));
     timer->Timer_AddEvent(147.5f, Callable(dragon_animator, "SetAnimation_Weight").bind("add_shake", 0.0f));
     timer->Timer_AddEvent(147.5f, Callable(this, "TakeRest")); 
 }
@@ -229,21 +239,20 @@ void Control_Scene_TD::TakeRest()
     Node3D* rocks = get_parent()->get_node<Node3D>("Rocks");
     Node3D* fog = get_parent()->get_node<Node3D>("Fog_Volume");
     Node3D* dragon_node = get_parent()->get_node<Node3D>("Dragon");
-    Node3D* toothless_node = get_parent()->get_node<Node3D>("Dragon/SpeciesSlot");
-    Node3D* sun_node = get_parent()->get_node<Node3D>("Sun");
-    if (rocks && fog && dragon_node && toothless_node && sun_node)
+    Node* sky_node = get_parent()->get_node<Node>("Sky3D");
+    if (rocks && fog && dragon_node && sky_node)
     {
         rocks->set_visible(false); // hide the rocks
         fog->set_visible(false); // hide the fog
+        sky_node->set("current_time", 19.25f); // set sky to evening time
+        sky_node->set("camera_exposure", 1.75f);
         dragon_node->set_position(Vector3(1025.584f, 6.443f, -813.842f));
-        dragon_node->set_rotation(Vector3(0.0f, Math::deg_to_rad(-90.0f), 0.0f)); // set the position and rotation of the dragon node
-        toothless_node->set_rotation(Vector3(0.0f, 0.0f, Math::deg_to_rad(14.3f)));
-    
-        sun_node->set("light_color", Color(1.164f, 0.989f, 0.76f));
+        dragon_node->set_rotation(Vector3(0.0f, Math::deg_to_rad(-90.0f), Math::deg_to_rad(14.8f)));
     }
     dragon_animator->SetAnimation("layer_wing_main", "po_rest");
-    ctrl_camera->camera_main->set_position(Vector3(-0.55f, -0.405f, -2.135f));
-    ctrl_camera->camera_main->set_rotation(Vector3(Math::deg_to_rad(0.0f), Math::deg_to_rad(-20.1f), Math::deg_to_rad(0.0f)));
+    ctrl_camera->camera_main->reparent(get_parent());
+    ctrl_camera->camera_main->set_position(Vector3(1027.504f, 6.733f, -814.004f));
+    ctrl_camera->camera_main->set_rotation(Vector3(0.0f, Math::deg_to_rad(-111.0f), 0.0f));
 
     // complete this Test Drive and update badge.
     _update_badge_on_completion();
@@ -251,11 +260,11 @@ void Control_Scene_TD::TakeRest()
 
 void Control_Scene_TD::AutoSave()
 {
-    if (save_manager && timer && dragon_control) 
+    if (save_manager && timer && dragon_pilot) 
     {
         Dictionary data_all;
         data_all["time"] = timer->Timer_GetTimeElapsed();
-        Dictionary data_dragon = dragon_control->GetStatus();
+        Dictionary data_dragon = dragon_pilot->GetStatus();
         Array keys = data_dragon.keys();
         for (int i = 0; i < keys.size(); i++) 
         {
@@ -301,7 +310,7 @@ void Control_Scene_TD::_input(const Ref<InputEvent> &event)
     {
         Dictionary data_all;
         data_all["time"] = timer->Timer_GetTimeElapsed();
-        Dictionary data_dragon = dragon_control->GetStatus();
+        Dictionary data_dragon = dragon_pilot->GetStatus();
         Array keys = data_dragon.keys();
         for (int i = 0; i < keys.size(); i++) 
         {
@@ -323,8 +332,8 @@ void Control_Scene_TD::_input(const Ref<InputEvent> &event)
         {
             video_player->set_stream_position(time_elapsed);
         }
-        dragon_control->SetStatus(data_all); 
-        dragon_control->time_to_target = 0.1f;
+        dragon_pilot->SetStatus(data_all); 
+        dragon_pilot->time_to_target = 0.1f;
         ctrl_camera->SetCameraStabilized(false);
         used_load_state = true;
         // after loading a save, clear only Area2 trigger state.

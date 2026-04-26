@@ -8,6 +8,7 @@
 #include <godot_cpp/classes/file_access.hpp>
 #include <godot_cpp/classes/json.hpp>
 #include <godot_cpp/classes/os.hpp>
+#include <godot_cpp/classes/project_settings.hpp>
 
 using namespace godot;
 
@@ -26,10 +27,16 @@ SaveManager::~SaveManager()
 }
 
 /**
- * @brief get the directory where the executable is located
+ * @brief get save base directory for current runtime environment
  */
 String SaveManager::get_executable_directory()
 {
+    if (OS::get_singleton()->has_feature("editor"))
+    {
+        // In editor/debug runs, store data in the project root (res://).
+        return ProjectSettings::get_singleton()->globalize_path("res://").rstrip("/");
+    }
+
     String executable_path = OS::get_singleton()->get_executable_path();
     return executable_path.get_base_dir();
 }
