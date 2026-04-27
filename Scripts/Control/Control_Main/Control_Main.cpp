@@ -102,7 +102,12 @@ void Control_Main::Switch_Scene(const String &scene_name)
 {
     // UtilityFunctions::print("Button clicked!");
     // UtilityFunctions::print("Switching to scene: " + scene_name);
-    Ref<PackedScene> scene = ResourceLoader::get_singleton()->load("res://Scenes/" + scene_name + ".tscn");
+    String resolved_scene_name = scene_name;
+    if (scene_name == "Scene_TD" && enable_headset)
+    {
+        resolved_scene_name = "Scene_TD_VR";
+    }
+    Ref<PackedScene> scene = ResourceLoader::get_singleton()->load("res://Scenes/" + resolved_scene_name + ".tscn");
     if (scene.is_valid()) 
     {
         // clean up current scene before loading new one
@@ -112,6 +117,7 @@ void Control_Main::Switch_Scene(const String &scene_name)
         scene_names.push_back("Scene_Tutorial");
         scene_names.push_back("Scene_Practice");
         scene_names.push_back("Scene_TD");
+        scene_names.push_back("Scene_TD_VR");
         scene_names.push_back("Scene_Dodge");
         
         for (int i = 0; i < scene_names.size(); i++) 
@@ -153,7 +159,7 @@ void Control_Main::Switch_Scene(const String &scene_name)
     }
     else
     {
-        UtilityFunctions::printerr("Failed to load", scene_name, ".tscn");
+        UtilityFunctions::printerr("Failed to load", resolved_scene_name, ".tscn");
     }
 }
 

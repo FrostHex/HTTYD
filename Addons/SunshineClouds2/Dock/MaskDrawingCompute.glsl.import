@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://ck1yv82gbxncv"
+path="res://.godot/imported/MaskDrawingCompute.glsl-8cb228c8a40dfe2b768404a0b360fb63.res"
+
+[deps]
+
+source_file="res://Addons/SunshineClouds2/Dock/MaskDrawingCompute.glsl"
+dest_files=["res://.godot/imported/MaskDrawingCompute.glsl-8cb228c8a40dfe2b768404a0b360fb63.res"]
+
+[params]
+

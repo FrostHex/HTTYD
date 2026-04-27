@@ -18,6 +18,8 @@
 [ext_resource type="Script" uid="uid://b4tkplvh7fq40" path="res://Addons/sky_3d/src/SkyDome.gd" id="9_f234u"]
 [ext_resource type="Script" uid="uid://cjmkcj8hwm7ts" path="res://Addons/sky_3d/src/TimeOfDay.gd" id="10_bo2qs"]
 [ext_resource type="PackedScene" uid="uid://c74y6c048cr3i" path="res://Scenes/Rocks/Pillar/Rock_Pillar_E.tscn" id="10_j2myj"]
+[ext_resource type="CompositorEffect" uid="uid://dhl44j31e7a3v" path="res://Environment/Cloud/CloudSettings.tres" id="11_cloud"]
+[ext_resource type="Script" uid="uid://djusduuxf0voj" path="res://Addons/SunshineClouds2/SunshineCloudsDriver.gd" id="11_cxxjq"]
 [ext_resource type="PackedScene" uid="uid://dlolbj7a40xmc" path="res://Scenes/Rocks/Basic/Rock_CA.tscn" id="11_r6yhq"]
 [ext_resource type="PackedScene" uid="uid://b48qubstjctb5" path="res://Scenes/Rocks/Basic/Rock_BA.tscn" id="12_kt7wv"]
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragons/Dragon.tscn" id="13_4puyq"]
@@ -70,7 +72,7 @@ shader_parameter/star_scintillation = 0.75
 shader_parameter/star_scintillation_speed = 0.01
 shader_parameter/noise_tex = ExtResource("5_r6yhq")
 shader_parameter/clouds_night_color = Color(0.090196, 0.094118, 0.129412, 1)
-shader_parameter/cirrus_visible = true
+shader_parameter/cirrus_visible = false
 shader_parameter/cirrus_intensity = 2.0
 shader_parameter/cirrus_coverage = 0.5
 shader_parameter/cirrus_thickness = 1.7
@@ -78,10 +80,10 @@ shader_parameter/cirrus_absorption = 2.0
 shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.014094931, 0.014094931)
-shader_parameter/cirrus_position2 = Vector2(0.014094931, 0.014094931)
+shader_parameter/cirrus_position1 = Vector2(0.04464154, 0.04464154)
+shader_parameter/cirrus_position2 = Vector2(0.04464154, 0.04464154)
 shader_parameter/cirrus_texture = ExtResource("2_cxxjq")
-shader_parameter/cumulus_visible = true
+shader_parameter/cumulus_visible = false
 shader_parameter/cumulus_intensity = 0.6
 shader_parameter/cumulus_coverage = 0.55
 shader_parameter/cumulus_thickness = 0.0243
@@ -89,7 +91,7 @@ shader_parameter/cumulus_absorption = 2.0
 shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(0.07047476, 0.07047476)
+shader_parameter/cumulus_position = Vector2(0.22321261, 0.22321261)
 shader_parameter/cumulus_texture = ExtResource("3_80ukq")
 shader_parameter/cumulus_partial_mie_phase = Vector3(0.957564, 1.042436, 0.412)
 shader_parameter/cumulus_mie_intensity = 1.0
@@ -126,11 +128,13 @@ volumetric_fog_density = 0.0
 volumetric_fog_emission = Color(1, 1, 1, 1)
 volumetric_fog_length = 20000.0
 adjustment_enabled = true
-adjustment_brightness = 0.9
 adjustment_contrast = 1.15
 adjustment_saturation = 0.8
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5ljp4"]
+
+[sub_resource type="Compositor" id="Compositor_td_cloud"]
+compositor_effects = Array[CompositorEffect]([ExtResource("11_cloud")])
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_td_area1"]
 size = Vector3(175.30249, 361.4771, 297.47192)
@@ -149,7 +153,9 @@ size = Vector3(210.19556, 299.77203, 63.351654)
 [node name="Sky3D" type="WorldEnvironment" parent="." unique_id=1936253093]
 environment = SubResource("Environment_y14w3")
 camera_attributes = SubResource("CameraAttributesPractical_5ljp4")
+compositor = SubResource("Compositor_td_cloud")
 script = ExtResource("8_lvt7o")
+clouds_enabled = false
 fog_enabled = false
 current_time = 10.22
 minutes_per_day = 0.0
@@ -184,6 +190,8 @@ moon_azimuth = -1.6731699
 moon_altitude = -1.2216729
 fog_visible = false
 wind_direction = 2.35619451204804
+cirrus_visible = false
+cumulus_visible = false
 
 [node name="TimeOfDay" type="Node" parent="Sky3D" unique_id=639778423]
 script = ExtResource("10_bo2qs")
@@ -197,6 +205,17 @@ year = 2010
 latitude = 1.0806497533707977
 longitude = -0.12217304763960307
 utc = 1.0
+
+[node name="SunshineCloudsDriverGD" type="Node" parent="." unique_id=70034618 node_paths=PackedStringArray("tracked_directional_lights")]
+script = ExtResource("11_cxxjq")
+clouds_resource = ExtResource("11_cloud")
+tracked_directional_lights = [NodePath("../Sky3D/SunLight")]
+tracked_directional_light_shadow_steps = Array[int]([32])
+extra_large_structures_wind_speed = 0.0
+large_structures_wind_speed = 0.0
+medium_structures_wind_speed = 0.0
+small_structures_wind_speed = 0.0
+metadata/_custom_type_script = "uid://djusduuxf0voj"
 
 [node name="Fog_Volume" type="FogVolume" parent="." unique_id=1374093389]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -718.279, 115.899, 3129.9905)
