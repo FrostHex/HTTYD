@@ -113,28 +113,17 @@ Plugins others than Godot-cpp are not imported as submodules, so they need to be
 ## License & Third-Party Assets
 
 All content in this repository that is not mentioned in this section is covered by the **MIT** License.
-- `./Dragons/Toothless/` \
-  Contains the compressed blender project and exported models, which are licensed under **GNU GPL v3.0** by Frost Hex
 
 Third-party assets for development used in this project are as follows:
-- `./Addons/godot-cpp/` \
-  https://github.com/godotengine/godot-cpp
-- `./Addons/godot-xr-tools/` \
-  https://github.com/GodotVR/godot-xr-tools
-- `./Addons/sky_3d/` \
-  https://github.com/TokisanGames/Sky3D
-- `./Dragons/Gronckle/` \
-  Gronckle model from https://models.spriters-resource.com/pc_computer/schoolofdragons/asset/330251/
-- `./Ocean/` \
-  Skybox and ocean surface from https://github.com/2Retr0/GodotOceanWaves
-- `./Trees/` \
-  Trees from https://www.fab.com/listings/295bd6bb-7955-40c7-b344-17e289db73ea
-- `./Scripts/Utils/sunset-1.1.7/` \
-  Sunset and sunrise time calculation library from https://github.com/buelowp/sunset
-- `./Rocks/`   \
-  Rock textures and original models from Unity HDRP WaterScenes Demo sample project https://github.com/Unity-Technologies/WaterScenes, licensed under **Unity Package Distribution License v2.1**  
-- `./Image/paper.png` \
-  Parchment image from Huaban https://huaban.com/pins/4028637372/
+- `./Addons/godot-cpp/` [Godot Cpp](https://github.com/godotengine/godot-cpp)
+- `./Addons/godot-xr-tools/` [Godot XR Tools](https://github.com/GodotVR/godot-xr-tools)
+- `./Addons/sky_3d/` [Skybox](https://github.com/TokisanGames/Sky3D)
+- `./Dragons/Gronckle/` [Gronckle Model](https://models.spriters-resource.com/pc_computer/schoolofdragons/asset/330251/)
+- `./Image/paper.png` [Parchment Image](https://huaban.com/pins/4028637372/)
+- `./Ocean/` [Ocean Surface](https://github.com/2Retr0/GodotOceanWaves)
+- `./Rocks/` [Rock Models & Textures](https://github.com/Unity-Technologies/WaterScenes)
+- `./Scripts/Utils/sunset-1.1.7/` [Sunset & Sunrise Time Calculation](https://github.com/buelowp/sunset)
+- `./Trees/` [Trees](https://www.fab.com/listings/295bd6bb-7955-40c7-b344-17e289db73ea)
 
 Music and video clips used in this project are as follows:
 - Test Drive clip and soundtrack from the movie How to Train Your Dragon
