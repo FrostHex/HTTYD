@@ -23,6 +23,7 @@ namespace godot
             void SetMotionAngularCrisis(double delta) override;
 
         private:
+            void RefreshXRControllers();
             XRController3D *hand_left = nullptr;
             XRController3D *hand_right = nullptr;
             bool y_button_prev = false; // edge detection for Y/B button

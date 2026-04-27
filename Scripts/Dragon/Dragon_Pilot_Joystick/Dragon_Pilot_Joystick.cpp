@@ -12,6 +12,7 @@
 #include <godot_cpp/godot.hpp> // for JoyAxis enum
 #include <godot_cpp/classes/node3d.hpp>
 #include <godot_cpp/classes/scene_tree.hpp>
+#include <godot_cpp/classes/window.hpp>
 #include <godot_cpp/classes/xr_controller3d.hpp>
 
 using namespace godot;
@@ -30,6 +31,40 @@ Dragon_Pilot_Joystick::Dragon_Pilot_Joystick()
  */
 Dragon_Pilot_Joystick::~Dragon_Pilot_Joystick() 
 {
+}
+
+
+void Dragon_Pilot_Joystick::RefreshXRControllers()
+{
+    Node3D *camera_node = nullptr;
+
+    // Prefer resolving Camera_Main from the current species root under Dragon/SpeciesSlot.
+    Node *species_slot = get_parent() ? get_parent()->get_node_or_null(NodePath("SpeciesSlot")) : nullptr;
+    if (species_slot && species_slot->get_child_count() > 0)
+    {
+        Node *species_root = species_slot->get_child(species_slot->get_child_count() - 1);
+        camera_node = species_root ? Object::cast_to<Node3D>(species_root->get_node_or_null(NodePath("Sockets/Socket_Back_Mount/Socket_Back/Camera_Main"))) : nullptr;
+    }
+
+    if (!camera_node && ctrl_camera)
+    {
+        camera_node = ctrl_camera->camera_main;
+    }
+
+    if (!camera_node && get_tree() && get_tree()->get_root())
+    {
+        camera_node = Object::cast_to<Node3D>(get_tree()->get_root()->get_node_or_null(NodePath("Main/Camera_Main")));
+    }
+
+    if (!camera_node)
+    {
+        hand_left = nullptr;
+        hand_right = nullptr;
+        return;
+    }
+
+    hand_left = Object::cast_to<XRController3D>(camera_node->get_node_or_null(NodePath("XR/XROrigin/LeftHand")));
+    hand_right = Object::cast_to<XRController3D>(camera_node->get_node_or_null(NodePath("XR/XROrigin/RightHand")));
 }
 
 
@@ -54,15 +89,18 @@ void Dragon_Pilot_Joystick::_ready()
         UtilityFunctions::print("OpenXR not initialized, please check if your headset is connected");
     }
 
-    // get the XR controllers
-    hand_left = get_parent()->get_node<XRController3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back_Mount/Socket_Back/Camera_Main/XR/XROrigin/LeftHand");
-    hand_right = get_parent()->get_node<XRController3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back_Mount/Socket_Back/Camera_Main/XR/XROrigin/RightHand");
+    RefreshXRControllers();
 }
 
 void Dragon_Pilot_Joystick::_physics_process(double delta)
 {
     // run base state machine first
     Dragon_Pilot_Top::_physics_process(delta);
+
+    if (!hand_left || !hand_right || !hand_left->is_inside_tree() || !hand_right->is_inside_tree())
+    {
+        RefreshXRControllers();
+    }
 
     // Edge-detect Y button click on the LEFT hand only (ignore B on right hand)
     bool y_pressed = false;
@@ -90,6 +128,19 @@ void Dragon_Pilot_Joystick::_physics_process(double delta)
  */
 void Dragon_Pilot_Joystick::GetInput(float* input_keys) 
 {
+        if (!hand_left || !hand_right)
+        {
+            RefreshXRControllers();
+        }
+
+        if (!hand_left || !hand_right)
+        {
+            input_keys[0] = 0.0f;
+            input_keys[1] = 0.0f;
+            input_keys[2] = 0.0f;
+            return;
+        }
+
         input_keys[0] = hand_left->get_float("trigger") - hand_right->get_float("trigger");
         input_keys[1] = - hand_left->get_vector2("primary").y; // hand_left->get_vector2("primary") is Vector2. ~.y is float
         input_keys[2] = hand_right->get_vector2("primary").x;

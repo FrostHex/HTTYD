@@ -1,6 +1,6 @@
 {
 	"language": 0.0,
-	"enable_headset": false,
+	"enable_headset": true,
 	"sub_view": true,
 	"debug": true,
 	"badge": 3.0
