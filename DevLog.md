@@ -168,6 +168,7 @@
 ### v1.2.1
 - Fix several problems of Test Drive in both Non-VR mode and VR mode
 - A circle shape of the background ocean, and slightly blend the ocean with the skyline
+- Color adjustment for Test Drive
 
 ----------
 TODO:
@@ -176,5 +177,5 @@ TODO:
 - 试试新的体积云
 - 试试shader整个火和电浆炮
 ### 旧细节优化
-- 测一下VR模式尾杀相机和龙的角度
+- Disable the cloud after TD
 - 牙的牙穿模怎么回事

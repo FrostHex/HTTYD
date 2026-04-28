@@ -18,6 +18,8 @@
 #include <godot_cpp/variant/callable.hpp>
 #include <godot_cpp/classes/timer.hpp>
 #include <godot_cpp/classes/window.hpp> // for Window class
+#include <godot_cpp/classes/world_environment.hpp>
+#include <godot_cpp/classes/environment.hpp>
 
 
 using namespace godot;
@@ -246,8 +248,20 @@ void Control_Scene_TD::TakeRest()
         fog->set_visible(false); // hide the fog
         sky_node->set("current_time", 19.25f); // set sky to evening time
         sky_node->set("camera_exposure", 1.75f);
+        WorldEnvironment *sky_env = Object::cast_to<WorldEnvironment>(sky_node);
+        if (sky_env)
+        {
+            Ref<Environment> env = sky_env->get_environment();
+            if (env.is_valid())
+            {
+                env->set("adjustment_brightness", 1.0f);
+                env->set("adjustment_contrast", 0.9f);
+                env->set("adjustment_saturation", 1.0f);
+            }
+        }
         dragon_node->set_position(Vector3(1025.584f, 6.443f, -813.842f));
         dragon_node->set_rotation(Vector3(0.0f, Math::deg_to_rad(-90.0f), Math::deg_to_rad(14.8f)));
+        
     }
     dragon_animator->SetAnimation("layer_wing_main", "po_rest");
     ctrl_camera->camera_main->reparent(get_parent());

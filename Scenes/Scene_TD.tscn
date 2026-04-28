@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://lqe1phtle7us" path="res://Media/Audio/Test Drive.wav" id="14_lvt7o"]
 [ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="15_f234u"]
 [ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="16_bo2qs"]
+[ext_resource type="CompressedTexture3D" uid="uid://bjaeyfut6wxgb" path="res://Environment/ColorCorrection/warm_yellow_lut.png" id="17_warmcc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0wu3y"]
 shader = ExtResource("1_rc3a8")
@@ -128,8 +129,10 @@ volumetric_fog_density = 0.0
 volumetric_fog_emission = Color(1, 1, 1, 1)
 volumetric_fog_length = 20000.0
 adjustment_enabled = true
-adjustment_contrast = 1.15
-adjustment_saturation = 0.8
+adjustment_brightness = 0.95
+adjustment_contrast = 1.1
+adjustment_saturation = 0.7
+adjustment_color_correction = ExtResource("17_warmcc")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5ljp4"]
 
