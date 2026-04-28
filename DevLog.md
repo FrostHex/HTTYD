@@ -172,10 +172,12 @@
 
 ----------
 TODO:
-### 试试新东西
-- 试试ik
-- 试试新的体积云
-- 试试shader整个火和电浆炮
-### 旧细节优化
-- Disable the cloud after TD
-- 牙的牙穿模怎么回事
+### Bug Fixes & Optimization
+- Disable the volumetric cloud after TD
+- Refactor the save file system: make it expandable
+- VR hand position is off during falling state
+- Toothless's teeth clipping through the jaw when his mouth is closed
+### Try Some New Stuff
+- Add some seagulls
+- Try creating the campfire and plasma blast using shader
+- Try the IK 

@@ -184,7 +184,7 @@ func build_new_clouds():
 #Disables the previous clouds when removing them.
 func clouds_res_removed():
 	if clouds_resource && is_inside_tree():
-		var env : WorldEnvironment = recursively_find_env(get_tree().root)
+		var env : WorldEnvironment = _resolve_world_environment()
 		if env && env.compositor != null:
 			var effects = env.compositor.compositor_effects
 			effects.erase(clouds_resource)
@@ -193,7 +193,7 @@ func clouds_res_removed():
 #Enables new clouds when adding them
 func clouds_res_added():
 	if clouds_resource && is_inside_tree():
-		var env : WorldEnvironment = recursively_find_env(get_tree().root)
+		var env : WorldEnvironment = _resolve_world_environment()
 		if env:
 			if not env.compositor:
 				env.compositor = Compositor.new()
@@ -202,6 +202,15 @@ func clouds_res_added():
 				var effects = env.compositor.compositor_effects
 				effects.append(clouds_resource)
 				env.compositor.compositor_effects = effects
+
+func _resolve_world_environment() -> WorldEnvironment:
+	# Prefer the environment under the same scene branch as this driver.
+	# During scene switching, searching from tree root can pick a stale scene.
+	var local_root : Node = get_parent() if get_parent() != null else self
+	var env : WorldEnvironment = recursively_find_env(local_root)
+	if env:
+		return env
+	return recursively_find_env(get_tree().root)
 
 func recursively_find_env(thisNode: Node) -> WorldEnvironment:
 	for child in thisNode.get_children():

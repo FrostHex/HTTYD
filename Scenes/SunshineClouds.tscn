@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://hqvnoqbjxd27"]
+
+[ext_resource type="Script" uid="uid://djusduuxf0voj" path="res://Addons/SunshineClouds2/SunshineCloudsDriver.gd" id="1_o0wq0"]
+[ext_resource type="CompositorEffect" uid="uid://dhl44j31e7a3v" path="res://Environment/Cloud/CloudSettings.tres" id="2_rnec8"]
+
+[node name="SunshineCloudsDriverGD" type="Node" unique_id=446846247 node_paths=PackedStringArray("tracked_directional_lights")]
+script = ExtResource("1_o0wq0")
+clouds_resource = ExtResource("2_rnec8")
+tracked_directional_lights = [null]
+tracked_directional_light_shadow_steps = Array[int]([32])
+extra_large_structures_wind_speed = 0.0
+large_structures_wind_speed = 0.0
+medium_structures_wind_speed = 0.0
+small_structures_wind_speed = 0.0
+metadata/_custom_type_script = "uid://djusduuxf0voj"

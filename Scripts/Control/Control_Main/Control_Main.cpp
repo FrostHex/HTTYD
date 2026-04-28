@@ -23,6 +23,8 @@
 #include <godot_cpp/classes/xr_server.hpp>
 #include <godot_cpp/classes/xr_interface.hpp>
 #include <godot_cpp/classes/window.hpp>
+#include <godot_cpp/variant/array.hpp>
+#include <godot_cpp/variant/node_path.hpp>
 
 using namespace godot;
 
@@ -102,12 +104,7 @@ void Control_Main::Switch_Scene(const String &scene_name)
 {
     // UtilityFunctions::print("Button clicked!");
     // UtilityFunctions::print("Switching to scene: " + scene_name);
-    String resolved_scene_name = scene_name;
-    if (scene_name == "Scene_TD" && enable_headset)
-    {
-        resolved_scene_name = "Scene_TD_VR";
-    }
-    Ref<PackedScene> scene = ResourceLoader::get_singleton()->load("res://Scenes/" + resolved_scene_name + ".tscn");
+    Ref<PackedScene> scene = ResourceLoader::get_singleton()->load("res://Scenes/" + scene_name + ".tscn");
     if (scene.is_valid()) 
     {
         // clean up current scene before loading new one
@@ -139,6 +136,10 @@ void Control_Main::Switch_Scene(const String &scene_name)
 
         if (scene_name == "Scene_TD")
         {
+            if (!enable_headset)
+            {
+                call_deferred("AttachSunshineClouds", scene_name);
+            }
             Node *node_cheat_sheet = memnew(CheatSheet);
             new_scene->get_node<Node>("Dragon")->add_child(node_cheat_sheet);
             node_cheat_sheet->set_name("CheatSheet");
@@ -159,7 +160,7 @@ void Control_Main::Switch_Scene(const String &scene_name)
     }
     else
     {
-        UtilityFunctions::printerr("Failed to load", resolved_scene_name, ".tscn");
+        UtilityFunctions::printerr("Failed to load", scene_name, ".tscn");
     }
 }
 
@@ -184,6 +185,43 @@ void Control_Main::AttachCamera(const String &scene_name)
     camera_main->reparent(socket_back);
     camera_main->set_position(Vector3(0, 0, 0));
     camera_main->set_rotation(Vector3(0, 0, 0));
+}
+
+void Control_Main::AttachSunshineClouds(const String &scene_name)
+{
+    Node *target_scene = get_parent()->get_node_or_null(NodePath(scene_name));
+    if (!target_scene)
+    {
+        // Scene add_child is also deferred in Switch_Scene, so retry next idle frame.
+        call_deferred("AttachSunshineClouds", scene_name);
+        return;
+    }
+    if (!target_scene->is_inside_tree())
+    {
+        call_deferred("AttachSunshineClouds", scene_name);
+        return;
+    }
+    if (target_scene->get_node_or_null(NodePath("SunshineClouds")))
+    {
+        return;
+    }
+
+    Ref<PackedScene> clouds_scene = ResourceLoader::get_singleton()->load("res://Scenes/SunshineClouds.tscn");
+    if (!clouds_scene.is_valid())
+    {
+        UtilityFunctions::printerr("SunshineClouds.tscn not found.");
+        return;
+    }
+
+    Node *clouds_node = clouds_scene->instantiate();
+    if (!clouds_node)
+    {
+        return;
+    }
+
+    target_scene->add_child(clouds_node);
+    clouds_node->set_name("SunshineClouds");
+    clouds_node->call_deferred("clouds_res_added");
 }
 
 
@@ -291,6 +329,7 @@ void Control_Main::_bind_methods()
     // Expose Switch_Scene so it can be called via Node.call
     ClassDB::bind_method(D_METHOD("Switch_Scene", "scene_name"), &Control_Main::Switch_Scene);
     ClassDB::bind_method(D_METHOD("AttachCamera", "scene_name"), &Control_Main::AttachCamera);
+    ClassDB::bind_method(D_METHOD("AttachSunshineClouds", "scene_name"), &Control_Main::AttachSunshineClouds);
     
     ClassDB::bind_method(D_METHOD("language_setter", "value"), &Control_Main::SetValLanguage);
     ClassDB::bind_method(D_METHOD("language_getter"), &Control_Main::GetValLanguage);
