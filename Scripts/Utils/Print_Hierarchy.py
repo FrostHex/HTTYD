@@ -78,7 +78,7 @@ def tree(dir_path='./../../', prefix='', ignore_dot_folders=False):
 
 def output(text):
     """write the generated text into the Project Hierarchy code block in Documentation.md."""
-    devnote_path = os.path.join(os.path.dirname(__file__), './../../Documentation.md')
+    devnote_path = os.path.join(os.path.dirname(__file__), './../../Media/Docs/Documentation.md')
     devnote_path = os.path.normpath(devnote_path)
     
     try:

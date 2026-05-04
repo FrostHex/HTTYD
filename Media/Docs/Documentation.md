@@ -1,4 +1,4 @@
-# Documentation - v1.0.1
+# Documentation
 --------------------------------------------------
 ## 1. Project Hierarchy
 - `./Addons/` contains the plugins.
@@ -11,8 +11,6 @@
 - Here is the detailed hierarchy of the project structure:
     ```
     ├── Addons/
-    ├── DevLog.md
-    ├── Documentation.md
     ├── Dragons/
     │   ├── Gronckle/
     │   │   ├── Gronckle.glb
@@ -25,6 +23,9 @@
     │       └── Toothless_eye.png
     ├── Environment/
     │   ├── Cloud/
+    │   ├── ColorCorrection/
+    │   │   ├── identity_lut.png
+    │   │   └── warm_yellow_lut.png
     │   ├── Fog/
     │   ├── Metal/
     │   ├── Mountain/
@@ -38,6 +39,10 @@
     │   │   ├── Pathfinder.wav
     │   │   └── Test Drive.wav
     │   ├── Demo/
+    │   ├── Docs/
+    │   │   ├── Changelog.md
+    │   │   ├── DevLog.md
+    │   │   └── Documentation.md
     │   ├── Image/
     │   │   ├── badge_1.png
     │   │   ├── badge_2.png
@@ -50,6 +55,12 @@
     │   └── Video/
     │       └── Test Drive.ogv
     ├── README.md
+    ├── Saves/
+    │   ├── Save.json
+    │   ├── Settings.json
+    │   ├── Start_Flying_Up.json
+    │   ├── The_End.json
+    │   └── Through_the_Bridge.json
     ├── Scenes/
     │   ├── Dragons/
     │   │   ├── Dragon.tscn
@@ -66,6 +77,8 @@
     │   ├── Scene_Practice.tscn
     │   ├── Scene_TD.tscn
     │   ├── Scene_Tutorial.tscn
+    │   ├── SunshineClouds.tscn
+    │   ├── SunshineClouds_Test.tscn
     │   ├── Tree.tscn
     │   └── XR.tscn
     ├── Scripts/
@@ -79,19 +92,25 @@
     │   │   ├── Control_Main/
     │   │   │   ├── Control_Main.cpp
     │   │   │   └── Control_Main.h
-    │   │   └── Control_Scene/
-    │   │       ├── Control_Scene_Home/
-    │   │       │   ├── Control_Scene_Home.cpp
-    │   │       │   └── Control_Scene_Home.h
-    │   │       ├── Control_Scene_Practice/
-    │   │       │   ├── Control_Scene_Practice.cpp
-    │   │       │   └── Control_Scene_Practice.h
-    │   │       ├── Control_Scene_TD/
-    │   │       │   ├── Control_Scene_TD.cpp
-    │   │       │   └── Control_Scene_TD.h
-    │   │       └── Control_Scene_Tutorial/
-    │   │           ├── Control_Scene_Tutorial.cpp
-    │   │           └── Control_Scene_Tutorial.h
+    │   │   ├── Control_Scene/
+    │   │   │   ├── Control_Scene_Dodge/
+    │   │   │   │   ├── Control_Scene_Dodge.cpp
+    │   │   │   │   └── Control_Scene_Dodge.h
+    │   │   │   ├── Control_Scene_Home/
+    │   │   │   │   ├── Control_Scene_Home.cpp
+    │   │   │   │   └── Control_Scene_Home.h
+    │   │   │   ├── Control_Scene_Practice/
+    │   │   │   │   ├── Control_Scene_Practice.cpp
+    │   │   │   │   └── Control_Scene_Practice.h
+    │   │   │   ├── Control_Scene_TD/
+    │   │   │   │   ├── Control_Scene_TD.cpp
+    │   │   │   │   └── Control_Scene_TD.h
+    │   │   │   └── Control_Scene_Tutorial/
+    │   │   │       ├── Control_Scene_Tutorial.cpp
+    │   │   │       └── Control_Scene_Tutorial.h
+    │   │   └── Control_Top/
+    │   │       ├── Control_Top.cpp
+    │   │       └── Control_Top.h
     │   ├── Dragon/
     │   │   ├── Dragon_Animator/
     │   │   │   ├── Dragon_Animator.cpp
@@ -123,11 +142,21 @@
     │   │   ├── Rocks_Substitution_Basic.gd
     │   │   ├── Rocks_Substitution_Pillar.gd
     │   │   ├── SetAnimationPlayer.gd
-    │   │   └── SuitPlugins.py
+    │   │   ├── SuitPlugins.py
+    │   │   └── sunset-1.1.7/
+    │   │       ├── CMakeLists.txt
+    │   │       ├── CustomizedPatch/
+    │   │       │   ├── SunsetBridge.cpp
+    │   │       │   └── SunsetBridge.h
+    │   │       ├── LICENSE
+    │   │       ├── README.md
+    │   │       ├── library.properties
+    │   │       └── src/
+    │   │           ├── sunset.cpp
+    │   │           └── sunset.h
     │   └── build/
     ├── export_presets.cfg
-    ├── project.godot
-    └── verbose log.txt
+    └── project.godot
     ```
 
 
