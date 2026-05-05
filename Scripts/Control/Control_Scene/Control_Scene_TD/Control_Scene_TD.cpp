@@ -261,7 +261,6 @@ void Control_Scene_TD::TakeRest()
         }
         dragon_node->set_position(Vector3(1025.584f, 6.443f, -813.842f));
         dragon_node->set_rotation(Vector3(0.0f, Math::deg_to_rad(-90.0f), Math::deg_to_rad(14.8f)));
-        
     }
     dragon_animator->SetAnimation("layer_wing_main", "po_rest");
     dragon_animator->SetAnimation("layer_mouth", "po_mouth_close");

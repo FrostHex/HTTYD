@@ -38,6 +38,9 @@ void CheatSheet::_ready()
         return;
     }
 
+    rng.instantiate();
+    rng->randomize();
+
     mesh = get_parent()->get_node<MeshInstance3D>("SpeciesSlot/ToothlessRoot/Model/Toothless/rig/Skeleton3D/cheat_sheet");
     dragon = get_parent()->get_parent()->get_node<RigidBody3D>("Dragon");
     pickable = nullptr;
@@ -149,17 +152,18 @@ void CheatSheet::ProcessDetatched(double delta)
 
     // rotate the cheat sheet randomly
     Transform3D transform = pickable->get_transform();
-    float random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    float random_angle = rng.is_valid() ? rng->randf_range(0.0f, 0.15f) : 0.0f;
     transform.basis = transform.basis.rotated(transform.basis.get_column(0), random_angle); // rotate around x-axis
-    random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    random_angle = rng.is_valid() ? rng->randf_range(0.0f, 0.15f) : 0.0f;
     transform.basis = transform.basis.rotated(transform.basis.get_column(1), random_angle); // rotate around y-axis
-    random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    random_angle = rng.is_valid() ? rng->randf_range(0.0f, 0.15f) : 0.0f;
     transform.basis = transform.basis.rotated(transform.basis.get_column(2), random_angle); // rotate around z-axis
     pickable->set_transform(transform);
     // move the cheat sheet towards the ground
     Vector3 global_pos = pickable->get_global_position();
     global_pos += detatch_direction * flutter_speed;
-    global_pos.y -= 0.01f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * flutter_speed;
+    float flutter_jitter = rng.is_valid() ? rng->randf_range(0.0f, flutter_speed) : 0.0f;
+    global_pos.y -= 0.01f + flutter_jitter;
     pickable->set_global_position(global_pos);
 
     detatch_position = pickable->get_position();
@@ -186,11 +190,11 @@ void CheatSheet::ProcessDiscarded(double delta)
 {
     // rotate the cheat sheet randomly
     Transform3D transform = pickable->get_transform();
-    float random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    float random_angle = rng.is_valid() ? rng->randf_range(0.0f, 0.15f) : 0.0f;
     transform.basis = transform.basis.rotated(transform.basis.get_column(0), random_angle); // rotate around x-axis
-    random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    random_angle = rng.is_valid() ? rng->randf_range(0.0f, 0.15f) : 0.0f;
     transform.basis = transform.basis.rotated(transform.basis.get_column(1), random_angle); // rotate around y-axis
-    random_angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.15f;
+    random_angle = rng.is_valid() ? rng->randf_range(0.0f, 0.15f) : 0.0f;
     transform.basis = transform.basis.rotated(transform.basis.get_column(2), random_angle); // rotate around z-axis
     pickable->set_transform(transform);
     // move the cheat sheet

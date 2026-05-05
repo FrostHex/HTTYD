@@ -3,6 +3,7 @@
 
 #include <godot_cpp/classes/node3d.hpp>
 #include <godot_cpp/classes/mesh_instance3d.hpp>
+#include <godot_cpp/classes/random_number_generator.hpp>
 #include <godot_cpp/classes/standard_material3d.hpp>
 #include <godot_cpp/classes/shader_material.hpp>
 #include <godot_cpp/classes/rigid_body3d.hpp>
@@ -42,6 +43,7 @@ namespace godot
             MeshInstance3D* mesh = nullptr;
             RigidBody3D* pickable = nullptr;
             RigidBody3D* dragon = nullptr;
+            Ref<RandomNumberGenerator> rng;
             float flutter_speed = 0.03f;
             // XRToolsPickable to set its local position every frame to keep it at the same global position
             // the setting of detatch_position is used to counteract this behavior

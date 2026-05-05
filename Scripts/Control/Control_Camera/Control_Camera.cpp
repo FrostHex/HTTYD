@@ -264,7 +264,6 @@ void Control_Camera::_physics_process(double delta)
         // UtilityFunctions::print("Camera offset factor: " + String::num(camera_offset_factor));
         // camera_main->set_position(dragon_rb->get_global_position());
         camera_main->set_position(camera_main->get_position() + Vector3(0, dragon_pilot->GetLinearVelocity() * camera_offset_factor * delta, 0));
-        
     }
 
     if (approaching_angle)

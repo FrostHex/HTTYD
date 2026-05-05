@@ -9,7 +9,7 @@ namespace godot
     {
         public:
             Control_Top() = default;
-            virtual ~Control_Top() override = default;
+            ~Control_Top() override = default;
             virtual void _ready() = 0;
 
         protected:

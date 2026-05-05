@@ -4,11 +4,11 @@
 # How to Train Your Dragon
 VR flying experience built with Godot 4 / 基于 Godot 4 的 VR 飞行体验
 
-![License](https://img.shields.io/badge/License-MIT-green.svg) ![Platform](https://img.shields.io/badge/Platform-Windows-0078d4.svg) [![Demo Video](https://img.shields.io/badge/Demo%20Video-Mp4-8A2BE2.svg)](Media/Demo/Demo.mp4) [![演示视频](https://img.shields.io/badge/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91-bilibili-00a8df?logo=bilibili&logoColor=00a8df&color=00a8df)](https://www.bilibili.com/video/BV1h5gxzNE4X/)
-
-</div>
-
-<div align="center">
+[![Demo Video](https://img.shields.io/badge/Demo%20Video-Mp4-8A2BE2.svg)](Media/Demo/Demo.mp4)
+[![演示视频](https://img.shields.io/badge/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91-bilibili-00a8df?logo=bilibili&logoColor=00a8df&color=00a8df)](https://www.bilibili.com/video/BV1h5gxzNE4X/)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+[![CodeFactor](https://img.shields.io/codefactor/grade/github/frosthex/httyd?label=CodeFactor)](https://www.codefactor.io/repository/github/frosthex/httyd/overview/main)
+![Platform](https://img.shields.io/badge/Platform-Windows-0078d4.svg)
 
 # Table of Contents 目录
 </div>

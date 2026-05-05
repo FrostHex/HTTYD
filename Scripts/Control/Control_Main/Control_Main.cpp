@@ -165,13 +165,13 @@ void Control_Main::Switch_Scene(const String &scene_name)
             node_cheat_sheet->set_name("CheatSheet");
         }
 
-        if (scene_name == "Scene_Dodge")
-        {
-        }
+        // if (scene_name == "Scene_Dodge")
+        // {
+        // }
             
-        if (scene_name == "Scene_Home")
-        {
-        }
+        // if (scene_name == "Scene_Home")
+        // {
+        // }
 
         if (scene_name != "Scene_Home")
         {  
@@ -216,7 +216,6 @@ void Control_Main::AttachSunshineClouds(const String &scene_name, bool attach)
         if (attach)
         {
             call_deferred("AttachSunshineClouds", scene_name, attach);
-            
         }
         return;
     }

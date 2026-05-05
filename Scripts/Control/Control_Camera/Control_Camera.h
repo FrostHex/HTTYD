@@ -66,7 +66,6 @@ namespace godot
             float timer = 0.0f;
             bool camera_stabilized = false;
             bool vr_recenter_pending = false;
-
     };
 }
 
