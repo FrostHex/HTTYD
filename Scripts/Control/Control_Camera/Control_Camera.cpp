@@ -50,6 +50,7 @@ void Control_Camera::SetDragon_Pilot_(Dragon_Pilot_Top* dragon_pilot)
 
 void Control_Camera::_ready()
 {
+    set_physics_process_priority(-80); // run before XRToolsHand (-70) to make sure the hand mesh position is correct
     set_process_input(false);
 }
 

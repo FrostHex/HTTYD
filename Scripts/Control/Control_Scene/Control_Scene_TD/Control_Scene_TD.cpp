@@ -210,12 +210,12 @@ void Control_Scene_TD::Initialize_TimerList()
     {
         timer->Timer_AddEvent(112.5f, Callable(this, "AutoSave"));
     }
-    timer->Timer_AddEvent(113.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_crisis"));
-    timer->Timer_AddEvent(113.8f, Callable(dragon_pilot, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Final/Rock_Pillar_E_01")->get_global_transform().origin + Vector3(0, 15, 0), 9.5f)); // glide diagonal downwards
-    timer->Timer_AddEvent(113.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
-    timer->Timer_AddEvent(113.7f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(-0.3f, -Math_PI/2 + 0.3f, -Math_PI/2 -0.3f)));
-    timer->Timer_AddEvent(113.8f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(0.6f, -Math_PI/2 - 0.6f, -Math_PI/2 + 0.6f)));
-    timer->Timer_AddEvent(113.9f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(0, -Math_PI/2, Math_PI/8))); // glide diagonal downwards
+    timer->Timer_AddEvent(113.5f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(-0.3f, -Math_PI/2 + 0.3f, -Math_PI/2 -0.3f)));
+    timer->Timer_AddEvent(113.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_crisis"));
+    timer->Timer_AddEvent(113.6f, Callable(dragon_pilot, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Final/Rock_Pillar_E_01")->get_global_transform().origin + Vector3(0, 15, 0), 9.5f)); // glide diagonal downwards
+    timer->Timer_AddEvent(113.6f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(0.6f, -Math_PI/2 - 0.6f, -Math_PI/2 + 0.6f)));
+    timer->Timer_AddEvent(113.7f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(0, -Math_PI/2, Math_PI/8))); // glide diagonal downwards
+    timer->Timer_AddEvent(114.0f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
     timer->Timer_AddEvent(116.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-1, 0.33f)); // Toothless opens his mouth
     timer->Timer_AddEvent(120.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close"));
     timer->Timer_AddEvent(120.1f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(0,-Math_PI/2, 0))); // glide diagonal downwards

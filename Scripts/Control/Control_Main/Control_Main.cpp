@@ -140,6 +140,25 @@ void Control_Main::Switch_Scene(const String &scene_name)
             {
                 call_deferred("AttachSunshineClouds", scene_name);
             }
+            else if (camera_main)
+            {
+                Node *xr_origin = camera_main->get_node_or_null(NodePath("XR/XROrigin"));
+                if (xr_origin)
+                {
+                    Node *left_pointer = xr_origin->get_node_or_null(NodePath("LeftHand/FunctionPointer"));
+                    Node *right_pointer = xr_origin->get_node_or_null(NodePath("RightHand/FunctionPointer"));
+                    if (left_pointer)
+                    {
+                        left_pointer->set("enabled", false);
+                        left_pointer->set("show_laser", 0);
+                    }
+                    if (right_pointer)
+                    {
+                        right_pointer->set("enabled", false);
+                        right_pointer->set("show_laser", 0);
+                    }
+                }
+            }
             Node *node_cheat_sheet = memnew(CheatSheet);
             new_scene->get_node<Node>("Dragon")->add_child(node_cheat_sheet);
             node_cheat_sheet->set_name("CheatSheet");

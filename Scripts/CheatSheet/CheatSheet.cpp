@@ -228,7 +228,8 @@ void CheatSheet::_on_pickable_dropped(Node* pickable)
     if (state_current == STATE_HELD) 
     {
         state_current = STATE_MOUTHED;
-        if (get_parent()->get_parent()->get_node<Node>("Camera_Main")->has_node("XR")) // change the parent to XR camera if it exists
+        Node* camera_main = get_parent()->get_parent()->get_node_or_null("Camera_Main");
+        if (camera_main && camera_main->has_node("XR")) // change the parent to XR camera if it exists
         {
             Transform3D global_pos = this->pickable->get_global_transform();
             this->pickable->get_parent()->remove_child(this->pickable);

@@ -1,3 +1,4 @@
-.godot/
 Scripts/build/~httyd_cpp.dll
+.godot/
+.cursor/
 # .vscode/

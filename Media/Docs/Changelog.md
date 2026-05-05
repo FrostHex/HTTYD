@@ -2,8 +2,8 @@
 --------------------------------------------------
 This project loosely follows [Semantic Versioning](https://semver.org/) for version numbering, with the following guidelines:
 - MAJOR version when you make incompatible API changes
-- MINOR version when you add **a set of functionality** in a backwards-compatible manner (rather than any functionality)
-- PATCH version when you make backwards-compatible bug fixes, **minor tweaks and minor feature additions** (rather than any bug fix only)
+- MINOR version when you add **a set of functionalities** in a backwards-compatible manner (rather than any functionality)
+- PATCH version when you make backwards-compatible bug fixes, **minor tweaks and minor feature additions** (rather than bug fix only)
 
 ## v0.1.0 - 2022-12-24
 - Added: Toothless base model with ZBrush.
@@ -117,6 +117,7 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 
 ## v1.1.2 - 
 - Fixed: Multiple Test Drive minor issues.
+- Fixed: VR hand wrong position during falling state.
 - Changed: Ocean horizon blending and circular boundary.
 - Changed: Test Drive color correction tweaks.
 
@@ -127,8 +128,8 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 ### Bug Fixes & Optimization
 - Fixed: Disable volumetric cloud after Test Drive.
 - Changed: Save system refactor for extensibility.
-- Fixed: VR hand position offset during falling state.
 - Fixed: Toothless teeth clipping through jaw when mouth is closed.
+- Changed: Unify the back button logic for every scene.
 
 ### Try Some New Stuff
 - Added: Seagulls.
