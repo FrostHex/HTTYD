@@ -117,7 +117,6 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 
 ## v1.1.2 - 
 - Fixed: Multiple Test Drive minor issues.
-- Fixed: VR hand wrong position during falling state.
 - Changed: Ocean horizon blending and circular boundary.
 - Changed: Test Drive color correction tweaks.
 
@@ -126,12 +125,11 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 ----------
 ## TODO
 ### Bug Fixes & Optimization
-- Fixed: Disable volumetric cloud after Test Drive.
 - Changed: Save system refactor for extensibility.
-- Fixed: Toothless teeth clipping through jaw when mouth is closed.
 - Changed: Unify the back button logic for every scene.
 
 ### Try Some New Stuff
+- Added: Refactor the mouse drag control to a unified node
 - Added: Seagulls.
 - Added: Campfire / plasma blast shaders.
 - Added: IK experiments.

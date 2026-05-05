@@ -14,6 +14,7 @@ size = Vector3(0.168, 0.0608516, 0.202)
 Badge = 3
 
 [node name="Control_Camera" type="Control_Camera" parent="Control_Main" unique_id=1585906464]
+process_physics_priority = -80
 
 [node name="SaveManager" type="SaveManager" parent="Control_Main" unique_id=991418376]
 

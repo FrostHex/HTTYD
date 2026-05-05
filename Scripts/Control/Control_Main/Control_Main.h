@@ -44,7 +44,7 @@ namespace godot
 
         private:
             void AttachCamera(const String &scene_name);
-            void AttachSunshineClouds(const String &scene_name);
+            void AttachSunshineClouds(const String &scene_name, bool attach);
             bool enable_headset = false;
             bool sub_view = true;
             bool debug = true; // debug mode

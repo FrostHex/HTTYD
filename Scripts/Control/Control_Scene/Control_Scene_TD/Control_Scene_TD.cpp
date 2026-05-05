@@ -264,9 +264,15 @@ void Control_Scene_TD::TakeRest()
         
     }
     dragon_animator->SetAnimation("layer_wing_main", "po_rest");
+    dragon_animator->SetAnimation("layer_mouth", "po_mouth_close");
     ctrl_camera->camera_main->reparent(get_parent());
     ctrl_camera->camera_main->set_position(Vector3(1027.504f, 6.733f, -814.004f));
     ctrl_camera->camera_main->set_rotation(Vector3(0.0f, Math::deg_to_rad(-111.0f), 0.0f));
+
+    if (control_main)
+    {
+        control_main->call_deferred("AttachSunshineClouds", get_parent()->get_name(), false);
+    }
 
     // complete this Test Drive and update badge.
     _update_badge_on_completion();

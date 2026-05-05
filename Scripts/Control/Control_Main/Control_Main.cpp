@@ -24,6 +24,7 @@
 #include <godot_cpp/classes/xr_interface.hpp>
 #include <godot_cpp/classes/window.hpp>
 #include <godot_cpp/variant/array.hpp>
+#include <godot_cpp/variant/variant.hpp>
 #include <godot_cpp/variant/node_path.hpp>
 
 using namespace godot;
@@ -138,7 +139,7 @@ void Control_Main::Switch_Scene(const String &scene_name)
         {
             if (!enable_headset)
             {
-                call_deferred("AttachSunshineClouds", scene_name);
+                call_deferred("AttachSunshineClouds", scene_name, true);
             }
             else if (camera_main)
             {
@@ -206,21 +207,53 @@ void Control_Main::AttachCamera(const String &scene_name)
     camera_main->set_rotation(Vector3(0, 0, 0));
 }
 
-void Control_Main::AttachSunshineClouds(const String &scene_name)
+void Control_Main::AttachSunshineClouds(const String &scene_name, bool attach)
 {
     Node *target_scene = get_parent()->get_node_or_null(NodePath(scene_name));
     if (!target_scene)
     {
         // Scene add_child is also deferred in Switch_Scene, so retry next idle frame.
-        call_deferred("AttachSunshineClouds", scene_name);
+        if (attach)
+        {
+            call_deferred("AttachSunshineClouds", scene_name, attach);
+            
+        }
         return;
     }
     if (!target_scene->is_inside_tree())
     {
-        call_deferred("AttachSunshineClouds", scene_name);
+        if (attach)
+        {
+            call_deferred("AttachSunshineClouds", scene_name, attach);
+        }
         return;
     }
-    if (target_scene->get_node_or_null(NodePath("SunshineClouds")))
+
+    Node *sky_node = target_scene->get_node_or_null(NodePath("Sky3D"));
+    if (sky_node)
+    {
+        sky_node->set("wind_speed", attach ? 0.0f : 1.0f);
+    }
+
+    Node *clouds_node = target_scene->get_node_or_null(NodePath("SunshineClouds"));
+    if (!attach)
+    {
+        if (!clouds_node)
+        {
+            return;
+        }
+
+        Variant res_var = clouds_node->get("clouds_resource");
+        Object *res_obj = res_var;
+        if (res_obj)
+        {
+            res_obj->set("clouds_coverage", 0.0f);
+        }
+        clouds_node->queue_free();
+        return;
+    }
+
+    if (clouds_node)
     {
         return;
     }
@@ -232,7 +265,7 @@ void Control_Main::AttachSunshineClouds(const String &scene_name)
         return;
     }
 
-    Node *clouds_node = clouds_scene->instantiate();
+    clouds_node = clouds_scene->instantiate();
     if (!clouds_node)
     {
         return;
@@ -348,7 +381,7 @@ void Control_Main::_bind_methods()
     // Expose Switch_Scene so it can be called via Node.call
     ClassDB::bind_method(D_METHOD("Switch_Scene", "scene_name"), &Control_Main::Switch_Scene);
     ClassDB::bind_method(D_METHOD("AttachCamera", "scene_name"), &Control_Main::AttachCamera);
-    ClassDB::bind_method(D_METHOD("AttachSunshineClouds", "scene_name"), &Control_Main::AttachSunshineClouds);
+    ClassDB::bind_method(D_METHOD("AttachSunshineClouds", "scene_name", "attach"), &Control_Main::AttachSunshineClouds);
     
     ClassDB::bind_method(D_METHOD("language_setter", "value"), &Control_Main::SetValLanguage);
     ClassDB::bind_method(D_METHOD("language_getter"), &Control_Main::GetValLanguage);
