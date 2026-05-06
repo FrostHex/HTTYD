@@ -175,9 +175,7 @@ void Control_Camera::ResetVRTransform()
         }
 
         Vector3 camera_position = xr_camera->get_position();
-                    
-        // check if camera position is not zero vector
-        if (camera_position.length_squared() > 0.001f) // Use a small epsilon for floating-point comparison
+        if (camera_position.length_squared() > 0.001f) // check if camera position is not zero vector
         {
             XRServer *xr_server = XRServer::get_singleton();
             if (!xr_server)

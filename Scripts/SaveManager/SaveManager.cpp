@@ -255,39 +255,11 @@ void SaveManager::Settings_Save(const Dictionary& settings_data)
     }
 
     String settings_file_path = saves_dir_path + "/Settings.json";
-    String json_content = "{\n";
-    
-    // Add language setting
-    if (settings_data.has("language")) 
+    String json_content = JSON::stringify(settings_data);
+    if (json_content.is_empty())
     {
-        json_content += "\t\"language\": " + String::num(static_cast<int>(settings_data["language"])) + ",\n";
+        json_content = "{}";
     }
-    
-    // Add enable_headset setting
-    if (settings_data.has("enable_headset")) 
-    {
-        json_content += "\t\"enable_headset\": " + String(static_cast<bool>(settings_data["enable_headset"]) ? "true" : "false") + ",\n";
-    }
-    
-    // Add sub_view setting
-    if (settings_data.has("sub_view")) 
-    {
-        json_content += "\t\"sub_view\": " + String(static_cast<bool>(settings_data["sub_view"]) ? "true" : "false") + ",\n";
-    }
-    
-    // Add debug setting
-    if (settings_data.has("debug")) 
-    {
-        json_content += "\t\"debug\": " + String(static_cast<bool>(settings_data["debug"]) ? "true" : "false") + ",\n";
-    }
-    
-    // Add badge setting
-    if (settings_data.has("badge")) 
-    {
-        json_content += "\t\"badge\": " + String::num(static_cast<int>(settings_data["badge"])) + "\n";
-    }
-    
-    json_content += "}";
     
     Ref<FileAccess> settings_file = FileAccess::open(settings_file_path, FileAccess::WRITE);
     if (settings_file.is_valid()) 
@@ -332,17 +304,7 @@ Dictionary SaveManager::Settings_Load()
     
     if (!dir->file_exists("Saves/Settings.json")) 
     {
-        // Create default settings file
-        Dictionary default_settings;
-        default_settings["language"] = 0; // English
-        default_settings["enable_headset"] = false;
-        default_settings["sub_view"] = true;
-        default_settings["debug"] = true;
-        default_settings["badge"] = 0; // 初始徽章为0（透明）
-        
-        Settings_Save(default_settings);
-        UtilityFunctions::print("Created default settings file.");
-        return default_settings;
+        return Dictionary();
     }
     
     Ref<FileAccess> file = FileAccess::open(settings_file_path, FileAccess::READ);

@@ -13,6 +13,13 @@
 #include <godot_cpp/classes/texture_rect.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
 #include <godot_cpp/classes/texture2d.hpp>
+#include <godot_cpp/variant/variant.hpp>
+#include <godot_cpp/variant/packed_string_array.hpp>
+#include <godot_cpp/classes/h_box_container.hpp>
+#include <godot_cpp/classes/label.hpp>
+#include <godot_cpp/classes/check_button.hpp>
+#include <godot_cpp/classes/option_button.hpp>
+#include <godot_cpp/classes/control.hpp>
 
 using namespace godot;
 
@@ -67,6 +74,11 @@ void Control_Scene_Home::_ready()
         }
     }
 
+    // Get settings panel/content references and build settings UI
+    settings_panel = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel");
+    settings_content = settings_panel ? settings_panel->get_node<Node>("Settings_Content") : nullptr;
+    _build_settings_entries();
+
     // Load and set button texts from JSON file based on current language
     _update_button_texts();
 
@@ -111,47 +123,11 @@ void Control_Scene_Home::_ready()
         settings_button->connect("pressed", Callable(this, "_on_settings_button_pressed"));
     }
     
-    // Get settings panel reference
-    settings_panel = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel");
-    
     // Connect Close button
     Node *close_button = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel/Close_Button");
     if (close_button) 
     {
         close_button->connect("pressed", Callable(this, "_on_close_button_pressed"));
-    }
-
-    // Connect settings controls
-    Node *language_combo = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Language_Container/Language_ComboBox");
-    if (language_combo) 
-    {
-        // Set initial value BEFORE connecting signal to avoid unintended emission
-        language_combo->call("select", control_main->GetValLanguage());
-        language_combo->connect("item_selected", Callable(this, "_on_language_changed"));
-    }
-
-    Node *enable_headset_checkbox = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container/EnableHeadset_CheckBox");
-    if (enable_headset_checkbox) 
-    {
-        // Set initial value WITHOUT emitting signal, then connect
-        enable_headset_checkbox->call("set_pressed_no_signal", control_main->GetValEnableHeadset());
-        enable_headset_checkbox->connect("toggled", Callable(this, "_on_enable_headset_toggled"));
-    }
-
-    Node *sub_view_checkbox = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/SubView_Container/SubView_CheckBox");
-    if (sub_view_checkbox) 
-    {
-        // Set initial value WITHOUT emitting signal, then connect
-        sub_view_checkbox->call("set_pressed_no_signal", control_main->GetValSubView());
-        sub_view_checkbox->connect("toggled", Callable(this, "_on_sub_view_toggled"));
-    }
-
-    Node *debug_checkbox = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Debug_Container/Debug_CheckBox");
-    if (debug_checkbox) 
-    {
-        // Set initial value WITHOUT emitting signal, then connect
-        debug_checkbox->call("set_pressed_no_signal", control_main->GetValDebug());
-        debug_checkbox->connect("toggled", Callable(this, "_on_debug_toggled"));
     }
 
     // Test Dorectly
@@ -166,6 +142,137 @@ Control_Scene_Home::~Control_Scene_Home()
 void Control_Scene_Home::_on_sky_time_changed(double value)
 {
     // UtilityFunctions::print("Sky3D time changed: ", value);
+}
+
+void Control_Scene_Home::_clear_settings_entries()
+{
+    if (!settings_content)
+    {
+        return;
+    }
+
+    Array children = settings_content->get_children();
+    for (int i = 0; i < children.size(); i++)
+    {
+        Node *child = Object::cast_to<Node>(children[i]);
+        if (child && child->has_meta("dynamic_setting"))
+        {
+            child->queue_free();
+        }
+    }
+}
+
+void Control_Scene_Home::_build_settings_entries()
+{
+    if (!control_main || !settings_content)
+    {
+        return;
+    }
+
+    _clear_settings_entries();
+
+    Array settings = control_main->GetExposedSettings();
+    for (int i = 0; i < settings.size(); i++)
+    {
+        Dictionary entry = settings[i];
+        String prop_name = String(entry.get("prop_name", ""));
+        if (prop_name.is_empty())
+        {
+            continue;
+        }
+
+        int variant_type = static_cast<int>(entry.get("variant_type", Variant::NIL));
+        int hint = static_cast<int>(entry.get("hint", PROPERTY_HINT_NONE));
+        String hint_string = String(entry.get("hint_string", ""));
+        String label_key = String(entry.get("label_key", ""));
+        String label_fallback = String(entry.get("label_fallback", prop_name));
+        String label_suffix = String(entry.get("label_suffix", ""));
+        bool is_custom = static_cast<bool>(entry.get("is_custom", false));
+
+        if (label_fallback.is_empty())
+        {
+            label_fallback = prop_name;
+        }
+
+        HBoxContainer *row = memnew(HBoxContainer);
+        row->set_name(prop_name + "_Container");
+        row->set_meta("dynamic_setting", true);
+        settings_content->add_child(row);
+
+        Label *label = memnew(Label);
+        label->set_name(prop_name + "_Label");
+        label->set_h_size_flags(Control::SIZE_EXPAND_FILL);
+        label->set_text(_get_json_text(label_key, label_fallback) + label_suffix);
+        label->set_meta("label_key", label_key);
+        label->set_meta("label_fallback", label_fallback);
+        label->set_meta("label_suffix", label_suffix);
+        row->add_child(label);
+
+        if (hint == PROPERTY_HINT_ENUM)
+        {
+            OptionButton *option = memnew(OptionButton);
+            option->set_name(prop_name + "_ComboBox");
+            option->set_h_size_flags(Control::SIZE_EXPAND_FILL);
+
+            PackedStringArray items = hint_string.split(",", false);
+            for (int idx = 0; idx < items.size(); idx++)
+            {
+                String item_text = items[idx].strip_edges();
+                option->add_item(item_text, idx);
+            }
+
+            Variant current = control_main->call(prop_name + "_getter");
+            int current_value = static_cast<int>(current);
+            option->select(current_value);
+            option->connect("item_selected", Callable(this, "_on_setting_enum_changed").bind(prop_name));
+            row->add_child(option);
+        }
+        else if (variant_type == Variant::BOOL)
+        {
+            CheckButton *check = memnew(CheckButton);
+            check->set_name(prop_name + "_CheckBox");
+            check->set_focus_mode(Control::FOCUS_NONE);
+
+            Variant current = control_main->call(prop_name + "_getter");
+            bool current_value = static_cast<bool>(current);
+            check->set_pressed_no_signal(current_value);
+            check->connect("toggled", Callable(this, "_on_setting_bool_toggled").bind(prop_name, is_custom));
+            row->add_child(check);
+        }
+    }
+}
+
+void Control_Scene_Home::_update_setting_labels()
+{
+    if (!settings_content)
+    {
+        return;
+    }
+
+    Array children = settings_content->get_children();
+    for (int i = 0; i < children.size(); i++)
+    {
+        Node *row = Object::cast_to<Node>(children[i]);
+        if (!row || !row->has_meta("dynamic_setting"))
+        {
+            continue;
+        }
+
+        Array row_children = row->get_children();
+        for (int j = 0; j < row_children.size(); j++)
+        {
+            Label *label = Object::cast_to<Label>(row_children[j]);
+            if (!label || !label->has_meta("label_key"))
+            {
+                continue;
+            }
+
+            String label_key = String(label->get_meta("label_key", ""));
+            String label_fallback = String(label->get_meta("label_fallback", ""));
+            String label_suffix = String(label->get_meta("label_suffix", ""));
+            label->set_text(_get_json_text(label_key, label_fallback) + label_suffix);
+        }
+    }
 }
 
 void Control_Scene_Home::_update_button_texts()
@@ -198,26 +305,13 @@ void Control_Scene_Home::_update_button_texts()
         close_btn->set("text", _get_json_text("button_back", "Back"));
     }
     
-    // Set settings entry texts
-    Node *settings_label = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Title"));
+    // Set settings title
+    Node *settings_label = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Title_Label"));
     if (settings_label) {
         settings_label->set("text", _get_json_text("entry_settings", "Settings"));
     }
-    
-    Node *headset_label = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container/EnableHeadset_Label"));
-    if (headset_label) {
-        headset_label->set("text", _get_json_text("entry_enable_headset", "Enable Headset") + ":");
-    }
-    
-    Node *subview_label = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/SubView_Container/SubView_Label"));
-    if (subview_label) {
-        subview_label->set("text", _get_json_text("entry_sub_view", "Sub View") + ":");
-    }
-    
-    Node *debug_label = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Debug_Container/Debug_Label"));
-    if (debug_label) {
-        debug_label->set("text", _get_json_text("entry_debug", "Debug Info") + ":");
-    }
+
+    _update_setting_labels();
 }
 
 String Control_Scene_Home::_get_json_text(const String& key, const String& fallback)
@@ -277,50 +371,42 @@ void Control_Scene_Home::_on_close_button_pressed()
     }
 }
 
-void Control_Scene_Home::_on_language_changed(int index)
+void Control_Scene_Home::_on_setting_enum_changed(int index, const String& prop_name)
 {
-    if (control_main) 
+    if (!control_main) 
     {
-        control_main->SetValLanguage(index);
-        // UtilityFunctions::print("Language changed to: ", index == 0 ? "English" : "Chinese");
-        _update_button_texts(); // Update button texts immediately after language change
+        return;
+    }
+
+    control_main->call(prop_name + godot::String("_setter"), index);
+    if (prop_name == "Language")
+    {
+        _update_button_texts();
     }
 }
 
-void Control_Scene_Home::_on_enable_headset_toggled(bool pressed)
+void Control_Scene_Home::_on_setting_bool_toggled(bool pressed, const String& prop_name, bool is_custom)
 {
-    if (control_main) 
+    if (!control_main)
     {
-        control_main->SetValEnableHeadset(pressed);
-        UtilityFunctions::print("Enable Headset toggled: ", pressed);
+        return;
+    }
 
-        // Update the label text to inform user to restart after changes using JSON text
-        if (viewport_container) 
+    control_main->call(prop_name + godot::String("_setter"), pressed);
+    UtilityFunctions::print(prop_name, " toggled: ", pressed);
+
+    if (is_custom && prop_name == "EnableHeadset" && settings_content)
+    {
+        Node *container = settings_content->get_node_or_null(NodePath(prop_name + godot::String("_Container")));
+        if (container)
         {
-            Node *label_node = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/EnableHeadset_Container/EnableHeadset_Label"));
-            if (label_node) {
-                String tip_text = _get_json_text("entry_enable_headset_tip", "Enable Headset (Please restart the software to apply changes):");
-                label_node->set("text", tip_text);
+            Label *label_node = Object::cast_to<Label>(container->get_node_or_null(NodePath(prop_name + godot::String("_Label"))));
+            if (label_node)
+            {
+                String tip_text = _get_json_text("entry_enable_headset_tip", "Enable Headset (Please restart the software to apply changes)");
+                label_node->set_text(tip_text);
             }
         }
-    }
-}
-
-void Control_Scene_Home::_on_sub_view_toggled(bool pressed)
-{
-    if (control_main) 
-    {
-        control_main->SetValSubView(pressed);
-        UtilityFunctions::print("Sub View toggled: ", pressed);
-    }
-}
-
-void Control_Scene_Home::_on_debug_toggled(bool pressed)
-{
-    if (control_main) 
-    {
-        control_main->SetValDebug(pressed);
-        UtilityFunctions::print("Debug toggled: ", pressed);
     }
 }
 
@@ -384,10 +470,8 @@ void Control_Scene_Home::_bind_methods()
     ClassDB::bind_method(D_METHOD("_on_button_pressed", "scene_name"), &Control_Scene_Home::_on_button_pressed);
     ClassDB::bind_method(D_METHOD("_on_settings_button_pressed"), &Control_Scene_Home::_on_settings_button_pressed);
     ClassDB::bind_method(D_METHOD("_on_close_button_pressed"), &Control_Scene_Home::_on_close_button_pressed);
-    ClassDB::bind_method(D_METHOD("_on_language_changed", "index"), &Control_Scene_Home::_on_language_changed);
-    ClassDB::bind_method(D_METHOD("_on_enable_headset_toggled", "pressed"), &Control_Scene_Home::_on_enable_headset_toggled);
-    ClassDB::bind_method(D_METHOD("_on_sub_view_toggled", "pressed"), &Control_Scene_Home::_on_sub_view_toggled);
-    ClassDB::bind_method(D_METHOD("_on_debug_toggled", "pressed"), &Control_Scene_Home::_on_debug_toggled);
+    ClassDB::bind_method(D_METHOD("_on_setting_enum_changed", "index", "prop_name"), &Control_Scene_Home::_on_setting_enum_changed);
+    ClassDB::bind_method(D_METHOD("_on_setting_bool_toggled", "pressed", "prop_name", "is_custom"), &Control_Scene_Home::_on_setting_bool_toggled);
     ClassDB::bind_method(D_METHOD("_on_sky_time_changed", "value"), &Control_Scene_Home::_on_sky_time_changed);
     ClassDB::bind_method(D_METHOD("_update_badge_display"), &Control_Scene_Home::_update_badge_display);
 }
