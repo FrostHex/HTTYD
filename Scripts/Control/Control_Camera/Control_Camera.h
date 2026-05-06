@@ -62,6 +62,7 @@ namespace godot
             void TriggerApproachingPosition(Vector3 target_position_offset);
             Vector3 target_position_offset;
             bool approaching_position = false;
+            bool resetting_transform = false;
             float resetting_transform_time = -1.0f;
             float timer = 0.0f;
             bool camera_stabilized = false;

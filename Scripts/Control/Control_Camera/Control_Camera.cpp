@@ -52,6 +52,7 @@ void Control_Camera::_ready()
 {
     set_physics_process_priority(-80); // run before XRToolsHand (-70) to make sure the hand mesh position is correct
     set_process_input(false);
+    set_physics_process(false);
 }
 
 /**
@@ -59,6 +60,7 @@ void Control_Camera::_ready()
  */
 void Control_Camera::Initialize()
 {
+    set_process_input(true);
     // Find the node starting with "Scene_" and not "Scene_Home"
     Node* scene_node = nullptr;
     Node* main_node = get_tree()->get_root()->get_node_or_null(NodePath("Main"));
@@ -117,6 +119,7 @@ void Control_Camera::Initialize()
             Node* sub_viewport = sub_container->get_node<Node>("SubViewport");
             camera_sub = sub_viewport->get_node<Camera3D>("Camera_Sub");
             camera_sub->set_rotation(Vector3(0, - Math_PI / 2, 0));
+            set_physics_process(true);
 
             if (control_main->GetValDebug())
             {
@@ -126,29 +129,23 @@ void Control_Camera::Initialize()
             if (control_main->GetValEnableHeadset())
             {
                 Ref<godot::ViewportTexture> vp_tex = Object::cast_to<Viewport>(sub_viewport)->get_texture();
-
                 MeshInstance3D* sub_mesh = memnew(MeshInstance3D);
                 PlaneMesh* plane = memnew(PlaneMesh);
                 plane->set_size(Vector2(0.4f, 0.3f));
                 sub_mesh->set_mesh(plane);
-
                 StandardMaterial3D* mat = memnew(StandardMaterial3D);
                 mat->set_texture(StandardMaterial3D::TEXTURE_ALBEDO, vp_tex);
                 mat->set_transparency(StandardMaterial3D::TRANSPARENCY_ALPHA);
                 mat->set_shading_mode(StandardMaterial3D::SHADING_MODE_UNSHADED);
                 sub_mesh->set_material_override(mat);
-
                 xr_camera->add_child(sub_mesh);
                 sub_mesh->set_position(Vector3(0.27f, 0.24f, -0.5f));
                 sub_mesh->set_rotation(Vector3(Math_PI / 2, 0, 0));
                 sub_mesh->set_name("SubViewportMesh");
             }
-
-            set_physics_process(true);
         } 
-        else 
+        else // destroy the SubViewportContainer and all its children 
         {
-            // destroy the SubViewportContainer and all its children
             if (Node *container = get_parent()->get_node<Node>("SubViewportContainer")) 
             {
                 container->queue_free();
@@ -156,8 +153,6 @@ void Control_Camera::Initialize()
             return;
         }
     }
-
-    set_process_input(true);
 }
 
 
@@ -217,40 +212,13 @@ void Control_Camera::ResetVRTransform()
  */
 void Control_Camera::_physics_process(double delta)
 {
-    // Skip in editor mode or if not initialized
-    if (Engine::get_singleton()->is_editor_hint() || !control_main)
+    if (control_main->GetValEnableHeadset() && camera_stabilized)
     {
-        return;
-    }
-
-    // Scene switching can temporarily leave cached nodes detached from tree.
-    if (!camera_main || !dragon_rb || !camera_main->is_inside_tree() || !dragon_rb->is_inside_tree())
-    {
-        set_physics_process(false);
-        return;
-    }
-
-    if (control_main->GetValEnableHeadset()) 
-    {
-        if (!xr_node || !xr_origin || !xr_camera || !xr_node->is_inside_tree() || !xr_origin->is_inside_tree() || !xr_camera->is_inside_tree())
-        {
-            set_physics_process(false);
-            return;
-        }
-        if (camera_stabilized)
-        {
-            xr_node->set_global_rotation(Vector3(0, -Math_PI, 0)); // set the rotation of the XR origin to match the camera
-        }
+        xr_node->set_global_rotation(Vector3(0, -Math_PI, 0)); // set the rotation of the XR origin to match the camera
     }
 
     if (control_main->GetValSubView())
     {
-        if (!camera_sub || !camera_sub->is_inside_tree())
-        {
-            set_physics_process(false);
-            return;
-        }
-
         camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
         if (control_main->GetValDebug() && label_info)
         {
@@ -307,7 +275,6 @@ void Control_Camera::_physics_process(double delta)
     {
         Vector3 current_position = camera_main->get_position();
         Vector3 delta_position = dragon_rb->get_position() + target_position_offset - current_position;
-
         camera_main->set_position(current_position + delta_position * delta);
 
         // Stop approaching if close enough
@@ -318,7 +285,7 @@ void Control_Camera::_physics_process(double delta)
         // }
     }
 
-    if (resetting_transform_time > 0.0f)
+    if (resetting_transform)
     {
         timer -= delta;
         // UtilityFunctions::print("Resetting camera transform, time left: " + String::num(timer));
@@ -328,13 +295,11 @@ void Control_Camera::_physics_process(double delta)
             camera_main->set_position(target_position_offset * ratio);
             camera_main->set_rotation(target_rotation * ratio);
         }
-        else 
+        else
         {
             camera_main->set_position(Vector3(0, 0, 0));
             camera_main->set_rotation(Vector3(0, 0, 0));
-            resetting_transform_time = -1.0f;
-            timer = 0.0f;
-            set_physics_process(false);
+            resetting_transform = false;
         }
     }
 }
@@ -435,6 +400,7 @@ void Control_Camera::GrabSaddle()
     camera_offset_factor = 0.0f; // reset camera offset factor
     camera_main->reparent(dragon_rb->get_node<Node>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back_Mount/Socket_Back"));
     resetting_transform_time = timer = 1.5f;
+    resetting_transform = true;
     target_position_offset = camera_main->get_position();
     target_rotation = camera_main->get_rotation();
     UtilityFunctions::print(target_position_offset);

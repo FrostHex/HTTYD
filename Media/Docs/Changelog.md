@@ -125,6 +125,7 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 ----------
 ## TODO
 ### Bug Fixes & Optimization
+- Fixed: Volumetric cloud rendering issues in the volumetric fog.
 - Changed: Save system refactor for extensibility.
 - Changed: Unify the back button logic for every scene.
 
