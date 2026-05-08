@@ -1,5 +1,6 @@
 #include "Control_Scene_Dodge.h"
 #include "Control_Main.h"
+#include "Settings.h"
 
 
 using namespace godot;

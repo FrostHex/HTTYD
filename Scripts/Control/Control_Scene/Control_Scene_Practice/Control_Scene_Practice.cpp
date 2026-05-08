@@ -1,5 +1,6 @@
 #include "Control_Scene_Practice.h"
 #include "Control_Main.h"
+#include "Settings.h"
 
 #include <godot_cpp/classes/file_access.hpp>
 #include <godot_cpp/classes/project_settings.hpp>
@@ -62,7 +63,7 @@ void Control_Scene_Practice::_ready()
 	String json_file = "res://Media/Text/English.json";
 	if (control_main) 
 	{
-		int lang = control_main->GetValLanguage();
+		int lang = Settings::GetSingleton()->GetValLanguage();
 		if (lang == 1) 
 		{
 			json_file = "res://Media/Text/Chinese.json";
@@ -71,7 +72,7 @@ void Control_Scene_Practice::_ready()
 
 	// if the current language is Chinese, set Practice text font to a system sans-serif Chinese fallback stack.
 	if (control_main && practice_label) {
-		if (control_main->GetValLanguage() == 1) 
+		if (Settings::GetSingleton()->GetValLanguage() == 1) 
 		{
 			Ref<SystemFont> zh_font;
 			zh_font.instantiate();
@@ -127,7 +128,7 @@ void Control_Scene_Practice::_ready()
 	practice_paper = get_parent()->get_node<Node3D>("Dragon/PracticePaper");
 	ctrl_camera = tree->get_root()->get_node<Control_Camera>("Main/Control_Main/Control_Camera");
 	ctrl_camera->call_deferred("Initialize");
-    if (control_main->GetValEnableHeadset()) 
+    if (Settings::GetSingleton()->GetValEnableHeadset()) 
     {
         dragon_pilot = memnew(Dragon_Pilot_Joystick);
         dragon_node->add_child(dynamic_cast<Node*>(dragon_pilot)); // add the dragon control to the dragon node
@@ -195,7 +196,7 @@ void Control_Scene_Practice::_physics_process(double delta)
 {
 	// VR controller A/B button logic, following Tutorial.cpp.
 	// enable only when the right controller exists and dragon control is in VR mode.
-	if (hand_right && control_main && control_main->GetValEnableHeadset()) 
+	if (hand_right && control_main && Settings::GetSingleton()->GetValEnableHeadset()) 
 	{
 		// A/B are right-hand buttons; Dragon_Pilot_Joystick uses "ax_button" / "by_button".
 		float a_val = hand_right->get_float("ax_button");

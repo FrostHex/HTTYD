@@ -1,11 +1,13 @@
+// ==================== Control_Scene_Home.cpp ====================
 #include "Control_Scene_Home.h"
-#include "Control_Main.h" // Add this include to resolve incomplete type
+#include "Settings.h"
+#include "Control_Main.h"     // 新增：完整定义
 
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/classes/engine.hpp>
-#include <godot_cpp/classes/scene_tree.hpp> // for get_tree()
-#include <godot_cpp/classes/window.hpp> // for Window class
+#include <godot_cpp/classes/scene_tree.hpp>
+#include <godot_cpp/classes/window.hpp>
 #include <godot_cpp/classes/xr_server.hpp>
 #include <godot_cpp/classes/xr_interface.hpp>
 #include <godot_cpp/classes/file_access.hpp>
@@ -23,47 +25,51 @@
 
 using namespace godot;
 
-
 Control_Scene_Home::Control_Scene_Home()
 {
 }
 
 void Control_Scene_Home::_ready()
 {
-    if (Engine::get_singleton()->is_editor_hint()) // only proceed when the game is running
+    if (Engine::get_singleton()->is_editor_hint())
     {
         return;
     }
 
-    // Get reference to Control_Main
+    // Get Settings singleton
+    settings = Settings::GetSingleton();
+    if (!settings)
+    {
+        UtilityFunctions::printerr("Control_Scene_Home: Could not find Settings singleton");
+        return;
+    }
+
+    // Get Control_Main reference once
     SceneTree *tree = get_tree();
-    if (tree) 
+    if (tree)
     {
         Window *root = tree->get_root();
-        if (root) 
+        if (root)
         {
             control_main = Object::cast_to<Control_Main>(root->get_node_or_null(NodePath("Main/Control_Main")));
-            if (!control_main) 
+            if (!control_main)
             {
                 UtilityFunctions::printerr("Control_Scene_Home: Could not find Control_Main at Main/Control_Main");
-                return;
             }
         }
     }
 
     viewport_container = get_parent()->get_node<Node>("SubViewportContainer");
-    if (control_main->GetValEnableHeadset())
+    if (settings->GetValEnableHeadset())
     {
         Node* canvas_layer = viewport_container->get_node<Node>("Viewport/CanvasLayer");
         viewport_container = get_parent()->get_node<Node>("XRToolsViewport2DIn3D");
         canvas_layer->reparent(viewport_container->get_node<Node>("Viewport"));
 
-        // If XR failed to initialize, restore UI back to SubViewportContainer instead of using XRToolsViewport2DIn3D
         Ref<XRInterface> primary = XRServer::get_singleton()->get_primary_interface();
         bool xr_active = primary.is_valid() && primary->is_initialized();
         if (!xr_active)
         {
-            // Move CanvasLayer back to original 2D SubViewport
             Node *xr_viewport = viewport_container->get_node<Node>("Viewport");
             Node *canvas_in_xr = xr_viewport->get_node<Node>("CanvasLayer");
             Node *base_container = get_parent()->get_node<Node>("SubViewportContainer");
@@ -74,15 +80,12 @@ void Control_Scene_Home::_ready()
         }
     }
 
-    // Get settings panel/content references and build settings UI
     settings_panel = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel");
     settings_content = settings_panel ? settings_panel->get_node<Node>("Settings_Content") : nullptr;
     _build_settings_entries();
 
-    // Load and set button texts from JSON file based on current language
     _update_button_texts();
 
-    // Get badge icon reference and update display
     badge_icon = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Button_TD/Badge_Icon");
     if (badge_icon) 
     {
@@ -116,40 +119,30 @@ void Control_Scene_Home::_ready()
         }
     }
     
-    // Connect Settings button
     Node *settings_button = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Button_Settings");
     if (settings_button) 
     {
         settings_button->connect("pressed", Callable(this, "_on_settings_button_pressed"));
     }
     
-    // Connect Close button
     Node *close_button = viewport_container->get_node<Node>("Viewport/CanvasLayer/Control/Settings_Panel/Close_Button");
     if (close_button) 
     {
         close_button->connect("pressed", Callable(this, "_on_close_button_pressed"));
     }
-
-    // Test Dorectly
-    // control_main->Switch_Scene("Scene_TD");
 }
 
 Control_Scene_Home::~Control_Scene_Home()
 {
 }
 
-
 void Control_Scene_Home::_on_sky_time_changed(double value)
 {
-    // UtilityFunctions::print("Sky3D time changed: ", value);
 }
 
 void Control_Scene_Home::_clear_settings_entries()
 {
-    if (!settings_content)
-    {
-        return;
-    }
+    if (!settings_content) return;
 
     Array children = settings_content->get_children();
     for (int i = 0; i < children.size(); i++)
@@ -164,22 +157,16 @@ void Control_Scene_Home::_clear_settings_entries()
 
 void Control_Scene_Home::_build_settings_entries()
 {
-    if (!control_main || !settings_content)
-    {
-        return;
-    }
+    if (!settings || !settings_content) return;
 
     _clear_settings_entries();
 
-    Array settings = control_main->GetExposedSettings();
-    for (int i = 0; i < settings.size(); i++)
+    Array settings_list = settings->GetExposedSettings();
+    for (int i = 0; i < settings_list.size(); i++)
     {
-        Dictionary entry = settings[i];
+        Dictionary entry = settings_list[i];
         String prop_name = String(entry.get("prop_name", ""));
-        if (prop_name.is_empty())
-        {
-            continue;
-        }
+        if (prop_name.is_empty()) continue;
 
         int variant_type = static_cast<int>(entry.get("variant_type", Variant::NIL));
         int hint = static_cast<int>(entry.get("hint", PROPERTY_HINT_NONE));
@@ -190,9 +177,7 @@ void Control_Scene_Home::_build_settings_entries()
         bool is_custom = static_cast<bool>(entry.get("is_custom", false));
 
         if (label_fallback.is_empty())
-        {
             label_fallback = prop_name;
-        }
 
         HBoxContainer *row = memnew(HBoxContainer);
         row->set_name(prop_name + "_Container");
@@ -217,13 +202,11 @@ void Control_Scene_Home::_build_settings_entries()
             PackedStringArray items = hint_string.split(",", false);
             for (int idx = 0; idx < items.size(); idx++)
             {
-                String item_text = items[idx].strip_edges();
-                option->add_item(item_text, idx);
+                option->add_item(items[idx].strip_edges(), idx);
             }
 
-            Variant current = control_main->call(prop_name + "_getter");
-            int current_value = static_cast<int>(current);
-            option->select(current_value);
+            Variant current = settings->call(prop_name + "_getter");
+            option->select(static_cast<int>(current));
             option->connect("item_selected", Callable(this, "_on_setting_enum_changed").bind(prop_name));
             row->add_child(option);
         }
@@ -233,9 +216,8 @@ void Control_Scene_Home::_build_settings_entries()
             check->set_name(prop_name + "_CheckBox");
             check->set_focus_mode(Control::FOCUS_NONE);
 
-            Variant current = control_main->call(prop_name + "_getter");
-            bool current_value = static_cast<bool>(current);
-            check->set_pressed_no_signal(current_value);
+            Variant current = settings->call(prop_name + "_getter");
+            check->set_pressed_no_signal(static_cast<bool>(current));
             check->connect("toggled", Callable(this, "_on_setting_bool_toggled").bind(prop_name, is_custom));
             row->add_child(check);
         }
@@ -244,28 +226,19 @@ void Control_Scene_Home::_build_settings_entries()
 
 void Control_Scene_Home::_update_setting_labels()
 {
-    if (!settings_content)
-    {
-        return;
-    }
+    if (!settings_content) return;
 
     Array children = settings_content->get_children();
     for (int i = 0; i < children.size(); i++)
     {
         Node *row = Object::cast_to<Node>(children[i]);
-        if (!row || !row->has_meta("dynamic_setting"))
-        {
-            continue;
-        }
+        if (!row || !row->has_meta("dynamic_setting")) continue;
 
         Array row_children = row->get_children();
         for (int j = 0; j < row_children.size(); j++)
         {
             Label *label = Object::cast_to<Label>(row_children[j]);
-            if (!label || !label->has_meta("label_key"))
-            {
-                continue;
-            }
+            if (!label || !label->has_meta("label_key")) continue;
 
             String label_key = String(label->get_meta("label_key", ""));
             String label_fallback = String(label->get_meta("label_fallback", ""));
@@ -277,123 +250,85 @@ void Control_Scene_Home::_update_setting_labels()
 
 void Control_Scene_Home::_update_button_texts()
 {
-    if (!control_main || !viewport_container) return;
+    if (!settings || !viewport_container) return;
 
-    // Set button texts
-    Node *settings_btn = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Button_Settings"));
-    if (settings_btn) {
-        settings_btn->set("text", _get_json_text("button_settings", "Settings"));
-    }
-    
-    Node *tutorial_btn = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Button_Tutorial"));
-    if (tutorial_btn) {
-        tutorial_btn->set("text", _get_json_text("button_tutorial", "Note Book"));
-    }
-    
-    Node *practice_btn = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Button_Practice"));
-    if (practice_btn) {
-        practice_btn->set("text", _get_json_text("button_practice", "Flight Practice"));
-    }
-    
-    Node *td_btn = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Button_TD"));
-    if (td_btn) {
-        td_btn->set("text", _get_json_text("button_td", "Test Drive"));
-    }
-    
-    Node *close_btn = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Close_Button"));
-    if (close_btn) {
-        close_btn->set("text", _get_json_text("button_back", "Back"));
-    }
-    
-    // Set settings title
-    Node *settings_label = viewport_container->get_node_or_null(NodePath("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Title_Label"));
-    if (settings_label) {
-        settings_label->set("text", _get_json_text("entry_settings", "Settings"));
-    }
+    auto set_text = [&](const String& path, const String& key, const String& fallback) {
+        Node *node = viewport_container->get_node_or_null(NodePath(path));
+        if (node) node->set("text", _get_json_text(key, fallback));
+    };
+
+    set_text("Viewport/CanvasLayer/Control/Button_Settings", "button_settings", "Settings");
+    set_text("Viewport/CanvasLayer/Control/Button_Tutorial", "button_tutorial", "Note Book");
+    set_text("Viewport/CanvasLayer/Control/Button_Practice", "button_practice", "Flight Practice");
+    set_text("Viewport/CanvasLayer/Control/Button_TD", "button_td", "Test Drive");
+    set_text("Viewport/CanvasLayer/Control/Settings_Panel/Close_Button", "button_back", "Back");
+    set_text("Viewport/CanvasLayer/Control/Settings_Panel/Settings_Content/Title_Label", "entry_settings", "Settings");
 
     _update_setting_labels();
 }
 
 String Control_Scene_Home::_get_json_text(const String& key, const String& fallback)
 {
-    if (!control_main) return fallback;
+    if (!settings) return fallback;
 
-    // Determine JSON file based on current language
-    String json_file = "res://Media/Text/English.json";
-    if (control_main->GetValLanguage() == 1) 
-    {
-        json_file = "res://Media/Text/Chinese.json";
-    }
+    String json_file = (settings->GetValLanguage() == 1) 
+        ? "res://Media/Text/Chinese.json" 
+        : "res://Media/Text/English.json";
 
-    // Read JSON file and get specific text
     Ref<FileAccess> f = FileAccess::open(json_file, FileAccess::READ);
-    if (f.is_valid()) 
+    if (f.is_valid())
     {
         String content = f->get_as_text();
         f->close();
-        
+
         Ref<JSON> json = memnew(JSON);
-        Error parse_result = json->parse(content);
-        if (parse_result == OK) 
+        if (json->parse(content) == OK)
         {
             Dictionary data = json->get_data();
-            if (data.has(key)) {
+            if (data.has(key))
                 return String(data[key]);
-            }
         }
     }
-    
     return fallback;
 }
 
 void Control_Scene_Home::_on_button_pressed(const String& scene_name)
 {
-    if (control_main) 
+    if (control_main)
     {
         UtilityFunctions::print("Switching to scene: ", scene_name);
         control_main->Switch_Scene(scene_name);
+    }
+    else
+    {
+        UtilityFunctions::printerr("Control_Main not available for scene switch");
     }
 }
 
 void Control_Scene_Home::_on_settings_button_pressed()
 {
-    if (settings_panel) 
-    {
-        settings_panel->set("visible", true);
-    }
+    if (settings_panel) settings_panel->set("visible", true);
 }
 
 void Control_Scene_Home::_on_close_button_pressed()
 {
-    if (settings_panel) 
-    {
-        settings_panel->set("visible", false);
-    }
+    if (settings_panel) settings_panel->set("visible", false);
 }
 
 void Control_Scene_Home::_on_setting_enum_changed(int index, const String& prop_name)
 {
-    if (!control_main) 
-    {
-        return;
-    }
+    if (!settings) return;
 
-    control_main->call(prop_name + godot::String("_setter"), index);
+    settings->call(prop_name + godot::String("_setter"), index);
     if (prop_name == "Language")
-    {
         _update_button_texts();
-    }
 }
 
 void Control_Scene_Home::_on_setting_bool_toggled(bool pressed, const String& prop_name, bool is_custom)
 {
-    if (!control_main)
-    {
-        return;
-    }
+    if (!settings) return;
 
-    control_main->call(prop_name + godot::String("_setter"), pressed);
-    UtilityFunctions::print(prop_name, " toggled: ", pressed);
+    settings->call(prop_name + godot::String("_setter"), pressed);
 
     if (is_custom && prop_name == "EnableHeadset" && settings_content)
     {
@@ -403,8 +338,9 @@ void Control_Scene_Home::_on_setting_bool_toggled(bool pressed, const String& pr
             Label *label_node = Object::cast_to<Label>(container->get_node_or_null(NodePath(prop_name + godot::String("_Label"))));
             if (label_node)
             {
-                String tip_text = _get_json_text("entry_enable_headset_tip", "Enable Headset (Please restart the software to apply changes)");
-                label_node->set_text(tip_text);
+                String tip = _get_json_text("entry_enable_headset_tip", 
+                    "Enable Headset (Please restart the software to apply changes)");
+                label_node->set_text(tip);
             }
         }
     }
@@ -412,56 +348,38 @@ void Control_Scene_Home::_on_setting_bool_toggled(bool pressed, const String& pr
 
 void Control_Scene_Home::_update_badge_display()
 {
-    if (!badge_icon || !control_main) 
-    {
-        return;
-    }
+    if (!badge_icon || !settings) return;
 
     TextureRect* texture_rect = Object::cast_to<TextureRect>(badge_icon);
-    if (!texture_rect) 
-    {
-        UtilityFunctions::printerr("Badge_Icon is not a TextureRect");
-        return;
-    }
+    if (!texture_rect) return;
 
-    int badge_value = control_main->GetValBadge();
+    int badge_value = settings->GetValBadge();
     String texture_path;
 
-    switch (badge_value) 
+    switch (badge_value)
     {
         case 0:
-            // transparent/no badge - set to null or a transparent texture.
             texture_rect->set_texture(Ref<Texture2D>());
             texture_rect->set_visible(false);
-            break;
-        case 1:
-            texture_path = "res://Media/Image/badge_1.png";
-            break;
-        case 2:
-            texture_path = "res://Media/Image/badge_2.png";
-            break;
-        case 3:
-            texture_path = "res://Media/Image/badge_3.png";
-            break;
+            return;
+        case 1: texture_path = "res://Media/Image/badge_1.png"; break;
+        case 2: texture_path = "res://Media/Image/badge_2.png"; break;
+        case 3: texture_path = "res://Media/Image/badge_3.png"; break;
         default:
             UtilityFunctions::printerr("Invalid badge value: ", badge_value);
             return;
     }
 
-    if (badge_value > 0) 
+    Ref<Texture2D> texture = ResourceLoader::get_singleton()->load(texture_path);
+    if (texture.is_valid())
     {
-        Ref<Texture2D> texture = ResourceLoader::get_singleton()->load(texture_path);
-        if (texture.is_valid()) 
-        {
-            texture_rect->set_texture(texture);
-            texture_rect->set_visible(true);
-            // UtilityFunctions::print("Badge updated to: ", badge_value, " using texture: ", texture_path);
-        } 
-        else 
-        {
-            UtilityFunctions::printerr("Failed to load badge texture: ", texture_path);
-            texture_rect->set_visible(false);
-        }
+        texture_rect->set_texture(texture);
+        texture_rect->set_visible(true);
+    }
+    else
+    {
+        UtilityFunctions::printerr("Failed to load badge texture: ", texture_path);
+        texture_rect->set_visible(false);
     }
 }
 

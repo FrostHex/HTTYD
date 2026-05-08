@@ -11,7 +11,6 @@ size = Vector3(0.168, 0.0608516, 0.202)
 [node name="Main" type="Node3D" unique_id=132297364]
 
 [node name="Control_Main" type="Control_Main" parent="." unique_id=1585059154]
-Badge = 3
 
 [node name="Control_Camera" type="Control_Camera" parent="Control_Main" unique_id=1585906464]
 process_physics_priority = -80

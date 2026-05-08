@@ -1,5 +1,6 @@
 #include "Control_Camera.h"
 #include "Control_Main.h"
+#include "Settings.h"
 
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -108,12 +109,12 @@ void Control_Camera::Initialize()
     {
         set_physics_process(false);
 
-        if (control_main->GetValEnableHeadset())
+        if (Settings::GetSingleton()->GetValEnableHeadset())
         {
             set_physics_process(true);
         }
 
-        if (control_main->GetValSubView())
+        if (Settings::GetSingleton()->GetValSubView())
         {
             Node* sub_container = scene_node->get_node<Node>("Dragon/SubViewportContainer");
             Node* sub_viewport = sub_container->get_node<Node>("SubViewport");
@@ -121,12 +122,12 @@ void Control_Camera::Initialize()
             camera_sub->set_rotation(Vector3(0, - Math_PI / 2, 0));
             set_physics_process(true);
 
-            if (control_main->GetValDebug())
+            if (Settings::GetSingleton()->GetValDebug())
             {
                 label_info = sub_viewport->get_node<Label>("Info");
             }
 
-            if (control_main->GetValEnableHeadset())
+            if (Settings::GetSingleton()->GetValEnableHeadset())
             {
                 Ref<godot::ViewportTexture> vp_tex = Object::cast_to<Viewport>(sub_viewport)->get_texture();
                 MeshInstance3D* sub_mesh = memnew(MeshInstance3D);
@@ -210,15 +211,15 @@ void Control_Camera::ResetVRTransform()
  */
 void Control_Camera::_physics_process(double delta)
 {
-    if (control_main->GetValEnableHeadset() && camera_stabilized)
+    if (Settings::GetSingleton()->GetValEnableHeadset() && camera_stabilized)
     {
         xr_node->set_global_rotation(Vector3(0, -Math_PI, 0)); // set the rotation of the XR origin to match the camera
     }
 
-    if (control_main->GetValSubView())
+    if (Settings::GetSingleton()->GetValSubView())
     {
         camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
-        if (control_main->GetValDebug() && label_info)
+        if (Settings::GetSingleton()->GetValDebug() && label_info)
         {
             String velocity_text = "Linear Velocity: " + String::num(dragon_pilot->GetLinearVelocity(), 1) + "\n" + info_debug + "\n" + time_elapsed;
             label_info->set_text(velocity_text);
@@ -315,7 +316,7 @@ Vector3 Control_Camera::GetPostureHeadset()
 
 void Control_Camera::Print_Collision(Node* body, float velocity)
 {
-    if (control_main && control_main->GetValDebug() && label_info)
+    if (control_main && Settings::GetSingleton()->GetValDebug() && label_info)
     {
         String collision_info = "Collision with " + body->get_name() + " at velocity: " + String::num(velocity, 1);
         info_debug = collision_info;
@@ -341,7 +342,7 @@ void Control_Camera::_input(const Ref<InputEvent> &event)
     if (event->is_action_pressed("load_state")) 
     {
         info_debug = "State Loaded";
-        if (control_main->GetValDebug() && label_info)
+        if (Settings::GetSingleton()->GetValDebug() && label_info)
         {
             label_info->set_modulate(Color(0.863f, 0.953f, 1.0f, 1.0f));
         }

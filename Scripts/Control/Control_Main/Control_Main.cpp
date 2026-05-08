@@ -1,3 +1,4 @@
+// ==================== Control_Main.cpp ====================
 #include "Control_Main.h"
 #include "Control_Scene_Home.h"
 #include "Control_Scene_TD.h"
@@ -7,7 +8,7 @@
 #include "Dragon_Animator.h"
 #include "CheatSheet.h"
 #include "GameTimer.h"
-#include "SaveManager.h"
+#include "Settings.h"
 #include "SunsetBridge.h"
 #include "Dragon_Pilot_Keyboard.h"
 #include "Dragon_Pilot_Joystick.h"
@@ -29,42 +30,11 @@
 
 using namespace godot;
 
-namespace
-{
-    struct SettingSpec 
-    {
-        const char *key;
-        std::function<Variant(const Control_Main *)> get;
-        std::function<void(Control_Main *, const Variant &)> set;
-    };
-
-    const SettingSpec *get_setting_specs(int &count)
-    {
-        static const SettingSpec specs[] =
-        {
-            #define MAKE_SETTING_SPEC(ui_exposed, PropName, member, type, default_value, key, variant_type, hint, hint_string, property_name, label_key, label_fallback, label_path, label_suffix, setter_kind) \
-                        { \
-                            key, \
-                            [](const Control_Main *self) { return self->GetVal##PropName(); }, \
-                            [](Control_Main *self, const Variant &value) { self->SetVal##PropName(static_cast<type>(value)); } \
-                        },
-
-                    CONTROL_MAIN_SETTING_LIST(MAKE_SETTING_SPEC)
-            #undef MAKE_SETTING_SPEC
-        };
-        count = sizeof(specs) / sizeof(specs[0]);
-        return specs;
-    }
-}
-
 Control_Main::Control_Main() {}
 Control_Main::~Control_Main() {}
 
 void Control_Main::_ready()
 {
-    save_manager = get_node<SaveManager>("SaveManager");
-    LoadSettings();
-
     if (Engine::get_singleton()->is_editor_hint())
     {
         return;
@@ -74,7 +44,7 @@ void Control_Main::_ready()
     ctrl_camera = get_node<Control_Camera>("Control_Camera");
     camera_main = get_parent()->get_node<Node3D>("Camera_Main");
 
-    if (enable_headset) 
+    if (Settings::GetSingleton()->GetValEnableHeadset()) 
     {
         UtilityFunctions::print("Starting XR interface initialization...");
         DisplayServer::get_singleton()->window_set_vsync_mode(DisplayServer::VSYNC_DISABLED);
@@ -143,7 +113,7 @@ void Control_Main::Switch_Scene(const String &scene_name)
 
         if (scene_name == "Scene_TD")
         {
-            if (!enable_headset)
+            if (Settings::GetSingleton()->GetValEnableHeadset())
             {
                 call_deferred("AttachSunshineClouds", scene_name, true);
             }
@@ -235,131 +205,11 @@ void Control_Main::AttachSunshineClouds(const String &scene_name, bool attach)
     clouds_node->call_deferred("clouds_res_added");
 }
 
-// ==================== setters ====================
-void Control_Main::SetValEnableHeadset(bool val)
-{
-    enable_headset = val;
-    bool current = ProjectSettings::get_singleton()->get_setting("xr/openxr/enabled");
-    if (current != val) 
-    {
-        ProjectSettings::get_singleton()->set_setting("xr/openxr/enabled", val);
-        ProjectSettings::get_singleton()->save();
-    }
-    if (!is_loading_settings && save_manager) SaveSettings();
-    notify_property_list_changed();
-}
-
-#define DEFINE_GENERIC_SETTER(PropName, member, type, ...) \
-void Control_Main::SetVal##PropName(type val) \
-{ \
-    member = val; \
-    if (!is_loading_settings && save_manager) SaveSettings(); \
-    notify_property_list_changed(); \
-}
-
-DEFINE_GENERIC_SETTER(Language, language, int)
-DEFINE_GENERIC_SETTER(SubView, sub_view, bool)
-DEFINE_GENERIC_SETTER(Debug, debug, bool)
-DEFINE_GENERIC_SETTER(Badge, badge, int)
-
-#undef DEFINE_GENERIC_SETTER
-
 void Control_Main::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("Switch_Scene", "scene_name"), &Control_Main::Switch_Scene);
     ClassDB::bind_method(D_METHOD("AttachCamera", "scene_name"), &Control_Main::AttachCamera);
     ClassDB::bind_method(D_METHOD("AttachSunshineClouds", "scene_name", "attach"), &Control_Main::AttachSunshineClouds);
-    ClassDB::bind_method(D_METHOD("GetExposedSettings"), &Control_Main::GetExposedSettings);
-    
-    #define BIND_SETTING(ui_exposed, PropName, member, type, default_value, key, variant_type, hint, hint_string, property_name, label_key, label_fallback, label_path, label_suffix, setter_kind) \
-        ClassDB::bind_method(D_METHOD(#PropName "_setter", "value"), &Control_Main::SetVal##PropName); \
-        ClassDB::bind_method(D_METHOD(#PropName "_getter"), &Control_Main::GetVal##PropName); \
-        ADD_PROPERTY(PropertyInfo(static_cast<Variant::Type>(variant_type), property_name, hint, hint_string), \
-                    #PropName "_setter", #PropName "_getter");
-
-        CONTROL_MAIN_SETTING_LIST(BIND_SETTING)
-    #undef BIND_SETTING
-}
-
-// get the list of settings that are exposed to the UI
-Array Control_Main::GetExposedSettings() const
-{
-    Array arr;
-
-    #define ADD_IF_EXPOSED(ui_exposed, PropName, member, type, default_value, key, variant_type, hint, hint_string, property_name, label_key, label_fallback, label_path, label_suffix, setter_kind) \
-        if (ui_exposed) \
-        { \
-            Dictionary dict; \
-            dict["prop_name"] = String(#PropName); \
-            dict["variant_type"] = static_cast<int>(variant_type); \
-            dict["hint"] = static_cast<int>(hint); \
-            dict["hint_string"] = String(hint_string); \
-            dict["label_key"] = String(label_key); \
-            dict["label_fallback"] = String(label_fallback); \
-            dict["label_suffix"] = String(label_suffix); \
-            dict["is_custom"] = (setter_kind == CONTROL_MAIN_SETTER_CUSTOM); \
-            arr.push_back(dict); \
-        }
-
-        CONTROL_MAIN_SETTING_LIST(ADD_IF_EXPOSED)
-    #undef ADD_IF_EXPOSED
-
-    return arr;
-}
-
-void Control_Main::LoadSettings()
-{
-    if (!save_manager) 
-    {
-        UtilityFunctions::printerr("SaveManager not initialized in LoadSettings()");
-        return;
-    }
-    
-    is_loading_settings = true;
-    
-    Dictionary settings = save_manager->Settings_Load();
-    bool wrote_defaults = false;
-    int spec_count = 0;
-    const SettingSpec *specs = get_setting_specs(spec_count);
-    
-    for (int i = 0; i < spec_count; i++)
-    {
-        StringName key(specs[i].key);
-        Variant value = settings.has(key) ? settings[key] : specs[i].get(this);
-        if (!settings.has(key)) 
-        {
-            settings[key] = value;
-            wrote_defaults = true;
-        }
-        specs[i].set(this, value);
-    }
-    
-    is_loading_settings = false;
-    notify_property_list_changed();
-
-    if (wrote_defaults)
-    {
-        save_manager->Settings_Save(settings);
-    }
-}
-
-void Control_Main::SaveSettings()
-{
-    if (!save_manager) 
-    {
-        UtilityFunctions::printerr("SaveManager not initialized in SaveSettings()");
-        return;
-    }
-    
-    Dictionary settings = save_manager->Settings_Load();
-    int spec_count = 0;
-    const SettingSpec *specs = get_setting_specs(spec_count);
-    for (int i = 0; i < spec_count; i++)
-    {
-        settings[specs[i].key] = specs[i].get(this);
-    }
-    
-    save_manager->Settings_Save(settings);
 }
 
 extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetProcAddress get_proc_addr, GDExtensionClassLibraryPtr lib, GDExtensionInitialization *init) 
@@ -385,6 +235,7 @@ extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetPr
             godot::ClassDB::register_class<CheatSheet>();
             godot::ClassDB::register_class<SaveManager>();
             godot::ClassDB::register_class<SunsetBridge>();
+            godot::ClassDB::register_class<Settings>();
         }
     });
     obj.set_minimum_library_initialization_level(godot::MODULE_INITIALIZATION_LEVEL_SCENE);

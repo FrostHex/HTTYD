@@ -3,6 +3,7 @@
 #include "Dragon_Pilot_Keyboard.h"
 #include "Dragon_Pilot_Joystick.h"
 #include "Control_Camera.h"
+#include "Settings.h"
 
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -76,7 +77,7 @@ void Control_Scene_TD::_ready()
     timer = get_node<GameTimer>("GameTimer");
     timer->Initialize(ctrl_camera);
 
-    if (control_main->GetValEnableHeadset()) 
+    if (Settings::GetSingleton()->GetValEnableHeadset()) 
     {
         // memnew is "new" in Godot C++, which dynamically allocates memory for the object
         // memnew() creates an instance of Dragon_Pilot_Joystick and returns a pointer to it
@@ -90,7 +91,7 @@ void Control_Scene_TD::_ready()
         dragon_node->add_child(dynamic_cast<Node*>(dragon_pilot));
         dragon_pilot->set_name("Dragon_Pilot_Keyboard"); // set the name of the dragon control node
     }
-    if (control_main->GetValSubView() && control_main->GetValDebug()) 
+    if (Settings::GetSingleton()->GetValSubView() && Settings::GetSingleton()->GetValDebug()) 
     {
         video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
     }
@@ -126,12 +127,12 @@ void Control_Scene_TD::_ready()
  */
 void Control_Scene_TD::Initialize_TimerList() 
 {
-    if (control_main->GetValSubView() && control_main->GetValDebug() && video_player)
+    if (Settings::GetSingleton()->GetValSubView() && Settings::GetSingleton()->GetValDebug() && video_player)
     {
         timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
     }
     timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
-    if (!control_main->GetValDebug()) 
+    if (!Settings::GetSingleton()->GetValDebug()) 
     {
         timer->Timer_AddEvent(3.0f, Callable(this, "AutoSave"));
     }
@@ -206,7 +207,7 @@ void Control_Scene_TD::Initialize_TimerList()
     timer->Timer_AddEvent(105.0f, Callable(ctrl_camera, "GrabSaddle")); // grab the saddle
     timer->Timer_AddEvent(106.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.5f)); // Toothless opens his mouth
     timer->Timer_AddEvent(108.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_dive")); // change the animation to po_dive
-    if (!control_main->GetValDebug()) 
+    if (!Settings::GetSingleton()->GetValDebug()) 
     {
         timer->Timer_AddEvent(112.5f, Callable(this, "AutoSave"));
     }
@@ -270,7 +271,7 @@ void Control_Scene_TD::TakeRest()
 
     if (control_main)
     {
-        control_main->call_deferred("AttachSunshineClouds", get_parent()->get_name(), false);
+        Settings::GetSingleton()->call_deferred("AttachSunshineClouds", get_parent()->get_name(), false);
     }
 
     // complete this Test Drive and update badge.
@@ -347,7 +348,7 @@ void Control_Scene_TD::_input(const Ref<InputEvent> &event)
         timer->Timer_Reset();
         Initialize_TimerList();
         timer->Timer_ForceSetTime(time_elapsed);
-        if (control_main->GetValSubView() && control_main->GetValDebug() && video_player)
+        if (Settings::GetSingleton()->GetValSubView() && Settings::GetSingleton()->GetValDebug() && video_player)
         {
             video_player->set_stream_position(time_elapsed);
         }
@@ -412,7 +413,7 @@ void Control_Scene_TD::_on_td_area_2_body_entered(Node* body)
 void Control_Scene_TD::_update_badge_on_completion()
 {
     if (!control_main) return;
-    int current_badge = control_main->GetValBadge();
+    int current_badge = Settings::GetSingleton()->GetValBadge();
     int target_badge = current_badge;
     if (current_badge < 1) 
     {
@@ -429,7 +430,7 @@ void Control_Scene_TD::_update_badge_on_completion()
     }
     if (target_badge != current_badge) 
     {
-        control_main->SetValBadge(target_badge);
+        Settings::GetSingleton()->SetValBadge(target_badge);
         // UtilityFunctions::print("Badge updated to ", target_badge);
     }
 }

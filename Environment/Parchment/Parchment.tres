@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://wnqfp2ds4kmu"]
+
+[ext_resource type="Texture2D" uid="uid://dbk3xtf5w0l6k" path="res://Media/Image/paper.png" id="1_s8myb"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.9)
+albedo_texture = ExtResource("1_s8myb")

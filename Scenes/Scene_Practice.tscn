@@ -20,10 +20,10 @@
 [ext_resource type="Script" uid="uid://cjmkcj8hwm7ts" path="res://Addons/sky_3d/src/TimeOfDay.gd" id="10_y4hxh"]
 [ext_resource type="PackedScene" uid="uid://b48qubstjctb5" path="res://Scenes/Rocks/Basic/Rock_BA.tscn" id="11_hrosw"]
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragons/Dragon.tscn" id="12_7k0bh"]
-[ext_resource type="Texture2D" uid="uid://dbk3xtf5w0l6k" path="res://Media/Image/paper.png" id="12_b4lvp"]
 [ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="14_ffdpd"]
 [ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="15_1quxv"]
 [ext_resource type="PackedScene" uid="uid://b8u4epkh67hsj" path="res://Environment/PathMarker.glb" id="15_7pm0g"]
+[ext_resource type="Material" uid="uid://wnqfp2ds4kmu" path="res://Environment/Parchment/Parchment.tres" id="21_05ihc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n5ckk"]
 shader = ExtResource("1_05ihc")
@@ -78,8 +78,8 @@ shader_parameter/cirrus_absorption = 2.0
 shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.010370885, 0.010370885)
-shader_parameter/cirrus_position2 = Vector2(0.010370885, 0.010370885)
+shader_parameter/cirrus_position1 = Vector2(0.042590957, 0.042590957)
+shader_parameter/cirrus_position2 = Vector2(0.042590957, 0.042590957)
 shader_parameter/cirrus_texture = ExtResource("2_hrosw")
 shader_parameter/cumulus_visible = true
 shader_parameter/cumulus_intensity = 0.6
@@ -89,7 +89,7 @@ shader_parameter/cumulus_absorption = 2.0
 shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(0.051854275, 0.051854275)
+shader_parameter/cumulus_position = Vector2(0.21295938, 0.21295938)
 shader_parameter/cumulus_texture = ExtResource("3_7k0bh")
 shader_parameter/cumulus_partial_mie_phase = Vector3(0.957564, 1.042436, 0.412)
 shader_parameter/cumulus_mie_intensity = 1.0
@@ -131,14 +131,6 @@ adjustment_enabled = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_7pm0g"]
 size = Vector2(4, 3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_558l6"]
-transparency = 1
-cull_mode = 2
-no_depth_test = true
-shading_mode = 0
-albedo_color = Color(1, 1, 1, 0.9)
-albedo_texture = ExtResource("12_b4lvp")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hvyi"]
 transparency = 1
@@ -1595,7 +1587,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 1000, -3500)
 [node name="PracticePaper" type="MeshInstance3D" parent="Dragon" unique_id=1321423048]
 transform = Transform3D(-4.371139e-09, 0.025881905, -0.09659258, 0, 0.09659258, 0.025881905, 0.1, 1.131334e-09, -4.222196e-09, 0.865, 0.495, 0.405)
 mesh = SubResource("QuadMesh_7pm0g")
-surface_material_override/0 = SubResource("StandardMaterial3D_558l6")
+surface_material_override/0 = ExtResource("21_05ihc")
 
 [node name="PracticeText" type="Label3D" parent="Dragon/PracticePaper" unique_id=540385175]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
