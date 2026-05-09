@@ -55,11 +55,17 @@ shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_tsx6q")
 
 [sub_resource type="QuadMesh" id="QuadMesh_06d3e"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_8j5el"]
+size = Vector3(10, 95.745605, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8j5el"]
+albedo_color = Color(1, 0.884, 0.13, 1)
+
 [node name="Ocean" type="Node3D" unique_id=1785487420]
 script = ExtResource("1_skarq")
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1182466937]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -709, 0, -13696)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 42, 0, 13)
 sorting_offset = 999.0
 material_override = ExtResource("5_lt75t")
 cast_shadow = 0
@@ -89,6 +95,17 @@ stream = ExtResource("8_6r5si")
 volume_db = -30.0
 
 [node name="Water_Background" type="MeshInstance3D" parent="." unique_id=803456864]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, -11, 0)
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -6.1589355, -11, -9.705078)
 material_override = ExtResource("11_8j5el")
 mesh = ExtResource("5_n61pp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1732542946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.616907, -11.569614, 4.4886913)
+mesh = SubResource("BoxMesh_8j5el")
+surface_material_override/0 = SubResource("StandardMaterial3D_8j5el")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=246892368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.821224, 45.154594, 35.895588)
+mesh = SubResource("BoxMesh_8j5el")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_8j5el")

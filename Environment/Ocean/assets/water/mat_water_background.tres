@@ -5,7 +5,7 @@
 [resource]
 render_priority = 1
 shader = ExtResource("1_v7tv0")
-shader_parameter/roughness = 0.650000030875
+shader_parameter/roughness = 0.400000019
 shader_parameter/normal_strength = 0.0
 shader_parameter/circle_fade_start_ratio = 0.70000003325
 shader_parameter/mesh_half_side = 256.0
