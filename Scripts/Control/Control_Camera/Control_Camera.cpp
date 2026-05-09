@@ -122,7 +122,7 @@ void Control_Camera::Initialize()
             camera_sub->set_rotation(Vector3(0, - Math_PI / 2, 0));
             set_physics_process(true);
 
-            if (Settings::GetSingleton()->GetValDebug())
+            if (Settings::GetSingleton()->GetValDebugInfo())
             {
                 label_info = sub_viewport->get_node<Label>("Info");
             }
@@ -219,7 +219,7 @@ void Control_Camera::_physics_process(double delta)
     if (Settings::GetSingleton()->GetValSubView())
     {
         camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
-        if (Settings::GetSingleton()->GetValDebug() && label_info)
+        if (Settings::GetSingleton()->GetValDebugInfo() && label_info)
         {
             String velocity_text = "Linear Velocity: " + String::num(dragon_pilot->GetLinearVelocity(), 1) + "\n" + info_debug + "\n" + time_elapsed;
             label_info->set_text(velocity_text);
@@ -316,7 +316,7 @@ Vector3 Control_Camera::GetPostureHeadset()
 
 void Control_Camera::Print_Collision(Node* body, float velocity)
 {
-    if (control_main && Settings::GetSingleton()->GetValDebug() && label_info)
+    if (control_main && Settings::GetSingleton()->GetValDebugInfo() && label_info)
     {
         String collision_info = "Collision with " + body->get_name() + " at velocity: " + String::num(velocity, 1);
         info_debug = collision_info;
@@ -342,7 +342,7 @@ void Control_Camera::_input(const Ref<InputEvent> &event)
     if (event->is_action_pressed("load_state")) 
     {
         info_debug = "State Loaded";
-        if (Settings::GetSingleton()->GetValDebug() && label_info)
+        if (Settings::GetSingleton()->GetValDebugInfo() && label_info)
         {
             label_info->set_modulate(Color(0.863f, 0.953f, 1.0f, 1.0f));
         }

@@ -68,8 +68,8 @@ shader_parameter/cirrus_absorption = 2.0
 shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.6293369, 0.6293369)
-shader_parameter/cirrus_position2 = Vector2(0.6293369, 0.6293369)
+shader_parameter/cirrus_position1 = Vector2(0.26498148, 0.26498148)
+shader_parameter/cirrus_position2 = Vector2(0.26498148, 0.26498148)
 shader_parameter/cirrus_texture = ExtResource("2_yba8m")
 shader_parameter/cumulus_visible = true
 shader_parameter/cumulus_intensity = 0.6
@@ -79,7 +79,7 @@ shader_parameter/cumulus_absorption = 2.0
 shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(3.1467116, 3.1467116)
+shader_parameter/cumulus_position = Vector2(1.3248156, 1.3248156)
 shader_parameter/cumulus_texture = ExtResource("3_08ls4")
 shader_parameter/cumulus_partial_mie_phase = Vector3(0.957564, 1.042436, 0.412)
 shader_parameter/cumulus_mie_intensity = 1.0
@@ -116,6 +116,7 @@ volumetric_fog_density = 0.0
 volumetric_fog_emission = Color(1, 1, 1, 1)
 volumetric_fog_length = 20000.0
 adjustment_enabled = true
+adjustment_brightness = 0.9
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bwlg7"]
 
@@ -185,6 +186,7 @@ surface_material_override/0 = ExtResource("11_2l35d")
 [node name="TutorialText" type="Label3D" parent="TutorialPaper" unique_id=878382275]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
 pixel_size = 0.0065
+shaded = true
 modulate = Color(0.2, 0.2, 0.2, 1)
 outline_modulate = Color(1, 1, 1, 0.5)
 text = "I think I need to practice more on these basic manoeuvres."

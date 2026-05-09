@@ -38,8 +38,13 @@
     "button_td": "Test Drive\n测试飞行",
     
     "entry_settings": "设置",
+    "entry_language": "语言",
     "entry_enable_headset": "VR模式",
     "entry_enable_headset_tip": "VR模式 (请重启软件以使更改生效)",
     "entry_sub_view": "辅助视角",
-    "entry_debug": "调试信息"
+    "entry_auto_save_state": "自动保存状态",
+    "entry_debug_info": "调试信息",
+    "entry_volumetric_clouds": "体积云",
+    "entry_volumetric_clouds_tip": "体积云 (与VR模式不兼容!)",
+    "entry_auto_roll": "自动翻滚"
 }

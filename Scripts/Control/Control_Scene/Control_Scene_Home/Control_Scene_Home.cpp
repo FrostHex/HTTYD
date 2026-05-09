@@ -22,6 +22,7 @@
 #include <godot_cpp/classes/check_button.hpp>
 #include <godot_cpp/classes/option_button.hpp>
 #include <godot_cpp/classes/control.hpp>
+#include <regex>
 
 using namespace godot;
 
@@ -171,13 +172,14 @@ void Control_Scene_Home::_build_settings_entries()
         int variant_type = static_cast<int>(entry.get("variant_type", Variant::NIL));
         int hint = static_cast<int>(entry.get("hint", PROPERTY_HINT_NONE));
         String hint_string = String(entry.get("hint_string", ""));
-        String label_key = String(entry.get("label_key", ""));
-        String label_fallback = String(entry.get("label_fallback", prop_name));
-        String label_suffix = String(entry.get("label_suffix", ""));
+        String label_key = String("entry_") + String(entry.get("member", ""));
+        // add spaces. e.g. "VolumetricClouds"→"Volumetric Clouds", "Language"→"Language", "MyUISettings"→"My UI Settings", "SSRQualityLevel"→"SSR Quality Level"
+        String property_name = std::regex_replace(std::regex_replace(std::string(prop_name.utf8().get_data()),
+                               std::regex("([A-Z]+)([A-Z][a-z])"),"$1 $2"),std::regex("([a-z0-9])([A-Z])"),"$1 $2").c_str();
         bool is_custom = static_cast<bool>(entry.get("is_custom", false));
 
-        if (label_fallback.is_empty())
-            label_fallback = prop_name;
+        if (property_name.is_empty())
+            property_name = prop_name;
 
         HBoxContainer *row = memnew(HBoxContainer);
         row->set_name(prop_name + "_Container");
@@ -187,10 +189,9 @@ void Control_Scene_Home::_build_settings_entries()
         Label *label = memnew(Label);
         label->set_name(prop_name + "_Label");
         label->set_h_size_flags(Control::SIZE_EXPAND_FILL);
-        label->set_text(_get_json_text(label_key, label_fallback) + label_suffix);
+        label->set_text(_get_json_text(label_key, property_name) + ":");
         label->set_meta("label_key", label_key);
-        label->set_meta("label_fallback", label_fallback);
-        label->set_meta("label_suffix", label_suffix);
+        label->set_meta("fallback", property_name);
         row->add_child(label);
 
         if (hint == PROPERTY_HINT_ENUM)
@@ -241,9 +242,8 @@ void Control_Scene_Home::_update_setting_labels()
             if (!label || !label->has_meta("label_key")) continue;
 
             String label_key = String(label->get_meta("label_key", ""));
-            String label_fallback = String(label->get_meta("label_fallback", ""));
-            String label_suffix = String(label->get_meta("label_suffix", ""));
-            label->set_text(_get_json_text(label_key, label_fallback) + label_suffix);
+            String property_name = String(label->get_meta("fallback", ""));
+            label->set_text(_get_json_text(label_key, property_name) + ":");
         }
     }
 }
@@ -330,6 +330,11 @@ void Control_Scene_Home::_on_setting_bool_toggled(bool pressed, const String& pr
 
     settings->call(prop_name + godot::String("_setter"), pressed);
 
+    if (prop_name == "EnableHeadset" || prop_name == "VolumetricClouds")
+    {
+        _refresh_settings_ui();
+    }
+
     if (is_custom && prop_name == "EnableHeadset" && settings_content)
     {
         Node *container = settings_content->get_node_or_null(NodePath(prop_name + godot::String("_Container")));
@@ -338,10 +343,46 @@ void Control_Scene_Home::_on_setting_bool_toggled(bool pressed, const String& pr
             Label *label_node = Object::cast_to<Label>(container->get_node_or_null(NodePath(prop_name + godot::String("_Label"))));
             if (label_node)
             {
-                String tip = _get_json_text("entry_enable_headset_tip", 
-                    "Enable Headset (Please restart the software to apply changes)");
+                String tip = _get_json_text("entry_enable_headset_tip");
                 label_node->set_text(tip);
             }
+        }
+    }
+
+    if (is_custom && prop_name == "VolumetricClouds" && settings_content)
+    {
+        Node *container = settings_content->get_node_or_null(NodePath(prop_name + godot::String("_Container")));
+        if (container)
+        {
+            Label *label_node = Object::cast_to<Label>(container->get_node_or_null(NodePath(prop_name + godot::String("_Label"))));
+            if (label_node)
+            {
+                String tip = _get_json_text("entry_volumetric_clouds_tip");
+                label_node->set_text(tip);
+            }
+        }
+    }
+}
+
+void Control_Scene_Home::_refresh_settings_ui()
+{
+    if (!settings_content || !settings) return;
+
+    Array children = settings_content->get_children();
+    for (int i = 0; i < children.size(); i++)
+    {
+        Node* row = Object::cast_to<Node>(children[i]);
+        if (!row || !row->has_meta("dynamic_setting")) continue;
+
+        String prop_name = row->get_name().replace("_Container", "");
+
+        CheckButton* check = Object::cast_to<CheckButton>(
+            row->get_node_or_null(NodePath(prop_name + "_CheckBox")));
+
+        if (check)
+        {
+            Variant current = settings->call(prop_name + "_getter");
+            check->set_pressed_no_signal(static_cast<bool>(current));
         }
     }
 }

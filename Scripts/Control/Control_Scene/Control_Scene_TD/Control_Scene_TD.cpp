@@ -9,6 +9,7 @@
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/memory.hpp> // memnew
 #include <godot_cpp/classes/input_event.hpp> 
+#include <godot_cpp/classes/input_event_action.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/variant/variant.hpp>
@@ -91,7 +92,7 @@ void Control_Scene_TD::_ready()
         dragon_node->add_child(dynamic_cast<Node*>(dragon_pilot));
         dragon_pilot->set_name("Dragon_Pilot_Keyboard"); // set the name of the dragon control node
     }
-    if (Settings::GetSingleton()->GetValSubView() && Settings::GetSingleton()->GetValDebug()) 
+    if (Settings::GetSingleton()->GetValSubView() && Settings::GetSingleton()->GetValDebugInfo()) 
     {
         video_player = dragon_node->get_node<Node>("SubViewportContainer")->get_node<Node>("SubViewport")->get_node<VideoStreamPlayer>("VideoStreamPlayer");
     }
@@ -127,14 +128,15 @@ void Control_Scene_TD::_ready()
  */
 void Control_Scene_TD::Initialize_TimerList() 
 {
-    if (Settings::GetSingleton()->GetValSubView() && Settings::GetSingleton()->GetValDebug() && video_player)
+    if (Settings::GetSingleton()->GetValSubView() && Settings::GetSingleton()->GetValDebugInfo() && video_player)
     {
         timer->Timer_AddEvent(0.0f, Callable(video_player, "play"));
     }
     timer->Timer_AddEvent(0.0f, Callable(audio_player, "play"));
-    if (!Settings::GetSingleton()->GetValDebug()) 
+    if (Settings::GetSingleton()->GetValAutoSaveState())
     {
         timer->Timer_AddEvent(3.0f, Callable(this, "AutoSave"));
+        timer->Timer_AddEvent(112.5f, Callable(this, "AutoSave"));
     }
     timer->Timer_AddEvent(16.0f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_NOT_ANIMATED)); // disable the default animations
     timer->Timer_AddEvent(16.8f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_tail_wing_close")); // the tail wing folds
@@ -207,10 +209,6 @@ void Control_Scene_TD::Initialize_TimerList()
     timer->Timer_AddEvent(105.0f, Callable(ctrl_camera, "GrabSaddle")); // grab the saddle
     timer->Timer_AddEvent(106.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.5f)); // Toothless opens his mouth
     timer->Timer_AddEvent(108.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_dive")); // change the animation to po_dive
-    if (!Settings::GetSingleton()->GetValDebug()) 
-    {
-        timer->Timer_AddEvent(112.5f, Callable(this, "AutoSave"));
-    }
     timer->Timer_AddEvent(113.5f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(-0.3f, -Math_PI/2 + 0.3f, -Math_PI/2 -0.3f)));
     timer->Timer_AddEvent(113.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_crisis"));
     timer->Timer_AddEvent(113.6f, Callable(dragon_pilot, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Final/Rock_Pillar_E_01")->get_global_transform().origin + Vector3(0, 15, 0), 9.5f)); // glide diagonal downwards
@@ -224,7 +222,10 @@ void Control_Scene_TD::Initialize_TimerList()
     timer->Timer_AddEvent(121.7f, Callable(dragon_animator, "SetAnimation_Mouth").bind(4, 1.0f)); // Toothless closes his mouth
     timer->Timer_AddEvent(121.7f, Callable(dragon_pilot, "SetStatus_Deferred").bind(Array{0}, 300.0f));
     timer->Timer_AddEvent(113.8f, Callable(ctrl_camera, "SetCameraStabilized").bind(true)); 
-    timer->Timer_AddEvent(129.0f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_ROLLING)); // automatically start getting to the position of upside down
+    if (Settings::GetSingleton()->GetValAutoRoll())
+    {
+        timer->Timer_AddEvent(129.0f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_ROLLING)); // automatically start getting to the position of upside down
+    }
     timer->Timer_AddEvent(137.0f, Callable(dragon_pilot, "SetState").bind(DragonState::STATE_DISABLED)); // successfully traversed the crisis and set the velocity to horizontal
     timer->Timer_AddEvent(137.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_glide")); 
     timer->Timer_AddEvent(137.0f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_tail", "po_glide"));
@@ -271,7 +272,7 @@ void Control_Scene_TD::TakeRest()
 
     if (control_main)
     {
-        Settings::GetSingleton()->call_deferred("AttachSunshineClouds", get_parent()->get_name(), false);
+        control_main->call_deferred("AttachSunshineClouds", get_parent()->get_name(), false);
     }
 
     // complete this Test Drive and update badge.
@@ -348,7 +349,7 @@ void Control_Scene_TD::_input(const Ref<InputEvent> &event)
         timer->Timer_Reset();
         Initialize_TimerList();
         timer->Timer_ForceSetTime(time_elapsed);
-        if (Settings::GetSingleton()->GetValSubView() && Settings::GetSingleton()->GetValDebug() && video_player)
+        if (Settings::GetSingleton()->GetValSubView() && Settings::GetSingleton()->GetValDebugInfo() && video_player)
         {
             video_player->set_stream_position(time_elapsed);
         }

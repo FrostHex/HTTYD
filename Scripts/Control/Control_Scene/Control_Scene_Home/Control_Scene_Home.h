@@ -9,7 +9,7 @@
 namespace godot
 {
     class Settings;
-    class Control_Main;   // 新增：解决 incomplete type
+    class Control_Main;
 
     class Control_Scene_Home : public Control_Top
     {
@@ -39,6 +39,7 @@ namespace godot
         void _update_button_texts();
         void _update_badge_display();
         String _get_json_text(const String& key, const String& fallback = "");
+        void _refresh_settings_ui();
 
         Node* viewport_container = nullptr;
         Node* settings_panel = nullptr;

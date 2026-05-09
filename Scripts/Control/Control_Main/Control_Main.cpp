@@ -113,7 +113,7 @@ void Control_Main::Switch_Scene(const String &scene_name)
 
         if (scene_name == "Scene_TD")
         {
-            if (Settings::GetSingleton()->GetValEnableHeadset())
+            if (Settings::GetSingleton()->GetValVolumetricClouds())
             {
                 call_deferred("AttachSunshineClouds", scene_name, true);
             }

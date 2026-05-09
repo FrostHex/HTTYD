@@ -41,5 +41,9 @@
     "entry_enable_headset": "Enable Headset",
     "entry_enable_headset_tip": "Enable Headset (Please restart the software to apply changes)",
     "entry_sub_view": "Sub View",
-    "entry_debug": "Debug Info"
+    "entry_auto_save_state": "Auto Save State",
+    "entry_debug_info": "Debug Info",
+    "entry_volumetric_clouds": "Volumetric Clouds",
+    "entry_volumetric_clouds_tip": "Volumetric Clouds (Not Compatible with Headset!)",
+    "entry_auto_roll": "Auto Roll"
 }
