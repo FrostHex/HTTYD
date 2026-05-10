@@ -69,6 +69,10 @@ folder_colors={
 
 import/blender/enabled=false
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [input]
 
 toggle_fullscreen={
@@ -106,6 +110,7 @@ limits/debugger/max_chars_per_second=2147483647
 [rendering]
 
 lights_and_shadows/use_physical_light_units=true
+textures/default_filters/use_nearest_mipmap_filter=true
 
 [shader_globals]
 
@@ -119,8 +124,7 @@ normals={
 }
 water_color={
 "type": "color",
-"value": Color(0.0100228, 0.0196066, 0.0272118, 1)
-}
+"value": Color(0.0100228, 0.0196066, 0.0272118, 1)}
 foam_color={
 "type": "color",
 "value": Color(0.490196, 0.407843, 0.341176, 1)

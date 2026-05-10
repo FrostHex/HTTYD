@@ -115,7 +115,8 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 - Changed: Refactor dragon node to improve reuse.
 - Changed: Quest2 / Pimax Crystal VR compatibility tested.
 
-## v1.1.2 - 
+## v1.2.20 -
+- Added: Card UI system 
 - Fixed: Multiple Test Drive minor issues.
 - Changed: Ocean horizon blending and circular boundary.
 - Changed: Test Drive color correction tweaks.

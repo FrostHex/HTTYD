@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" format=4 uid="uid://dbxumu28oudq4"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dbxumu28oudq4"]
 
 [ext_resource type="Shader" uid="uid://bf1qsujd51qyh" path="res://Environment/Ocean/assets/shaders/spatial/water_background.gdshader" id="1_v7tv0"]
 
@@ -6,8 +6,7 @@
 render_priority = 1
 shader = ExtResource("1_v7tv0")
 shader_parameter/roughness = 0.400000019
-shader_parameter/normal_strength = 0.0
+shader_parameter/sun_reflection_strength = 0.30000001425
 shader_parameter/circle_fade_start_ratio = 0.70000003325
 shader_parameter/mesh_half_side = 256.0
 shader_parameter/follow_tile_size = 1.0
-shader_parameter/map_scales = PackedVector4Array(0.0113636, 0.0113636, 1, 1, 0.0175439, 0.0175439, 0.75, 1, 0.0625, 0.0625, 0, 0.25)

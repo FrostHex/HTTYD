@@ -38,6 +38,7 @@
     "button_td": "Test Drive",
     
     "entry_settings": "Settings",
+    "entry_language": "Language",
     "entry_enable_headset": "Enable Headset",
     "entry_enable_headset_tip": "Enable Headset (Please restart the software to apply changes)",
     "entry_sub_view": "Sub View",

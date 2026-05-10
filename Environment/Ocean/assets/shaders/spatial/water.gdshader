@@ -9,6 +9,8 @@ global uniform vec4 foam_color : source_color;
 
 uniform float roughness : hint_range(0.0, 1.0) = 0.4;
 uniform float normal_strength : hint_range(0.0, 1.0) = 1.0;
+// 日光（直接光）反射强度：1.0 = 原始状态，0.0 = 完全不反射日光
+uniform float sun_reflection_strength : hint_range(0.0, 1.0) = 1.0;
 
 // Cascade data
 group_uniforms cascade_data;
@@ -141,6 +143,8 @@ void fragment() {
         1.0, REFLECTANCE
     );
     ROUGHNESS = (1.0 - fresnel) * foam_factor + 0.15;
+    METALLIC = 0.0; // 水是电介质，不是金属
+    SPECULAR = 0.5 * sun_reflection_strength; // 控制日光高光反射强度
 
     // SSR
     vec3 surface_view_pos = get_view_position_from_uv(SCREEN_UV, FRAGCOORD.z, INV_PROJECTION_MATRIX);

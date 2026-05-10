@@ -7,6 +7,8 @@ render_mode world_vertex_coords, shadows_disabled, blend_mix;
 global uniform vec4 water_color : source_color;
 
 uniform float roughness : hint_range(0.0, 1.0) = 0.4;
+// 日光（直接光）反射强度：1.0 = 原始状态，0.0 = 完全不反射日光
+uniform float sun_reflection_strength : hint_range(0.0, 1.0) = 1.0;
 
 // Radial edge fade
 uniform float circle_fade_start_ratio : hint_range(0.0, 1.0) = 0.0;
@@ -40,6 +42,8 @@ void vertex() {
 void fragment() {
     ALBEDO    = water_color.rgb;
     ROUGHNESS = 0.15;
+    METALLIC = 0.0; // 水是电介质，不是金属
+    SPECULAR = 0.5 * sun_reflection_strength; // 控制日光高光反射强度
 
     // 固定朝上法线（无 normal 贴图）
     NORMAL = (VIEW_MATRIX * vec4(0.0, 1.0, 0.0, 0.0)).xyz;

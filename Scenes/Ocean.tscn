@@ -65,7 +65,7 @@ albedo_color = Color(1, 0.884, 0.13, 1)
 script = ExtResource("1_skarq")
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1182466937]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 42, 0, 13)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -52, 0, 151)
 sorting_offset = 999.0
 material_override = ExtResource("5_lt75t")
 cast_shadow = 0
@@ -73,7 +73,7 @@ extra_cull_margin = 1000.0
 mesh = ExtResource("5_n61pp")
 skeleton = NodePath("")
 script = ExtResource("7_s0x5e")
-water_color = Color(0.140394, 0.202932, 0.240471, 1)
+water_color = Color(0.21176471, 0.3137255, 0.3372549, 1)
 parameters = Array[ExtResource("2_pw5n6")]([SubResource("Resource_adqv5"), SubResource("Resource_luhq0"), SubResource("Resource_83u3u")])
 updates_per_second = 30.0
 
@@ -101,11 +101,13 @@ mesh = ExtResource("5_n61pp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1732542946]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.616907, -11.569614, 4.4886913)
+visible = false
 mesh = SubResource("BoxMesh_8j5el")
 surface_material_override/0 = SubResource("StandardMaterial3D_8j5el")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=246892368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.821224, 45.154594, 35.895588)
+visible = false
 mesh = SubResource("BoxMesh_8j5el")
 skeleton = NodePath("../MeshInstance3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_8j5el")
