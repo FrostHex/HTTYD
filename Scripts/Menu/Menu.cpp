@@ -35,7 +35,6 @@
 #include <godot_cpp/classes/input_event_mouse_button.hpp>
 #include <godot_cpp/classes/input_event_mouse_motion.hpp>
 #include <godot_cpp/variant/color.hpp>
-#include <regex>
 #include <cmath>
 
 using namespace godot;
@@ -107,38 +106,11 @@ void Menu::Initialize(
 
 void Menu::_process(double delta)
 {
-	Process(delta);
-}
-
-// ================================================================
-// HandleInput — 处理鼠标悬停 / 拖拽 / 松开
-// ================================================================
-
-void Menu::_input(const Ref<InputEvent>& event)
-{
-	HandleInput(event);
-}
-
-void Menu::_bind_methods()
-{
-}
-
-// ================================================================
-// _process — 每帧插值动画
-// ================================================================
-
-void Menu::Process(double delta)
-{
 	if (Engine::get_singleton()->is_editor_hint()) return;
-
 	_animate_hand(delta);
 }
 
-// ================================================================
-// _input — 处理鼠标悬停 / 拖拽 / 松开
-// ================================================================
-
-void Menu::HandleInput(const Ref<InputEvent>& event)
+void Menu::_input(const Ref<InputEvent>& event)
 {
 	if (Engine::get_singleton()->is_editor_hint()) return;
 	if (!card_hand_root) return;
@@ -254,24 +226,8 @@ void Menu::HandleInput(const Ref<InputEvent>& event)
 	}
 }
 
-void Menu::OnButtonPressed(const String& scene_name)
+void Menu::_bind_methods()
 {
-	_on_button_pressed(scene_name);
-}
-
-void Menu::OnSettingsButtonPressed()
-{
-	_on_settings_button_pressed();
-}
-
-void Menu::OnCloseButtonPressed()
-{
-	_on_close_button_pressed();
-}
-
-void Menu::UpdateBadgeDisplay()
-{
-	_update_badge_display();
 }
 
 // ================================================================
@@ -364,6 +320,7 @@ void Menu::_rebuild_menu_hand()
 		CardData data;
 		data.type          = CARD_MENU;
 		data.prop_name     = entry.id;
+		data.member_name   = "";
 		data.display_name  = _get_json_text(entry.key, entry.fallback);
 		data.value_text    = data.display_name;
 		data.option_value  = 0;
@@ -420,12 +377,15 @@ void Menu::_rebuild_settings_main_hand()
 	{
 		Dictionary entry  = current_settings_list[i];
 		String prop_name  = String(entry.get("prop_name", ""));
+		String member_name = String(entry.get("member", ""));
 		if (prop_name.is_empty()) continue;
 
 		CardData data;
 		data.type         = CARD_SETTING;
 		data.prop_name    = prop_name;
-		data.display_name = _get_setting_display_name(String(entry.get("member", "")));
+		data.member_name  = member_name;
+		String header_key = member_name.is_empty() ? prop_name : member_name;
+		data.display_name = _get_json_text("header_" + header_key, prop_name);
 		data.variant_type = static_cast<int>(entry.get("variant_type", Variant::NIL));
 		data.hint         = static_cast<int>(entry.get("hint", PROPERTY_HINT_NONE));
 		data.hint_string  = String(entry.get("hint_string", ""));
@@ -457,6 +417,7 @@ void Menu::_rebuild_sub_hand(
 		CardData back;
 		back.type         = CARD_BACK;
 		back.prop_name    = prop_name;
+		back.member_name  = parent_data.member_name;
 		back.display_name = _get_json_text("header_back", "Back");
 		back.value_text   = _get_json_text("header_back", "Back");
 		back.variant_type = parent_data.variant_type;
@@ -473,6 +434,11 @@ void Menu::_rebuild_sub_hand(
 	}
 
 	// ── 子选项牌 ─────────────────────────────────────────────
+	// display_name 在此重新查 JSON，不沿用 parent_data 里的缓存字符串，
+	// 确保切换语言后进入子手牌时标题是当前语言。
+	String header_key = parent_data.member_name.is_empty() ? prop_name : parent_data.member_name;
+	String sub_display_name = _get_json_text("header_" + header_key, prop_name);
+
 	if (parent_data.hint == PROPERTY_HINT_ENUM)
 	{
 		// enum：按 hint_string 中的逗号分割选项
@@ -482,7 +448,8 @@ void Menu::_rebuild_sub_hand(
 			CardData opt;
 			opt.type          = CARD_OPTION;
 			opt.prop_name     = prop_name;
-			opt.display_name  = parent_data.display_name;
+			opt.member_name   = parent_data.member_name;
+			opt.display_name  = sub_display_name;
 			opt.value_text    = items[idx].strip_edges();
 			opt.variant_type  = parent_data.variant_type;
 			opt.hint          = parent_data.hint;
@@ -513,7 +480,8 @@ void Menu::_rebuild_sub_hand(
 			CardData opt;
 			opt.type          = CARD_OPTION;
 			opt.prop_name     = prop_name;
-			opt.display_name  = parent_data.display_name;
+			opt.member_name   = parent_data.member_name;
+			opt.display_name  = sub_display_name;
 			opt.value_text    = String::num_int64(v);
 			opt.variant_type  = parent_data.variant_type;
 			opt.hint          = parent_data.hint;
@@ -615,15 +583,26 @@ Menu::_create_card_node(const CardData& data, int index)
 	cn.value_label = val;
 
 	// ── 具体描述 Label ───────────────────────────────────────
-	// 从 JSON 读取 "detail_<prop_name_lower>" 键，未找到则显示空字符串
+	// 从 JSON 读取 "detail_<member>" 键，未找到则显示空字符串
 	// 菜单卡牌的 prop_name 格式为 "Menu_Xxx"，去掉 "menu_" 前缀后与 JSON key 匹配
+	// 设置卡牌使用 Settings 的 member_name（snake_case）
 	{
-		String member_name = data.prop_name;
-		String snake_name  = _camel_to_snake(member_name);
-		if (snake_name.begins_with("menu_"))
-			snake_name = snake_name.substr(5); // 去掉 "menu_" 前缀
-		String detail_key  = "detail_" + snake_name;
-		String detail_text = _get_json_text(detail_key, "");
+		String key;
+		if (data.type == CARD_MENU)
+		{
+			key = data.prop_name.to_lower();
+			if (key.begins_with("menu_"))
+				key = key.substr(5);
+		}
+		else if (!data.member_name.is_empty())
+		{
+			key = data.member_name;
+		}
+		else
+		{
+			key = data.prop_name;
+		}
+		String detail_text = _get_json_text("detail_" + key, "");
 
 		// x=0、width=CARD_WIDTH：与卡牌等宽，居中对齐严格以卡牌中轴为基准。
 		// set_size 在 add_child 之后调用，防止布局系统将其重置。
@@ -841,7 +820,9 @@ void Menu::_on_card_used(int index)
 {
 	if (index < 0 || index >= hand_cards.size()) return;
 
-	const CardData& data = hand_cards[index].data;
+	// 值拷贝：后续任何 _rebuild_* 都会调用 _destroy_hand() → hand_cards.clear()，
+	// 若持有引用则立即悬空。必须在此处拷贝。
+	const CardData data = hand_cards[index].data;
 
 	if (data.type == CARD_MENU)
 	{
@@ -943,43 +924,6 @@ void Menu::_update_settings_main_value_labels()
 	}
 }
 
-// ================================================================
-// ── 工具函数 ────────────────────────────────────────────────────
-// ================================================================
-
-// CamelCase → "Camel Case"（含全大写缩写的处理）
-// 例："VolumetricClouds" → "Volumetric Clouds"
-//     "SSRQualityLevel"  → "SSR Quality Level"
-/*static*/
-String Menu::_camel_to_display(const String& name)
-{
-	std::string s(name.utf8().get_data());
-	// ABC Def → "AB C Def" pass 1: 全大写+首字母大写
-	s = std::regex_replace(s, std::regex("([A-Z]+)([A-Z][a-z])"), "$1 $2");
-	// abcDef → "abc Def" pass 2: 小写/数字 紧接大写
-	s = std::regex_replace(s, std::regex("([a-z0-9])([A-Z])"), "$1 $2");
-	return String(s.c_str());
-}
-
-// CamelCase → snake_case（用于 JSON key 匹配）
-// 例："AutoRoll" → "auto_roll"
-//     "VolumetricClouds" → "volumetric_clouds"
-/*static*/
-String Menu::_camel_to_snake(const String& name)
-{
-	std::string s(name.utf8().get_data());
-	// abcDef → "abc_Def"：小写/数字后遇大写字母，插入下划线
-	s = std::regex_replace(s, std::regex("([a-z0-9])([A-Z])"), "$1_$2");
-	// ABC → "abc"：全大写序列转为小写
-	s = std::regex_replace(s, std::regex("([A-Z]+)([A-Z][a-z])"), "$1_$2");
-	// 再统一转小写
-	for (char& c : s) c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
-	// 清理连续下划线
-	while (s.find("__") != std::string::npos)
-		s = std::regex_replace(s, std::regex("__"), "_");
-	return String(s.c_str());
-}
-
 // 读取设置项当前值并格式化为字符串
 String Menu::_format_setting_value(const CardData& data) const
 {
@@ -1009,18 +953,6 @@ String Menu::_format_setting_value(const CardData& data) const
 // ================================================================
 // ── 读取多语言 JSON 文本 ─────────────────────────────────────────
 // ================================================================
-
-// 获取设置项的翻译显示名称
-String Menu::_get_setting_display_name(const String& member_name)
-{
-	// 先尝试从 JSON 获取翻译
-	String key = "header_" + member_name.to_lower();
-	String translated = _get_json_text(key, "");
-	if (!translated.is_empty())
-		return translated;
-	// 回退到 CamelCase 转换
-	return _camel_to_display(member_name);
-}
 
 String Menu::_get_json_text(
 	const String& key, const String& fallback)
@@ -1093,6 +1025,31 @@ void Menu::_on_language_changed()
 		_rebuild_menu_hand();
 	else if (hand_state == HAND_SETTINGS_MAIN)
 		_rebuild_settings_main_hand();
+	else if (hand_state == HAND_SETTINGS_SUB)
+	{
+		// 子手牌里切换语言（理论上只有 Language 本身是 enum，不会在子手牌触发，
+		// 但为健壮性起见：重建子手牌，prop_name 从 sub_parent_prop 恢复）
+		// 需要从 current_settings_list 找回该项的 CardData
+		for (int i = 0; i < current_settings_list.size(); i++)
+		{
+			Dictionary entry = current_settings_list[i];
+			if (String(entry.get("prop_name", "")) == sub_parent_prop)
+			{
+				String member_name = String(entry.get("member", ""));
+				CardData parent;
+				parent.prop_name    = sub_parent_prop;
+				parent.member_name  = member_name;
+				String header_key = member_name.is_empty() ? sub_parent_prop : member_name;
+				parent.display_name = _get_json_text("header_" + header_key, sub_parent_prop);
+				parent.variant_type = static_cast<int>(entry.get("variant_type", Variant::NIL));
+				parent.hint         = static_cast<int>(entry.get("hint", PROPERTY_HINT_NONE));
+				parent.hint_string  = String(entry.get("hint_string", ""));
+				parent.is_custom    = static_cast<bool>(entry.get("is_custom", false));
+				_rebuild_sub_hand(sub_parent_prop, parent);
+				return;
+			}
+		}
+	}
 }
 
 // ================================================================

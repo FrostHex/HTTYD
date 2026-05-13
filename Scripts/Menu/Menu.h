@@ -49,13 +49,6 @@ namespace godot
 		static void _bind_methods();
 
 	private:
-		void Process(double delta);
-		void HandleInput(const Ref<InputEvent>& event);
-
-		void OnButtonPressed(const String& scene_name);
-		void OnSettingsButtonPressed();
-		void OnCloseButtonPressed();
-		void UpdateBadgeDisplay();
 
 		// ── 基础引用 ────────────────────────────────────────
 		Settings*       settings        = nullptr;
@@ -81,6 +74,7 @@ namespace godot
 		{
 			CardType    type;
 			String      prop_name;      // 对应 Settings 属性名，子牌继承父项名
+			String      member_name;    // Settings member (snake_case) for JSON key lookup
 			String      display_name;   // 卡牌顶部标题
 			String      value_text;     // 卡牌中央显示值
 			int         option_value;   // 仅 CARD_OPTION 有效：该选项对应的 int 值
@@ -213,17 +207,6 @@ namespace godot
 		void _on_language_changed();
 
 		String _get_json_text(const String& key, const String& fallback = "");
-		String _get_setting_display_name(const String& prop_name);
-
-		// ── 工具函数 ────────────────────────────────────────
-
-		// 将 CamelCase 属性名转换为带空格的显示名
-		// 例: "VolumetricClouds" → "Volumetric Clouds"
-		static String _camel_to_display(const String& name);
-
-		// 将 CamelCase 属性名转换为 snake_case
-		// 例: "AutoRoll" → "auto_roll"
-		static String _camel_to_snake(const String& name);
 
 		// 从 Settings 读取某属性的当前值并格式化为字符串
 		String _format_setting_value(const CardData& data) const;
