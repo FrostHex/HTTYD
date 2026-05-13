@@ -320,7 +320,10 @@ void Menu::_rebuild_menu_hand()
 		CardData data;
 		data.type          = CARD_MENU;
 		data.prop_name     = entry.id;
-		data.member_name   = "";
+		String member_name = String(entry.key);
+		if (member_name.begins_with("header_"))
+			member_name = member_name.substr(7);
+		data.member_name   = member_name;
 		data.display_name  = _get_json_text(entry.key, entry.fallback);
 		data.value_text    = data.display_name;
 		data.option_value  = 0;
@@ -582,6 +585,34 @@ Menu::_create_card_node(const CardData& data, int index)
 	root->add_child(val);
 	cn.value_label = val;
 
+	// ── 中央值图片 ─────────────────────────────────────────
+	TextureRect* value_image = memnew(TextureRect);
+	value_image->set_name("ValueImage");
+	value_image->set_position(Vector2(VALUE_X, CARD_HEIGHT * VALUE_Y_RATIO));
+	value_image->set_size(Vector2(CARD_WIDTH - VALUE_W_MARGIN, CARD_HEIGHT * VALUE_H_RATIO));
+	value_image->set_expand_mode(TextureRect::EXPAND_IGNORE_SIZE);
+	value_image->set_stretch_mode(TextureRect::STRETCH_KEEP_ASPECT_CENTERED);
+	value_image->set_mouse_filter(Control::MOUSE_FILTER_IGNORE);
+	value_image->set_pivot_offset(value_image->get_size() * 0.5f);
+	value_image->set_scale(Vector2(VALUE_IMAGE_SCALE, VALUE_IMAGE_SCALE));
+	value_image->set_visible(false);
+	root->add_child(value_image);
+	cn.value_image = value_image;
+
+	// ── Bool widget image ─────────────────────────────────
+	TextureRect* widget_image = memnew(TextureRect);
+	widget_image->set_name("WidgetImage");
+	widget_image->set_position(Vector2(WIDGET_X, CARD_HEIGHT * WIDGET_Y_RATIO));
+	widget_image->set_size(Vector2(WIDGET_W, WIDGET_H));
+	widget_image->set_expand_mode(TextureRect::EXPAND_IGNORE_SIZE);
+	widget_image->set_stretch_mode(TextureRect::STRETCH_KEEP_ASPECT_CENTERED);
+	widget_image->set_mouse_filter(Control::MOUSE_FILTER_IGNORE);
+	widget_image->set_pivot_offset(widget_image->get_size() * 0.5f);
+	widget_image->set_scale(Vector2(WIDGET_IMAGE_SCALE, WIDGET_IMAGE_SCALE));
+	widget_image->set_visible(false);
+	root->add_child(widget_image);
+	cn.widget_image = widget_image;
+
 	// ── 具体描述 Label ───────────────────────────────────────
 	// 从 JSON 读取 "detail_<member>" 键，未找到则显示空字符串
 	// 菜单卡牌的 prop_name 格式为 "Menu_Xxx"，去掉 "menu_" 前缀后与 JSON key 匹配
@@ -648,7 +679,7 @@ Menu::_create_card_node(const CardData& data, int index)
 		type->add_theme_font_override("font", type_font);
 	}
 	type->add_theme_font_size_override("font_size", TYPE_LABEL_FONT_SIZE);
-	type->add_theme_color_override("font_color", Color(0.2f, 0.425f, 0.5f, 1.f));
+	type->add_theme_color_override("font_color", Color(0.1f, 0.2125f, 0.25f, 1.f));
 	root->add_child(type);
 
 	// ── Debug 染色：为各区域叠加半透明色块 ───────────────────
@@ -678,6 +709,12 @@ Menu::_create_card_node(const CardData& data, int index)
 			Vector2(CARD_WIDTH - VALUE_W_MARGIN, CARD_HEIGHT * VALUE_H_RATIO),
 			Color(0.f, 0.4f, 1.f, 0.25f));
 
+		// Bool widget area - cyan
+		make_debug_overlay(
+			Vector2(WIDGET_X, CARD_HEIGHT * WIDGET_Y_RATIO),
+			Vector2(WIDGET_W, WIDGET_H),
+			Color(0.f, 0.75f, 0.8f, 0.25f));
+
 		// 具体描述区域 — 橙色
 		make_debug_overlay(
 			Vector2(DETAIL_X, CARD_HEIGHT * DETAIL_Y_RATIO),
@@ -694,9 +731,9 @@ Menu::_create_card_node(const CardData& data, int index)
 	if (data.shows_badge)
 	{
 		TextureRect* badge = memnew(TextureRect);
-		float badge_size = 110.f;
+		float badge_size = 25.f;
 		badge->set_name("Badge_Icon");
-		badge->set_position(Vector2((CARD_WIDTH-badge_size)/2, (CARD_HEIGHT*0.85f-badge_size)/2));
+		badge->set_position(Vector2(7.f, 8.f));
 		badge->set_size(Vector2(badge_size, badge_size));
 		badge->set_expand_mode(TextureRect::EXPAND_FIT_WIDTH_PROPORTIONAL);
 		badge->set_stretch_mode(TextureRect::STRETCH_KEEP_ASPECT_CENTERED);
@@ -705,6 +742,8 @@ Menu::_create_card_node(const CardData& data, int index)
 		root->add_child(badge);
 		badge_icon = badge;
 	}
+
+	_update_value_display(cn);
 
 	return cn;
 }
@@ -741,7 +780,13 @@ void Menu::_layout_hand()
 	if (n == 0) return;
 
 	// 扇形角度范围：由 FAN_MAX_ANGLE_DEG 定义
+	// 当卡牌数量较少时，限制总角度避免间距过大
 	float total_angle = FAN_MAX_ANGLE_DEG;
+	if (n < 5)
+	{
+		// 5张牌时用完整角度，4张及以下逐步缩小，最大间距 = CARD_WIDTH + 20
+		total_angle = FAN_MAX_ANGLE_DEG * (static_cast<float>(n) - 1.f) / 4.f;
+	}
 	float step = (n > 1) ? total_angle / static_cast<float>(n - 1) : 0.f;
 
 	for (int i = 0; i < n; i++)
@@ -920,7 +965,7 @@ void Menu::_update_settings_main_value_labels()
 
 		String new_val = _format_setting_value(cn.data);
 		cn.data.value_text = new_val;
-		cn.value_label->set_text(new_val);
+		_update_value_display(cn);
 	}
 }
 
@@ -947,6 +992,95 @@ String Menu::_format_setting_value(const CardData& data) const
 	else
 	{
 		return String(val);
+	}
+}
+
+String Menu::_get_value_image_path(const CardData& data) const
+{
+	const String base_path = "res://Media/Image/";
+
+	if (data.type == CARD_BACK)
+		return base_path + String("card_back.png");
+
+	if (data.type == CARD_MENU && !data.member_name.is_empty())
+		return base_path + String("card_") + data.member_name + String(".png");
+
+	if (data.variant_type == Variant::BOOL && !data.member_name.is_empty())
+		return base_path + String("card_") + data.member_name + String(".png");
+
+	const bool is_language = (data.prop_name == "Language" || data.member_name == "language");
+	if (is_language)
+	{
+		int lang_value = -1;
+		if (data.type == CARD_OPTION)
+			lang_value = data.option_value;
+		else if (settings)
+			lang_value = settings->GetValLanguage();
+
+		if (lang_value >= 0)
+			return (lang_value == 1)
+				? base_path + String("card_zh.png")
+				: base_path + String("card_en.png");
+	}
+
+	return "";
+}
+
+void Menu::_update_value_display(CardNode& cn)
+{
+	if (cn.value_label)
+		cn.value_label->set_text(cn.data.value_text);
+
+	bool showing_value_image = false;
+	if (cn.value_image)
+	{
+		String image_path = _get_value_image_path(cn.data);
+		if (!image_path.is_empty() && FileAccess::file_exists(image_path))
+		{
+			Ref<Texture2D> texture = ResourceLoader::get_singleton()->load(image_path);
+			if (texture.is_valid())
+			{
+				cn.value_image->set_texture(texture);
+				cn.value_image->set_visible(true);
+				showing_value_image = true;
+			}
+		}
+
+		if (!showing_value_image)
+		{
+			cn.value_image->set_texture(Ref<Texture2D>());
+			cn.value_image->set_visible(false);
+		}
+	}
+
+	if (cn.value_label)
+		cn.value_label->set_visible(!showing_value_image);
+
+	if (cn.widget_image)
+	{
+		String widget_path;
+		if (cn.data.variant_type == Variant::BOOL && settings)
+		{
+			bool current = static_cast<bool>(
+				settings->call(cn.data.prop_name + String("_getter")));
+			widget_path = current
+				? String("res://Media/Image/card_true.png")
+				: String("res://Media/Image/card_false.png");
+		}
+
+		if (!widget_path.is_empty() && FileAccess::file_exists(widget_path))
+		{
+			Ref<Texture2D> widget_tex = ResourceLoader::get_singleton()->load(widget_path);
+			if (widget_tex.is_valid())
+			{
+				cn.widget_image->set_texture(widget_tex);
+				cn.widget_image->set_visible(true);
+				return;
+			}
+		}
+
+		cn.widget_image->set_texture(Ref<Texture2D>());
+		cn.widget_image->set_visible(false);
 	}
 }
 

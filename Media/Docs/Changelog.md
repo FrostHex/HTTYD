@@ -115,7 +115,7 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 - Changed: Refactor dragon node to improve reuse.
 - Changed: Quest2 / Pimax Crystal VR compatibility tested.
 
-## v1.2.20 -
+## v1.2.0 -
 - Added: Card UI system 
 - Fixed: Multiple Test Drive minor issues.
 - Changed: Ocean horizon blending and circular boundary.
@@ -127,7 +127,6 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 ## TODO
 ### Bug Fixes & Optimization
 - Fixed: Volumetric cloud rendering issues in the volumetric fog.
-- Changed: Save system refactor for extensibility.
 - Changed: Unify the back button logic for every scene.
 
 ### Try Some New Stuff

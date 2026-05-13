@@ -2,7 +2,6 @@
 
 [node name="Settings" type="Settings" unique_id=771718623]
 AutoRoll = true
-AutoSaveState = false
 DebugInfo = false
 Badge = 3
 

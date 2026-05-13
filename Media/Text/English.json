@@ -41,13 +41,13 @@
     "detail_tutorial": "RECOMMENDED: Start here for a quick tutorial on how to fly with dragons.",
 
     "header_practice": "Flight Practice",
-    "detail_practice": "After reading the note book, it's proper to get familiar with the areas.",
+    "detail_practice": "After reading the note book, it's proper to get familiar with the environment and flight route.",
 
     "header_td": "Test Drive",
-    "detail_td": "It's time to put your flying skills to the test! Take a flight around the island and see how you do.",
+    "detail_td": "It's time to put your flying skills to the test! Take a flight along the route and see how you do.",
     
-    "header_dodge": "Dodge",
-    "detail_dodge": "Learn how to dodge enemy attacks.",
+    "header_dodge": "Dodge (WIP)",
+    "detail_dodge": "Learn how to dodge enemy attacks. (Under construction)",
 
     "header_language": "Language",
     "detail_language": "Only English and Chinese are supported for now.",
@@ -59,10 +59,10 @@
     "detail_sub_view": "Enable a small panel for third-person view and debug info.",
 
     "header_auto_save_state": "TD Auto Save",
-    "detail_auto_save_state": "Automatically save at specific checkpoints during Test Drive",
+    "detail_auto_save_state": "Automatically save at specific checkpoints during Test Drive.",
 
     "header_debug_info": "Debug Info",
-    "detail_debug_info": "Show debug info on the sub view panel",
+    "detail_debug_info": "Show debug info on the sub view panel.",
 
     "header_volumetric_clouds": "Better Clouds",
     "detail_volumetric_clouds": "Volumetric clouds. (Not compatible with VR mode!)",

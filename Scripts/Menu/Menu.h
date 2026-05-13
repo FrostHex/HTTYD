@@ -94,6 +94,8 @@ namespace godot
 			Panel*      panel        = nullptr;  // 卡牌底板（Panel）
 			Label*      title_label  = nullptr;  // 顶部标题 Label
 			Label*      value_label  = nullptr;  // 中央值 Label
+			TextureRect* value_image = nullptr;  // 中央值图片
+			TextureRect* widget_image = nullptr; // Bool widget image
 			Label*      detail_label = nullptr;  // 具体描述 Label
 
 			// 动画目标状态（由 _layout_hand 计算，由 _process 插值）
@@ -135,9 +137,9 @@ namespace godot
 		static constexpr float CARD_HEIGHT          = 250.f;
 		static constexpr float FAN_RADIUS           = 2000.f;   // 扇形虚拟圆半径
 		static constexpr float FAN_MAX_ANGLE_DEG    = 18.5f;    // 扇形总角度（度）
-		static constexpr float HOVER_SCALE          = 1.5f;
-		static constexpr float HOVER_LIFT           = 60.f;    // 悬停时上移像素
-		static constexpr float ANIM_SPEED           = 30.f;    // 插值速度
+		static constexpr float HOVER_SCALE          = 2.f;
+		static constexpr float HOVER_LIFT           = 30.f;    // 悬停时上移像素
+		static constexpr float ANIM_SPEED           = 35.f;    // 插值速度
 
 		// ── 卡牌内部区域布局常量 ─────────────────────────────
 		// 类型标识（右上角角标）
@@ -149,10 +151,10 @@ namespace godot
 
 		// 顶部标题
 		static constexpr float TITLE_X              = 40.f;
-		static constexpr float TITLE_Y              = 10.f;
+		static constexpr float TITLE_Y              = 11.f;
 		static constexpr float TITLE_W_MARGIN       = 79.f;     // 左右各留边距，宽度 = CARD_WIDTH - margin
 		static constexpr float TITLE_H              = 23.f;
-		static constexpr int   TITLE_FONT_SIZE      = 15;
+		static constexpr int   TITLE_FONT_SIZE      = 14;
 
 		// 中央值
 		static constexpr float VALUE_X              = 10.f;
@@ -160,13 +162,21 @@ namespace godot
 		static constexpr float VALUE_H_RATIO        = 0.54f;   // 相对 CARD_HEIGHT 的比例
 		static constexpr float VALUE_W_MARGIN       = 19.f;
 		static constexpr int   VALUE_FONT_SIZE      = 17;
+		static constexpr float VALUE_IMAGE_SCALE    = 0.95f;
+
+		// Bool widget (true/false)
+		static constexpr float WIDGET_X             = 20.f;
+		static constexpr float WIDGET_Y_RATIO       = 0.33f;   // 相对 CARD_HEIGHT 的比例
+		static constexpr float WIDGET_W             = 90.f;
+		static constexpr float WIDGET_H             = 90.f;
+		static constexpr float WIDGET_IMAGE_SCALE   = 1.0f;
 
 		// 具体描述（卡牌下半部，值标签之后）
 		static constexpr float DETAIL_X             = 10.f;
-		static constexpr float DETAIL_Y_RATIO       = 0.795f;   // 相对 CARD_HEIGHT 的比例
+		static constexpr float DETAIL_Y_RATIO       = 0.805f;   // 相对 CARD_HEIGHT 的比例
 		static constexpr float DETAIL_H_RATIO       = 0.16f;   // 相对 CARD_HEIGHT 的比例
 		static constexpr float DETAIL_W_MARGIN      = 20.f;
-		static constexpr int   DETAIL_FONT_SIZE     = 10;
+		static constexpr int   DETAIL_FONT_SIZE     = 9;
 		static constexpr int   DETAIL_LINE_SPACING  = 0;      // detail 文本行距
 
 		Color dark_gray = Color(0.12f, 0.12f, 0.12f, 1.f);
@@ -207,6 +217,8 @@ namespace godot
 		void _on_language_changed();
 
 		String _get_json_text(const String& key, const String& fallback = "");
+		String _get_value_image_path(const CardData& data) const;
+		void _update_value_display(CardNode& cn);
 
 		// 从 Settings 读取某属性的当前值并格式化为字符串
 		String _format_setting_value(const CardData& data) const;

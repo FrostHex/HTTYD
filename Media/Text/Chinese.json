@@ -32,25 +32,25 @@
     ],
 
     "header_settings": "设置",
-    "detail_settings": "各种选项来自定义你的体验",
+    "detail_settings": "一些选项用于自定义体验",
 
     "header_back": "返回",
-    "detail_back": "返回到上一个菜单",
+    "detail_back": "返回上一级菜单",
 
     "header_tutorial": "笔记",
-    "detail_tutorial": "推荐：从这里开始快速了解如何与龙一起飞行",
+    "detail_tutorial": "推荐：从这里开始，快速了解如何与龙伙伴一起飞行",
     
     "header_practice": "操作练习",
-    "detail_practice": "阅读完笔记后，熟悉这些区域是必要的",
+    "detail_practice": "看完笔记之后，该熟悉一下飞行环境和飞行路线了",
 
     "header_td": "测试飞行",
-    "detail_td": "是时候考验你的飞行技能了！在岛上飞一圈，看看你的表现如何",
+    "detail_td": "是时候考验一下你的飞行技巧了！来按照路线兜一圈，看看你的表现如何",
 
-    "header_dodge": "躲避",
-    "detail_dodge": "学习如何躲避敌人的攻击",
+    "header_dodge": "躲避 (正在施工)",
+    "detail_dodge": "学习如何躲避敌人的攻击 (正在施工)",
 
     "header_language": "语言",
-    "detail_language": "目前仅支持英语和中文",
+    "detail_language": "目前仅支持中文和英语",
 
     "header_enable_headset": "VR模式",
     "detail_enable_headset": "启用VR头显 (请重启软件以使更改生效!)",
