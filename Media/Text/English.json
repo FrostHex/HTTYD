@@ -31,20 +31,42 @@
         "(In VR mode, please press B to switch dragon state, A to quit.\nIn non-VR mode, please press Enter to switch dragon state, Backspace to quit)"
     ],
 
-    "button_settings": "Settings",
-    "button_back": "Back",
-    "button_tutorial": "Note Book",
-    "button_practice": "Flight Practice",
-    "button_td": "Test Drive",
+    "header_settings": "Settings",
+    "detail_settings": "Various options to customize your experience.",
+
+    "header_back": "Back",
+    "detail_back": "Go back to the last menu.",
+
+    "header_tutorial": "Note Book",
+    "detail_tutorial": "RECOMMENDED: Start here for a quick tutorial on how to fly with dragons.",
+
+    "header_practice": "Flight Practice",
+    "detail_practice": "After reading the note book, it's proper to get familiar with the areas.",
+
+    "header_td": "Test Drive",
+    "detail_td": "It's time to put your flying skills to the test! Take a flight around the island and see how you do.",
     
-    "entry_settings": "Settings",
-    "entry_language": "Language",
-    "entry_enable_headset": "Enable Headset",
-    "entry_enable_headset_tip": "Enable Headset (Please restart the software to apply changes)",
-    "entry_sub_view": "Sub View",
-    "entry_auto_save_state": "Auto Save State",
-    "entry_debug_info": "Debug Info",
-    "entry_volumetric_clouds": "Volumetric Clouds",
-    "entry_volumetric_clouds_tip": "Volumetric Clouds (Not Compatible with Headset!)",
-    "entry_auto_roll": "Auto Roll"
+    "header_dodge": "Dodge",
+    "detail_dodge": "Learn how to dodge enemy attacks.",
+
+    "header_language": "Language",
+    "detail_language": "Only English and Chinese are supported for now.",
+
+    "header_enable_headset": "VR Mode",
+    "detail_enable_headset": "Enable Headset. (Please restart the software to apply changes!)",
+
+    "header_sub_view": "Sub View",
+    "detail_sub_view": "Enable a small panel for third-person view and debug info.",
+
+    "header_auto_save_state": "TD Auto Save",
+    "detail_auto_save_state": "Automatically save at specific checkpoints during Test Drive",
+
+    "header_debug_info": "Debug Info",
+    "detail_debug_info": "Show debug info on the sub view panel",
+
+    "header_volumetric_clouds": "Better Clouds",
+    "detail_volumetric_clouds": "Volumetric clouds. (Not compatible with VR mode!)",
+
+    "header_auto_roll": "Auto Roll",
+    "detail_auto_roll": "Automatically roll at specific time during Test Drive. (Only for recreating the movie scene)"
 }

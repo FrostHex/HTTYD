@@ -31,20 +31,42 @@
         "这是未来TestDrive的路线\n(在 VR 模式下，请按B键切换龙状态，按A键退出。\n在非 VR 模式下，请按回车键切换龙状态，按退格键退出)"
     ],
 
-    "button_settings": "设置",
-    "button_back": "返回",
-    "button_tutorial": "笔记",
-    "button_practice": "操作练习",
-    "button_td": "Test Drive\n测试飞行",
+    "header_settings": "设置",
+    "detail_settings": "各种选项来自定义你的体验",
+
+    "header_back": "返回",
+    "detail_back": "返回到上一个菜单",
+
+    "header_tutorial": "笔记",
+    "detail_tutorial": "推荐：从这里开始快速了解如何与龙一起飞行",
     
-    "entry_settings": "设置",
-    "entry_language": "语言",
-    "entry_enable_headset": "VR模式",
-    "entry_enable_headset_tip": "VR模式 (请重启软件以使更改生效)",
-    "entry_sub_view": "辅助视角",
-    "entry_auto_save_state": "自动保存状态",
-    "entry_debug_info": "调试信息",
-    "entry_volumetric_clouds": "体积云",
-    "entry_volumetric_clouds_tip": "体积云 (与VR模式不兼容!)",
-    "entry_auto_roll": "自动翻滚"
+    "header_practice": "操作练习",
+    "detail_practice": "阅读完笔记后，熟悉这些区域是必要的",
+
+    "header_td": "测试飞行",
+    "detail_td": "是时候考验你的飞行技能了！在岛上飞一圈，看看你的表现如何",
+
+    "header_dodge": "躲避",
+    "detail_dodge": "学习如何躲避敌人的攻击",
+
+    "header_language": "语言",
+    "detail_language": "目前仅支持英语和中文",
+
+    "header_enable_headset": "VR模式",
+    "detail_enable_headset": "启用VR头显 (请重启软件以使更改生效!)",
+
+    "header_sub_view": "辅助视角",
+    "detail_sub_view": "启用一个小面板显示第三人称视角和调试信息",
+
+    "header_auto_save_state": "自动保存状态",
+    "detail_auto_save_state": "在测试飞行的特定检查点自动保存",
+
+    "header_debug_info": "调试信息",
+    "detail_debug_info": "在辅助视角面板显示调试信息",
+
+    "header_volumetric_clouds": "体积云",
+    "detail_volumetric_clouds": "体积云 (与VR模式不兼容!)",
+
+    "header_auto_roll": "自动翻滚",
+    "detail_auto_roll": "在测试飞行的特定时间点自动执行翻滚动作 (仅为了复刻电影场景)"
 }
