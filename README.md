@@ -2,7 +2,7 @@
 <div align="center">
 
 # How to Train Your Dragon
-VR flying experience built with Godot 4 / 基于 Godot 4 的 VR 飞行体验
+VR dragon riding experience built with Godot 4 / 基于 Godot 4 的 VR 乘龙飞行体验
 
 [![Demo Video](https://img.shields.io/badge/Demo%20Video-Mp4-8A2BE2.svg)](Media/Demo/Demo.mp4)
 [![演示视频](https://img.shields.io/badge/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91-bilibili-00a8df?logo=bilibili&logoColor=00a8df&color=00a8df)](https://www.bilibili.com/video/BV1h5gxzNE4X/)

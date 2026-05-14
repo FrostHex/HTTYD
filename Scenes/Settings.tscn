@@ -2,7 +2,7 @@
 
 [node name="Settings" type="Settings" unique_id=771718623]
 AutoRoll = true
-DebugInfo = false
+AutoSaveState = false
 Badge = 3
 
 [node name="SaveManager" type="SaveManager" parent="." unique_id=371263609]
