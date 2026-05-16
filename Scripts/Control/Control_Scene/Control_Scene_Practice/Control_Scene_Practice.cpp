@@ -25,7 +25,6 @@ Control_Scene_Practice::~Control_Scene_Practice() {}
 
 void Control_Scene_Practice::_bind_methods() 
 {
-    ClassDB::bind_method(D_METHOD("_on_back_button_pressed"), &Control_Scene_Practice::_on_back_button_pressed);
 }
 
 void Control_Scene_Practice::_ready() 
@@ -34,6 +33,8 @@ void Control_Scene_Practice::_ready()
     {
         return;
     }
+
+	Control_Scene_Top::_ready();
 	
     // Get reference to Control_Main
     SceneTree *tree = get_tree();
@@ -174,6 +175,8 @@ void Control_Scene_Practice::_ready()
 
 void Control_Scene_Practice::_input(const Ref<InputEvent> &event) 
 {
+    _input_top(event);
+	
 	if (!event.is_valid()) return;
 	Ref<InputEventKey> key_event = event;
 	if (key_event.is_null()) return;
@@ -182,12 +185,6 @@ void Control_Scene_Practice::_input(const Ref<InputEvent> &event)
 	// Enter or keypad Enter: toggle dragon state.
 	if (key_event->get_keycode() == Key::KEY_ENTER || key_event->get_keycode() == Key::KEY_KP_ENTER) {
 		_toggle_dragon_state();
-		return;
-	}
-
-	// Backspace: return to the home scene.
-	if (key_event->get_keycode() == Key::KEY_BACKSPACE) {
-		_on_back_button_pressed();
 		return;
 	}
 }
@@ -207,7 +204,7 @@ void Control_Scene_Practice::_physics_process(double delta)
 		// edge-triggered: A returns home, B toggles state.
 		if (a_now && !a_button_prev) 
 		{
-			_on_back_button_pressed();
+			ReturnHome();
 		}
 		if (b_now && !b_button_prev) 
 		{
@@ -236,86 +233,5 @@ void Control_Scene_Practice::_toggle_dragon_state()
 		// set to default state.
 		dragon_pilot->SetState(DragonState::STATE_DEFAULT);
 		UtilityFunctions::print("Dragon state switched to DEFAULT");
-	}
-}
-
-void Control_Scene_Practice::_on_back_button_pressed() 
-{
-	// get the scene tree and switch back to Scene_Home via Control_Main
-	UtilityFunctions::print("Back button pressed, returning to Scene_Home");
-	SceneTree *tree = get_tree();
-	if (!tree) 
-	{
-		UtilityFunctions::printerr("SceneTree not available");
-		return;
-	}
-	Window *root = tree->get_root();
-	if (!root) 
-	{
-		UtilityFunctions::printerr("Root window not available");
-		return;
-	}
-
-	// stop related physics processing before scene switch to avoid accessing detached nodes.
-	set_physics_process(false);
-	if (dragon_pilot && dragon_pilot->is_inside_tree())
-	{
-		dragon_pilot->set_physics_process(false);
-	}
-	if (ctrl_camera && ctrl_camera->is_inside_tree())
-	{
-		ctrl_camera->set_physics_process(false);
-		ctrl_camera->set_process_input(false);
-	}
-
-	// restore camera_main to its original position.
-	if (camera_main && camera_main->is_inside_tree() && root) 
-	{
-		Node *main_node = root->get_node_or_null(NodePath("Main"));
-		if (main_node) {
-			camera_main->reparent(main_node);
-			camera_main->call_deferred("set_transform", Transform3D(Basis(), Vector3(0.0f, 10.0f, 0.0f)));
-			Node* xr_origin = camera_main->get_node_or_null(NodePath("XR/XROrigin"));
-			if (xr_origin) 
-			{
-				xr_origin->call_deferred("set_position", Vector3(0.0f, 0.0f, 0.0f));
-				Node* sub_viewport_mesh = xr_origin->get_node_or_null(NodePath("XRCamera/SubViewportMesh"));
-				if (sub_viewport_mesh)
-				{
-					sub_viewport_mesh->queue_free();
-				}
-			}	
-			UtilityFunctions::print("Camera_Main restored to original position");
-		} else {
-			UtilityFunctions::printerr("Could not find Main node to restore camera");
-		}
-	}
-	else if (camera_main && !camera_main->is_inside_tree())
-	{
-		UtilityFunctions::printerr("camera_main is not in scene tree");
-	}
-	else
-	{
-		UtilityFunctions::printerr("camera_main not found when returning to Scene_Home");
-	}
-
-	// prefer the existing cached reference.
-	if (!control_main) 
-	{
-		// retry lookup (supports running the sub-scene directly).
-		Node *cm = root->get_node_or_null(NodePath("Main/Control_Main"));
-		if (!cm) 
-		{
-			cm = root->find_child("Control_Main", /*recursive*/ true, /*owned*/ false);
-		}
-		control_main = Object::cast_to<Control_Main>(cm);
-	}
-	if (control_main) 
-	{
-		control_main->call("Switch_Scene", "Scene_Home");
-	} 
-	else 
-	{
-		UtilityFunctions::printerr("Control_Scene_Practice: Control_Main not available to switch scene. Run from Main scene to enable navigation.");
 	}
 }

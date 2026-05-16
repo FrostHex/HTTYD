@@ -45,6 +45,8 @@ void Control_Scene_Home::_ready()
         return;
     }
 
+    Control_Scene_Top::_ready();
+
     // ── 获取 Settings 单例 ──────────────────────────────────
     settings = Settings::GetSingleton();
     if (!settings)

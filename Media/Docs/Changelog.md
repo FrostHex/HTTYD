@@ -115,7 +115,7 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 - Changed: Refactor dragon node to improve reuse.
 - Changed: Quest2 / Pimax Crystal VR compatibility tested.
 
-## v1.2.0 -
+## v1.1.2 - 2026-05-14
 - Added: Card UI system 
 - Fixed: Multiple Test Drive minor issues.
 - Changed: Ocean horizon blending and circular boundary.
@@ -126,11 +126,12 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 ----------
 ## TODO
 ### Bug Fixes & Optimization
+- Fixed: Test the VR compatibility with card UI system.
 - Fixed: Volumetric cloud rendering issues in the volumetric fog.
+- Changed: Use the sunset environment from the home scene for Test Drive
 - Changed: Unify the back button logic for every scene.
 
 ### Try Some New Stuff
 - Added: Refactor the mouse drag control to a unified node
 - Added: Seagulls.
 - Added: Campfire / plasma blast shaders.
-- Added: IK experiments.

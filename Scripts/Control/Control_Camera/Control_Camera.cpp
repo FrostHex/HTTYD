@@ -15,6 +15,9 @@
 #include <godot_cpp/classes/standard_material3d.hpp>
 #include <godot_cpp/classes/viewport_texture.hpp>
 #include <godot_cpp/classes/input_event.hpp>
+#include <godot_cpp/classes/input_event_key.hpp>
+#include <godot_cpp/classes/input_event_mouse_button.hpp>
+#include <godot_cpp/classes/input.hpp>
 #include <godot_cpp/classes/display_server.hpp>
 #include <godot_cpp/classes/xr_server.hpp>
 #include <godot_cpp/classes/xr_interface.hpp>
@@ -28,6 +31,7 @@ using namespace godot;
  */
 Control_Camera::Control_Camera() 
 {
+    input_singleton = Input::get_singleton();
 }
 
 
@@ -98,7 +102,9 @@ void Control_Camera::Initialize()
             }
 
             dragon_rb = scene_node->get_node<RigidBody3D>("Dragon");
-            camera_main = dragon_rb->get_node<Node3D>("SpeciesSlot/ToothlessRoot/Sockets/Socket_Back_Mount/Socket_Back/Camera_Main");
+            Node* species_slot = dragon_rb->get_node<Node>("SpeciesSlot");
+            Node *latest_species = species_slot->get_child(species_slot->get_child_count() - 1);
+            camera_main = latest_species->get_node<Node3D>("Sockets/Socket_Back_Mount/Socket_Back/Camera_Main");    
             xr_node = camera_main->get_node<Node3D>("XR");
             xr_origin = xr_node->get_node<Node3D>("XROrigin");
             xr_camera = xr_origin->get_node<Node3D>("XRCamera");
@@ -215,18 +221,18 @@ void Control_Camera::_physics_process(double delta)
     {
         xr_node->set_global_rotation(Vector3(0, -Math_PI, 0)); // set the rotation of the XR origin to match the camera
     }
-
+    // return;
     if (Settings::GetSingleton()->GetValSubView())
     {
         camera_sub->set_global_position(Vector3(-8.729f, 1.797f, 0) + dragon_rb->get_global_transform().origin);
-        if (Settings::GetSingleton()->GetValDebugInfo() && label_info)
+        if (Settings::GetSingleton()->GetValDebugInfo() && dragon_pilot && label_info)
         {
             String velocity_text = "Linear Velocity: " + String::num(dragon_pilot->GetLinearVelocity(), 1) + "\n" + info_debug + "\n" + time_elapsed;
             label_info->set_text(velocity_text);
         }
     }
 
-    if (camera_offset_factor != 0.0f)
+    if (dragon_rb && Math::abs(camera_offset_factor) > 0.01f)
     {
         // UtilityFunctions::print("Camera offset factor: " + String::num(camera_offset_factor));
         // camera_main->set_position(dragon_rb->get_global_position());
@@ -301,6 +307,24 @@ void Control_Camera::_physics_process(double delta)
             resetting_transform = false;
         }
     }
+
+    // Free camera: mouse-look when free_camera is enabled and mouse is captured
+    if (free_camera && input_singleton && input_singleton->get_mouse_mode() == Input::MOUSE_MODE_CAPTURED)
+    {
+        Vector2 mouse_velocity = input_singleton->get_last_mouse_velocity();
+        float yaw_delta   = -mouse_velocity.x * static_cast<float>(delta) * CAMERA_MOUSE_SENSITIVITY;
+        float pitch_delta = -mouse_velocity.y * static_cast<float>(delta) * CAMERA_MOUSE_SENSITIVITY;
+
+        cam_yaw   += yaw_delta;
+        cam_pitch += pitch_delta;
+
+        const float max_pitch = Math_PI * 0.49f;
+        cam_pitch = Math::clamp(cam_pitch, -max_pitch, max_pitch);
+
+        Quaternion q_yaw(Vector3(0, 1, 0), cam_yaw);
+        Quaternion q_pitch(Vector3(0, 0, 1), cam_pitch);
+        camera_main->set_basis(Basis(q_yaw * q_pitch));
+    }
 }
 
 
@@ -355,6 +379,34 @@ void Control_Camera::_input(const Ref<InputEvent> &event)
         camera_offset_factor = 0.0f; // reset camera offset factor
         approaching_angle = false; // reset approaching angle flag
         approaching_position = false; // reset approaching position flag
+    }
+
+    // Free camera: release mouse capture on Esc/Backspace/Enter; toggle on RMB
+    if (free_camera && input_singleton)
+    {
+        const Ref<InputEventKey> key_event = event;
+        if (key_event.is_valid() && key_event->is_pressed())
+        {
+            int32_t keycode = key_event->get_keycode();
+            if (keycode == Key::KEY_ESCAPE || keycode == Key::KEY_BACKSPACE || keycode == Key::KEY_ENTER)
+            {
+                input_singleton->set_mouse_mode(Input::MOUSE_MODE_VISIBLE);
+                return;
+            }
+        }
+
+        const Ref<InputEventMouseButton> mb_event = event;
+        if (mb_event.is_valid() && mb_event->is_pressed())
+        {
+            if (mb_event->get_button_index() == MouseButton::MOUSE_BUTTON_RIGHT)
+            {
+                Input::MouseMode mode = input_singleton->get_mouse_mode();
+                input_singleton->set_mouse_mode(
+                    mode == Input::MOUSE_MODE_CAPTURED
+                        ? Input::MOUSE_MODE_VISIBLE
+                        : Input::MOUSE_MODE_CAPTURED);
+            }
+        }
     }
 }
 
@@ -426,6 +478,32 @@ void Control_Camera::ReparentCamera(const NodePath &target_path)
 }
 
 
+void Control_Camera::SetFreeCamera(bool enabled)
+{
+    if (enabled && Settings::GetSingleton()->GetValEnableHeadset())
+    {
+        return; // headset mode is active, free camera cannot be enabled
+    }
+
+    free_camera = enabled;
+
+    if (free_camera)
+    {
+        if (input_singleton)
+        {
+            input_singleton->set_mouse_mode(Input::MOUSE_MODE_CAPTURED);
+        }
+    }
+    else
+    {
+        if (input_singleton)
+        {
+            input_singleton->set_mouse_mode(Input::MOUSE_MODE_VISIBLE);
+        }
+    }
+}
+
+
 void Control_Camera::_bind_methods() 
 {
     ClassDB::bind_method(D_METHOD("Print_Collision", "body", "velocity"), &Control_Camera::Print_Collision);
@@ -436,5 +514,6 @@ void Control_Camera::_bind_methods()
     ClassDB::bind_method(D_METHOD("SetCameraStabilized", "stabilized"), &Control_Camera::SetCameraStabilized);
     ClassDB::bind_method(D_METHOD("Initialize"), &Control_Camera::Initialize);
     ClassDB::bind_method(D_METHOD("ResetVRTransform"), &Control_Camera::ResetVRTransform);
+    ClassDB::bind_method(D_METHOD("SetFreeCamera", "enabled"), &Control_Camera::SetFreeCamera);
     ClassDB::bind_method(D_METHOD("ReparentCamera", "target_path"), &Control_Camera::ReparentCamera);
 }

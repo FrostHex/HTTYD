@@ -49,7 +49,7 @@ Dragon_Pilot_Dodge::~Dragon_Pilot_Dodge()
  */
 void Dragon_Pilot_Dodge::_bind_methods() 
 {
-    ClassDB::bind_method(D_METHOD("_on_back_button_pressed"), &Dragon_Pilot_Dodge::_on_back_button_pressed);
+    // ClassDB::bind_method(D_METHOD("ReturnHome"), &Dragon_Pilot_Dodge::ReturnHome);
 }
 
 
@@ -64,7 +64,7 @@ void Dragon_Pilot_Dodge::_ready()
     }
 
     // Capture mouse so movement is tracked even when the cursor would leave the window
-    input_singleton->set_mouse_mode(Input::MOUSE_MODE_CAPTURED);
+    // (Handled by Control_Camera when free_camera is enabled)
 
     dragon_rb = Object::cast_to<RigidBody3D>(get_parent());
     if (dragon_rb) 
@@ -105,19 +105,16 @@ void Dragon_Pilot_Dodge::_ready()
         }
     }
 
-    Node *scene_root = get_parent() ? get_parent()->get_parent() : nullptr;
-    if (scene_root)
-    {
-        Node *back_node = scene_root->get_node_or_null(NodePath("UI/Button_Back"));
-        if (Button *back_button = Object::cast_to<Button>(back_node))
-        {
-            back_button->connect("pressed", callable_mp(this, &Dragon_Pilot_Dodge::_on_back_button_pressed));
-        }
-    }
-    
-    camera_main = Object::cast_to<Node3D>(get_parent()->get_parent()->get_parent()->get_node_or_null("Camera_Main"));
+    // Node *scene_root = get_parent() ? get_parent()->get_parent() : nullptr;
+    // if (scene_root)
+    // {
+    //     Node *back_node = scene_root->get_node_or_null(NodePath("UI/Button_Back"));
+    //     if (Button *back_button = Object::cast_to<Button>(back_node))
+    //     {
+    //         back_button->connect("pressed", callable_mp(this, &Dragon_Pilot_Dodge::ReturnHome));
+    //     }
+    // }
 }
-
 
 /**
  * @brief process input and set velocity every physics frame
@@ -174,133 +171,14 @@ void Dragon_Pilot_Dodge::_physics_process(double delta)
     }
 
     dragon_rb->set_angular_velocity(angular_velocity);
-
-    // Mouse look: only when mouse is captured
-    if (camera_main && input_singleton->get_mouse_mode() == Input::MOUSE_MODE_CAPTURED)
-    {
-        Vector2 mouse_velocity = input_singleton->get_last_mouse_velocity();
-        // Convert screen-space motion to radians; account for frame time
-        float yaw_delta = -mouse_velocity.x * static_cast<float>(delta) * CAMERA_MOUSE_SENSITIVITY;
-        float pitch_delta = -mouse_velocity.y * static_cast<float>(delta) * CAMERA_MOUSE_SENSITIVITY;
-
-        cam_yaw += yaw_delta;
-        cam_pitch += pitch_delta;
-
-        // Clamp pitch to avoid flipping; adjust range as needed
-        const float max_pitch = Math_PI * 0.49f;
-        cam_pitch = Math::clamp(cam_pitch, -max_pitch, max_pitch);
-
-        // Rebuild basis from yaw (Y) then pitch (Z) to eliminate roll drift
-        Quaternion q_yaw(Vector3(0, 1, 0), cam_yaw);
-        Quaternion q_pitch(Vector3(0, 0, 1), cam_pitch);
-        Basis new_basis(q_yaw * q_pitch);
-        camera_main->set_basis(new_basis);
-    }
 }
 
 
 void Dragon_Pilot_Dodge::_input(const Ref<InputEvent> &event)
 {
+    // Mouse capture and free-camera input is now handled by Control_Camera::_input.
     if (!event.is_valid())
     {
         return;
-    }
-
-    // Release capture on Esc / Backspace / Enter key press
-    const Ref<InputEventKey> key_event = event;
-    if (key_event.is_valid() && key_event->is_pressed())
-    {
-        int32_t keycode = key_event->get_keycode();
-        if (keycode == Key::KEY_ESCAPE || keycode == Key::KEY_BACKSPACE || keycode == Key::KEY_ENTER)
-        {
-            input_singleton->set_mouse_mode(Input::MOUSE_MODE_VISIBLE);
-            return;
-        }
-    }
-
-    // Toggle capture on right mouse button press; left button does nothing here
-    const Ref<InputEventMouseButton> mb_event = event;
-    if (mb_event.is_valid() && mb_event->is_pressed())
-    {
-        if (mb_event->get_button_index() == MouseButton::MOUSE_BUTTON_RIGHT)
-        {
-            Input::MouseMode mode = input_singleton->get_mouse_mode();
-            if (mode == Input::MOUSE_MODE_CAPTURED)
-            {
-                input_singleton->set_mouse_mode(Input::MOUSE_MODE_VISIBLE);
-            }
-            else
-            {
-                input_singleton->set_mouse_mode(Input::MOUSE_MODE_CAPTURED);
-            }
-        }
-    }
-}
-
-void Dragon_Pilot_Dodge::_on_back_button_pressed()
-{
-    UtilityFunctions::print("Back button pressed, returning to Scene_Home");
-
-    SceneTree *tree = get_tree();
-    if (!tree)
-    {
-        UtilityFunctions::printerr("SceneTree not available");
-        return;
-    }
-
-    Window *root = tree->get_root();
-    if (!root)
-    {
-        UtilityFunctions::printerr("Root window not available");
-        return;
-    }
-
-    set_physics_process(false);
-    set_process_input(false);
-    if (dragon_rb && dragon_rb->is_inside_tree())
-    {
-        dragon_rb->set_linear_velocity(Vector3(0.0f, 0.0f, 0.0f));
-        dragon_rb->set_angular_velocity(Vector3(0.0f, 0.0f, 0.0f));
-    }
-    if (input_singleton)
-    {
-        input_singleton->set_mouse_mode(Input::MOUSE_MODE_VISIBLE);
-    }
-
-    if (camera_main && camera_main->is_inside_tree())
-    {
-        Node *main_node = root->get_node_or_null(NodePath("Main"));
-        if (main_node)
-        {
-            camera_main->reparent(main_node);
-            camera_main->call_deferred("set_transform", Transform3D(Basis(), Vector3(0.0f, 10.0f, 0.0f)));
-
-            Node *xr_origin = camera_main->get_node_or_null(NodePath("XR/XROrigin"));
-            if (xr_origin)
-            {
-                xr_origin->call_deferred("set_position", Vector3(0.0f, 0.0f, 0.0f));
-                Node *sub_viewport_mesh = xr_origin->get_node_or_null(NodePath("XRCamera/SubViewportMesh"));
-                if (sub_viewport_mesh)
-                {
-                    sub_viewport_mesh->queue_free();
-                }
-            }
-        }
-    }
-
-    Control_Main *control_main = Object::cast_to<Control_Main>(root->get_node_or_null(NodePath("Main/Control_Main")));
-    if (!control_main)
-    {
-        Node *cm = root->find_child("Control_Main", true, false);
-        control_main = Object::cast_to<Control_Main>(cm);
-    }
-
-    if (control_main)
-    {
-        control_main->call("Switch_Scene", "Scene_Home");
-    }
-    else
-    {
-        UtilityFunctions::printerr("Dragon_Pilot_Dodge: Control_Main not available to switch scene.");
     }
 }

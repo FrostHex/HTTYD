@@ -68,8 +68,8 @@ shader_parameter/cirrus_absorption = 2.0
 shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.013929942, 0.013929942)
-shader_parameter/cirrus_position2 = Vector2(0.013929942, 0.013929942)
+shader_parameter/cirrus_position1 = Vector2(0.026964104, 0.026964104)
+shader_parameter/cirrus_position2 = Vector2(0.026964104, 0.026964104)
 shader_parameter/cirrus_texture = ExtResource("2_yba8m")
 shader_parameter/cumulus_visible = true
 shader_parameter/cumulus_intensity = 0.6
@@ -79,7 +79,7 @@ shader_parameter/cumulus_absorption = 2.0
 shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(0.069649786, 0.069649786)
+shader_parameter/cumulus_position = Vector2(0.13482265, 0.13482265)
 shader_parameter/cumulus_texture = ExtResource("3_08ls4")
 shader_parameter/cumulus_partial_mie_phase = Vector3(0.957564, 1.042436, 0.412)
 shader_parameter/cumulus_mie_intensity = 1.0
@@ -194,25 +194,6 @@ text = "I think I need to practice more on these basic manoeuvres."
 outline_size = 2
 autowrap_mode = 3
 width = 380.0
-
-[node name="UI" type="Control" parent="." unique_id=1909049662]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button_Back" type="Button" parent="UI" unique_id=60459288]
-layout_mode = 0
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = -80.0
-offset_right = 150.0
-offset_bottom = -20.0
-grow_vertical = 0
-text = "Back"
 
 [node name="Ground" type="MeshInstance3D" parent="." unique_id=1915843551]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.65, 9.5, 0)

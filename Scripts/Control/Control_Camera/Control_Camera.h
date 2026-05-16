@@ -1,6 +1,8 @@
 #ifndef CONTROL_CAMERA_H
 #define CONTROL_CAMERA_H
 
+#define CAMERA_MOUSE_SENSITIVITY 0.002f
+
 #include <godot_cpp/classes/node.hpp>       // base class Node
 #include <godot_cpp/core/class_db.hpp>      // used for class registration
 #include <godot_cpp/core/binder_common.hpp> // used for binding methods and properties
@@ -11,6 +13,9 @@
 #include <godot_cpp/classes/label.hpp>
 #include <godot_cpp/classes/video_stream_player.hpp>
 #include <godot_cpp/classes/input_event.hpp>
+#include <godot_cpp/classes/input_event_key.hpp>
+#include <godot_cpp/classes/input_event_mouse_button.hpp>
+#include <godot_cpp/classes/input.hpp>
 #include <godot_cpp/variant/node_path.hpp>
 #include "Dragon_Pilot_Keyboard.h"
 #include "GameTimer.h"
@@ -38,6 +43,7 @@ namespace godot
             String info_debug;
             String time_elapsed;
             void SetCameraStabilized(bool stabilized) {camera_stabilized = stabilized;}
+            void SetFreeCamera(bool enabled);
             Node3D* camera_main = nullptr;
         
         protected:
@@ -67,6 +73,11 @@ namespace godot
             float timer = 0.0f;
             bool camera_stabilized = false;
             bool vr_recenter_pending = false;
+            // Free camera (mouse-look) state
+            bool free_camera = false;
+            float cam_yaw   = 0.0f;
+            float cam_pitch = 0.0f;
+            Input* input_singleton = nullptr;
     };
 }
 

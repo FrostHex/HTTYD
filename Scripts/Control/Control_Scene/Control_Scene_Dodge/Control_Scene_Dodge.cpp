@@ -2,6 +2,8 @@
 #include "Control_Main.h"
 #include "Settings.h"
 
+#include <godot_cpp/classes/scene_tree.hpp>
+#include <godot_cpp/classes/window.hpp>
 
 using namespace godot;
 
@@ -38,4 +40,13 @@ void Control_Scene_Dodge::_ready()
     {
         return;
     }
+
+    Control_Scene_Top::_ready();
+    ctrl_camera = get_tree()->get_root()->get_node<Control_Camera>("Main/Control_Main/Control_Camera");
+	ctrl_camera->call_deferred("Initialize");
+}
+
+void Control_Scene_Dodge::_input(const Ref<InputEvent> &event) 
+{
+    _input_top(event);
 }

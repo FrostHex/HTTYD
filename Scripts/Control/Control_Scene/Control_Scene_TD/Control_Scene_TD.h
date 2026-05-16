@@ -6,7 +6,7 @@
 #include <godot_cpp/core/binder_common.hpp>
 #include <godot_cpp/classes/audio_stream_player.hpp>
 #include <godot_cpp/classes/video_stream_player.hpp>
-#include "Control_Top.h"
+#include "Control_Scene_Top.h"
 #include "Dragon_Animator.h"
 #include "CheatSheet.h"
 #include "GameTimer.h"
@@ -16,7 +16,7 @@ namespace godot
 {
     class Control_Main; // Forward declaration
 
-    class Control_Scene_TD : public Control_Top 
+    class Control_Scene_TD : public Control_Scene_Top 
     {
         GDCLASS(Control_Scene_TD, Node);
 
@@ -43,12 +43,9 @@ namespace godot
             bool used_load_state = false; // whether load_state was used in this run.
             Node* td_area_1 = nullptr;
             Node* td_area_2 = nullptr;
-            Control_Main* control_main = nullptr; // reference to Control_Main for accessing shared variables
-            Dragon_Pilot_Top* dragon_pilot;
             Dragon_Animator *dragon_animator;
             CheatSheet *cheat_sheet;
             GameTimer* timer;
-            Control_Camera* ctrl_camera;
             SaveManager* save_manager;
             AudioStreamPlayer* audio_player;
             VideoStreamPlayer* video_player;

@@ -4,7 +4,7 @@
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/binder_common.hpp>
-#include "Control_Top.h"
+#include "Control_Scene_Top.h"
 
 namespace godot
 {
@@ -12,7 +12,7 @@ namespace godot
     class Control_Main;
     class Menu;
 
-    class Control_Scene_Home : public Control_Top
+    class Control_Scene_Home : public Control_Scene_Top
     {
         GDCLASS(Control_Scene_Home, Node);
 
@@ -26,7 +26,6 @@ namespace godot
 
         // ── 基础引用 ────────────────────────────────────────
         Settings*       settings        = nullptr;
-        Control_Main*   control_main    = nullptr;
         Menu*           menu            = nullptr;
 
         Node*   viewport_container  = nullptr;

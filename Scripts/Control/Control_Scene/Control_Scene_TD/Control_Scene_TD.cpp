@@ -2,7 +2,6 @@
 #include "Control_Main.h"
 #include "Dragon_Pilot_Keyboard.h"
 #include "Dragon_Pilot_Joystick.h"
-#include "Control_Camera.h"
 #include "Settings.h"
 
 #include <godot_cpp/godot.hpp>
@@ -53,6 +52,8 @@ void Control_Scene_TD::_ready()
     {
         return;
     }
+
+    Control_Scene_Top::_ready();
 
     // Get reference to Control_Main
     SceneTree *tree = get_tree();
@@ -323,10 +324,8 @@ void Control_Scene_TD::Start_Timer()
  */
 void Control_Scene_TD::_input(const Ref<InputEvent> &event) 
 {
-    if (event->is_action_pressed("ui_cancel")) // can be customized in Project Settings -> Input Map
-    {
-        get_tree()->quit(); // Exit the game when Escape key is pressed
-    }
+    _input_top(event);
+
     if (event->is_action_pressed("save_state")) 
     {
         Dictionary data_all;

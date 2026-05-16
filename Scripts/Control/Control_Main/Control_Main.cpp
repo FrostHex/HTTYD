@@ -134,8 +134,14 @@ void Control_Main::Switch_Scene(const String &scene_name)
             node_cheat_sheet->set_name("CheatSheet");
         }
 
+        if (scene_name == "Scene_Dodge")
+        {
+            ctrl_camera->SetFreeCamera(true);
+        }
+
         if (scene_name != "Scene_Home")
         {  
+            // ctrl_camera->SetFreeCamera(true);
             call_deferred("AttachCamera", scene_name);
         }
     }
