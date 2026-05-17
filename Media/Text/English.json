@@ -49,6 +49,12 @@
     "header_dodge": "Dodge (WIP)",
     "detail_dodge": "Learn how to dodge enemy attacks. (Under construction)",
 
+    "header_return": "Return",
+    "detail_return": "Return to the main menu.",
+
+    "header_continue": "Continue",
+    "detail_continue": "Continue playing.",
+
     "header_language": "Language",
     "detail_language": "Only English and Chinese are supported for now.",
 

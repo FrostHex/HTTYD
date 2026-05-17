@@ -68,8 +68,8 @@ shader_parameter/cirrus_absorption = 2.0
 shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.026964104, 0.026964104)
-shader_parameter/cirrus_position2 = Vector2(0.026964104, 0.026964104)
+shader_parameter/cirrus_position1 = Vector2(0.018761775, 0.018761775)
+shader_parameter/cirrus_position2 = Vector2(0.018761775, 0.018761775)
 shader_parameter/cirrus_texture = ExtResource("2_yba8m")
 shader_parameter/cumulus_visible = true
 shader_parameter/cumulus_intensity = 0.6
@@ -79,7 +79,7 @@ shader_parameter/cumulus_absorption = 2.0
 shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(0.13482265, 0.13482265)
+shader_parameter/cumulus_position = Vector2(0.09380971, 0.09380971)
 shader_parameter/cumulus_texture = ExtResource("3_08ls4")
 shader_parameter/cumulus_partial_mie_phase = Vector3(0.957564, 1.042436, 0.412)
 shader_parameter/cumulus_mie_intensity = 1.0
@@ -120,6 +120,68 @@ adjustment_enabled = true
 adjustment_brightness = 0.9
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bwlg7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Normal"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.35, 0.35, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Pressed"]
+bg_color = Color(0.16, 0.5, 0.16, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.24, 0.75, 0.24, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Hover"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.45, 0.45, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Panel"]
+bg_color = Color(0.22, 0.22, 0.22, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1, 0.1, 0.1, 0.9)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Theme" id="Theme_2l35d"]
+Button/font_sizes/font_size = 24
+CheckButton/font_sizes/font_size = 24
+CheckButton/styles/focus = SubResource("StyleBoxFlat_Normal")
+CheckButton/styles/focus_pressed = SubResource("StyleBoxFlat_Pressed")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_Hover")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_Pressed")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_Normal")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_Pressed")
+Label/font_sizes/font_size = 24
+OptionButton/font_sizes/font_size = 24
+Panel/styles/panel = SubResource("StyleBoxFlat_Panel")
+PopupMenu/font_sizes/font_size = 24
 
 [sub_resource type="QuadMesh" id="QuadMesh_paper"]
 size = Vector2(4, 3)
@@ -178,6 +240,38 @@ year = 2010
 latitude = 1.0806497533707977
 longitude = -0.12217304763960307
 utc = 1.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1446209935]
+offset_top = -4.999996
+offset_right = 1590.0
+offset_bottom = 895.6896
+scale = Vector2(0.725, 0.725)
+
+[node name="Viewport" type="SubViewport" parent="SubViewportContainer" unique_id=763078264]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1590, 900)
+render_target_update_mode = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/Viewport" unique_id=1995308036]
+
+[node name="Control" type="Control" parent="SubViewportContainer/Viewport/CanvasLayer" unique_id=467841357]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2l35d")
+
+[node name="Settings_Panel" type="Control" parent="SubViewportContainer/Viewport/CanvasLayer/Control" unique_id=1774813601]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TutorialPaper" type="MeshInstance3D" parent="." unique_id=1406181536]
 transform = Transform3D(-4.371139e-09, 0.025881905, -0.09659258, 0, 0.09659258, 0.025881905, 0.1, 1.131334e-09, -4.222196e-09, 0.8, 10.65, 0)

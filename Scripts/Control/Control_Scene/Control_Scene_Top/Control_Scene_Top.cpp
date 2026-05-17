@@ -1,12 +1,16 @@
 #include "Control_Scene_Top.h"
 
 #include "Control_Camera.h"
+#include "Menu.h"
+#include "Settings.h"
+
 #include <godot_cpp/classes/time.hpp>
-#include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/classes/scene_tree.hpp>
 #include <godot_cpp/classes/window.hpp>
+#include <godot_cpp/classes/input.hpp>
 #include <godot_cpp/classes/input_event_key.hpp>
 
+#include <godot_cpp/variant/utility_functions.hpp>
 
 using namespace godot;
 
@@ -14,6 +18,70 @@ void Control_Scene_Top::_ready()
 {
     // UtilityFunctions::print("Control_Scene_Top ready");
     camera_main = get_tree()->get_root()->get_node<Node3D>("Main/Camera_Main");
+}
+
+void Control_Scene_Top::SetHomeScene(bool is_home)
+{
+    is_home_scene = is_home;
+}
+
+void Control_Scene_Top::ShowEscapeMenu()
+{
+    if (is_home_scene)
+    {
+        return;
+    }
+
+    // For non-home scenes, we need to find or create a Menu instance
+    Node *menu_node = this->get_node_or_null(NodePath("Menu"));
+    Menu *menu = Object::cast_to<Menu>(menu_node);
+
+    if (!menu)
+    {
+        menu = memnew(Menu);
+        menu->set_name("Menu");
+        this->add_child(menu);
+
+        // Find viewport container - try common paths
+        Node *vp = get_node_or_null(NodePath("../SubViewportContainer"));
+
+        if (!vp)
+        {
+            vp = get_node_or_null(NodePath("../../../SubViewportContainer"));
+        }
+
+        if (vp)
+        {
+            Settings *settings = Settings::GetSingleton();
+            menu->Initialize(this, settings, nullptr, vp);
+        }
+        else
+        {
+            UtilityFunctions::printerr(
+                "Control_Scene_Top: Could not find viewport container for escape menu");
+            return;
+        }
+    }
+
+    menu->ShowEscapeMenu();
+
+    escape_menu_visible = true;
+}
+
+void Control_Scene_Top::HideEscapeMenu()
+{
+    escape_menu_visible = false;
+
+    // continue 卡牌关闭菜单时强制重置状态
+    esc_was_pressed = false;
+
+    Node *menu_node = this->get_node_or_null(NodePath("Menu"));
+    Menu *menu = Object::cast_to<Menu>(menu_node);
+
+    if (menu)
+    {
+        menu->HideEscapeMenu();
+    }
 }
 
 void Control_Scene_Top::SyncSkyTime(Node *time_of_day)
@@ -24,13 +92,17 @@ void Control_Scene_Top::SyncSkyTime(Node *time_of_day)
     }
 
     Time *time_singleton = Time::get_singleton();
+
     if (!time_singleton)
     {
-        UtilityFunctions::printerr("Control_Scene_Top: Time singleton is unavailable");
+        UtilityFunctions::printerr(
+            "Control_Scene_Top: Time singleton is unavailable");
         return;
     }
 
-    Dictionary datetime_dict = time_singleton->get_datetime_dict_from_system(false);
+    Dictionary datetime_dict =
+        time_singleton->get_datetime_dict_from_system(false);
+
     if (time_of_day->has_method("set_from_datetime_dict"))
     {
         time_of_day->call("set_from_datetime_dict", datetime_dict);
@@ -40,115 +112,207 @@ void Control_Scene_Top::SyncSkyTime(Node *time_of_day)
         time_of_day->set("year", datetime_dict["year"]);
         time_of_day->set("month", datetime_dict["month"]);
         time_of_day->set("day", datetime_dict["day"]);
+
         if (time_of_day->has_method("set_time"))
         {
-            time_of_day->call("set_time", datetime_dict["hour"], datetime_dict["minute"], datetime_dict["second"]);
+            time_of_day->call(
+                "set_time",
+                datetime_dict["hour"],
+                datetime_dict["minute"],
+                datetime_dict["second"]);
         }
     }
 }
 
 void Control_Scene_Top::_input_top(const Ref<InputEvent> &event)
 {
-    if (!event.is_valid()) 
+    if (!event.is_valid())
     {
         return;
     }
-	Ref<InputEventKey> key_event = event;
-    if (key_event.is_null()) 
+
+    Ref<InputEventKey> key_event = event;
+
+    if (key_event.is_null())
     {
         return;
     }
-    if (key_event->get_keycode() == Key::KEY_R)
+
+    if (key_event->get_keycode() != Key::KEY_ESCAPE)
     {
-		ReturnHome();
-		return;
-	}
+        return;
+    }
+
+    bool esc_pressed = key_event->is_pressed();
+    bool esc_echo = key_event->is_echo();
+
+    // 忽略按键重复事件
+    if (esc_echo)
+    {
+        return;
+    }
+
+    // Key release
+    if (!esc_pressed)
+    {
+        esc_was_pressed = false;
+
+        return;
+    }
+    // Key press
+    if (esc_was_pressed)
+    {
+        return;
+    }
+    esc_was_pressed = true;
+    if (is_home_scene)
+    {
+        return;
+    }
+
+    if (escape_menu_visible)
+    {
+        HideEscapeMenu();
+    }
+    else
+    {
+        Input::get_singleton()->set_mouse_mode(Input::MOUSE_MODE_VISIBLE);
+        ShowEscapeMenu();
+    }
 }
 
-void Control_Scene_Top::ReturnHome() 
+void Control_Scene_Top::ReturnHome()
 {
-	// Get the scene tree and switch back to Scene_Home via Control_Main
-	UtilityFunctions::print("returning to Scene_Home");
-	SceneTree *tree = get_tree();
-	if (!tree) 
-	{
-		UtilityFunctions::printerr("SceneTree not available");
-		return;
-	}
-	Window *root = tree->get_root();
-	if (!root) 
-	{
-		UtilityFunctions::printerr("Root window not available");
-		return;
-	}
+    // Get the scene tree and switch back to Scene_Home via Control_Main
+    SceneTree *tree = get_tree();
 
-	set_physics_process(false);
-	if (dragon_pilot && dragon_pilot->is_inside_tree())
-	{
-		dragon_pilot->set_physics_process(false);
-	}
-	if (ctrl_camera && ctrl_camera->is_inside_tree())
-	{
-		ctrl_camera->set_physics_process(false);
-		ctrl_camera->set_process_input(false);
-	}
+    if (!tree)
+    {
+        UtilityFunctions::printerr("SceneTree not available");
+        return;
+    }
 
-	// reset camera_main
-	if (camera_main && camera_main->is_inside_tree() && root) 
-	{
-		Node *main_node = root->get_node_or_null(NodePath("Main"));
-		if (main_node) 
-		{
-			camera_main->reparent(main_node);
-			camera_main->call_deferred("set_transform", Transform3D(Basis(), Vector3(0.0f, 10.0f, 0.0f)));
-			Node* xr_origin = camera_main->get_node_or_null(NodePath("XR/XROrigin"));
-			if (xr_origin) 
-			{
-				xr_origin->call_deferred("set_position", Vector3(0.0f, 0.0f, 0.0f));
-				Node* sub_viewport_mesh = xr_origin->get_node_or_null(NodePath("XRCamera/SubViewportMesh"));
-				if (sub_viewport_mesh)
-				{
-					sub_viewport_mesh->queue_free();
-				}
-			}	
-			UtilityFunctions::print("Camera_Main restored to original position");
-		} else {
-			UtilityFunctions::printerr("Could not find Main node to restore camera");
-		}
-	}
-	else if (camera_main && !camera_main->is_inside_tree())
-	{
-		UtilityFunctions::printerr("camera_main is not in scene tree");
-	}
-	else
-	{
-		UtilityFunctions::printerr("camera_main not found when returning to Scene_Home");
-	}
+    Window *root = tree->get_root();
 
-	// prioritize using existing cached reference
-	if (!control_main) 
-	{
-		// attempt to locate it again
-		Node *cm = root->get_node_or_null(NodePath("Main/Control_Main"));
-		if (!cm) 
-		{
-			cm = root->find_child("Control_Main", /*recursive*/ true, /*owned*/ false);
-		}
-		control_main = Object::cast_to<Control_Main>(cm);
-	}
-	if (control_main) 
-	{
-		control_main->call("Switch_Scene", "Scene_Home");
-	} 
-	else 
-	{
-		UtilityFunctions::printerr("Control_Scene_Top: Control_Main not available to switch scene. Run from Main scene to enable navigation.");
-	}
+    if (!root)
+    {
+        UtilityFunctions::printerr("Root window not available");
+        return;
+    }
 
-    Input::get_singleton()->set_mouse_mode(Input::MOUSE_MODE_VISIBLE);
+    set_physics_process(false);
+
+    if (dragon_pilot && dragon_pilot->is_inside_tree())
+    {
+        dragon_pilot->set_physics_process(false);
+    }
+
+    if (ctrl_camera && ctrl_camera->is_inside_tree())
+    {
+        ctrl_camera->set_physics_process(false);
+        ctrl_camera->set_process_input(false);
+    }
+
+    // reset camera_main
+    if (camera_main && camera_main->is_inside_tree() && root)
+    {
+        Node *main_node = root->get_node_or_null(NodePath("Main"));
+
+        if (main_node)
+        {
+            camera_main->reparent(main_node);
+
+            camera_main->call_deferred(
+                "set_transform",
+                Transform3D(Basis(), Vector3(0.0f, 10.0f, 0.0f)));
+
+            Node *xr_origin =
+                camera_main->get_node_or_null(NodePath("XR/XROrigin"));
+
+            if (xr_origin)
+            {
+                xr_origin->call_deferred(
+                    "set_position",
+                    Vector3(0.0f, 0.0f, 0.0f));
+
+                Node *sub_viewport_mesh =
+                    xr_origin->get_node_or_null(
+                        NodePath("XRCamera/SubViewportMesh"));
+
+                if (sub_viewport_mesh)
+                {
+                    sub_viewport_mesh->queue_free();
+                }
+            }
+
+            UtilityFunctions::print(
+                "Camera_Main restored to original position");
+        }
+        else
+        {
+            UtilityFunctions::printerr(
+                "Could not find Main node to restore camera");
+        }
+    }
+    else if (camera_main && !camera_main->is_inside_tree())
+    {
+        UtilityFunctions::printerr(
+            "camera_main is not in scene tree");
+    }
+    else
+    {
+        UtilityFunctions::printerr(
+            "camera_main not found when returning to Scene_Home");
+    }
+
+    // prioritize using existing cached reference
+    if (!control_main)
+    {
+        // attempt to locate it again
+        Node *cm =
+            root->get_node_or_null(NodePath("Main/Control_Main"));
+
+        if (!cm)
+        {
+            cm = root->find_child(
+                "Control_Main",
+                /*recursive*/ true,
+                /*owned*/ false);
+        }
+
+        control_main = Object::cast_to<Control_Main>(cm);
+    }
+
+    if (control_main)
+    {
+        control_main->call("Switch_Scene", "Scene_Home");
+    }
+    else
+    {
+        UtilityFunctions::printerr(
+            "Control_Scene_Top: Control_Main not available "
+            "to switch scene. Run from Main scene to enable navigation.");
+    }
+
+    Input::get_singleton()->set_mouse_mode(
+        Input::MOUSE_MODE_VISIBLE);
 }
 
 void Control_Scene_Top::_bind_methods()
 {
-    ClassDB::bind_method(D_METHOD("ReturnHome"), &Control_Scene_Top::ReturnHome);
+    ClassDB::bind_method(
+        D_METHOD("ReturnHome"),
+        &Control_Scene_Top::ReturnHome);
+
+    ClassDB::bind_method(
+        D_METHOD("ShowEscapeMenu"),
+        &Control_Scene_Top::ShowEscapeMenu);
+
+    ClassDB::bind_method(
+        D_METHOD("HideEscapeMenu"),
+        &Control_Scene_Top::HideEscapeMenu);
+
+    ClassDB::bind_method(
+        D_METHOD("SetHomeScene", "is_home"),
+        &Control_Scene_Top::SetHomeScene);
 }

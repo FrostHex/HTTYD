@@ -14,6 +14,7 @@
 #include "Menu.h"
 #include "Settings.h"
 #include "Control_Main.h"
+#include "Control_Scene_Top.h"
 
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
@@ -100,6 +101,22 @@ void Menu::Initialize(
 	_rebuild_menu_hand();
 }
 
+void Menu::ShowEscapeMenu()
+{
+	if (!card_hand_root) return;
+	_destroy_hand();
+	hand_state = HAND_ESCAPE;
+	_set_hand_host(ui_root);
+	_rebuild_escape_hand();
+}
+
+void Menu::HideEscapeMenu()
+{
+	_destroy_hand();
+	if (settings_panel)
+		settings_panel->set("visible", false);
+}
+
 // ================================================================
 // Process — 每帧插值动画
 // ================================================================
@@ -119,6 +136,8 @@ void Menu::_input(const Ref<InputEvent>& event)
 	if ((hand_state == HAND_SETTINGS_MAIN || hand_state == HAND_SETTINGS_SUB) && !settings_visible)
 		return;
 	if (hand_state == HAND_MENU && settings_visible)
+		return;
+	if (hand_state == HAND_ESCAPE && settings_visible)
 		return;
 
 	// ── 鼠标移动：检测悬停 ──────────────────────────────────
@@ -341,6 +360,59 @@ void Menu::_rebuild_menu_hand()
 
 	_layout_hand();
 	_update_badge_display();
+}
+
+// ── 重建 ESC 暂停菜单手牌（return / continue） ────────────────────
+
+void Menu::_rebuild_escape_hand()
+{
+	_destroy_hand();
+	hand_state = HAND_ESCAPE;
+
+	if (!card_hand_root) return;
+	_set_hand_host(ui_root);
+
+	// ── return 卡牌 ──────────────────────────────────────────
+	{
+		CardData ret;
+		ret.type         = CARD_ESCAPE_RETURN;
+		ret.prop_name    = "return";
+		ret.display_name = _get_json_text("header_return", "Return");
+		ret.value_text   = _get_json_text("header_return", "Return");
+		ret.variant_type = Variant::NIL;
+		ret.hint         = PROPERTY_HINT_NONE;
+		ret.hint_string  = "";
+		ret.is_custom    = false;
+		ret.scene_name   = "";
+		ret.opens_settings = false;
+		ret.shows_badge  = false;
+		ret.option_value = 0;
+
+		CardNode cn = _create_card_node(ret, hand_cards.size());
+		hand_cards.push_back(cn);
+	}
+
+	// ── continue 卡牌 ────────────────────────────────────────
+	{
+		CardData cont;
+		cont.type         = CARD_ESCAPE_CONTINUE;
+		cont.prop_name    = "continue";
+		cont.display_name = _get_json_text("header_continue", "Continue");
+		cont.value_text   = _get_json_text("header_continue", "Continue");
+		cont.variant_type = Variant::NIL;
+		cont.hint         = PROPERTY_HINT_NONE;
+		cont.hint_string  = "";
+		cont.is_custom    = false;
+		cont.scene_name   = "";
+		cont.opens_settings = false;
+		cont.shows_badge  = false;
+		cont.option_value = 0;
+
+		CardNode cn = _create_card_node(cont, hand_cards.size());
+		hand_cards.push_back(cn);
+	}
+
+	_layout_hand();
 }
 
 // ── 重建主手牌（所有 exposed 设置项） ─────────────────────────────
@@ -661,6 +733,8 @@ Menu::_create_card_node(const CardData& data, int index)
 	if (data.type == CARD_BACK)                  type_char = String::utf8("◀");
 	else if (data.type == CARD_OPTION)           type_char = String::utf8("√");
 	else if (data.type == CARD_MENU)             type_char = String::utf8("M");
+	else if (data.type == CARD_ESCAPE_RETURN)    type_char = String::utf8("R");
+	else if (data.type == CARD_ESCAPE_CONTINUE)  type_char = String::utf8("C");
 	else if (data.variant_type == Variant::BOOL) type_char = String::utf8("B");
 	else                                         type_char = String::utf8("E");
 	type->set_text(type_char);
@@ -908,6 +982,54 @@ void Menu::_on_card_used(int index)
 		return;
 	}
 
+	if (data.type == CARD_ESCAPE_RETURN)
+	{
+		// 返回主页
+		_destroy_hand();
+
+		// 直接调用 ReturnHome
+		Node* parent = get_parent();
+		if (parent)
+		{
+			Control_Scene_Top* scene_top = Object::cast_to<Control_Scene_Top>(parent);
+			if (scene_top)
+			{
+				scene_top->ReturnHome();
+			}
+			else
+			{
+				parent->call("ReturnHome");
+			}
+		}
+		return;
+	}
+
+	if (data.type == CARD_ESCAPE_CONTINUE)
+	{
+		// 继续游戏，隐藏菜单
+		Node* parent = get_parent();
+
+		if (parent)
+		{
+			Control_Scene_Top* scene_top =
+				Object::cast_to<Control_Scene_Top>(parent);
+
+			if (scene_top)
+			{
+				scene_top->HideEscapeMenu();
+			}
+			else if (parent->has_method("HideEscapeMenu"))
+			{
+				parent->call("HideEscapeMenu");
+			}
+		}
+
+		// 防止本帧 ESC 输入继续传播导致状态错乱
+		get_viewport()->set_input_as_handled();
+
+		return;
+	}
+
 	// data.type == CARD_SETTING
 	if (data.variant_type == Variant::BOOL)
 	{
@@ -1001,6 +1123,12 @@ String Menu::_get_value_image_path(const CardData& data) const
 
 	if (data.type == CARD_BACK)
 		return base_path + String("card_back.png");
+
+	if (data.type == CARD_ESCAPE_RETURN)
+		return base_path + String("card_return.png");
+
+	if (data.type == CARD_ESCAPE_CONTINUE)
+		return base_path + String("card_continue.png");
 
 	if (data.type == CARD_MENU && !data.member_name.is_empty())
 		return base_path + String("card_") + data.member_name + String(".png");

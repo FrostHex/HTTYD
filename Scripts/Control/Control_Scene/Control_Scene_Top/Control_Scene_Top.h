@@ -18,6 +18,11 @@ namespace godot
             void ReturnHome();
             void _input_top(const Ref<InputEvent> &event);
 
+            bool is_home_scene = false;
+            void ShowEscapeMenu();
+            void HideEscapeMenu();
+            void SetHomeScene(bool is_home);
+
         protected:
             static void _bind_methods();
             void SyncSkyTime(Node *time_of_day);
@@ -25,6 +30,8 @@ namespace godot
             Control_Camera* ctrl_camera = nullptr;
             Control_Main* control_main = nullptr;
             Node3D* camera_main = nullptr;
+            bool escape_menu_visible = false;
+            bool esc_was_pressed = false;
     };
 }
 

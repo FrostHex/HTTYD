@@ -388,7 +388,7 @@ void Control_Camera::_input(const Ref<InputEvent> &event)
         if (key_event.is_valid() && key_event->is_pressed())
         {
             int32_t keycode = key_event->get_keycode();
-            if (keycode == Key::KEY_ESCAPE || keycode == Key::KEY_BACKSPACE || keycode == Key::KEY_ENTER)
+            if (keycode == Key::KEY_QUOTELEFT || keycode == Key::KEY_BACKSPACE || keycode == Key::KEY_ENTER)
             {
                 input_singleton->set_mouse_mode(Input::MOUSE_MODE_VISIBLE);
                 return;

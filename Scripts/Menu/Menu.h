@@ -41,6 +41,8 @@ namespace godot
 		~Menu();
 
 		void Initialize(Node* owner, Settings* settings, Control_Main* control_main, Node* viewport_container);
+		void ShowEscapeMenu();
+		void HideEscapeMenu();
 
 		void _process(double delta) override;
 		void _input(const Ref<InputEvent>& event) override;
@@ -68,6 +70,8 @@ namespace godot
 			CARD_SETTING,       // 主手牌：代表一个设置项
 			CARD_OPTION,        // 子手牌：enum/int 某个具体值
 			CARD_BACK,          // 子手牌：返回主手牌
+			CARD_ESCAPE_RETURN, // ESC菜单：返回主页
+			CARD_ESCAPE_CONTINUE, // ESC菜单：继续游戏
 		};
 
 		struct CardData
@@ -112,6 +116,7 @@ namespace godot
 			HAND_MENU,          // 展示主菜单卡牌
 			HAND_SETTINGS_MAIN, // 展示主设置项
 			HAND_SETTINGS_SUB,  // 展示 enum/int 子选项
+			HAND_ESCAPE,        // ESC暂停菜单：return/continue
 		};
 
 		HandState               hand_state          = HAND_MENU;
@@ -192,6 +197,7 @@ namespace godot
 		void _rebuild_menu_hand();
 		void _rebuild_settings_main_hand();
 		void _rebuild_sub_hand(const String& prop_name, const CardData& parent_data);
+		void _rebuild_escape_hand();
 		CardNode _create_card_node(const CardData& data, int index);
 		void _destroy_hand();
 		Vector2 _get_hand_local_mouse_pos() const;

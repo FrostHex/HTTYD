@@ -49,6 +49,12 @@
     "header_dodge": "躲避 (正在施工)",
     "detail_dodge": "学习如何躲避敌人的攻击 (正在施工)",
 
+    "header_return": "返回",
+    "detail_return": "返回主菜单",
+
+    "header_continue": "继续",
+    "detail_continue": "继续游戏",
+
     "header_language": "语言",
     "detail_language": "目前仅支持中文和英语",
 
