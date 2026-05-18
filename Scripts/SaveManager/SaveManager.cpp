@@ -233,7 +233,7 @@ Dictionary SaveManager::State_Load()
  */
 void SaveManager::Settings_Save(const Dictionary& settings_data)
 {
-    UtilityFunctions::print("Saving settings...");
+    // UtilityFunctions::print("Saving settings...");
 
     // path validation
     String exe_dir = get_executable_directory();
@@ -266,7 +266,7 @@ void SaveManager::Settings_Save(const Dictionary& settings_data)
     {
         settings_file->store_string(json_content);
         settings_file->close();
-        UtilityFunctions::print("Settings saved successfully.");
+        // UtilityFunctions::print("Settings saved successfully.");
     } 
     else 
     {

@@ -41,6 +41,11 @@ Control_Scene_TD::~Control_Scene_TD()
 }
 
 
+void Control_Scene_TD::_process(double delta)
+{
+	_process_top(delta);
+}
+
 /**
  * @brief called when the node and its children are initialized
  * @note 1. when open a scene containing this node in Godot Engine (editor mode, not running)

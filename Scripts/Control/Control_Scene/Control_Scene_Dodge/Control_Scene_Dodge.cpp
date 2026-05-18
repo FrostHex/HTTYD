@@ -46,6 +46,11 @@ void Control_Scene_Dodge::_ready()
 	ctrl_camera->call_deferred("Initialize");
 }
 
+void Control_Scene_Dodge::_process(double delta)
+{
+	_process_top(delta);
+}
+
 void Control_Scene_Dodge::_input(const Ref<InputEvent> &event) 
 {
     _input_top(event);

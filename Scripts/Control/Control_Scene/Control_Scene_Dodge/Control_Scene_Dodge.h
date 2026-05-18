@@ -18,6 +18,7 @@ namespace godot
             Control_Scene_Dodge();
             ~Control_Scene_Dodge() override;
             void _ready() override;
+            void _process(double delta) override;
             void _input(const Ref<InputEvent> &event) override;
 
         protected:

@@ -10,7 +10,7 @@ namespace godot
 {
     class Settings;
     class Control_Main;
-    class Menu;
+    class Menu_Home;
 
     class Control_Scene_Home : public Control_Scene_Top
     {
@@ -20,13 +20,14 @@ namespace godot
         Control_Scene_Home();
         ~Control_Scene_Home();
         void _ready() override;
+        void _process(double delta) override;
 
     private:
         static void _bind_methods();
 
         // ── 基础引用 ────────────────────────────────────────
         Settings*       settings        = nullptr;
-        Menu*           menu            = nullptr;
+        Menu_Home*           menu            = nullptr;
 
         Node*   viewport_container  = nullptr;
     };

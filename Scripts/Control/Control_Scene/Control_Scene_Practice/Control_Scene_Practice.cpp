@@ -189,6 +189,11 @@ void Control_Scene_Practice::_input(const Ref<InputEvent> &event)
 	}
 }
 
+void Control_Scene_Practice::_process(double delta)
+{
+	_process_top(delta);
+}
+
 void Control_Scene_Practice::_physics_process(double delta)
 {
 	// VR controller A/B button logic, following Tutorial.cpp.

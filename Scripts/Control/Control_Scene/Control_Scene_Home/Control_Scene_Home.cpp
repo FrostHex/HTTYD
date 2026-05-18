@@ -1,5 +1,5 @@
 #include "Control_Scene_Home.h"
-#include "Menu.h"
+#include "Menu_Home.h"
 #include "Settings.h"
 #include "Control_Main.h"
 
@@ -22,7 +22,7 @@ Control_Scene_Home::Control_Scene_Home()
 
 Control_Scene_Home::~Control_Scene_Home()
 {
-    // Menu is a child Node; scene tree handles its lifetime.
+    // Menu_Home is a child Node; scene tree handles its lifetime.
     menu = nullptr;
 }
 
@@ -37,6 +37,11 @@ void Control_Scene_Home::_bind_methods()
 // ================================================================
 // _ready
 // ================================================================
+
+void Control_Scene_Home::_process(double delta)
+{
+	// Home scene does NOT call _process_top - no escape menu
+}
 
 void Control_Scene_Home::_ready()
 {
@@ -98,7 +103,7 @@ void Control_Scene_Home::_ready()
     // ── 构建卡牌手牌根节点并建立主菜单 ──────────────────────
     if (!menu)
     {
-        menu = memnew(Menu);
+        menu = memnew(Menu_Home);
     }
     menu->Initialize(this, settings, control_main, viewport_container);
 }

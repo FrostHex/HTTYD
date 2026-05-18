@@ -458,7 +458,7 @@ void Dragon_Pilot_Top::SetState(DragonState state_new)
             break;
     }
     state_current = state_new;
-    UtilityFunctions::print("Dragon state changed to: ", state_current);
+    // UtilityFunctions::print("Dragon state changed to: ", state_current);
 }
 
 /**

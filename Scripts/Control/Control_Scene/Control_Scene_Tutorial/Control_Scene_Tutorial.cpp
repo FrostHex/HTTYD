@@ -246,6 +246,11 @@ void Control_Scene_Tutorial::_input(const Ref<InputEvent> &event)
 	}
 }
 
+void Control_Scene_Tutorial::_process(double delta)
+{
+	_process_top(delta);
+}
+
 void Control_Scene_Tutorial::_physics_process(double delta)
 {
 	// keep tutorial-page logic polling the VR controller every frame without affecting keyboard input.
