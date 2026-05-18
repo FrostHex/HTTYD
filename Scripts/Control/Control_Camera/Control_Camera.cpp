@@ -492,6 +492,12 @@ void Control_Camera::SetFreeCamera(bool enabled)
         if (input_singleton)
         {
             input_singleton->set_mouse_mode(Input::MOUSE_MODE_CAPTURED);
+            if (camera_main) // set initial yaw/pitch based on current camera rotation
+            {
+                Vector3 rot = camera_main->get_rotation();
+                cam_yaw = rot.y;
+                cam_pitch = rot.z;
+            }
         }
     }
     else

@@ -121,6 +121,8 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 - Changed: Ocean horizon blending and circular boundary.
 - Changed: Test Drive color correction tweaks.
 
+## v1.1.3
+- Changed: Visual performance tweaks.
 
 
 ----------
@@ -128,10 +130,8 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 ### Bug Fixes & Optimization
 - Fixed: Test the VR compatibility with card UI system.
 - Fixed: Volumetric cloud rendering issues in the volumetric fog.
-- Changed: Use the sunset environment from the home scene for Test Drive
-- Changed: Unify the back button logic for every scene.
 
 ### Try Some New Stuff
-- Added: Refactor the mouse drag control to a unified node
 - Added: Seagulls.
-- Added: Campfire / plasma blast shaders.
+- Added: Campfire
+- Added: plasma blast shaders.

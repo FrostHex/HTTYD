@@ -21,6 +21,8 @@
 #include <godot_cpp/classes/window.hpp> // for Window class
 #include <godot_cpp/classes/world_environment.hpp>
 #include <godot_cpp/classes/environment.hpp>
+#include <godot_cpp/classes/resource_loader.hpp>
+#include <godot_cpp/classes/packed_scene.hpp>
 
 
 using namespace godot;
@@ -254,17 +256,27 @@ void Control_Scene_TD::TakeRest()
     {
         rocks->set_visible(false); // hide the rocks
         fog->set_visible(false); // hide the fog
-        sky_node->set("current_time", 19.25f); // set sky to evening time
-        sky_node->set("camera_exposure", 1.75f);
-        WorldEnvironment *sky_env = Object::cast_to<WorldEnvironment>(sky_node);
+        // sky_node->set("current_time", 19.25f); // set sky to evening time
+        // sky_node->set("camera_exposure", 1.75f);
+        sky_node->queue_free();
+        // get new sky from res://Scenes/Sky3d_Sunset.tscn
+        Ref<PackedScene> sky_scene_sunset = ResourceLoader::get_singleton()->load("res://Scenes/Sky3d_Sunset.tscn");
+        Node* sky_node_sunset = nullptr;
+        if (sky_scene_sunset.is_valid())
+        {
+            sky_node_sunset = sky_scene_sunset->instantiate();
+            get_parent()->add_child(sky_node_sunset);
+            sky_node_sunset->set_name("Sky3D_Sunset");
+        }
+        WorldEnvironment *sky_env = Object::cast_to<WorldEnvironment>(sky_node_sunset);
         if (sky_env)
         {
             Ref<Environment> env = sky_env->get_environment();
             if (env.is_valid())
             {
-                env->set("adjustment_brightness", 1.0f);
-                env->set("adjustment_contrast", 0.9f);
-                env->set("adjustment_saturation", 1.0f);
+                env->set("adjustment_brightness", 0.85f);
+                env->set("adjustment_contrast", 1.075f);
+                env->set("adjustment_saturation", 0.8f);
             }
         }
         dragon_node->set_position(Vector3(1025.584f, 6.443f, -813.842f));
@@ -275,6 +287,7 @@ void Control_Scene_TD::TakeRest()
     ctrl_camera->camera_main->reparent(get_parent());
     ctrl_camera->camera_main->set_position(Vector3(1027.504f, 6.733f, -814.004f));
     ctrl_camera->camera_main->set_rotation(Vector3(0.0f, Math::deg_to_rad(-111.0f), 0.0f));
+    ctrl_camera->SetFreeCamera(true);
 
     if (control_main)
     {
