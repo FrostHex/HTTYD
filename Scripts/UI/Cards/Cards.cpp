@@ -145,7 +145,7 @@ void Cards::layout()
 
         Vector2 base_pos(
             center_x + x_offset - CARD_WIDTH * 0.5f,   // ← 加上 center_x 实现水平居中
-            -CARD_HEIGHT + y_offset);
+            -300.f + y_offset);
 
         float   base_rot   = angle_deg;
         Vector2 base_scale(1.f, 1.f);

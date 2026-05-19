@@ -49,8 +49,7 @@ void Menu_Home::Initialize(
     Control_Main*   cm,
     Node*           viewport_container)
 {
-    if (owner && get_parent() != owner)
-        owner->add_child(this);
+    static_cast<void>(owner);
 
     set_process(true);
     set_process_input(true);
@@ -73,6 +72,9 @@ void Menu_Home::Initialize(
             "Menu_Home: Could not find UI root at Viewport/CanvasLayer/Control");
         return;
     }
+
+    if (get_parent() != ui_root)
+        ui_root->add_child(this);
 
     settings_panel = ui_root->get_node_or_null(NodePath("Settings_Panel"));
     if (!settings_panel)

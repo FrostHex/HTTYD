@@ -134,4 +134,4 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 ### Try Some New Stuff
 - Added: Seagulls.
 - Added: Campfire
-- Added: plasma blast shaders.
+- Added: Plasma blast shaders.

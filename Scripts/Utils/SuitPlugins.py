@@ -7,6 +7,8 @@ REPLACE_RULES: tuple[tuple[str, str], ...] = (
 	("res://addons/godot-xr-tools", "res://Addons/godot-xr-tools"),
     ("var safe := min(_head_shape_cast.get_closest_collision_safe_fraction()", "var safe : float = min(float(_head_shape_cast.get_closest_collision_safe_fraction())"),
 	("res://addons/SunshineClouds2", "res://Addons/SunshineClouds2"),
+	("script=\"res://addons/ocean_system/ocean_system_plugin.gd\"", "script=\"./ocean_system_plugin.gd\""),
+	("res://addons/ocean_system/", "res://Addons/ocean_system/"),
 )
 
 

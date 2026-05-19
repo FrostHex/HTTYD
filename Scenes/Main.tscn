@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d1pgf1tf0t857" path="res://Scenes/XR.tscn" id="1_kln2b"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://Addons/godot-xr-tools/objects/pickable.gd" id="2_rgh2o"]
 [ext_resource type="Script" uid="uid://dx3swqg2owe4p" path="res://Addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="3_pbw6q"]
-[ext_resource type="PackedScene" uid="uid://dx4r13gqfh13" path="res://Scenes/Ocean.tscn" id="4_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://h563bfem1q0s" path="res://Scenes/Ocean.tscn" id="4_rgh2o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1gob"]
 size = Vector3(0.168, 0.0608516, 0.202)
