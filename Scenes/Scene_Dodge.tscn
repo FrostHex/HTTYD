@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://deo0gxkmk2ahd" path="res://Addons/sky_3d/src/Sky3D.gd" id="8_wv6a7"]
 [ext_resource type="Script" uid="uid://b4tkplvh7fq40" path="res://Addons/sky_3d/src/SkyDome.gd" id="9_200bh"]
 [ext_resource type="Script" uid="uid://cjmkcj8hwm7ts" path="res://Addons/sky_3d/src/TimeOfDay.gd" id="10_53g7q"]
+[ext_resource type="PackedScene" uid="uid://dksvq837e6bci" path="res://Scenes/SubViewportContainer.tscn" id="11_uhdm2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2u4e4"]
 shader = ExtResource("1_53hj5")
@@ -29,7 +30,7 @@ shader_parameter/atm_level_params = Vector3(1, 0, 0)
 shader_parameter/atm_thickness = 0.7
 shader_parameter/atm_beta_ray = Vector3(5.804544e-06, 1.3562913e-05, 3.311258e-05)
 shader_parameter/atm_beta_mie = Vector3(3.038e-08, 3.038e-08, 3.038e-08)
-shader_parameter/sun_light_color = Color(1, 1, 1, 1)
+shader_parameter/sun_light_color = Color(0.99563694, 0.8959414, 0.84598446, 1)
 shader_parameter/sun_disk_color = Color(0.996094, 0.541334, 0.140076, 1)
 shader_parameter/sun_disk_intensity = 30.0
 shader_parameter/sun_disk_size = 0.02
@@ -43,7 +44,7 @@ shader_parameter/moon_texture_flip_u = false
 shader_parameter/moon_texture_flip_v = false
 shader_parameter/moon_size = 0.07
 shader_parameter/atm_moon_mie_tint = Color(0.137255, 0.184314, 0.292196, 1)
-shader_parameter/atm_moon_mie_intensity = 0.3000740429759025
+shader_parameter/atm_moon_mie_intensity = 0.0
 shader_parameter/atm_moon_partial_mie_phase = Vector3(0.36, 1.64, 1.6)
 shader_parameter/starmap_color = Color(0.709804, 0.709804, 0.709804, 0.854902)
 shader_parameter/starmap_texture = ExtResource("7_3tlmm")
@@ -51,7 +52,7 @@ shader_parameter/starmap_flip_u = false
 shader_parameter/starmap_flip_v = false
 shader_parameter/starmap_alignment = Vector3(2.68288, -0.25891, 0.40101)
 shader_parameter/star_rotation_offset = 9.38899
-shader_parameter/star_rotation = -7.638576135093034
+shader_parameter/star_rotation = -8.702631719427995
 shader_parameter/star_tilt = -0.8755735080844038
 shader_parameter/star_field_color = Color(1, 1, 1, 1)
 shader_parameter/star_field_texture = ExtResource("6_fvss3")
@@ -88,7 +89,7 @@ shader_parameter/azimuthal_grid_rotation_offset = 0.03
 shader_parameter/show_equatorial_grid = false
 shader_parameter/equatorial_grid_color = Color(0, 0.75, 1, 1)
 shader_parameter/equatorial_grid_rotation_offset = 0.03
-shader_parameter/moon_matrix = Basis(3.7252899e-09, 0.21958531, -0.9755932, -0.97614306, -0.21182856, -0.047678113, -0.21712795, 0.95231867, 0.2143467)
+shader_parameter/moon_matrix = Basis(0, 0.22520757, -0.9743107, -0.9331688, -0.35020453, -0.08094821, -0.35943818, 0.90919644, 0.2101567)
 
 [sub_resource type="Sky" id="Sky_hfqrt"]
 sky_material = SubResource("ShaderMaterial_2u4e4")
@@ -97,74 +98,12 @@ sky_material = SubResource("ShaderMaterial_2u4e4")
 background_mode = 2
 sky = SubResource("Sky_hfqrt")
 ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_color = Color(0.787473, 0.7086214, 0.6691093, 1)
 reflected_light_source = 2
 tonemap_mode = 3
 tonemap_white = 6.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1y50f"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53hj5"]
-bg_color = Color(0.15, 0.15, 0.15, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.35, 0.35, 0.35, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhdm2"]
-bg_color = Color(0.16, 0.5, 0.16, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.24, 0.75, 0.24, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1sad"]
-bg_color = Color(0.2, 0.2, 0.2, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.45, 0.45, 0.45, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bl3ta"]
-bg_color = Color(0.22, 0.22, 0.22, 0.9)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.1, 0.1, 0.1, 0.9)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="Theme" id="Theme_30ig3"]
-Button/font_sizes/font_size = 24
-CheckButton/font_sizes/font_size = 24
-CheckButton/styles/focus = SubResource("StyleBoxFlat_53hj5")
-CheckButton/styles/focus_pressed = SubResource("StyleBoxFlat_uhdm2")
-CheckButton/styles/hover = SubResource("StyleBoxFlat_x1sad")
-CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_uhdm2")
-CheckButton/styles/normal = SubResource("StyleBoxFlat_53hj5")
-CheckButton/styles/pressed = SubResource("StyleBoxFlat_uhdm2")
-Label/font_sizes/font_size = 24
-OptionButton/font_sizes/font_size = 24
-Panel/styles/panel = SubResource("StyleBoxFlat_bl3ta")
-PopupMenu/font_sizes/font_size = 24
 
 [node name="Scene_Dodge" type="Node3D" unique_id=271040705]
 
@@ -176,27 +115,28 @@ camera_attributes = SubResource("CameraAttributesPractical_1y50f")
 script = ExtResource("8_wv6a7")
 clouds_enabled = false
 fog_enabled = false
-current_time = 13.758609166666776
+current_time = 17.615313333333315
 minutes_per_day = 1440.0
 update_interval = 2.0
 wind_direction = 2.35619451204804
 metadata/_custom_type_script = "uid://deo0gxkmk2ahd"
 
 [node name="SunLight" type="DirectionalLight3D" parent="Sky3D" unique_id=1270786274]
-transform = Transform3D(0.6267421, 0.7354192, -0.25759056, 0, 0.330572, 0.9437808, 0.7792267, -0.5915072, 0.20718342, -0.25759056, 0.9437808, 0.20718342)
+transform = Transform3D(-0.18081464, 0.38448033, -0.90525186, 0, 0.920423, 0.39092386, 0.98351717, 0.07068475, -0.16642596, -0.90525186, 0.39092386, -0.16642596)
+light_color = Color(0.99563694, 0.8959414, 0.84598446, 1)
 shadow_enabled = true
 
 [node name="MoonLight" type="DirectionalLight3D" parent="Sky3D" unique_id=809959652]
-transform = Transform3D(0, -0.9761431, -0.21712796, 0.21958533, -0.21182857, 0.9523187, -0.97559327, -0.047678117, 0.21434672, -0.21712796, 0.9523187, 0.21434672)
+transform = Transform3D(0, -0.9331689, -0.3594382, 0.22520758, -0.35020453, 0.90919656, -0.97431076, -0.08094821, 0.21015672, -0.3594382, 0.90919656, 0.21015672)
 light_color = Color(0.572549, 0.776471, 0.956863, 1)
 light_energy = 0.0
 
 [node name="SkyDome" type="Node" parent="Sky3D" unique_id=309192467]
 script = ExtResource("9_200bh")
-sun_azimuth = -4.0350237
-sun_altitude = -0.33690960829321015
-moon_azimuth = -3.9334366
-moon_altitude = -0.3100487
+sun_azimuth = -4.8942037
+sun_altitude = -1.1691612041522865
+moon_azimuth = -4.1833096
+moon_altitude = -0.42944607
 fog_visible = false
 wind_direction = 2.35619451204804
 cirrus_visible = false
@@ -207,42 +147,13 @@ script = ExtResource("10_53g7q")
 dome_path = NodePath("../SkyDome")
 minutes_per_day = 1440.0
 update_interval = 2.0
-current_time = 13.758609166666776
-day = 17
+current_time = 17.615313333333315
+day = 20
 month = 5
 year = 2026
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1476344527]
-offset_top = -4.999996
-offset_right = 1590.0
-offset_bottom = 895.6896
-scale = Vector2(0.725, 0.725)
-
-[node name="Viewport" type="SubViewport" parent="SubViewportContainer" unique_id=1878227133]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1590, 900)
-render_target_update_mode = 4
-
-[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/Viewport" unique_id=1598467624]
-
-[node name="Control" type="Control" parent="SubViewportContainer/Viewport/CanvasLayer" unique_id=633767031]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_30ig3")
-
-[node name="Settings_Panel" type="Control" parent="SubViewportContainer/Viewport/CanvasLayer/Control" unique_id=1541570069]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SubViewportContainer" parent="." unique_id=1335551062 instance=ExtResource("11_uhdm2")]
+offset_bottom = 900.6896
 
 [node name="Ground" type="MeshInstance3D" parent="." unique_id=1857231349]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.65, 9.5, 0)

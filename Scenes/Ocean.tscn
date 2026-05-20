@@ -7,6 +7,7 @@
 [sub_resource type="Resource" id="Resource_primary_swell"]
 script = ExtResource("3_au52k")
 tile_length = Vector2(88, 88)
+displacement_scale = 0.66
 wind_speed = 10.0
 wind_direction = 20.0
 fetch_length = 150.0
@@ -16,7 +17,7 @@ foam_amount = 8.0
 [sub_resource type="Resource" id="Resource_secondary_swell"]
 script = ExtResource("3_au52k")
 tile_length = Vector2(57, 57)
-displacement_scale = 0.75
+displacement_scale = 0.5
 wind_speed = 5.0
 wind_direction = 15.0
 fetch_length = 150.0

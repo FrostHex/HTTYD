@@ -18,6 +18,10 @@ config/name="HTTYD"
 run/main_scene="uid://clo2gf4m2p2an"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 XRToolsUserSettings="*uid://bqgb8i74tm0t"

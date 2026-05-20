@@ -122,16 +122,16 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 - Changed: Test Drive color correction tweaks.
 
 ## v1.1.3
-- Changed: Visual performance tweaks.
+- Changed: Environmental visual improvements.
+
 
 
 ----------
 ## TODO
 ### Bug Fixes & Optimization
-- Fixed: Test the VR compatibility with card UI system.
+- Fixed: Esc menu in VR.
 - Fixed: Volumetric cloud rendering issues in the volumetric fog.
 
 ### Try Some New Stuff
 - Added: Seagulls.
-- Added: Campfire
 - Added: Plasma blast shaders.
