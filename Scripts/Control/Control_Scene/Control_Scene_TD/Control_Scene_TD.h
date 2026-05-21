@@ -57,8 +57,8 @@ namespace godot
             Object* clouds_resource = nullptr;
             float clouds_coverage_base = -1.0f;
             float clouds_coverage_current = -1.0f;
-            static constexpr float clouds_coverage_smooth_speed_in = 6.0f;
-            static constexpr float clouds_coverage_smooth_speed_out = 1.0f;
+            static constexpr float clouds_coverage_smooth_speed_in = 0.0f;
+            static constexpr float clouds_coverage_smooth_speed_out = 0.5f;
     };
 }
 
