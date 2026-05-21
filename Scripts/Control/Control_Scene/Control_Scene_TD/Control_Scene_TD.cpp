@@ -23,9 +23,37 @@
 #include <godot_cpp/classes/environment.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
 #include <godot_cpp/classes/packed_scene.hpp>
+#include <godot_cpp/classes/fog_volume.hpp>
+#include <godot_cpp/classes/material.hpp>
+#include <godot_cpp/classes/shader_material.hpp>
+#include <godot_cpp/classes/object.hpp>
 
 
 using namespace godot;
+
+namespace {
+    float absf(float value) {
+        return value < 0.0f ? -value : value;
+    }
+
+    float clampf(float value, float min_value, float max_value) {
+        if (value < min_value) {
+            return min_value;
+        }
+        if (value > max_value) {
+            return max_value;
+        }
+        return value;
+    }
+
+    float smoothstepf(float edge0, float edge1, float x) {
+        if (edge1 == edge0) {
+            return 0.0f;
+        }
+        float t = clampf((x - edge0) / (edge1 - edge0), 0.0f, 1.0f);
+        return t * t * (3.0f - 2.0f * t);
+    }
+}
 
 
 /**
@@ -46,6 +74,7 @@ Control_Scene_TD::~Control_Scene_TD()
 void Control_Scene_TD::_process(double delta)
 {
 	_process_top(delta);
+    UpdateCloudsCoverageForFog(delta);
 }
 
 /**
@@ -108,6 +137,7 @@ void Control_Scene_TD::_ready()
     ctrl_camera->SetDragon_Pilot_(dragon_pilot); // set the dragon control to the camera control
     save_manager = get_node<SaveManager>("SaveManager");
     audio_player = get_parent()->get_node<AudioStreamPlayer>("AudioStreamPlayer");
+    fog_volume = Object::cast_to<FogVolume>(get_parent()->get_node_or_null(NodePath("Fog_Volume")));
 
     // connect achievement area signals (if present).
     td_area_1 = get_parent()->get_node_or_null(NodePath("TD_Area_1"));
@@ -128,6 +158,103 @@ void Control_Scene_TD::_ready()
 
     // Test Directly
     // dragon_pilot->SetState(DragonState::STATE_CRISIS); // start in crisis state to trigger the first cutscene
+}
+
+void Control_Scene_TD::UpdateCloudsCoverageForFog(double delta)
+{
+    if (Engine::get_singleton()->is_editor_hint())
+    {
+        return;
+    }
+
+    Node *clouds_node = get_parent()->get_node_or_null(NodePath("SunshineClouds"));
+    if (!clouds_node)
+    {
+        clouds_resource = nullptr;
+        clouds_coverage_base = -1.0f;
+        return;
+    }
+
+    Variant res_var = clouds_node->get("clouds_resource");
+    Object *res_obj = res_var;
+    if (res_obj != clouds_resource)
+    {
+        clouds_resource = res_obj;
+        clouds_coverage_base = -1.0f;
+    }
+    if (!clouds_resource)
+    {
+        return;
+    }
+
+    if (clouds_coverage_base < 0.0f)
+    {
+        Variant base_var = clouds_resource->get("clouds_coverage");
+        if (base_var.get_type() == Variant::FLOAT || base_var.get_type() == Variant::INT)
+        {
+            clouds_coverage_base = static_cast<float>(base_var);
+        }
+    }
+    if (clouds_coverage_base < 0.0f)
+    {
+        return;
+    }
+
+    if (!fog_volume)
+    {
+        fog_volume = Object::cast_to<FogVolume>(get_parent()->get_node_or_null(NodePath("Fog_Volume")));
+    }
+
+    float fog_factor = 0.0f;
+    if (fog_volume && fog_volume->is_visible_in_tree() && camera_main)
+    {
+        Vector3 cam_pos = camera_main->get_global_transform().origin;
+        Transform3D fog_xform = fog_volume->get_global_transform();
+        Vector3 local_pos = fog_xform.affine_inverse().xform(cam_pos);
+        Variant size_var = fog_volume->get("size");
+        Vector3 size = size_var;
+        Vector3 half_size = size * 0.5f;
+        bool inside = absf(local_pos.x) <= half_size.x && absf(local_pos.y) <= half_size.y && absf(local_pos.z) <= half_size.z;
+
+        if (inside)
+        {
+            Variant material_var = fog_volume->get("material");
+            Ref<Material> material = material_var;
+            Ref<ShaderMaterial> shader_material = material;
+            float base_density = 0.0f;
+            float fade_out_height = 0.0f;
+            float fade_out_distance = 0.0f;
+            if (shader_material.is_valid())
+            {
+                base_density = static_cast<float>(shader_material->get_shader_parameter("base_density"));
+                fade_out_height = static_cast<float>(shader_material->get_shader_parameter("fade_out_height"));
+                fade_out_distance = static_cast<float>(shader_material->get_shader_parameter("fade_out_distance"));
+            }
+
+            if (base_density > 0.0f)
+            {
+                float fade = 1.0f;
+                if (fade_out_distance > 0.0f)
+                {
+                    float smoothed = smoothstepf(fade_out_height, fade_out_height + fade_out_distance, cam_pos.y);
+                    fade = 1.0f - smoothed;
+                }
+                fog_factor = clampf(fade, 0.0f, 1.0f);
+            }
+        }
+    }
+
+    float target_coverage = clampf(clouds_coverage_base * (1.0f - fog_factor), 0.0f, 1.0f);
+    if (clouds_coverage_current < 0.0f)
+    {
+        clouds_coverage_current = target_coverage;
+    }
+    float smooth_speed = (target_coverage < clouds_coverage_current)
+        ? clouds_coverage_smooth_speed_out
+        : clouds_coverage_smooth_speed_in;
+    float lerp_t = clampf(static_cast<float>(delta) * smooth_speed, 0.0f, 1.0f);
+    clouds_coverage_current += (target_coverage - clouds_coverage_current) * lerp_t;
+    clouds_resource->set("clouds_coverage", clouds_coverage_current);
 }
 
 

@@ -15,6 +15,8 @@
 namespace godot 
 {
     class Control_Main; // Forward declaration
+    class FogVolume;
+    class Object;
 
     class Control_Scene_TD : public Control_Scene_Top 
     {
@@ -35,6 +37,7 @@ namespace godot
             void Start_Timer();
             void TakeRest();
             void AutoSave(); // auto-save method.
+            void UpdateCloudsCoverageForFog(double delta);
             // achievement and badge logic.
             void _on_td_area_1_body_entered(Node* body);
             void _on_td_area_2_body_entered(Node* body);
@@ -50,6 +53,12 @@ namespace godot
             SaveManager* save_manager;
             AudioStreamPlayer* audio_player;
             VideoStreamPlayer* video_player;
+            FogVolume* fog_volume = nullptr;
+            Object* clouds_resource = nullptr;
+            float clouds_coverage_base = -1.0f;
+            float clouds_coverage_current = -1.0f;
+            static constexpr float clouds_coverage_smooth_speed_in = 6.0f;
+            static constexpr float clouds_coverage_smooth_speed_out = 1.0f;
     };
 }
 
