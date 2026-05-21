@@ -49,5 +49,4 @@ foam_threshold = 0.2
 reflection_strength = 0.06
 parameters = Array[ExtResource("3_au52k")]([SubResource("Resource_primary_swell"), SubResource("Resource_secondary_swell"), SubResource("Resource_surface_detail")])
 generated_base_cell_size = 0.5
-enable_water_interaction = false
-far_lod_radius = 50000.0
+far_lod_radius = 150000.0
