@@ -130,7 +130,6 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 ## TODO
 ### Bug Fixes & Optimization
 - Fixed: Esc menu in VR.
-- Fixed: Volumetric cloud rendering issues in the volumetric fog.
 
 ### Try Some New Stuff
 - Added: Seagulls.

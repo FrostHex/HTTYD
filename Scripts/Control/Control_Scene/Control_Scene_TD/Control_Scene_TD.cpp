@@ -217,6 +217,7 @@ void Control_Scene_TD::Initialize_TimerList()
     timer->Timer_AddEvent(105.0f, Callable(ctrl_camera, "GrabSaddle")); // grab the saddle
     timer->Timer_AddEvent(106.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-2, 0.5f)); // Toothless opens his mouth
     timer->Timer_AddEvent(108.7f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_dive")); // change the animation to po_dive
+    timer->Timer_AddEvent(110.0f, Callable(control_main, "AttachSunshineClouds").bind(get_parent()->get_name(), false));
     timer->Timer_AddEvent(113.5f, Callable(dragon_pilot, "SetTargetRotation").bind(Vector3(-0.3f, -Math_PI/2 + 0.3f, -Math_PI/2 -0.3f)));
     timer->Timer_AddEvent(113.5f, Callable(dragon_animator, "SetAnimation").bind("layer_wing_main", "po_crisis"));
     timer->Timer_AddEvent(113.6f, Callable(dragon_pilot, "TriggerApproaching").bind(false, get_parent()->get_node<Node3D>("Rocks/Area_Final/Rock_Pillar_E_01")->get_global_transform().origin + Vector3(0, 15, 0), 9.5f)); // glide diagonal downwards
