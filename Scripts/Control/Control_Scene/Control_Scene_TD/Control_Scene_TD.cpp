@@ -188,6 +188,7 @@ void Control_Scene_TD::Initialize_TimerList()
     timer->Timer_AddEvent(88.8f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
     timer->Timer_AddEvent(89.4f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.0f)); // Toothless opens his mouth to roar
     timer->Timer_AddEvent(89.9f, Callable(dragon_animator, "SetAnimation_Mouth").bind(3, 1.0f)); // Toothless closes his mouth
+    timer->Timer_AddEvent(90.5f, Callable(get_parent()->get_node<Node>("Seagulls"), "set_visible").bind(false)); // hide the seagulls
     timer->Timer_AddEvent(91.0f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(Math_PI/10, Math_PI/3, Math_PI/2), 5.0f)); // change the camera to downwards
     timer->Timer_AddEvent(91.3f, Callable(dragon_animator, "SetAnimation_Mouth").bind(-3, 0.0f)); // Toothless opens his mouth to roar
     timer->Timer_AddEvent(91.3f, Callable(ctrl_camera, "TriggerApproachingAngle").bind(Vector3(-Math_PI/5, Math_PI/3, Math_PI/2), 5.0f)); // change the camera to downwards

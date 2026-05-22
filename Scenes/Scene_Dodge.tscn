@@ -2,9 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://cvd0x7lon1ur6" path="res://Addons/sky_3d/shaders/SkyMaterial.gdshader" id="1_53hj5"]
 [ext_resource type="Texture2D" uid="uid://cfqk60lpl5ljv" path="res://Addons/sky_3d/assets/resources/SNoise.tres" id="2_uhdm2"]
-[ext_resource type="Material" uid="uid://dv1cnfkg5scmk" path="res://Environment/Rocks/Rock_2.tres" id="3_evq41"]
 [ext_resource type="Texture2D" uid="uid://cecwdqjol0ckd" path="res://Addons/sky_3d/assets/textures/noiseClouds.png" id="3_x1sad"]
-[ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="4_8pkyu"]
 [ext_resource type="Texture2D" uid="uid://2r8ylu6rg5dp" path="res://Addons/sky_3d/assets/thirdparty/textures/moon/MoonMap.png" id="4_bl3ta"]
 [ext_resource type="PackedScene" uid="uid://drg1ol84t4ys1" path="res://Scenes/Dragons/Dragon.tscn" id="4_wq5c6"]
 [ext_resource type="Texture2D" uid="uid://djpfuyxkryegn" path="res://Addons/sky_3d/assets/textures/noise.jpg" id="5_30ig3"]
@@ -14,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b4tkplvh7fq40" path="res://Addons/sky_3d/src/SkyDome.gd" id="9_200bh"]
 [ext_resource type="Script" uid="uid://cjmkcj8hwm7ts" path="res://Addons/sky_3d/src/TimeOfDay.gd" id="10_53g7q"]
 [ext_resource type="PackedScene" uid="uid://dksvq837e6bci" path="res://Scenes/SubViewportContainer.tscn" id="11_uhdm2"]
+[ext_resource type="PackedScene" uid="uid://wlcxs3co7d62" path="res://Environment/Arena/arena_httyd.glb" id="13_53hj5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2u4e4"]
 shader = ExtResource("1_53hj5")
@@ -30,7 +29,7 @@ shader_parameter/atm_level_params = Vector3(1, 0, 0)
 shader_parameter/atm_thickness = 0.7
 shader_parameter/atm_beta_ray = Vector3(5.804544e-06, 1.3562913e-05, 3.311258e-05)
 shader_parameter/atm_beta_mie = Vector3(3.038e-08, 3.038e-08, 3.038e-08)
-shader_parameter/sun_light_color = Color(0.99563694, 0.8959414, 0.84598446, 1)
+shader_parameter/sun_light_color = Color(0.9947011, 0.8736203, 0.8129474, 1)
 shader_parameter/sun_disk_color = Color(0.996094, 0.541334, 0.140076, 1)
 shader_parameter/sun_disk_intensity = 30.0
 shader_parameter/sun_disk_size = 0.02
@@ -44,7 +43,7 @@ shader_parameter/moon_texture_flip_u = false
 shader_parameter/moon_texture_flip_v = false
 shader_parameter/moon_size = 0.07
 shader_parameter/atm_moon_mie_tint = Color(0.137255, 0.184314, 0.292196, 1)
-shader_parameter/atm_moon_mie_intensity = 0.0
+shader_parameter/atm_moon_mie_intensity = 0.7
 shader_parameter/atm_moon_partial_mie_phase = Vector3(0.36, 1.64, 1.6)
 shader_parameter/starmap_color = Color(0.709804, 0.709804, 0.709804, 0.854902)
 shader_parameter/starmap_texture = ExtResource("7_3tlmm")
@@ -52,7 +51,7 @@ shader_parameter/starmap_flip_u = false
 shader_parameter/starmap_flip_v = false
 shader_parameter/starmap_alignment = Vector3(2.68288, -0.25891, 0.40101)
 shader_parameter/star_rotation_offset = 9.38899
-shader_parameter/star_rotation = -8.702631719427995
+shader_parameter/star_rotation = -8.77370818643627
 shader_parameter/star_tilt = -0.8755735080844038
 shader_parameter/star_field_color = Color(1, 1, 1, 1)
 shader_parameter/star_field_texture = ExtResource("6_fvss3")
@@ -89,7 +88,7 @@ shader_parameter/azimuthal_grid_rotation_offset = 0.03
 shader_parameter/show_equatorial_grid = false
 shader_parameter/equatorial_grid_color = Color(0, 0.75, 1, 1)
 shader_parameter/equatorial_grid_rotation_offset = 0.03
-shader_parameter/moon_matrix = Basis(0, 0.22520757, -0.9743107, -0.9331688, -0.35020453, -0.08094821, -0.35943818, 0.90919644, 0.2101567)
+shader_parameter/moon_matrix = Basis(0, 0.4108508, -0.91170263, -0.9997686, 0.01961273, 0.008838305, 0.021512203, 0.91149163, 0.4107557)
 
 [sub_resource type="Sky" id="Sky_hfqrt"]
 sky_material = SubResource("ShaderMaterial_2u4e4")
@@ -98,7 +97,7 @@ sky_material = SubResource("ShaderMaterial_2u4e4")
 background_mode = 2
 sky = SubResource("Sky_hfqrt")
 ambient_light_source = 3
-ambient_light_color = Color(0.787473, 0.7086214, 0.6691093, 1)
+ambient_light_color = Color(0.76345944, 0.67052674, 0.6239587, 1)
 reflected_light_source = 2
 tonemap_mode = 3
 tonemap_white = 6.0
@@ -115,28 +114,28 @@ camera_attributes = SubResource("CameraAttributesPractical_1y50f")
 script = ExtResource("8_wv6a7")
 clouds_enabled = false
 fog_enabled = false
-current_time = 17.615313333333315
+current_time = 17.755003333333306
 minutes_per_day = 1440.0
 update_interval = 2.0
 wind_direction = 2.35619451204804
 metadata/_custom_type_script = "uid://deo0gxkmk2ahd"
 
 [node name="SunLight" type="DirectionalLight3D" parent="Sky3D" unique_id=1270786274]
-transform = Transform3D(-0.18081464, 0.38448033, -0.90525186, 0, 0.920423, 0.39092386, 0.98351717, 0.07068475, -0.16642596, -0.90525186, 0.39092386, -0.16642596)
-light_color = Color(0.99563694, 0.8959414, 0.84598446, 1)
+transform = Transform3D(-0.20743944, 0.35953203, -0.9097833, 0, 0.9300131, 0.3675265, 0.9782479, 0.07623949, -0.19292139, -0.9097833, 0.3675265, -0.19292139)
+light_color = Color(0.9947011, 0.8736203, 0.8129474, 1)
 shadow_enabled = true
 
 [node name="MoonLight" type="DirectionalLight3D" parent="Sky3D" unique_id=809959652]
-transform = Transform3D(0, -0.9331689, -0.3594382, 0.22520758, -0.35020453, 0.90919656, -0.97431076, -0.08094821, 0.21015672, -0.3594382, 0.90919656, 0.21015672)
+transform = Transform3D(0, -0.99976856, 0.021512201, 0.41085076, 0.01961273, 0.91149163, -0.9117026, 0.008838304, 0.4107557, 0.021512201, 0.91149163, 0.4107557)
 light_color = Color(0.572549, 0.776471, 0.956863, 1)
 light_energy = 0.0
 
 [node name="SkyDome" type="Node" parent="Sky3D" unique_id=309192467]
 script = ExtResource("9_200bh")
-sun_azimuth = -4.8942037
-sun_altitude = -1.1691612041522865
-moon_azimuth = -4.1833096
-moon_altitude = -0.42944607
+sun_azimuth = -4.9213457
+sun_altitude = -1.1944483464990308
+moon_azimuth = -3.0892682
+moon_altitude = -0.42390028
 fog_visible = false
 wind_direction = 2.35619451204804
 cirrus_visible = false
@@ -147,20 +146,18 @@ script = ExtResource("10_53g7q")
 dome_path = NodePath("../SkyDome")
 minutes_per_day = 1440.0
 update_interval = 2.0
-current_time = 17.615313333333315
-day = 20
+current_time = 17.755003333333306
+day = 22
 month = 5
 year = 2026
 
 [node name="SubViewportContainer" parent="." unique_id=1335551062 instance=ExtResource("11_uhdm2")]
 offset_bottom = 900.6896
 
-[node name="Ground" type="MeshInstance3D" parent="." unique_id=1857231349]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.65, 9.5, 0)
-material_override = ExtResource("3_evq41")
-mesh = ExtResource("4_8pkyu")
-
 [node name="Dragon" parent="." unique_id=446298809 instance=ExtResource("4_wq5c6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 
 [node name="Dragon_Pilot_Dodge" type="Dragon_Pilot_Dodge" parent="Dragon" unique_id=134742874]
+
+[node name="Arena" parent="." unique_id=956264572 instance=ExtResource("13_53hj5")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 25, 0)

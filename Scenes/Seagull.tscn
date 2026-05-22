@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dqum72w8gq46j"]
+
+[ext_resource type="PackedScene" uid="uid://cjqqudt55d3ry" path="res://Environment/Seagull/Seagull.glb" id="1_jbjhu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jbjhu"]
+size = Vector3(0.44921875, 0.08392334, 0.29370117)
+
+[node name="Seagull" type="RigidBody3D" unique_id=1849624472]
+gravity_scale = 0.0
+
+[node name="Sketchfab_Scene" parent="." unique_id=1957924029 instance=ExtResource("1_jbjhu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=445193813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027249575, 0.116119444, -0.013034433)
+shape = SubResource("BoxShape3D_jbjhu")

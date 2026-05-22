@@ -27,6 +27,7 @@
 [ext_resource type="ArrayMesh" uid="uid://qy4npq5ynhfj" path="res://Environment/Rocks/Ground.obj" id="16_bo2qs"]
 [ext_resource type="CompressedTexture3D" uid="uid://bjaeyfut6wxgb" path="res://Environment/ColorCorrection/warm_yellow_lut.png" id="17_warmcc"]
 [ext_resource type="PackedScene" uid="uid://dg01pbjdwm2x5" path="res://Scenes/Campfire.tscn" id="27_j2myj"]
+[ext_resource type="PackedScene" uid="uid://dqum72w8gq46j" path="res://Scenes/Seagull.tscn" id="28_r6yhq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0wu3y"]
 shader = ExtResource("1_rc3a8")
@@ -81,8 +82,8 @@ shader_parameter/cirrus_absorption = 2.0
 shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.015650546, 0.015650546)
-shader_parameter/cirrus_position2 = Vector2(0.015650546, 0.015650546)
+shader_parameter/cirrus_position1 = Vector2(0.0396558, 0.0396558)
+shader_parameter/cirrus_position2 = Vector2(0.0396558, 0.0396558)
 shader_parameter/cirrus_texture = ExtResource("2_cxxjq")
 shader_parameter/cumulus_visible = true
 shader_parameter/cumulus_intensity = 0.6
@@ -92,7 +93,7 @@ shader_parameter/cumulus_absorption = 2.0
 shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(0.078253075, 0.078253075)
+shader_parameter/cumulus_position = Vector2(5.199125, 5.199125)
 shader_parameter/cumulus_texture = ExtResource("3_80ukq")
 shader_parameter/cumulus_partial_mie_phase = Vector3(0.957564, 1.042436, 0.412)
 shader_parameter/cumulus_mie_intensity = 1.0
@@ -149,6 +150,13 @@ size = Vector2(100000, 100000)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80ukq"]
 metallic = 1.0
 roughness = 0.0
+
+[sub_resource type="Curve3D" id="Curve3D_j2myj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 214.24323, 0, -84.59375, 0, 0, 0, 0, 0, 0, -162.8999, 0, 20.317871),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="Scene_TD" type="Node3D" unique_id=770881623]
 
@@ -1569,3 +1577,48 @@ shape = SubResource("BoxShape3D_td_area2")
 visible = false
 mesh = SubResource("PlaneMesh_cxxjq")
 surface_material_override/0 = SubResource("StandardMaterial3D_80ukq")
+
+[node name="Seagulls" type="Seagulls" parent="." unique_id=441230132]
+
+[node name="Path3D" type="Path3D" parent="Seagulls" unique_id=1030061138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1057.6069, 215.00827, -3793.286)
+curve = SubResource("Curve3D_j2myj")
+
+[node name="Seagull1" parent="Seagulls" unique_id=94820542 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -944.6803, 182.34633, -3906.455)
+
+[node name="Seagull2" parent="Seagulls" unique_id=506930277 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -939.19775, 187.61707, -3901.367)
+
+[node name="Seagull3" parent="Seagulls" unique_id=1931518501 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -936.7142, 194.17601, -3894.3638)
+
+[node name="Seagull4" parent="Seagulls" unique_id=468137750 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -920.9969, 180.6704, -3874.9163)
+
+[node name="Seagull5" parent="Seagulls" unique_id=1833486633 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -913.60266, 208.76424, -3866.743)
+
+[node name="Seagull6" parent="Seagulls" unique_id=1410256605 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -906.79675, 181.43875, -3873.1802)
+
+[node name="Seagull7" parent="Seagulls" unique_id=2046947524 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -895.9033, 194.27327, -3809.749)
+
+[node name="Seagull8" parent="Seagulls" unique_id=1546950300 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -895.2005, 187.61707, -3918.9722)
+
+[node name="Seagull9" parent="Seagulls" unique_id=251929549 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -888.25574, 193.74202, -3907.91)
+
+[node name="Seagull10" parent="Seagulls" unique_id=144647840 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -882.41656, 182.67995, -3922.558)
+
+[node name="Seagull11" parent="Seagulls" unique_id=1008545692 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -879.80206, 192.1264, -3850.0178)
+
+[node name="Seagull12" parent="Seagulls" unique_id=1259570219 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -872.51196, 180.78204, -3841.3542)
+
+[node name="Seagull13" parent="Seagulls" unique_id=1849624472 instance=ExtResource("28_r6yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -864.4309, 180.78204, -3832.9548)

@@ -59,11 +59,11 @@ enabled=PackedStringArray("res://Addons/SunshineClouds2/plugin.cfg", "res://Addo
 [file_customization]
 
 folder_colors={
-"res://Addons/": "blue",
-"res://Dragons/": "teal",
-"res://Environment/": "green",
-"res://Media/": "orange",
-"res://Saves/": "gray",
+"res://Addons/": "gray",
+"res://Dragons/": "blue",
+"res://Environment/": "teal",
+"res://Media/": "green",
+"res://Saves/": "orange",
 "res://Scenes/": "red",
 "res://Scripts/": "purple",
 "res://Scripts/build/": "gray"

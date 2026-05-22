@@ -422,6 +422,16 @@ external_skeleton = NodePath("../../Model/Toothless/rig/Skeleton3D")
 [node name="Socket_Back" type="Marker3D" parent="Sockets/Socket_Back_Mount" unique_id=816357536]
 transform = Transform3D(-6.1030403e-10, 4.370713e-08, 1, 0.99990255, 0.013962129, 0, -0.013962129, 0.99990255, -4.371139e-08, 0, -0.142, 0.62)
 
+[node name="Socket_Breath_Mount" type="BoneAttachment3D" parent="Sockets" unique_id=1139392235]
+transform = Transform3D(-6.02143e-07, 0.99066293, 0.13633312, -4.3754644e-06, -0.1363331, 0.99066293, 1, 1.10134124e-13, 4.416703e-06, 1.3319602, -0.017941713, -7.179031e-14)
+bone_name = "jaw.upper"
+bone_idx = 64
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Toothless/rig/Skeleton3D")
+
+[node name="Socket_Breath" type="Marker3D" parent="Sockets/Socket_Breath_Mount" unique_id=1431957153]
+transform = Transform3D(-6.109957e-10, 4.3707132e-08, 1, 0.99990255, 0.013962045, -2.842171e-13, -0.013962045, 0.99990255, -4.371168e-08, 5.201475e-07, 0.33923507, -0.1177683)
+
 [node name="CollisionShapes" type="Node3D" parent="." unique_id=672085980]
 
 [node name="CollisionShape_Wing" type="CollisionShape3D" parent="CollisionShapes" unique_id=743220511]

@@ -132,5 +132,4 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 - Fixed: Esc menu in VR.
 
 ### Try Some New Stuff
-- Added: Seagulls.
 - Added: Plasma blast shaders.
