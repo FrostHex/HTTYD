@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1vwcdcdvb74a"
-path.s3tc="res://.godot/imported/Milkyway.jpg-10ee7fa0e0e5a1c00503bc2e6bc25dd1.s3tc.ctex"
+path.s3tc="res://.godot/imported/Milkyway.jpg-a06044e407cf6953ab6e46a2f0f17f3a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,7 +12,7 @@ metadata={
 [deps]
 
 source_file="res://Addons/sky_3d/assets/thirdparty/textures/milkyway/Milkyway.jpg"
-dest_files=["res://.godot/imported/Milkyway.jpg-10ee7fa0e0e5a1c00503bc2e6bc25dd1.s3tc.ctex"]
+dest_files=["res://.godot/imported/Milkyway.jpg-a06044e407cf6953ab6e46a2f0f17f3a.s3tc.ctex"]
 
 [params]
 
