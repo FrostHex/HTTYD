@@ -282,10 +282,9 @@ void Control_Scene_Top::ReturnHome()
         if (main_node)
         {
             camera_main->reparent(main_node);
-            camera_main->call_deferred(
-                "set_transform",
-                Transform3D(Basis(), Vector3(0.0f, 10.0f, 0.0f)));
-
+            camera_main->call_deferred("set_position", Vector3(0.0f, 10.0f, 0.0f));
+            camera_main->call_deferred("set_rotation", Vector3(0.0f, -200 * Math_PI / 180, 0.0f));
+            
             Node* xr_origin =
                 camera_main->get_node_or_null(NodePath("XR/XROrigin"));
             if (xr_origin)

@@ -109,7 +109,6 @@ sky_material = SubResource("ShaderMaterial_n5ckk")
 background_mode = 2
 background_energy_multiplier = 3.0
 sky = SubResource("Sky_05ihc")
-sky_rotation = Vector3(0, -3.6215582, 0)
 ambient_light_source = 3
 ambient_light_color = Color(0.5115007, 0.33205295, 0.24558556, 1)
 reflected_light_source = 2

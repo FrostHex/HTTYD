@@ -18,7 +18,7 @@ process_physics_priority = -80
 [node name="SaveManager" type="SaveManager" parent="Control_Main" unique_id=991418376]
 
 [node name="Camera_Main" type="Node3D" parent="." unique_id=451723555]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+transform = Transform3D(-0.9396926, 0, 0.34202015, 0, 1, 0, -0.34202015, 0, -0.9396926, 0, 10, 0)
 
 [node name="Camera_Main_NonXR" type="Camera3D" parent="Camera_Main" unique_id=2037018143]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
