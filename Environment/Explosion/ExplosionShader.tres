@@ -1,4 +1,4 @@
-[gd_resource type="Shader" format=3 uid="uid://bfrlkbjyfakqt"]
+[gd_resource type="Shader" format=3 uid="uid://b6dwhd4v8qw4s"]
 
 [resource]
 code = "shader_type spatial;
@@ -20,6 +20,7 @@ uniform sampler2D tex_frg_16;
 uniform sampler2D tex_frg_17;
 uniform sampler2D depth_texture : source_color, hint_depth_texture;
 
+const float emission_strength = 300000.0;
 
 
 
@@ -172,7 +173,7 @@ void fragment() {
 
 
 // VectorOp:12
-	vec3 n_in12p1 = vec3(5.00000, 5.00000, 5.00000);
+	vec3 n_in12p1 = vec3(emission_strength, emission_strength, emission_strength);
 	vec3 n_out12p0 = vec3(n_out26p0.xyz) * n_in12p1;
 
 

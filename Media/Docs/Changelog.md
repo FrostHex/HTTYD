@@ -108,7 +108,7 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 - Added: Tutorial and training modes (3 progressive stages).
 - Added: Settings menu (language, helper view, debug info).
 - Added: Simple achievement system.
-- Added: Path guide marker in free-flight mode.
+- Added: Path guide marker in practice(free-flight) mode.
 
 ## v1.1.1 - 2026-04-20
 - Added: Sky3D and location simulation for sunrise/sunset.
@@ -118,7 +118,6 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 ## v1.1.2 - 2026-05-14
 - Added: Card UI system 
 - Fixed: Multiple Test Drive minor issues.
-- Changed: Ocean horizon blending and circular boundary.
 - Changed: Test Drive color correction tweaks.
 
 ## v1.1.3
