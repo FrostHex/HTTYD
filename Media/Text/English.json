@@ -59,7 +59,7 @@
     "detail_language": "Only English and Chinese are supported for now.",
 
     "header_enable_headset": "VR Mode",
-    "detail_enable_headset": "Enable Headset. (Please restart the software to apply changes!)",
+    "detail_enable_headset": "Enable Headset. (Please restart this exe to apply changes!)",
 
     "header_sub_view": "Sub View",
     "detail_sub_view": "Enable a small panel for third-person view and debug info.",

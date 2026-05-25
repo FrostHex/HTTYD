@@ -124,4 +124,3 @@ anti_aliasing/quality/msaa_2d=3
 openxr/default_action_map="res://Addons/godot-xr-tools/openxr_action_map.tres"
 openxr/foveation_level=3
 openxr/foveation_dynamic=true
-shaders/enabled=true

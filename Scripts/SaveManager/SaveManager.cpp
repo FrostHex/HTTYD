@@ -255,7 +255,7 @@ void SaveManager::Settings_Save(const Dictionary& settings_data)
     }
 
     String settings_file_path = saves_dir_path + "/Settings.json";
-    String json_content = JSON::stringify(settings_data);
+    String json_content = JSON::stringify(settings_data, "\t");
     if (json_content.is_empty())
     {
         json_content = "{}";

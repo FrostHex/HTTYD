@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://ddywr4k6c8043"]
 
 [node name="Settings" type="Settings" unique_id=771718623]
-AutoRoll = true
-AutoSaveState = false
-Badge = 3
+DebugInfo = false
 
 [node name="SaveManager" type="SaveManager" parent="." unique_id=371263609]

@@ -107,6 +107,8 @@ namespace godot
 
         bool is_loading_settings = false;
 
+        bool ignore_scene_values = true;
+
         // ======================================================
         // member variables
         // ======================================================
@@ -129,6 +131,8 @@ namespace godot
             std::function<Variant(const Settings *)> get;
 
             std::function<void(Settings *, const Variant &)> set;
+
+            Variant default_value;
         };
 
         const SettingSpec *get_setting_specs(int &count) const;

@@ -53,7 +53,8 @@ void Control_Main::_ready()
         Ref<XRInterface> xr_interface = XRServer::get_singleton()->find_interface("OpenXR");
         if (!xr_interface.is_valid())
         {
-            UtilityFunctions::printerr("[OpenXR] Interface not found.");
+            UtilityFunctions::printerr("[OpenXR] Interface not found. Please restart this exe to launch in non-VR mode.");
+            Settings::GetSingleton()->SetValEnableHeadset(false);
         } 
         else 
         {
@@ -73,7 +74,8 @@ void Control_Main::_ready()
             }
             else
             {
-                UtilityFunctions::printerr("[OpenXR] Initialize FAILED.");
+                UtilityFunctions::printerr("[OpenXR] Initialize FAILED. Please restart this exe to launch in non-VR mode.");
+                Settings::GetSingleton()->SetValEnableHeadset(false);
             }
         }
         Engine::get_singleton()->set_physics_ticks_per_second(60);

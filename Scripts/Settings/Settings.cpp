@@ -6,8 +6,9 @@
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/memory.hpp>
+#include <godot_cpp/core/object.hpp>
 #include <godot_cpp/classes/project_settings.hpp>
-#include <godot_cpp/classes/engine.hpp>
+#include <godot_cpp/classes/dir_access.hpp>
 
 using namespace godot;
 
@@ -36,7 +37,8 @@ Settings *Settings::GetSingleton()
 
 void Settings::_ready()
 {
-    save_manager = get_node<SaveManager>("SaveManager");
+    save_manager = Object::cast_to<SaveManager>(get_node_or_null(NodePath("SaveManager")));
+    ignore_scene_values = false;
     LoadSettings();
 }
 
@@ -54,7 +56,8 @@ const Settings::SettingSpec *Settings::get_setting_specs(int &count) const
             [](Settings *self, const Variant &value) \
             { \
                 self->SetVal##PropName(static_cast<type>(value)); \
-            } \
+            }, \
+            Variant(default_value) \
         },
 
         SETTINGS_LIST(MAKE_SETTING_SPEC)
@@ -71,7 +74,11 @@ void Settings::LoadSettings()
 {
     if (!save_manager)
     {
-        UtilityFunctions::printerr("SaveManager not initialized in LoadSettings()");
+        save_manager = Object::cast_to<SaveManager>(get_node_or_null(NodePath("SaveManager")));
+    }
+
+    if (!save_manager)
+    {
         return;
     }
 
@@ -92,7 +99,7 @@ void Settings::LoadSettings()
         Variant value =
             settings.has(key)
             ? settings[key]
-            : specs[i].get(this);
+            : specs[i].default_value;
 
         if (!settings.has(key))
         {
@@ -117,7 +124,11 @@ void Settings::SaveSettings()
 {
     if (!save_manager)
     {
-        UtilityFunctions::printerr("SaveManager not initialized in SaveSettings()");
+        save_manager = Object::cast_to<SaveManager>(get_node_or_null(NodePath("SaveManager")));
+    }
+
+    if (!save_manager)
+    {
         return;
     }
 
@@ -139,17 +150,16 @@ void Settings::SetValEnableHeadset(bool val)
 {
     enable_headset = val;
 
-    bool current =
-        ProjectSettings::get_singleton()->get_setting("xr/openxr/enabled");
-
-    if (current != val)
+    if (val != (bool)(ProjectSettings::get_singleton()->get_setting("xr/openxr/enabled")))
     {
+        UtilityFunctions::print("before: ", ProjectSettings::get_singleton()->get_setting("xr/openxr/enabled"), ", after: ", val);
+        UtilityFunctions::print("Setting XR enabled to ", val);
         ProjectSettings::get_singleton()->set_setting("xr/openxr/enabled", val);
-
+        ProjectSettings::get_singleton()->set_setting("xr/shaders/enabled", val);
         ProjectSettings::get_singleton()->save();
     }
 
-    if (!is_loading_settings && save_manager)
+    if (!is_loading_settings)
     {
         SaveSettings();
     }
@@ -173,7 +183,7 @@ void Settings::SetValVolumetricClouds(bool val)
         Settings::GetSingleton()->SetValEnableHeadset(false);
     }
 
-    if (!is_loading_settings && save_manager)
+    if (!is_loading_settings)
     {
         SaveSettings();
     }
@@ -189,7 +199,7 @@ void Settings::SetVal##PropName(type val) \
 { \
     member = val; \
     \
-    if (!is_loading_settings && save_manager) \
+    if (!is_loading_settings) \
     { \
         SaveSettings(); \
     } \
