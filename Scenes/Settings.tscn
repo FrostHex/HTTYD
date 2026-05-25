@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ddywr4k6c8043"]
 
 [node name="Settings" type="Settings" unique_id=771718623]
-DebugInfo = false
+AutoRoll = true
+AutoSaveState = false
 
 [node name="SaveManager" type="SaveManager" parent="." unique_id=371263609]

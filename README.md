@@ -20,6 +20,7 @@ This project is driven purely by personal interest. It is completely free, fully
 - [Project Introduction](#project-introduction)
 - [Playing Recommendation](#playing-recommendation)
 - [Development Guide](#development-guide)
+- [Acknowledgements](#acknowledgements)
 - [License & Third-Party Assets](#license--third-party-assets)
 
 <div align="center">
@@ -63,7 +64,7 @@ The player is Hiccup, the protagonist of the movie How to Train Your Dragon, and
 git clone https://github.com/FrostHex/HTTYD
 cd HTTYD
 git submodule update --init
-git clone -b godot-cpp-compiled --depth 1  https://github.com/FrostHex/HTTYD temp && mv temp/bin  temp/gen ./Addons/godot-cpp/ && rm -rf temp
+git clone -b godot-cpp-compiled --depth 1  https://github.com/FrostHex/HTTYD temp && "/c/Windows/System32/tar.exe" -xf temp/*.zip -C ./Addons/godot-cpp/ && rm -rf temp
 ```
 
 ### Documentation
@@ -115,7 +116,7 @@ git submodule foreach git pull origin master
 # use Mingw64 terminal for the following commands
 cd /e/Projects/HTTYD/Addons/godot-cpp # modify the path of godot-cpp in the command
 "D:\Godot\Godot_v4.7-beta1_win64.exe" --dump-extension-api # modify the path of godot.exe in the command
-scons platform=windows use_mingw=yes custom_api_file="extension_api.json"
+scons platform=windows use_mingw=yes custom_api_file="extension_api.json" optimize=none CXXFLAGS="-mno-avx -mno-avx2 -fno-lto" LINKFLAGS="-fno-lto"
 ```
 
 ### Update the Plugins
@@ -135,6 +136,13 @@ Plugins others than Godot-cpp are not imported as submodules, so they need to be
 ### Recommended VR Settings for Oculus Debug Tool
 **Remember to click `Service -> Restart Oculus Service` after changing the settings!** \
 <img src="Media/Demo/OculusDebugToolSettings.png" alt="Oculus Debug Tool Settings" width="35%"/>
+
+<div align="center">
+
+## Acknowledgements <a id="acknowledgements"></a>
+</div>
+
+- Special thanks to **Jiacheng Shi** for extensive testing, bug reporting, and valuable feedback on this project.
 
 <div align="center">
 

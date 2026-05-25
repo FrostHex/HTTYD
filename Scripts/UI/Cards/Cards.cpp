@@ -12,7 +12,6 @@
 #include "Settings.h"
 
 #include <godot_cpp/classes/engine.hpp>
-#include <godot_cpp/classes/file_access.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
 #include <godot_cpp/classes/texture2d.hpp>
 #include <godot_cpp/classes/style_box_flat.hpp>
@@ -329,7 +328,7 @@ void Cards::update_value_display(CardNode& cn)
     if (cn.value_image)
     {
         String image_path = _get_value_image_path(cn.data);
-        if (!image_path.is_empty() && FileAccess::file_exists(image_path))
+        if (!image_path.is_empty())
         {
             Ref<Texture2D> tex = ResourceLoader::get_singleton()->load(image_path);
             if (tex.is_valid())
@@ -362,7 +361,7 @@ void Cards::update_value_display(CardNode& cn)
                 ? String("res://Media/Image/card_true.png")
                 : String("res://Media/Image/card_false.png");
         }
-        if (!widget_path.is_empty() && FileAccess::file_exists(widget_path))
+        if (!widget_path.is_empty())
         {
             Ref<Texture2D> wtex = ResourceLoader::get_singleton()->load(widget_path);
             if (wtex.is_valid())

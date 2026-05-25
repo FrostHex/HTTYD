@@ -23,6 +23,7 @@
 #include <godot_cpp/classes/environment.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
 #include <godot_cpp/classes/packed_scene.hpp>
+#include <godot_cpp/classes/sub_viewport_container.hpp>
 
 
 using namespace godot;
@@ -281,20 +282,19 @@ void Control_Scene_TD::TakeRest()
                 env->set("adjustment_saturation", 0.8f);
             }
         }
-        dragon_node->set_position(Vector3(1025.584f, 6.443f, -813.842f));
-        dragon_node->set_rotation(Vector3(0.0f, Math::deg_to_rad(-90.0f), Math::deg_to_rad(14.8f)));
+        Node3D* ground_node = get_parent()->get_node<Node3D>("Ground");
+        dragon_node->set_position(ground_node->get_position() + Vector3(-0.285658f, 0.582f, -1.250751f)); // move the dragon to the position above the ground
+        dragon_node->set_rotation(Vector3(0.0f, Math::deg_to_rad(120.0f), Math::deg_to_rad(14.8f)));
     }
     dragon_animator->SetAnimation("layer_wing_main", "po_rest");
     dragon_animator->SetAnimation("layer_mouth", "po_mouth_close");
     ctrl_camera->camera_main->reparent(get_parent());
-    ctrl_camera->camera_main->set_position(Vector3(1027.504f, 6.733f, -814.004f));
-    ctrl_camera->camera_main->set_rotation(Vector3(0.0f, Math::deg_to_rad(-111.0f), 0.0f));
+    ctrl_camera->camera_main->set_position(dragon_node->get_position() + Vector3(-1.581783f, 0.29f, 1.10036f));
+    ctrl_camera->camera_main->set_rotation(Vector3(0.0f, Math::deg_to_rad(99.0f), 0.0f));
     ctrl_camera->SetFreeCamera(true);
-
-    if (control_main)
-    {
-        control_main->call_deferred("AttachSunshineClouds", get_parent()->get_name(), false);
-    }
+    control_main->call_deferred("AttachSunshineClouds", get_parent()->get_name(), false);
+    dragon_node->get_node<VideoStreamPlayer>("SubViewportContainer/SubViewport/VideoStreamPlayer")->set_visible(false);
+    // dragon_node->get_node<SubViewportContainer>("SubViewportContainer")->set_visible(false);
 
     // complete this Test Drive and update badge.
     _update_badge_on_completion();

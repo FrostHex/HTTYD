@@ -19,6 +19,7 @@
 - [游玩截图](#snapshots)
 - [项目介绍](#project-introduction)
 - [游玩建议](#playing-recommendation)
+- [致谢](#acknowledgements)
 
 <div align="center">
 
@@ -46,3 +47,10 @@
 - **Vulkan**: 需要显卡和驱动支持Vulkan。
 - **VR 模式**: 推荐VR模式以获得更好的沉浸感和体验，非VR模式尚未开发完善，可能存在很多问题。
 - **语言**: 目前仅支持英语和中文，语言可以在设置菜单中切换。
+
+<div align="center">
+
+## 致谢 <a id="acknowledgements"></a>
+</div>
+
+- 特别感谢 **Jiacheng Shi** 对本项目的广泛测试、bug报告和宝贵反馈。

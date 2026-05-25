@@ -25,8 +25,18 @@ env = DefaultEnvironment(
 
 # compile options
 env.Append(
-    CXXFLAGS=["-std=c++17", "-O3", "-march=native", "-flto", "-DNDEBUG"],
-    LINKFLAGS=["-flto"],
+    CXXFLAGS=[
+        "-std=c++17",
+        "-O2",                  # 改 O3 → O2，减少激进向量化
+        "-march=x86-64",        # 保持基线
+        "-mtune=generic",
+        "-mno-avx",             # 明确禁止 AVX
+        "-mno-avx2",            # 明确禁止 AVX2
+        "-mno-avx512f",         # 明确禁止 AVX-512
+        "-fno-lto",             # 关闭 LTO，避免链接期跨模块向量化
+        "-DNDEBUG",
+    ],
+    LINKFLAGS=[],
 )
 
 # Compile all objects directly under build/obj (flat, no nested folders).

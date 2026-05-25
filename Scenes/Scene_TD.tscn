@@ -66,7 +66,7 @@ shader_parameter/starmap_flip_u = false
 shader_parameter/starmap_flip_v = false
 shader_parameter/starmap_alignment = Vector3(2.68288, -0.25891, 0.40101)
 shader_parameter/star_rotation_offset = 9.38899
-shader_parameter/star_rotation = -11.644343617055743
+shader_parameter/star_rotation = -11.849106230264653
 shader_parameter/star_tilt = -0.49014657342409884
 shader_parameter/star_field_color = Color(1, 1, 1, 1)
 shader_parameter/star_field_texture = ExtResource("6_kt7wv")
@@ -82,8 +82,8 @@ shader_parameter/cirrus_absorption = 2.0
 shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.0396558, 0.0396558)
-shader_parameter/cirrus_position2 = Vector2(0.0396558, 0.0396558)
+shader_parameter/cirrus_position1 = Vector2(0.2914447, 0.2914447)
+shader_parameter/cirrus_position2 = Vector2(0.2914447, 0.2914447)
 shader_parameter/cirrus_texture = ExtResource("2_cxxjq")
 shader_parameter/cumulus_visible = true
 shader_parameter/cumulus_intensity = 0.6
@@ -93,7 +93,7 @@ shader_parameter/cumulus_absorption = 2.0
 shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(5.199125, 5.199125)
+shader_parameter/cumulus_position = Vector2(71.457855, 71.457855)
 shader_parameter/cumulus_texture = ExtResource("3_80ukq")
 shader_parameter/cumulus_partial_mie_phase = Vector3(0.957564, 1.042436, 0.412)
 shader_parameter/cumulus_mie_intensity = 1.0
@@ -103,7 +103,7 @@ shader_parameter/azimuthal_grid_rotation_offset = 0.03
 shader_parameter/show_equatorial_grid = false
 shader_parameter/equatorial_grid_color = Color(0, 0.75, 1, 1)
 shader_parameter/equatorial_grid_rotation_offset = 0.03
-shader_parameter/moon_matrix = Basis(7.4505797e-09, 0.27027947, -0.9627819, -0.35529774, 0.8999634, 0.25264457, 0.93475306, 0.34207425, 0.09602968)
+shader_parameter/moon_matrix = Basis(2.9802319e-08, 0.50773937, -0.8615106, -0.4971928, 0.74748117, 0.44053498, 0.86764, 0.42833695, 0.25244442)
 
 [sub_resource type="Sky" id="Sky_hfqrt"]
 sky_material = SubResource("ShaderMaterial_0wu3y")
@@ -112,7 +112,6 @@ sky_material = SubResource("ShaderMaterial_0wu3y")
 background_mode = 2
 background_energy_multiplier = 1.5
 sky = SubResource("Sky_hfqrt")
-sky_rotation = Vector3(0, -2.4940755, 0)
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 reflected_light_source = 2
@@ -144,19 +143,19 @@ size = Vector3(175.30249, 361.4771, 297.47192)
 [sub_resource type="BoxShape3D" id="BoxShape3D_td_area2"]
 size = Vector3(210.19556, 299.77203, 63.351654)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_cxxjq"]
-size = Vector2(100000, 100000)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80ukq"]
-metallic = 1.0
-roughness = 0.0
-
 [sub_resource type="Curve3D" id="Curve3D_j2myj"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 214.24323, 0, -84.59375, 0, 0, 0, 0, 0, 0, -162.8999, 0, 20.317871),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cxxjq"]
+size = Vector2(100000, 100000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80ukq"]
+metallic = 1.0
+roughness = 0.0
 
 [node name="Scene_TD" type="Node3D" unique_id=770881623]
 
@@ -171,7 +170,7 @@ environment = SubResource("Environment_y14w3")
 camera_attributes = SubResource("CameraAttributesPractical_5ljp4")
 script = ExtResource("8_lvt7o")
 fog_enabled = false
-current_time = 10.22
+current_time = 11.0
 minutes_per_day = 0.0
 update_interval = 10.0
 latitude = 61.91667000000001
@@ -181,7 +180,7 @@ wind_direction = 2.35619451204804
 metadata/_custom_type_script = "uid://deo0gxkmk2ahd"
 
 [node name="SunLight" type="DirectionalLight3D" parent="Sky3D" unique_id=682116046]
-transform = Transform3D(-0.5901727, 0.5098595, -0.625891, 0, 0.7753113, 0.63157934, 0.8072771, 0.3727409, -0.4575675, -0.625891, 0.63157934, -0.4575675)
+transform = Transform3D(-0.74000657, 0.5216081, -0.42463535, 0, 0.6313345, 0.7755106, 0.67259955, 0.57388294, -0.46719173, -0.42463535, 0.7755106, -0.46719173)
 light_temperature = 4500.0
 light_volumetric_fog_energy = 4.0
 shadow_enabled = true
@@ -192,16 +191,16 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 200.0
 
 [node name="MoonLight" type="DirectionalLight3D" parent="Sky3D" unique_id=158715563]
-transform = Transform3D(0, -0.35529777, 0.93475324, 0.27027947, 0.8999635, 0.34207428, -0.9627819, 0.2526446, 0.09602969, 0.9347532, 0.34207425, 0.096029684)
+transform = Transform3D(0, -0.49719286, 0.86764, 0.50773937, 0.74748117, 0.42833698, -0.8615107, 0.44053498, 0.25244442, 0.86764, 0.42833698, 0.25244442)
 light_color = Color(0.572549, 0.776471, 0.956863, 1)
 light_energy = 0.0
 
 [node name="SkyDome" type="Node" parent="Sky3D" unique_id=2018661502]
 script = ExtResource("9_f234u")
-sun_azimuth = -2.202069
-sun_altitude = 0.8872077886621382
-moon_azimuth = -1.6731699
-moon_altitude = -1.2216729
+sun_azimuth = -2.4038765
+sun_altitude = 0.6832728533060567
+moon_azimuth = -1.8539346
+moon_altitude = -1.1281447
 fog_visible = false
 wind_direction = 2.35619451204804
 
@@ -210,7 +209,7 @@ script = ExtResource("10_bo2qs")
 dome_path = NodePath("../SkyDome")
 minutes_per_day = 0.0
 update_interval = 10.0
-current_time = 10.22
+current_time = 11.0
 day = 18
 month = 3
 year = 2010
@@ -1548,12 +1547,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 1000, -3500)
 stream = ExtResource("14_lvt7o")
 
 [node name="Ground" type="MeshInstance3D" parent="." unique_id=350944080]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1026.572, 5.861, -812.982)
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -1965.512, 4.5, -502.026)
 material_override = ExtResource("15_f234u")
 mesh = ExtResource("16_bo2qs")
 
 [node name="Campfire" parent="Ground" unique_id=1185091371 instance=ExtResource("27_j2myj")]
-transform = Transform3D(0.7193397, 0, 0.69465834, 0, 1, 0, -0.69465834, 0, 0.7193397, 1.2, 0, 1.774)
+transform = Transform3D(0.7193397, 0, 0.69465834, 0, 1, 0, -0.69465834, 0, 0.7193397, -0.805, 0, 2.194)
 
 [node name="TD_Area_1" type="Area3D" parent="." unique_id=526065470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1052.7974, -2.1416016, -3846.5981)
@@ -1572,11 +1571,6 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TD_Area_2" unique_id=1859505580]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7106323, 58.227386, -1.7104492)
 shape = SubResource("BoxShape3D_td_area2")
-
-[node name="SeaLevel" type="MeshInstance3D" parent="." unique_id=154455384]
-visible = false
-mesh = SubResource("PlaneMesh_cxxjq")
-surface_material_override/0 = SubResource("StandardMaterial3D_80ukq")
 
 [node name="Seagulls" type="Seagulls" parent="." unique_id=441230132]
 
@@ -1622,3 +1616,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -872.51196, 180.78204, -3841.
 
 [node name="Seagull13" parent="Seagulls" unique_id=1849624472 instance=ExtResource("28_r6yhq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -864.4309, 180.78204, -3832.9548)
+
+[node name="SeaLevel" type="MeshInstance3D" parent="." unique_id=154455384]
+visible = false
+mesh = SubResource("PlaneMesh_cxxjq")
+surface_material_override/0 = SubResource("StandardMaterial3D_80ukq")
