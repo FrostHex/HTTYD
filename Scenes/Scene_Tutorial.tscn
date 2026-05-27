@@ -69,8 +69,8 @@ shader_parameter/cirrus_absorption = 2.0
 shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.018596785, 0.018596785)
-shader_parameter/cirrus_position2 = Vector2(0.018596785, 0.018596785)
+shader_parameter/cirrus_position1 = Vector2(0.60739267, 0.60739267)
+shader_parameter/cirrus_position2 = Vector2(0.60739267, 0.60739267)
 shader_parameter/cirrus_texture = ExtResource("2_yba8m")
 shader_parameter/cumulus_visible = true
 shader_parameter/cumulus_intensity = 0.6
@@ -80,7 +80,7 @@ shader_parameter/cumulus_absorption = 2.0
 shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(0.092984736, 0.092984736)
+shader_parameter/cumulus_position = Vector2(13.056159, 13.056159)
 shader_parameter/cumulus_texture = ExtResource("3_08ls4")
 shader_parameter/cumulus_partial_mie_phase = Vector3(0.957564, 1.042436, 0.412)
 shader_parameter/cumulus_mie_intensity = 1.0
@@ -160,7 +160,7 @@ light_energy = 0.0
 [node name="SkyDome" type="Node" parent="Sky3D" unique_id=1219214597]
 script = ExtResource("9_3i286")
 sun_azimuth = -2.1468945
-sun_altitude = 0.9447278986343671
+sun_altitude = 0.9447278986343687
 moon_azimuth = -1.6236057
 moon_altitude = -1.2484884
 fog_visible = false
@@ -182,7 +182,7 @@ utc = 1.0
 [node name="SubViewportContainer" parent="." unique_id=1335551062 instance=ExtResource("11_yba8m")]
 
 [node name="TutorialPaper" type="MeshInstance3D" parent="." unique_id=1406181536]
-transform = Transform3D(-4.371139e-09, 0.025881905, -0.09659258, 0, 0.09659258, 0.025881905, 0.1, 1.131334e-09, -4.222196e-09, 0.8, 10.65, 0)
+transform = Transform3D(-4.371139e-09, 0.025881905, -0.09659258, 0, 0.09659258, 0.025881905, 0.1, 1.131334e-09, -4.222196e-09, 0.8, 10.49, 0)
 mesh = SubResource("QuadMesh_paper")
 surface_material_override/0 = ExtResource("11_2l35d")
 
@@ -193,7 +193,7 @@ shaded = true
 modulate = Color(0.2, 0.2, 0.2, 1)
 outline_modulate = Color(1, 1, 1, 0.5)
 text = "I think I need to practice more on these basic manoeuvres."
-outline_size = 2
+outline_size = 0
 autowrap_mode = 3
 width = 380.0
 

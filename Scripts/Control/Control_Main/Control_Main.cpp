@@ -115,6 +115,11 @@ void Control_Main::Switch_Scene(const String &scene_name)
         get_parent()->call_deferred("add_child", new_scene);
         new_scene->set_name(scene_name);
 
+        if (scene_name != "Scene_Home")
+        {  
+            call_deferred("AttachCamera", scene_name);
+        }
+
         if (scene_name == "Scene_TD")
         {
             if (Settings::GetSingleton()->GetValVolumetricClouds())
@@ -139,13 +144,7 @@ void Control_Main::Switch_Scene(const String &scene_name)
 
         if (scene_name == "Scene_Dodge")
         {
-            ctrl_camera->SetFreeCamera(true);
-        }
-
-        if (scene_name != "Scene_Home")
-        {  
-            // ctrl_camera->SetFreeCamera(true);
-            call_deferred("AttachCamera", scene_name);
+            ctrl_camera->call_deferred("SetFreeCamera", true); // SetFreeCamera should be enabled after AttachCamera
         }
     }
     else

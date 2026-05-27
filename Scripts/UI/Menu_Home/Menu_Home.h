@@ -114,6 +114,7 @@ namespace godot
         void   _update_badge_display();
         void   _on_language_changed();
         String _get_json_text(const String& key, const String& fallback = "");
+        void   _hide_home_paper();
     };
 
 } // namespace godot

@@ -14,6 +14,7 @@
 #include <godot_cpp/classes/input_event_key.hpp>
 #include <godot_cpp/classes/input_event_mouse_button.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
+#include <godot_cpp/classes/node3d.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
 
 using namespace godot;
@@ -74,14 +75,11 @@ void Dragon_Pilot_Dodge::_ready()
         if (species_slot)
         {
             Node *toothless_root = Object::cast_to<Node>(species_slot->get_node_or_null("ToothlessRoot"));
-            if (toothless_root)
-            {
-                toothless_root->queue_free();
-            }
+            Node *gronckle_root = nullptr;
 
             if (species_gronckle.is_valid())
             {
-                Node *gronckle_root = species_gronckle->instantiate();
+                gronckle_root = species_gronckle->instantiate();
                 if (gronckle_root)
                 {
                     gronckle_root->set_name("GronckleRoot");
@@ -97,6 +95,34 @@ void Dragon_Pilot_Dodge::_ready()
             else
             {
                 UtilityFunctions::printerr("Dragon_Pilot_Dodge: Species_Gronckle is not assigned.");
+            }
+
+            if (toothless_root)
+            {
+                // Avoid freeing Camera_Main if it was attached to Toothless before Gronckle is spawned.
+                Node3D *camera_node = Object::cast_to<Node3D>(
+                    toothless_root->find_child("Camera_Main", true, false));
+                if (camera_node)
+                {
+                    Node *gronckle_socket = gronckle_root
+                        ? gronckle_root->get_node_or_null("Sockets/Socket_Back_Mount/Socket_Back")
+                        : nullptr;
+                    if (gronckle_socket)
+                    {
+                        camera_node->reparent(gronckle_socket);
+                        camera_node->set_position(Vector3(0, 0, 0));
+                        camera_node->set_rotation(Vector3(0, 0, 0));
+                    }
+                    else
+                    {
+                        Node *main_node = get_tree()
+                            ? get_tree()->get_root()->get_node_or_null("Main")
+                            : nullptr;
+                        if (main_node)
+                            camera_node->reparent(main_node);
+                    }
+                }
+                toothless_root->queue_free();
             }
         }
         else

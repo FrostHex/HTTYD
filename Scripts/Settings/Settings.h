@@ -83,6 +83,8 @@ namespace godot
 
         void LoadSettings();
         void SaveSettings();
+        bool IsFirstRun() const { return first_run; }
+        void MarkFirstRunComplete();
 
         // get settings display to the UI
         Array GetExposedSettings() const;
@@ -108,6 +110,7 @@ namespace godot
         bool is_loading_settings = false;
 
         bool ignore_scene_values = true;
+        bool first_run = false;
 
         // ======================================================
         // member variables

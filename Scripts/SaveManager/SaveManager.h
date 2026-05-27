@@ -21,6 +21,7 @@ namespace godot
             
             void Settings_Save(const Dictionary& settings_data);
             Dictionary Settings_Load();
+            bool SettingsFileExists();
 
         protected:
             static void _bind_methods();

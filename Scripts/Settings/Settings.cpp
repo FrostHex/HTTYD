@@ -84,6 +84,8 @@ void Settings::LoadSettings()
 
     is_loading_settings = true;
 
+    first_run = !save_manager->SettingsFileExists();
+
     Dictionary settings = save_manager->Settings_Load();
 
     bool wrote_defaults = false;
@@ -144,6 +146,11 @@ void Settings::SaveSettings()
     }
 
     save_manager->Settings_Save(settings);
+}
+
+void Settings::MarkFirstRunComplete()
+{
+    first_run = false;
 }
 
 void Settings::SetValEnableHeadset(bool val)

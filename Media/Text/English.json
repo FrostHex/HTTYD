@@ -1,4 +1,9 @@
 {
+    "home":
+    [
+        "\n(Drag the card up and release to use this)\n‌\n🡅 🡅 🡅"
+    ],
+
     "tutorial": 
     [
         "(In VR mode, please press B to go next, and press A to go previous.\nIn non-VR mode, please press Enter to go next, Backspace to go previous)",
@@ -23,7 +28,7 @@
         "I found that Toothless knows this move as well. (In VR mode, press the Y button; in non-VR mode, press the space bar)",
         "We can use this tactic to quickly lose altitude during flight to avoid obstacles ahead or above.",
         "/!2(Please turn to the next page if you think you've finished this phase of practice)",
-        "That went pretty well. I think now I should take a look at the place for the test drive."
+        "That went pretty well. I think now I should take a look at the place for the test drive. (In VR mode, press Y button; in non-VR mode, press Esc key to bring up the return menu)"
     ],
 
     "practice":

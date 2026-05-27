@@ -2,6 +2,8 @@
 # define CONTROL_SCENE_HOME_H
 
 #include <godot_cpp/classes/node.hpp>
+#include <godot_cpp/classes/node3d.hpp>
+#include <godot_cpp/classes/label3d.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/binder_common.hpp>
 #include "Control_Scene_Top.h"
@@ -28,6 +30,9 @@ namespace godot
         // ── 基础引用 ────────────────────────────────────────
         Settings*       settings        = nullptr;
         Menu_Home*           menu            = nullptr;
+        Node3D*          home_paper       = nullptr;
+
+        Label3D*    home_label          = nullptr;
 
         Node*   viewport_container  = nullptr;
     };

@@ -17,12 +17,15 @@
 #include <godot_cpp/classes/file_access.hpp>
 #include <godot_cpp/classes/json.hpp>
 #include <godot_cpp/classes/node.hpp>
+#include <godot_cpp/classes/node3d.hpp>
 #include <godot_cpp/classes/control.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
+#include <godot_cpp/classes/scene_tree.hpp>
 #include <godot_cpp/classes/texture2d.hpp>
 #include <godot_cpp/classes/texture_rect.hpp>
 #include <godot_cpp/variant/packed_string_array.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
+#include <godot_cpp/classes/window.hpp>
 
 using namespace godot;
 
@@ -301,6 +304,8 @@ void Menu_Home::_rebuild_sub_cards(
 
 void Menu_Home::_on_card_used(int /*index*/, const CardData& data)
 {
+    _hide_home_paper();
+
     if (data.type == CARD_MENU)
     {
         if (data.opens_settings)
@@ -472,6 +477,23 @@ void Menu_Home::_update_badge_display()
         UtilityFunctions::printerr("Menu_Home: Failed to load badge texture: ", texture_path);
         texture_rect->set_visible(false);
     }
+}
+
+void Menu_Home::_hide_home_paper()
+{
+    if (settings)
+        settings->MarkFirstRunComplete();
+
+    SceneTree* tree = get_tree();
+    if (!tree) return;
+
+    Node* root = tree->get_root();
+    if (!root) return;
+
+    Node* paper_node = root->find_child("HomePaper", true, false);
+    Node3D* home_paper = Object::cast_to<Node3D>(paper_node);
+    if (home_paper)
+        home_paper->set_visible(false);
 }
 
 String Menu_Home::_get_json_text(const String& key, const String& fallback)

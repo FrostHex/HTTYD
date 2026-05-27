@@ -41,6 +41,21 @@ String SaveManager::get_executable_directory()
     return executable_path.get_base_dir();
 }
 
+bool SaveManager::SettingsFileExists()
+{
+    String exe_dir = get_executable_directory();
+    Ref<DirAccess> dir = DirAccess::open(exe_dir);
+    if (!dir.is_valid())
+    {
+        return false;
+    }
+    if (!dir->dir_exists("Saves"))
+    {
+        return false;
+    }
+    return dir->file_exists("Saves/Settings.json");
+}
+
 /**
  * @brief called when the node and its children are initialized
  */

@@ -273,6 +273,7 @@ void Control_Scene_Top::ReturnHome()
     {
         ctrl_camera->set_physics_process(false);
         ctrl_camera->set_process_input(false);
+        ctrl_camera->SetFreeCamera(false);
     }
 
     // Restore camera_main to its original position under Main

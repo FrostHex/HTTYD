@@ -121,6 +121,7 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 - Changed: Test Drive color correction tweaks.
 
 ## v1.1.3
+- Fixed: A conservative way to compile cpp.
 - Changed: Environmental visual improvements.
 
 
