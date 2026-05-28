@@ -99,9 +99,12 @@ void Control_Scene_Practice::_ready()
 		if (parse_result == OK) 
 		{
 			Dictionary data = json->get_data();
-			if (data.has("practice")) 
+			String practice_key = Settings::GetSingleton()->GetValEnableHeadset()
+				? String("practice_vr")
+				: String("practice_nonvr");
+			if (data.has(practice_key)) 
 			{
-				Array practice_array = data["practice"];
+				Array practice_array = data[practice_key];
 				for (int i = 0; i < practice_array.size(); i++) 
 				{
 					lines.push_back(String(practice_array[i]));

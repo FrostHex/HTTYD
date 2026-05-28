@@ -97,9 +97,12 @@ void Control_Scene_Tutorial::_ready()
 		if (parse_result == OK) 
 		{
 			Dictionary data = json->get_data();
-			if (data.has("tutorial")) 
+			String tutorial_key = Settings::GetSingleton()->GetValEnableHeadset()
+				? String("tutorial_vr")
+				: String("tutorial_nonvr");
+			if (data.has(tutorial_key)) 
 			{
-				Array tutorial_array = data["tutorial"];
+				Array tutorial_array = data[tutorial_key];
 				for (int i = 0; i < tutorial_array.size(); i++) 
 				{
 					lines.push_back(String(tutorial_array[i]));

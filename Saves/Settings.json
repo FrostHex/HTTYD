@@ -1,4 +1,5 @@
 {
+	"auto_disable_xr": true,
 	"auto_roll": true,
 	"auto_save_state": false,
 	"badge": 1,

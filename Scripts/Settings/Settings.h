@@ -58,7 +58,8 @@ namespace godot
         X(AutoRoll,           auto_roll,            true,  bool, false,            DEFAULT, Variant::BOOL, PROPERTY_HINT_NONE,  "") \
         X(AutoSaveState,      auto_save_state,      true,  bool, true,             DEFAULT, Variant::BOOL, PROPERTY_HINT_NONE,  "") \
         X(DebugInfo,          debug_info,           true,  bool, true,             DEFAULT, Variant::BOOL, PROPERTY_HINT_NONE,  "") \
-        X(Badge,              badge,                false, int,  0,                DEFAULT, Variant::INT,  PROPERTY_HINT_RANGE, "0,3")
+        X(Badge,              badge,                false, int,  0,                DEFAULT, Variant::INT,  PROPERTY_HINT_RANGE, "0,3") \
+        X(AutoDisableXR,      auto_disable_xr,      false, bool, true,             DEFAULT, Variant::BOOL, PROPERTY_HINT_NONE,  "")
 
     enum Language
     {

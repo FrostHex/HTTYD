@@ -29,6 +29,7 @@ namespace godot
     private:
         void AttachCamera(const String &scene_name);
         void AttachSunshineClouds(const String &scene_name, bool attach);
+        void ProcessInvalidXR();
 
         Control_Camera* ctrl_camera = nullptr;
         Node3D* camera_main = nullptr;

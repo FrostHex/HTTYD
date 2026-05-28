@@ -53,8 +53,7 @@ void Control_Main::_ready()
         Ref<XRInterface> xr_interface = XRServer::get_singleton()->find_interface("OpenXR");
         if (!xr_interface.is_valid())
         {
-            UtilityFunctions::printerr("[OpenXR] Interface not found. Please restart this exe to launch in non-VR mode.");
-            Settings::GetSingleton()->SetValEnableHeadset(false);
+            call_deferred("ProcessInvalidXR");
         } 
         else 
         {
@@ -74,8 +73,7 @@ void Control_Main::_ready()
             }
             else
             {
-                UtilityFunctions::printerr("[OpenXR] Initialize FAILED. Please restart this exe to launch in non-VR mode.");
-                Settings::GetSingleton()->SetValEnableHeadset(false);
+                call_deferred("ProcessInvalidXR");
             }
         }
         Engine::get_singleton()->set_physics_ticks_per_second(60);
@@ -221,11 +219,26 @@ void Control_Main::AttachSunshineClouds(const String &scene_name, bool attach)
     clouds_node->call_deferred("clouds_res_added");
 }
 
+void Control_Main::ProcessInvalidXR()
+{
+    UtilityFunctions::printerr("[OpenXR] Interface failed to initialize. Please restart this exe to launch in non-VR mode.");
+    Node3D* home_paper = get_parent()->get_node<Node3D>("Scene_Home/HomePaper");
+    home_paper->get_node<Label3D>("HomeText")->set_modulate(Color(0.8, 0, 0, 1));
+    home_paper->get_node<Label3D>("HomeText")->set_text(String::utf8(u8"◣◥◣◥◣◥◣◥\nXR launch failed!\nPlease restart this exe!\nXR启动失败!\n请重启此程序!\n◣◥◣◥◣◥◣◥"));
+    home_paper->set_visible(true);
+    get_parent()->get_node<Node3D>("Camera_Main/XR")->set_visible(false);
+    if (Settings::GetSingleton()->GetValAutoDisableXR())
+    {
+        Settings::GetSingleton()->SetValEnableHeadset(false);
+    }
+}
+
 void Control_Main::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("Switch_Scene", "scene_name"), &Control_Main::Switch_Scene);
     ClassDB::bind_method(D_METHOD("AttachCamera", "scene_name"), &Control_Main::AttachCamera);
     ClassDB::bind_method(D_METHOD("AttachSunshineClouds", "scene_name", "attach"), &Control_Main::AttachSunshineClouds);
+    ClassDB::bind_method(D_METHOD("ProcessInvalidXR"), &Control_Main::ProcessInvalidXR);
 }
 
 extern "C" GDE_EXPORT GDExtensionBool gdextension_init(GDExtensionInterfaceGetProcAddress get_proc_addr, GDExtensionClassLibraryPtr lib, GDExtensionInitialization *init) 
