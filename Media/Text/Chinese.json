@@ -28,7 +28,7 @@
         "有趣的是我发现无牙也会这招(VR模式下按下Y键，非VR模式下按下空格键)",
         "我们可以利用这个技巧在飞行中快速降低高度，用来躲避前方或上方的障碍物",
         "/!2(如果你觉得你已经完成了这一阶段的练习，请翻到下一页)",
-        "看来还不错。我想现在我应该去看看测试飞行的场地了。\n(VR模式下按下Y键，非VR模式下按下Esc键以唤起返回菜单)"
+        "看来还不错。我想现在我应该去看看试飞的场地了。\n(VR模式下按下Y键，非VR模式下按下Esc键以唤起返回菜单)"
     ],
 
     "practice":
@@ -48,7 +48,7 @@
     "header_practice": "操作练习",
     "detail_practice": "看完笔记之后，该熟悉一下飞行环境和飞行路线了",
 
-    "header_td": "测试飞行",
+    "header_td": "试飞",
     "detail_td": "是时候考验一下你的飞行技巧了！来按照路线兜一圈，看看你的表现如何",
 
     "header_dodge": "躲避 (正在施工)",
@@ -70,14 +70,17 @@
     "detail_sub_view": "启用一个小面板显示第三人称视角和调试信息",
 
     "header_auto_save_state": "自动保存状态",
-    "detail_auto_save_state": "在测试飞行的特定检查点自动保存",
+    "detail_auto_save_state": "在试飞的特定检查点自动保存",
 
     "header_debug_info": "调试信息",
     "detail_debug_info": "在辅助视角面板显示调试信息",
+
+    "header_free_camera": "自由相机",
+    "detail_free_camera": "除初始场景外的所有场景自动启用鼠标拖拽的自由视角相机 (自由拖拽时点击鼠标右键可切换至固定视角)",
 
     "header_volumetric_clouds": "体积云",
     "detail_volumetric_clouds": "体积云 (与VR模式不兼容!)",
 
     "header_auto_roll": "自动翻滚",
-    "detail_auto_roll": "在测试飞行的特定时间点自动执行翻滚动作 (仅为了复刻电影场景)"
+    "detail_auto_roll": "在试飞的特定时间点自动执行翻滚动作 (仅为了复刻电影场景)"
 }

@@ -118,6 +118,10 @@ void Control_Main::Switch_Scene(const String &scene_name)
         if (scene_name != "Scene_Home")
         {  
             call_deferred("AttachCamera", scene_name);
+            if (Settings::GetSingleton()->GetValFreeCamera())
+            {
+                ctrl_camera->call_deferred("SetFreeCamera", true); // SetFreeCamera should be enabled after AttachCamera
+            }
         }
 
         if (scene_name == "Scene_TD")
@@ -144,7 +148,10 @@ void Control_Main::Switch_Scene(const String &scene_name)
 
         if (scene_name == "Scene_Dodge")
         {
-            ctrl_camera->call_deferred("SetFreeCamera", true); // SetFreeCamera should be enabled after AttachCamera
+            if (!Settings::GetSingleton()->GetValFreeCamera())
+            {
+                ctrl_camera->call_deferred("SetFreeCamera", true); // enable free camera all the time
+            }
         }
     }
     else

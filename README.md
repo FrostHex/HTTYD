@@ -152,6 +152,7 @@ Plugins others than Godot-cpp are not imported as submodules, so they need to be
 All content in this repository that is not mentioned in this section is covered by the **MIT** License.
 
 Third-party assets for development used in this project are as follows:
+- `./Addons/brackeys_particle_controls/` [Particle Controls](https://github.com/Brackeys/brackeys-particle-controls)
 - `./Addons/godot-cpp/` [Godot Cpp](https://github.com/godotengine/godot-cpp)
 - `./Addons/godot-xr-tools/` [Godot XR Tools](https://github.com/GodotVR/godot-xr-tools)
 - `./Addons/sky_3d/` [Skybox](https://github.com/TokisanGames/Sky3D)

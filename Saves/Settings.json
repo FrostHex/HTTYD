@@ -4,6 +4,7 @@
 	"badge": 1,
 	"debug_info": true,
 	"enable_headset": false,
+	"free_camera": false,
 	"language": 0,
 	"sub_view": true,
 	"volumetric_clouds": false

@@ -54,6 +54,7 @@ namespace godot
         X(EnableHeadset,      enable_headset,       true,  bool, false,            CUSTOM,  Variant::BOOL, PROPERTY_HINT_NONE,  "") \
         X(SubView,            sub_view,             true,  bool, true,             DEFAULT, Variant::BOOL, PROPERTY_HINT_NONE,  "") \
         X(VolumetricClouds,   volumetric_clouds,    true,  bool, false,            CUSTOM,  Variant::BOOL, PROPERTY_HINT_NONE,  "") \
+        X(FreeCamera,         free_camera,          true,  bool, true,             DEFAULT, Variant::BOOL, PROPERTY_HINT_NONE,  "") \
         X(AutoRoll,           auto_roll,            true,  bool, false,            DEFAULT, Variant::BOOL, PROPERTY_HINT_NONE,  "") \
         X(AutoSaveState,      auto_save_state,      true,  bool, true,             DEFAULT, Variant::BOOL, PROPERTY_HINT_NONE,  "") \
         X(DebugInfo,          debug_info,           true,  bool, true,             DEFAULT, Variant::BOOL, PROPERTY_HINT_NONE,  "") \

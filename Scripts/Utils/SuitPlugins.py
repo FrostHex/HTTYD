@@ -9,6 +9,7 @@ REPLACE_RULES: tuple[tuple[str, str], ...] = (
 	("res://addons/SunshineClouds2", "res://Addons/SunshineClouds2"),
 	("script=\"res://addons/ocean_system/ocean_system_plugin.gd\"", "script=\"./ocean_system_plugin.gd\""),
 	("res://addons/ocean_system/", "res://Addons/ocean_system/"),
+	("res://addons/brackeys_particle_controls", "res://Addons/brackeys_particle_controls")
 )
 
 

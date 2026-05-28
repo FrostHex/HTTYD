@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bonns3nhbahc"]
 
-[ext_resource type="Material" path="res://Environment/Explosion/ExplosionMaterial.tres" id="1_an4hs"]
+[ext_resource type="Material" uid="uid://ct5a80avp14bm" path="res://Environment/Explosion/ExplosionMaterial.tres" id="1_oxoqp"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rva4e"]
 angle_max = 1.0
@@ -13,13 +13,13 @@ linear_accel_max = -1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_16uck"]
 
-[node name="Node3D" type="Node3D" unique_id=1316689682]
-
-[node name="Explosion1" type="GPUParticles3D" parent="." unique_id=1286021244]
+[node name="Explosion" type="GPUParticles3D" unique_id=1910013953]
 transform = Transform3D(0.996103, 0, 0, 0, 0.996103, 0, 0, 0, 1, -0.00112057, -0.00427759, -0.00190479)
-material_override = ExtResource("1_an4hs")
+material_override = ExtResource("1_oxoqp")
+emitting = false
 amount = 20
 lifetime = 2.13
+one_shot = true
 explosiveness = 0.91
 randomness = 0.84
 fixed_fps = 60

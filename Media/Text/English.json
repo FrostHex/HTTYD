@@ -69,6 +69,9 @@
     "header_sub_view": "Sub View",
     "detail_sub_view": "Enable a small panel for third-person view and debug info.",
 
+    "header_free_camera": "Free Camera",
+    "detail_free_camera": "Enable mouse dragged free camera for all scenes except home. (Right click to toggle temporarily)",
+
     "header_auto_save_state": "TD Auto Save",
     "detail_auto_save_state": "Automatically save at specific checkpoints during Test Drive.",
 
