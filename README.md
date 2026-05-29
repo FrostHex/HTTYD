@@ -155,6 +155,7 @@ Third-party assets for development used in this project are as follows:
 - `./Addons/brackeys_particle_controls/` [Particle Controls](https://github.com/Brackeys/brackeys-particle-controls)
 - `./Addons/godot-cpp/` [Godot Cpp](https://github.com/godotengine/godot-cpp)
 - `./Addons/godot-xr-tools/` [Godot XR Tools](https://github.com/GodotVR/godot-xr-tools)
+- `./Addons/simplegrasstextured/` [Grass](https://github.com/IcterusGames/SimpleGrassTextured)
 - `./Addons/sky_3d/` [Skybox](https://github.com/TokisanGames/Sky3D)
 - `./Addons/SunshineClouds2/` [Volumetric Clouds](https://github.com/Bonkahe/SunshineClouds2)
 - `./Dragons/Gronckle/` [Gronckle Model](https://models.spriters-resource.com/pc_computer/schoolofdragons/asset/330251/)
