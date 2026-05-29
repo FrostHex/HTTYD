@@ -7,10 +7,10 @@ func _ready():
 
 func replace_rocks():
     # load rock scene resources.
-    var rock_b = preload("res://Scenes/Rocks/Pillar/Rock_Pillar_B.tscn")
-    var rock_c = preload("res://Scenes/Rocks/Pillar/Rock_Pillar_C.tscn")
-    var rock_d = preload("res://Scenes/Rocks/Pillar/Rock_Pillar_D.tscn")
-    var rock_e = preload("res://Scenes/Rocks/Pillar/Rock_Pillar_E.tscn")
+    var rock_b = preload("res://Tscn/Rocks/Pillar/Rock_Pillar_B.tscn")
+    var rock_c = preload("res://Tscn/Rocks/Pillar/Rock_Pillar_C.tscn")
+    var rock_d = preload("res://Tscn/Rocks/Pillar/Rock_Pillar_D.tscn")
+    var rock_e = preload("res://Tscn/Rocks/Pillar/Rock_Pillar_E.tscn")
     
     # collect nodes that need replacement.
     var replacements = []

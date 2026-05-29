@@ -159,8 +159,8 @@ void Settings::SetValEnableHeadset(bool val)
 
     if (val != (bool)(ProjectSettings::get_singleton()->get_setting("xr/openxr/enabled")))
     {
-        UtilityFunctions::print("before: ", ProjectSettings::get_singleton()->get_setting("xr/openxr/enabled"), ", after: ", val);
-        UtilityFunctions::print("Setting XR enabled to ", val);
+        // UtilityFunctions::print("before: ", ProjectSettings::get_singleton()->get_setting("xr/openxr/enabled"), ", after: ", val);
+        // UtilityFunctions::print("Setting XR enabled to ", val);
         ProjectSettings::get_singleton()->set_setting("xr/openxr/enabled", val);
         ProjectSettings::get_singleton()->set_setting("xr/shaders/enabled", val);
         ProjectSettings::get_singleton()->save();

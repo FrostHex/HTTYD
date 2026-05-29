@@ -262,8 +262,8 @@ void Control_Scene_TD::TakeRest()
         // sky_node->set("current_time", 19.25f); // set sky to evening time
         // sky_node->set("camera_exposure", 1.75f);
         sky_node->queue_free();
-        // get new sky from res://Scenes/Sky3d_Sunset.tscn
-        Ref<PackedScene> sky_scene_sunset = ResourceLoader::get_singleton()->load("res://Scenes/Sky3d_Sunset.tscn");
+        // get new sky from res://Tscn/Sky3d_Sunset.tscn
+        Ref<PackedScene> sky_scene_sunset = ResourceLoader::get_singleton()->load("res://Tscn/Sky3d_Sunset.tscn");
         Node* sky_node_sunset = nullptr;
         if (sky_scene_sunset.is_valid())
         {

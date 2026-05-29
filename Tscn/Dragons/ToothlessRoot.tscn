@@ -1,0 +1,457 @@
+[gd_scene format=3 uid="uid://bqr0q0kq72smn"]
+
+[ext_resource type="PackedScene" uid="uid://bmrop1m7t4tst" path="res://Tscn/Dragons/Toothless.tscn" id="1_7i38g"]
+[ext_resource type="Script" uid="uid://dktqp1fhj7s1" path="res://Scripts/Utils/SetAnimationPlayer.gd" id="2_acvhs"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_acvhs"]
+radius = 0.1
+height = 13.102
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cu6cf"]
+radius = 0.58
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_m2uv8"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_v5fnx"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_hqwia"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_guncu"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_npd0o"]
+filter_enabled = true
+filters = ["rig/Skeleton3D:jaw.lower", "rig/Skeleton3D:jaw.lower.sub"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_0snye"]
+filters = ["rig/Skeleton3D:Tgt.haunch.wing.2.1.L", "rig/Skeleton3D:Tgt.haunch.wing.2.1.R", "rig/Skeleton3D:arm.1.L", "rig/Skeleton3D:arm.1.R", "rig/Skeleton3D:arm.L", "rig/Skeleton3D:arm.R", "rig/Skeleton3D:ear.0.1.L", "rig/Skeleton3D:ear.0.1.R", "rig/Skeleton3D:ear.0.2.L", "rig/Skeleton3D:ear.0.2.R", "rig/Skeleton3D:ear.0.L", "rig/Skeleton3D:ear.0.R", "rig/Skeleton3D:ear.1.1.L", "rig/Skeleton3D:ear.1.1.R", "rig/Skeleton3D:ear.1.2.L", "rig/Skeleton3D:ear.1.2.R", "rig/Skeleton3D:ear.1.3.L", "rig/Skeleton3D:ear.1.3.R", "rig/Skeleton3D:ear.1.4.L", "rig/Skeleton3D:ear.1.4.R", "rig/Skeleton3D:ear.1.5.L", "rig/Skeleton3D:ear.1.5.R", "rig/Skeleton3D:ear.1.6.L", "rig/Skeleton3D:ear.1.6.R", "rig/Skeleton3D:ear.1.L", "rig/Skeleton3D:ear.1.R", "rig/Skeleton3D:ear.2.1.L", "rig/Skeleton3D:ear.2.1.R", "rig/Skeleton3D:ear.2.2.L", "rig/Skeleton3D:ear.2.2.R", "rig/Skeleton3D:ear.2.L", "rig/Skeleton3D:ear.2.R", "rig/Skeleton3D:ear.3.1.L", "rig/Skeleton3D:ear.3.1.R", "rig/Skeleton3D:ear.3.L", "rig/Skeleton3D:ear.3.R", "rig/Skeleton3D:eye.01.L", "rig/Skeleton3D:eye.01.R", "rig/Skeleton3D:eye.02.L", "rig/Skeleton3D:eye.02.R", "rig/Skeleton3D:eye.03.L", "rig/Skeleton3D:eye.03.R", "rig/Skeleton3D:eye.04.L", "rig/Skeleton3D:eye.04.R", "rig/Skeleton3D:eye.05.L", "rig/Skeleton3D:eye.05.R", "rig/Skeleton3D:eye.06.L", "rig/Skeleton3D:eye.06.R", "rig/Skeleton3D:eye.07.L", "rig/Skeleton3D:eye.07.R", "rig/Skeleton3D:eye.08.L", "rig/Skeleton3D:eye.08.R", "rig/Skeleton3D:eye.09.L", "rig/Skeleton3D:eye.09.R", "rig/Skeleton3D:eye.10.L", "rig/Skeleton3D:eye.10.R", "rig/Skeleton3D:eye.11.L", "rig/Skeleton3D:eye.11.R", "rig/Skeleton3D:eye.12.L", "rig/Skeleton3D:eye.12.R", "rig/Skeleton3D:eye.13.L", "rig/Skeleton3D:eye.13.R", "rig/Skeleton3D:eye.14.L", "rig/Skeleton3D:eye.14.R", "rig/Skeleton3D:eye.15.L", "rig/Skeleton3D:eye.15.R", "rig/Skeleton3D:eye.16.L", "rig/Skeleton3D:eye.16.R", "rig/Skeleton3D:eye.17.L", "rig/Skeleton3D:eye.17.R", "rig/Skeleton3D:eye.18.L", "rig/Skeleton3D:eye.18.R", "rig/Skeleton3D:eye.19.L", "rig/Skeleton3D:eye.19.R", "rig/Skeleton3D:eye.20.L", "rig/Skeleton3D:eye.20.R", "rig/Skeleton3D:eye.21.L", "rig/Skeleton3D:eye.21.R", "rig/Skeleton3D:eye.22.L", "rig/Skeleton3D:eye.22.R", "rig/Skeleton3D:eye.23.L", "rig/Skeleton3D:eye.23.R", "rig/Skeleton3D:eye.24.L", "rig/Skeleton3D:eye.24.R", "rig/Skeleton3D:eye.25.L", "rig/Skeleton3D:eye.25.R", "rig/Skeleton3D:eye.26.L", "rig/Skeleton3D:eye.26.R", "rig/Skeleton3D:eye.27.L", "rig/Skeleton3D:eye.27.R", "rig/Skeleton3D:eye.28.L", "rig/Skeleton3D:eye.28.R", "rig/Skeleton3D:eye.29.L", "rig/Skeleton3D:eye.29.R", "rig/Skeleton3D:eye.30.L", "rig/Skeleton3D:eye.30.R", "rig/Skeleton3D:eye.31.L", "rig/Skeleton3D:eye.31.R", "rig/Skeleton3D:eye.32.L", "rig/Skeleton3D:eye.32.R", "rig/Skeleton3D:eye.L", "rig/Skeleton3D:eye.R", "rig/Skeleton3D:eyelid.lower.0.L", "rig/Skeleton3D:eyelid.lower.0.R", "rig/Skeleton3D:eyelid.lower.1.L", "rig/Skeleton3D:eyelid.lower.1.R", "rig/Skeleton3D:eyelid.lower.2.L", "rig/Skeleton3D:eyelid.lower.2.R", "rig/Skeleton3D:eyelid.upper.0.L", "rig/Skeleton3D:eyelid.upper.0.R", "rig/Skeleton3D:eyelid.upper.1.L", "rig/Skeleton3D:eyelid.upper.1.R", "rig/Skeleton3D:eyelid.upper.2.L", "rig/Skeleton3D:eyelid.upper.2.R", "rig/Skeleton3D:finger.1.L", "rig/Skeleton3D:finger.1.R", "rig/Skeleton3D:finger.2.L", "rig/Skeleton3D:finger.2.R", "rig/Skeleton3D:finger.3.L", "rig/Skeleton3D:finger.3.R", "rig/Skeleton3D:finger.4.L", "rig/Skeleton3D:finger.4.R", "rig/Skeleton3D:hand.L", "rig/Skeleton3D:hand.R", "rig/Skeleton3D:haunch.wing.1.1.L", "rig/Skeleton3D:haunch.wing.1.1.R", "rig/Skeleton3D:haunch.wing.1.2.L", "rig/Skeleton3D:haunch.wing.1.2.R", "rig/Skeleton3D:haunch.wing.1.L", "rig/Skeleton3D:haunch.wing.1.R", "rig/Skeleton3D:haunch.wing.2.1.L", "rig/Skeleton3D:haunch.wing.2.1.R", "rig/Skeleton3D:haunch.wing.2.2.L", "rig/Skeleton3D:haunch.wing.2.2.R", "rig/Skeleton3D:haunch.wing.2.L", "rig/Skeleton3D:haunch.wing.2.R", "rig/Skeleton3D:haunch.wing.3.1.L", "rig/Skeleton3D:haunch.wing.3.1.R", "rig/Skeleton3D:haunch.wing.3.2.L", "rig/Skeleton3D:haunch.wing.3.2.R", "rig/Skeleton3D:haunch.wing.3.L", "rig/Skeleton3D:haunch.wing.3.R", "rig/Skeleton3D:jaw.lower", "rig/Skeleton3D:jaw.lower.sub", "rig/Skeleton3D:jaw.upper", "rig/Skeleton3D:neck", "rig/Skeleton3D:neck.sub", "rig/Skeleton3D:spine.1.sub", "rig/Skeleton3D:spine.2.sub", "rig/Skeleton3D:tail", "rig/Skeleton3D:tail.1.sub", "rig/Skeleton3D:tail.2.sub", "rig/Skeleton3D:tail.3.sub", "rig/Skeleton3D:tail.4.sub", "rig/Skeleton3D:tail.5.sub", "rig/Skeleton3D:tail.6.sub", "rig/Skeleton3D:tail.7.sub", "rig/Skeleton3D:tail.8.sub", "rig/Skeleton3D:tail.wing.1.L", "rig/Skeleton3D:tail.wing.1.R", "rig/Skeleton3D:tail.wing.2.L", "rig/Skeleton3D:tail.wing.2.R", "rig/Skeleton3D:tail.wing.3.L", "rig/Skeleton3D:tail.wing.3.R", "rig/Skeleton3D:tail.wing.4.L", "rig/Skeleton3D:tail.wing.4.R", "rig/Skeleton3D:tail.wing.5.L", "rig/Skeleton3D:tail.wing.5.R", "rig/Skeleton3D:wing.1.L", "rig/Skeleton3D:wing.1.R", "rig/Skeleton3D:wing.2.L", "rig/Skeleton3D:wing.2.R", "rig/Skeleton3D:wing.3.L", "rig/Skeleton3D:wing.3.R", "rig/Skeleton3D:wing.4.L", "rig/Skeleton3D:wing.4.R", "rig/Skeleton3D:wing.L", "rig/Skeleton3D:wing.R", "rig/Skeleton3D:wing.sub1.1.L", "rig/Skeleton3D:wing.sub1.1.R", "rig/Skeleton3D:wing.sub1.10.L", "rig/Skeleton3D:wing.sub1.10.R", "rig/Skeleton3D:wing.sub1.11.L", "rig/Skeleton3D:wing.sub1.11.R", "rig/Skeleton3D:wing.sub1.2.L", "rig/Skeleton3D:wing.sub1.2.R", "rig/Skeleton3D:wing.sub1.3.L", "rig/Skeleton3D:wing.sub1.3.R", "rig/Skeleton3D:wing.sub1.4.L", "rig/Skeleton3D:wing.sub1.4.R", "rig/Skeleton3D:wing.sub1.5.L", "rig/Skeleton3D:wing.sub1.5.R", "rig/Skeleton3D:wing.sub1.6.L", "rig/Skeleton3D:wing.sub1.6.R", "rig/Skeleton3D:wing.sub1.7.L", "rig/Skeleton3D:wing.sub1.7.R", "rig/Skeleton3D:wing.sub1.8.L", "rig/Skeleton3D:wing.sub1.8.R", "rig/Skeleton3D:wing.sub1.9.L", "rig/Skeleton3D:wing.sub1.9.R", "rig/Skeleton3D:wing.sub2.1.L", "rig/Skeleton3D:wing.sub2.1.R", "rig/Skeleton3D:wing.sub2.2.L", "rig/Skeleton3D:wing.sub2.2.R", "rig/Skeleton3D:wing.sub2.3.L", "rig/Skeleton3D:wing.sub2.3.R", "rig/Skeleton3D:wing.sub2.4.L", "rig/Skeleton3D:wing.sub2.4.R", "rig/Skeleton3D:wing.sub2.5.L", "rig/Skeleton3D:wing.sub2.5.R", "rig/Skeleton3D:wing.sub2.6.L", "rig/Skeleton3D:wing.sub2.6.R", "rig/Skeleton3D:wing.sub2.7.L", "rig/Skeleton3D:wing.sub2.7.R", "rig/Skeleton3D:wing.sub2.8.L", "rig/Skeleton3D:wing.sub2.8.R", "rig/Skeleton3D:wing.sub2.9.L", "rig/Skeleton3D:wing.sub2.9.R", "rig/Skeleton3D:wing.sub3.1.L", "rig/Skeleton3D:wing.sub3.1.R", "rig/Skeleton3D:wing.sub3.2.L", "rig/Skeleton3D:wing.sub3.2.R", "rig/Skeleton3D:wing.sub3.3.L", "rig/Skeleton3D:wing.sub3.3.R", "rig/Skeleton3D:wing.sub3.4.L", "rig/Skeleton3D:wing.sub3.4.R", "rig/Skeleton3D:wing.sub3.5.L", "rig/Skeleton3D:wing.sub3.5.R", "rig/Skeleton3D:wing.sub3.6.L", "rig/Skeleton3D:wing.sub3.6.R", "rig/Skeleton3D:wing.sub3.7.L", "rig/Skeleton3D:wing.sub3.7.R", "rig/Skeleton3D:wing.sub3.8.L", "rig/Skeleton3D:wing.sub3.8.R", "rig/Skeleton3D:wing.sub4.1.L", "rig/Skeleton3D:wing.sub4.1.R", "rig/Skeleton3D:wing.sub4.2.L", "rig/Skeleton3D:wing.sub4.2.R", "rig/Skeleton3D:wing.sub4.3.L", "rig/Skeleton3D:wing.sub4.3.R", "rig/Skeleton3D:wing.sub4.4.L", "rig/Skeleton3D:wing.sub4.4.R", "rig/Skeleton3D:wing.sub4.5.L", "rig/Skeleton3D:wing.sub4.5.R", "rig/Skeleton3D:wing.sub4.6.L", "rig/Skeleton3D:wing.sub4.6.R", "rig/Skeleton3D:wing.sub5.1.L", "rig/Skeleton3D:wing.sub5.1.R", "rig/Skeleton3D:wing.sub5.2.L", "rig/Skeleton3D:wing.sub5.2.R", "rig/Skeleton3D:wing.sub5.3.L", "rig/Skeleton3D:wing.sub5.3.R", "rig/Skeleton3D:wing.sub5.4.L", "rig/Skeleton3D:wing.sub5.4.R", "rig/Skeleton3D:wing.sub5.5.L", "rig/Skeleton3D:wing.sub5.5.R", "rig/Skeleton3D:wing.sub5.6.L", "rig/Skeleton3D:wing.sub5.6.R", "rig/Skeleton3D:wing.sub6.1.L", "rig/Skeleton3D:wing.sub6.1.R", "rig/Skeleton3D:wing.sub6.2.L", "rig/Skeleton3D:wing.sub6.2.R", "rig/Skeleton3D:wing.sub6.3.L", "rig/Skeleton3D:wing.sub6.3.R", "rig/Skeleton3D:wing.sub6.4.L", "rig/Skeleton3D:wing.sub6.4.R", "rig/Skeleton3D:wing.sub6.5.L", "rig/Skeleton3D:wing.sub6.5.R", "rig/Skeleton3D:wing.sub6.6.L", "rig/Skeleton3D:wing.sub6.6.R"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_kbe3x"]
+filter_enabled = true
+filters = ["rig/Skeleton3D:arm.1.L", "rig/Skeleton3D:arm.1.R", "rig/Skeleton3D:arm.L", "rig/Skeleton3D:arm.R", "rig/Skeleton3D:ear.0.1.L", "rig/Skeleton3D:ear.0.1.R", "rig/Skeleton3D:ear.0.2.L", "rig/Skeleton3D:ear.0.2.R", "rig/Skeleton3D:ear.0.L", "rig/Skeleton3D:ear.0.R", "rig/Skeleton3D:ear.1.1.L", "rig/Skeleton3D:ear.1.1.R", "rig/Skeleton3D:ear.1.2.L", "rig/Skeleton3D:ear.1.2.R", "rig/Skeleton3D:ear.1.3.L", "rig/Skeleton3D:ear.1.3.R", "rig/Skeleton3D:ear.1.4.L", "rig/Skeleton3D:ear.1.4.R", "rig/Skeleton3D:ear.1.5.L", "rig/Skeleton3D:ear.1.5.R", "rig/Skeleton3D:ear.1.6.L", "rig/Skeleton3D:ear.1.6.R", "rig/Skeleton3D:ear.1.L", "rig/Skeleton3D:ear.1.R", "rig/Skeleton3D:ear.2.1.L", "rig/Skeleton3D:ear.2.1.R", "rig/Skeleton3D:ear.2.2.L", "rig/Skeleton3D:ear.2.2.R", "rig/Skeleton3D:ear.2.L", "rig/Skeleton3D:ear.2.R", "rig/Skeleton3D:ear.3.1.L", "rig/Skeleton3D:ear.3.1.R", "rig/Skeleton3D:ear.3.L", "rig/Skeleton3D:ear.3.R", "rig/Skeleton3D:eye.L", "rig/Skeleton3D:eye.R", "rig/Skeleton3D:eyelid.lower.0.L", "rig/Skeleton3D:eyelid.lower.0.R", "rig/Skeleton3D:eyelid.lower.1.L", "rig/Skeleton3D:eyelid.lower.1.R", "rig/Skeleton3D:eyelid.lower.2.L", "rig/Skeleton3D:eyelid.lower.2.R", "rig/Skeleton3D:eyelid.upper.0.L", "rig/Skeleton3D:eyelid.upper.0.R", "rig/Skeleton3D:eyelid.upper.1.L", "rig/Skeleton3D:eyelid.upper.1.R", "rig/Skeleton3D:eyelid.upper.2.L", "rig/Skeleton3D:eyelid.upper.2.R", "rig/Skeleton3D:feet.L", "rig/Skeleton3D:feet.R", "rig/Skeleton3D:finger.1.L", "rig/Skeleton3D:finger.1.R", "rig/Skeleton3D:finger.2.L", "rig/Skeleton3D:finger.2.R", "rig/Skeleton3D:finger.3.L", "rig/Skeleton3D:finger.3.R", "rig/Skeleton3D:finger.4.L", "rig/Skeleton3D:finger.4.R", "rig/Skeleton3D:hand.L", "rig/Skeleton3D:hand.R", "rig/Skeleton3D:jaw.upper", "rig/Skeleton3D:leg.L", "rig/Skeleton3D:leg.R", "rig/Skeleton3D:neck", "rig/Skeleton3D:neck.sub", "rig/Skeleton3D:spine.1.sub", "rig/Skeleton3D:spine.2.sub", "rig/Skeleton3D:tail", "rig/Skeleton3D:tail.1.sub", "rig/Skeleton3D:tail.2.sub", "rig/Skeleton3D:tail.3.sub", "rig/Skeleton3D:tail.4.sub", "rig/Skeleton3D:tail.5.sub", "rig/Skeleton3D:tail.6.sub", "rig/Skeleton3D:tail.7.sub", "rig/Skeleton3D:tail.8.sub", "rig/Skeleton3D:thigh.L", "rig/Skeleton3D:thigh.R", "rig/Skeleton3D:toe.1.L", "rig/Skeleton3D:toe.1.R", "rig/Skeleton3D:toe.2.L", "rig/Skeleton3D:toe.2.R", "rig/Skeleton3D:toe.3.L", "rig/Skeleton3D:toe.3.R", "rig/Skeleton3D:toe.4.L", "rig/Skeleton3D:toe.4.R", "rig/Skeleton3D:wing.1.L", "rig/Skeleton3D:wing.1.R", "rig/Skeleton3D:wing.2.L", "rig/Skeleton3D:wing.2.R", "rig/Skeleton3D:wing.3.L", "rig/Skeleton3D:wing.3.R", "rig/Skeleton3D:wing.4.L", "rig/Skeleton3D:wing.4.R", "rig/Skeleton3D:wing.L", "rig/Skeleton3D:wing.R", "rig/Skeleton3D:wing.sub1.1.L", "rig/Skeleton3D:wing.sub1.1.R", "rig/Skeleton3D:wing.sub1.10.L", "rig/Skeleton3D:wing.sub1.10.R", "rig/Skeleton3D:wing.sub1.11.L", "rig/Skeleton3D:wing.sub1.11.R", "rig/Skeleton3D:wing.sub1.2.L", "rig/Skeleton3D:wing.sub1.2.R", "rig/Skeleton3D:wing.sub1.3.L", "rig/Skeleton3D:wing.sub1.3.R", "rig/Skeleton3D:wing.sub1.4.L", "rig/Skeleton3D:wing.sub1.4.R", "rig/Skeleton3D:wing.sub1.5.L", "rig/Skeleton3D:wing.sub1.5.R", "rig/Skeleton3D:wing.sub1.6.L", "rig/Skeleton3D:wing.sub1.6.R", "rig/Skeleton3D:wing.sub1.7.L", "rig/Skeleton3D:wing.sub1.7.R", "rig/Skeleton3D:wing.sub1.8.L", "rig/Skeleton3D:wing.sub1.8.R", "rig/Skeleton3D:wing.sub1.9.L", "rig/Skeleton3D:wing.sub1.9.R", "rig/Skeleton3D:wing.sub2.1.L", "rig/Skeleton3D:wing.sub2.1.R", "rig/Skeleton3D:wing.sub2.2.L", "rig/Skeleton3D:wing.sub2.2.R", "rig/Skeleton3D:wing.sub2.3.L", "rig/Skeleton3D:wing.sub2.3.R", "rig/Skeleton3D:wing.sub2.4.L", "rig/Skeleton3D:wing.sub2.4.R", "rig/Skeleton3D:wing.sub2.5.L", "rig/Skeleton3D:wing.sub2.5.R", "rig/Skeleton3D:wing.sub2.6.L", "rig/Skeleton3D:wing.sub2.6.R", "rig/Skeleton3D:wing.sub2.7.L", "rig/Skeleton3D:wing.sub2.7.R", "rig/Skeleton3D:wing.sub2.8.L", "rig/Skeleton3D:wing.sub2.8.R", "rig/Skeleton3D:wing.sub2.9.L", "rig/Skeleton3D:wing.sub2.9.R", "rig/Skeleton3D:wing.sub3.1.L", "rig/Skeleton3D:wing.sub3.1.R", "rig/Skeleton3D:wing.sub3.2.L", "rig/Skeleton3D:wing.sub3.2.R", "rig/Skeleton3D:wing.sub3.3.L", "rig/Skeleton3D:wing.sub3.3.R", "rig/Skeleton3D:wing.sub3.4.L", "rig/Skeleton3D:wing.sub3.4.R", "rig/Skeleton3D:wing.sub3.5.L", "rig/Skeleton3D:wing.sub3.5.R", "rig/Skeleton3D:wing.sub3.6.L", "rig/Skeleton3D:wing.sub3.6.R", "rig/Skeleton3D:wing.sub3.7.L", "rig/Skeleton3D:wing.sub3.7.R", "rig/Skeleton3D:wing.sub3.8.L", "rig/Skeleton3D:wing.sub3.8.R", "rig/Skeleton3D:wing.sub4.1.L", "rig/Skeleton3D:wing.sub4.1.R", "rig/Skeleton3D:wing.sub4.2.L", "rig/Skeleton3D:wing.sub4.2.R", "rig/Skeleton3D:wing.sub4.3.L", "rig/Skeleton3D:wing.sub4.3.R", "rig/Skeleton3D:wing.sub4.4.L", "rig/Skeleton3D:wing.sub4.4.R", "rig/Skeleton3D:wing.sub4.5.L", "rig/Skeleton3D:wing.sub4.5.R", "rig/Skeleton3D:wing.sub4.6.L", "rig/Skeleton3D:wing.sub4.6.R", "rig/Skeleton3D:wing.sub5.1.L", "rig/Skeleton3D:wing.sub5.1.R", "rig/Skeleton3D:wing.sub5.2.L", "rig/Skeleton3D:wing.sub5.2.R", "rig/Skeleton3D:wing.sub5.3.L", "rig/Skeleton3D:wing.sub5.3.R", "rig/Skeleton3D:wing.sub5.4.L", "rig/Skeleton3D:wing.sub5.4.R", "rig/Skeleton3D:wing.sub5.5.L", "rig/Skeleton3D:wing.sub5.5.R", "rig/Skeleton3D:wing.sub5.6.L", "rig/Skeleton3D:wing.sub5.6.R", "rig/Skeleton3D:wing.sub6.1.L", "rig/Skeleton3D:wing.sub6.1.R", "rig/Skeleton3D:wing.sub6.2.L", "rig/Skeleton3D:wing.sub6.2.R", "rig/Skeleton3D:wing.sub6.3.L", "rig/Skeleton3D:wing.sub6.3.R", "rig/Skeleton3D:wing.sub6.4.L", "rig/Skeleton3D:wing.sub6.4.R", "rig/Skeleton3D:wing.sub6.5.L", "rig/Skeleton3D:wing.sub6.5.R", "rig/Skeleton3D:wing.sub6.6.L", "rig/Skeleton3D:wing.sub6.6.R"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_x0p8c"]
+filter_enabled = true
+filters = ["rig/Skeleton3D:Tgt.haunch.wing.2.1.L", "rig/Skeleton3D:Tgt.haunch.wing.2.1.R", "rig/Skeleton3D:haunch.wing.1.1.L", "rig/Skeleton3D:haunch.wing.1.1.R", "rig/Skeleton3D:haunch.wing.1.2.L", "rig/Skeleton3D:haunch.wing.1.2.R", "rig/Skeleton3D:haunch.wing.1.L", "rig/Skeleton3D:haunch.wing.1.R", "rig/Skeleton3D:haunch.wing.2.1.L", "rig/Skeleton3D:haunch.wing.2.1.R", "rig/Skeleton3D:haunch.wing.2.2.L", "rig/Skeleton3D:haunch.wing.2.2.R", "rig/Skeleton3D:haunch.wing.2.L", "rig/Skeleton3D:haunch.wing.2.R", "rig/Skeleton3D:haunch.wing.3.1.L", "rig/Skeleton3D:haunch.wing.3.1.R", "rig/Skeleton3D:haunch.wing.3.2.L", "rig/Skeleton3D:haunch.wing.3.2.R", "rig/Skeleton3D:haunch.wing.3.L", "rig/Skeleton3D:haunch.wing.3.R", "rig/Skeleton3D:tail.wing.1.L", "rig/Skeleton3D:tail.wing.1.R", "rig/Skeleton3D:tail.wing.2.L", "rig/Skeleton3D:tail.wing.2.R", "rig/Skeleton3D:tail.wing.3.L", "rig/Skeleton3D:tail.wing.3.R", "rig/Skeleton3D:tail.wing.4.L", "rig/Skeleton3D:tail.wing.4.R", "rig/Skeleton3D:tail.wing.5.L", "rig/Skeleton3D:tail.wing.5.R"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gvrqa"]
+animation = &"po_eye_big"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hqwia"]
+animation = &"po_eye_medium"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_npd0o"]
+animation = &"po_eye_narrow"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2mv4b"]
+animation = &"po_eye_small"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v5fnx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u7evm"]
+xfade_time = 0.6
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w3xi2"]
+xfade_time = 0.6
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ocxhn"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_050bj"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m2i4j"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0neh7"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0snye"]
+states/Start/position = Vector2(174.66667, 152.34566)
+states/po_eye_big/node = SubResource("AnimationNodeAnimation_gvrqa")
+states/po_eye_big/position = Vector2(610.5851, 247.33365)
+states/po_eye_medium/node = SubResource("AnimationNodeAnimation_hqwia")
+states/po_eye_medium/position = Vector2(360.76367, 151.73654)
+states/po_eye_narrow/node = SubResource("AnimationNodeAnimation_npd0o")
+states/po_eye_narrow/position = Vector2(361.35175, -41.33297)
+states/po_eye_small/node = SubResource("AnimationNodeAnimation_2mv4b")
+states/po_eye_small/position = Vector2(609.9792, 66.666664)
+transitions = ["Start", "po_eye_medium", SubResource("AnimationNodeStateMachineTransition_v5fnx"), "po_eye_small", "po_eye_big", SubResource("AnimationNodeStateMachineTransition_u7evm"), "po_eye_big", "po_eye_small", SubResource("AnimationNodeStateMachineTransition_w3xi2"), "po_eye_small", "po_eye_medium", SubResource("AnimationNodeStateMachineTransition_ocxhn"), "po_eye_medium", "po_eye_small", SubResource("AnimationNodeStateMachineTransition_050bj"), "po_eye_medium", "po_eye_big", SubResource("AnimationNodeStateMachineTransition_m2i4j"), "po_eye_big", "po_eye_medium", SubResource("AnimationNodeStateMachineTransition_0neh7")]
+graph_offset = Vector2(130, 45)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ggcd"]
+animation = &"po_mouth_close"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_irg8a"]
+animation = &"po_rest"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rk8ap"]
+animation = &"tr_glide_celebrate"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xcex3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_lho5m"]
+states/po_mouth_close/node = SubResource("AnimationNodeAnimation_6ggcd")
+states/po_mouth_close/position = Vector2(380.66666, 100.22222)
+states/po_rest/node = SubResource("AnimationNodeAnimation_irg8a")
+states/po_rest/position = Vector2(573, 99.81481)
+states/tr_glide_celebrate/node = SubResource("AnimationNodeAnimation_rk8ap")
+states/tr_glide_celebrate/position = Vector2(385.33334, 213.33333)
+transitions = ["Start", "po_mouth_close", SubResource("AnimationNodeStateMachineTransition_xcex3")]
+graph_offset = Vector2(3, 47)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m2uv8"]
+animation = &"lo_shake"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_guncu"]
+states/lo_shake/node = SubResource("AnimationNodeAnimation_m2uv8")
+states/lo_shake/position = Vector2(366, 100.667)
+graph_offset = Vector2(-21, -8)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v5fnx"]
+animation = &"lo_flap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0snye"]
+animation = &"lo_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_32v1l"]
+animation = &"po_crisis"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_guncu"]
+animation = &"po_dive"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x0p8c"]
+animation = &"po_glide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3m5lo"]
+animation = &"po_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aags6"]
+animation = &"po_rest"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l7xes"]
+animation = &"po_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_34673"]
+animation = &"tr_check_tail_glide"
+use_custom_timeline = true
+timeline_length = 1.7
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cs5re"]
+animation = &"tr_glide_celebrate"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lho5m"]
+animation = &"tr_glide_fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kx0q8"]
+animation = &"tr_glide_slap_glide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cs1p4"]
+animation = &"tr_hit_glide"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0snye"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m2uv8"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_guncu"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x0p8c"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kbe3x"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hqwia"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_npd0o"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2mv4b"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gvrqa"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sfgdl"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3m5lo"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l7xes"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3aiq7"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d3pal"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kfyjk"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_242pc"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hxth6"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ub7h"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_34673"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jqjpm"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_chqtv"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dlm0k"]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bq38y"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gp4rp"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pi1yn"]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iemtg"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_35pqc"]
+xfade_time = 0.3
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vrued"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mrcrm"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7gj5n"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dvaiy"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_51t45"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iae3u"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wqgng"]
+xfade_time = 0.5
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v5fnx"]
+states/Start/position = Vector2(-12, 64.60626)
+states/lo_flap/node = SubResource("AnimationNodeAnimation_v5fnx")
+states/lo_flap/position = Vector2(502.35284, -112.61519)
+states/lo_up/node = SubResource("AnimationNodeAnimation_0snye")
+states/lo_up/position = Vector2(325.6953, 210.333)
+states/po_crisis/node = SubResource("AnimationNodeAnimation_32v1l")
+states/po_crisis/position = Vector2(501.9368, -32.490555)
+states/po_dive/node = SubResource("AnimationNodeAnimation_guncu")
+states/po_dive/position = Vector2(501.111, 290.334)
+states/po_glide/node = SubResource("AnimationNodeAnimation_x0p8c")
+states/po_glide/position = Vector2(325.65686, 64.509796)
+states/po_left/node = SubResource("AnimationNodeAnimation_3m5lo")
+states/po_left/position = Vector2(672.333, 63.2592)
+states/po_rest/node = SubResource("AnimationNodeAnimation_aags6")
+states/po_rest/position = Vector2(639.6666, -49.934998)
+states/po_right/node = SubResource("AnimationNodeAnimation_l7xes")
+states/po_right/position = Vector2(673.074, 218)
+states/tr_check_tail_glide/node = SubResource("AnimationNodeAnimation_34673")
+states/tr_check_tail_glide/position = Vector2(326.585, -101.935)
+states/tr_glide_celebrate/node = SubResource("AnimationNodeAnimation_cs5re")
+states/tr_glide_celebrate/position = Vector2(900.4897, 189.39833)
+states/tr_glide_fall/node = SubResource("AnimationNodeAnimation_lho5m")
+states/tr_glide_fall/position = Vector2(174.79556, 288.87955)
+states/tr_glide_slap_glide/node = SubResource("AnimationNodeAnimation_kx0q8")
+states/tr_glide_slap_glide/position = Vector2(154.33334, -32.601665)
+states/tr_hit_glide/node = SubResource("AnimationNodeAnimation_cs1p4")
+states/tr_hit_glide/position = Vector2(174.66666, 132.39833)
+transitions = ["Start", "po_glide", SubResource("AnimationNodeStateMachineTransition_0snye"), "po_glide", "lo_up", SubResource("AnimationNodeStateMachineTransition_m2uv8"), "lo_up", "po_dive", SubResource("AnimationNodeStateMachineTransition_guncu"), "po_glide", "po_dive", SubResource("AnimationNodeStateMachineTransition_x0p8c"), "lo_up", "po_glide", SubResource("AnimationNodeStateMachineTransition_kbe3x"), "po_dive", "po_glide", SubResource("AnimationNodeStateMachineTransition_hqwia"), "po_dive", "lo_up", SubResource("AnimationNodeStateMachineTransition_npd0o"), "po_glide", "po_left", SubResource("AnimationNodeStateMachineTransition_2mv4b"), "po_left", "po_glide", SubResource("AnimationNodeStateMachineTransition_gvrqa"), "po_left", "po_right", SubResource("AnimationNodeStateMachineTransition_sfgdl"), "po_right", "po_left", SubResource("AnimationNodeStateMachineTransition_3m5lo"), "po_right", "po_dive", SubResource("AnimationNodeStateMachineTransition_l7xes"), "po_dive", "po_right", SubResource("AnimationNodeStateMachineTransition_3aiq7"), "po_glide", "po_right", SubResource("AnimationNodeStateMachineTransition_d3pal"), "po_right", "po_glide", SubResource("AnimationNodeStateMachineTransition_kfyjk"), "po_left", "po_dive", SubResource("AnimationNodeStateMachineTransition_242pc"), "po_dive", "po_left", SubResource("AnimationNodeStateMachineTransition_hxth6"), "lo_up", "po_left", SubResource("AnimationNodeStateMachineTransition_1ub7h"), "po_left", "lo_up", SubResource("AnimationNodeStateMachineTransition_34673"), "po_glide", "tr_check_tail_glide", SubResource("AnimationNodeStateMachineTransition_jqjpm"), "tr_check_tail_glide", "po_glide", SubResource("AnimationNodeStateMachineTransition_chqtv"), "po_glide", "tr_hit_glide", SubResource("AnimationNodeStateMachineTransition_dlm0k"), "tr_hit_glide", "po_glide", SubResource("AnimationNodeStateMachineTransition_bq38y"), "tr_hit_glide", "lo_up", SubResource("AnimationNodeStateMachineTransition_gp4rp"), "lo_up", "tr_hit_glide", SubResource("AnimationNodeStateMachineTransition_pi1yn"), "po_glide", "tr_glide_slap_glide", SubResource("AnimationNodeStateMachineTransition_iemtg"), "tr_glide_slap_glide", "po_glide", SubResource("AnimationNodeStateMachineTransition_35pqc"), "po_glide", "po_crisis", SubResource("AnimationNodeStateMachineTransition_vrued"), "po_crisis", "po_glide", SubResource("AnimationNodeStateMachineTransition_mrcrm"), "po_dive", "po_crisis", SubResource("AnimationNodeStateMachineTransition_7gj5n"), "po_crisis", "po_dive", SubResource("AnimationNodeStateMachineTransition_dvaiy"), "lo_up", "tr_glide_fall", SubResource("AnimationNodeStateMachineTransition_51t45"), "po_glide", "tr_glide_fall", SubResource("AnimationNodeStateMachineTransition_iae3u"), "tr_glide_fall", "po_dive", SubResource("AnimationNodeStateMachineTransition_wqgng")]
+graph_offset = Vector2(-64, -78.935)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_242pc"]
+animation = &"po_glide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hxth6"]
+animation = &"po_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ub7h"]
+animation = &"po_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d3pal"]
+animation = &"po_tail_wing_close"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kx0q8"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_32v1l"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ggcd"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rk8ap"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_osibn"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0dq0a"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cs1p4"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lho5m"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cs5re"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aags6"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_irg8a"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y3r4j"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q4jew"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_m2uv8"]
+states/Start/position = Vector2(199.333, 88.7654)
+states/po_glide/node = SubResource("AnimationNodeAnimation_242pc")
+states/po_glide/position = Vector2(334, 88.0535)
+states/po_left/node = SubResource("AnimationNodeAnimation_hxth6")
+states/po_left/position = Vector2(570.667, 86.9259)
+states/po_right/node = SubResource("AnimationNodeAnimation_1ub7h")
+states/po_right/position = Vector2(569.136, 240.481)
+states/po_tail_wing_close/node = SubResource("AnimationNodeAnimation_d3pal")
+states/po_tail_wing_close/position = Vector2(334.185, 240.172)
+transitions = ["po_glide", "po_left", SubResource("AnimationNodeStateMachineTransition_kx0q8"), "po_left", "po_glide", SubResource("AnimationNodeStateMachineTransition_32v1l"), "po_left", "po_right", SubResource("AnimationNodeStateMachineTransition_6ggcd"), "po_right", "po_left", SubResource("AnimationNodeStateMachineTransition_rk8ap"), "po_glide", "po_right", SubResource("AnimationNodeStateMachineTransition_osibn"), "po_right", "po_glide", SubResource("AnimationNodeStateMachineTransition_0dq0a"), "Start", "po_glide", SubResource("AnimationNodeStateMachineTransition_cs1p4"), "po_tail_wing_close", "po_glide", SubResource("AnimationNodeStateMachineTransition_lho5m"), "po_glide", "po_tail_wing_close", SubResource("AnimationNodeStateMachineTransition_cs5re"), "po_tail_wing_close", "po_right", SubResource("AnimationNodeStateMachineTransition_aags6"), "po_right", "po_tail_wing_close", SubResource("AnimationNodeStateMachineTransition_irg8a"), "po_tail_wing_close", "po_left", SubResource("AnimationNodeStateMachineTransition_y3r4j"), "po_left", "po_tail_wing_close", SubResource("AnimationNodeStateMachineTransition_q4jew")]
+graph_offset = Vector2(99, -52)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kfyjk"]
+animation = &"po_default"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sfgdl"]
+animation = &"po_ear_back"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kbe3x"]
+animation = &"po_eyelid_close_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3aiq7"]
+animation = &"po_eyelid_close_up"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7i38g"]
+graph_offset = Vector2(-477.4766, 6.4251914)
+nodes/output/position = Vector2(413.33334, 266.66666)
+nodes/add_ear/node = SubResource("AnimationNodeAdd2_m2uv8")
+nodes/add_ear/position = Vector2(253.33333, 253.33333)
+nodes/add_eyelid/node = SubResource("AnimationNodeAdd2_v5fnx")
+nodes/add_eyelid/position = Vector2(-66.666664, 53.333332)
+nodes/add_eyelid_down/node = SubResource("AnimationNodeAdd2_hqwia")
+nodes/add_eyelid_down/position = Vector2(-440, 306.667)
+nodes/add_eyelid_up/node = SubResource("AnimationNodeAdd2_guncu")
+nodes/add_eyelid_up/position = Vector2(-653.333, 200)
+nodes/add_shake/node = SubResource("AnimationNodeAdd2_0snye")
+nodes/add_shake/position = Vector2(93.333336, 173.33333)
+nodes/add_wing_main/node = SubResource("AnimationNodeAdd2_kbe3x")
+nodes/add_wing_main/position = Vector2(-653.333, -240)
+nodes/add_wing_tail/node = SubResource("AnimationNodeAdd2_x0p8c")
+nodes/add_wing_tail/position = Vector2(-426.667, -160)
+nodes/layer_eye_shape/node = SubResource("AnimationNodeStateMachine_0snye")
+nodes/layer_eye_shape/position = Vector2(-893.333, -240)
+nodes/layer_shake/node = SubResource("AnimationNodeStateMachine_guncu")
+nodes/layer_shake/position = Vector2(-266.667, 373.333)
+nodes/layer_wing_main/node = SubResource("AnimationNodeStateMachine_v5fnx")
+nodes/layer_wing_main/position = Vector2(-893.333, -53.3333)
+nodes/layer_wing_tail/node = SubResource("AnimationNodeStateMachine_m2uv8")
+nodes/layer_wing_tail/position = Vector2(-653.333, 13.3333)
+nodes/po_default/node = SubResource("AnimationNodeAnimation_kfyjk")
+nodes/po_default/position = Vector2(-893.333, 133.333)
+nodes/po_ear_back/node = SubResource("AnimationNodeAnimation_sfgdl")
+nodes/po_ear_back/position = Vector2(93.333336, 426.66666)
+nodes/po_eyelid_close_down/node = SubResource("AnimationNodeAnimation_kbe3x")
+nodes/po_eyelid_close_down/position = Vector2(-893.333, 480)
+nodes/po_eyelid_close_up/node = SubResource("AnimationNodeAnimation_3aiq7")
+nodes/po_eyelid_close_up/position = Vector2(-893.333, 306.667)
+nodes/layer_mouth/node = SubResource("AnimationNodeStateMachine_lho5m")
+nodes/layer_mouth/position = Vector2(-453.33334, 106.666664)
+nodes/add_mouth/node = SubResource("AnimationNodeAdd2_npd0o")
+nodes/add_mouth/position = Vector2(-226.66667, -80)
+node_connections = [&"output", 0, &"add_ear", &"add_ear", 0, &"add_shake", &"add_ear", 1, &"po_ear_back", &"add_eyelid", 0, &"add_mouth", &"add_eyelid", 1, &"add_eyelid_down", &"add_eyelid_down", 0, &"add_eyelid_up", &"add_eyelid_down", 1, &"po_eyelid_close_down", &"add_eyelid_up", 0, &"po_default", &"add_eyelid_up", 1, &"po_eyelid_close_up", &"add_shake", 0, &"add_eyelid", &"add_shake", 1, &"layer_shake", &"add_wing_main", 0, &"layer_eye_shape", &"add_wing_main", 1, &"layer_wing_main", &"add_wing_tail", 0, &"add_wing_main", &"add_wing_tail", 1, &"layer_wing_tail", &"add_mouth", 0, &"add_wing_tail", &"add_mouth", 1, &"layer_mouth"]
+
+[node name="ToothlessRoot" type="Node3D" unique_id=1390210266]
+
+[node name="Model" type="Node3D" parent="." unique_id=1731741476]
+
+[node name="Toothless" parent="Model" unique_id=66123730 instance=ExtResource("1_7i38g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33, -1.3, 0)
+
+[node name="Sockets" type="Node3D" parent="." unique_id=1818966802]
+
+[node name="Socket_Back_Mount" type="BoneAttachment3D" parent="Sockets" unique_id=935605801]
+transform = Transform3D(-8.7447045e-09, 0.9999034, 0.013896998, -6.2918957e-07, -0.013896998, 0.9999033, 1, 1.2434498e-14, 6.292502e-07, 0.5919, 0.029872417, 3.4791953e-14)
+bone_name = "neck"
+bone_idx = 62
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Toothless/rig/Skeleton3D")
+
+[node name="Socket_Back" type="Marker3D" parent="Sockets/Socket_Back_Mount" unique_id=816357536]
+transform = Transform3D(-6.1030403e-10, 4.370713e-08, 1, 0.99990255, 0.013962129, 0, -0.013962129, 0.99990255, -4.371139e-08, 0, -0.142, 0.62)
+
+[node name="Socket_Breath_Mount" type="BoneAttachment3D" parent="Sockets" unique_id=1139392235]
+transform = Transform3D(-6.02143e-07, 0.99066293, 0.13633312, -4.3754644e-06, -0.1363331, 0.99066293, 1, 1.10134124e-13, 4.416703e-06, 1.3319602, -0.017941713, -7.179031e-14)
+bone_name = "jaw.upper"
+bone_idx = 64
+use_external_skeleton = true
+external_skeleton = NodePath("../../Model/Toothless/rig/Skeleton3D")
+
+[node name="Socket_Breath" type="Marker3D" parent="Sockets/Socket_Breath_Mount" unique_id=1431957153]
+transform = Transform3D(-6.109957e-10, 4.3707132e-08, 1, 0.99990255, 0.013962045, -2.842171e-13, -0.013962045, 0.99990255, -4.371168e-08, 5.201475e-07, 0.33923507, -0.1177683)
+
+[node name="CollisionShapes" type="Node3D" parent="." unique_id=672085980]
+
+[node name="CollisionShape_Wing" type="CollisionShape3D" parent="CollisionShapes" unique_id=743220511]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.536, 0.395, 0)
+shape = SubResource("CapsuleShape3D_acvhs")
+
+[node name="CollisionShape_Head" type="CollisionShape3D" parent="CollisionShapes" unique_id=634379022]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0.985505, -0.037, 0)
+shape = SubResource("CapsuleShape3D_cu6cf")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=374983454]
+root_node = NodePath("../Model/Toothless")
+tree_root = SubResource("AnimationNodeBlendTree_7i38g")
+anim_player = NodePath("../Model/Toothless/AnimationPlayer")
+parameters/add_ear/add_amount = 0.8
+parameters/add_eyelid/add_amount = 1.0
+parameters/add_eyelid_down/add_amount = 0.3
+parameters/add_eyelid_up/add_amount = 0.12
+parameters/add_shake/add_amount = 1.0
+parameters/add_wing_main/add_amount = 1.0
+parameters/add_wing_tail/add_amount = 1.0
+parameters/add_mouth/add_amount = 1.0
+script = ExtResource("2_acvhs")

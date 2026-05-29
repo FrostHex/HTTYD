@@ -87,7 +87,7 @@ void Control_Main::_ready()
 
 void Control_Main::Switch_Scene(const String &scene_name)
 {
-    Ref<PackedScene> scene = ResourceLoader::get_singleton()->load("res://Scenes/" + scene_name + ".tscn");
+    Ref<PackedScene> scene = ResourceLoader::get_singleton()->load("res://Tscn/Scenes/" + scene_name + ".tscn");
     if (scene.is_valid()) 
     {
         Node *parent = get_parent();
@@ -208,7 +208,7 @@ void Control_Main::AttachSunshineClouds(const String &scene_name, bool attach)
 
     if (clouds_node) return;
 
-    Ref<PackedScene> clouds_scene = ResourceLoader::get_singleton()->load("res://Scenes/SunshineClouds.tscn");
+    Ref<PackedScene> clouds_scene = ResourceLoader::get_singleton()->load("res://Tscn/SunshineClouds.tscn");
     if (!clouds_scene.is_valid()) return;
 
     clouds_node = clouds_scene->instantiate();

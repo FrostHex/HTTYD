@@ -64,9 +64,9 @@ folder_colors={
 "res://Environment/": "teal",
 "res://Media/": "green",
 "res://Saves/": "orange",
-"res://Scenes/": "red",
 "res://Scripts/": "purple",
-"res://Scripts/build/": "gray"
+"res://Scripts/build/": "gray",
+"res://Tscn/": "red"
 }
 
 [filesystem]

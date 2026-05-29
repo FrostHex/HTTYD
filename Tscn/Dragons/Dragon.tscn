@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://drg1ol84t4ys1"]
+
+[ext_resource type="VideoStream" uid="uid://crihxuc2sps28" path="res://Media/Video/Test Drive.ogv" id="2_5sd71"]
+[ext_resource type="PackedScene" uid="uid://bqr0q0kq72smn" path="res://Tscn/Dragons/ToothlessRoot.tscn" id="2_ksog6"]
+
+[node name="Dragon" type="RigidBody3D" unique_id=446298809]
+collision_layer = 2
+collision_mask = 4
+linear_velocity = Vector3(0, 0, 100)
+
+[node name="SpeciesSlot" type="Node3D" parent="." unique_id=1951715834]
+
+[node name="ToothlessRoot" parent="SpeciesSlot" unique_id=1390210266 instance=ExtResource("2_ksog6")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=423210690]
+offset_left = 784.0
+offset_top = -118.0
+offset_right = 1296.0
+offset_bottom = 394.0
+scale = Vector2(0.725, 0.725)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=229024966]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera_Sub" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=874872163]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.72889, 1.79735, 0)
+current = true
+far = 200000.0
+
+[node name="Info" type="Label" parent="SubViewportContainer/SubViewport" unique_id=1224675957]
+offset_left = 6.89655
+offset_top = 166.897
+offset_right = 46.8965
+offset_bottom = 189.897
+scale = Vector2(1.43606, 1.43606)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewportContainer/SubViewport" unique_id=2025574727]
+offset_top = 359.0
+offset_right = 480.0
+offset_bottom = 587.0
+scale = Vector2(0.75, 0.75)
+stream = ExtResource("2_5sd71")
+volume_db = -80.0
+
+[node name="Dragon_Animator" type="Dragon_Animator" parent="." unique_id=1808680310]
