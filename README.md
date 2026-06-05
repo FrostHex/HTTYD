@@ -143,6 +143,7 @@ Plugins others than Godot-cpp are not imported as submodules, so they need to be
 </div>
 
 - Special thanks to **Jiacheng Shi** for extensive testing, bug reporting, and valuable feedback on this project.
+- Special thanks to **ᚹᚩᚱᚱᚩᚱᛒᚢᚠᚠᚨᛚᚩ** for his invaluable work in translating English into Runic and for creating the HTTYD English–Runic dictionary.
 
 <div align="center">
 

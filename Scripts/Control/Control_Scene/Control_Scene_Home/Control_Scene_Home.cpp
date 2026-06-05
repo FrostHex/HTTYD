@@ -6,15 +6,14 @@
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/classes/file_access.hpp>
+#include <godot_cpp/classes/font_file.hpp>
 #include <godot_cpp/classes/json.hpp>
 #include <godot_cpp/classes/label3d.hpp>
 #include <godot_cpp/classes/node3d.hpp>
 #include <godot_cpp/classes/scene_tree.hpp>
-#include <godot_cpp/classes/system_font.hpp>
 #include <godot_cpp/classes/window.hpp>
 #include <godot_cpp/classes/xr_server.hpp>
 #include <godot_cpp/classes/xr_interface.hpp>
-#include <godot_cpp/variant/packed_string_array.hpp>
 
 using namespace godot;
 
@@ -110,21 +109,42 @@ void Control_Scene_Home::_ready()
     }
 
     String json_file = "res://Media/Text/English.json";
-    if (settings && settings->GetValLanguage() == 1)
+    if (settings)
     {
-        json_file = "res://Media/Text/Chinese.json";
+        switch (settings->GetValLanguage())
+        {
+            case LANGUAGE_CHINESE:
+                json_file = "res://Media/Text/Chinese.json";
+                break;
+            case LANGUAGE_RUNIC:
+                json_file = "res://Media/Text/Runic.json";
+                break;
+            default:
+                break;
+        }
     }
 
-    // If Chinese, apply a system font fallback stack (same as tutorial).
-    if (settings && home_label && settings->GetValLanguage() == 1)
+    if (settings && home_label)
     {
-        Ref<SystemFont> zh_font;
-        zh_font.instantiate();
-        PackedStringArray font_names;
-        font_names.push_back("SimHei");
-        font_names.push_back("Microsoft YaHei");
-        zh_font->set_font_names(font_names);
-        home_label->set_font(zh_font);
+        String font_path = "res://Media/Font/Arial_Bold.ttf";
+        switch (settings->GetValLanguage())
+        {
+            case LANGUAGE_CHINESE:
+                font_path = "res://Media/Font/Microsoft_YaHei.ttf";
+                break;
+            case LANGUAGE_RUNIC:
+                font_path = "res://Media/Font/Rune.otf";
+                break;
+            default:
+                break;
+        }
+
+        Ref<FontFile> label_font;
+        label_font.instantiate();
+        if (label_font.is_valid() && label_font->load_dynamic_font(font_path) == OK)
+            home_label->set_font(label_font);
+        else
+            UtilityFunctions::printerr("Control_Scene_Home: Failed to load font: ", font_path);
     }
 
     Ref<FileAccess> f = FileAccess::open(json_file, FileAccess::READ);

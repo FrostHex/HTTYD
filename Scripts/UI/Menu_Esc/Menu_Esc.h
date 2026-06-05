@@ -21,6 +21,7 @@
 // =============================================================================
 
 #include "Cards.h"
+#include "Settings.h"
 
 #include <godot_cpp/classes/control.hpp>
 #include <godot_cpp/classes/input_event.hpp>
@@ -38,11 +39,13 @@ namespace godot
 
         // Must be called once before show() / hide().
         //   ui_root    : cards will be parented under this node
+        //   settings   : required for language-aware font selection
         //   json_fn    : localization callback  (key, fallback) -> String
         //   on_return  : invoked when the player selects "Return to Home"
         //   on_continue: invoked when the player selects "Continue"
         void initialize(
             Control*            ui_root,
+            Settings*           settings,
             std::function<String(const String&, const String&)> json_fn,
             VoidCallback        on_return,
             VoidCallback        on_continue);
@@ -61,7 +64,8 @@ namespace godot
         Control*     ui_root_ref  = nullptr;
         bool         visible_flag = false;
 
-        Cards     cards;
+        Settings*    settings_ref = nullptr;
+        Cards        cards;
 
         std::function<String(const String&, const String&)> get_json_text;
         VoidCallback cb_return;

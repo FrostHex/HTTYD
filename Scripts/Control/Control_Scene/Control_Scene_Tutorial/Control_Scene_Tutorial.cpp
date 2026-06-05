@@ -8,12 +8,10 @@
 #include <godot_cpp/classes/button.hpp>
 #include <godot_cpp/classes/window.hpp>
 #include <godot_cpp/classes/json.hpp>
+#include <godot_cpp/classes/font_file.hpp>
 #include <godot_cpp/classes/label3d.hpp>
 #include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/core/class_db.hpp>
-// font-related headers
-#include <godot_cpp/classes/system_font.hpp>
-#include <godot_cpp/variant/packed_string_array.hpp>
 #include <godot_cpp/classes/xr_controller3d.hpp>
 
 using namespace godot;
@@ -63,26 +61,39 @@ void Control_Scene_Tutorial::_ready()
 	if (control_main) 
 	{
 		int lang = Settings::GetSingleton()->GetValLanguage();
-		if (lang == 1) 
+		switch (lang)
 		{
-			json_file = "res://Media/Text/Chinese.json";
+			case LANGUAGE_CHINESE:
+				json_file = "res://Media/Text/Chinese.json";
+				break;
+			case LANGUAGE_RUNIC:
+				json_file = "res://Media/Text/Runic.json";
+				break;
+			default:
+				break;
 		}
 	}
 
-	// if the current language is Chinese, set tutorial text font to a system sans-serif Chinese fallback stack.
 	if (control_main && tutorial_label) {
-		if (Settings::GetSingleton()->GetValLanguage() == 1) 
+		String font_path = "res://Media/Font/Arial_Bold.ttf";
+		switch (Settings::GetSingleton()->GetValLanguage())
 		{
-			Ref<SystemFont> zh_font;
-			zh_font.instantiate();
-			PackedStringArray font_names;
-			// common Chinese font priority on Windows.
-			font_names.push_back("SimHei");
-			font_names.push_back("Microsoft YaHei");
-			zh_font->set_font_names(font_names);
-			// apply to the 3D label.
-			tutorial_label->set_font(zh_font);
+			case LANGUAGE_CHINESE:
+				font_path = "res://Media/Font/Microsoft_YaHei.ttf";
+				break;
+			case LANGUAGE_RUNIC:
+				font_path = "res://Media/Font/Rune.otf";
+				break;
+			default:
+				break;
 		}
+
+		Ref<FontFile> tutorial_font;
+		tutorial_font.instantiate();
+		if (tutorial_font.is_valid() && tutorial_font->load_dynamic_font(font_path) == OK)
+			tutorial_label->set_font(tutorial_font);
+		else
+			UtilityFunctions::printerr("Control_Scene_Tutorial: Failed to load font: ", font_path);
 	}
 
 	// load the tutorial array using JSON.

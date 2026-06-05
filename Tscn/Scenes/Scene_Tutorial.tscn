@@ -72,8 +72,8 @@ shader_parameter/cirrus_absorption = 2.0
 shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.59472746, 0.59472746)
-shader_parameter/cirrus_position2 = Vector2(0.59472746, 0.59472746)
+shader_parameter/cirrus_position1 = Vector2(0.7433348, 0.7433348)
+shader_parameter/cirrus_position2 = Vector2(0.7433348, 0.7433348)
 shader_parameter/cirrus_texture = ExtResource("2_yba8m")
 shader_parameter/cumulus_visible = true
 shader_parameter/cumulus_intensity = 0.6
@@ -83,7 +83,7 @@ shader_parameter/cumulus_absorption = 2.0
 shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(2.9735768, 2.9735768)
+shader_parameter/cumulus_position = Vector2(13.738967, 13.738967)
 shader_parameter/cumulus_texture = ExtResource("3_08ls4")
 shader_parameter/cumulus_partial_mie_phase = Vector3(0.957564, 1.042436, 0.412)
 shader_parameter/cumulus_mie_intensity = 1.0
@@ -127,7 +127,7 @@ adjustment_brightness = 0.9
 [sub_resource type="QuadMesh" id="QuadMesh_paper"]
 size = Vector2(4, 3)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_215f0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_73r7a"]
 render_priority = 0
 shader = ExtResource("14_73r7a")
 shader_parameter/albedo = Color(1, 1, 1, 1)
@@ -239,7 +239,7 @@ transform = Transform3D(-8.742278e-07, 0, 20, 0, 20, 0, -20, 0, -8.742278e-07, 1
 
 [node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="Cliff" unique_id=964579830]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
-material_override = SubResource("ShaderMaterial_215f0")
+material_override = SubResource("ShaderMaterial_73r7a")
 multimesh = SubResource("MultiMesh_73r7a")
 script = ExtResource("17_nxuml")
 sgt_radius = 10.0

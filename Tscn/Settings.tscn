@@ -4,6 +4,6 @@
 FreeCamera = false
 AutoRoll = true
 AutoSaveState = false
-Badge = 1
+Badge = 3
 
 [node name="SaveManager" type="SaveManager" parent="." unique_id=371263609]

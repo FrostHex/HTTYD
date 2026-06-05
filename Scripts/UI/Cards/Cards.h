@@ -114,14 +114,14 @@ namespace godot
 
         // Type badge (top-right corner)
         static constexpr float TYPE_LABEL_X         = 148.f;
-        static constexpr float TYPE_LABEL_Y         = 9.f;
+        static constexpr float TYPE_LABEL_Y         = 11.f;
         static constexpr float TYPE_LABEL_W         = 22.f;
         static constexpr float TYPE_LABEL_H         = 22.f;
         static constexpr int   TYPE_LABEL_FONT_SIZE = 18;
 
         // Title region
         static constexpr float TITLE_X              = 40.f;
-        static constexpr float TITLE_Y              = 11.f;
+        static constexpr float TITLE_Y              = 10.f;
         static constexpr float TITLE_W_MARGIN       = 79.f;     // Width = CARD_WIDTH - margin
         static constexpr float TITLE_H              = 23.f;
         static constexpr int   TITLE_FONT_SIZE      = 14;

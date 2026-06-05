@@ -512,9 +512,18 @@ String Menu_Home::_get_json_text(const String& key, const String& fallback)
         cached_lang = lang;
         cached_dict = Dictionary();   // clear stale cache
 
-        String json_file = (lang == 1)
-            ? "res://Media/Text/Chinese.json"
-            : "res://Media/Text/English.json";
+        String json_file = "res://Media/Text/English.json";
+        switch (lang)
+        {
+            case LANGUAGE_CHINESE:
+                json_file = "res://Media/Text/Chinese.json";
+                break;
+            case LANGUAGE_RUNIC:
+                json_file = "res://Media/Text/Runic.json";
+                break;
+            default:
+                break;
+        }
 
         Ref<FileAccess> f = FileAccess::open(json_file, FileAccess::READ);
         if (f.is_valid())

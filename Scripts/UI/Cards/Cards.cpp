@@ -12,10 +12,10 @@
 #include "Settings.h"
 
 #include <godot_cpp/classes/engine.hpp>
+#include <godot_cpp/classes/font_file.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
 #include <godot_cpp/classes/texture2d.hpp>
 #include <godot_cpp/classes/style_box_flat.hpp>
-#include <godot_cpp/classes/system_font.hpp>
 #include <godot_cpp/classes/input_event_mouse_button.hpp>
 #include <godot_cpp/classes/input_event_mouse_motion.hpp>
 #include <godot_cpp/variant/packed_string_array.hpp>
@@ -23,6 +23,72 @@
 #include <cmath>
 
 using namespace godot;
+
+namespace
+{
+    // Font cache: keyed by language, filled once and reused
+    Ref<FontFile> lang_font_cache[3]; // LANGUAGE_ENGLISH=0, LANGUAGE_CHINESE=1, LANGUAGE_RUNIC=2
+
+    Ref<FontFile> arial_bold_font_cache;
+
+    Ref<FontFile> load_language_font(int lang)
+    {
+        if (lang < 0 || lang >= 3)
+        {
+            UtilityFunctions::printerr("Cards: invalid language index: ", lang);
+            return Ref<FontFile>();
+        }
+
+        // Return cached font if already loaded with MSDF configured
+        if (lang_font_cache[lang].is_valid())
+            return lang_font_cache[lang];
+
+        String font_path;
+        switch (lang)
+        {
+            case LANGUAGE_CHINESE:
+                font_path = "res://Media/Font/Microsoft_YaHei.ttf";
+                break;
+            case LANGUAGE_RUNIC:
+                font_path = "res://Media/Font/Rune.otf";
+                break;
+            default:
+                font_path = "res://Media/Font/Arial_Bold.ttf";
+                break;
+        }
+
+        Ref<FontFile> font;
+        font.instantiate();
+        if (font.is_valid() && font->load_dynamic_font(font_path) == OK)
+        {
+            font->set_multichannel_signed_distance_field(true);
+            font->set_msdf_pixel_range(14);
+            lang_font_cache[lang] = font;
+            return font;
+        }
+
+        UtilityFunctions::printerr("Cards: Failed to load font: ", font_path);
+        return Ref<FontFile>();
+    }
+
+    Ref<FontFile> load_arial_bold_font()
+    {
+        if (arial_bold_font_cache.is_valid())
+            return arial_bold_font_cache;
+
+        Ref<FontFile> font;
+        font.instantiate();
+        if (font->load_dynamic_font("res://Media/Font/Arial_Bold.ttf") == OK)
+        {
+            font->set_multichannel_signed_distance_field(true);
+            font->set_msdf_pixel_range(14);
+            arial_bold_font_cache = font;
+            return font;
+        }
+        UtilityFunctions::printerr("Cards: Failed to load Arial_Bold.ttf");
+        return Ref<FontFile>();
+    }
+}
 
 // =============================================================================
 // init / set_host
@@ -143,7 +209,7 @@ void Cards::layout()
         float y_offset = FAN_RADIUS * (1.f - Math::cos(angle_rad));
 
         Vector2 base_pos(
-            center_x + x_offset - CARD_WIDTH * 0.5f,   // ← 加上 center_x 实现水平居中
+            center_x + x_offset - CARD_WIDTH * 0.5f,   // 🡄 加上 center_x 实现水平居中
             -300.f + y_offset);
 
         float   base_rot   = angle_deg;
@@ -431,7 +497,14 @@ CardNode Cards::_create_card(const CardData& data, int index)
     title->set_name("TitleLabel");
     title->set_text(data.display_name);
     title->set_horizontal_alignment(HORIZONTAL_ALIGNMENT_CENTER);
+    title->set_vertical_alignment(VERTICAL_ALIGNMENT_CENTER);
     title->set_text_overrun_behavior(TextServer::OVERRUN_NO_TRIMMING);
+    if (settings_ref)
+    {
+        Ref<FontFile> title_font = load_language_font(settings_ref->GetValLanguage());
+        if (title_font.is_valid())
+            title->add_theme_font_override("font", title_font);
+    }
     title->add_theme_font_size_override("font_size", TITLE_FONT_SIZE);
     title->add_theme_color_override("font_color", dark_gray);
     root->add_child(title);
@@ -447,6 +520,12 @@ CardNode Cards::_create_card(const CardData& data, int index)
     val->set_size(Vector2(CARD_WIDTH - VALUE_W_MARGIN, CARD_HEIGHT * VALUE_H_RATIO));
     val->set_horizontal_alignment(HORIZONTAL_ALIGNMENT_CENTER);
     val->set_vertical_alignment(VERTICAL_ALIGNMENT_CENTER);
+    if (settings_ref)
+    {
+        Ref<FontFile> value_font = load_language_font(settings_ref->GetValLanguage());
+        if (value_font.is_valid())
+            val->add_theme_font_override("font", value_font);
+    }
     val->add_theme_font_size_override("font_size", VALUE_FONT_SIZE);
     val->add_theme_color_override("font_color", dark_gray);
     val->set_autowrap_mode(TextServer::AUTOWRAP_WORD_SMART);
@@ -509,6 +588,12 @@ CardNode Cards::_create_card(const CardData& data, int index)
         detail->set_text(detail_text);
         detail->set_horizontal_alignment(HORIZONTAL_ALIGNMENT_CENTER);
         detail->set_vertical_alignment(VERTICAL_ALIGNMENT_TOP);
+        if (settings_ref)
+        {
+            Ref<FontFile> detail_font = load_language_font(settings_ref->GetValLanguage());
+            if (detail_font.is_valid())
+                detail->add_theme_font_override("font", detail_font);
+        }
         detail->add_theme_font_size_override("font_size", DETAIL_FONT_SIZE);
         detail->add_theme_color_override("font_color", dark_gray);
         detail->set_autowrap_mode(TextServer::AUTOWRAP_WORD_SMART);
@@ -536,16 +621,11 @@ CardNode Cards::_create_card(const CardData& data, int index)
     type_lbl->set_position(Vector2(TYPE_LABEL_X, TYPE_LABEL_Y));
     type_lbl->set_size(Vector2(TYPE_LABEL_W, TYPE_LABEL_H));
     type_lbl->set_horizontal_alignment(HORIZONTAL_ALIGNMENT_CENTER);
+    type_lbl->set_vertical_alignment(VERTICAL_ALIGNMENT_CENTER);
     {
-        Ref<SystemFont> type_font;
-        type_font.instantiate();
-        PackedStringArray font_names;
-        font_names.push_back("Segoe UI");
-        font_names.push_back("Arial");
-        type_font->set_font_names(font_names);
-        type_font->set_font_weight(700);
-        type_font->set_allow_system_fallback(true);
-        type_lbl->add_theme_font_override("font", type_font);
+        Ref<FontFile> type_font = load_arial_bold_font();
+        if (type_font.is_valid())
+            type_lbl->add_theme_font_override("font", type_font);
     }
     type_lbl->add_theme_font_size_override("font_size", TYPE_LABEL_FONT_SIZE);
     type_lbl->add_theme_color_override("font_color", Color(0.1f, 0.2125f, 0.25f, 1.f));
@@ -651,9 +731,19 @@ String Cards::_get_value_image_path(const CardData& data) const
             lang_value = settings_ref->GetValLanguage();
 
         if (lang_value >= 0)
-            return (lang_value == 1)
-                ? base + String("card_zh.png")
-                : base + String("card_en.png");
+        {
+            switch (lang_value)
+            {
+                case LANGUAGE_CHINESE:
+                    return base + String("card_zh.png");
+                case LANGUAGE_ENGLISH:
+                    return base + String("card_en.png");
+                case LANGUAGE_RUNIC:
+                    return base + String("card_ru.png");
+                default:
+                    break;
+            }
+        }
     }
 
     return "";

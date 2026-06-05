@@ -50,7 +50,7 @@ namespace godot
 
     //    PropName,           member,             display, type, default_value,    setter,  variant_type,  hint,               hint_string
     #define SETTINGS_LIST(X) \
-        X(Language,           language,             true,  int,  LANGUAGE_ENGLISH, DEFAULT, Variant::INT,  PROPERTY_HINT_ENUM,  "English,Chinese") \
+        X(Language,           language,             true,  int,  LANGUAGE_ENGLISH, DEFAULT, Variant::INT,  PROPERTY_HINT_ENUM,  "English,Chinese,Runic") \
         X(EnableHeadset,      enable_headset,       true,  bool, false,            CUSTOM,  Variant::BOOL, PROPERTY_HINT_NONE,  "") \
         X(SubView,            sub_view,             true,  bool, true,             DEFAULT, Variant::BOOL, PROPERTY_HINT_NONE,  "") \
         X(VolumetricClouds,   volumetric_clouds,    true,  bool, false,            CUSTOM,  Variant::BOOL, PROPERTY_HINT_NONE,  "") \
@@ -64,7 +64,8 @@ namespace godot
     enum Language
     {
         LANGUAGE_ENGLISH = 0,
-        LANGUAGE_CHINESE = 1
+        LANGUAGE_CHINESE = 1,
+        LANGUAGE_RUNIC   = 2
     };
 
     class SaveManager;

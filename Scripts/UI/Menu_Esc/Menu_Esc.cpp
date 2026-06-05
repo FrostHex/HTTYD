@@ -15,19 +15,20 @@ using namespace godot;
 
 void Menu_Esc::initialize(
     Control*            ui_root,
+    Settings*           settings,
     std::function<String(const String&, const String&)> json_fn,
     VoidCallback        on_return,
     VoidCallback        on_continue)
 {
     ui_root_ref   = ui_root;
+    settings_ref  = settings;
     get_json_text = std::move(json_fn);
     cb_return     = std::move(on_return);
     cb_continue   = std::move(on_continue);
 
-    // No Settings pointer needed - ESC cards carry no setting values
     cards.init(
         ui_root_ref,
-        /*settings*/ nullptr,
+        settings_ref,
         get_json_text,
         [this](int index, const CardData& data)
         {

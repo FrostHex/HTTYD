@@ -2,11 +2,11 @@
 	"auto_disable_xr": true,
 	"auto_roll": true,
 	"auto_save_state": false,
-	"badge": 1,
+	"badge": 3,
 	"debug_info": true,
 	"enable_headset": false,
 	"free_camera": false,
-	"language": 0,
+	"language": 2,
 	"sub_view": true,
 	"volumetric_clouds": false
 }

@@ -120,10 +120,13 @@ This project loosely follows [Semantic Versioning](https://semver.org/) for vers
 - Fixed: Multiple Test Drive minor issues.
 - Changed: Test Drive color correction tweaks.
 
-## v1.1.3
+## v1.1.3 - 2026-05-29
 - Fixed: A conservative way to compile cpp.
 - Changed: Environmental visual improvements.
 
+## v1.1.4
+- Added: Rune language support.
+- 
 
 
 ----------

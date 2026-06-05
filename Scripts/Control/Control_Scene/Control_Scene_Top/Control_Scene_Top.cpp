@@ -99,9 +99,18 @@ bool Control_Scene_Top::_ensure_overlay_initialized()
     {
         if (!settings) return fallback;
 
-        String json_file = (settings->GetValLanguage() == 1)
-            ? "res://Media/Text/Chinese.json"
-            : "res://Media/Text/English.json";
+        String json_file = "res://Media/Text/English.json";
+        switch (settings->GetValLanguage())
+        {
+            case LANGUAGE_CHINESE:
+                json_file = "res://Media/Text/Chinese.json";
+                break;
+            case LANGUAGE_RUNIC:
+                json_file = "res://Media/Text/Runic.json";
+                break;
+            default:
+                break;
+        }
 
         Ref<FileAccess> f = FileAccess::open(json_file, FileAccess::READ);
         if (f.is_valid())
@@ -122,6 +131,7 @@ bool Control_Scene_Top::_ensure_overlay_initialized()
     // --- Initialize Menu_Esc ---
     escape_overlay.initialize(
         ui_root,
+        settings,
         std::move(json_fn),
         // on_return: take the player back to Scene_Home
         [this]() { ReturnHome(); },

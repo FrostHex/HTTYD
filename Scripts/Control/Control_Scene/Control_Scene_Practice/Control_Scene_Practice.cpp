@@ -4,6 +4,7 @@
 
 #include <godot_cpp/classes/file_access.hpp>
 #include <godot_cpp/classes/project_settings.hpp>
+#include <godot_cpp/classes/font_file.hpp>
 #include <godot_cpp/classes/scene_tree.hpp>
 #include <godot_cpp/classes/timer.hpp>
 #include <godot_cpp/classes/button.hpp>
@@ -14,8 +15,6 @@
 #include <godot_cpp/classes/input_event_key.hpp>
 #include <godot_cpp/core/class_db.hpp>
 // font-related headers
-#include <godot_cpp/classes/system_font.hpp>
-#include <godot_cpp/variant/packed_string_array.hpp>
 #include <godot_cpp/classes/xr_controller3d.hpp>
 
 using namespace godot;
@@ -65,26 +64,39 @@ void Control_Scene_Practice::_ready()
 	if (control_main) 
 	{
 		int lang = Settings::GetSingleton()->GetValLanguage();
-		if (lang == 1) 
+		switch (lang)
 		{
-			json_file = "res://Media/Text/Chinese.json";
+			case LANGUAGE_CHINESE:
+				json_file = "res://Media/Text/Chinese.json";
+				break;
+			case LANGUAGE_RUNIC:
+				json_file = "res://Media/Text/Runic.json";
+				break;
+			default:
+				break;
 		}
 	}
 
-	// if the current language is Chinese, set Practice text font to a system sans-serif Chinese fallback stack.
 	if (control_main && practice_label) {
-		if (Settings::GetSingleton()->GetValLanguage() == 1) 
+		String font_path = "res://Media/Font/Arial_Bold.ttf";
+		switch (Settings::GetSingleton()->GetValLanguage())
 		{
-			Ref<SystemFont> zh_font;
-			zh_font.instantiate();
-			PackedStringArray font_names;
-			// common Chinese font priority on Windows.
-			font_names.push_back("SimHei");
-			font_names.push_back("Microsoft YaHei");
-			zh_font->set_font_names(font_names);
-			// apply to the 3D label.
-			practice_label->set_font(zh_font);
+			case LANGUAGE_CHINESE:
+				font_path = "res://Media/Font/Microsoft_YaHei.ttf";
+				break;
+			case LANGUAGE_RUNIC:
+				font_path = "res://Media/Font/Rune.otf";
+				break;
+			default:
+				break;
 		}
+
+		Ref<FontFile> practice_font;
+		practice_font.instantiate();
+		if (practice_font.is_valid() && practice_font->load_dynamic_font(font_path) == OK)
+			practice_label->set_font(practice_font);
+		else
+			UtilityFunctions::printerr("Control_Scene_Practice: Failed to load font: ", font_path);
 	}
 
 	// load the practice array using JSON.

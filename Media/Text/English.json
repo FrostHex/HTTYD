@@ -34,10 +34,10 @@
         "(Please press Enter to go to the next page, and press Backspace to go previous)",
         "This is my notebook of prior experiences flying with Toothless.",
         "I designed a pedal-controlled tail wing to guide our direction of flight.",
-        "The right pedal controls yaw. (The ← and → arrow keys controls turning left and right)",
+        "The right pedal controls yaw. (The 🡄 and 🡆 arrow keys controls turning left and right)",
         "I think I need more practice with these basic maneuvers.",
         "/!1(Please turn to the next page if you think you've finished this phase of practice)",
-        "The left pedal controls pitch. (The ↑ and ↓ arrow keys control looking up and down)",
+        "The left pedal controls pitch. (The 🡅 and 🡇 arrow keys control looking up and down)",
         "If I pull up, we decelerate. Conversely, if I dive, we gain noticeable speed.",
         "Toothless flaps his wings to maintain speed, so I don't need to worry about stalling.",
         "/!1(Please turn to the next page if you think you've finished this phase of practice)",
@@ -77,7 +77,7 @@
 
     "header_td": "Test Drive",
     "detail_td": "It's time to put your flying skills to the test! Take a flight along the route and see how you do.",
-    
+
     "header_dodge": "Dodge (WIP)",
     "detail_dodge": "Learn how to dodge enemy attacks. (Under construction)",
 

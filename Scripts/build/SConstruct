@@ -27,7 +27,7 @@ env = DefaultEnvironment(
 env.Append(
     CXXFLAGS=[
         "-std=c++17",
-        "-O2",                  # 改 O3 → O2，减少激进向量化
+        "-O2",                  # 改 O3 🡆 O2，减少激进向量化
         "-march=x86-64",        # 保持基线
         "-mtune=generic",
         "-mno-avx",             # 明确禁止 AVX
